@@ -3,6 +3,16 @@
 ## Basics
 WIP.
 
+
+##### Functions(arguments)
+- `each(JSON_path, operation(...))`
+- `create(object__c, fields(...))`
+- `upsert(object__c, external_id__c, fields(...))`
+- `fields(...)`
+- `field(destination_field_name__c, value)`
+- `lookup(destination_relationship_name__r, external_id__c, value)`
+- `sourceValue(JSON_path)`
+
 ## language-common
 The expressions that (almost) every adaptor uses: `dataValue/1`, `merge/3`, etc...
 
