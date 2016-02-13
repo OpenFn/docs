@@ -11,3 +11,5 @@ OpenFn allows non-technical users to quickly and easily define `jobs` that move 
 ## Watch our founder's [PopTech Talk](https://player.vimeo.com/video/143660667) to see what we're all about. ##
 
 ## Head to [OpenFn.org](www.openfn.org) for more information. ##
+
+## Contact us: admin@openfn.org with any questions.
