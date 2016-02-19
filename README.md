@@ -1,6 +1,6 @@
 # OpenFn ( ˈō-pən func·tion )
 
-## ... Check out our [Documentation Wiki](https://github.com/OpenFn/core/wiki). ##
+## ... Check out our [Documentation Wiki](https://github.com/OpenFn/core-docs/wiki). ##
 
 Leading NGOs find & connect technologies to amplify their impact with OpenFn.
 
