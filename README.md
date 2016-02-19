@@ -20,5 +20,5 @@ OpenFn allows non-technical users to quickly and easily define `jobs` that move 
 ![credentials](https://github.com/OpenFn/core-docs/blob/master/images/Credentials.png)
 ![jobs](https://github.com/OpenFn/core-docs/blob/master/images/Jobs.png)
 ![history](https://github.com/OpenFn/core-docs/blob/master/images/History.png)
-![inspecto](https://github.com/OpenFn/core-docs/blob/master/images/Inspector_Many_jobs.png)
+![inspecto](https://github.com/OpenFn/core-docs/blob/master/images/Inspector_Many_Jobs.png)
 ![account](https://github.com/OpenFn/core-docs/blob/master/images/Account.png)
