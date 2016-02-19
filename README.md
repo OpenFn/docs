@@ -15,10 +15,15 @@ OpenFn allows non-technical users to quickly and easily define `jobs` that move 
 ## Contact us: admin@openfn.org with any questions.
 
 ## Screenshots
-![account](https://github.com/OpenFn/core-docs/blob/master/images/Account.png)
 ![filters](https://github.com/OpenFn/core-docs/blob/master/images/Filters.png)
+Define `filters` to handle different types of `source` data.
 ![credentials](https://github.com/OpenFn/core-docs/blob/master/images/Credentials.png)
+Add `credentials` to connect to different `destination` applications.
 ![jobs](https://github.com/OpenFn/core-docs/blob/master/images/Jobs.png)
+Define `jobs` to automatically manipulate source data and load it into a destination application in real-time.
 ![history](https://github.com/OpenFn/core-docs/blob/master/images/History.png)
+Keep track of every bit of source data, and each action taken in a destination system using `history`.
 ![inspecto](https://github.com/OpenFn/core-docs/blob/master/images/Inspector_Many_Jobs.png)
+`Inspect` individual items, modify payloads to handle errors, and reprocess data manually.
 ![account](https://github.com/OpenFn/core-docs/blob/master/images/Account.png)
+Choose to get notifications on failures, and click to copy your secure HTTPS URL for setting up new datasources from hundres of web applications.
