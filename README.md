@@ -13,3 +13,12 @@ OpenFn allows non-technical users to quickly and easily define `jobs` that move 
 ## Head to [OpenFn.org](www.openfn.org) for more information. ##
 
 ## Contact us: admin@openfn.org with any questions.
+
+## Screenshots
+![account](https://github.com/OpenFn/core-docs/blob/master/images/Account.png)
+![filters](https://github.com/OpenFn/core-docs/blob/master/images/Filters.png)
+![credentials](https://github.com/OpenFn/core-docs/blob/master/images/Credentials.png)
+![jobs](https://github.com/OpenFn/core-docs/blob/master/images/Jobs.png)
+![history](https://github.com/OpenFn/core-docs/blob/master/images/History.png)
+![inspecto](https://github.com/OpenFn/core-docs/blob/master/images/Inspector_Many_jobs.png)
+![account](https://github.com/OpenFn/core-docs/blob/master/images/Account.png)
