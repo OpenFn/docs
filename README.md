@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/OpenFn/core-docs.png?label=ready&title=Ready)](https://waffle.io/OpenFn/core-docs)
 # OpenFn ( ˈō-pən func·tion )
 
 ## ... Check out our [Documentation Wiki](https://github.com/OpenFn/core-docs/wiki). ##
