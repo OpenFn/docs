@@ -1,5 +1,5 @@
-[![Stories in Ready](https://badge.waffle.io/OpenFn/core-docs.png?label=ready&title=Ready)](https://waffle.io/OpenFn/core-docs)
 # OpenFn ( ˈō-pən func·tion )
+[![Stories in Backlog](https://badge.waffle.io/OpenFn/core-docs.png?label=backlog&title=Backlog)](https://waffle.io/OpenFn/core-docs) [![Stories in Ready](https://badge.waffle.io/OpenFn/core-docs.png?label=ready&title=Ready)](https://waffle.io/OpenFn/core-docs) [![Stories In Progress](https://badge.waffle.io/OpenFn/core-docs.png?label=in_progress&title=In Progress)](https://waffle.io/OpenFn/core-docs) [![Stories in Testing](https://badge.waffle.io/OpenFn/core-docs.png?label=testing&title=In Testing)](https://waffle.io/OpenFn/core-docs)
 
 ## ... Check out our [Documentation Wiki](https://github.com/OpenFn/core-docs/wiki). ##
 
