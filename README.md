@@ -15,26 +15,36 @@ OpenFn allows non-technical users to quickly and easily define `jobs` that move 
 
 ## Contact us: admin@openfn.org with any questions.
 
-## Screenshots
-![filters](https://github.com/OpenFn/core-docs/blob/master/images/Filters.png)
-> Define `filters` to handle different types of `source` data.
+### `Filters` handle different types of `source` data.
 
+![filters](https://github.com/OpenFn/core-docs/blob/master/images/Filters.png)
+
+
+### `Credentials` connect to different `destination` applications.
 
 ![credentials](https://github.com/OpenFn/core-docs/blob/master/images/Credentials.png)
-> Add `credentials` to connect to different `destination` applications.
 
+
+### `Jobs` to automatically manipulate source data and load it into a destination application in real-time.
 
 ![jobs](https://github.com/OpenFn/core-docs/blob/master/images/Jobs.png)
-> Define `jobs` to automatically manipulate source data and load it into a destination application in real-time.
 
+
+### `History` keeps track of every bit of source data, and each action taken in a destination system.
 
 ![history](https://github.com/OpenFn/core-docs/blob/master/images/History.png)
-> Keep track of every bit of source data, and each action taken in a destination system using `history`.
 
 
-![inspecto](https://github.com/OpenFn/core-docs/blob/master/images/Inspector_Many_Jobs.png)
-> `Inspect` individual items, modify payloads to handle errors, and reprocess data manually.
+### `Inspect` individual items, modify payloads to handle errors, and reprocess data manually.
+
+![inspector](https://github.com/OpenFn/core-docs/blob/master/images/Inspector_Many_Jobs.png)
+
+
+### `Edit` source data before resubmitting, using either our form-based editor, or the JSON-based `power-editor`.
+
+![form_editor](https://github.com/OpenFn/core-docs/blob/master/images/form_editor.png)
+![power_editor](https://github.com/OpenFn/core-docs/blob/master/images/power_editor.png)
 
 
 ![account](https://github.com/OpenFn/core-docs/blob/master/images/Account.png)
-> Choose to get notifications on failures, and click to copy your secure HTTPS URL for setting up new datasources from hundres of web applications.
+### `Account` settings: Choose to get notifications on failures, and click to copy your secure HTTPS URL for setting up new datasources from hundres of web applications.
