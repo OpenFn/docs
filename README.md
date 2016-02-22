@@ -43,7 +43,6 @@ OpenFn allows non-technical users to quickly and easily define `jobs` that move 
 ### `Edit` source data before resubmitting, using either our form-based editor, or the JSON-based `power-editor`.
 
 ![form_editor](https://github.com/OpenFn/core-docs/blob/master/images/form_editor.png)
-![power_editor](https://github.com/OpenFn/core-docs/blob/master/images/power_editor.png)
 
 
 ![account](https://github.com/OpenFn/core-docs/blob/master/images/Account.png)
