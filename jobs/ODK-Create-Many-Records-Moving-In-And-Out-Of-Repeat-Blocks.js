@@ -29,7 +29,9 @@ beta.each(
 
 beta.each(
   merge(dataPath("data[*].attendee[*]"), fields(
-    field("parentId", function(state){return state.references[state.references.length-1].id}) //gets the sfID of the 1st item created
+    field("parentId", function(state){
+      return state.references[state.references.length-1].id})
+      // ^^ This will get the sfID of the 1st item created.
   )),
   create("ODK_Child_1__c", fields(
     field("ODK__c", dataValue("parentId")),
