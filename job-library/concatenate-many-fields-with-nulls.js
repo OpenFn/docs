@@ -82,7 +82,7 @@ each(
     }),
     field("Other_Sectors__c", function(state) {
       return arrayToString(
-        dataValue("Other_Sectors")(state), ', '
+        dataValue("Other_Sectors")(state), ','
       )
     }),
     field("Other_Subsectors__c", function(state) {
