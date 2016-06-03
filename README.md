@@ -3,7 +3,7 @@
 
 ## Check out our [Documentation Wiki](https://github.com/OpenFn/core-docs/wiki). ##
 
-Leading NGOs find & connect technologies to amplify their impact with OpenFn.
+Leading organizations connect technologies to amplify their impact with OpenFn.
 
 Technology isn't the answer, but it shouldn't be the problem. From household survey data in northern India, to attendance recorded at women's groups in Kenya, we are moving the data that makes impact-first organizations more efficient and effective.
 
