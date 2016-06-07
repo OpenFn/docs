@@ -1,0 +1,26 @@
+# Base URL of the published website
+baseUrl: http://openfn.github.io/core-docs
+
+# # Used to link to the GitHub project
+# github:
+#     user: myself
+#     repo: my-project
+
+exclude:
+    - images
+    - job-library
+
+title: OpenFn Documentation
+subTitle: Help with job expressions, filters, error-handling, and more on the OpenFn platform.
+
+# The left menu bar
+menu:
+    items:
+        how:
+            text: How it works
+            # You can use relative urls
+            absoluteUrl: /#how-it-works
+        test:
+            text: Another link
+            # Or absolute urls
+            absoluteUrl: /#test
