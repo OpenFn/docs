@@ -34,12 +34,12 @@
                         <ul class="nav nav-pills nav-stacked">
                                                             <li class="">
                                     <a href="/#introduction">
-                                        How it works
+                                        Introduction
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="/#test">
-                                        Another link
+                                    <a href="/#connecting-source-applications">
+                                        Connecting Source Apps
                                     </a>
                                 </li>
                                                             <li class="">
@@ -69,7 +69,7 @@
 <p>OpenFn has harnessed the extreme  stability and scalability of Erlang to coordinate these actions and provide users with email alerts, project management tools, and an online job writing IDE.</p>
 <p>In this guide you'll find documentation to help you write filters and jobs, along with explanations of OpenFn's key concepts.</p>
 <p>If you have any questions, please don't hesitate to email <a href="mailto:admin@openfn.org">admin@openfn.org</a>.</p>
-<h1 id="connecting-source-applications">Connecting Source Applications</h1>
+<h1 id="connecting-source-applications">Connecting Source Applications <a href="connecting-source-applications">#</a></h1>
 <p>Most modern web applications have a feature that allows you to <code>push</code>, <code>publish</code>, or <code>post</code> data to another URL when a certain event* takes place.</p>
 <p>Go to the &quot;settings&quot; or &quot;administration&quot; page for your source app, and look for a <code>Webhook API</code>, <code>Data Forwarding API</code>, or <code>Notifications API</code>. Write to the developers of your application if none is provided out of the box.</p>
 <p>When setting up forwarding, select to send messages in <code>JSON</code> to your project's <code>inbox URL</code>. You can find and copy your secure inbox URL by clicking on the &quot;copy URL&quot; link in the bottom-right corner of the project in question on your <strong><a href="https://www.openfn.org/projects">project dashboard</a></strong> page.</p>
@@ -79,7 +79,6 @@
 <ul>
 <li>This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when <em>something happens</em>.</li>
 </ul>
-<h1 id="test">test</h1>
 <h1 id="filters">Filters</h1>
 <p>Filters are used to trigger jobs. Filters linked to active jobs will route incoming messages to that job and trigger its execution.</p>
 <p>The filter criteria is a string of valid <code>JSON</code> that will be used in the WHERE clause of an SQL query. In other words, If the JSON you write in your filter criteria is <em>included</em> in the body of the message sent to OpenFn, any active job triggered by that filter will run.</p>

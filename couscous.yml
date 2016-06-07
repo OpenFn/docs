@@ -30,11 +30,11 @@ subTitle: Help with job expressions, filters, error-handling, and more on the Op
 menu:
     items:
         how:
-            text: How it works
+            text: Introduction
             absoluteUrl: /#introduction
         test:
-            text: Another link
-            absoluteUrl: /#test
+            text: Connecting Source Apps
+            absoluteUrl: /#connecting-source-applications
         jobs:
             text: jobs
             absoluteUrl: /#jobs
