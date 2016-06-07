@@ -13,14 +13,28 @@ exclude:
 title: OpenFn Documentation
 subTitle: Help with job expressions, filters, error-handling, and more on the OpenFn platform.
 
+# TODO: write script that generates this yml file automatically to create Table
+# of Contents
+
+# scripts:
+    # Scripts to execute before generating the website
+    # before:
+        # - cp bin/couscous.phar website/
+        # TODO: add "[#](#text)" to each # header
+        # TODO: generate couscous.yml table of contents based on header anchor links
+    # Scripts to execute after generating the website
+    # after:
+        # - rm website/couscous.phar
+
 # The left menu bar
 menu:
     items:
         how:
             text: How it works
-            # You can use relative urls
-            absoluteUrl: /#how-it-works
+            absoluteUrl: /#introduction
         test:
             text: Another link
-            # Or absolute urls
             absoluteUrl: /#test
+        jobs:
+            text: jobs
+            absoluteUrl: /#jobs

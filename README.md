@@ -1,4 +1,4 @@
-# Introduction
+# Introduction [#](#introduction)
 > So, OpenFn does what now?
 
 1. A source application sends **messages** to your project’s **inbox** when something happens.
@@ -27,6 +27,8 @@ Next, learn how to define **[[filters|2.-Filters]]** that trigger **[[job|4.-Job
 ***
 
 * This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
+
+# test
 
 # Filters
 Filters are used to trigger jobs. Filters linked to active jobs will route incoming messages to that job and trigger its execution.
@@ -98,7 +100,7 @@ Next, learn about **[[jobs|4.-Jobs]]**.
 
 * In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.
 
-# Jobs
+# Jobs [#](#jobs)
 
 # Writing Jobs for OpenFn
 > `{ like_to_hack_and_smash ? goto '#examples' : read_on}`
