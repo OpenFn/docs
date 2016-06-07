@@ -13,7 +13,7 @@ In this guide you'll find documentation to help you write filters and jobs, alon
 
 If you have any questions, please don't hesitate to email [admin@openfn.org](mailto:admin@openfn.org).
 
-# Connecting Source Applications [#](connecting-source-applications)
+# Connecting Source Applications [#](#connecting-source-applications)
 Most modern web applications have a feature that allows you to `push`, `publish`, or `post` data to another URL when a certain event* takes place.
 
 Go to the "settings" or "administration" page for your source app, and look for a `Webhook API`, `Data Forwarding API`, or `Notifications API`. Write to the developers of your application if none is provided out of the box.
@@ -28,7 +28,7 @@ Next, learn how to define **[[filters|2.-Filters]]** that trigger **[[job|4.-Job
 
 * This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
 
-# Filters
+# Filters [#](#filters)
 Filters are used to trigger jobs. Filters linked to active jobs will route incoming messages to that job and trigger its execution.
 
 The filter criteria is a string of valid `JSON` that will be used in the WHERE clause of an SQL query. In other words, If the JSON you write in your filter criteria is *included* in the body of the message sent to OpenFn, any active job triggered by that filter will run.
@@ -100,7 +100,7 @@ Next, learn about **[[jobs|4.-Jobs]]**.
 
 # Jobs [#](#jobs)
 
-# Writing Jobs for OpenFn
+## Writing Jobs for OpenFn
 > `{ like_to_hack_and_smash ? goto '#examples' : read_on}`
 > [[#examples|4.-Jobs#examples]]
 

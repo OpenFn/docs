@@ -35,6 +35,9 @@ menu:
         test:
             text: Connecting Source Apps
             absoluteUrl: /#connecting-source-applications
+        convention:
+            text: Filters
+            absoluteUrl: /#filters
         jobs:
             text: jobs
             absoluteUrl: /#jobs
