@@ -13,7 +13,7 @@ body {
 }
 
 main {
-    margin-top: 90px;
+    margin-top: 0px;
 }
 
 section {
@@ -102,4 +102,64 @@ pre {
 }
 pre code {
     border: none;
+}
+
+a:hover, a:focus {text-decoration: none;}
+
+/* Styling for TOC */
+
+#toc {
+    top: 0px;
+    left: 0px;
+    height: 100%;
+    position: fixed;
+    background: #333;
+    box-shadow: inset -5px 0 5px 0px #000;
+    padding-top: 0px;
+    color: #fff;
+}
+
+#toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#toc li {
+    padding: 7px 10px;
+    margin: 10px;
+}
+
+#toc li:hover {
+  background: #18bc9c;
+  box-shadow: inset -5px 0px 10px -5px #000;
+  transition: 0.3s ease;
+  -webkit-transition: 0.3s ease;
+  -moz-transition: 0.3s ease;
+}
+
+#toc a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+#toc .h1 {
+    font-size: 18px !important;
+}
+
+#toc .h2 {
+    padding-left: 10px;
+    font-size: 14px;
+}
+
+#toc .h3 {
+    padding-left: 20px;
+    font-size: 12px;
+
+}
+
+#toc .toc-active {
+    background: #18bc9c;
+    box-shadow: inset -5px 0px 10px -5px #000;
 }

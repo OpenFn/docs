@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>{{ title }} hey hombre :-) </title>
+        <title>{{ title }} </title>
 
         <link rel="stylesheet" href="{{ baseUrl }}/css/bootstrap.min.css">
         <link rel="stylesheet" href="{{ baseUrl }}/css/font-awesome.min.css">
@@ -13,31 +13,14 @@
     </head>
     <body>
 
-        <header class="navbar navbar-default navbar-fixed-top">
-
-            <a class="navbar-brand" href="{{ baseUrl }}/">
-                {{ title|default('The title') }}
-                <small class="hidden-xs hidden-sm">
-                    {{ subTitle|default('This is the default subtitle!') }}
-                </small>
-            </a>
-
-            {% if github is defined %}
-                <a href="https://github.com/{{ github.user }}/{{ github.repo }}">
-                    <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
-                </a>
-            {% endif %}
-
-        </header>
-
         <main class="{{ menu ? 'container-fluid' : 'container' }}">
             <div class="row">
-
                 {% if menu is defined %}
+                    <nav id="toc" class="col-sm-3 col-lg-2" role="navigation">
 
-                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+                    <!-- <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
 
-                        <ul class="nav nav-pills nav-stacked">
+                         <ul class="nav nav-pills nav-stacked">
                             {% for itemId, item in menu.items %}
                                 <li class="{{ itemId == currentMenu ? 'active' }}">
                                     <a href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.relativeUrl) }}">
@@ -45,13 +28,27 @@
                                     </a>
                                 </li>
                             {% endfor %}
-                        </ul>
+                        </ul> -->
+
 
                     </nav>
-
                 {% endif %}
 
                 <section id="content" class="{{ menu ? 'col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10' : 'col-sm-12' }}">
+                    <header class="navbar navbar-default">
+                        <a class="navbar-brand" href="{{ baseUrl }}/">
+                            {{ title|default('The title') }}
+                            <small class="hidden-xs hidden-sm">
+                                {{ subTitle|default('This is the default subtitle!') }}
+                            </small>
+                        </a>
+
+                        {% if github is defined %}
+                            <a href="https://github.com/{{ github.user }}/{{ github.repo }}">
+                                <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+                            </a>
+                        {% endif %}
+                    </header>
                     {{ content|raw }}
                 </section>
 
@@ -69,6 +66,8 @@
         <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.js"></script>
+        <script src="{{ baseUrl }}/toc.min.js"></script>
 
         <script>
             $(function() {
@@ -76,7 +75,32 @@
                 // Syntax highlighting
                 hljs.initHighlightingOnLoad();
             });
+
+            /* Call to Anchor-js function */
+            anchors.add('h1, h2, h3');
+
+            /* Call to TOC to generate table of contents */
+            $('#toc').toc({
+                'selectors': 'h1', //elements to use as headings
+                'container': 'body', //element to find all selectors in
+                'smoothScrolling': true, //enable or disable smooth scrolling on click
+                'prefix': 'toc', //prefix for anchor tags and class names
+                'onHighlight': function(el) {}, //called when a new section is highlighted
+                'highlightOnScroll': true, //add class to heading that is currently in focus
+                'highlightOffset': 100, //offset to trigger the next headline
+                'anchorName': function(i, heading, prefix) { //custom function for anchor name
+                    return prefix+i;
+                },
+                'headerText': function(i, heading, $heading) { //custom function building the header-item text
+                    return $heading.text();
+                },
+                'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
+                  return $heading[0].tagName.toLowerCase();
+                }
+            });
+
         </script>
+
 
     </body>
 </html>
