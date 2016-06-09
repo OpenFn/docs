@@ -14,22 +14,20 @@ In this guide you'll find documentation to help you write filters and jobs, alon
 If you have any questions, please don't hesitate to email [admin@openfn.org](mailto:admin@openfn.org).
 
 # Connecting Source Applications
-Most modern web applications have a feature that allows you to `push`, `publish`, or `post` data to another URL when a certain event* takes place.
+Most modern web applications have a feature that allows you to `push`, `publish`, or `post` data to another URL when a certain **event** takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
 
-Go to the "settings" or "administration" page for your source app, and look for a `Webhook API`, `Data Forwarding API`, or `Notifications API`. Write to the developers of your application if none is provided out of the box.
+1. Go to the "settings" or "administration" page for your source app, and look for a `Webhook API`, `Data Forwarding API`, or `Notifications API`. Write to the developers of your application if none is provided out of the box.
 
-When setting up forwarding, select to send messages in `JSON` to your project's `inbox URL`. You can find and copy your secure inbox URL by clicking on the "copy URL" link in the bottom-right corner of the project in question on your **[project dashboard](https://www.openfn.org/projects)** page.
+2. When setting up forwarding, select to send messages in `JSON` to your project's `inbox URL`. You can find and copy your secure inbox URL by clicking on the "copy URL" link in the bottom-right corner of the project in question on your **[project dashboard](https://www.openfn.org/projects)** page.
 
-Soon you'll see new messages arrive in your **[history](https://www.openfn.org/receipts)** page.
+3. Soon you'll see new messages arrive in your **[history](https://www.openfn.org/receipts)** page.
 
-Next, learn how to define **[[filters|2.-Filters]]** that trigger **[[job|4.-Jobs]]** runs.
+Next, learn how to define **filters** that trigger **job** runs.
 
 ***
 
-* This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
-
 # Filters
-Filters are used to trigger jobs. Filters linked to active jobs will route incoming messages to that job and trigger its execution.
+Filters are used to trigger jobs. Filters that are linked to active jobs will route incoming messages to that job and trigger its execution.
 
 The filter criteria is a string of valid `JSON` that will be used in the WHERE clause of an SQL query. In other words, If the JSON you write in your filter criteria is *included* in the body of the message sent to OpenFn, any active job triggered by that filter will run.
 
@@ -39,9 +37,7 @@ SELECT * FROM receipts
     '{"Name":"Alex Iwobi"}'::jsonb;
 ```
 
-Next, check out the examples below or learn all about **[[credentials|3.-Credentials]]**.
-
-## Matching
+## Filter Matching
 
 To illustrate filter matching, refer to the `JSON` strings below. Message "a" will match filter '1', but message "b" will not.
 
@@ -74,7 +70,8 @@ Message 'b' does not include `"formID":"patient_registration_v7"` and will not m
 {"formId":"Robot_Photo_21.04.2015", "secret_number":8}
 ```
 
-#### Match a message with two fragments inside an array called `data` (#ODK):
+#### Match a message with two fragments inside an array called `data`:
+(This is useful when gathering data via ODK)
 ```json
 {"data":[{"outlet_call":"TRUE","new_existing":"Existing"}]}
 ```
@@ -84,25 +81,22 @@ Message 'b' does not include `"formID":"patient_registration_v7"` and will not m
 {"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}
 ```
 
+***
+
 # Credentials
-Credentials are used to authorize connections to destination* systems.
+Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.
 
 Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final "/" in these Urls:
 `https://login.salesforce.com` or `http://demo.openmrs.org/openmrs` or `https://play.dhis2.org`.
 
-Credentials can only be viewed, or edited by a single user—their "owner", or the person that created that credential. All the collaborators on a particular project can choose those credentials for use when defining a job.
-
-Next, learn about **[[jobs|4.-Jobs]]**.
+Credentials can only be viewed, or edited by a single user — their "owner" (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.
 
 ***
-
-* In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.
 
 # Jobs
 
 ## Writing Jobs for OpenFn
-> `{ like_to_hack_and_smash ? goto '#examples' : read_on}`
-> [[#examples|4.-Jobs#examples]]
+`{ like_to_hack_and_smash ? goto '#examples' : read_on}` [Examples](#examples)
 
 A job defines the specific series of tasks or database actions to be performed when a triggering message is received. In most cases, a job is a series of `create` or `upsert` actions that are run after a message arrives, using data from that message. It could look like this:
 ```js
