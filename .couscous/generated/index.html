@@ -13,49 +13,31 @@
     </head>
     <body>
 
-        <main class="container-fluid">
-            <div class="row">
-                                    <nav id="toc" class="col-sm-3 col-lg-2" role="navigation">
+      <header class="navbar navbar-default">
+          <a class="navbar-brand" href="/">
+              OpenFn Documentation
+              <small class="hidden-xs hidden-sm">
+                  Help with job expressions, filters, error-handling, and more on the OpenFn platform.
+              </small>
+          </a>
 
-                    <!-- <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+                </header>
 
-                         <ul class="nav nav-pills nav-stacked">
-                                                            <li class="">
-                                    <a href="/#introduction">
-                                        Introduction
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="/#connecting-source-applications">
-                                        Connecting Source Apps
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="/#filters">
-                                        Filters
-                                    </a>
-                                </li>
-                                                            <li class="">
-                                    <a href="/#jobs">
-                                        jobs
-                                    </a>
-                                </li>
-                                                    </ul> -->
+      <div class="container-fluid"
+          <div class="row">
 
+            <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <h2>HELLO</h2>
+                <nav id="toc" role="navigation">
+                  <a class="navbar-brand" href="/">
+                      OpenFn Documentation
+                  </a>
+                </nav>
+            </div>
 
-                    </nav>
-                
-                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
-                    <header class="navbar navbar-default">
-                        <a class="navbar-brand" href="/">
-                            OpenFn Documentation
-                            <small class="hidden-xs hidden-sm">
-                                Help with job expressions, filters, error-handling, and more on the OpenFn platform.
-                            </small>
-                        </a>
-
-                                            </header>
-                    <h1 id="introduction">Introduction</h1>
+            <div id="content" class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12">
+            <!-- <section id="content" class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12> -->
+                <h1 id="introduction">Introduction</h1>
 <blockquote>
 <p>So, OpenFn does what now?</p>
 </blockquote>
@@ -444,10 +426,11 @@ patient(
   "_bamboo_dataset_id": "",
   "_attachments": []
 }</code></pre>
-                </section>
-
+              <!-- </section> -->
             </div>
-        </main>
+
+          </div>
+      </div>
 
         <footer>
             <div class="container-fluid">
@@ -462,6 +445,7 @@ patient(
         <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.js"></script>
         <script src="/toc.min.js"></script>
+        <script src="/jquery.sticky.js"></script>
 
         <script>
             $(function() {
@@ -471,9 +455,9 @@ patient(
             });
 
             /* Call to Anchor-js function */
-            anchors.add('h1, h2, h3');
+            anchors.add('h1, h2, h3, h4');
 
-            /* Call to TOC to generate table of contents */
+            /* Generate TOC */
             $('#toc').toc({
                 'selectors': 'h1', //elements to use as headings
                 'container': 'body', //element to find all selectors in
@@ -493,6 +477,13 @@ patient(
                 }
             });
 
+            /* $( "#openfn-title" ).insertBefore( $( "#toc" ) ); */
+
+            /* Function for adjusting sidebar positioning on scroll
+            $(document).ready(function(){
+              $("#toc").sticky({topSpacing:0});
+            });
+            */
         </script>
         <!-- Livereload -->
         <script>

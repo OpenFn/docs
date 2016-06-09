@@ -48,6 +48,10 @@ li {
     margin-bottom: 3px;
 }
 
+#content {
+  margin-bottom: 100px;
+}
+
 #content img {
     max-width: 100%;
     padding: 4px;
@@ -57,8 +61,19 @@ li {
 }
 
 header.navbar {
-    opacity: 0.9;
+    opacity: 1;
 }
+
+#openfn-title:after {
+  box-sizing: none;
+}
+
+#openfn-title span {
+  border: 3px solid;
+  padding: 5px;
+}
+
+
 .navbar .navbar-brand {
     font-size: 28px;
     height: auto;
@@ -71,10 +86,16 @@ header.navbar {
     margin-left: 10px;
 }
 
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  #toc {
+    position: relative;
+    margin-top: 0px;
+  }
+}
+
 @media (min-width: 768px) {
-    #sidebar {
-        position:fixed;
-        margin-top: 30px;
+    #toc {
+        position: fixed;
     }
 }
 @media (max-width: 960px) {
@@ -109,13 +130,10 @@ a:hover, a:focus {text-decoration: none;}
 /* Styling for TOC */
 
 #toc {
-    top: 0px;
-    left: 0px;
+    margin-top: 0px;
     height: 100%;
-    position: fixed;
-    background: #333;
-    box-shadow: inset -5px 0 5px 0px #000;
-    padding-top: 0px;
+    background: #fff;
+    /* box-shadow: inset -5px 0 5px 0px #000 */
     color: #fff;
 }
 
@@ -131,15 +149,17 @@ a:hover, a:focus {text-decoration: none;}
 }
 
 #toc li:hover {
-  background: #18bc9c;
-  box-shadow: inset -5px 0px 10px -5px #000;
+  background:#4d94ff;
+  /*box-shadow: inset -5px 0px 10px -5px #000;*/
   transition: 0.3s ease;
   -webkit-transition: 0.3s ease;
   -moz-transition: 0.3s ease;
 }
 
+#toc li:hover a{color: #fff;}
+
 #toc a {
-    color: #fff;
+    color: #4d94ff;
     text-decoration: none;
     display: block;
 }
@@ -160,6 +180,8 @@ a:hover, a:focus {text-decoration: none;}
 }
 
 #toc .toc-active {
-    background: #18bc9c;
-    box-shadow: inset -5px 0px 10px -5px #000;
+    background:#4d94ff;
+    /*box-shadow: inset -5px 0px 10px -5px #000;*/
 }
+
+#toc .toc-active a {color: #fff;}
