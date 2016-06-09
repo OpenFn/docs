@@ -16,7 +16,7 @@
           <div class="row">
 
             <div id="sidebar" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <a id="navbar-brand"> Open<span>Fn</span> Documentation </a>
+                <a id="navbar-brand"> OpenFn Documentation </a>
                 <nav id="toc" role="navigation">
                   <a class="navbar-brand" href="/">
                       OpenFn Documentation
@@ -43,23 +43,25 @@
 <p>In this guide you'll find documentation to help you write filters and jobs, along with explanations of OpenFn's key concepts.</p>
 <p>If you have any questions, please don't hesitate to email <a href="mailto:admin@openfn.org">admin@openfn.org</a>.</p>
 <h1 id="connecting-source-applications">Connecting Source Applications</h1>
-<p>Most modern web applications have a feature that allows you to <code>push</code>, <code>publish</code>, or <code>post</code> data to another URL when a certain event* takes place.</p>
+<p>Most modern web applications have a feature that allows you to <code>push</code>, <code>publish</code>, or <code>post</code> data to another URL when a certain <strong>event</strong> takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when <em>something happens</em>.</p>
+<ol>
+<li>
 <p>Go to the &quot;settings&quot; or &quot;administration&quot; page for your source app, and look for a <code>Webhook API</code>, <code>Data Forwarding API</code>, or <code>Notifications API</code>. Write to the developers of your application if none is provided out of the box.</p>
+</li>
+<li>
 <p>When setting up forwarding, select to send messages in <code>JSON</code> to your project's <code>inbox URL</code>. You can find and copy your secure inbox URL by clicking on the &quot;copy URL&quot; link in the bottom-right corner of the project in question on your <strong><a href="https://www.openfn.org/projects">project dashboard</a></strong> page.</p>
-<p>Soon you'll see new messages arrive in your <strong><a href="https://www.openfn.org/receipts">history</a></strong> page.</p>
-<p>Next, learn how to define <strong>[[filters|2.-Filters]]</strong> that trigger <strong>[[job|4.-Jobs]]</strong> runs.</p>
+</li>
+<li>Soon you'll see new messages arrive in your <strong><a href="https://www.openfn.org/receipts">history</a></strong> page.</li>
+</ol>
+<p>Next, learn how to define <strong>filters</strong> that trigger <strong>job</strong> runs.</p>
 <hr />
-<ul>
-<li>This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when <em>something happens</em>.</li>
-</ul>
 <h1 id="filters">Filters</h1>
-<p>Filters are used to trigger jobs. Filters linked to active jobs will route incoming messages to that job and trigger its execution.</p>
+<p>Filters are used to trigger jobs. Filters that are linked to active jobs will route incoming messages to that job and trigger its execution.</p>
 <p>The filter criteria is a string of valid <code>JSON</code> that will be used in the WHERE clause of an SQL query. In other words, If the JSON you write in your filter criteria is <em>included</em> in the body of the message sent to OpenFn, any active job triggered by that filter will run.</p>
 <pre><code class="language-sql">SELECT * FROM receipts
   WHERE body::jsonb @&gt;
     '{"Name":"Alex Iwobi"}'::jsonb;</code></pre>
-<p>Next, check out the examples below or learn all about <strong>[[credentials|3.-Credentials]]</strong>.</p>
-<h2 id="matching">Matching</h2>
+<h2 id="filter-matching">Filter Matching</h2>
 <p>To illustrate filter matching, refer to the <code>JSON</code> strings below. Message &quot;a&quot; will match filter '1', but message &quot;b&quot; will not.</p>
 <h4 id="filter-1">filter 1:</h4>
 <pre><code class="language-json">{"formID":"patient_registration_v7"}</code></pre>
@@ -73,26 +75,21 @@
 <pre><code class="language-json">{"formId":"Robot_Photo_21.04.2015"}</code></pre>
 <h4 id="match-a-message">Match a message <code>WHERE</code> this <code>AND</code> that are both included:</h4>
 <pre><code class="language-json">{"formId":"Robot_Photo_21.04.2015", "secret_number":8}</code></pre>
-<h4 id="match-a-message-with-two-fragments-inside-an-array-called">Match a message with two fragments inside an array called <code>data</code> (#ODK):</h4>
+<h4 id="match-a-message-with-two-fragments-inside-an-array-called">Match a message with two fragments inside an array called <code>data</code>:</h4>
+<p>(This is useful when gathering data via ODK)</p>
 <pre><code class="language-json">{"data":[{"outlet_call":"TRUE","new_existing":"Existing"}]}</code></pre>
 <h4 id="match-a-message-with-a-fragment-inside-another-object-called">Match a message with a fragment inside another object called <code>form</code>:</h4>
 <pre><code class="language-json">{"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}</code></pre>
+<hr />
 <h1 id="credentials">Credentials</h1>
-<p>Credentials are used to authorize connections to destination* systems.</p>
+<p>Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.</p>
 <p>Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final &quot;/&quot; in these Urls:
 <code>https://login.salesforce.com</code> or <code>http://demo.openmrs.org/openmrs</code> or <code>https://play.dhis2.org</code>.</p>
-<p>Credentials can only be viewed, or edited by a single user—their &quot;owner&quot;, or the person that created that credential. All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
-<p>Next, learn about <strong>[[jobs|4.-Jobs]]</strong>.</p>
+<p>Credentials can only be viewed, or edited by a single user — their &quot;owner&quot; (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
 <hr />
-<ul>
-<li>In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.</li>
-</ul>
 <h1 id="jobs">Jobs</h1>
 <h2 id="writing-jobs-for-openfn">Writing Jobs for OpenFn</h2>
-<blockquote>
-<p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code>
-[[#examples|4.-Jobs#examples]]</p>
-</blockquote>
+<p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code> <a href="#examples">Examples</a></p>
 <p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received. In most cases, a job is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
 <pre><code class="language-js">create("Patient__c", fields(
   field("Name", dataValue("form.surname")),
