@@ -49,6 +49,7 @@ li {
 }
 
 #content {
+  margin-top: 0px;
   margin-bottom: 100px;
 }
 
@@ -68,11 +69,26 @@ header.navbar {
   box-sizing: none;
 }
 
-#openfn-title span {
-  border: 3px solid;
-  padding: 5px;
+#sidebar {
+  margin-top: 30px;
 }
 
+#sidebar .text-muted {
+    color: #bbbbbb;
+}
+
+#navbar-brand {
+  color: #000;
+  font-size: 26px;
+  margin-bottom: 10px;
+}
+
+#navbar-brand span {
+  border: 2px solid;
+  padding: 3px;
+  margin-right: 7px;
+  margin-left: 3px;
+}
 
 .navbar .navbar-brand {
     font-size: 28px;
@@ -86,15 +102,16 @@ header.navbar {
     margin-left: 10px;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-  #toc {
+@media only screen and (min-device-width : 320px) and (max-device-width : 1199px) {
+  #sidebar {
     position: relative;
-    margin-top: 0px;
   }
+
+
 }
 
-@media (min-width: 768px) {
-    #toc {
+@media (min-width: 1200px) {
+    #sidebar {
         position: fixed;
     }
 }
@@ -109,10 +126,6 @@ header.navbar {
 
 .page-header {
     margin-top: 0;
-}
-
-#sidebar .text-muted {
-    color: #bbbbbb;
 }
 
 pre {
