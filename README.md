@@ -107,7 +107,7 @@ create("Patient__c", fields(
 ```
 That would create a new `Patient__c` in some other system. The patient's `Name` will be determined by the triggering message (the value inside `form.name`, specifically) and the patient's `Age__c` will *always* be 7. See how we hard coded it?
 
-What you see above is OpenFn's own syntax, and you've got access to dozens of common "helper functions" like `dataValue(path)` and destination specific functions like `create(object,attributes)`. While most cases are covered out-of-the-box, jobs are **evaluated as Javascript** and you can write your own anonymous functions to do whatever your heart desires:
+What you see above is OpenFn's own syntax, and you've got access to dozens of common "helper functions" like `dataValue(path)` and destination specific functions like `create(object,attributes)`. While most cases are covered out-of-the-box, jobs are **evaluated as Javascript**. This means that you can write your own custom, anonymous functions to do whatever your heart desires:
 ```js
 create("Patient__c", fields(
   field("Name", function(state) {
@@ -117,16 +117,17 @@ create("Patient__c", fields(
   })
   field("Age__c", 7)
 ```
+
 Here, the patient's name will be a comma separated concatenation of all the values in the `patient_names` array from our source message.
 
-Other than the expression tree, JDs have certain attributes that must be set:
+Other than the expression tree, Jobs have certain attributes that must be set:
 
 1. **Filter** - The message filter that will triggers the job.
 2. **Adaptor** - The adaptor for the destination system you're connecting to.
 2. **Credential** - The credential that will be used to gain access to that destination system.
 4. **Active?** - A boolean which determines whether the job runs in real-time when matching messages arrive.
 
-## Helper Functions
+## Common Helper Functions
 - `fields(...)`
 - `field(destination_field_name__c, value)`
 - `dataValue(JSON_path)`
@@ -149,10 +150,7 @@ Other than the expression tree, JDs have certain attributes that must be set:
 - `person(...)`
 - `patient(...)`
 
-Next, check out the examples below or learn about your activity **[[history|5.-History]]**.
-
 ## Examples
-
 
 #### CommCare to SF, Upsert then Create
 The following job expression will take a matching receipt and use data from that receipt to upsert a `Patient__c` record in Salesforce and create multiple new `Patient_Visit__c` (child to Patient) records.
@@ -185,9 +183,10 @@ each(
 )
 ```
 
-#### ODK to SF, create parent and many children with parent data
+#### ODK to Salesforce: create parent record with many children from parent data
 Here, the user brings `time_end` and `parentId` onto the line items from the parent object.
-**NB - there was a known bug with the `combine` function which has been resolved. `combine` can be used to combine two operations into one and is commonly used to run multiple `create`'s inside an `each(path, operation)`. The source code for combine can be found here: [language-common: combine] (https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222)**
+
+**NB - there was a known bug with the `combine` function which has been resolved. `combine` can be used to combine two operations into one and is commonly used to run multiple `create`'s inside an `each(path, operation)`. The source code for combine can be found here: [language-common: combine](https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222)**
 
 ```js
 each(
@@ -237,7 +236,7 @@ beta.each(
 )
 ```
 
-#### Salesforce: Set record type using lookup
+#### Salesforce: Set record type using 'relationship(...)'
 ```js
 create("custom_obj__c", fields(
             relationship("RecordType", "name", dataValue("submission_type"),
@@ -376,15 +375,18 @@ field("Payment_Date__c", function(state) {
   return new Date(dataValue("payment_date")(state)).toISOString()
 })
 ```
+# Inbox
+Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.
 
-# History
+### Messages
+Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)
 
-Messages are stored payloads or messages that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)
+To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.
 
-To edit a receipt, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted. (TODO: We'd like to save the original *and* the copy.) Once a receipt is edited, it may be re-submitted manually from the receipt or from the original submission.
+# Activity
+Monitoring your activity is important. **WHY??**
 
 ### Submissions
-
 Submissions are attempts made on a destination system by running a receipt through a Job Description.
 
 Submissions can be viewed and re-processed. Each submission has a `success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id` attribute. Started at and finished at are the timestamps when the submission began and ended. Note that some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system.
