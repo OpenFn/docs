@@ -12,12 +12,9 @@ body {
     }
 }
 
-main {
-    margin-top: 0px;
-}
-
-section {
+.main{
     margin-bottom: 120px;
+    padding-left: 0px !important;
 }
 
 footer {
@@ -51,26 +48,20 @@ li {
 #content {
   margin-top: 0px;
   margin-bottom: 100px;
-}
+  padding-left: 20px;
+  padding-right: 20px;
 
-#content img {
-    max-width: 100%;
-    padding: 4px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
 }
 
 header.navbar {
     opacity: 1;
 }
 
-#openfn-title:after {
-  box-sizing: none;
-}
-
 #sidebar {
-  margin-top: 15px;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #sidebar .text-muted {
@@ -78,9 +69,11 @@ header.navbar {
 }
 
 #navbar-brand {
-  color: #000;
+  color: #fff;
   font-size: 26px;
-  margin-bottom: 10px;
+  background-color: #666666;
+  padding: 15px;
+
 }
 
 #navbar-brand span {
@@ -106,13 +99,19 @@ header.navbar {
   #sidebar {
     position: relative;
   }
-
-
 }
 
 @media (min-width: 1200px) {
     #sidebar {
         position: fixed;
+        margin-right: 0px;
+        /* box-shadow: 2px 4px 3px rgba(0,0,0,0.4); */
+        height: 100%;
+    }
+
+    #navbar-brand {
+      padding-right: 44px;
+      width: 100%;
     }
 }
 @media (max-width: 960px) {
@@ -143,7 +142,7 @@ a:hover, a:focus {text-decoration: none;}
 /* Styling for TOC */
 
 #toc {
-    margin-top: 0px;
+    margin: 0;
     height: 100%;
     background: #fff;
     /* box-shadow: inset -5px 0 5px 0px #000 */
@@ -182,7 +181,7 @@ a:hover, a:focus {text-decoration: none;}
 }
 
 #toc .h2 {
-    padding-left: 10px;
+    padding-left: 30px;
     font-size: 14px;
 }
 

@@ -152,6 +152,8 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 
 ## Examples
 
+> Below you can find some examples of block code for different functions and data handling contexts.
+
 #### CommCare to SF, Upsert then Create
 The following job expression will take a matching receipt and use data from that receipt to upsert a `Patient__c` record in Salesforce and create multiple new `Patient_Visit__c` (child to Patient) records.
 ```js
@@ -389,9 +391,11 @@ Monitoring your activity is important. **WHY??**
 ### Submissions
 Submissions are attempts made on a destination system by running a receipt through a Job Description.
 
-Submissions can be viewed and re-processed. Each submission has a `success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id` attribute. Started at and finished at are the timestamps when the submission began and ended. Note that some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system.
+Submissions can be viewed and re-processed. Each submission has a `success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id` attribute. `Started_at` and `finished_at` are the timestamps when the submission began and ended.
 
-They will appear as red if they have failed. See: Troubleshooting.md
+**Note:** Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed.
+
+In the case of failure, refer to our [Troubleshooting](#troubleshooting) section
 
 # Troubleshooting
 
@@ -409,7 +413,9 @@ Great question, and don't worry, it happens all the time. Assuming you've alread
 
       C. Ignore the attempt—this source data will never reach your destination system.
 
-Editing data in your destination system can be done through that system's interface. Many tools that act as `sources` (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt. See images below for the current error handling flow and a new form-based source data editor we've released in BETA.
+Editing data in your destination system can be done through that system's interface. Many tools that act as `sources` (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.
+
+**(??)** See images below for the current error handling flow and a new form-based source data editor we've released in BETA.
 
 ## Common Error Messages
 The most common error messages with English explanations are:
@@ -423,7 +429,7 @@ OpenFn's core ETL tools are all open-source, and here we will explain how those 
 To get started, `git clone` the following:
 1. [fn-lang](https://github.com/OpenFn/fn-lang)
 2. [language-common](https://github.com/OpenFn/language-common)
-3. [language-xxx](https://github.com/OpenFn/language-common) an adaptor of your choice, from github.com/OpenFn
+3. [language-xxx](https://github.com/OpenFn/language-common) (an adaptor of your choice, from github.com/OpenFn)
 
 ## fn-lang (diesl)
 fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the "TL" part of "ETL" on command. It can be run from a command line, or built into a hosted web service.

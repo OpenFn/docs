@@ -12,15 +12,13 @@
         <link rel="stylesheet" href="{{ baseUrl }}/css/main.css">
     </head>
     <body>
-      <div class="{{ menu ? 'container-fluid' : 'container' }}"
+      <!--<div class="{{ menu ? 'container-fluid' : 'container' }} main" -->
+      <div class="{{ menu ? 'container-fluid' : 'container' }} main"
           <div class="row">
 
             <div id="sidebar" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
                 <a id="navbar-brand"> OpenFn Documentation </a>
                 <nav id="toc" role="navigation">
-                  <a class="navbar-brand" href="{{ baseUrl }}/">
-                      {{ title|default('The title') }}
-                  </a>
                 </nav>
             </div>
 
@@ -45,6 +43,7 @@
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.js"></script>
+
         <script src="{{ baseUrl }}/toc.min.js"></script>
         <script src="{{ baseUrl }}/jquery.sticky.js"></script>
 
@@ -60,9 +59,9 @@
 
             /* Generate TOC */
             $('#toc').toc({
-                'selectors': 'h1', //elements to use as headings
+                'selectors': 'h1, h2', //elements to use as headings
                 'container': 'body', //element to find all selectors in
-                'smoothScrolling': true, //enable or disable smooth scrolling on click
+                'smoothScrolling': false, //enable or disable smooth scrolling on click
                 'prefix': 'toc', //prefix for anchor tags and class names
                 'onHighlight': function(el) {}, //called when a new section is highlighted
                 'highlightOnScroll': true, //add class to heading that is currently in focus
@@ -77,8 +76,6 @@
                   return $heading[0].tagName.toLowerCase();
                 }
             });
-
-            /* $( "#openfn-title" ).insertBefore( $( "#toc" ) ); */
 
             /* Function for adjusting sidebar positioning on scroll
             $(document).ready(function(){
