@@ -188,7 +188,7 @@ each(
 #### ODK to Salesforce: create parent record with many children from parent data
 Here, the user brings `time_end` and `parentId` onto the line items from the parent object.
 
-**NB - there was a known bug with the `combine` function which has been resolved. `combine` can be used to combine two operations into one and is commonly used to run multiple `create`'s inside an `each(path, operation)`. The source code for combine can be found here: [language-common: combine](https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222)**
+> **NB - there was a known bug with the `combine` function which has been resolved. `combine` can be used to combine two operations into one and is commonly used to run multiple `create`'s inside an `each(path, operation)`. The source code for combine can be found here: [language-common: combine](https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222)**
 
 ```js
 each(
@@ -377,6 +377,9 @@ field("Payment_Date__c", function(state) {
   return new Date(dataValue("payment_date")(state)).toISOString()
 })
 ```
+
+***
+
 # Inbox
 Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.
 
@@ -385,17 +388,17 @@ Messages are stored payloads or data that were sent via HTTP post to your inbox.
 
 To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.
 
+***
+
 # Activity
-Monitoring your activity is important. **WHY??**
+In this section of the portal, you can view a list of all "submissions" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).
 
 ### Submissions
-Submissions are attempts made on a destination system by running a receipt through a Job Description.
+Submissions are attempts made on a destination system by running a receipt through a Job Description. Submissions can be viewed and re-processed. Each submission has a `success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id` attribute. `Started_at` and `finished_at` are the timestamps when the submission began and ended.
 
-Submissions can be viewed and re-processed. Each submission has a `success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id` attribute. `Started_at` and `finished_at` are the timestamps when the submission began and ended.
+> **Note:** Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our [Troubleshooting](#troubleshooting) section below.
 
-**Note:** Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed.
-
-In the case of failure, refer to our [Troubleshooting](#troubleshooting) section
+***
 
 # Troubleshooting
 
@@ -415,16 +418,18 @@ Great question, and don't worry, it happens all the time. Assuming you've alread
 
 Editing data in your destination system can be done through that system's interface. Many tools that act as `sources` (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.
 
-**(??)** See images below for the current error handling flow and a new form-based source data editor we've released in BETA.
-
 ## Common Error Messages
 The most common error messages with English explanations are:
 + `DUPLICATE_VALUE: duplicate value found: ODK_uuid__c duplicates value on record with id: a0524000005wNw0` - The insert is blocked because you are attempting to create a new record with a unique field with the same value as an existing record.
 + `Required value missing`
 + `ExternalId not found`
 
+***
+
 # DIY
 OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.
+
+> **ETL** = Extracting, Transforming and Loading of data
 
 To get started, `git clone` the following:
 1. [fn-lang](https://github.com/OpenFn/fn-lang)
@@ -434,9 +439,10 @@ To get started, `git clone` the following:
 ## fn-lang (diesl)
 fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the "TL" part of "ETL" on command. It can be run from a command line, or built into a hosted web service.
 
-#### run fn-lang from the command line with the following:
-`~/fn-lang$ lib/cli.js execute -l salesforce/FakeAdaptor -e tmp/expression.js -c tmp/config.json -d tmp/receipt.json
-`
+#### Run fn-lang from the command line with the following:
+`~/fn-lang$ lib/cli.js execute -l salesforce/FakeAdaptor -e tmp/expression.js -c tmp/config.json -d tmp/receipt.json`
+
+> **Command Explained:** Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and destination configuration (-c)
 
 ## language-common
 `language-common` provides basic data manipulation functionality like `each`, `field`, and `toArray`.
@@ -444,22 +450,11 @@ fn-lang is a coordination tool that takes a job expression, a JSON payload, an a
 ## language-xxx
 `language-xxx` is a "destination adaptor" that knows how to connect to the system in question and provides system specific operations, like `relationship` or `upsert`.
 
-*wip*
+***
 
-# Migrating from 1.0 to 2.0
+# Appendix
 
-## Why?
-Important new features, benefits...
-
-## How?
-Steps...
-
-## When?
-The legacy system is being sunset...
-
-*WIP*
-
-# Kobo
+## Kobo: Setting up source applications
 1. To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.
 2. Once selecting a project, the `Project Settings` link will appear at the top left side of the screen. Click it to open the Project Settings page.
 3. In the bottom left pane of the project settings page, users must paste their inbox URL from OpenFn into the `Rest Services` `Service URL` input area and select `JSON Post` as the `Service Name`.
@@ -468,8 +463,8 @@ The legacy system is being sunset...
 To test to integration, add a submission manually using the `enter data in browser` button. Head back to your history page at OpenFn to view the newly submitted data and write a new `filter` and `job` to map your Kobo data to any destination system on OpenFn.
 
 #### More help
-1. Help writing [filters](#2.-Filters)
-2. Help writing [jobs](#4.-Jobs)
+1. Help writing [filters](#filters)
+2. Help writing [jobs](#jobs)
 3. The shape of the data from Kobo
 
 Here's a sample post from Kobo REST service. Note that questions inside groups are prefixed with `groupname/` rather than sitting inside a group object like ODK:
@@ -498,3 +493,5 @@ Here's a sample post from Kobo REST service. Note that questions inside groups a
   "_attachments": []
 }
 ```
+
+***

@@ -6,14 +6,8 @@ body {
     font-size: 19px;
 }
 
-@media (min-width: 1200px) {
-    .container {
-        width: 970px;
-    }
-}
-
 .main{
-    margin-bottom: 120px;
+    margin-bottom: 180px;
     padding-left: 0px !important;
 }
 
@@ -60,8 +54,6 @@ header.navbar {
 #sidebar {
   padding-left: 0px !important;
   padding-right: 0px !important;
-  overflow-y: scroll;
-  overflow-x: hidden;
 }
 
 #sidebar .text-muted {
@@ -69,11 +61,9 @@ header.navbar {
 }
 
 #navbar-brand {
-  color: #fff;
+  color: #666666;
   font-size: 26px;
-  background-color: #666666;
   padding: 15px;
-
 }
 
 #navbar-brand span {
@@ -95,18 +85,18 @@ header.navbar {
     margin-left: 10px;
 }
 
-@media only screen and (min-device-width : 320px) and (max-device-width : 1199px) {
-  #sidebar {
-    position: relative;
-  }
+@media only screen and (min-device-width : 120px) and (max-device-width : 1100px) {
+
 }
 
 @media (min-width: 1200px) {
     #sidebar {
         position: fixed;
-        margin-right: 0px;
+        margin-left: 0px;
         /* box-shadow: 2px 4px 3px rgba(0,0,0,0.4); */
         height: 100%;
+        overflow-y: scroll;
+        overflow-x: hidden;
     }
 
     #navbar-brand {
@@ -114,12 +104,33 @@ header.navbar {
       width: 100%;
     }
 }
-@media (max-width: 960px) {
+@media (max-width: 1200px) {
     body {
         font-size: 17px;
     }
     pre {
         font-size: 12px;
+    }
+    #sidebar {
+      position: relative;
+      width: 50%;
+    }
+    #content {
+      margin: 5%;
+    }
+
+    #toc h2 { dispaly: none;}
+}
+
+@media (max-width: 560px) {
+    #sidebar {
+      width: 90%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        width: 100%;
     }
 }
 
@@ -156,8 +167,8 @@ a:hover, a:focus {text-decoration: none;}
 }
 
 #toc li {
-    padding: 7px 10px;
-    margin: 10px;
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 #toc li:hover {
@@ -174,6 +185,7 @@ a:hover, a:focus {text-decoration: none;}
     color: #4d94ff;
     text-decoration: none;
     display: block;
+    padding: 10px
 }
 
 #toc .h1 {
@@ -188,7 +200,6 @@ a:hover, a:focus {text-decoration: none;}
 #toc .h3 {
     padding-left: 20px;
     font-size: 12px;
-
 }
 
 #toc .toc-active {
