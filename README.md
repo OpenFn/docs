@@ -127,9 +127,9 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 2. **Credential** - The credential that will be used to gain access to that destination system.
 4. **Active?** - A boolean which determines whether the job runs in real-time when matching messages arrive.
 
-# Named Functions for writing Jobs
+## Named Functions
 
-## language-common
+### language-common
 - `fields(list_of_fields)` zips key value pairs into an object. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L258)
 - `field(destination_field_name__c, value)`
 - `dataValue(JSON_path)`
@@ -137,16 +137,16 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 - `beta.each(JSON_path, operation(...))` // Pre-release, new feature details coming.
 - `merge(JSON_path, fields(...)`
 
-## Salesforce
+### Salesforce
 - `create(obj,fields(...))`
 - `upsert(obj,extId,fields(...))`
 - `relationship(obj,extId,value)`
 
-## dhis2
+### dhis2
 - `event(...)`
 - `dataValueSet(...)`
 
-## OpenMRS
+### OpenMRS
 - `person(...)`
 - `patient(...)`
 

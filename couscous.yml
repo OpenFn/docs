@@ -6,10 +6,6 @@ template:
     # Name of the index file (default is "README.md")
     index: README.md
 
-github:
-    user: OpenFn
-    repo: docs
-
 # Base URL of the published website
 baseUrl: http://openfn.github.io/docs/
 
@@ -18,7 +14,6 @@ exclude:
     - job-library
 
 title: OpenFn Documentation
-subTitle: Help with job expressions, filters, error-handling, and more on the OpenFn platform.
 
 menu:
   items:
