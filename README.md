@@ -24,7 +24,6 @@ Most modern web applications have a feature that allows you to `push`, `publish`
 
 Next, learn how to define **filters** that trigger **job** runs.
 
-***
 
 # Filters
 Filters are used to trigger jobs. Filters that are linked to active jobs will route incoming messages to that job and trigger its execution.
@@ -81,8 +80,6 @@ Message 'b' does not include `"formID":"patient_registration_v7"` and will not m
 {"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}
 ```
 
-***
-
 # Credentials
 Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.
 
@@ -90,8 +87,6 @@ Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUr
 `https://login.salesforce.com` or `http://demo.openmrs.org/openmrs` or `https://play.dhis2.org`.
 
 Credentials can only be viewed, or edited by a single user — their "owner" (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.
-
-***
 
 # Jobs
 

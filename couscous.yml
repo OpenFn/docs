@@ -9,11 +9,6 @@ template:
 # Base URL of the published website
 baseUrl: http://openfn.github.io/core-docs
 
-# # Used to link to the GitHub project
-# github:
-#     user: myself
-#     repo: my-project
-
 exclude:
     - images
     - job-library
@@ -21,31 +16,35 @@ exclude:
 title: OpenFn Documentation
 subTitle: Help with job expressions, filters, error-handling, and more on the OpenFn platform.
 
-# TODO: write script that generates this yml file automatically to create Table
-# of Contents
-
-# scripts:
-    # Scripts to execute before generating the website
-    # before:
-        # - cp bin/couscous.phar website/
-        # TODO: add "[#](#text)" to each # header
-        # TODO: generate couscous.yml table of contents based on header anchor links
-    # Scripts to execute after generating the website
-    # after:
-        # - rm website/couscous.phar
-
-# The left menu bar
 menu:
-    items:
-        how:
-            text: Introduction
-            absoluteUrl: /#introduction
-        test:
-            text: Connecting Source Apps
-            absoluteUrl: /#connecting-source-applications
-        convention:
-            text: Filters
-            absoluteUrl: /#filters
-        jobs:
-            text: jobs
-            absoluteUrl: /#jobs
+  items:
+    home:
+        text: Introduction
+        absoluteUrl: /#introduction
+    apps:
+        text: Source Apps
+        absoluteUrl: /#connecting-source-applications
+    filters:
+        text: Filters
+        absoluteUrl: /#filters
+    creds:
+        text: Credentials
+        absoluteUrl: /#credentials
+    jobs:
+        text: Jobs
+        absoluteUrl: /#jobs
+    inbox:
+        text: Inbox
+        absoluteUrl: /#inbox
+    activity:
+        text: Activity
+        absoluteUrl: /#activity
+    troubleshooting:
+        text: Troubleshooting
+        absoluteUrl: /#troubleshooting
+    diy:
+        text: DIY
+        absoluteUrl: /#diy
+    appendix:
+        text: Appendix
+        absoluteUrl: /#appendix
