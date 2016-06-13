@@ -22,7 +22,6 @@
                 </small>
             </a>
 
-            
         </header>
 
         <main class="container-fluid">
@@ -55,6 +54,11 @@
                                                             <li class="">
                                     <a href="http://openfn.github.io/docs/#jobs">
                                         Jobs
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="http://openfn.github.io/docs/#named-functions">
+                                        Named Functions
                                     </a>
                                 </li>
                                                             <li class="">
@@ -174,40 +178,38 @@
 <li><strong>Credential</strong> - The credential that will be used to gain access to that destination system.</li>
 <li><strong>Active?</strong> - A boolean which determines whether the job runs in real-time when matching messages arrive.</li>
 </ol>
-<h2 id="common-helper-functions-for-writing-jobs">Common Helper Functions for writing Jobs</h2>
+<h1 id="named-functions-for-writing-jobs">Named Functions for writing Jobs</h1>
+<h2 id="language-common">language-common</h2>
 <ul>
-<li><code>fields(...)</code></li>
+<li><code>fields(list_of_fields)</code> zips key value pairs into an object. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L258">(source)</a></li>
 <li><code>field(destination_field_name__c, value)</code></li>
 <li><code>dataValue(JSON_path)</code></li>
 <li><code>each(JSON_path, operation(...))</code></li>
 <li><code>beta.each(JSON_path, operation(...))</code> // Pre-release, new feature details coming.</li>
 <li><code>merge(JSON_path, fields(...)</code></li>
 </ul>
-<h2 id="destination-specific-functions-for-writing-jobs">Destination-Specific Functions for writing Jobs</h2>
-<h4 id="salesforce">Salesforce</h4>
+<h2 id="salesforce">Salesforce</h2>
 <ul>
 <li><code>create(obj,fields(...))</code></li>
 <li><code>upsert(obj,extId,fields(...))</code></li>
 <li><code>relationship(obj,extId,value)</code></li>
 </ul>
-<h4 id="dhis2">dhis2</h4>
+<h2 id="dhis2">dhis2</h2>
 <ul>
 <li><code>event(...)</code></li>
 <li><code>dataValueSet(...)</code></li>
 </ul>
-<h4 id="openmrs">OpenMRS</h4>
+<h2 id="openmrs">OpenMRS</h2>
 <ul>
 <li><code>person(...)</code></li>
 <li><code>patient(...)</code></li>
 </ul>
 <p><strong>For code block examples of job expressions, go to the <a href="#appendix">Appendix</a>.</strong></p>
-<hr />
 <h1 id="inbox">Inbox</h1>
 <p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.</p>
 <h3 id="messages">Messages</h3>
 <p>Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
 <p>To edit a message, click the &quot;pencil and paper&quot; icon next to that receipt. Be careful, as no original copy will be persisted.</p>
-<hr />
 <h1 id="activity">Activity</h1>
 <p>In this section of the portal, you can view a list of all &quot;submissions&quot; - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
 <h3 id="submissions">Submissions</h3>
@@ -215,7 +217,6 @@
 <blockquote>
 <p><strong>Note:</strong> Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
 </blockquote>
-<hr />
 <h1 id="troubleshooting">Troubleshooting</h1>
 <blockquote>
 <p>What happens if my survey data from ODK needs to link to existing records in my Salesforce system but a respondent enters or selects an invalid <code>external ID</code>?</p>
@@ -240,7 +241,6 @@
 <li><code>Required value missing</code></li>
 <li><code>ExternalId not found</code></li>
 </ul>
-<hr />
 <h1 id="diy">DIY</h1>
 <p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.</p>
 <blockquote>
@@ -259,11 +259,10 @@
 <blockquote>
 <p><strong>Command Explained:</strong> Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and destination configuration (-c)</p>
 </blockquote>
-<h2 id="language-common">language-common</h2>
+<h2 id="language-common-1">language-common</h2>
 <p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
 <h2 id="language-xxx">language-xxx</h2>
 <p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system specific operations, like <code>relationship</code> or <code>upsert</code>.</p>
-<hr />
 <h1 id="appendix">Appendix</h1>
 <h2 id="block-code-examples">Block code examples</h2>
 <blockquote>
