@@ -37,6 +37,9 @@ menu:
     jobs:
         text: Jobs
         relativeUrl: "#jobs"
+    functions:
+        text: Named Functions
+        relativeUrl: "#named-functions"
     inbox:
         text: Inbox
         relativeUrl: "#inbox"
