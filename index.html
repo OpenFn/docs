@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>OpenFn Documentation </title>
+        <title>OpenFn Documentation</title>
 
         <link rel="stylesheet" href="http://openfn.github.io/core-docs/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://openfn.github.io/core-docs/css/font-awesome.min.css">
@@ -12,21 +12,83 @@
         <link rel="stylesheet" href="http://openfn.github.io/core-docs/css/main.css">
     </head>
     <body>
-      <div class="container-fluid"
-          <div class="row">
 
-            <div id="sidebar" class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
-                <a id="navbar-brand"> OpenFn Documentation </a>
-                <nav id="toc" role="navigation">
-                  <a class="navbar-brand" href="http://openfn.github.io/core-docs/">
-                      OpenFn Documentation
-                  </a>
-                </nav>
-            </div>
+        <header class="navbar navbar-default navbar-fixed-top">
 
-            <div id="content" class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12">
-            <!-- <section id="content" class="col-lg-9 col-lg-offset-3 col-md-9 col-md-offset-3 col-sm-12 col-xs-12> -->
-                <h1 id="introduction">Introduction</h1>
+            <a class="navbar-brand" href="#introduction">
+                OpenFn Documentation
+                <small class="hidden-xs hidden-sm">
+                    Help with job expressions, filters, error-handling, and more on the OpenFn platform.
+                </small>
+            </a>
+
+            
+        </header>
+
+        <main class="container-fluid">
+            <div class="row">
+
+                
+                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
+
+                        <ul class="nav nav-pills nav-stacked">
+                                                            <li class="">
+                                    <a href="/#introduction">
+                                        Introduction
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/#connecting-source-applications">
+                                        Source Apps
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/#filters">
+                                        Filters
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/#credentials">
+                                        Credentials
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/#jobs">
+                                        Jobs
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/#inbox">
+                                        Inbox
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/#activity">
+                                        Activity
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/#troubleshooting">
+                                        Troubleshooting
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/#diy">
+                                        DIY
+                                    </a>
+                                </li>
+                                                            <li class="">
+                                    <a href="/#appendix">
+                                        Appendix
+                                    </a>
+                                </li>
+                                                    </ul>
+
+                    </nav>
+
+                
+                <section id="content" class="col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10">
+                    <h1 id="introduction">Introduction</h1>
 <blockquote>
 <p>So, OpenFn does what now?</p>
 </blockquote>
@@ -54,7 +116,6 @@
 <li>Soon you'll see new messages arrive in your <strong><a href="https://www.openfn.org/receipts">history</a></strong> page.</li>
 </ol>
 <p>Next, learn how to define <strong>filters</strong> that trigger <strong>job</strong> runs.</p>
-<hr />
 <h1 id="filters">Filters</h1>
 <p>Filters are used to trigger jobs. Filters that are linked to active jobs will route incoming messages to that job and trigger its execution.</p>
 <p>The filter criteria is a string of valid <code>JSON</code> that will be used in the WHERE clause of an SQL query. In other words, If the JSON you write in your filter criteria is <em>included</em> in the body of the message sent to OpenFn, any active job triggered by that filter will run.</p>
@@ -80,13 +141,11 @@
 <pre><code class="language-json">{"data":[{"outlet_call":"TRUE","new_existing":"Existing"}]}</code></pre>
 <h4 id="match-a-message-with-a-fragment-inside-another-object-called">Match a message with a fragment inside another object called <code>form</code>:</h4>
 <pre><code class="language-json">{"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}</code></pre>
-<hr />
 <h1 id="credentials">Credentials</h1>
 <p>Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.</p>
 <p>Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final &quot;/&quot; in these Urls:
 <code>https://login.salesforce.com</code> or <code>http://demo.openmrs.org/openmrs</code> or <code>https://play.dhis2.org</code>.</p>
 <p>Credentials can only be viewed, or edited by a single user — their &quot;owner&quot; (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
-<hr />
 <h1 id="jobs">Jobs</h1>
 <h2 id="writing-jobs-for-openfn">Writing Jobs for OpenFn</h2>
 <p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code> <a href="#examples">Examples</a></p>
@@ -96,7 +155,7 @@
   field("Age__c", 7)
 ))</code></pre>
 <p>That would create a new <code>Patient__c</code> in some other system. The patient's <code>Name</code> will be determined by the triggering message (the value inside <code>form.name</code>, specifically) and the patient's <code>Age__c</code> will <em>always</em> be 7. See how we hard coded it?</p>
-<p>What you see above is OpenFn's own syntax, and you've got access to dozens of common &quot;helper functions&quot; like <code>dataValue(path)</code> and destination specific functions like <code>create(object,attributes)</code>. While most cases are covered out-of-the-box, jobs are <strong>evaluated as Javascript</strong> and you can write your own anonymous functions to do whatever your heart desires:</p>
+<p>What you see above is OpenFn's own syntax, and you've got access to dozens of common &quot;helper functions&quot; like <code>dataValue(path)</code> and destination specific functions like <code>create(object,attributes)</code>. While most cases are covered out-of-the-box, jobs are <strong>evaluated as Javascript</strong>. This means that you can write your own custom, anonymous functions to do whatever your heart desires:</p>
 <pre><code class="language-js">create("Patient__c", fields(
   field("Name", function(state) {
     return Array.apply(
@@ -105,14 +164,14 @@
   })
   field("Age__c", 7)</code></pre>
 <p>Here, the patient's name will be a comma separated concatenation of all the values in the <code>patient_names</code> array from our source message.</p>
-<p>Other than the expression tree, JDs have certain attributes that must be set:</p>
+<p>Other than the expression tree, Jobs have certain attributes that must be set:</p>
 <ol>
 <li><strong>Filter</strong> - The message filter that will triggers the job.</li>
 <li><strong>Adaptor</strong> - The adaptor for the destination system you're connecting to.</li>
 <li><strong>Credential</strong> - The credential that will be used to gain access to that destination system.</li>
 <li><strong>Active?</strong> - A boolean which determines whether the job runs in real-time when matching messages arrive.</li>
 </ol>
-<h2 id="helper-functions">Helper Functions</h2>
+<h2 id="common-helper-functions">Common Helper Functions</h2>
 <ul>
 <li><code>fields(...)</code></li>
 <li><code>field(destination_field_name__c, value)</code></li>
@@ -138,8 +197,10 @@
 <li><code>person(...)</code></li>
 <li><code>patient(...)</code></li>
 </ul>
-<p>Next, check out the examples below or learn about your activity <strong>[[history|5.-History]]</strong>.</p>
 <h2 id="examples">Examples</h2>
+<blockquote>
+<p>Below you can find some examples of block code for different functions and data handling contexts.</p>
+</blockquote>
 <h4 id="commcare-to-sf-upsert-then-create">CommCare to SF, Upsert then Create</h4>
 <p>The following job expression will take a matching receipt and use data from that receipt to upsert a <code>Patient__c</code> record in Salesforce and create multiple new <code>Patient_Visit__c</code> (child to Patient) records.</p>
 <pre><code class="language-js">upsert("Patient__c", "Patient_Id__c", fields(
@@ -165,9 +226,11 @@ each(
     dataValue("comments")), field("ODK_Key__c", dataValue("*meta-instance-id*"))
   ))
 )</code></pre>
-<h4 id="odk-to-sf-create-parent-and-many-children-with-parent-data">ODK to SF, create parent and many children with parent data</h4>
-<p>Here, the user brings <code>time_end</code> and <code>parentId</code> onto the line items from the parent object.
-<strong>NB - there was a known bug with the <code>combine</code> function which has been resolved. <code>combine</code> can be used to combine two operations into one and is commonly used to run multiple <code>create</code>'s inside an <code>each(path, operation)</code>. The source code for combine can be found here: [language-common: combine] (<a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222">https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222</a>)</strong></p>
+<h4 id="odk-to-salesforce-create-parent-record-with-many-children-from-parent-data">ODK to Salesforce: create parent record with many children from parent data</h4>
+<p>Here, the user brings <code>time_end</code> and <code>parentId</code> onto the line items from the parent object.</p>
+<blockquote>
+<p><strong>NB - there was a known bug with the <code>combine</code> function which has been resolved. <code>combine</code> can be used to combine two operations into one and is commonly used to run multiple <code>create</code>'s inside an <code>each(path, operation)</code>. The source code for combine can be found here: <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222">language-common: combine</a></strong></p>
+</blockquote>
 <pre><code class="language-js">each(
   dataPath("data[*]"),
   combine(
@@ -210,7 +273,7 @@ beta.each(
       field("Comments__c", dataValue("comments"))
   ))
 )</code></pre>
-<h4 id="salesforce-set-record-type-using-lookup">Salesforce: Set record type using lookup</h4>
+<h4 id="salesforce-set-record-type-using-relationship">Salesforce: Set record type using 'relationship(...)'</h4>
 <pre><code class="language-js">create("custom_obj__c", fields(
             relationship("RecordType", "name", dataValue("submission_type"),
             field("name", dataValue("Name"))
@@ -318,13 +381,21 @@ patient(
 <pre><code class="language-js">field("Payment_Date__c", function(state) {
   return new Date(dataValue("payment_date")(state)).toISOString()
 })</code></pre>
-<h1 id="history">History</h1>
-<p>Messages are stored payloads or messages that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
-<p>To edit a receipt, click the &quot;pencil and paper&quot; icon next to that receipt. Be careful, as no original copy will be persisted. (TODO: We'd like to save the original <em>and</em> the copy.) Once a receipt is edited, it may be re-submitted manually from the receipt or from the original submission.</p>
+<hr />
+<h1 id="inbox">Inbox</h1>
+<p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.</p>
+<h3 id="messages">Messages</h3>
+<p>Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
+<p>To edit a message, click the &quot;pencil and paper&quot; icon next to that receipt. Be careful, as no original copy will be persisted.</p>
+<hr />
+<h1 id="activity">Activity</h1>
+<p>In this section of the portal, you can view a list of all &quot;submissions&quot; - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
 <h3 id="submissions">Submissions</h3>
-<p>Submissions are attempts made on a destination system by running a receipt through a Job Description.</p>
-<p>Submissions can be viewed and re-processed. Each submission has a <code>success</code>, <code>started_at</code>, <code>finsihed_at</code>, <code>job_description_id</code>, and <code>receipt_id</code> attribute. Started at and finished at are the timestamps when the submission began and ended. Note that some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system.</p>
-<p>They will appear as red if they have failed. See: Troubleshooting.md</p>
+<p>Submissions are attempts made on a destination system by running a receipt through a Job Description. Submissions can be viewed and re-processed. Each submission has a <code>success</code>, <code>started_at</code>, <code>finsihed_at</code>, <code>job_description_id</code>, and <code>receipt_id</code> attribute. <code>Started_at</code> and <code>finished_at</code> are the timestamps when the submission began and ended.</p>
+<blockquote>
+<p><strong>Note:</strong> Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
+</blockquote>
+<hr />
 <h1 id="troubleshooting">Troubleshooting</h1>
 <blockquote>
 <p>What happens if my survey data from ODK needs to link to existing records in my Salesforce system but a respondent enters or selects an invalid <code>external ID</code>?</p>
@@ -341,7 +412,7 @@ patient(
 <p>C. Ignore the attempt—this source data will never reach your destination system.</p>
 </li>
 </ol>
-<p>Editing data in your destination system can be done through that system's interface. Many tools that act as <code>sources</code> (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt. See images below for the current error handling flow and a new form-based source data editor we've released in BETA.</p>
+<p>Editing data in your destination system can be done through that system's interface. Many tools that act as <code>sources</code> (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.</p>
 <h2 id="common-error-messages">Common Error Messages</h2>
 <p>The most common error messages with English explanations are:</p>
 <ul>
@@ -349,32 +420,32 @@ patient(
 <li><code>Required value missing</code></li>
 <li><code>ExternalId not found</code></li>
 </ul>
+<hr />
 <h1 id="diy">DIY</h1>
 <p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.</p>
+<blockquote>
+<p><strong>ETL</strong> = Extracting, Transforming and Loading of data</p>
+</blockquote>
 <p>To get started, <code>git clone</code> the following:</p>
 <ol>
 <li><a href="https://github.com/OpenFn/fn-lang">fn-lang</a></li>
 <li><a href="https://github.com/OpenFn/language-common">language-common</a></li>
-<li><a href="https://github.com/OpenFn/language-common">language-xxx</a> an adaptor of your choice, from github.com/OpenFn</li>
+<li><a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</li>
 </ol>
 <h2 id="fn-lang-diesl">fn-lang (diesl)</h2>
 <p>fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the &quot;TL&quot; part of &quot;ETL&quot; on command. It can be run from a command line, or built into a hosted web service.</p>
-<h4 id="run-fn-lang-from-the-command-line-with-the-following">run fn-lang from the command line with the following:</h4>
-<p><code>~/fn-lang$ lib/cli.js execute -l salesforce/FakeAdaptor -e tmp/expression.js -c tmp/config.json -d tmp/receipt.json </code></p>
+<h4 id="run-fn-lang-from-the-command-line-with-the-following">Run fn-lang from the command line with the following:</h4>
+<p><code>~/fn-lang$ lib/cli.js execute -l salesforce/FakeAdaptor -e tmp/expression.js -c tmp/config.json -d tmp/receipt.json</code></p>
+<blockquote>
+<p><strong>Command Explained:</strong> Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and destination configuration (-c)</p>
+</blockquote>
 <h2 id="language-common">language-common</h2>
 <p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
 <h2 id="language-xxx">language-xxx</h2>
 <p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system specific operations, like <code>relationship</code> or <code>upsert</code>.</p>
-<p><em>wip</em></p>
-<h1 id="migrating-from-10-to-20">Migrating from 1.0 to 2.0</h1>
-<h2 id="why">Why?</h2>
-<p>Important new features, benefits...</p>
-<h2 id="how">How?</h2>
-<p>Steps...</p>
-<h2 id="when">When?</h2>
-<p>The legacy system is being sunset...</p>
-<p><em>WIP</em></p>
-<h1 id="kobo">Kobo</h1>
+<hr />
+<h1 id="appendix">Appendix</h1>
+<h2 id="kobo-setting-up-source-applications">Kobo: Setting up source applications</h2>
 <ol>
 <li>To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.</li>
 <li>Once selecting a project, the <code>Project Settings</code> link will appear at the top left side of the screen. Click it to open the Project Settings page.</li>
@@ -384,8 +455,8 @@ patient(
 <p>To test to integration, add a submission manually using the <code>enter data in browser</code> button. Head back to your history page at OpenFn to view the newly submitted data and write a new <code>filter</code> and <code>job</code> to map your Kobo data to any destination system on OpenFn.</p>
 <h4 id="more-help">More help</h4>
 <ol>
-<li>Help writing <a href="#2.-Filters">filters</a></li>
-<li>Help writing <a href="#4.-Jobs">jobs</a></li>
+<li>Help writing <a href="#filters">filters</a></li>
+<li>Help writing <a href="#jobs">jobs</a></li>
 <li>The shape of the data from Kobo</li>
 </ol>
 <p>Here's a sample post from Kobo REST service. Note that questions inside groups are prefixed with <code>groupname/</code> rather than sitting inside a group object like ODK:</p>
@@ -412,11 +483,11 @@ patient(
   "_bamboo_dataset_id": "",
   "_attachments": []
 }</code></pre>
-              <!-- </section> -->
-            </div>
+<hr />
+                </section>
 
-          </div>
-      </div>
+            </div>
+        </main>
 
         <footer>
             <div class="container-fluid">
@@ -430,8 +501,6 @@ patient(
         <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
         <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
         <script src="http://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.js"></script>
-        <script src="http://openfn.github.io/core-docs/toc.min.js"></script>
-        <script src="http://openfn.github.io/core-docs/jquery.sticky.js"></script>
 
         <script>
             $(function() {
@@ -443,35 +512,12 @@ patient(
             /* Call to Anchor-js function */
             anchors.add('h1, h2, h3, h4');
 
-            /* Generate TOC */
-            $('#toc').toc({
-                'selectors': 'h1', //elements to use as headings
-                'container': 'body', //element to find all selectors in
-                'smoothScrolling': true, //enable or disable smooth scrolling on click
-                'prefix': 'toc', //prefix for anchor tags and class names
-                'onHighlight': function(el) {}, //called when a new section is highlighted
-                'highlightOnScroll': true, //add class to heading that is currently in focus
-                'highlightOffset': 100, //offset to trigger the next headline
-                'anchorName': function(i, heading, prefix) { //custom function for anchor name
-                    return prefix+i;
-                },
-                'headerText': function(i, heading, $heading) { //custom function building the header-item text
-                    return $heading.text();
-                },
-                'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
-                  return $heading[0].tagName.toLowerCase();
-                }
-            });
+            // Shift anchor link scroll past fixed navbar
+            var shiftWindow = function() { scrollBy(0, -95) };
+            if (location.hash) shiftWindow();
+            window.addEventListener("hashchange", shiftWindow);
 
-            /* $( "#openfn-title" ).insertBefore( $( "#toc" ) ); */
-
-            /* Function for adjusting sidebar positioning on scroll
-            $(document).ready(function(){
-              $("#toc").sticky({topSpacing:0});
-            });
-            */
         </script>
-
 
     </body>
 </html>
