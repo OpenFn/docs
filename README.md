@@ -130,25 +130,25 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 ## Named Functions
 
 ### language-common
+- `field(destination_field_name__c, value)` Returns a key, value pair in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L248)
 - `fields(list_of_fields)` zips key value pairs into an object. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L258)
-- `field(destination_field_name__c, value)`
-- `dataValue(JSON_path)`
-- `each(JSON_path, operation(...))`
-- `beta.each(JSON_path, operation(...))` // Pre-release, new feature details coming.
-- `merge(JSON_path, fields(...)`
+- `dataValue(JSON_path)` Picks out a single value from source data. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L71)
+- `each(JSON_path, operation(...))` Scopes an array of data based on a JSONPath [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L160)
+- `beta.each(JSON_path, operation(...))` // Pre-release: new feature details coming. [(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2)
+- `merge(JSON_path, fields(...)` Merges fields into each item in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L272)
 
 ### Salesforce
-- `create(obj,fields(...))`
-- `upsert(obj,extId,fields(...))`
-- `relationship(obj,extId,value)`
+- `create(obj,fields(...))` Create a new object. Takes 2 parameters: An object and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63)
+- `upsert(obj,extId,fields(...))` Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80)
+- `relationship(obj,extId,value)` Adds a lookup or 'dome insert' to a record. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40)
 
 ### dhis2
-- `event(...)`
-- `dataValueSet(...)`
+- `event(...)` Creates an event. [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60)
+- `dataValueSet(...)` Send data values using the dataValueSets resource [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L62-L82)
 
 ### OpenMRS
-- `person(...)`
-- `patient(...)`
+- `person(...)` Takes a payload of data to create a person [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L31-L60)
+- `patient(...)` Takes a payload of data to create a patient [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90)
 
 
 **For code block examples of job expressions, go to the [Appendix](#appendix).**
