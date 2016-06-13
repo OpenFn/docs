@@ -7,7 +7,7 @@ template:
     index: README.md
 
 # Base URL of the published website
-baseUrl: http://openfn.github.io/
+baseUrl: http://openfn.github.io/docs/
 
 exclude:
     - images
@@ -20,16 +20,16 @@ menu:
   items:
     home:
         text: Introduction
-        relativeUrl: /#introduction
+        relativeUrl: "#introduction"
     apps:
         text: Source Apps
-        relativeUrl: /#connecting-source-applications
+        relativeUrl: "#connecting-source-applications"
     filters:
         text: Filters
-        relativeUrl: #filters
+        relativeUrl: "#filters"
     creds:
         text: Credentials
-        relativeUrl: #credentials
+        relativeUrl: "#credentials"
     jobs:
         text: Jobs
         relativeUrl: /#jobs
