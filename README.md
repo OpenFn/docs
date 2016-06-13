@@ -128,7 +128,7 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 4. **Active?** - A boolean which determines whether the job runs in real-time when matching messages arrive.
 
 ## Common Helper Functions for writing Jobs
-- `fields(...)`
+- `fields(list_of_fields)` zips key value pairs into an object. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L258)
 - `field(destination_field_name__c, value)`
 - `dataValue(JSON_path)`
 - `each(JSON_path, operation(...))`

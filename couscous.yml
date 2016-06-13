@@ -6,6 +6,10 @@ template:
     # Name of the index file (default is "README.md")
     index: README.md
 
+github:
+    user: OpenFn
+    repo: docs
+
 # Base URL of the published website
 baseUrl: http://openfn.github.io/docs/
 
