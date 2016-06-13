@@ -13,13 +13,15 @@ exclude:
     - images
     - job-library
 
-title: OpenFn Documentation
+github:
+    user: OpenFn
+    repo: docs
+
+title: OpenFn Docs
+
 
 menu:
   items:
-    home:
-        text: Introduction
-        relativeUrl: "#introduction"
     apps:
         text: Source Apps
         relativeUrl: "#connecting-source-applications"
@@ -44,9 +46,6 @@ menu:
     troubleshooting:
         text: Troubleshooting
         relativeUrl: "#troubleshooting"
-    diy:
-        text: DIY
-        relativeUrl: "#diy"
     appendix:
         text: Appendix
         relativeUrl: "#appendix"

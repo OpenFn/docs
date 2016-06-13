@@ -12,47 +12,21 @@
         <link rel="stylesheet" href="{{ baseUrl }}/css/main.css">
     </head>
     <body>
-
-        <header class="navbar navbar-default navbar-fixed-top">
-
-            <a class="navbar-brand" href="#introduction">
-                {{ title|default('The title') }}
-            </a>
-
-        </header>
-
-        <main class="{{ menu ? 'container-fluid' : 'container' }}">
-            <div class="row">
-
-                {% if menu is defined %}
-
-                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
-
-                        <ul class="nav nav-pills nav-stacked">
-                            {% for itemId, item in menu.items %}
-                                <li class="{{ itemId == currentMenu ? 'active' }}">
-                                    <a href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.relativeUrl) }}">
-                                        {{ item.text|raw }}
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-
-                    </nav>
-
-                {% endif %}
-
-                <section id="content" class="{{ menu ? 'col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10' : 'col-sm-12' }}">
-                    {{ content|raw }}
-                </section>
-
-            </div>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+          <a class="navbar-brand" href="#introduction">
+              {{ title|default('OpenFn Docs') }}
+          </a>
+        </nav>
+        <main class="container">
+          <div class="row">
+            {{ content|raw }}
+          </div>
         </main>
 
         <footer>
             <div class="{{ menu ? 'container-fluid' : 'container' }}">
                 <p class="text-muted">
-                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
+                    <a href="https://www.openfn.org" title="OpenFn">OpenFn</a>
                 </p>
             </div>
         </footer>
