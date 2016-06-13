@@ -2,12 +2,12 @@ template:
     # Name of the directory containing the website template (default is "website")
     directory: page-template
     # Or if you are using a remote template, you can set the Git URL
-    # url: https://github.com/CouscousPHP/Template-Light.git
+    # url: https:docs/docs/github.comdocs/CouscousPHPdocs/Template-Light.git
     # Name of the index file (default is "README.md")
     index: README.md
 
 # Base URL of the published website
-baseUrl: http://openfn.github.io/core-docs
+baseUrl: http:docs/docs/openfn.github.iodocs/docs
 
 exclude:
     - images
@@ -20,31 +20,31 @@ menu:
   items:
     home:
         text: Introduction
-        absoluteUrl: /#introduction
+        relativeUrl: docs#introduction
     apps:
         text: Source Apps
-        absoluteUrl: /#connecting-source-applications
+        relativeUrl: docs#connecting-source-applications
     filters:
         text: Filters
-        absoluteUrl: /#filters
+        relativeUrl: docs#filters
     creds:
         text: Credentials
-        absoluteUrl: /#credentials
+        relativeUrl: docs#credentials
     jobs:
         text: Jobs
-        absoluteUrl: /#jobs
+        relativeUrl: docs#jobs
     inbox:
         text: Inbox
-        absoluteUrl: /#inbox
+        relativeUrl: docs#inbox
     activity:
         text: Activity
-        absoluteUrl: /#activity
+        relativeUrl: docs#activity
     troubleshooting:
         text: Troubleshooting
-        absoluteUrl: /#troubleshooting
+        relativeUrl: docs#troubleshooting
     diy:
         text: DIY
-        absoluteUrl: /#diy
+        relativeUrl: docs/#diy
     appendix:
         text: Appendix
-        absoluteUrl: /#appendix
+        relativeUrl: docs/#appendix
