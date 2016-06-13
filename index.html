@@ -17,9 +17,6 @@
 
             <a class="navbar-brand" href="#introduction">
                 OpenFn Documentation
-                <small class="hidden-xs hidden-sm">
-                    Help with job expressions, filters, error-handling, and more on the OpenFn platform.
-                </small>
             </a>
 
         </header>
@@ -178,8 +175,8 @@
 <li><strong>Credential</strong> - The credential that will be used to gain access to that destination system.</li>
 <li><strong>Active?</strong> - A boolean which determines whether the job runs in real-time when matching messages arrive.</li>
 </ol>
-<h1 id="named-functions-for-writing-jobs">Named Functions for writing Jobs</h1>
-<h2 id="language-common">language-common</h2>
+<h2 id="named-functions">Named Functions</h2>
+<h3 id="language-common">language-common</h3>
 <ul>
 <li><code>fields(list_of_fields)</code> zips key value pairs into an object. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L258">(source)</a></li>
 <li><code>field(destination_field_name__c, value)</code></li>
@@ -188,28 +185,30 @@
 <li><code>beta.each(JSON_path, operation(...))</code> // Pre-release, new feature details coming.</li>
 <li><code>merge(JSON_path, fields(...)</code></li>
 </ul>
-<h2 id="salesforce">Salesforce</h2>
+<h3 id="salesforce">Salesforce</h3>
 <ul>
 <li><code>create(obj,fields(...))</code></li>
 <li><code>upsert(obj,extId,fields(...))</code></li>
 <li><code>relationship(obj,extId,value)</code></li>
 </ul>
-<h2 id="dhis2">dhis2</h2>
+<h3 id="dhis2">dhis2</h3>
 <ul>
 <li><code>event(...)</code></li>
 <li><code>dataValueSet(...)</code></li>
 </ul>
-<h2 id="openmrs">OpenMRS</h2>
+<h3 id="openmrs">OpenMRS</h3>
 <ul>
 <li><code>person(...)</code></li>
 <li><code>patient(...)</code></li>
 </ul>
 <p><strong>For code block examples of job expressions, go to the <a href="#appendix">Appendix</a>.</strong></p>
+<hr />
 <h1 id="inbox">Inbox</h1>
 <p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.</p>
 <h3 id="messages">Messages</h3>
 <p>Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
 <p>To edit a message, click the &quot;pencil and paper&quot; icon next to that receipt. Be careful, as no original copy will be persisted.</p>
+<hr />
 <h1 id="activity">Activity</h1>
 <p>In this section of the portal, you can view a list of all &quot;submissions&quot; - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
 <h3 id="submissions">Submissions</h3>
@@ -217,6 +216,7 @@
 <blockquote>
 <p><strong>Note:</strong> Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
 </blockquote>
+<hr />
 <h1 id="troubleshooting">Troubleshooting</h1>
 <blockquote>
 <p>What happens if my survey data from ODK needs to link to existing records in my Salesforce system but a respondent enters or selects an invalid <code>external ID</code>?</p>
@@ -241,6 +241,7 @@
 <li><code>Required value missing</code></li>
 <li><code>ExternalId not found</code></li>
 </ul>
+<hr />
 <h1 id="diy">DIY</h1>
 <p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.</p>
 <blockquote>
@@ -263,6 +264,7 @@
 <p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
 <h2 id="language-xxx">language-xxx</h2>
 <p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system specific operations, like <code>relationship</code> or <code>upsert</code>.</p>
+<hr />
 <h1 id="appendix">Appendix</h1>
 <h2 id="block-code-examples">Block code examples</h2>
 <blockquote>
@@ -289,8 +291,9 @@ each(
   "$.data.data[*]",
   create("ODK_Submission__c", fields(
     field("Site_School_ID_Number__c", dataValue("school")),
-    field("Date_Completed__c", dataValue("date")), field("comments__c",
-    dataValue("comments")), field("ODK_Key__c", dataValue("*meta-instance-id*"))
+    field("Date_Completed__c", dataValue("date")),
+    field("comments__c", dataValue("comments")),
+    field("ODK_Key__c", dataValue("*meta-instance-id*"))
   ))
 )</code></pre>
 <h4 id="odk-to-salesforce-create-parent-record-with-many-children-from-parent-data">ODK to Salesforce: create parent record with many children from parent data</h4>
@@ -305,7 +308,7 @@ each(
     )),
     each(
       merge(dataPath("line_items[*]"), fields(
-        field("end", dataValue("$.data.time_end")),
+        field("end", dataValue("time_end")),
         field("parentId", lastReferenceValue("id"))
       )),
       create("line_item__c", fields(
@@ -443,9 +446,9 @@ patient(
 <pre><code class="language-js">        field("Main_Office_City__c", function(state) {
           return arrayToString([
             dataValue("Main_Office_City_a")(state) === null ? "" : dataValue("Main_Office_City_a")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),        
+            dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),
             dataValue("Main_Office_City_c")(state) === null ? "" : dataValue("Main_Office_City_c")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),        
+            dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),
           ].filter(Boolean), ',')
         }),</code></pre>
 <p>This will concatenate many values, even if one or more are null, writing them to a field called Main_Office_City_c.</p>
