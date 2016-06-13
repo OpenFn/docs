@@ -20,10 +20,10 @@ menu:
   items:
     home:
         text: Introduction
-        absoluteUrl: openfn.github.io/docs#introduction
+        absoluteUrl: http://openfn.github.io/docs#introduction
     apps:
         text: Source Apps
-        absoluteUrl: openfn.github.io/docs#connecting-source-applications
+        absoluteUrl: http://openfn.github.io/docs#connecting-source-applications
     filters:
         text: Filters
         relativeUrl: docs#filters
