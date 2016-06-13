@@ -20,22 +20,22 @@ menu:
   items:
     home:
         text: Introduction
-        absoluteUrl: /#introduction
+        relativeUrl: /#introduction
     apps:
         text: Source Apps
-        absoluteUrl: /#connecting-source-applications
+        relativeUrl: /#connecting-source-applications
     filters:
         text: Filters
-        relativeUrl: /#filters
+        relativeUrl: #filters
     creds:
         text: Credentials
-        relativeUrl: /#credentials
+        relativeUrl: #credentials
     jobs:
         text: Jobs
         relativeUrl: /#jobs
     inbox:
         text: Inbox
-        relativeUrl: /#inbox
+        relativeUrl: docs#inbox
     activity:
         text: Activity
         relativeUrl: /#activity
