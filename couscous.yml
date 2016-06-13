@@ -32,19 +32,19 @@ menu:
         relativeUrl: "#credentials"
     jobs:
         text: Jobs
-        relativeUrl: /#jobs
+        relativeUrl: "#jobs"
     inbox:
         text: Inbox
-        relativeUrl: docs#inbox
+        relativeUrl: "#inbox"
     activity:
         text: Activity
-        relativeUrl: /#activity
+        relativeUrl: "#activity"
     troubleshooting:
         text: Troubleshooting
-        relativeUrl: /#troubleshooting
+        relativeUrl: "#troubleshooting"
     diy:
         text: DIY
-        relativeUrl: /#diy
+        relativeUrl: "#diy"
     appendix:
         text: Appendix
-        relativeUrl: /#appendix
+        relativeUrl: "#appendix"
