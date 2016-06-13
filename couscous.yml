@@ -7,7 +7,7 @@ template:
     index: README.md
 
 # Base URL of the published website
-baseUrl: http:docs/docs/openfn.github.iodocs/docs
+baseUrl: http://openfn.github.io/docs/
 
 exclude:
     - images
@@ -44,7 +44,7 @@ menu:
         relativeUrl: docs#troubleshooting
     diy:
         text: DIY
-        relativeUrl: docs/#diy
+        relativeUrl: docs#diy
     appendix:
         text: Appendix
-        relativeUrl: docs/#appendix
+        relativeUrl: docs#appendix
