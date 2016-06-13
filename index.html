@@ -33,12 +33,12 @@
 
                         <ul class="nav nav-pills nav-stacked">
                                                             <li class="">
-                                    <a href="http://openfn.github.io/docs/#introduction">
+                                    <a href="http://openfn.github.io/docs#introduction">
                                         Introduction
                                     </a>
                                 </li>
                                                             <li class="">
-                                    <a href="http://openfn.github.io/docs/#connecting-source-applications">
+                                    <a href="http://openfn.github.io/docs#connecting-source-applications">
                                         Source Apps
                                     </a>
                                 </li>
@@ -116,9 +116,10 @@
 <li>Soon you'll see new messages arrive in your <strong><a href="https://www.openfn.org/receipts">history</a></strong> page.</li>
 </ol>
 <p>Next, learn how to define <strong>filters</strong> that trigger <strong>job</strong> runs.</p>
+<hr />
 <h1 id="filters">Filters</h1>
-<p>Filters are used to trigger jobs. Filters that are linked to active jobs will route incoming messages to that job and trigger its execution.</p>
-<p>The filter criteria is a string of valid <code>JSON</code> that will be used in the WHERE clause of an SQL query. In other words, If the JSON you write in your filter criteria is <em>included</em> in the body of the message sent to OpenFn, any active job triggered by that filter will run.</p>
+<p>Filters are used to trigger jobs. You, as a user, specify the filter <strong>criteria</strong> which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body <strong>matches</strong> the string of <code>JSON</code> you gave as a filter, the filter will run and trigger a job (assuming you created one).</p>
+<p>The filter criteria takes the form of a string of valid <code>JSON</code>. In a SQL query, this string will be used in the WHERE clause, for example:</p>
 <pre><code class="language-sql">SELECT * FROM receipts
   WHERE body::jsonb @&gt;
     '{"Name":"Alex Iwobi"}'::jsonb;</code></pre>
@@ -141,14 +142,16 @@
 <pre><code class="language-json">{"data":[{"outlet_call":"TRUE","new_existing":"Existing"}]}</code></pre>
 <h4 id="match-a-message-with-a-fragment-inside-another-object-called">Match a message with a fragment inside another object called <code>form</code>:</h4>
 <pre><code class="language-json">{"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}</code></pre>
+<hr />
 <h1 id="credentials">Credentials</h1>
 <p>Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.</p>
 <p>Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final &quot;/&quot; in these Urls:
 <code>https://login.salesforce.com</code> or <code>http://demo.openmrs.org/openmrs</code> or <code>https://play.dhis2.org</code>.</p>
 <p>Credentials can only be viewed, or edited by a single user — their &quot;owner&quot; (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
+<hr />
 <h1 id="jobs">Jobs</h1>
 <h2 id="writing-jobs-for-openfn">Writing Jobs for OpenFn</h2>
-<p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code> <a href="#examples">Examples</a></p>
+<p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code> <a href="#block-code-examples">Examples</a></p>
 <p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received. In most cases, a job is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
 <pre><code class="language-js">create("Patient__c", fields(
   field("Name", dataValue("form.surname")),
@@ -171,7 +174,7 @@
 <li><strong>Credential</strong> - The credential that will be used to gain access to that destination system.</li>
 <li><strong>Active?</strong> - A boolean which determines whether the job runs in real-time when matching messages arrive.</li>
 </ol>
-<h2 id="common-helper-functions">Common Helper Functions</h2>
+<h2 id="common-helper-functions-for-writing-jobs">Common Helper Functions for writing Jobs</h2>
 <ul>
 <li><code>fields(...)</code></li>
 <li><code>field(destination_field_name__c, value)</code></li>
@@ -180,7 +183,7 @@
 <li><code>beta.each(JSON_path, operation(...))</code> // Pre-release, new feature details coming.</li>
 <li><code>merge(JSON_path, fields(...)</code></li>
 </ul>
-<h2 id="destination-specific-functions">Destination Specific Functions</h2>
+<h2 id="destination-specific-functions-for-writing-jobs">Destination-Specific Functions for writing Jobs</h2>
 <h4 id="salesforce">Salesforce</h4>
 <ul>
 <li><code>create(obj,fields(...))</code></li>
@@ -197,15 +200,80 @@
 <li><code>person(...)</code></li>
 <li><code>patient(...)</code></li>
 </ul>
-<h2 id="examples">Examples</h2>
+<p><strong>For code block examples of job expressions, go to the <a href="#appendix">Appendix</a>.</strong></p>
+<hr />
+<h1 id="inbox">Inbox</h1>
+<p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.</p>
+<h3 id="messages">Messages</h3>
+<p>Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
+<p>To edit a message, click the &quot;pencil and paper&quot; icon next to that receipt. Be careful, as no original copy will be persisted.</p>
+<hr />
+<h1 id="activity">Activity</h1>
+<p>In this section of the portal, you can view a list of all &quot;submissions&quot; - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
+<h3 id="submissions">Submissions</h3>
+<p>Submissions are attempts made on a destination system by running a receipt through a Job Description. Submissions can be viewed and re-processed. Each submission has a <code>success</code>, <code>started_at</code>, <code>finsihed_at</code>, <code>job_description_id</code>, and <code>receipt_id</code> attribute. <code>Started_at</code> and <code>finished_at</code> are the timestamps when the submission began and ended.</p>
+<blockquote>
+<p><strong>Note:</strong> Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
+</blockquote>
+<hr />
+<h1 id="troubleshooting">Troubleshooting</h1>
+<blockquote>
+<p>What happens if my survey data from ODK needs to link to existing records in my Salesforce system but a respondent enters or selects an invalid <code>external ID</code>?</p>
+</blockquote>
+<p>Great question, and don't worry, it happens all the time. Assuming you've already taken all possible measures to either pre-load external IDs in your ODK form or use more human-proof IDs (like barcodes and fingerprints) here's the flow of work:</p>
+<ol>
+<li>
+<p>Read the email, and inspect the reason for failure.</p>
+</li>
+<li>
+<p>99% of failed submissions on OpenFn are due to <code>value mismatches</code>. The <em>collected</em> <code>id</code> in ODK doesn't match the <em>expected</em> <code>id</code> in Salesforce. You must now chose to either:</p>
+<p>A. Edit the source <code>id</code> in your <code>receipt</code> &amp; retry the attempt.</p>
+<p>B. Edit the related <code>id</code> in your destination system &amp; retry the attempt.</p>
+<p>C. Ignore the attempt—this source data will never reach your destination system.</p>
+</li>
+</ol>
+<p>Editing data in your destination system can be done through that system's interface. Many tools that act as <code>sources</code> (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.</p>
+<h2 id="common-error-messages">Common Error Messages</h2>
+<p>The most common error messages with English explanations are:</p>
+<ul>
+<li><code>DUPLICATE_VALUE: duplicate value found: ODK_uuid__c duplicates value on record with id: a0524000005wNw0</code> - The insert is blocked because you are attempting to create a new record with a unique field with the same value as an existing record.</li>
+<li><code>Required value missing</code></li>
+<li><code>ExternalId not found</code></li>
+</ul>
+<hr />
+<h1 id="diy">DIY</h1>
+<p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.</p>
+<blockquote>
+<p><strong>ETL</strong> = Extracting, Transforming and Loading of data</p>
+</blockquote>
+<p>To get started, <code>git clone</code> the following:</p>
+<ol>
+<li><a href="https://github.com/OpenFn/fn-lang">fn-lang</a></li>
+<li><a href="https://github.com/OpenFn/language-common">language-common</a></li>
+<li><a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</li>
+</ol>
+<h2 id="fn-lang-diesl">fn-lang (diesl)</h2>
+<p>fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the &quot;TL&quot; part of &quot;ETL&quot; on command. It can be run from a command line, or built into a hosted web service.</p>
+<h4 id="run-fn-lang-from-the-command-line-with-the-following">Run fn-lang from the command line with the following:</h4>
+<p><code>~/fn-lang$ lib/cli.js execute -l salesforce/FakeAdaptor -e tmp/expression.js -c tmp/config.json -d tmp/receipt.json</code></p>
+<blockquote>
+<p><strong>Command Explained:</strong> Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and destination configuration (-c)</p>
+</blockquote>
+<h2 id="language-common">language-common</h2>
+<p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
+<h2 id="language-xxx">language-xxx</h2>
+<p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system specific operations, like <code>relationship</code> or <code>upsert</code>.</p>
+<hr />
+<h1 id="appendix">Appendix</h1>
+<h2 id="block-code-examples">Block code examples</h2>
 <blockquote>
 <p>Below you can find some examples of block code for different functions and data handling contexts.</p>
 </blockquote>
-<h4 id="commcare-to-sf-upsert-then-create">CommCare to SF, Upsert then Create</h4>
+<h4 id="job-expression-for-commcare-to-sf">Job expression (for CommCare to SF)</h4>
 <p>The following job expression will take a matching receipt and use data from that receipt to upsert a <code>Patient__c</code> record in Salesforce and create multiple new <code>Patient_Visit__c</code> (child to Patient) records.</p>
 <pre><code class="language-js">upsert("Patient__c", "Patient_Id__c", fields(
   field("Patient_Id__c", dataValue("form.patient_ID")),
-  lookup("Nurse__r", "Nurse_ID_code__c", dataValue("form.staff_id")),
+  relationship("Nurse__r", "Nurse_ID_code__c", dataValue("form.staff_id")),
   field("Phone_Number__c", dataValue("form.mobile_phone"))
 )),
 each(
@@ -228,9 +296,6 @@ each(
 )</code></pre>
 <h4 id="odk-to-salesforce-create-parent-record-with-many-children-from-parent-data">ODK to Salesforce: create parent record with many children from parent data</h4>
 <p>Here, the user brings <code>time_end</code> and <code>parentId</code> onto the line items from the parent object.</p>
-<blockquote>
-<p><strong>NB - there was a known bug with the <code>combine</code> function which has been resolved. <code>combine</code> can be used to combine two operations into one and is commonly used to run multiple <code>create</code>'s inside an <code>each(path, operation)</code>. The source code for combine can be found here: <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222">language-common: combine</a></strong></p>
-</blockquote>
 <pre><code class="language-js">each(
   dataPath("data[*]"),
   combine(
@@ -252,6 +317,9 @@ each(
     )
   )
 )</code></pre>
+<blockquote>
+<p><strong>NB - there was a known bug with the <code>combine</code> function which has been resolved. <code>combine</code> can be used to combine two operations into one and is commonly used to run multiple <code>create</code>'s inside an <code>each(path, operation)</code>. The source code for combine can be found here: <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222">language-common: combine</a></strong></p>
+</blockquote>
 <h4 id="create-many-child-records-without-a-repeat-group-in-odk">Create many child records WITHOUT a repeat group in ODK</h4>
 <pre><code class="language-js">beta.each(
   "$.data.data[*]",
@@ -372,80 +440,28 @@ patient(
           )
         })</code></pre>
 <p>This will concatenate two values.</p>
+<h3 id="custom-concatenation-of-null-values">Custom concatenation of null values</h3>
+<pre><code class="language-js">        field("Main_Office_City__c", function(state) {
+          return arrayToString([
+            dataValue("Main_Office_City_a")(state) === null ? "" : dataValue("Main_Office_City_a")(state).toString().replace(/-/g, " "),
+            dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),        
+            dataValue("Main_Office_City_c")(state) === null ? "" : dataValue("Main_Office_City_c")(state).toString().replace(/-/g, " "),
+            dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),        
+          ].filter(Boolean), ',')
+        }),</code></pre>
+<p>This will concatenate many values, even if one or more are null, writing them to a field called Main_Office_City_c.</p>
 <h4 id="custom-nth-reference-id">Custom Nth reference ID</h4>
 <pre><code class="language-js">field("parent__c", function(state) {
     return state.references[state.references.length-1].id
   })</code></pre>
-<p>If you ever want to get at the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick. See how instead of taking the id of the &quot;last&quot; thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace &quot;length-1&quot; with &quot;length-2&quot;.</p>
-<h4 id="convert-date-string-to-iso-date-for-salesforce">Convert date string to ISO date for Salesforce</h4>
+<p>If you ever want to retrieve the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick. See how instead of taking the id of the &quot;last&quot; thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace &quot;length-1&quot; with &quot;length-2&quot;.</p>
+<h4 id="convert-date-string-to-standard-iso-date-for-salesforce">Convert date string to standard ISO date for Salesforce</h4>
 <pre><code class="language-js">field("Payment_Date__c", function(state) {
   return new Date(dataValue("payment_date")(state)).toISOString()
 })</code></pre>
 <hr />
-<h1 id="inbox">Inbox</h1>
-<p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.</p>
-<h3 id="messages">Messages</h3>
-<p>Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
-<p>To edit a message, click the &quot;pencil and paper&quot; icon next to that receipt. Be careful, as no original copy will be persisted.</p>
-<hr />
-<h1 id="activity">Activity</h1>
-<p>In this section of the portal, you can view a list of all &quot;submissions&quot; - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
-<h3 id="submissions">Submissions</h3>
-<p>Submissions are attempts made on a destination system by running a receipt through a Job Description. Submissions can be viewed and re-processed. Each submission has a <code>success</code>, <code>started_at</code>, <code>finsihed_at</code>, <code>job_description_id</code>, and <code>receipt_id</code> attribute. <code>Started_at</code> and <code>finished_at</code> are the timestamps when the submission began and ended.</p>
-<blockquote>
-<p><strong>Note:</strong> Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
-</blockquote>
-<hr />
-<h1 id="troubleshooting">Troubleshooting</h1>
-<blockquote>
-<p>What happens if my survey data from ODK needs to link to existing records in my Salesforce system but a respondent enters or selects an invalid <code>external ID</code>?</p>
-</blockquote>
-<p>Great question, and don't worry, it happens all the time. Assuming you've already taken all possible measures to either pre-load external IDs in your ODK form or use more human-proof IDs (like barcodes and fingerprints) here's the flow of work:</p>
-<ol>
-<li>
-<p>Read the email, and inspect the reason for failure.</p>
-</li>
-<li>
-<p>99% of failed submissions on OpenFn are due to <code>value mismatches</code>. The <em>collected</em> <code>id</code> in ODK doesn't match the <em>expected</em> <code>id</code> in Salesforce. You must now chose to either:</p>
-<p>A. Edit the source <code>id</code> in your <code>receipt</code> &amp; retry the attempt.</p>
-<p>B. Edit the related <code>id</code> in your destination system &amp; retry the attempt.</p>
-<p>C. Ignore the attempt—this source data will never reach your destination system.</p>
-</li>
-</ol>
-<p>Editing data in your destination system can be done through that system's interface. Many tools that act as <code>sources</code> (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.</p>
-<h2 id="common-error-messages">Common Error Messages</h2>
-<p>The most common error messages with English explanations are:</p>
-<ul>
-<li><code>DUPLICATE_VALUE: duplicate value found: ODK_uuid__c duplicates value on record with id: a0524000005wNw0</code> - The insert is blocked because you are attempting to create a new record with a unique field with the same value as an existing record.</li>
-<li><code>Required value missing</code></li>
-<li><code>ExternalId not found</code></li>
-</ul>
-<hr />
-<h1 id="diy">DIY</h1>
-<p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.</p>
-<blockquote>
-<p><strong>ETL</strong> = Extracting, Transforming and Loading of data</p>
-</blockquote>
-<p>To get started, <code>git clone</code> the following:</p>
-<ol>
-<li><a href="https://github.com/OpenFn/fn-lang">fn-lang</a></li>
-<li><a href="https://github.com/OpenFn/language-common">language-common</a></li>
-<li><a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</li>
-</ol>
-<h2 id="fn-lang-diesl">fn-lang (diesl)</h2>
-<p>fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the &quot;TL&quot; part of &quot;ETL&quot; on command. It can be run from a command line, or built into a hosted web service.</p>
-<h4 id="run-fn-lang-from-the-command-line-with-the-following">Run fn-lang from the command line with the following:</h4>
-<p><code>~/fn-lang$ lib/cli.js execute -l salesforce/FakeAdaptor -e tmp/expression.js -c tmp/config.json -d tmp/receipt.json</code></p>
-<blockquote>
-<p><strong>Command Explained:</strong> Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and destination configuration (-c)</p>
-</blockquote>
-<h2 id="language-common">language-common</h2>
-<p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
-<h2 id="language-xxx">language-xxx</h2>
-<p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system specific operations, like <code>relationship</code> or <code>upsert</code>.</p>
-<hr />
-<h1 id="appendix">Appendix</h1>
-<h2 id="kobo-setting-up-source-applications">Kobo: Setting up source applications</h2>
+<h2 id="connecting-up-source-applications">Connecting up source applications</h2>
+<h3 id="kobo">Kobo</h3>
 <ol>
 <li>To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.</li>
 <li>Once selecting a project, the <code>Project Settings</code> link will appear at the top left side of the screen. Click it to open the Project Settings page.</li>
@@ -480,10 +496,10 @@ patient(
     null,
     null
   ],
-  "_bamboo_dataset_id": "",
-  "_attachments": []
-}</code></pre>
+  "_bamboo_dataset_id": "",</code></pre>
 <hr />
+<p>&quot;_attachments&quot;: []
+}</p>
                 </section>
 
             </div>
