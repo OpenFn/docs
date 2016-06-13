@@ -153,6 +153,7 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 
 **For code block examples of job expressions, go to the [Appendix](#appendix).**
 
+***
 
 # Inbox
 Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.
@@ -162,6 +163,8 @@ Messages are stored payloads or data that were sent via HTTP post to your inbox.
 
 To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.
 
+***
+
 # Activity
 In this section of the portal, you can view a list of all "submissions" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).
 
@@ -169,6 +172,8 @@ In this section of the portal, you can view a list of all "submissions" - i.e. i
 Submissions are attempts made on a destination system by running a receipt through a Job Description. Submissions can be viewed and re-processed. Each submission has a `success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id` attribute. `Started_at` and `finished_at` are the timestamps when the submission began and ended.
 
 > **Note:** Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our [Troubleshooting](#troubleshooting) section below.
+
+***
 
 # Troubleshooting
 
@@ -194,6 +199,8 @@ The most common error messages with English explanations are:
 + `Required value missing`
 + `ExternalId not found`
 
+***
+
 # DIY
 OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.
 
@@ -217,6 +224,8 @@ fn-lang is a coordination tool that takes a job expression, a JSON payload, an a
 
 ## language-xxx
 `language-xxx` is a "destination adaptor" that knows how to connect to the system in question and provides system specific operations, like `relationship` or `upsert`.
+
+***
 
 # Appendix
 
@@ -249,8 +258,9 @@ each(
   "$.data.data[*]",
   create("ODK_Submission__c", fields(
     field("Site_School_ID_Number__c", dataValue("school")),
-    field("Date_Completed__c", dataValue("date")), field("comments__c",
-    dataValue("comments")), field("ODK_Key__c", dataValue("*meta-instance-id*"))
+    field("Date_Completed__c", dataValue("date")),
+    field("comments__c", dataValue("comments")),
+    field("ODK_Key__c", dataValue("*meta-instance-id*"))
   ))
 )
 ```
@@ -269,7 +279,7 @@ each(
     )),
     each(
       merge(dataPath("line_items[*]"), fields(
-        field("end", dataValue("$.data.time_end")),
+        field("end", dataValue("time_end")),
         field("parentId", lastReferenceValue("id"))
       )),
       create("line_item__c", fields(
@@ -439,9 +449,9 @@ This will concatenate two values.
         field("Main_Office_City__c", function(state) {
           return arrayToString([
             dataValue("Main_Office_City_a")(state) === null ? "" : dataValue("Main_Office_City_a")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),        
+            dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),
             dataValue("Main_Office_City_c")(state) === null ? "" : dataValue("Main_Office_City_c")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),        
+            dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),
           ].filter(Boolean), ',')
         }),
 ```
