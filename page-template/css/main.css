@@ -11,26 +11,6 @@ body {
     padding-left: 0px !important;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    background-color: #f5f5f5;
-    padding: 25px 0;
-    font-size: 15px;
-    text-align: center;
-    text-transform: uppercase;
-    opacity: 0.6;
-    transition: opacity .2s ease;
-}
-footer:hover {
-    opacity: 1.0;
-    transition: opacity .2s ease;
-}
-footer p {
-    margin: 0;
-}
-
 h3 {
     font-size: 23px;
 }
@@ -95,7 +75,7 @@ header.navbar {
         margin-left: 0px;
         /* box-shadow: 2px 4px 3px rgba(0,0,0,0.4); */
         height: 100%;
-        overflow-y: scroll;
+        overflow-y: auto;
         overflow-x: hidden;
     }
 
