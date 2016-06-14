@@ -13,6 +13,7 @@ In this guide you'll find documentation to help you write filters and jobs, alon
 
 If you have any questions, please don't hesitate to email [admin@openfn.org](mailto:admin@openfn.org).
 
+
 # Connecting Source Applications
 Most modern web applications have a feature that allows you to `push`, `publish`, or `post` data to another URL when a certain **event** takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
 
@@ -24,7 +25,6 @@ Most modern web applications have a feature that allows you to `push`, `publish`
 
 Next, learn how to define **filters** that trigger **job** runs.
 
-***
 
 # Filters
 Filters are used to trigger jobs. You, as a user, specify the filter **criteria** which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body **matches** the string of `JSON` you gave as a filter, the filter will run and trigger a job (assuming you created one).
@@ -81,7 +81,6 @@ Message 'b' does not include `"formID":"patient_registration_v7"` and will not m
 {"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}
 ```
 
-***
 
 # Credentials
 Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.
@@ -91,7 +90,6 @@ Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUr
 
 Credentials can only be viewed, or edited by a single user — their "owner" (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.
 
-***
 
 # Jobs
 
@@ -130,30 +128,28 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 ## Named Functions
 
 ### language-common
+- `field(destination_field_name__c, value)` Returns a key, value pair in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L248)
 - `fields(list_of_fields)` zips key value pairs into an object. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L258)
-- `field(destination_field_name__c, value)`
-- `dataValue(JSON_path)`
-- `each(JSON_path, operation(...))`
-- `beta.each(JSON_path, operation(...))` // Pre-release, new feature details coming.
-- `merge(JSON_path, fields(...)`
+- `dataValue(JSON_path)` Picks out a single value from source data. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L71)
+- `each(JSON_path, operation(...))` Scopes an array of data based on a JSONPath [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L160)
+- `beta.each(JSON_path, operation(...))` // Pre-release: new feature details coming. [(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2)
+- `merge(JSON_path, fields(...)` Merges fields into each item in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L272)
 
 ### Salesforce
-- `create(obj,fields(...))`
-- `upsert(obj,extId,fields(...))`
-- `relationship(obj,extId,value)`
+- `create(obj,fields(...))` Create a new object. Takes 2 parameters: An object and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63)
+- `upsert(obj,extId,fields(...))` Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80)
+- `relationship(obj,extId,value)` Adds a lookup or 'dome insert' to a record. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40)
 
 ### dhis2
-- `event(...)`
-- `dataValueSet(...)`
+- `event(...)` Creates an event. [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60)
+- `dataValueSet(...)` Send data values using the dataValueSets resource [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L62-L82)
 
 ### OpenMRS
-- `person(...)`
-- `patient(...)`
-
+- `person(...)` Takes a payload of data to create a person [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L31-L60)
+- `patient(...)` Takes a payload of data to create a patient [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90)
 
 **For code block examples of job expressions, go to the [Appendix](#appendix).**
 
-***
 
 # Inbox
 Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.
@@ -163,7 +159,6 @@ Messages are stored payloads or data that were sent via HTTP post to your inbox.
 
 To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.
 
-***
 
 # Activity
 In this section of the portal, you can view a list of all "submissions" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).
@@ -173,7 +168,6 @@ Submissions are attempts made on a destination system by running a receipt throu
 
 > **Note:** Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our [Troubleshooting](#troubleshooting) section below.
 
-***
 
 # Troubleshooting
 
@@ -199,7 +193,6 @@ The most common error messages with English explanations are:
 + `Required value missing`
 + `ExternalId not found`
 
-***
 
 # DIY
 OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.
@@ -225,7 +218,6 @@ fn-lang is a coordination tool that takes a job expression, a JSON payload, an a
 ## language-xxx
 `language-xxx` is a "destination adaptor" that knows how to connect to the system in question and provides system specific operations, like `relationship` or `upsert`.
 
-***
 
 # Appendix
 
@@ -323,7 +315,8 @@ beta.each(
 create("custom_obj__c", fields(
             relationship("RecordType", "name", dataValue("submission_type"),
             field("name", dataValue("Name"))
-))
+            )
+      ))
 ```
 
 
@@ -409,6 +402,8 @@ patient(
   )
 )
 ```
+## Examples of Anonymous Functions
+Different to [Named Functions](#named-functions), Anoynmous functions are generic pieces of javascript which you can write to suit your needs. Here are some examples of these custom functions:
 
 #### Custom replacer
 ```js
@@ -473,8 +468,6 @@ field("Payment_Date__c", function(state) {
 })
 ```
 
-***
-
 ## Connecting up source applications
 
 ### Kobo
@@ -515,6 +508,5 @@ Here's a sample post from Kobo REST service. Note that questions inside groups a
   "_bamboo_dataset_id": "",
   ```
 
-  ***
   "_attachments": []
 }
