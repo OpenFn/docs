@@ -90,7 +90,7 @@ body {
 
 @media (min-width: 991px) {
     #contents-dropdown-toggle{
-        display: none !importants;
+        display: none !important;
     }
 
 @media(min-width:768px) {
