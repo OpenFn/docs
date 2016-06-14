@@ -16,6 +16,7 @@ body {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
+    overflow: auto;
 }
 
 #wrapper.toggled {
@@ -122,6 +123,10 @@ body {
         position: relative;
     }
 
+    #page-content-wrapper .container .row {
+      width: 95%;
+    }
+
     #wrapper.toggled #page-content-wrapper {
         position: relative;
         margin-right: 0;
@@ -140,3 +145,17 @@ pre code {
 }
 
 a:hover, a:focus {text-decoration: none;}
+
+#toc .h1 {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin: 0px;
+  padding: 0px;
+}
+
+#toc .h2 {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  padding-left: 10px;
+  margin: 0px;
+}

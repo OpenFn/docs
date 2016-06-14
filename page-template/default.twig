@@ -78,8 +78,8 @@
           window.addEventListener("hashchange", shiftWindow);
 
           $('#toc').toc({
-            'selectors': 'h1', //elements to use as headings
-            'listType' : "<ul class='sidebar-nav'/>",
+            'selectors': 'h1, h2', //elements to use as headings
+            'listType' : "<ul class='sidebar-nav'/>", //the element that will contain the li's
             'container': 'body', //element to find all selectors in
             'smoothScrolling': true, //enable or disable smooth scrolling on click
             'prefix': 'toc', //prefix for anchor tags and class names
@@ -93,7 +93,7 @@
                 return $heading.text();
             },
             'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
-              return ""
+              return $heading[0].tagName.toLowerCase();
             }
           });
 
