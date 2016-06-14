@@ -638,7 +638,7 @@ If you're looking for a way to replace all instances, we suggest you use a regex
             }
           });
 
-          $(`#toc-mobile`).append(`<a href="#" id="contents-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>`);
+          $(`#toc-mobile`).prepend(`<a href="#" id="contents-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>`);
 
           $("#menu-toggle").click(function(e) {
               e.preventDefault();
