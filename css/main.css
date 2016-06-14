@@ -16,10 +16,7 @@ body {
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
     transition: all 0.5s ease;
-}
-
-#wrapper.toggled {
-    padding-left: 250px;
+    overflow: auto;
 }
 
 #sidebar-wrapper {
@@ -37,19 +34,10 @@ body {
     transition: all 0.5s ease;
 }
 
-#wrapper.toggled #sidebar-wrapper {
-    width: 250px;
-}
-
 #page-content-wrapper {
     width: 100%;
     position: absolute;
     padding: 15px;
-}
-
-#wrapper.toggled #page-content-wrapper {
-    position: absolute;
-    margin-right: -250px;
 }
 
 /* Sidebar Styles */
@@ -100,6 +88,11 @@ body {
     background: none;
 }
 
+@media (min-width: 991px) {
+    #contents-dropdown-toggle{
+        display: none !importants;
+    }
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
@@ -113,13 +106,13 @@ body {
         width: 250px;
     }
 
-    #wrapper.toggled #sidebar-wrapper {
-        width: 0;
-    }
-
     #page-content-wrapper {
         padding: 20px;
         position: relative;
+    }
+
+    #page-content-wrapper .container .row {
+      width: 95%;
     }
 
     #wrapper.toggled #page-content-wrapper {
@@ -140,3 +133,18 @@ pre code {
 }
 
 a:hover, a:focus {text-decoration: none;}
+
+#toc .h1 {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin: 0px;
+  padding: 0px;
+}
+
+#toc .h2 {
+  font-size: 12px !important;
+  font-weight: 400 !important;
+  margin: 0px;
+}
+
+#toc .h2 > a {padding-left: 10px;}

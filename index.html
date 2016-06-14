@@ -24,19 +24,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
               </button>
-              <a href="#menu-toggle" class="navbar-brand" id="menu-toggle"><i class="fa fa-bars"></i></a>
               <a class="navbar-brand" href="#">OpenFn Docs</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <!-- <form class="navbar-form navbar-left" role="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-              </form> -->
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="https://www.openfn.org"><i class="fa fa-cube fa-lg"></i>&nbsp;&nbsp;OpenFn.org</a></li>
                 <li><a href="https://www.github.com/OpenFn/docs"><i class="fa fa-github fa-lg"></i>&nbsp;&nbsp;GitHub</a></li>
+                <li class="dropdown" id="toc-mobile" />
               </ul>
             </div>
           </div>
@@ -554,8 +548,8 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 <li>Credentials <a href="#credentials">(Read More)</a></li>
 <li>Inbox <a href="#inbox">(Read More)</a></li>
 <li>Activity <a href="#activity">(Read More)</a></li>
-<li>
-<p>Settings <a href="#">(Read More)</a></p>
+<li>Settings </li>
+</ul>
 <h4 id="4-inbox-tab">4. Inbox Tab</h4>
 <p>Navigate to your &quot;Inbox&quot; and you should see your first message associated with a &quot;sample job&quot;. Click on it. You can now choose to do the following:</p>
 <ul>
@@ -577,8 +571,6 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 <p>Navigate to &quot;Credentials&quot; to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
 <h4 id="8-settings-tab">8. Settings Tab</h4>
 <p>The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.</p>
-</li>
-</ul>
             </div>
           </main>
         </div>
@@ -607,8 +599,28 @@ If you're looking for a way to replace all instances, we suggest you use a regex
           window.addEventListener("hashchange", shiftWindow);
 
           $('#toc').toc({
-            'selectors': 'h1', //elements to use as headings
-            'listType' : "<ul class='sidebar-nav'/>",
+            'selectors': 'h1, h2', //elements to use as headings
+            'listType' : "<ul class='sidebar-nav'/>", //the element that will contain the li's
+            'container': 'body', //element to find all selectors in
+            'smoothScrolling': true, //enable or disable smooth scrolling on click
+            'prefix': 'toc', //prefix for anchor tags and class names
+            'onHighlight': function(el) {}, //called when a new section is highlighted
+            'highlightOnScroll': true, //add class to heading that is currently in focus
+            'highlightOffset': 100, //offset to trigger the next headline
+            'anchorName': function(i, heading, prefix) { //custom function for anchor name
+                return prefix+i;
+            },
+            'headerText': function(i, heading, $heading) { //custom function building the header-item text
+                return $heading.text();
+            },
+            'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
+              return $heading[0].tagName.toLowerCase();
+            }
+          });
+
+          $('#toc-mobile').toc({
+            'selectors': 'h1, h2', //elements to use as headings
+            'listType' : "<ul class='dropdown-menu'/>", //the element that will contain the li's
             'container': 'body', //element to find all selectors in
             'smoothScrolling': true, //enable or disable smooth scrolling on click
             'prefix': 'toc', //prefix for anchor tags and class names
@@ -625,6 +637,8 @@ If you're looking for a way to replace all instances, we suggest you use a regex
               return ""
             }
           });
+
+          $(`#toc-mobile`).append(`<a href="#" id="contents-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>`);
 
           $("#menu-toggle").click(function(e) {
               e.preventDefault();
