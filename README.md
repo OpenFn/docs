@@ -94,7 +94,7 @@ Credentials can only be viewed, or edited by a single user — their "owner" (or
 # Jobs
 
 ## Writing Jobs for OpenFn
-`{ like_to_hack_and_smash ? goto '#examples' : read_on}` [Examples](#block-code-examples)
+`{ like_to_hack_and_smash ? goto '#examples' : read_on}` [Examples](#block-code-examples-for-writing-jobs)
 
 A job defines the specific series of tasks or database actions to be performed when a triggering message is received. In most cases, a job is a series of `create` or `upsert` actions that are run after a message arrives, using data from that message. It could look like this:
 ```js
@@ -195,35 +195,111 @@ The most common error messages with English explanations are:
 
 
 # DIY
-OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.
+OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line. You can even take this further and wrap them together in your own hosted service!
 
 > **ETL** = Extracting, Transforming and Loading of data
 
-To get started, `git clone` the following:
-1. [fn-lang](https://github.com/OpenFn/fn-lang)
-2. [language-common](https://github.com/OpenFn/language-common)
-3. [language-xxx](https://github.com/OpenFn/language-common) (an adaptor of your choice, from github.com/OpenFn)
+**To get started, follow these steps:**
+  1. Create an empty directory somewhere on your local machine (e.g. call it "OpenFn")
+  2. Open up a terminal, cd into the new directory, and git clone the following:
+    - `git clone` [fn-lang](https://github.com/OpenFn/fn-lang)
+    - `git clone` [language-common](https://github.com/OpenFn/language-common)
+    - `git clone` [language-xxx](https://github.com/OpenFn/language-common) (an adaptor of your choice, from github.com/OpenFn)
 
-## fn-lang (diesl)
-fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the "TL" part of "ETL" on command. It can be run from a command line, or built into a hosted web service.
+    ### fn-lang (diesl)
+    fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the "TL" part of "ETL" on command. It can be run from a command line, or built into a hosted web service.
 
-#### Run fn-lang from the command line with the following:
-`~/fn-lang$ lib/cli.js execute -l salesforce/FakeAdaptor -e tmp/expression.js -c tmp/config.json -d tmp/receipt.json`
+    ### language-common
+    `language-common` provides basic data manipulation functionality like `each`, `field`, and `toArray`.
 
-> **Command Explained:** Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and destination configuration (-c)
+    ### language-xxx
+    `language-xxx` is a "destination adaptor" that knows how to connect to the system in question and provides system-specific operations, like `relationship` or `upsert`. Examples: `language-dhis2`, `language-salesforce`, `language-openmrs`.
 
-## language-common
-`language-common` provides basic data manipulation functionality like `each`, `field`, and `toArray`.
+  3. cd into 'fn-lang'
+  4. type into the terminal the following commands (in order):
+    - npm install
+    - npm link ../language-common
+    - npm link ../language-xxx (Whatever adaptor you chose. For this demonstration we will use DHIS2)
 
-## language-xxx
-`language-xxx` is a "destination adaptor" that knows how to connect to the system in question and provides system specific operations, like `relationship` or `upsert`.
+  5. Create a folder named "tmp" inside "fn-lang".
+  6. Inside "tmp", you need to create 3 files: `config.json`, `expression.js` and `message.json`.
+
+  > Click [HERE](#sample-code-for-diy-section) to get started by using some sample code for each of the 3 files.
+
+  7. Run fn-lang from the command line with the following:
+
+  `~/fn-lang$ lib/cli.js execute -l dhis2 -e tmp/expression.js -c tmp/config.json -d tmp/message.json`
+
+  **Command Explained:** Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and a destination configuration file (-c).
+
+  > **Note:** Depending on which language-pack you have decided to use, you will need to change this command by replacing "dhis2" with the name of the language-pack you are using. E.g. "openmrs" or "salesforce/FakeAdaptor" (special case).  
+
+  8. Check out the results of the posted data! Open up expression.js and message.json to manipulate the outcome and get a feel for how it works.
 
 
 # Appendix
 
-## Block code examples
+## Sample code for DIY section
+Below you can find sample code to fill the 3 files required to run fn-lang - `message.json`, `expression.js` and `config.json`.
 
-> Below you can find some examples of block code for different functions and data handling contexts.
+### message.json
+```json
+{
+  "xform_ids": [],
+  "version": null,
+  "user_id": "user1",
+  "server_date_opened": null,
+  "server_date_modified": null,
+  "properties": {
+    "prop_c": "2013-05-18",
+    "prop_b": "Female",
+    "prop_a": 99,
+    "owner_id": null,
+    "external_id": null,
+    "date_opened": null,
+    "date": "2013-05-17",
+    "case_type": "case_type",
+    "case_name": "Demo"
+  },
+  "indices": {}
+}
+```
+
+### expression.js
+```js
+event(
+  fields(
+    field("program", "eBAyeGv0exc"),
+    field("orgUnit", "DiszpKrYNg8"),
+    field("eventDate", dataValue("properties.date")),
+    field("status", "COMPLETED"),
+    field("storedBy", "admin"),
+    field("coordinate", {
+      "latitude": "59.8",
+      "longitude": "10.9"
+    }),
+    field("dataValues", function(state) {
+      return [
+        { "dataElement": "qrur9Dvnyt5", "value": dataValue("properties.prop_a")(state) },
+        { "dataElement": "oZg33kd9taw", "value": dataValue("properties.prop_b")(state) },
+        { "dataElement": "msodh3rEMJa", "value": dataValue("properties.prop_c")(state) }
+      ]
+    })
+  )
+)
+```
+
+### config.json
+```json
+{
+  "username": "admin",
+  "password": "district",
+  "apiUrl": "https://play.dhis2.org/demo"
+}
+```
+
+## Block code examples for writing jobs
+Below you can find some examples of block code for different functions and data handling contexts.
 
 #### Job expression (for CommCare to SF)
 The following job expression will take a matching receipt and use data from that receipt to upsert a `Patient__c` record in Salesforce and create multiple new `Patient_Visit__c` (child to Patient) records.
@@ -416,50 +492,56 @@ field(
 ```
 This will replace all "cats" with "dogs" in the string that lives at `path_to_data`.
 
+> **NOTE:** The JavaScript `replace()` function only replaces the first instance of whatever argument you specify.
+If you're looking for a way to replace all instances, we suggest you use a regex like we did in the [example](#custom-concatenation-of-null-values) below.
+
 #### Custom arrayToString
 ```js
-      field("target_specie_list__c", function(state) {
-        return Array.apply(
-          null, sourceValue("$.data.target_specie_list")(state)
-        ).join(', ')
-      }),
+field("target_specie_list__c", function(state) {
+  return Array.apply(
+    null, sourceValue("$.data.target_specie_list")(state)
+  ).join(', ')
+}),
 ```
 It will take an array, and concatenate each item into a string with a ", " separator.
 
 #### Custom concatenation
 ```js
-        field("ODK_Key__c", function (state) {
-          return (
-            dataValue("metaId")(state).concat(
-              "(", dataValue("index")(state), ")"
-            )
-          )
-        })
+field("ODK_Key__c", function (state) {
+  return (
+    dataValue("metaId")(state).concat(
+      "(", dataValue("index")(state), ")"
+    )
+  )
+})
 ```
 This will concatenate two values.
 
 ### Custom concatenation of null values
-
-```js
-        field("Main_Office_City__c", function(state) {
-          return arrayToString([
-            dataValue("Main_Office_City_a")(state) === null ? "" : dataValue("Main_Office_City_a")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_c")(state) === null ? "" : dataValue("Main_Office_City_c")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),
-          ].filter(Boolean), ',')
-        }),
-```
-
 This will concatenate many values, even if one or more are null, writing them to a field called Main_Office_City_c.
 
+```js
+...
+  field("Main_Office_City__c", function(state) {
+    return arrayToString([
+      dataValue("Main_Office_City_a")(state) === null ? "" : dataValue("Main_Office_City_a")(state).toString().replace(/-/g, " "),
+      dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),
+      dataValue("Main_Office_City_c")(state) === null ? "" : dataValue("Main_Office_City_c")(state).toString().replace(/-/g, " "),
+      dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),
+    ].filter(Boolean), ',')
+  })
+```
+> Notice how this custom function makes use of the **regex** `/-/g` to ensure that all instances are accounted for (g = global search).
+
 #### Custom Nth reference ID
+If you ever want to retrieve the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick.
+
 ```js
 field("parent__c", function(state) {
     return state.references[state.references.length-1].id
   })
 ```
-If you ever want to retrieve the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick. See how instead of taking the id of the "last" thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace "length-1" with "length-2".
+See how instead of taking the id of the "last" thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace "length-1" with "length-2".
 
 #### Convert date string to standard ISO date for Salesforce
 ```js
@@ -467,6 +549,7 @@ field("Payment_Date__c", function(state) {
   return new Date(dataValue("payment_date")(state)).toISOString()
 })
 ```
+> **NOTE**: The output of this function will always be formatted according to GMT time-zone.
 
 ## Connecting up source applications
 
@@ -506,7 +589,47 @@ Here's a sample post from Kobo REST service. Note that questions inside groups a
     null
   ],
   "_bamboo_dataset_id": "",
-  ```
-
   "_attachments": []
 }
+  ```
+  # Quick Start Guide
+  Want to get up and running in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!
+
+  #### 1. Create account
+  If you haven't already, create an account at [OpenFn.org](https://www.openfn.org/signup)
+
+  #### 2. Log In
+  After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer **Dashboard**. Click on one to start.
+
+  #### 3. Inner Project Dashboard
+  You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:
+    - Jobs [(Read More)](#jobs)
+    - Filters [(Read More)](#filter)
+    - Credentials [(Read More)](#credentials)
+    - Inbox [(Read More)](#inbox)
+    - Activity [(Read More)](#activity)
+    - Settings [(Read More)](#)
+
+  #### 4. Inbox Tab
+  Navigate to your "Inbox" and you should see your first message associated with a "sample job". Click on it. You can now choose to do the following:
+  - Edit the message (mainly for the purpose of fixing mistakes in data),
+  - Or manually run the job associated with a filter which has identified your first message as a trigger.
+
+  After clicking "Run Job Manually", wait for the job to finish and then click on "View Logs" to see what happened to the data inside of the message.
+
+  #### 5. Filters Tab
+  Navigate to "Filters". You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.
+
+  Remember that if and/or how you edit the filter, your message may not trigger a job run.
+
+  #### 6. Jobs Tab
+  Navigate to "Jobs". Here you can:
+  - You can click to view the job that was run when triggered by the sample filter and sample message.
+  - Click on "Edit Job" to edit the .js file which executes a specific action (job).
+  - Click on the specified filter to change which filter should trigger that job.
+
+  #### 7. Credentials Tab
+  Navigate to "Credentials" to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.
+
+  #### 8. Settings Tab
+  The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.
