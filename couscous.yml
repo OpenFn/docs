@@ -10,43 +10,10 @@ template:
 baseUrl: http://openfn.github.io/docs/
 
 exclude:
-    - images
     - job-library
 
-title: OpenFn Documentation
+github:
+    user: OpenFn
+    repo: docs
 
-menu:
-  items:
-    home:
-        text: Introduction
-        relativeUrl: "#introduction"
-    apps:
-        text: Source Apps
-        relativeUrl: "#connecting-source-applications"
-    filters:
-        text: Filters
-        relativeUrl: "#filters"
-    creds:
-        text: Credentials
-        relativeUrl: "#credentials"
-    jobs:
-        text: Jobs
-        relativeUrl: "#jobs"
-    functions:
-        text: Named Functions
-        relativeUrl: "#named-functions"
-    inbox:
-        text: Inbox
-        relativeUrl: "#inbox"
-    activity:
-        text: Activity
-        relativeUrl: "#activity"
-    troubleshooting:
-        text: Troubleshooting
-        relativeUrl: "#troubleshooting"
-    diy:
-        text: DIY
-        relativeUrl: "#diy"
-    appendix:
-        text: Appendix
-        relativeUrl: "#appendix"
+title: OpenFn Docs

@@ -1,97 +1,131 @@
-html {
-    position: relative;
-    min-height: 100%;
-}
 body {
-    font-size: 19px;
+  padding-top: 64px;
 }
 
-@media (min-width: 1200px) {
-    .container {
-        width: 970px;
-    }
+/*!
+ * Start Bootstrap - Simple Sidebar (http://startbootstrap.com/)
+ * Copyright 2013-2016 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
+ */
+
+/* Toggle Styles */
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-main {
-    margin-top: 90px;
+#wrapper.toggled {
+    padding-left: 250px;
 }
 
-section {
-    margin-bottom: 120px;
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    background: #000;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
 }
 
-footer {
-    position: absolute;
-    bottom: 0;
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
     width: 100%;
-    background-color: #f5f5f5;
-    padding: 25px 0;
-    font-size: 15px;
-    text-align: center;
-    text-transform: uppercase;
-    opacity: 0.6;
-    transition: opacity .2s ease;
+    position: absolute;
+    padding: 15px;
 }
-footer:hover {
-    opacity: 1.0;
-    transition: opacity .2s ease;
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
 }
-footer p {
+
+/* Sidebar Styles */
+
+.sidebar-nav {
+    position: absolute;
+    top: 0;
+    width: 250px;
     margin: 0;
+    padding: 0;
+    list-style: none;
 }
 
-h3 {
-    font-size: 23px;
-}
-
-li {
-    margin-bottom: 3px;
-}
-
-#content img {
-    max-width: 100%;
-    padding: 4px;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-header.navbar {
-    opacity: 0.9;
-}
-.navbar .navbar-brand {
-    font-size: 28px;
-    height: auto;
+.sidebar-nav li {
+    text-indent: 20px;
     line-height: 40px;
-    margin-left: 20px;
 }
-.navbar .navbar-brand small {
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #999999;
+}
+
+.sidebar-nav li a:hover {
+    text-decoration: none;
+    color: #fff;
+    background: rgba(255,255,255,0.2);
+}
+
+.sidebar-nav li a:active,
+.sidebar-nav li a:focus {
+    text-decoration: none;
+}
+
+.sidebar-nav > .sidebar-brand {
+    height: 65px;
     font-size: 18px;
-    font-weight: 300;
-    margin-left: 10px;
+    line-height: 60px;
 }
 
-@media (min-width: 768px) {
-    #sidebar {
-        position:fixed;
-        margin-top: 30px;
-    }
-}
-@media (max-width: 960px) {
-    body {
-        font-size: 17px;
-    }
-    pre {
-        font-size: 12px;
-    }
+.sidebar-nav > .sidebar-brand a {
+    color: #999999;
 }
 
-.page-header {
-    margin-top: 0;
+.sidebar-nav > .sidebar-brand a:hover {
+    color: #fff;
+    background: none;
 }
 
-#sidebar .text-muted {
-    color: #bbbbbb;
+@media(min-width:768px) {
+    #wrapper {
+        padding-left: 250px;
+    }
+
+    #wrapper.toggled {
+        padding-left: 0;
+    }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        padding: 20px;
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
 }
 
 pre {
@@ -100,6 +134,7 @@ pre {
     margin: 15px;
     font-size: 15px;
 }
+
 pre code {
     border: none;
 }

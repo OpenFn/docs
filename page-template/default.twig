@@ -13,71 +13,96 @@
     </head>
     <body>
 
-        <header class="navbar navbar-default navbar-fixed-top">
+      <div id="wrapper">
 
-            <a class="navbar-brand" href="#introduction">
-                {{ title|default('The title') }}
-            </a>
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="#menu-toggle" class="navbar-brand" id="menu-toggle"><i class="fa fa-bars"></i></a>
+              <a class="navbar-brand" href="#">OpenFn Docs</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <!-- <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form> -->
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://www.openfn.org"><i class="fa fa-cube fa-lg"></i>&nbsp;&nbsp;OpenFn.org</a></li>
+                <li><a href="https://www.github.com/OpenFn/docs"><i class="fa fa-github fa-lg"></i>&nbsp;&nbsp;GitHub</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
 
-        </header>
+        <div id="sidebar-wrapper">
+          <div id="toc"></div>
+        </div>
 
-        <main class="{{ menu ? 'container-fluid' : 'container' }}">
+        <div id="page-content-wrapper">
+          <main class="container">
             <div class="row">
-
-                {% if menu is defined %}
-
-                    <nav id="sidebar" class="col-sm-3 col-lg-2" role="navigation">
-
-                        <ul class="nav nav-pills nav-stacked">
-                            {% for itemId, item in menu.items %}
-                                <li class="{{ itemId == currentMenu ? 'active' }}">
-                                    <a href="{{ item.absoluteUrl|default(baseUrl ~ '/' ~ item.relativeUrl) }}">
-                                        {{ item.text|raw }}
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-
-                    </nav>
-
-                {% endif %}
-
-                <section id="content" class="{{ menu ? 'col-sm-offset-3 col-lg-offset-2 col-sm-9 col-lg-10' : 'col-sm-12' }}">
-                    {{ content|raw }}
-                </section>
-
+              {{ content|raw }}
             </div>
-        </main>
+          </main>
+        </div>
 
-        <footer>
-            <div class="{{ menu ? 'container-fluid' : 'container' }}">
-                <p class="text-muted">
-                    website generated with <a href="http://couscous.io" title="Markdown website generator">Couscous</a>
-                </p>
-            </div>
-        </footer>
+      </div>
 
-        <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-        <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
-        <script src="http://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.js"></script>
+      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+      <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.js"></script>
+      <script src="{{ baseUrl }}/toc.min.js"></script>
 
-        <script>
-            $(function() {
-                $("section>h1").wrap('<div class="page-header" />');
-                // Syntax highlighting
-                hljs.initHighlightingOnLoad();
-            });
+      <script>
+          $(function() {
+              $("section>h1").wrap('<div class="page-header" />');
+              // Syntax highlighting
+              hljs.initHighlightingOnLoad();
+          });
 
-            /* Call to Anchor-js function */
-            anchors.add('h1, h2, h3, h4');
+          /* Call to Anchor-js function */
+          anchors.add('h1, h2, h3, h4');
 
-            // Shift anchor link scroll past fixed navbar
-            var shiftWindow = function() { scrollBy(0, -95) };
-            if (location.hash) shiftWindow();
-            window.addEventListener("hashchange", shiftWindow);
+          // Shift anchor link scroll past fixed navbar
+          var shiftWindow = function() { scrollBy(0, -95) };
+          if (location.hash) shiftWindow();
+          window.addEventListener("hashchange", shiftWindow);
 
-        </script>
+          $('#toc').toc({
+            'selectors': 'h1', //elements to use as headings
+            'listType' : "<ul class='sidebar-nav'/>",
+            'container': 'body', //element to find all selectors in
+            'smoothScrolling': true, //enable or disable smooth scrolling on click
+            'prefix': 'toc', //prefix for anchor tags and class names
+            'onHighlight': function(el) {}, //called when a new section is highlighted
+            'highlightOnScroll': true, //add class to heading that is currently in focus
+            'highlightOffset': 100, //offset to trigger the next headline
+            'anchorName': function(i, heading, prefix) { //custom function for anchor name
+                return prefix+i;
+            },
+            'headerText': function(i, heading, $heading) { //custom function building the header-item text
+                return $heading.text();
+            },
+            'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
+              return ""
+            }
+          });
+
+          $("#menu-toggle").click(function(e) {
+              e.preventDefault();
+              $("#wrapper").toggleClass("toggled");
+          });
+
+      </script>
 
     </body>
 </html>
