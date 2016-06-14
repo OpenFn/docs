@@ -49,11 +49,11 @@ body {
     margin: 0;
     padding: 0;
     list-style: none;
+    margin-bottom: 50px;
 }
 
 .sidebar-nav li {
     text-indent: 20px;
-    line-height: 40px;
 }
 
 .sidebar-nav li a {
@@ -88,10 +88,6 @@ body {
     background: none;
 }
 
-@media (min-width: 991px) {
-    #contents-dropdown-toggle{
-        display: none !important;
-    }
 
 @media(min-width:768px) {
     #wrapper {
@@ -119,6 +115,9 @@ body {
         position: relative;
         margin-right: 0;
     }
+    #contents-dropdown-toggle{
+        display: none !important;
+    }
 }
 
 pre {
@@ -139,12 +138,14 @@ a:hover, a:focus {text-decoration: none;}
   font-weight: 400 !important;
   margin: 0px;
   padding: 0px;
+  line-height: 40px;
 }
 
 #toc .h2 {
   font-size: 12px !important;
   font-weight: 400 !important;
   margin: 0px;
+  line-height: 30px;
 }
 
 #toc .h2 > a {padding-left: 10px;}
