@@ -15,22 +15,38 @@
 
       <div id="wrapper">
 
+        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+          <div class="container-fluid">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="#menu-toggle" class="navbar-brand" id="menu-toggle"><i class="fa fa-bars"></i></a>
+              <a class="navbar-brand" href="#">OpenFn Docs</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+              <!-- <form class="navbar-form navbar-left" role="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                <button type="submit" class="btn btn-default">Submit</button>
+              </form> -->
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="https://www.openfn.org"><i class="fa fa-cube fa-lg"></i>&nbsp;&nbsp;OpenFn.org</a></li>
+                <li><a href="https://www.github.com/OpenFn/docs"><i class="fa fa-github fa-lg"></i>&nbsp;&nbsp;GitHub</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
         <div id="sidebar-wrapper">
           <div id="toc"></div>
         </div>
 
         <div id="page-content-wrapper">
-          <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-            <div class="container-fluid">
-              <div class="navbar-header">
-                <a href="#menu-toggle" class="navbar-brand" id="menu-toggle"><i class="fa fa-bars"></i></a>
-                <a class="navbar-brand" href="#">OpenFn Docs</a>
-                <a class="navbar-brand"> | </a>
-                <a class="navbar-brand" href="#">OpenFn.org</a>
-                <a class="navbar-brand" href="#"><i class="fa fa-github fa-lg"></i></a>
-              </div>
-            </div>
-          </nav>
           <main class="container">
             <div class="row">
               <h1 id="introduction">Introduction</h1>
@@ -61,7 +77,6 @@
 <li>Soon you'll see new messages arrive in your <strong><a href="https://www.openfn.org/receipts">history</a></strong> page.</li>
 </ol>
 <p>Next, learn how to define <strong>filters</strong> that trigger <strong>job</strong> runs.</p>
-<hr />
 <h1 id="filters">Filters</h1>
 <p>Filters are used to trigger jobs. You, as a user, specify the filter <strong>criteria</strong> which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body <strong>matches</strong> the string of <code>JSON</code> you gave as a filter, the filter will run and trigger a job (assuming you created one).</p>
 <p>The filter criteria takes the form of a string of valid <code>JSON</code>. In a SQL query, this string will be used in the WHERE clause, for example:</p>
@@ -87,13 +102,11 @@
 <pre><code class="language-json">{"data":[{"outlet_call":"TRUE","new_existing":"Existing"}]}</code></pre>
 <h4 id="match-a-message-with-a-fragment-inside-another-object-called">Match a message with a fragment inside another object called <code>form</code>:</h4>
 <pre><code class="language-json">{"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}</code></pre>
-<hr />
 <h1 id="credentials">Credentials</h1>
 <p>Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.</p>
 <p>Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final &quot;/&quot; in these Urls:
 <code>https://login.salesforce.com</code> or <code>http://demo.openmrs.org/openmrs</code> or <code>https://play.dhis2.org</code>.</p>
 <p>Credentials can only be viewed, or edited by a single user — their &quot;owner&quot; (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
-<hr />
 <h1 id="jobs">Jobs</h1>
 <h2 id="writing-jobs-for-openfn">Writing Jobs for OpenFn</h2>
 <p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code> <a href="#block-code-examples">Examples</a></p>
@@ -122,37 +135,35 @@
 <h2 id="named-functions">Named Functions</h2>
 <h3 id="language-common">language-common</h3>
 <ul>
+<li><code>field(destination_field_name__c, value)</code> Returns a key, value pair in an array. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L248">(source)</a></li>
 <li><code>fields(list_of_fields)</code> zips key value pairs into an object. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L258">(source)</a></li>
-<li><code>field(destination_field_name__c, value)</code></li>
-<li><code>dataValue(JSON_path)</code></li>
-<li><code>each(JSON_path, operation(...))</code></li>
-<li><code>beta.each(JSON_path, operation(...))</code> // Pre-release, new feature details coming.</li>
-<li><code>merge(JSON_path, fields(...)</code></li>
+<li><code>dataValue(JSON_path)</code> Picks out a single value from source data. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L71">(source)</a></li>
+<li><code>each(JSON_path, operation(...))</code> Scopes an array of data based on a JSONPath <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L160">(source)</a></li>
+<li><code>beta.each(JSON_path, operation(...))</code> // Pre-release: new feature details coming. <a href="https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2">(source)</a></li>
+<li><code>merge(JSON_path, fields(...)</code> Merges fields into each item in an array. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L272">(source)</a></li>
 </ul>
 <h3 id="salesforce">Salesforce</h3>
 <ul>
-<li><code>create(obj,fields(...))</code></li>
-<li><code>upsert(obj,extId,fields(...))</code></li>
-<li><code>relationship(obj,extId,value)</code></li>
+<li><code>create(obj,fields(...))</code> Create a new object. Takes 2 parameters: An object and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63">(source)</a></li>
+<li><code>upsert(obj,extId,fields(...))</code> Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80">(source)</a></li>
+<li><code>relationship(obj,extId,value)</code> Adds a lookup or 'dome insert' to a record. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40">(source)</a></li>
 </ul>
 <h3 id="dhis2">dhis2</h3>
 <ul>
-<li><code>event(...)</code></li>
-<li><code>dataValueSet(...)</code></li>
+<li><code>event(...)</code> Creates an event. <a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60">(source)</a></li>
+<li><code>dataValueSet(...)</code> Send data values using the dataValueSets resource <a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L62-L82">(source)</a></li>
 </ul>
 <h3 id="openmrs">OpenMRS</h3>
 <ul>
-<li><code>person(...)</code></li>
-<li><code>patient(...)</code></li>
+<li><code>person(...)</code> Takes a payload of data to create a person <a href="https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L31-L60">(source)</a></li>
+<li><code>patient(...)</code> Takes a payload of data to create a patient <a href="https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90">(source)</a></li>
 </ul>
 <p><strong>For code block examples of job expressions, go to the <a href="#appendix">Appendix</a>.</strong></p>
-<hr />
 <h1 id="inbox">Inbox</h1>
 <p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.</p>
 <h3 id="messages">Messages</h3>
 <p>Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
 <p>To edit a message, click the &quot;pencil and paper&quot; icon next to that receipt. Be careful, as no original copy will be persisted.</p>
-<hr />
 <h1 id="activity">Activity</h1>
 <p>In this section of the portal, you can view a list of all &quot;submissions&quot; - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
 <h3 id="submissions">Submissions</h3>
@@ -160,7 +171,6 @@
 <blockquote>
 <p><strong>Note:</strong> Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
 </blockquote>
-<hr />
 <h1 id="troubleshooting">Troubleshooting</h1>
 <blockquote>
 <p>What happens if my survey data from ODK needs to link to existing records in my Salesforce system but a respondent enters or selects an invalid <code>external ID</code>?</p>
@@ -185,7 +195,6 @@
 <li><code>Required value missing</code></li>
 <li><code>ExternalId not found</code></li>
 </ul>
-<hr />
 <h1 id="diy">DIY</h1>
 <p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.</p>
 <blockquote>
@@ -208,7 +217,6 @@
 <p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
 <h2 id="language-xxx">language-xxx</h2>
 <p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system specific operations, like <code>relationship</code> or <code>upsert</code>.</p>
-<hr />
 <h1 id="appendix">Appendix</h1>
 <h2 id="block-code-examples">Block code examples</h2>
 <blockquote>
@@ -291,7 +299,8 @@ beta.each(
 <pre><code class="language-js">create("custom_obj__c", fields(
             relationship("RecordType", "name", dataValue("submission_type"),
             field("name", dataValue("Name"))
-))</code></pre>
+            )
+      ))</code></pre>
 <h4 id="salesforce-set-record-type-using-record-type-id">Salesforce: Set record type using record Type ID</h4>
 <pre><code class="language-js">each(
   "$.data.data[*]",
@@ -362,6 +371,8 @@ patient(
     })
   )
 )</code></pre>
+<h2 id="examples-of-anonymous-functions">Examples of Anonymous Functions</h2>
+<p>Different to <a href="#named-functions">Named Functions</a>, Anoynmous functions are generic pieces of javascript which you can write to suit your needs. Here are some examples of these custom functions:</p>
 <h4 id="custom-replacer">Custom replacer</h4>
 <pre><code class="language-js">field(
   "destination__c",
@@ -405,7 +416,6 @@ patient(
 <pre><code class="language-js">field("Payment_Date__c", function(state) {
   return new Date(dataValue("payment_date")(state)).toISOString()
 })</code></pre>
-<hr />
 <h2 id="connecting-up-source-applications">Connecting up source applications</h2>
 <h3 id="kobo">Kobo</h3>
 <ol>
@@ -443,7 +453,6 @@ patient(
     null
   ],
   "_bamboo_dataset_id": "",</code></pre>
-<hr />
 <p>&quot;_attachments&quot;: []
 }</p>
             </div>
