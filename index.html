@@ -109,7 +109,7 @@
 <p>Credentials can only be viewed, or edited by a single user — their &quot;owner&quot; (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
 <h1 id="jobs">Jobs</h1>
 <h2 id="writing-jobs-for-openfn">Writing Jobs for OpenFn</h2>
-<p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code> <a href="#block-code-examples">Examples</a></p>
+<p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code> <a href="#block-code-examples-for-writing-jobs">Examples</a></p>
 <p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received. In most cases, a job is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
 <pre><code class="language-js">create("Patient__c", fields(
   field("Name", dataValue("form.surname")),
@@ -196,32 +196,105 @@
 <li><code>ExternalId not found</code></li>
 </ul>
 <h1 id="diy">DIY</h1>
-<p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line, or wrap them together in your own hosted service.</p>
+<p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line. You can even take this further and wrap them together in your own hosted service!</p>
 <blockquote>
 <p><strong>ETL</strong> = Extracting, Transforming and Loading of data</p>
 </blockquote>
-<p>To get started, <code>git clone</code> the following:</p>
+<p><strong>To get started, follow these steps:</strong></p>
 <ol>
-<li><a href="https://github.com/OpenFn/fn-lang">fn-lang</a></li>
-<li><a href="https://github.com/OpenFn/language-common">language-common</a></li>
-<li><a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</li>
-</ol>
-<h2 id="fn-lang-diesl">fn-lang (diesl)</h2>
+<li>Create an empty directory somewhere on your local machine (e.g. call it &quot;OpenFn&quot;)</li>
+<li>
+<p>Open up a terminal, cd into the new directory, and git clone the following:</p>
+<ul>
+<li><code>git clone</code> <a href="https://github.com/OpenFn/fn-lang">fn-lang</a></li>
+<li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-common</a></li>
+<li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</li>
+</ul>
+<h3 id="fn-lang-diesl">fn-lang (diesl)</h3>
 <p>fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the &quot;TL&quot; part of &quot;ETL&quot; on command. It can be run from a command line, or built into a hosted web service.</p>
-<h4 id="run-fn-lang-from-the-command-line-with-the-following">Run fn-lang from the command line with the following:</h4>
-<p><code>~/fn-lang$ lib/cli.js execute -l salesforce/FakeAdaptor -e tmp/expression.js -c tmp/config.json -d tmp/receipt.json</code></p>
-<blockquote>
-<p><strong>Command Explained:</strong> Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and destination configuration (-c)</p>
-</blockquote>
-<h2 id="language-common-1">language-common</h2>
+<h3 id="language-common-1">language-common</h3>
 <p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
-<h2 id="language-xxx">language-xxx</h2>
-<p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system specific operations, like <code>relationship</code> or <code>upsert</code>.</p>
-<h1 id="appendix">Appendix</h1>
-<h2 id="block-code-examples">Block code examples</h2>
+<h3 id="language-xxx">language-xxx</h3>
+<p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system-specific operations, like <code>relationship</code> or <code>upsert</code>. Examples: <code>language-dhis2</code>, <code>language-salesforce</code>, <code>language-openmrs</code>.</p>
+</li>
+<li>cd into 'fn-lang'</li>
+<li>
+<p>type into the terminal the following commands (in order):</p>
+<ul>
+<li>npm install</li>
+<li>npm link ../language-common</li>
+<li>npm link ../language-xxx (Whatever adaptor you chose. For this demonstration we will use DHIS2)</li>
+</ul>
+</li>
+<li>Create a folder named &quot;tmp&quot; inside &quot;fn-lang&quot;.</li>
+<li>
+<p>Inside &quot;tmp&quot;, you need to create 3 files: <code>config.json</code>, <code>expression.js</code> and <code>message.json</code>.</p>
 <blockquote>
-<p>Below you can find some examples of block code for different functions and data handling contexts.</p>
+<p>Click <a href="#sample-code-for-diy-section">HERE</a> to get started by using some sample code for each of the 3 files.</p>
 </blockquote>
+</li>
+<li>
+<p>Run fn-lang from the command line with the following:</p>
+<p><code>~/fn-lang$ lib/cli.js execute -l dhis2 -e tmp/expression.js -c tmp/config.json -d tmp/message.json</code></p>
+<p><strong>Command Explained:</strong> Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and a destination configuration file (-c).</p>
+<blockquote>
+<p><strong>Note:</strong> Depending on which language-pack you have decided to use, you will need to change this command by replacing &quot;dhis2&quot; with the name of the language-pack you are using. E.g. &quot;openmrs&quot; or &quot;salesforce/FakeAdaptor&quot; (special case).  </p>
+</blockquote>
+</li>
+<li>Check out the results of the posted data! Open up expression.js and message.json to manipulate the outcome and get a feel for how it works.</li>
+</ol>
+<h1 id="appendix">Appendix</h1>
+<h2 id="sample-code-for-diy-section">Sample code for DIY section</h2>
+<p>Below you can find sample code to fill the 3 files required to run fn-lang - <code>message.json</code>, <code>expression.js</code> and <code>config.json</code>.</p>
+<h3 id="messagejson">message.json</h3>
+<pre><code class="language-json">{
+  "xform_ids": [],
+  "version": null,
+  "user_id": "user1",
+  "server_date_opened": null,
+  "server_date_modified": null,
+  "properties": {
+    "prop_c": "2013-05-18",
+    "prop_b": "Female",
+    "prop_a": 99,
+    "owner_id": null,
+    "external_id": null,
+    "date_opened": null,
+    "date": "2013-05-17",
+    "case_type": "case_type",
+    "case_name": "Demo"
+  },
+  "indices": {}
+}</code></pre>
+<h3 id="expressionjs">expression.js</h3>
+<pre><code class="language-js">event(
+  fields(
+    field("program", "eBAyeGv0exc"),
+    field("orgUnit", "DiszpKrYNg8"),
+    field("eventDate", dataValue("properties.date")),
+    field("status", "COMPLETED"),
+    field("storedBy", "admin"),
+    field("coordinate", {
+      "latitude": "59.8",
+      "longitude": "10.9"
+    }),
+    field("dataValues", function(state) {
+      return [
+        { "dataElement": "qrur9Dvnyt5", "value": dataValue("properties.prop_a")(state) },
+        { "dataElement": "oZg33kd9taw", "value": dataValue("properties.prop_b")(state) },
+        { "dataElement": "msodh3rEMJa", "value": dataValue("properties.prop_c")(state) }
+      ]
+    })
+  )
+)</code></pre>
+<h3 id="configjson">config.json</h3>
+<pre><code class="language-json">{
+  "username": "admin",
+  "password": "district",
+  "apiUrl": "https://play.dhis2.org/demo"
+}</code></pre>
+<h2 id="block-code-examples-for-writing-jobs">Block code examples for writing jobs</h2>
+<p>Below you can find some examples of block code for different functions and data handling contexts.</p>
 <h4 id="job-expression-for-commcare-to-sf">Job expression (for CommCare to SF)</h4>
 <p>The following job expression will take a matching receipt and use data from that receipt to upsert a <code>Patient__c</code> record in Salesforce and create multiple new <code>Patient_Visit__c</code> (child to Patient) records.</p>
 <pre><code class="language-js">upsert("Patient__c", "Patient_Id__c", fields(
@@ -381,41 +454,53 @@ patient(
   }
 )</code></pre>
 <p>This will replace all &quot;cats&quot; with &quot;dogs&quot; in the string that lives at <code>path_to_data</code>.</p>
+<blockquote>
+<p><strong>NOTE:</strong> The JavaScript <code>replace()</code> function only replaces the first instance of whatever argument you specify.
+If you're looking for a way to replace all instances, we suggest you use a regex like we did in the <a href="#custom-concatenation-of-null-values">example</a> below.</p>
+</blockquote>
 <h4 id="custom-arraytostring">Custom arrayToString</h4>
-<pre><code class="language-js">      field("target_specie_list__c", function(state) {
-        return Array.apply(
-          null, sourceValue("$.data.target_specie_list")(state)
-        ).join(', ')
-      }),</code></pre>
+<pre><code class="language-js">field("target_specie_list__c", function(state) {
+  return Array.apply(
+    null, sourceValue("$.data.target_specie_list")(state)
+  ).join(', ')
+}),</code></pre>
 <p>It will take an array, and concatenate each item into a string with a &quot;, &quot; separator.</p>
 <h4 id="custom-concatenation">Custom concatenation</h4>
-<pre><code class="language-js">        field("ODK_Key__c", function (state) {
-          return (
-            dataValue("metaId")(state).concat(
-              "(", dataValue("index")(state), ")"
-            )
-          )
-        })</code></pre>
+<pre><code class="language-js">field("ODK_Key__c", function (state) {
+  return (
+    dataValue("metaId")(state).concat(
+      "(", dataValue("index")(state), ")"
+    )
+  )
+})</code></pre>
 <p>This will concatenate two values.</p>
 <h3 id="custom-concatenation-of-null-values">Custom concatenation of null values</h3>
-<pre><code class="language-js">        field("Main_Office_City__c", function(state) {
-          return arrayToString([
-            dataValue("Main_Office_City_a")(state) === null ? "" : dataValue("Main_Office_City_a")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_c")(state) === null ? "" : dataValue("Main_Office_City_c")(state).toString().replace(/-/g, " "),
-            dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),
-          ].filter(Boolean), ',')
-        }),</code></pre>
 <p>This will concatenate many values, even if one or more are null, writing them to a field called Main_Office_City_c.</p>
+<pre><code class="language-js">...
+  field("Main_Office_City__c", function(state) {
+    return arrayToString([
+      dataValue("Main_Office_City_a")(state) === null ? "" : dataValue("Main_Office_City_a")(state).toString().replace(/-/g, " "),
+      dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),
+      dataValue("Main_Office_City_c")(state) === null ? "" : dataValue("Main_Office_City_c")(state).toString().replace(/-/g, " "),
+      dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),
+    ].filter(Boolean), ',')
+  })</code></pre>
+<blockquote>
+<p>Notice how this custom function makes use of the <strong>regex</strong> <code>/-/g</code> to ensure that all instances are accounted for (g = global search).</p>
+</blockquote>
 <h4 id="custom-nth-reference-id">Custom Nth reference ID</h4>
+<p>If you ever want to retrieve the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick.</p>
 <pre><code class="language-js">field("parent__c", function(state) {
     return state.references[state.references.length-1].id
   })</code></pre>
-<p>If you ever want to retrieve the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick. See how instead of taking the id of the &quot;last&quot; thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace &quot;length-1&quot; with &quot;length-2&quot;.</p>
+<p>See how instead of taking the id of the &quot;last&quot; thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace &quot;length-1&quot; with &quot;length-2&quot;.</p>
 <h4 id="convert-date-string-to-standard-iso-date-for-salesforce">Convert date string to standard ISO date for Salesforce</h4>
 <pre><code class="language-js">field("Payment_Date__c", function(state) {
   return new Date(dataValue("payment_date")(state)).toISOString()
 })</code></pre>
+<blockquote>
+<p><strong>NOTE</strong>: The output of this function will always be formatted according to GMT time-zone.</p>
+</blockquote>
 <h2 id="connecting-up-source-applications">Connecting up source applications</h2>
 <h3 id="kobo">Kobo</h3>
 <ol>
@@ -452,9 +537,48 @@ patient(
     null,
     null
   ],
-  "_bamboo_dataset_id": "",</code></pre>
-<p>&quot;_attachments&quot;: []
-}</p>
+  "_bamboo_dataset_id": "",
+  "_attachments": []
+}</code></pre>
+<h1 id="quick-start-guide">Quick Start Guide</h1>
+<p>Want to get up and running in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!</p>
+<h4 id="1-create-account">1. Create account</h4>
+<p>If you haven't already, create an account at <a href="https://www.openfn.org/signup">OpenFn.org</a></p>
+<h4 id="2-log-in">2. Log In</h4>
+<p>After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer <strong>Dashboard</strong>. Click on one to start.</p>
+<h4 id="3-inner-project-dashboard">3. Inner Project Dashboard</h4>
+<p>You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:</p>
+<ul>
+<li>Jobs <a href="#jobs">(Read More)</a></li>
+<li>Filters <a href="#filter">(Read More)</a></li>
+<li>Credentials <a href="#credentials">(Read More)</a></li>
+<li>Inbox <a href="#inbox">(Read More)</a></li>
+<li>Activity <a href="#activity">(Read More)</a></li>
+<li>
+<p>Settings <a href="#">(Read More)</a></p>
+<h4 id="4-inbox-tab">4. Inbox Tab</h4>
+<p>Navigate to your &quot;Inbox&quot; and you should see your first message associated with a &quot;sample job&quot;. Click on it. You can now choose to do the following:</p>
+<ul>
+<li>Edit the message (mainly for the purpose of fixing mistakes in data),</li>
+<li>Or manually run the job associated with a filter which has identified your first message as a trigger.</li>
+</ul>
+<p>After clicking &quot;Run Job Manually&quot;, wait for the job to finish and then click on &quot;View Logs&quot; to see what happened to the data inside of the message.</p>
+<h4 id="5-filters-tab">5. Filters Tab</h4>
+<p>Navigate to &quot;Filters&quot;. You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.</p>
+<p>Remember that if and/or how you edit the filter, your message may not trigger a job run.</p>
+<h4 id="6-jobs-tab">6. Jobs Tab</h4>
+<p>Navigate to &quot;Jobs&quot;. Here you can:</p>
+<ul>
+<li>You can click to view the job that was run when triggered by the sample filter and sample message.</li>
+<li>Click on &quot;Edit Job&quot; to edit the .js file which executes a specific action (job).</li>
+<li>Click on the specified filter to change which filter should trigger that job.</li>
+</ul>
+<h4 id="7-credentials-tab">7. Credentials Tab</h4>
+<p>Navigate to &quot;Credentials&quot; to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
+<h4 id="8-settings-tab">8. Settings Tab</h4>
+<p>The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.</p>
+</li>
+</ul>
             </div>
           </main>
         </div>
