@@ -37,6 +37,10 @@
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="https://www.openfn.org"><i class="fa fa-cube fa-lg"></i>&nbsp;&nbsp;OpenFn.org</a></li>
                 <li><a href="https://www.github.com/OpenFn/docs"><i class="fa fa-github fa-lg"></i>&nbsp;&nbsp;GitHub</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                  <div id="toc-mobile"></div>
+                </li>
               </ul>
             </div>
           </div>
@@ -96,6 +100,27 @@
               return $heading[0].tagName.toLowerCase();
             }
           });
+
+          $('#toc-mobile').toc({
+            'selectors': 'h1, h2', //elements to use as headings
+            'listType' : "<ul class='dropdown-menu'/>", //the element that will contain the li's
+            'container': 'body', //element to find all selectors in
+            'smoothScrolling': true, //enable or disable smooth scrolling on click
+            'prefix': 'toc', //prefix for anchor tags and class names
+            'onHighlight': function(el) {}, //called when a new section is highlighted
+            'highlightOnScroll': true, //add class to heading that is currently in focus
+            'highlightOffset': 100, //offset to trigger the next headline
+            'anchorName': function(i, heading, prefix) { //custom function for anchor name
+                return prefix+i;
+            },
+            'headerText': function(i, heading, $heading) { //custom function building the header-item text
+                return $heading.text();
+            },
+            'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
+              return ""
+            }
+          });
+
 
           $("#menu-toggle").click(function(e) {
               e.preventDefault();
