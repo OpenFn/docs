@@ -88,6 +88,11 @@ body {
     background: none;
 }
 
+@media (min-width: 991px) {
+    #contents-dropdown-toggle{
+        display: none !importants;
+    }
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 250px;
@@ -139,6 +144,7 @@ a:hover, a:focus {text-decoration: none;}
 #toc .h2 {
   font-size: 12px !important;
   font-weight: 400 !important;
-  padding-left: 10px;
   margin: 0px;
 }
+
+#toc .h2 > a {padding-left: 10px;}

@@ -592,44 +592,44 @@ Here's a sample post from Kobo REST service. Note that questions inside groups a
   "_attachments": []
 }
   ```
-  # Quick Start Guide
-  Want to get up and running in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!
+# Quick Start Guide
+Want to get up and running in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!
 
-  #### 1. Create account
-  If you haven't already, create an account at [OpenFn.org](https://www.openfn.org/signup)
+#### 1. Create account
+If you haven't already, create an account at [OpenFn.org](https://www.openfn.org/signup)
 
-  #### 2. Log In
-  After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer **Dashboard**. Click on one to start.
+#### 2. Log In
+After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer **Dashboard**. Click on one to start.
 
-  #### 3. Inner Project Dashboard
-  You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:
-    - Jobs [(Read More)](#jobs)
-    - Filters [(Read More)](#filter)
-    - Credentials [(Read More)](#credentials)
-    - Inbox [(Read More)](#inbox)
-    - Activity [(Read More)](#activity)
-    - Settings [(Read More)](#)
+#### 3. Inner Project Dashboard
+You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:
+- Jobs [(Read More)](#jobs)
+- Filters [(Read More)](#filter)
+- Credentials [(Read More)](#credentials)
+- Inbox [(Read More)](#inbox)
+- Activity [(Read More)](#activity)
+- Settings 
 
-  #### 4. Inbox Tab
-  Navigate to your "Inbox" and you should see your first message associated with a "sample job". Click on it. You can now choose to do the following:
-  - Edit the message (mainly for the purpose of fixing mistakes in data),
-  - Or manually run the job associated with a filter which has identified your first message as a trigger.
+#### 4. Inbox Tab
+Navigate to your "Inbox" and you should see your first message associated with a "sample job". Click on it. You can now choose to do the following:
+- Edit the message (mainly for the purpose of fixing mistakes in data),
+- Or manually run the job associated with a filter which has identified your first message as a trigger.
 
-  After clicking "Run Job Manually", wait for the job to finish and then click on "View Logs" to see what happened to the data inside of the message.
+After clicking "Run Job Manually", wait for the job to finish and then click on "View Logs" to see what happened to the data inside of the message.
 
-  #### 5. Filters Tab
-  Navigate to "Filters". You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.
+#### 5. Filters Tab
+Navigate to "Filters". You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.
 
-  Remember that if and/or how you edit the filter, your message may not trigger a job run.
+Remember that if and/or how you edit the filter, your message may not trigger a job run.
 
-  #### 6. Jobs Tab
-  Navigate to "Jobs". Here you can:
-  - You can click to view the job that was run when triggered by the sample filter and sample message.
-  - Click on "Edit Job" to edit the .js file which executes a specific action (job).
-  - Click on the specified filter to change which filter should trigger that job.
+#### 6. Jobs Tab
+Navigate to "Jobs". Here you can:
+- You can click to view the job that was run when triggered by the sample filter and sample message.
+- Click on "Edit Job" to edit the .js file which executes a specific action (job).
+- Click on the specified filter to change which filter should trigger that job.
 
-  #### 7. Credentials Tab
-  Navigate to "Credentials" to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.
+#### 7. Credentials Tab
+Navigate to "Credentials" to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.
 
-  #### 8. Settings Tab
-  The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.
+#### 8. Settings Tab
+The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.
