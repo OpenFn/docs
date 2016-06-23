@@ -13,6 +13,48 @@ In this guide you'll find documentation to help you write filters and jobs, alon
 
 If you have any questions, please don't hesitate to email [admin@openfn.org](mailto:admin@openfn.org).
 
+# Quick Start Guide
+Want to get up and running with OpenFn in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!
+
+#### 1. Create account
+If you haven't already, create an account at [OpenFn.org](https://www.openfn.org/signup)
+
+#### 2. Log In
+After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer **Dashboard**. Click on one to start.
+
+#### 3. Inner Project Dashboard
+You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:
+- Jobs [(Read More)](#jobs)
+- Filters [(Read More)](#filter)
+- Credentials [(Read More)](#credentials)
+- Inbox [(Read More)](#inbox)
+- Activity [(Read More)](#activity)
+- Settings
+
+#### 4. Inbox Tab
+Navigate to your "Inbox" and you should see your first message associated with a "sample job". Click on it. You can now choose to do the following:
+- Edit the message (mainly for the purpose of fixing mistakes in data),
+- Or manually run the job associated with a filter which has identified your first message as a trigger.
+
+After clicking "Run Job Manually", wait for the job to finish and then click on "View Logs" to see what happened to the data inside of the message.
+
+#### 5. Filters Tab
+Navigate to "Filters". You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.
+
+Remember that if and/or how you edit the filter, your message may not trigger a job run.
+
+#### 6. Jobs Tab
+Navigate to "Jobs". Here you can:
+- You can click to view the job that was run when triggered by the sample filter and sample message.
+- Click on "Edit Job" to edit the .js file which executes a specific action (job).
+- Click on the specified filter to change which filter should trigger that job.
+
+#### 7. Credentials Tab
+Navigate to "Credentials" to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.
+
+#### 8. Settings Tab
+The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.
+
 
 # Connecting Source Applications
 Most modern web applications have a feature that allows you to `push`, `publish`, or `post` data to another URL when a certain **event** takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
@@ -128,17 +170,19 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 ## Named Functions
 
 ### language-common
-- `field(destination_field_name__c, value)` Returns a key, value pair in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L248)
+- `field('destination_field_name__c', 'value')` Returns a key, value pair in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L248)
 - `fields(list_of_fields)` zips key value pairs into an object. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L258)
-- `dataValue(JSON_path)` Picks out a single value from source data. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L71)
+- `dataValue('JSON_path')` Picks out a single value from source data. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L71)
 - `each(JSON_path, operation(...))` Scopes an array of data based on a JSONPath [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L160)
-- `beta.each(JSON_path, operation(...))` // Pre-release: new feature details coming. [(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2)
-- `merge(JSON_path, fields(...)` Merges fields into each item in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L272)
+- `beta.each(JSON_path, operation(...))` Pre-release: new feature details coming. [(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2)
+- `each(merge(dataPath("CHILD_ARRAY[*]"),fields(field("metaId", dataValue("*meta-instance-id*")),field("parentId", lastReferenceValue("id")))), create(...))` merges data into an array then creates for each item in the array [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L272)
+- `lastReferenceValue('id')` gets the sfID of the last item created [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100)
+- `function(state){return state.references[state.references.length-N].id})` gets the sfID of the nth item created
 
 ### Salesforce
-- `create(obj,fields(...))` Create a new object. Takes 2 parameters: An object and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63)
-- `upsert(obj,extId,fields(...))` Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80)
-- `relationship(obj,extId,value)` Adds a lookup or 'dome insert' to a record. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40)
+- `create("DEST_OBJECT_NAME__C", fields(...))` Create a new object. Takes 2 parameters: An object and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63)
+- `upsert("DEST_OBJECT_NAME__C", "DEST_OBJECT_EXTERNAL_ID__C", fields(...))` Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80)
+- `relationship("DEST_RELATIONSHIP_NAME__r", "EXTERNAL_ID_ON_RELATED_OBJECT__C", "SOURCE_DATA_OR_VALUE")` Adds a lookup or 'dome insert' to a record. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40)
 
 ### dhis2
 - `event(...)` Creates an event. [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60)
@@ -206,13 +250,13 @@ OpenFn's core ETL tools are all open-source, and here we will explain how those 
     - `git clone` [language-common](https://github.com/OpenFn/language-common)
     - `git clone` [language-xxx](https://github.com/OpenFn/language-common) (an adaptor of your choice, from github.com/OpenFn)
 
-    ### fn-lang (diesl)
+    #### fn-lang (diesl)
     fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the "TL" part of "ETL" on command. It can be run from a command line, or built into a hosted web service.
 
-    ### language-common
+    #### language-common
     `language-common` provides basic data manipulation functionality like `each`, `field`, and `toArray`.
 
-    ### language-xxx
+    #### language-xxx
     `language-xxx` is a "destination adaptor" that knows how to connect to the system in question and provides system-specific operations, like `relationship` or `upsert`. Examples: `language-dhis2`, `language-salesforce`, `language-openmrs`.
 
   3. cd into 'fn-lang'
@@ -592,44 +636,3 @@ Here's a sample post from Kobo REST service. Note that questions inside groups a
   "_attachments": []
 }
   ```
-# Quick Start Guide
-Want to get up and running in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!
-
-#### 1. Create account
-If you haven't already, create an account at [OpenFn.org](https://www.openfn.org/signup)
-
-#### 2. Log In
-After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer **Dashboard**. Click on one to start.
-
-#### 3. Inner Project Dashboard
-You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:
-- Jobs [(Read More)](#jobs)
-- Filters [(Read More)](#filter)
-- Credentials [(Read More)](#credentials)
-- Inbox [(Read More)](#inbox)
-- Activity [(Read More)](#activity)
-- Settings 
-
-#### 4. Inbox Tab
-Navigate to your "Inbox" and you should see your first message associated with a "sample job". Click on it. You can now choose to do the following:
-- Edit the message (mainly for the purpose of fixing mistakes in data),
-- Or manually run the job associated with a filter which has identified your first message as a trigger.
-
-After clicking "Run Job Manually", wait for the job to finish and then click on "View Logs" to see what happened to the data inside of the message.
-
-#### 5. Filters Tab
-Navigate to "Filters". You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.
-
-Remember that if and/or how you edit the filter, your message may not trigger a job run.
-
-#### 6. Jobs Tab
-Navigate to "Jobs". Here you can:
-- You can click to view the job that was run when triggered by the sample filter and sample message.
-- Click on "Edit Job" to edit the .js file which executes a specific action (job).
-- Click on the specified filter to change which filter should trigger that job.
-
-#### 7. Credentials Tab
-Navigate to "Credentials" to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.
-
-#### 8. Settings Tab
-The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.
