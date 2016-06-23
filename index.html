@@ -59,6 +59,43 @@
 <p>OpenFn has harnessed the extreme  stability and scalability of Erlang to coordinate these actions and provide users with email alerts, project management tools, and an online job writing IDE.</p>
 <p>In this guide you'll find documentation to help you write filters and jobs, along with explanations of OpenFn's key concepts.</p>
 <p>If you have any questions, please don't hesitate to email <a href="mailto:admin@openfn.org">admin@openfn.org</a>.</p>
+<h1 id="quick-start-guide">Quick Start Guide</h1>
+<p>Want to get up and running with OpenFn in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!</p>
+<h4 id="1-create-account">1. Create account</h4>
+<p>If you haven't already, create an account at <a href="https://www.openfn.org/signup">OpenFn.org</a></p>
+<h4 id="2-log-in">2. Log In</h4>
+<p>After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer <strong>Dashboard</strong>. Click on one to start.</p>
+<h4 id="3-inner-project-dashboard">3. Inner Project Dashboard</h4>
+<p>You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:</p>
+<ul>
+<li>Jobs <a href="#jobs">(Read More)</a></li>
+<li>Filters <a href="#filter">(Read More)</a></li>
+<li>Credentials <a href="#credentials">(Read More)</a></li>
+<li>Inbox <a href="#inbox">(Read More)</a></li>
+<li>Activity <a href="#activity">(Read More)</a></li>
+<li>Settings</li>
+</ul>
+<h4 id="4-inbox-tab">4. Inbox Tab</h4>
+<p>Navigate to your &quot;Inbox&quot; and you should see your first message associated with a &quot;sample job&quot;. Click on it. You can now choose to do the following:</p>
+<ul>
+<li>Edit the message (mainly for the purpose of fixing mistakes in data),</li>
+<li>Or manually run the job associated with a filter which has identified your first message as a trigger.</li>
+</ul>
+<p>After clicking &quot;Run Job Manually&quot;, wait for the job to finish and then click on &quot;View Logs&quot; to see what happened to the data inside of the message.</p>
+<h4 id="5-filters-tab">5. Filters Tab</h4>
+<p>Navigate to &quot;Filters&quot;. You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.</p>
+<p>Remember that if and/or how you edit the filter, your message may not trigger a job run.</p>
+<h4 id="6-jobs-tab">6. Jobs Tab</h4>
+<p>Navigate to &quot;Jobs&quot;. Here you can:</p>
+<ul>
+<li>You can click to view the job that was run when triggered by the sample filter and sample message.</li>
+<li>Click on &quot;Edit Job&quot; to edit the .js file which executes a specific action (job).</li>
+<li>Click on the specified filter to change which filter should trigger that job.</li>
+</ul>
+<h4 id="7-credentials-tab">7. Credentials Tab</h4>
+<p>Navigate to &quot;Credentials&quot; to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
+<h4 id="8-settings-tab">8. Settings Tab</h4>
+<p>The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.</p>
 <h1 id="connecting-source-applications">Connecting Source Applications</h1>
 <p>Most modern web applications have a feature that allows you to <code>push</code>, <code>publish</code>, or <code>post</code> data to another URL when a certain <strong>event</strong> takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when <em>something happens</em>.</p>
 <ol>
@@ -129,18 +166,20 @@
 <h2 id="named-functions">Named Functions</h2>
 <h3 id="language-common">language-common</h3>
 <ul>
-<li><code>field(destination_field_name__c, value)</code> Returns a key, value pair in an array. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L248">(source)</a></li>
+<li><code>field('destination_field_name__c', 'value')</code> Returns a key, value pair in an array. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L248">(source)</a></li>
 <li><code>fields(list_of_fields)</code> zips key value pairs into an object. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L258">(source)</a></li>
-<li><code>dataValue(JSON_path)</code> Picks out a single value from source data. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L71">(source)</a></li>
+<li><code>dataValue('JSON_path')</code> Picks out a single value from source data. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L71">(source)</a></li>
 <li><code>each(JSON_path, operation(...))</code> Scopes an array of data based on a JSONPath <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L160">(source)</a></li>
-<li><code>beta.each(JSON_path, operation(...))</code> // Pre-release: new feature details coming. <a href="https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2">(source)</a></li>
-<li><code>merge(JSON_path, fields(...)</code> Merges fields into each item in an array. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L272">(source)</a></li>
+<li><code>beta.each(JSON_path, operation(...))</code> Pre-release: new feature details coming. <a href="https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2">(source)</a></li>
+<li><code>each(merge(dataPath("CHILD_ARRAY[*]"),fields(field("metaId", dataValue("*meta-instance-id*")),field("parentId", lastReferenceValue("id")))), create(...))</code> merges data into an array then creates for each item in the array <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L272">(source)</a></li>
+<li><code>lastReferenceValue('id')</code> gets the sfID of the last item created <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100">(source)</a></li>
+<li><code>function(state){return state.references[state.references.length-N].id})</code> gets the sfID of the nth item created</li>
 </ul>
 <h3 id="salesforce">Salesforce</h3>
 <ul>
-<li><code>create(obj,fields(...))</code> Create a new object. Takes 2 parameters: An object and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63">(source)</a></li>
-<li><code>upsert(obj,extId,fields(...))</code> Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80">(source)</a></li>
-<li><code>relationship(obj,extId,value)</code> Adds a lookup or 'dome insert' to a record. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40">(source)</a></li>
+<li><code>create("DEST_OBJECT_NAME__C", fields(...))</code> Create a new object. Takes 2 parameters: An object and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63">(source)</a></li>
+<li><code>upsert("DEST_OBJECT_NAME__C", "DEST_OBJECT_EXTERNAL_ID__C", fields(...))</code> Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80">(source)</a></li>
+<li><code>relationship("DEST_RELATIONSHIP_NAME__r", "EXTERNAL_ID_ON_RELATED_OBJECT__C", "SOURCE_DATA_OR_VALUE")</code> Adds a lookup or 'dome insert' to a record. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40">(source)</a></li>
 </ul>
 <h3 id="dhis2">dhis2</h3>
 <ul>
@@ -204,11 +243,11 @@
 <li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-common</a></li>
 <li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</li>
 </ul>
-<h3 id="fn-lang-diesl">fn-lang (diesl)</h3>
+<h4 id="fn-lang-diesl">fn-lang (diesl)</h4>
 <p>fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the &quot;TL&quot; part of &quot;ETL&quot; on command. It can be run from a command line, or built into a hosted web service.</p>
-<h3 id="language-common-1">language-common</h3>
+<h4 id="language-common-1">language-common</h4>
 <p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
-<h3 id="language-xxx">language-xxx</h3>
+<h4 id="language-xxx">language-xxx</h4>
 <p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system-specific operations, like <code>relationship</code> or <code>upsert</code>. Examples: <code>language-dhis2</code>, <code>language-salesforce</code>, <code>language-openmrs</code>.</p>
 </li>
 <li>cd into 'fn-lang'</li>
@@ -534,43 +573,6 @@ If you're looking for a way to replace all instances, we suggest you use a regex
   "_bamboo_dataset_id": "",
   "_attachments": []
 }</code></pre>
-<h1 id="quick-start-guide">Quick Start Guide</h1>
-<p>Want to get up and running in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!</p>
-<h4 id="1-create-account">1. Create account</h4>
-<p>If you haven't already, create an account at <a href="https://www.openfn.org/signup">OpenFn.org</a></p>
-<h4 id="2-log-in">2. Log In</h4>
-<p>After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer <strong>Dashboard</strong>. Click on one to start.</p>
-<h4 id="3-inner-project-dashboard">3. Inner Project Dashboard</h4>
-<p>You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:</p>
-<ul>
-<li>Jobs <a href="#jobs">(Read More)</a></li>
-<li>Filters <a href="#filter">(Read More)</a></li>
-<li>Credentials <a href="#credentials">(Read More)</a></li>
-<li>Inbox <a href="#inbox">(Read More)</a></li>
-<li>Activity <a href="#activity">(Read More)</a></li>
-<li>Settings </li>
-</ul>
-<h4 id="4-inbox-tab">4. Inbox Tab</h4>
-<p>Navigate to your &quot;Inbox&quot; and you should see your first message associated with a &quot;sample job&quot;. Click on it. You can now choose to do the following:</p>
-<ul>
-<li>Edit the message (mainly for the purpose of fixing mistakes in data),</li>
-<li>Or manually run the job associated with a filter which has identified your first message as a trigger.</li>
-</ul>
-<p>After clicking &quot;Run Job Manually&quot;, wait for the job to finish and then click on &quot;View Logs&quot; to see what happened to the data inside of the message.</p>
-<h4 id="5-filters-tab">5. Filters Tab</h4>
-<p>Navigate to &quot;Filters&quot;. You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.</p>
-<p>Remember that if and/or how you edit the filter, your message may not trigger a job run.</p>
-<h4 id="6-jobs-tab">6. Jobs Tab</h4>
-<p>Navigate to &quot;Jobs&quot;. Here you can:</p>
-<ul>
-<li>You can click to view the job that was run when triggered by the sample filter and sample message.</li>
-<li>Click on &quot;Edit Job&quot; to edit the .js file which executes a specific action (job).</li>
-<li>Click on the specified filter to change which filter should trigger that job.</li>
-</ul>
-<h4 id="7-credentials-tab">7. Credentials Tab</h4>
-<p>Navigate to &quot;Credentials&quot; to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
-<h4 id="8-settings-tab">8. Settings Tab</h4>
-<p>The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.</p>
             </div>
           </main>
         </div>
