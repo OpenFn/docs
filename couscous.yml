@@ -7,7 +7,7 @@ template:
     index: README.md
 
 # Base URL of the published website
-baseUrl: http://openfn.github.io/docs/
+baseUrl: https://openfn.github.io/docs/
 
 exclude:
     - job-library
