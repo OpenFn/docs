@@ -31,11 +31,11 @@ function(state) {
 ```
 could be replaced with:
 ```js
-createIf((
+createIf(
     // If this is TRUE...
-    dataValue("salesq9") !== undefined
+    ( dataValue("salesq9") !== undefined
     && dataValue("salesq9") !== null
-    && dataValue("salesq9") !== 0),
+    && dataValue("salesq9") !== 0 ),
     // create a record of this object...
     "Line_Item__c",
     // with these fields...
