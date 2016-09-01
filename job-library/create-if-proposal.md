@@ -1,4 +1,4 @@
-Lots of custom functions
+Lots of custom functions:
 ```js
 function(state) {
     if(dataValue("salesq9")(state) !== undefined
