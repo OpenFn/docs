@@ -115,12 +115,12 @@ To edit a message, click the "pencil and paper" icon next to that receipt. Be ca
 
 
 # Activity
-In this section of the portal, you can view a list of all "submissions" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).
+In this section of the portal, you can view a list of all "runs" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).
 
-### Submissions
-Submissions are attempts made on a destination system by running a receipt through a Job Description. Submissions can be viewed and re-processed. Each submission has a `success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id` attribute. `Started_at` and `finished_at` are the timestamps when the submission began and ended.
+### Runs
+Runs are attempts made on a destination system by running a receipt through a Job Description. Runs can be viewed and re-processed. Each submission has a `success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id` attribute. `Started_at` and `finished_at` are the timestamps when the submission began and ended.
 
-> **Note:** Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our [Troubleshooting](#troubleshooting) section below.
+> **Note:** Some runs may take a really long time, particularly if they are performing multiple actions in a destination system or if they are fetching lots of data from a REST api at the start of a migration. They will appear as red if they have failed. In the case of failure, refer to our [Troubleshooting](#troubleshooting) section below.
 
 
 # Troubleshooting
@@ -131,7 +131,7 @@ Great question, and don't worry, it happens all the time. Assuming you've alread
 
 1. Read the email, and inspect the reason for failure.
 
-2. 99% of failed submissions on OpenFn are due to `value mismatches`. The *collected* `id` in ODK doesn't match the *expected* `id` in Salesforce. You must now chose to either:
+2. 99% of failed runs on OpenFn are due to `value mismatches`. The *collected* `id` in ODK doesn't match the *expected* `id` in Salesforce. You must now chose to either:
 
       A. Edit the source `id` in your `receipt` & retry the attempt.
 
