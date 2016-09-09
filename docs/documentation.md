@@ -1,4 +1,4 @@
-# Connecting Source Applications
+## Connecting Source Applications
 Most modern web applications have a feature that allows you to `push`, `publish`, or `post` data to another URL when a certain **event** takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
 
 1. Go to the "settings" or "administration" page for your source app, and look for a `Webhook API`, `Data Forwarding API`, or `Notifications API`. Write to the developers of your application if none is provided out of the box.
@@ -7,11 +7,10 @@ Most modern web applications have a feature that allows you to `push`, `publish`
 
 3. Soon you'll see new messages arrive in your **[history](https://www.openfn.org/receipts)** page.
 
-Next, learn how to define **filters** that trigger **job** runs.
+# Triggers
+Triggers run jobs. They can either be "filter" triggers or "timer" triggers. Filter triggers watch incoming messages and run them through jobs when they match the filter criteria. Timer triggers run jobs after a recurring interval has elapsed.
 
-
-# Filters
-Filters are used to trigger jobs. You, as a user, specify the filter **criteria** which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body **matches** the string of `JSON` you gave as a filter, the filter will run and trigger a job (assuming you created one).
+You, as a user, specify the filter **criteria** which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body **matches** the string of `JSON` you gave as a filter, the filter will run and trigger a job (assuming you created one).
 
 The filter criteria takes the form of a string of valid `JSON`. In a SQL query, this string will be used in the WHERE clause, for example:
 
@@ -22,49 +21,23 @@ SELECT * FROM receipts
 ```
 
 ## Filter Matching
-
 To illustrate filter matching, refer to the `JSON` strings below. Message "a" will match filter '1', but message "b" will not.
 
-#### filter 1:
+### filter 1:
 ```json
 {"formID":"patient_registration_v7"}
 ```
 
-#### message a (MATCH):
+### message a (MATCH):
 ```json
 {"submissionDate":"2016-01-15", "formID":"patient_registration_v7", "name":"Jack Wilshere", "dob":"1986-05-16", "medications": ["anaphlene","zaradood","morphofast"]}
 ```
 
-#### message b (NO MATCH):
+### message b (NO MATCH):
 ```json
 {"submissionDate":"2016-01-16", "formID":"patient_registration_v8", "name":"Larry Bird", "dob":"1982-03-21", "medications": ["anaphlene","zaradood","morphofast"]}
 ```
-
 Message 'b' does not include `"formID":"patient_registration_v7"` and will not match filter '1'.
-
-## More Examples and Sample Filters
-
-#### Match messages `WHERE` the `formId` is `"Robot_Photo_21.04.2015"`:
-```json
-{"formId":"Robot_Photo_21.04.2015"}
-```
-
-#### Match a message `WHERE` this `AND` that are both included:
-```json
-{"formId":"Robot_Photo_21.04.2015", "secret_number":8}
-```
-
-#### Match a message with two fragments inside an array called `data`:
-(This is useful when gathering data via ODK)
-```json
-{"data":[{"outlet_call":"TRUE","new_existing":"Existing"}]}
-```
-
-#### Match a message with a fragment inside another object called `form`:
-```json
-{"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}
-```
-
 
 # Credentials
 Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.
@@ -74,13 +47,10 @@ Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUr
 
 Credentials can only be viewed, or edited by a single user — their "owner" (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.
 
-
 # Jobs
-
+A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed.
 ## Writing Jobs for OpenFn
-`{ like_to_hack_and_smash ? goto '#examples' : read_on}` [Examples](#block-code-examples-for-writing-jobs)
-
-A job defines the specific series of tasks or database actions to be performed when a triggering message is received. In most cases, a job is a series of `create` or `upsert` actions that are run after a message arrives, using data from that message. It could look like this:
+In most cases, a job is a series of `create` or `upsert` actions that are run after a message arrives, using data from that message. It could look like this:
 ```js
 create("Patient__c", fields(
   field("Name", dataValue("form.surname")),
@@ -109,7 +79,8 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 2. **Credential** - The credential that will be used to gain access to that destination system.
 4. **Active?** - A boolean which determines whether the job runs in real-time when matching messages arrive.
 
-## Named Functions
+## Selected Named Functions
+There are lots more available in the language-packs.
 
 ### language-common
 - `field('destination_field_name__c', 'value')` Returns a key, value pair in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L248)
@@ -138,10 +109,7 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 
 
 # Inbox
-Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.
-
-### Messages
-Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)
+Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job. Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)
 
 To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.
 
@@ -284,7 +252,29 @@ event(
 }
 ```
 
-## Block code examples for writing jobs
+## More example filters
+### Match messages `WHERE` the `formId` is `"Robot_Photo_21.04.2015"`:
+```json
+{"formId":"Robot_Photo_21.04.2015"}
+```
+
+### Match a message `WHERE` this `AND` that are both included:
+```json
+{"formId":"Robot_Photo_21.04.2015", "secret_number":8}
+```
+
+### Match a message with two fragments inside an array called `data`:
+(This is useful when gathering data via ODK)
+```json
+{"data":[{"outlet_call":"TRUE","new_existing":"Existing"}]}
+```
+
+### Match a message with a fragment inside another object called `form`:
+```json
+{"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}
+```
+
+## More example jobs
 Below you can find some examples of block code for different functions and data handling contexts.
 
 #### Job expression (for CommCare to SF)
@@ -537,7 +527,7 @@ field("Payment_Date__c", function(state) {
 ```
 > **NOTE**: The output of this function will always be formatted according to GMT time-zone.
 
-## Connecting up source applications
+## Source Application Walk-throughs
 
 ### Kobo
 1. To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.
@@ -546,11 +536,6 @@ field("Payment_Date__c", function(state) {
 4. Click `Add Service` to start forwarding new Kobo submissions to OpenFn.org.
 
 To test to integration, add a submission manually using the `enter data in browser` button. Head back to your history page at OpenFn to view the newly submitted data and write a new `filter` and `job` to map your Kobo data to any destination system on OpenFn.
-
-#### More help
-1. Help writing [filters](#filters)
-2. Help writing [jobs](#jobs)
-3. The shape of the data from Kobo
 
 Here's a sample post from Kobo REST service. Note that questions inside groups are prefixed with `groupname/` rather than sitting inside a group object like ODK:
 ```json
@@ -577,4 +562,4 @@ Here's a sample post from Kobo REST service. Note that questions inside groups a
   "_bamboo_dataset_id": "",
   "_attachments": []
 }
-  ```
+```
