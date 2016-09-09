@@ -1,52 +1,144 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="README, Getting Started, Documentation, and Release Notes for OpenFn">
+  
+  
+  <title>OpenFn Documentation</title>
+  
 
-        <title>OpenFn Docs</title>
+  <link rel="shortcut icon" href="./img/favicon.ico">
 
-        <link rel="stylesheet" href="http://openfn.github.io/docs/css/bootstrap.min.css">
-        <link rel="stylesheet" href="http://openfn.github.io/docs/css/font-awesome.min.css">
-        <link rel="stylesheet" href="http://openfn.github.io/docs/css/highlight.dark.css">
-        <link rel="stylesheet" href="http://openfn.github.io/docs/css/main.css">
-    </head>
-    <body>
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
-      <div id="wrapper">
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
 
-        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-          <div class="container-fluid">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              <a class="navbar-brand" href="#">OpenFn Docs</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-              <ul class="nav navbar-nav navbar-right">
-                <li><a href="https://www.openfn.org"><i class="fa fa-cube fa-lg"></i>&nbsp;&nbsp;OpenFn.org</a></li>
-                <li><a href="https://www.github.com/OpenFn/docs"><i class="fa fa-github fa-lg"></i>&nbsp;&nbsp;GitHub</a></li>
-                <li class="dropdown" id="toc-mobile" />
-              </ul>
-            </div>
-          </div>
-        </nav>
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script> 
 
-        <div id="sidebar-wrapper">
-          <div id="toc"></div>
-        </div>
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-        <div id="page-content-wrapper">
-          <main class="container">
-            <div class="row">
-              <h1 id="introduction">Introduction</h1>
+      ga('create', 'UA-57118569-4', 'openfn.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="." class="icon icon-home"> OpenFn Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href=".">Home</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#introduction-to-the-docs">Introduction to the docs</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#quick-start-guide">Quick-start guide</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="documentation/">Documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="release-notes/">Release Notes</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">OpenFn Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/OpenFn/docs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction-to-the-docs">Introduction to the docs<a class="headerlink" href="#introduction-to-the-docs" title="Permanent link">&para;</a></h1>
+<p>Thanks for visiting! This documentation is for <a href="https://www.openfn.org">OpenFn.org</a>, and is primarily intended to help users of the site. Technical documentation for OpenFn's open-source integration tools and language-packs can be found in their respective repositories at <a href="https://github.com/openfn">Github.com/OpenFn</a>.</p>
+<p>We've broken the documentation into three parts: an introduction, detailed documentation, and release notes.</p>
+<p>If you want a new feature or find a bug, please <a href="https://github.com/openfn/docs/issues">submit an issue</a>. If you find an issue with the documentation or want to share your custom functions, please <a href="https://github.com/OpenFn/docs/compare">submit a pull request</a>!</p>
 <blockquote>
-<p>So, OpenFn does what now?</p>
+<p><em>Wait, so, OpenFn does what now?</em></p>
 </blockquote>
+<p>Good question:</p>
 <ol>
 <li>
 <p>A source application sends <strong>messages</strong> to your project’s <strong>inbox</strong> when something happens.</p>
@@ -54,600 +146,90 @@
 <li>
 <p><strong>Jobs</strong> will be triggered, based on your <strong>filters</strong>, and use the data in those messages to attempt specific actions in destination systems.</p>
 </li>
-<li>The <strong>logs</strong> are recorded so you can see precisely what happened and when and where it happened to take action in the event of a failed attempt—like editing the job or even the source message and trying it again.</li>
+<li>
+<p>The <strong>logs</strong> are recorded so you can see precisely what happened and when and where it happened to take action in the event of a failed attempt—like editing the job or even the source message and trying it again.</p>
+</li>
 </ol>
 <p>OpenFn has harnessed the extreme  stability and scalability of Erlang to coordinate these actions and provide users with email alerts, project management tools, and an online job writing IDE.</p>
 <p>In this guide you'll find documentation to help you write filters and jobs, along with explanations of OpenFn's key concepts.</p>
 <p>If you have any questions, please don't hesitate to email <a href="mailto:admin@openfn.org">admin@openfn.org</a>.</p>
-<h1 id="quick-start-guide">Quick Start Guide</h1>
+<h1 id="quick-start-guide">Quick-start guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">&para;</a></h1>
 <p>Want to get up and running with OpenFn in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!</p>
-<h4 id="1-create-account">1. Create account</h4>
-<p>If you haven't already, create an account at <a href="https://www.openfn.org/signup">OpenFn.org</a></p>
-<h4 id="2-log-in">2. Log In</h4>
-<p>After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer <strong>Dashboard</strong>. Click on one to start.</p>
-<h4 id="3-inner-project-dashboard">3. Inner Project Dashboard</h4>
-<p>You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:</p>
+<p><strong>1. Create your account.</strong> If you haven't already, create an account at <a href="https://www.openfn.org/signup">OpenFn.org</a></p>
+<p><strong>2. Log In.</strong> After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer <strong>Dashboard</strong>. Click on one to start.</p>
+<p><strong>3. Check your inbox.</strong> You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:</p>
 <ul>
-<li>Jobs <a href="#jobs">(Read More)</a></li>
-<li>Filters <a href="#filter">(Read More)</a></li>
-<li>Credentials <a href="#credentials">(Read More)</a></li>
-<li>Inbox <a href="#inbox">(Read More)</a></li>
-<li>Activity <a href="#activity">(Read More)</a></li>
+<li>Jobs</li>
+<li>Triggers</li>
+<li>Credentials</li>
+<li>Inbox</li>
+<li>Activity</li>
 <li>Settings</li>
 </ul>
-<h4 id="4-inbox-tab">4. Inbox Tab</h4>
-<p>Navigate to your &quot;Inbox&quot; and you should see your first message associated with a &quot;sample job&quot;. Click on it. You can now choose to do the following:</p>
+<p>Click on the Inbox tab.</p>
+<p><strong>4. Run a job.</strong> You should see your first message associated with a "sample job". Click on it. You can now choose to do the following:</p>
 <ul>
 <li>Edit the message (mainly for the purpose of fixing mistakes in data),</li>
-<li>Or manually run the job associated with a filter which has identified your first message as a trigger.</li>
+<li>Manually run the job associated with a filter which has identified your first message as a trigger.</li>
 </ul>
-<p>After clicking &quot;Run Job Manually&quot;, wait for the job to finish and then click on &quot;View Logs&quot; to see what happened to the data inside of the message.</p>
-<h4 id="5-filters-tab">5. Filters Tab</h4>
-<p>Navigate to &quot;Filters&quot;. You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.</p>
-<p>Remember that if and/or how you edit the filter, your message may not trigger a job run.</p>
-<h4 id="6-jobs-tab">6. Jobs Tab</h4>
-<p>Navigate to &quot;Jobs&quot;. Here you can:</p>
+<p>Click run.</p>
+<p><strong>5. View the logs.</strong> Wait for the job to finish and then click on "View Logs" to see what happened to the data inside of the message. You can view every job run from the "Activity" tab.</p>
+<p><strong>6. Familiarize yourself with the other tabs.</strong></p>
+<p>Navigate to <strong>Triggers</strong>. You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.</p>
+<p>Navigate to <strong>Jobs</strong>. Here you can:</p>
 <ul>
 <li>You can click to view the job that was run when triggered by the sample filter and sample message.</li>
-<li>Click on &quot;Edit Job&quot; to edit the .js file which executes a specific action (job).</li>
+<li>Click on "Edit Job" to edit the .js file which executes a specific action (job).</li>
 <li>Click on the specified filter to change which filter should trigger that job.</li>
 </ul>
-<h4 id="7-credentials-tab">7. Credentials Tab</h4>
-<p>Navigate to &quot;Credentials&quot; to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
-<h4 id="8-settings-tab">8. Settings Tab</h4>
-<p>The settings tab currently only offers the ability to upgrade your account type with OpenFn. Adding a collaborator and transferring project ownership are still pieces of functionality which we are busy building.</p>
-<h1 id="connecting-source-applications">Connecting Source Applications</h1>
-<p>Most modern web applications have a feature that allows you to <code>push</code>, <code>publish</code>, or <code>post</code> data to another URL when a certain <strong>event</strong> takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when <em>something happens</em>.</p>
-<ol>
-<li>
-<p>Go to the &quot;settings&quot; or &quot;administration&quot; page for your source app, and look for a <code>Webhook API</code>, <code>Data Forwarding API</code>, or <code>Notifications API</code>. Write to the developers of your application if none is provided out of the box.</p>
-</li>
-<li>
-<p>When setting up forwarding, select to send messages in <code>JSON</code> to your project's <code>inbox URL</code>. You can find and copy your secure inbox URL by clicking on the &quot;copy URL&quot; link in the bottom-right corner of the project in question on your <strong><a href="https://www.openfn.org/projects">project dashboard</a></strong> page.</p>
-</li>
-<li>Soon you'll see new messages arrive in your <strong><a href="https://www.openfn.org/receipts">history</a></strong> page.</li>
-</ol>
-<p>Next, learn how to define <strong>filters</strong> that trigger <strong>job</strong> runs.</p>
-<h1 id="filters">Filters</h1>
-<p>Filters are used to trigger jobs. You, as a user, specify the filter <strong>criteria</strong> which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body <strong>matches</strong> the string of <code>JSON</code> you gave as a filter, the filter will run and trigger a job (assuming you created one).</p>
-<p>The filter criteria takes the form of a string of valid <code>JSON</code>. In a SQL query, this string will be used in the WHERE clause, for example:</p>
-<pre><code class="language-sql">SELECT * FROM receipts
-  WHERE body::jsonb @&gt;
-    '{"Name":"Alex Iwobi"}'::jsonb;</code></pre>
-<h2 id="filter-matching">Filter Matching</h2>
-<p>To illustrate filter matching, refer to the <code>JSON</code> strings below. Message &quot;a&quot; will match filter '1', but message &quot;b&quot; will not.</p>
-<h4 id="filter-1">filter 1:</h4>
-<pre><code class="language-json">{"formID":"patient_registration_v7"}</code></pre>
-<h4 id="message-a-match">message a (MATCH):</h4>
-<pre><code class="language-json">{"submissionDate":"2016-01-15", "formID":"patient_registration_v7", "name":"Jack Wilshere", "dob":"1986-05-16", "medications": ["anaphlene","zaradood","morphofast"]}</code></pre>
-<h4 id="message-b-no-match">message b (NO MATCH):</h4>
-<pre><code class="language-json">{"submissionDate":"2016-01-16", "formID":"patient_registration_v8", "name":"Larry Bird", "dob":"1982-03-21", "medications": ["anaphlene","zaradood","morphofast"]}</code></pre>
-<p>Message 'b' does not include <code>"formID":"patient_registration_v7"</code> and will not match filter '1'.</p>
-<h2 id="more-examples-and-sample-filters">More Examples and Sample Filters</h2>
-<h4 id="match-messages">Match messages <code>WHERE</code> the <code>formId</code> is <code>"Robot_Photo_21.04.2015"</code>:</h4>
-<pre><code class="language-json">{"formId":"Robot_Photo_21.04.2015"}</code></pre>
-<h4 id="match-a-message">Match a message <code>WHERE</code> this <code>AND</code> that are both included:</h4>
-<pre><code class="language-json">{"formId":"Robot_Photo_21.04.2015", "secret_number":8}</code></pre>
-<h4 id="match-a-message-with-two-fragments-inside-an-array-called">Match a message with two fragments inside an array called <code>data</code>:</h4>
-<p>(This is useful when gathering data via ODK)</p>
-<pre><code class="language-json">{"data":[{"outlet_call":"TRUE","new_existing":"Existing"}]}</code></pre>
-<h4 id="match-a-message-with-a-fragment-inside-another-object-called">Match a message with a fragment inside another object called <code>form</code>:</h4>
-<pre><code class="language-json">{"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}</code></pre>
-<h1 id="credentials">Credentials</h1>
-<p>Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.</p>
-<p>Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final &quot;/&quot; in these Urls:
-<code>https://login.salesforce.com</code> or <code>http://demo.openmrs.org/openmrs</code> or <code>https://play.dhis2.org</code>.</p>
-<p>Credentials can only be viewed, or edited by a single user — their &quot;owner&quot; (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
-<h1 id="jobs">Jobs</h1>
-<h2 id="writing-jobs-for-openfn">Writing Jobs for OpenFn</h2>
-<p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code> <a href="#block-code-examples-for-writing-jobs">Examples</a></p>
-<p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received. In most cases, a job is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
-<pre><code class="language-js">create("Patient__c", fields(
-  field("Name", dataValue("form.surname")),
-  field("Age__c", 7)
-))</code></pre>
-<p>That would create a new <code>Patient__c</code> in some other system. The patient's <code>Name</code> will be determined by the triggering message (the value inside <code>form.name</code>, specifically) and the patient's <code>Age__c</code> will <em>always</em> be 7. See how we hard coded it?</p>
-<p>What you see above is OpenFn's own syntax, and you've got access to dozens of common &quot;helper functions&quot; like <code>dataValue(path)</code> and destination specific functions like <code>create(object,attributes)</code>. While most cases are covered out-of-the-box, jobs are <strong>evaluated as Javascript</strong>. This means that you can write your own custom, anonymous functions to do whatever your heart desires:</p>
-<pre><code class="language-js">create("Patient__c", fields(
-  field("Name", function(state) {
-    return Array.apply(
-      null, dataValue("patient_names")(state)
-    ).join(', ')
-  })
-  field("Age__c", 7)</code></pre>
-<p>Here, the patient's name will be a comma separated concatenation of all the values in the <code>patient_names</code> array from our source message.</p>
-<p>Other than the expression tree, Jobs have certain attributes that must be set:</p>
-<ol>
-<li><strong>Filter</strong> - The message filter that will triggers the job.</li>
-<li><strong>Adaptor</strong> - The adaptor for the destination system you're connecting to.</li>
-<li><strong>Credential</strong> - The credential that will be used to gain access to that destination system.</li>
-<li><strong>Active?</strong> - A boolean which determines whether the job runs in real-time when matching messages arrive.</li>
-</ol>
-<h2 id="named-functions">Named Functions</h2>
-<h3 id="language-common">language-common</h3>
-<ul>
-<li><code>field('destination_field_name__c', 'value')</code> Returns a key, value pair in an array. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L248">(source)</a></li>
-<li><code>fields(list_of_fields)</code> zips key value pairs into an object. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L258">(source)</a></li>
-<li><code>dataValue('JSON_path')</code> Picks out a single value from source data. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L71">(source)</a></li>
-<li><code>each(JSON_path, operation(...))</code> Scopes an array of data based on a JSONPath <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L160">(source)</a></li>
-<li><code>beta.each(JSON_path, operation(...))</code> Pre-release: new feature details coming. <a href="https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2">(source)</a></li>
-<li><code>each(merge(dataPath("CHILD_ARRAY[*]"),fields(field("metaId", dataValue("*meta-instance-id*")),field("parentId", lastReferenceValue("id")))), create(...))</code> merges data into an array then creates for each item in the array <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L272">(source)</a></li>
-<li><code>lastReferenceValue('id')</code> gets the sfID of the last item created <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100">(source)</a></li>
-<li><code>function(state){return state.references[state.references.length-N].id})</code> gets the sfID of the nth item created</li>
-</ul>
-<h3 id="salesforce">Salesforce</h3>
-<ul>
-<li><code>create("DEST_OBJECT_NAME__C", fields(...))</code> Create a new object. Takes 2 parameters: An object and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63">(source)</a></li>
-<li><code>upsert("DEST_OBJECT_NAME__C", "DEST_OBJECT_EXTERNAL_ID__C", fields(...))</code> Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80">(source)</a></li>
-<li><code>relationship("DEST_RELATIONSHIP_NAME__r", "EXTERNAL_ID_ON_RELATED_OBJECT__C", "SOURCE_DATA_OR_VALUE")</code> Adds a lookup or 'dome insert' to a record. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40">(source)</a></li>
-</ul>
-<h3 id="dhis2">dhis2</h3>
-<ul>
-<li><code>event(...)</code> Creates an event. <a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60">(source)</a></li>
-<li><code>dataValueSet(...)</code> Send data values using the dataValueSets resource <a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L62-L82">(source)</a></li>
-</ul>
-<h3 id="openmrs">OpenMRS</h3>
-<ul>
-<li><code>person(...)</code> Takes a payload of data to create a person <a href="https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L31-L60">(source)</a></li>
-<li><code>patient(...)</code> Takes a payload of data to create a patient <a href="https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90">(source)</a></li>
-</ul>
-<p><strong>For code block examples of job expressions, go to the <a href="#appendix">Appendix</a>.</strong></p>
-<h1 id="inbox">Inbox</h1>
-<p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.</p>
-<h3 id="messages">Messages</h3>
-<p>Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
-<p>To edit a message, click the &quot;pencil and paper&quot; icon next to that receipt. Be careful, as no original copy will be persisted.</p>
-<h1 id="activity">Activity</h1>
-<p>In this section of the portal, you can view a list of all &quot;submissions&quot; - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
-<h3 id="submissions">Submissions</h3>
-<p>Submissions are attempts made on a destination system by running a receipt through a Job Description. Submissions can be viewed and re-processed. Each submission has a <code>success</code>, <code>started_at</code>, <code>finsihed_at</code>, <code>job_description_id</code>, and <code>receipt_id</code> attribute. <code>Started_at</code> and <code>finished_at</code> are the timestamps when the submission began and ended.</p>
-<blockquote>
-<p><strong>Note:</strong> Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
-</blockquote>
-<h1 id="troubleshooting">Troubleshooting</h1>
-<blockquote>
-<p>What happens if my survey data from ODK needs to link to existing records in my Salesforce system but a respondent enters or selects an invalid <code>external ID</code>?</p>
-</blockquote>
-<p>Great question, and don't worry, it happens all the time. Assuming you've already taken all possible measures to either pre-load external IDs in your ODK form or use more human-proof IDs (like barcodes and fingerprints) here's the flow of work:</p>
-<ol>
-<li>
-<p>Read the email, and inspect the reason for failure.</p>
-</li>
-<li>
-<p>99% of failed submissions on OpenFn are due to <code>value mismatches</code>. The <em>collected</em> <code>id</code> in ODK doesn't match the <em>expected</em> <code>id</code> in Salesforce. You must now chose to either:</p>
-<p>A. Edit the source <code>id</code> in your <code>receipt</code> &amp; retry the attempt.</p>
-<p>B. Edit the related <code>id</code> in your destination system &amp; retry the attempt.</p>
-<p>C. Ignore the attempt—this source data will never reach your destination system.</p>
-</li>
-</ol>
-<p>Editing data in your destination system can be done through that system's interface. Many tools that act as <code>sources</code> (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.</p>
-<h2 id="common-error-messages">Common Error Messages</h2>
-<p>The most common error messages with English explanations are:</p>
-<ul>
-<li><code>DUPLICATE_VALUE: duplicate value found: ODK_uuid__c duplicates value on record with id: a0524000005wNw0</code> - The insert is blocked because you are attempting to create a new record with a unique field with the same value as an existing record.</li>
-<li><code>Required value missing</code></li>
-<li><code>ExternalId not found</code></li>
-</ul>
-<h1 id="diy">DIY</h1>
-<p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line. You can even take this further and wrap them together in your own hosted service!</p>
-<blockquote>
-<p><strong>ETL</strong> = Extracting, Transforming and Loading of data</p>
-</blockquote>
-<p><strong>To get started, follow these steps:</strong></p>
-<ol>
-<li>Create an empty directory somewhere on your local machine (e.g. call it &quot;OpenFn&quot;)</li>
-<li>
-<p>Open up a terminal, cd into the new directory, and git clone the following:</p>
-<ul>
-<li><code>git clone</code> <a href="https://github.com/OpenFn/fn-lang">fn-lang</a></li>
-<li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-common</a></li>
-<li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</li>
-</ul>
-<h4 id="fn-lang-diesl">fn-lang (diesl)</h4>
-<p>fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the &quot;TL&quot; part of &quot;ETL&quot; on command. It can be run from a command line, or built into a hosted web service.</p>
-<h4 id="language-common-1">language-common</h4>
-<p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
-<h4 id="language-xxx">language-xxx</h4>
-<p><code>language-xxx</code> is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system-specific operations, like <code>relationship</code> or <code>upsert</code>. Examples: <code>language-dhis2</code>, <code>language-salesforce</code>, <code>language-openmrs</code>.</p>
-</li>
-<li>cd into 'fn-lang'</li>
-<li>
-<p>type into the terminal the following commands (in order):</p>
-<ul>
-<li>npm install</li>
-<li>npm link ../language-common</li>
-<li>npm link ../language-xxx (Whatever adaptor you chose. For this demonstration we will use DHIS2)</li>
-</ul>
-</li>
-<li>Create a folder named &quot;tmp&quot; inside &quot;fn-lang&quot;.</li>
-<li>
-<p>Inside &quot;tmp&quot;, you need to create 3 files: <code>config.json</code>, <code>expression.js</code> and <code>message.json</code>.</p>
-<blockquote>
-<p>Click <a href="#sample-code-for-diy-section">HERE</a> to get started by using some sample code for each of the 3 files.</p>
-</blockquote>
-</li>
-<li>
-<p>Run fn-lang from the command line with the following:</p>
-<p><code>~/fn-lang$ lib/cli.js execute -l dhis2 -e tmp/expression.js -c tmp/config.json -d tmp/message.json</code></p>
-<p><strong>Command Explained:</strong> Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and a destination configuration file (-c).</p>
-<blockquote>
-<p><strong>Note:</strong> Depending on which language-pack you have decided to use, you will need to change this command by replacing &quot;dhis2&quot; with the name of the language-pack you are using. E.g. &quot;openmrs&quot; or &quot;salesforce/FakeAdaptor&quot; (special case).  </p>
-</blockquote>
-</li>
-<li>Check out the results of the posted data! Open up expression.js and message.json to manipulate the outcome and get a feel for how it works.</li>
-</ol>
-<h1 id="appendix">Appendix</h1>
-<h2 id="sample-code-for-diy-section">Sample code for DIY section</h2>
-<p>Below you can find sample code to fill the 3 files required to run fn-lang - <code>message.json</code>, <code>expression.js</code> and <code>config.json</code>.</p>
-<h3 id="messagejson">message.json</h3>
-<pre><code class="language-json">{
-  "xform_ids": [],
-  "version": null,
-  "user_id": "user1",
-  "server_date_opened": null,
-  "server_date_modified": null,
-  "properties": {
-    "prop_c": "2013-05-18",
-    "prop_b": "Female",
-    "prop_a": 99,
-    "owner_id": null,
-    "external_id": null,
-    "date_opened": null,
-    "date": "2013-05-17",
-    "case_type": "case_type",
-    "case_name": "Demo"
-  },
-  "indices": {}
-}</code></pre>
-<h3 id="expressionjs">expression.js</h3>
-<pre><code class="language-js">event(
-  fields(
-    field("program", "eBAyeGv0exc"),
-    field("orgUnit", "DiszpKrYNg8"),
-    field("eventDate", dataValue("properties.date")),
-    field("status", "COMPLETED"),
-    field("storedBy", "admin"),
-    field("coordinate", {
-      "latitude": "59.8",
-      "longitude": "10.9"
-    }),
-    field("dataValues", function(state) {
-      return [
-        { "dataElement": "qrur9Dvnyt5", "value": dataValue("properties.prop_a")(state) },
-        { "dataElement": "oZg33kd9taw", "value": dataValue("properties.prop_b")(state) },
-        { "dataElement": "msodh3rEMJa", "value": dataValue("properties.prop_c")(state) }
-      ]
-    })
-  )
-)</code></pre>
-<h3 id="configjson">config.json</h3>
-<pre><code class="language-json">{
-  "username": "admin",
-  "password": "district",
-  "apiUrl": "https://play.dhis2.org/demo"
-}</code></pre>
-<h2 id="block-code-examples-for-writing-jobs">Block code examples for writing jobs</h2>
-<p>Below you can find some examples of block code for different functions and data handling contexts.</p>
-<h4 id="job-expression-for-commcare-to-sf">Job expression (for CommCare to SF)</h4>
-<p>The following job expression will take a matching receipt and use data from that receipt to upsert a <code>Patient__c</code> record in Salesforce and create multiple new <code>Patient_Visit__c</code> (child to Patient) records.</p>
-<pre><code class="language-js">upsert("Patient__c", "Patient_Id__c", fields(
-  field("Patient_Id__c", dataValue("form.patient_ID")),
-  relationship("Nurse__r", "Nurse_ID_code__c", dataValue("form.staff_id")),
-  field("Phone_Number__c", dataValue("form.mobile_phone"))
-)),
-each(
-  join("$.data.form.visits[*]", "$.references[0].id", "Id"),
-  create("Visit__c", fields(
-    field("Patient__c", dataValue("Id")),
-    field("Date__c", dataValue("date")),
-    field("Reason__c", dataValue("why_did_they_see_doctor"))
-  ))
-)</code></pre>
-<h4 id="accessing-the-quotdata-arrayquot-in-open-data-kit-submissions">Accessing the &quot;data array&quot; in Open Data Kit submissions</h4>
-<p>Notice how we use &quot;each&quot; to get data from each item inside the &quot;data array&quot; in ODK.</p>
-<pre><code class="language-js">each(
-  "$.data.data[*]",
-  create("ODK_Submission__c", fields(
-    field("Site_School_ID_Number__c", dataValue("school")),
-    field("Date_Completed__c", dataValue("date")),
-    field("comments__c", dataValue("comments")),
-    field("ODK_Key__c", dataValue("*meta-instance-id*"))
-  ))
-)</code></pre>
-<h4 id="odk-to-salesforce-create-parent-record-with-many-children-from-parent-data">ODK to Salesforce: create parent record with many children from parent data</h4>
-<p>Here, the user brings <code>time_end</code> and <code>parentId</code> onto the line items from the parent object.</p>
-<pre><code class="language-js">each(
-  dataPath("data[*]"),
-  combine(
-    create("transaction__c", fields(
-      field("Transaction_Date__c", dataValue("today")),
-      relationship("Person_Responsible__r", "Staff_ID_Code__c", dataValue("person_code")),
-      field("metainstanceid__c", dataValue("*meta-instance-id*"))
-    )),
-    each(
-      merge(dataPath("line_items[*]"), fields(
-        field("end", dataValue("time_end")),
-        field("parentId", lastReferenceValue("id"))
-      )),
-      create("line_item__c", fields(
-        field("transaction__c", dataValue("parentId")),
-        field("Barcode__c", dataValue("product_barcode")),
-        field("ODK_Form_Completed__c", dataValue("end"))
-      ))
-    )
-  )
-)</code></pre>
-<blockquote>
-<p><strong>NB - there was a known bug with the <code>combine</code> function which has been resolved. <code>combine</code> can be used to combine two operations into one and is commonly used to run multiple <code>create</code>'s inside an <code>each(path, operation)</code>. The source code for combine can be found here: <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222">language-common: combine</a></strong></p>
-</blockquote>
-<h4 id="create-many-child-records-without-a-repeat-group-in-odk">Create many child records WITHOUT a repeat group in ODK</h4>
-<pre><code class="language-js">beta.each(
-  "$.data.data[*]",
-  upsert("Outlet__c", "Outlet_Code__c", fields(
-    field("Outlet_Code__c", dataValue("outlet_code")),
-    field("Location__Latitude__s", dataValue("gps:Latitude")),
-    field("Location__Longitude__s", dataValue("gps:Longitude"))
-  ))
-),
-beta.each(
-    "$.data.data[*]",
-    upsert("Outlet_Call__c", "Invoice_Number__c", fields(
-      field("Invoice_Number__c", dataValue("invoice_number")),
-      relationship("Outlet__r", "Outlet_Code__c", dataValue("outlet_code")),
-      relationship("RecordType", "name", "No Call Card"),
-      field("Trip__c", "a0FN0000008jPue"),
-      relationship("Sales_Person__r", "Sales_Rep_Code__c", dataValue("sales_rep_code")),
-      field("Date__c", dataValue("date")),
-      field("Comments__c", dataValue("comments"))
-  ))
-)</code></pre>
-<h4 id="salesforce-set-record-type-using-relationship">Salesforce: Set record type using 'relationship(...)'</h4>
-<pre><code class="language-js">create("custom_obj__c", fields(
-            relationship("RecordType", "name", dataValue("submission_type"),
-            field("name", dataValue("Name"))
-            )
-      ))</code></pre>
-<h4 id="salesforce-set-record-type-using-record-type-id">Salesforce: Set record type using record Type ID</h4>
-<pre><code class="language-js">each(
-  "$.data.data[*]",
-  create("fancy_object__c", fields(
-    field("RecordTypeId", "012110000008s19"),
-    field("site_size", dataValue("size"))
-  ))
-)</code></pre>
-<h4 id="sample-dhis2-events-api-job">Sample DHIS2 events API job:</h4>
-<pre><code class="language-js">event(
-  fields(
-    field("program", "eBAyeGv0exc"),
-    field("orgUnit", "DiszpKrYNg8"),
-    field("eventDate", dataValue("properties.date")),
-    field("status", "COMPLETED"),
-    field("storedBy", "admin"),
-    field("coordinate", {
-      "latitude": "59.8",
-      "longitude": "10.9"
-    }),
-    field("dataValues", function(state) {
-      return [
-        { "dataElement": "qrur9Dvnyt5", "value": dataValue("properties.prop_a")(state) },
-        { "dataElement": "oZg33kd9taw", "value": dataValue("properties.prop_b")(state) },
-        { "dataElement": "msodh3rEMJa", "value": dataValue("properties.prop_c")(state) }
-      ]
-    })
-  )
-)</code></pre>
-<h4 id="sample-dhis2-data-value-sets-api-job">Sample DHIS2 data value sets API job:</h4>
-<pre><code class="language-js">dataValueSet(
-  fields(
-    field("dataSet", "pBOMPrpg1QX"),
-    field("orgUnit", "DiszpKrYNg8"),
-    field("period", "201401"),
-    field("completeData", dataValue("date")),
-    field("dataValues", function(state) {
-      return [
-        { "dataElement": "f7n9E0hX8qk", "value": dataValue("prop_a")(state) },
-        { "dataElement": "Ix2HsbDMLea", "value": dataValue("prop_b")(state) },
-        { "dataElement": "eY5ehpbEsB7", "value": dataValue("prop_c")(state) }
-      ]
-    })
-  )
-)</code></pre>
-<h4 id="sample-openmrs-expression-creates-a-person-and-then-a-patient">sample openMRS expression, creates a person and then a patient</h4>
-<pre><code class="language-js">person(
-  fields(
-    field("gender", "F"),
-    field("names", function(state) {
-      return [{
-        "givenName": dataValue("form.first_name")(state),
-        "familyName": dataValue("form.last_name")(state)
-      }]
-    })
-  )
-),
-patient(
-  fields(
-    field("person", lastReferenceValue("uuid")),
-    field("identifiers", function(state) {
-      return [{
-        "identifier": "1234",
-        "identifierType": "8d79403a-c2cc-11de-8d13-0010c6dffd0f",
-        "location": "8d6c993e-c2cc-11de-8d13-0010c6dffd0f",
-        "preferred": true
-      }]
-    })
-  )
-)</code></pre>
-<h2 id="examples-of-anonymous-functions">Examples of Anonymous Functions</h2>
-<p>Different to <a href="#named-functions">Named Functions</a>, Anoynmous functions are generic pieces of javascript which you can write to suit your needs. Here are some examples of these custom functions:</p>
-<h4 id="custom-replacer">Custom replacer</h4>
-<pre><code class="language-js">field(
-  "destination__c",
-  function(state){
-    return dataValue("path_to_data")(state).toString().replace("cats","dogs")
-  }
-)</code></pre>
-<p>This will replace all &quot;cats&quot; with &quot;dogs&quot; in the string that lives at <code>path_to_data</code>.</p>
-<blockquote>
-<p><strong>NOTE:</strong> The JavaScript <code>replace()</code> function only replaces the first instance of whatever argument you specify.
-If you're looking for a way to replace all instances, we suggest you use a regex like we did in the <a href="#custom-concatenation-of-null-values">example</a> below.</p>
-</blockquote>
-<h4 id="custom-arraytostring">Custom arrayToString</h4>
-<pre><code class="language-js">field("target_specie_list__c", function(state) {
-  return Array.apply(
-    null, sourceValue("$.data.target_specie_list")(state)
-  ).join(', ')
-}),</code></pre>
-<p>It will take an array, and concatenate each item into a string with a &quot;, &quot; separator.</p>
-<h4 id="custom-concatenation">Custom concatenation</h4>
-<pre><code class="language-js">field("ODK_Key__c", function (state) {
-  return (
-    dataValue("metaId")(state).concat(
-      "(", dataValue("index")(state), ")"
-    )
-  )
-})</code></pre>
-<p>This will concatenate two values.</p>
-<h3 id="custom-concatenation-of-null-values">Custom concatenation of null values</h3>
-<p>This will concatenate many values, even if one or more are null, writing them to a field called Main_Office_City_c.</p>
-<pre><code class="language-js">...
-  field("Main_Office_City__c", function(state) {
-    return arrayToString([
-      dataValue("Main_Office_City_a")(state) === null ? "" : dataValue("Main_Office_City_a")(state).toString().replace(/-/g, " "),
-      dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),
-      dataValue("Main_Office_City_c")(state) === null ? "" : dataValue("Main_Office_City_c")(state).toString().replace(/-/g, " "),
-      dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),
-    ].filter(Boolean), ',')
-  })</code></pre>
-<blockquote>
-<p>Notice how this custom function makes use of the <strong>regex</strong> <code>/-/g</code> to ensure that all instances are accounted for (g = global search).</p>
-</blockquote>
-<h4 id="custom-nth-reference-id">Custom Nth reference ID</h4>
-<p>If you ever want to retrieve the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick.</p>
-<pre><code class="language-js">field("parent__c", function(state) {
-    return state.references[state.references.length-1].id
-  })</code></pre>
-<p>See how instead of taking the id of the &quot;last&quot; thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace &quot;length-1&quot; with &quot;length-2&quot;.</p>
-<h4 id="convert-date-string-to-standard-iso-date-for-salesforce">Convert date string to standard ISO date for Salesforce</h4>
-<pre><code class="language-js">field("Payment_Date__c", function(state) {
-  return new Date(dataValue("payment_date")(state)).toISOString()
-})</code></pre>
-<blockquote>
-<p><strong>NOTE</strong>: The output of this function will always be formatted according to GMT time-zone.</p>
-</blockquote>
-<h2 id="connecting-up-source-applications">Connecting up source applications</h2>
-<h3 id="kobo">Kobo</h3>
-<ol>
-<li>To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.</li>
-<li>Once selecting a project, the <code>Project Settings</code> link will appear at the top left side of the screen. Click it to open the Project Settings page.</li>
-<li>In the bottom left pane of the project settings page, users must paste their inbox URL from OpenFn into the <code>Rest Services</code> <code>Service URL</code> input area and select <code>JSON Post</code> as the <code>Service Name</code>.</li>
-<li>Click <code>Add Service</code> to start forwarding new Kobo submissions to OpenFn.org.</li>
-</ol>
-<p>To test to integration, add a submission manually using the <code>enter data in browser</code> button. Head back to your history page at OpenFn to view the newly submitted data and write a new <code>filter</code> and <code>job</code> to map your Kobo data to any destination system on OpenFn.</p>
-<h4 id="more-help">More help</h4>
-<ol>
-<li>Help writing <a href="#filters">filters</a></li>
-<li>Help writing <a href="#jobs">jobs</a></li>
-<li>The shape of the data from Kobo</li>
-</ol>
-<p>Here's a sample post from Kobo REST service. Note that questions inside groups are prefixed with <code>groupname/</code> rather than sitting inside a group object like ODK:</p>
-<pre><code class="language-json">{
-  "meta/instanceID": "uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4",
-  "group1/name": "twenty",
-  "group1/age": "19",
-  "formhub/uuid": "6f5773a110b046cb97e3d71f6c04e7a6",
-  "first_q": "hello",
-  "final_q": "why not?",
-  "_xform_id_string": "groups",
-  "_uuid": "19d72997-8316-4e02-8016-4a8ddf6a2aa4",
-  "_userform_id": "taylordowns2000_groups",
-  "_tags": [],
-  "_submitted_by": null,
-  "_submission_time": "2016-04-22T06:38:20",
-  "_status": "submitted_via_web",
-  "_notes": [],
-  "_id": 889409,
-  "_geolocation": [
-    null,
-    null
-  ],
-  "_bamboo_dataset_id": "",
-  "_attachments": []
-}</code></pre>
+<p>Navigate to <strong>Credentials</strong> to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
+<p>Navigate to the <strong>Settings</strong> tab to change the project's name, upgrade your account for more jobs and runs, add collaborators, and transfer project ownership.</p>
+              
             </div>
-          </main>
-        </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="documentation/" class="btn btn-neutral float-right" title="Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
       </div>
 
-      <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-      <script src="//yastatic.net/highlightjs/8.2/highlight.min.js"></script>
-      <script src="http://cdnjs.cloudflare.com/ajax/libs/anchor-js/3.1.1/anchor.js"></script>
-      <script src="http://openfn.github.io/docs/toc.min.js"></script>
+    </section>
 
-      <script>
-          $(function() {
-              $("section>h1").wrap('<div class="page-header" />');
-              // Syntax highlighting
-              hljs.initHighlightingOnLoad();
-          });
+  </div>
 
-          /* Call to Anchor-js function */
-          anchors.add('h1, h2, h3, h4');
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/OpenFn/docs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+        <span style="margin-left: 15px"><a href="documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
 
-          // Shift anchor link scroll past fixed navbar
-          var shiftWindow = function() { scrollBy(0, -95) };
-          if (location.hash) shiftWindow();
-          window.addEventListener("hashchange", shiftWindow);
-
-          $('#toc').toc({
-            'selectors': 'h1, h2', //elements to use as headings
-            'listType' : "<ul class='sidebar-nav'/>", //the element that will contain the li's
-            'container': 'body', //element to find all selectors in
-            'smoothScrolling': true, //enable or disable smooth scrolling on click
-            'prefix': 'toc', //prefix for anchor tags and class names
-            'onHighlight': function(el) {}, //called when a new section is highlighted
-            'highlightOnScroll': true, //add class to heading that is currently in focus
-            'highlightOffset': 100, //offset to trigger the next headline
-            'anchorName': function(i, heading, prefix) { //custom function for anchor name
-                return prefix+i;
-            },
-            'headerText': function(i, heading, $heading) { //custom function building the header-item text
-                return $heading.text();
-            },
-            'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
-              return $heading[0].tagName.toLowerCase();
-            }
-          });
-
-          $('#toc-mobile').toc({
-            'selectors': 'h1, h2', //elements to use as headings
-            'listType' : "<ul class='dropdown-menu'/>", //the element that will contain the li's
-            'container': 'body', //element to find all selectors in
-            'smoothScrolling': true, //enable or disable smooth scrolling on click
-            'prefix': 'toc', //prefix for anchor tags and class names
-            'onHighlight': function(el) {}, //called when a new section is highlighted
-            'highlightOnScroll': true, //add class to heading that is currently in focus
-            'highlightOffset': 100, //offset to trigger the next headline
-            'anchorName': function(i, heading, prefix) { //custom function for anchor name
-                return prefix+i;
-            },
-            'headerText': function(i, heading, $heading) { //custom function building the header-item text
-                return $heading.text();
-            },
-            'itemClass': function(i, heading, $heading, prefix) { // custom function for item class
-              return ""
-            }
-          });
-
-          $(`#toc-mobile`).prepend(`<a href="#" id="contents-dropdown-toggle" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contents <span class="caret"></span></a>`);
-
-          $("#menu-toggle").click(function(e) {
-              e.preventDefault();
-              $("#wrapper").toggleClass("toggled");
-          });
-
-      </script>
-
-    </body>
+</body>
 </html>
+
+<!--
+MkDocs version : 0.15.3
+Build Date UTC : 2016-09-09 05:16:46.495328
+-->
