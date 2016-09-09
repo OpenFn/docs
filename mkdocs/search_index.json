@@ -277,12 +277,12 @@
         }, 
         {
             "location": "/release-notes/", 
-            "text": "Version 1.1.0 (29-08-2016)\n\n\nTimed triggers and language-http are big!", 
+            "text": "Version 1.1.0 (29-08-2016)\n\n\nNew features:\n\n\n\n\nUsers can run a jobs based on timers.\n\n\nJobs are \"aware\" of their last running state.\n\n\nlanguage-http\n is now supported, allowing users to make their own HTTP calls in jobs.", 
             "title": "Release Notes"
         }, 
         {
             "location": "/release-notes/#version-110-29-08-2016", 
-            "text": "Timed triggers and language-http are big!", 
+            "text": "New features:   Users can run a jobs based on timers.  Jobs are \"aware\" of their last running state.  language-http  is now supported, allowing users to make their own HTTP calls in jobs.", 
             "title": "Version 1.1.0 (29-08-2016)"
         }
     ]
