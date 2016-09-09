@@ -1,0 +1,27 @@
+h3, h4, h5, h6 {
+    color: black;
+    font-weight: 300
+}
+
+.wy-side-nav-search {
+  background-color: #2C3E50 !important;
+}
+
+.wy-side-nav-search input[type=text] {
+  border-color: #95a5a6 !important;
+}
+
+.wy-nav-top {
+  background-color: #2C3E50 !important;
+}
+
+code {
+  /*padding: 0;*/
+  padding-top: 0.2em;
+  padding-bottom: 0.2em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0,0,0,0.04);
+  border-radius: 3px;
+  color: black;
+}
