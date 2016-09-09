@@ -101,7 +101,7 @@
             
                 <li class="toctree-l3"><a href="#activity">Activity</a></li>
                 
-                    <li><a class="toctree-l4" href="#submissions">Submissions</a></li>
+                    <li><a class="toctree-l4" href="#runs">Runs</a></li>
                 
             
                 <li class="toctree-l3"><a href="#troubleshooting">Troubleshooting</a></li>
@@ -278,11 +278,11 @@
 <p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job. Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
 <p>To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.</p>
 <h1 id="activity">Activity<a class="headerlink" href="#activity" title="Permanent link">&para;</a></h1>
-<p>In this section of the portal, you can view a list of all "submissions" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
-<h3 id="submissions">Submissions<a class="headerlink" href="#submissions" title="Permanent link">&para;</a></h3>
-<p>Submissions are attempts made on a destination system by running a receipt through a Job Description. Submissions can be viewed and re-processed. Each submission has a <code>success</code>, <code>started_at</code>, <code>finsihed_at</code>, <code>job_description_id</code>, and <code>receipt_id</code> attribute. <code>Started_at</code> and <code>finished_at</code> are the timestamps when the submission began and ended.</p>
+<p>In this section of the portal, you can view a list of all "runs" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
+<h3 id="runs">Runs<a class="headerlink" href="#runs" title="Permanent link">&para;</a></h3>
+<p>Runs are attempts made on a destination system by running a receipt through a Job Description. Runs can be viewed and re-processed. Each submission has a <code>success</code>, <code>started_at</code>, <code>finsihed_at</code>, <code>job_description_id</code>, and <code>receipt_id</code> attribute. <code>Started_at</code> and <code>finished_at</code> are the timestamps when the submission began and ended.</p>
 <blockquote>
-<p><strong>Note:</strong> Some submissions may take up to ten seconds, particularly if they are performing multiple actions in a destination system. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
+<p><strong>Note:</strong> Some runs may take a really long time, particularly if they are performing multiple actions in a destination system or if they are fetching lots of data from a REST api at the start of a migration. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
 </blockquote>
 <h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h1>
 <blockquote>
@@ -294,7 +294,7 @@
 <p>Read the email, and inspect the reason for failure.</p>
 </li>
 <li>
-<p>99% of failed submissions on OpenFn are due to <code>value mismatches</code>. The <em>collected</em> <code>id</code> in ODK doesn't match the <em>expected</em> <code>id</code> in Salesforce. You must now chose to either:</p>
+<p>99% of failed runs on OpenFn are due to <code>value mismatches</code>. The <em>collected</em> <code>id</code> in ODK doesn't match the <em>expected</em> <code>id</code> in Salesforce. You must now chose to either:</p>
 <p>A. Edit the source <code>id</code> in your <code>receipt</code> &amp; retry the attempt.</p>
 <p>B. Edit the related <code>id</code> in your destination system &amp; retry the attempt.</p>
 <p>C. Ignore the attempt—this source data will never reach your destination system.</p>
