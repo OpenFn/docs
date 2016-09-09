@@ -19,6 +19,14 @@
 
     
     <url>
+     <loc>https://openfn.github.io/docs//source-applications/</loc>
+     <lastmod>2016-09-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>https://openfn.github.io/docs//release-notes/</loc>
      <lastmod>2016-09-09</lastmod>
      <changefreq>daily</changefreq>

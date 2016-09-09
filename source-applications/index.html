@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <title>Source Application Setup - OpenFn Documentation</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../customizations.css" rel="stylesheet">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Source Application Setup";
+    var mkdocs_page_input_path = "source-applications.md";
+    var mkdocs_page_url = "/source-applications/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-57118569-4', 'openfn.org');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> OpenFn Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../documentation/">Documentation</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Source Application Setup</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#setting-up-real-time-sources">Setting up real-time sources</a></li>
+                
+                    <li><a class="toctree-l4" href="#open-data-kit-odk-aggregate">Open Data Kit (ODK) Aggregate</a></li>
+                
+                    <li><a class="toctree-l4" href="#kobo">Kobo</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../release-notes/">Release Notes</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">OpenFn Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Source Application Setup</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/OpenFn/docs" class="icon icon-github"> Edit on GitHub</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="setting-up-real-time-sources">Setting up real-time sources<a class="headerlink" href="#setting-up-real-time-sources" title="Permanent link">&para;</a></h1>
+<p>This section describes how to enable push notifications from selected source applications. Many web apps have some sort of events-based notifications engine. If you don't see yours listed below feel free to add it with a pull request.</p>
+<h2 id="open-data-kit-odk-aggregate">Open Data Kit (ODK) Aggregate<a class="headerlink" href="#open-data-kit-odk-aggregate" title="Permanent link">&para;</a></h2>
+<ol>
+<li>To new submissions from ODK in real-time, click the "Form Management" tab at the top of your Aggregate interface.</li>
+<li>Click "Publish" next to the form you'd like to publish to OpenFn.</li>
+<li>A dialogue box will open.</li>
+<li>In the "Publish To:" picklist, select <code>Z-ALPHA JSON Server</code>.</li>
+<li>Choose which data to publish in the "Data to Publish:" picklist. You may: <strong>"Upload Existing Data ONLY"</strong> (ideal for migrations of finished data sets), <strong>"Stream New Submission Data ONLY"</strong> (ideal for new projects), or <strong>"BOTH Upload Existing &amp; Stream New Submission Data"</strong> (ideal for connecting ongoing projects which are already running).</li>
+<li>In the "URL to publish to:" text box, enter your OpenFn Inbox UUID. (e.g., <code>https://www.openfn.org/inbox/8ad63a29-mUCh-sEcRET-cODes-wOW</code>)</li>
+<li>Leave "Authorization token:" blank.</li>
+<li>Leave "Include Media as:" set to "Links(URLs) to Media".</li>
+<li>Click "Publish" and enter your email address in the dialogue box.</li>
+<li>Click the "Published Data" tab under "Form Management" and select your form to view the status of your publisher. You can also now check your OpenFn inbox to see ODK submissions arrive.</li>
+</ol>
+<h2 id="kobo">Kobo<a class="headerlink" href="#kobo" title="Permanent link">&para;</a></h2>
+<ol>
+<li>To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.</li>
+<li>Once selecting a project, the <code>Project Settings</code> link will appear at the top left side of the screen. Click it to open the Project Settings page.</li>
+<li>In the bottom left pane of the project settings page, users must paste their inbox URL from OpenFn into the <code>Rest Services</code> <code>Service URL</code> input area and select <code>JSON Post</code> as the <code>Service Name</code>.</li>
+<li>Click <code>Add Service</code> to start forwarding new Kobo submissions to OpenFn.org.</li>
+</ol>
+<p>To test to integration, add a submission manually using the <code>enter data in browser</code> button. Head back to your history page at OpenFn to view the newly submitted data and write a new <code>filter</code> and <code>job</code> to map your Kobo data to any destination system on OpenFn.</p>
+<p>Here's a sample post from Kobo REST service. Note that questions inside groups are prefixed with <code>groupname/</code> rather than sitting inside a group object like ODK:</p>
+<pre><code class="json">{
+  &quot;meta/instanceID&quot;: &quot;uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;,
+  &quot;group1/name&quot;: &quot;twenty&quot;,
+  &quot;group1/age&quot;: &quot;19&quot;,
+  &quot;formhub/uuid&quot;: &quot;6f5773a110b046cb97e3d71f6c04e7a6&quot;,
+  &quot;first_q&quot;: &quot;hello&quot;,
+  &quot;final_q&quot;: &quot;why not?&quot;,
+  &quot;_xform_id_string&quot;: &quot;groups&quot;,
+  &quot;_uuid&quot;: &quot;19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;,
+  &quot;_userform_id&quot;: &quot;taylordowns2000_groups&quot;,
+  &quot;_tags&quot;: [],
+  &quot;_submitted_by&quot;: null,
+  &quot;_submission_time&quot;: &quot;2016-04-22T06:38:20&quot;,
+  &quot;_status&quot;: &quot;submitted_via_web&quot;,
+  &quot;_notes&quot;: [],
+  &quot;_id&quot;: 889409,
+  &quot;_geolocation&quot;: [
+    null,
+    null
+  ],
+  &quot;_bamboo_dataset_id&quot;: &quot;&quot;,
+  &quot;_attachments&quot;: []
+}
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../release-notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../documentation/" class="btn btn-neutral" title="Documentation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/OpenFn/docs" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../documentation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../release-notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

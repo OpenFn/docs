@@ -122,10 +122,15 @@
                 
                     <li><a class="toctree-l4" href="#examples-of-anonymous-functions">Examples of Anonymous Functions</a></li>
                 
-                    <li><a class="toctree-l4" href="#source-application-walk-throughs">Source Application Walk-throughs</a></li>
-                
             
             </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../source-applications/">Source Application Setup</a>
         
     </li>
 <li>
@@ -667,40 +672,6 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 <blockquote>
 <p><strong>NOTE</strong>: The output of this function will always be formatted according to GMT time-zone.</p>
 </blockquote>
-<h2 id="source-application-walk-throughs">Source Application Walk-throughs<a class="headerlink" href="#source-application-walk-throughs" title="Permanent link">&para;</a></h2>
-<h3 id="kobo">Kobo<a class="headerlink" href="#kobo" title="Permanent link">&para;</a></h3>
-<ol>
-<li>To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.</li>
-<li>Once selecting a project, the <code>Project Settings</code> link will appear at the top left side of the screen. Click it to open the Project Settings page.</li>
-<li>In the bottom left pane of the project settings page, users must paste their inbox URL from OpenFn into the <code>Rest Services</code> <code>Service URL</code> input area and select <code>JSON Post</code> as the <code>Service Name</code>.</li>
-<li>Click <code>Add Service</code> to start forwarding new Kobo submissions to OpenFn.org.</li>
-</ol>
-<p>To test to integration, add a submission manually using the <code>enter data in browser</code> button. Head back to your history page at OpenFn to view the newly submitted data and write a new <code>filter</code> and <code>job</code> to map your Kobo data to any destination system on OpenFn.</p>
-<p>Here's a sample post from Kobo REST service. Note that questions inside groups are prefixed with <code>groupname/</code> rather than sitting inside a group object like ODK:</p>
-<pre><code class="json">{
-  &quot;meta/instanceID&quot;: &quot;uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;,
-  &quot;group1/name&quot;: &quot;twenty&quot;,
-  &quot;group1/age&quot;: &quot;19&quot;,
-  &quot;formhub/uuid&quot;: &quot;6f5773a110b046cb97e3d71f6c04e7a6&quot;,
-  &quot;first_q&quot;: &quot;hello&quot;,
-  &quot;final_q&quot;: &quot;why not?&quot;,
-  &quot;_xform_id_string&quot;: &quot;groups&quot;,
-  &quot;_uuid&quot;: &quot;19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;,
-  &quot;_userform_id&quot;: &quot;taylordowns2000_groups&quot;,
-  &quot;_tags&quot;: [],
-  &quot;_submitted_by&quot;: null,
-  &quot;_submission_time&quot;: &quot;2016-04-22T06:38:20&quot;,
-  &quot;_status&quot;: &quot;submitted_via_web&quot;,
-  &quot;_notes&quot;: [],
-  &quot;_id&quot;: 889409,
-  &quot;_geolocation&quot;: [
-    null,
-    null
-  ],
-  &quot;_bamboo_dataset_id&quot;: &quot;&quot;,
-  &quot;_attachments&quot;: []
-}
-</code></pre>
               
             </div>
           </div>
@@ -708,7 +679,7 @@ If you're looking for a way to replace all instances, we suggest you use a regex
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../release-notes/" class="btn btn-neutral float-right" title="Release Notes">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../source-applications/" class="btn btn-neutral float-right" title="Source Application Setup">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -742,7 +713,7 @@ If you're looking for a way to replace all instances, we suggest you use a regex
         <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../release-notes/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../source-applications/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
