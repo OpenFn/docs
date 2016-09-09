@@ -15,3 +15,4 @@ markdown_extensions:
         permalink: True
 
 theme: readthedocs
+extra_css: [customizations.css]
