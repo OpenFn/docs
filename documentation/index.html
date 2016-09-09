@@ -19,6 +19,7 @@
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
   <link rel="stylesheet" href="../css/highlight.css">
+  <link href="../customizations.css" rel="stylesheet">
 
   
   <script>
@@ -80,11 +81,9 @@
                 <li class="toctree-l3"><a href="#connecting-source-applications">Connecting Source Applications</a></li>
                 
             
-                <li class="toctree-l3"><a href="#filters">Filters</a></li>
+                <li class="toctree-l3"><a href="#triggers">Triggers</a></li>
                 
                     <li><a class="toctree-l4" href="#filter-matching">Filter Matching</a></li>
-                
-                    <li><a class="toctree-l4" href="#more-examples-and-sample-filters">More Examples and Sample Filters</a></li>
                 
             
                 <li class="toctree-l3"><a href="#credentials">Credentials</a></li>
@@ -94,12 +93,10 @@
                 
                     <li><a class="toctree-l4" href="#writing-jobs-for-openfn">Writing Jobs for OpenFn</a></li>
                 
-                    <li><a class="toctree-l4" href="#named-functions">Named Functions</a></li>
+                    <li><a class="toctree-l4" href="#selected-named-functions">Selected Named Functions</a></li>
                 
             
                 <li class="toctree-l3"><a href="#inbox">Inbox</a></li>
-                
-                    <li><a class="toctree-l4" href="#messages">Messages</a></li>
                 
             
                 <li class="toctree-l3"><a href="#activity">Activity</a></li>
@@ -119,11 +116,13 @@
                 
                     <li><a class="toctree-l4" href="#sample-code-for-diy-section">Sample code for DIY section</a></li>
                 
-                    <li><a class="toctree-l4" href="#block-code-examples-for-writing-jobs">Block code examples for writing jobs</a></li>
+                    <li><a class="toctree-l4" href="#more-example-filters">More example filters</a></li>
+                
+                    <li><a class="toctree-l4" href="#more-example-jobs">More example jobs</a></li>
                 
                     <li><a class="toctree-l4" href="#examples-of-anonymous-functions">Examples of Anonymous Functions</a></li>
                 
-                    <li><a class="toctree-l4" href="#connecting-up-source-applications">Connecting up source applications</a></li>
+                    <li><a class="toctree-l4" href="#source-application-walk-throughs">Source Application Walk-throughs</a></li>
                 
             
             </ul>
@@ -174,7 +173,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="connecting-source-applications">Connecting Source Applications<a class="headerlink" href="#connecting-source-applications" title="Permanent link">&para;</a></h1>
+                <h2 id="connecting-source-applications">Connecting Source Applications<a class="headerlink" href="#connecting-source-applications" title="Permanent link">&para;</a></h2>
 <p>Most modern web applications have a feature that allows you to <code>push</code>, <code>publish</code>, or <code>post</code> data to another URL when a certain <strong>event</strong> takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when <em>something happens</em>.</p>
 <ol>
 <li>
@@ -187,9 +186,9 @@
 <p>Soon you'll see new messages arrive in your <strong><a href="https://www.openfn.org/receipts">history</a></strong> page.</p>
 </li>
 </ol>
-<p>Next, learn how to define <strong>filters</strong> that trigger <strong>job</strong> runs.</p>
-<h1 id="filters">Filters<a class="headerlink" href="#filters" title="Permanent link">&para;</a></h1>
-<p>Filters are used to trigger jobs. You, as a user, specify the filter <strong>criteria</strong> which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body <strong>matches</strong> the string of <code>JSON</code> you gave as a filter, the filter will run and trigger a job (assuming you created one).</p>
+<h1 id="triggers">Triggers<a class="headerlink" href="#triggers" title="Permanent link">&para;</a></h1>
+<p>Triggers run jobs. They can either be "filter" triggers or "timer" triggers. Filter triggers watch incoming messages and run them through jobs when they match the filter criteria. Timer triggers run jobs after a recurring interval has elapsed.</p>
+<p>You, as a user, specify the filter <strong>criteria</strong> which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body <strong>matches</strong> the string of <code>JSON</code> you gave as a filter, the filter will run and trigger a job (assuming you created one).</p>
 <p>The filter criteria takes the form of a string of valid <code>JSON</code>. In a SQL query, this string will be used in the WHERE clause, for example:</p>
 <pre><code class="sql">SELECT * FROM receipts
   WHERE body::jsonb @&gt;
@@ -198,46 +197,28 @@
 
 <h2 id="filter-matching">Filter Matching<a class="headerlink" href="#filter-matching" title="Permanent link">&para;</a></h2>
 <p>To illustrate filter matching, refer to the <code>JSON</code> strings below. Message "a" will match filter '1', but message "b" will not.</p>
-<h4 id="filter-1">filter 1:<a class="headerlink" href="#filter-1" title="Permanent link">&para;</a></h4>
+<h3 id="filter-1">filter 1:<a class="headerlink" href="#filter-1" title="Permanent link">&para;</a></h3>
 <pre><code class="json">{&quot;formID&quot;:&quot;patient_registration_v7&quot;}
 </code></pre>
 
-<h4 id="message-a-match">message a (MATCH):<a class="headerlink" href="#message-a-match" title="Permanent link">&para;</a></h4>
+<h3 id="message-a-match">message a (MATCH):<a class="headerlink" href="#message-a-match" title="Permanent link">&para;</a></h3>
 <pre><code class="json">{&quot;submissionDate&quot;:&quot;2016-01-15&quot;, &quot;formID&quot;:&quot;patient_registration_v7&quot;, &quot;name&quot;:&quot;Jack Wilshere&quot;, &quot;dob&quot;:&quot;1986-05-16&quot;, &quot;medications&quot;: [&quot;anaphlene&quot;,&quot;zaradood&quot;,&quot;morphofast&quot;]}
 </code></pre>
 
-<h4 id="message-b-no-match">message b (NO MATCH):<a class="headerlink" href="#message-b-no-match" title="Permanent link">&para;</a></h4>
+<h3 id="message-b-no-match">message b (NO MATCH):<a class="headerlink" href="#message-b-no-match" title="Permanent link">&para;</a></h3>
 <pre><code class="json">{&quot;submissionDate&quot;:&quot;2016-01-16&quot;, &quot;formID&quot;:&quot;patient_registration_v8&quot;, &quot;name&quot;:&quot;Larry Bird&quot;, &quot;dob&quot;:&quot;1982-03-21&quot;, &quot;medications&quot;: [&quot;anaphlene&quot;,&quot;zaradood&quot;,&quot;morphofast&quot;]}
 </code></pre>
 
 <p>Message 'b' does not include <code>"formID":"patient_registration_v7"</code> and will not match filter '1'.</p>
-<h2 id="more-examples-and-sample-filters">More Examples and Sample Filters<a class="headerlink" href="#more-examples-and-sample-filters" title="Permanent link">&para;</a></h2>
-<h4 id="match-messages-where-the-formid-is-robot_photo_21042015">Match messages <code>WHERE</code> the <code>formId</code> is <code>"Robot_Photo_21.04.2015"</code>:<a class="headerlink" href="#match-messages-where-the-formid-is-robot_photo_21042015" title="Permanent link">&para;</a></h4>
-<pre><code class="json">{&quot;formId&quot;:&quot;Robot_Photo_21.04.2015&quot;}
-</code></pre>
-
-<h4 id="match-a-message-where-this-and-that-are-both-included">Match a message <code>WHERE</code> this <code>AND</code> that are both included:<a class="headerlink" href="#match-a-message-where-this-and-that-are-both-included" title="Permanent link">&para;</a></h4>
-<pre><code class="json">{&quot;formId&quot;:&quot;Robot_Photo_21.04.2015&quot;, &quot;secret_number&quot;:8}
-</code></pre>
-
-<h4 id="match-a-message-with-two-fragments-inside-an-array-called-data">Match a message with two fragments inside an array called <code>data</code>:<a class="headerlink" href="#match-a-message-with-two-fragments-inside-an-array-called-data" title="Permanent link">&para;</a></h4>
-<p>(This is useful when gathering data via ODK)</p>
-<pre><code class="json">{&quot;data&quot;:[{&quot;outlet_call&quot;:&quot;TRUE&quot;,&quot;new_existing&quot;:&quot;Existing&quot;}]}
-</code></pre>
-
-<h4 id="match-a-message-with-a-fragment-inside-another-object-called-form">Match a message with a fragment inside another object called <code>form</code>:<a class="headerlink" href="#match-a-message-with-a-fragment-inside-another-object-called-form" title="Permanent link">&para;</a></h4>
-<pre><code class="json">{&quot;form&quot;:{&quot;@xmlns&quot;:&quot;http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one&quot;}}
-</code></pre>
-
 <h1 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">&para;</a></h1>
 <p>Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.</p>
 <p>Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final "/" in these Urls:
 <code>https://login.salesforce.com</code> or <code>http://demo.openmrs.org/openmrs</code> or <code>https://play.dhis2.org</code>.</p>
 <p>Credentials can only be viewed, or edited by a single user — their "owner" (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
 <h1 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">&para;</a></h1>
+<p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed.</p>
 <h2 id="writing-jobs-for-openfn">Writing Jobs for OpenFn<a class="headerlink" href="#writing-jobs-for-openfn" title="Permanent link">&para;</a></h2>
-<p><code>{ like_to_hack_and_smash ? goto '#examples' : read_on}</code> <a href="#block-code-examples-for-writing-jobs">Examples</a></p>
-<p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received. In most cases, a job is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
+<p>In most cases, a job is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
 <pre><code class="js">create(&quot;Patient__c&quot;, fields(
   field(&quot;Name&quot;, dataValue(&quot;form.surname&quot;)),
   field(&quot;Age__c&quot;, 7)
@@ -263,7 +244,8 @@
 <li><strong>Credential</strong> - The credential that will be used to gain access to that destination system.</li>
 <li><strong>Active?</strong> - A boolean which determines whether the job runs in real-time when matching messages arrive.</li>
 </ol>
-<h2 id="named-functions">Named Functions<a class="headerlink" href="#named-functions" title="Permanent link">&para;</a></h2>
+<h2 id="selected-named-functions">Selected Named Functions<a class="headerlink" href="#selected-named-functions" title="Permanent link">&para;</a></h2>
+<p>There are lots more available in the language-packs.</p>
 <h3 id="language-common">language-common<a class="headerlink" href="#language-common" title="Permanent link">&para;</a></h3>
 <ul>
 <li><code>field('destination_field_name__c', 'value')</code> Returns a key, value pair in an array. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L248">(source)</a></li>
@@ -293,9 +275,7 @@
 </ul>
 <p><strong>For code block examples of job expressions, go to the <a href="#appendix">Appendix</a>.</strong></p>
 <h1 id="inbox">Inbox<a class="headerlink" href="#inbox" title="Permanent link">&para;</a></h1>
-<p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job.</p>
-<h3 id="messages">Messages<a class="headerlink" href="#messages" title="Permanent link">&para;</a></h3>
-<p>Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
+<p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job. Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
 <p>To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.</p>
 <h1 id="activity">Activity<a class="headerlink" href="#activity" title="Permanent link">&para;</a></h1>
 <p>In this section of the portal, you can view a list of all "submissions" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
@@ -431,7 +411,25 @@ fn-lang is a coordination tool that takes a job expression, a JSON payload, an a
 }
 </code></pre>
 
-<h2 id="block-code-examples-for-writing-jobs">Block code examples for writing jobs<a class="headerlink" href="#block-code-examples-for-writing-jobs" title="Permanent link">&para;</a></h2>
+<h2 id="more-example-filters">More example filters<a class="headerlink" href="#more-example-filters" title="Permanent link">&para;</a></h2>
+<h3 id="match-messages-where-the-formid-is-robot_photo_21042015">Match messages <code>WHERE</code> the <code>formId</code> is <code>"Robot_Photo_21.04.2015"</code>:<a class="headerlink" href="#match-messages-where-the-formid-is-robot_photo_21042015" title="Permanent link">&para;</a></h3>
+<pre><code class="json">{&quot;formId&quot;:&quot;Robot_Photo_21.04.2015&quot;}
+</code></pre>
+
+<h3 id="match-a-message-where-this-and-that-are-both-included">Match a message <code>WHERE</code> this <code>AND</code> that are both included:<a class="headerlink" href="#match-a-message-where-this-and-that-are-both-included" title="Permanent link">&para;</a></h3>
+<pre><code class="json">{&quot;formId&quot;:&quot;Robot_Photo_21.04.2015&quot;, &quot;secret_number&quot;:8}
+</code></pre>
+
+<h3 id="match-a-message-with-two-fragments-inside-an-array-called-data">Match a message with two fragments inside an array called <code>data</code>:<a class="headerlink" href="#match-a-message-with-two-fragments-inside-an-array-called-data" title="Permanent link">&para;</a></h3>
+<p>(This is useful when gathering data via ODK)</p>
+<pre><code class="json">{&quot;data&quot;:[{&quot;outlet_call&quot;:&quot;TRUE&quot;,&quot;new_existing&quot;:&quot;Existing&quot;}]}
+</code></pre>
+
+<h3 id="match-a-message-with-a-fragment-inside-another-object-called-form">Match a message with a fragment inside another object called <code>form</code>:<a class="headerlink" href="#match-a-message-with-a-fragment-inside-another-object-called-form" title="Permanent link">&para;</a></h3>
+<pre><code class="json">{&quot;form&quot;:{&quot;@xmlns&quot;:&quot;http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one&quot;}}
+</code></pre>
+
+<h2 id="more-example-jobs">More example jobs<a class="headerlink" href="#more-example-jobs" title="Permanent link">&para;</a></h2>
 <p>Below you can find some examples of block code for different functions and data handling contexts.</p>
 <h4 id="job-expression-for-commcare-to-sf">Job expression (for CommCare to SF)<a class="headerlink" href="#job-expression-for-commcare-to-sf" title="Permanent link">&para;</a></h4>
 <p>The following job expression will take a matching receipt and use data from that receipt to upsert a <code>Patient__c</code> record in Salesforce and create multiple new <code>Patient_Visit__c</code> (child to Patient) records.</p>
@@ -669,7 +667,7 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 <blockquote>
 <p><strong>NOTE</strong>: The output of this function will always be formatted according to GMT time-zone.</p>
 </blockquote>
-<h2 id="connecting-up-source-applications">Connecting up source applications<a class="headerlink" href="#connecting-up-source-applications" title="Permanent link">&para;</a></h2>
+<h2 id="source-application-walk-throughs">Source Application Walk-throughs<a class="headerlink" href="#source-application-walk-throughs" title="Permanent link">&para;</a></h2>
 <h3 id="kobo">Kobo<a class="headerlink" href="#kobo" title="Permanent link">&para;</a></h3>
 <ol>
 <li>To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.</li>
@@ -678,37 +676,31 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 <li>Click <code>Add Service</code> to start forwarding new Kobo submissions to OpenFn.org.</li>
 </ol>
 <p>To test to integration, add a submission manually using the <code>enter data in browser</code> button. Head back to your history page at OpenFn to view the newly submitted data and write a new <code>filter</code> and <code>job</code> to map your Kobo data to any destination system on OpenFn.</p>
-<h4 id="more-help">More help<a class="headerlink" href="#more-help" title="Permanent link">&para;</a></h4>
-<ol>
-<li>Help writing <a href="#filters">filters</a></li>
-<li>Help writing <a href="#jobs">jobs</a></li>
-<li>The shape of the data from Kobo</li>
-</ol>
-<p>Here's a sample post from Kobo REST service. Note that questions inside groups are prefixed with <code>groupname/</code> rather than sitting inside a group object like ODK:
-<code>json
-{
-  "meta/instanceID": "uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4",
-  "group1/name": "twenty",
-  "group1/age": "19",
-  "formhub/uuid": "6f5773a110b046cb97e3d71f6c04e7a6",
-  "first_q": "hello",
-  "final_q": "why not?",
-  "_xform_id_string": "groups",
-  "_uuid": "19d72997-8316-4e02-8016-4a8ddf6a2aa4",
-  "_userform_id": "taylordowns2000_groups",
-  "_tags": [],
-  "_submitted_by": null,
-  "_submission_time": "2016-04-22T06:38:20",
-  "_status": "submitted_via_web",
-  "_notes": [],
-  "_id": 889409,
-  "_geolocation": [
+<p>Here's a sample post from Kobo REST service. Note that questions inside groups are prefixed with <code>groupname/</code> rather than sitting inside a group object like ODK:</p>
+<pre><code class="json">{
+  &quot;meta/instanceID&quot;: &quot;uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;,
+  &quot;group1/name&quot;: &quot;twenty&quot;,
+  &quot;group1/age&quot;: &quot;19&quot;,
+  &quot;formhub/uuid&quot;: &quot;6f5773a110b046cb97e3d71f6c04e7a6&quot;,
+  &quot;first_q&quot;: &quot;hello&quot;,
+  &quot;final_q&quot;: &quot;why not?&quot;,
+  &quot;_xform_id_string&quot;: &quot;groups&quot;,
+  &quot;_uuid&quot;: &quot;19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;,
+  &quot;_userform_id&quot;: &quot;taylordowns2000_groups&quot;,
+  &quot;_tags&quot;: [],
+  &quot;_submitted_by&quot;: null,
+  &quot;_submission_time&quot;: &quot;2016-04-22T06:38:20&quot;,
+  &quot;_status&quot;: &quot;submitted_via_web&quot;,
+  &quot;_notes&quot;: [],
+  &quot;_id&quot;: 889409,
+  &quot;_geolocation&quot;: [
     null,
     null
   ],
-  "_bamboo_dataset_id": "",
-  "_attachments": []
-}</code></p>
+  &quot;_bamboo_dataset_id&quot;: &quot;&quot;,
+  &quot;_attachments&quot;: []
+}
+</code></pre>
               
             </div>
           </div>
