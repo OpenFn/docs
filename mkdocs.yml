@@ -8,7 +8,9 @@ google_analytics: ['UA-57118569-4', 'openfn.org']
 pages:
 - Home: index.md
 - Documentation: documentation.md
+- Source Application Setup: source-applications.md
 - Release Notes: release-notes.md
+
 
 markdown_extensions:
     - toc:
