@@ -1,4 +1,4 @@
-# Version 1.2.0 (09-15-2016)
+# Version 1.2.0 (2016-09-15)
 
 - Users can now select specific adaptor versions for their jobs.
 - Jobs will "auto-upgrade" unless locked to a specific version.
@@ -7,7 +7,7 @@
 
 Each new version of an adaptor will have release notes introducing the new features or changes to helper functions. To allow easy upgrades, we will still mandate that all new versions are backwards compatible. 
 
-# Version 1.1.0 (29-08-2016)
+# Version 1.1.0 (2016-08-29)
 
 New features:
 
