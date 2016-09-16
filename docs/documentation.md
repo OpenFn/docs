@@ -186,7 +186,7 @@ OpenFn's core ETL tools are all open-source, and here we will explain how those 
 
   **Command Explained:** Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and a destination configuration file (-c).
 
-  > **Note:** Depending on which language-pack you have decided to use, you will need to change this command by replacing "dhis2" with the name of the language-pack you are using. E.g. "openmrs" or "salesforce/FakeAdaptor" (special case).  
+  > **Note:** Depending on which language-pack you have decided to use, you will need to change this command by replacing "dhis2" with the name of the language-pack you are using. E.g. "openmrs" or "salesforce/FakeAdaptor" (special case).
 
   8. Check out the results of the posted data! Open up expression.js and message.json to manipulate the outcome and get a feel for how it works.
 
@@ -380,6 +380,25 @@ each(
     field("RecordTypeId", "012110000008s19"),
     field("site_size", dataValue("size"))
   ))
+)
+```
+
+#### Telerivet: Send SMS based on Salesforce workflow alert
+```js
+send(
+  fields(
+    field("to_number", dataValue("Envelope.Body.notifications.Notification.sObject.phone_number__c")),
+    field("message_type", "sms"),
+    field("route_id", ""),
+    field("content", function(state) {
+      return (
+        "Hey there. Your name is ".concat(
+          dataValue("Envelope.Body.notifications.Notification.sObject.name__c")(state),
+          "."
+        )
+      )
+    })
+  )
 )
 ```
 
