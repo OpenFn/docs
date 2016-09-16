@@ -355,7 +355,7 @@ fn-lang is a coordination tool that takes a job expression, a JSON payload, an a
 <p><code>~/fn-lang$ lib/cli.js execute -l dhis2 -e tmp/expression.js -c tmp/config.json -d tmp/message.json</code></p>
 <p><strong>Command Explained:</strong> Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and a destination configuration file (-c).</p>
 <blockquote>
-<p><strong>Note:</strong> Depending on which language-pack you have decided to use, you will need to change this command by replacing "dhis2" with the name of the language-pack you are using. E.g. "openmrs" or "salesforce/FakeAdaptor" (special case).  </p>
+<p><strong>Note:</strong> Depending on which language-pack you have decided to use, you will need to change this command by replacing "dhis2" with the name of the language-pack you are using. E.g. "openmrs" or "salesforce/FakeAdaptor" (special case).</p>
 </blockquote>
 <ol>
 <li>Check out the results of the posted data! Open up expression.js and message.json to manipulate the outcome and get a feel for how it works.</li>
@@ -532,6 +532,24 @@ beta.each(
     field(&quot;RecordTypeId&quot;, &quot;012110000008s19&quot;),
     field(&quot;site_size&quot;, dataValue(&quot;size&quot;))
   ))
+)
+</code></pre>
+
+<h4 id="telerivet-send-sms-based-on-salesforce-workflow-alert">Telerivet: Send SMS based on Salesforce workflow alert<a class="headerlink" href="#telerivet-send-sms-based-on-salesforce-workflow-alert" title="Permanent link">&para;</a></h4>
+<pre><code class="js">send(
+  fields(
+    field(&quot;to_number&quot;, dataValue(&quot;Envelope.Body.notifications.Notification.sObject.phone_number__c&quot;)),
+    field(&quot;message_type&quot;, &quot;sms&quot;),
+    field(&quot;route_id&quot;, &quot;&quot;),
+    field(&quot;content&quot;, function(state) {
+      return (
+        &quot;Hey there. Your name is &quot;.concat(
+          dataValue(&quot;Envelope.Body.notifications.Notification.sObject.name__c&quot;)(state),
+          &quot;.&quot;
+        )
+      )
+    })
+  )
 )
 </code></pre>
 
