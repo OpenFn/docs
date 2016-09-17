@@ -138,7 +138,7 @@ Great question, and don't worry, it happens all the time. Assuming you've alread
 
       B. Edit the related `id` in your destination system & retry the attempt.
 
-      C. Ignore the attempt—this source data will never reach your destination system.
+      C. Ignore the attempt—this source data will never reach your destination system. (There have been reports of ODK Aggregate's JSON publisher sending dupliate values. If that happens and your run fails due to "duplicate values" on a particular unique field you can safely ignore the run in OpenFn.)
 
 Editing data in your destination system can be done through that system's interface. Many tools that act as `sources` (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.
 
