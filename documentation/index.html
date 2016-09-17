@@ -178,7 +178,7 @@
           <div role="main">
             <div class="section">
               
-                <h2 id="connecting-source-applications">Connecting Source Applications<a class="headerlink" href="#connecting-source-applications" title="Permanent link">&para;</a></h2>
+                <h1 id="connecting-source-applications">Connecting Source Applications<a class="headerlink" href="#connecting-source-applications" title="Permanent link">&para;</a></h1>
 <p>Most modern web applications have a feature that allows you to <code>push</code>, <code>publish</code>, or <code>post</code> data to another URL when a certain <strong>event</strong> takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when <em>something happens</em>.</p>
 <ol>
 <li>
@@ -222,7 +222,7 @@
 <p>Credentials can only be viewed, or edited by a single user — their "owner" (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
 <h1 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">&para;</a></h1>
 <p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed.</p>
-<h2 id="writing-jobs-for-openfn">Writing Jobs for OpenFn<a class="headerlink" href="#writing-jobs-for-openfn" title="Permanent link">&para;</a></h2>
+<h3 id="writing-jobs-for-openfn">Writing Jobs for OpenFn<a class="headerlink" href="#writing-jobs-for-openfn" title="Permanent link">&para;</a></h3>
 <p>In most cases, a job is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
 <pre><code class="js">create(&quot;Patient__c&quot;, fields(
   field(&quot;Name&quot;, dataValue(&quot;form.surname&quot;)),
