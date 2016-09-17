@@ -1,4 +1,4 @@
-## Connecting Source Applications
+# Connecting Source Applications
 Most modern web applications have a feature that allows you to `push`, `publish`, or `post` data to another URL when a certain **event** takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
 
 1. Go to the "settings" or "administration" page for your source app, and look for a `Webhook API`, `Data Forwarding API`, or `Notifications API`. Write to the developers of your application if none is provided out of the box.
@@ -49,8 +49,9 @@ Credentials can only be viewed, or edited by a single user — their "owner" (or
 
 # Jobs
 A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed.
-## Writing Jobs for OpenFn
-In most cases, a job is a series of `create` or `upsert` actions that are run after a message arrives, using data from that message. It could look like this:
+
+### Composing Job Expressions
+In most cases, a job expression is a series of `create` or `upsert` actions that are run after a message arrives, using data from that message. It could look like this:
 ```js
 create("Patient__c", fields(
   field("Name", dataValue("form.surname")),

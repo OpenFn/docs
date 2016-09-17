@@ -11,7 +11,6 @@ pages:
 - Source Application Setup: source-applications.md
 - Release Notes: release-notes.md
 
-
 markdown_extensions:
     - toc:
         permalink: True
