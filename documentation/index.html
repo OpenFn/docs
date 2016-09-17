@@ -91,7 +91,7 @@
             
                 <li class="toctree-l3"><a href="#jobs">Jobs</a></li>
                 
-                    <li><a class="toctree-l4" href="#writing-jobs-for-openfn">Writing Jobs for OpenFn</a></li>
+                    <li><a class="toctree-l4" href="#composing-job-expressions">Composing Job Expressions</a></li>
                 
                     <li><a class="toctree-l4" href="#selected-named-functions">Selected Named Functions</a></li>
                 
@@ -222,8 +222,8 @@
 <p>Credentials can only be viewed, or edited by a single user — their "owner" (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
 <h1 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">&para;</a></h1>
 <p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed.</p>
-<h3 id="writing-jobs-for-openfn">Writing Jobs for OpenFn<a class="headerlink" href="#writing-jobs-for-openfn" title="Permanent link">&para;</a></h3>
-<p>In most cases, a job is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
+<h3 id="composing-job-expressions">Composing Job Expressions<a class="headerlink" href="#composing-job-expressions" title="Permanent link">&para;</a></h3>
+<p>In most cases, a job expression is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
 <pre><code class="js">create(&quot;Patient__c&quot;, fields(
   field(&quot;Name&quot;, dataValue(&quot;form.surname&quot;)),
   field(&quot;Age__c&quot;, 7)
