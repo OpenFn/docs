@@ -621,6 +621,30 @@ patient(
 )
 </code></pre>
 
+<h4 id="alterstate-alter-state-to-make-sure-data-is-in-an-array">alterState (alter state) to make sure data is in an array<a class="headerlink" href="#alterstate-alter-state-to-make-sure-data-is-in-an-array" title="Permanent link">&para;</a></h4>
+<pre><code class="js">// Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
+alterState((state) =&gt; {
+  const idCards = state.data.form.ID_cards_given_to_vendor;
+  if (!Array.isArray(idCards)) {
+    state.data.form.ID_cards_given_to_vendor = [idCards];
+  }
+  return state;
+});
+
+// Now state has been changed, and we carry on...
+each(
+  merge(dataPath(&quot;form.ID_cards_given_to_vendor[*]&quot;), fields(
+    field(&quot;Vendor_Id&quot;, dataValue(&quot;form.ID_vendor&quot;)),
+    field(&quot;form_finished_time&quot;, dataValue(&quot;form.meta.timeEnd&quot;))
+  )),
+  upsert(&quot;Small_Packet__c&quot;, &quot;sp_id__c&quot;, fields(
+     field(&quot;sp_id__c&quot;, dataValue(&quot;ID_cards_given_to_vendor&quot;)),
+     relationship(&quot;Vendor__r&quot;, &quot;Badge_Code__c&quot;, dataValue(&quot;Vendor_Id&quot;)),
+     field(&quot;Small_Packet_Distribution_Date__c&quot;, dataValue(&quot;form_finished_time&quot;))
+  ))
+);
+</code></pre>
+
 <h2 id="examples-of-anonymous-functions">Examples of Anonymous Functions<a class="headerlink" href="#examples-of-anonymous-functions" title="Permanent link">&para;</a></h2>
 <p>Different to <a href="#named-functions">Named Functions</a>, Anoynmous functions are generic pieces of javascript which you can write to suit your needs. Here are some examples of these custom functions:</p>
 <h4 id="custom-replacer">Custom replacer<a class="headerlink" href="#custom-replacer" title="Permanent link">&para;</a></h4>
