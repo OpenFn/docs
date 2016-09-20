@@ -1,3 +1,9 @@
+# Version 1.3.0 (2016-09-20)
+
+- New version of language-salesforce allows users to `alterState` with a custom function.
+
+**alterState:** [documentation](https://openfn.github.io/docs/documentation/#alterstate-alter-state-to-make-sure-data-is-in-an-array)
+
 # Version 1.2.0 (2016-09-15)
 
 - Users can now select specific adaptor versions for their jobs.
@@ -5,7 +11,7 @@
 
 **Adaptor versions:**  This means that the code beneath your job, once saved with a specific adaptor version, will never change. This is an important step forward for the whole community, as it enables more rapid progress—especially considering the growing number of outside contributors—without risking introducing instability to existing jobs.
 
-Each new version of an adaptor will have release notes introducing the new features or changes to helper functions. To allow easy upgrades, we will still mandate that all new versions are backwards compatible. 
+Each new version of an adaptor will have release notes introducing the new features or changes to helper functions. To allow easy upgrades, we will still mandate that all new versions are backwards compatible.
 
 # Version 1.1.0 (2016-08-29)
 
