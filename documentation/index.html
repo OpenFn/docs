@@ -93,6 +93,8 @@
                 
                     <li><a class="toctree-l4" href="#composing-job-expressions">Composing Job Expressions</a></li>
                 
+                    <li><a class="toctree-l4" href="#available-javascript-globals">Available Javascript Globals</a></li>
+                
                     <li><a class="toctree-l4" href="#selected-named-functions">Selected Named Functions</a></li>
                 
             
@@ -242,6 +244,17 @@
 </code></pre>
 
 <p>Here, the patient's name will be a comma separated concatenation of all the values in the <code>patient_names</code> array from our source message.</p>
+<h2 id="available-javascript-globals">Available Javascript Globals<a class="headerlink" href="#available-javascript-globals" title="Permanent link">&para;</a></h2>
+<p>For security reasons, users start with access to the following standard Javascript globals, and can request more by opening an issue on Github:</p>
+<ul>
+<li>Array</li>
+<li>console</li>
+<li>JSON</li>
+<li>Number</li>
+<li>Promise</li>
+<li>String</li>
+</ul>
+<p>*N.B. The runtime environment on the server is Node v6.5.0.</p>
 <p>Other than the expression tree, Jobs have certain attributes that must be set:</p>
 <ol>
 <li><strong>Filter</strong> - The message filter that will triggers the job.</li>
