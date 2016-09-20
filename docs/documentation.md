@@ -73,6 +73,18 @@ create("Patient__c", fields(
 
 Here, the patient's name will be a comma separated concatenation of all the values in the `patient_names` array from our source message.
 
+## Available Javascript Globals
+For security reasons, users start with access to the following standard Javascript globals, and can request more by opening an issue on Github:
+
+- Array
+- console
+- JSON
+- Number
+- Promise
+- String
+
+*N.B. The runtime environment on the server is Node v6.5.0.
+
 Other than the expression tree, Jobs have certain attributes that must be set:
 
 1. **Filter** - The message filter that will triggers the job.
