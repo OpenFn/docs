@@ -1,3 +1,17 @@
+# Version 1.4.0 (2016-09-26)
+
+New features:
+
+- Run "matches" directly from your inbox view.
+- Always display the latest notification, dismiss to scroll back in time.
+- Login and signup server responses
+
+**Run "matches" from inbox:** Users can now run matches in a single click from their inbox, getting notifications that runs have successfully started without having to navigate to the Message Inspector page for a given message. Look for the blue "play" button next to each match. Simply click to start running that job with the message in question.
+
+**Latest notifications:** User notifications will now be displayed *newest-on-top* and when there are multiple stacked notifications users will be... well... notified. Click the small "x" to dismiss the latest notification, moving backwards in time until all have been read.
+
+**Until now, invalid login messages and duplicate singup emails had been only displayed in your brower's logs. (That's our fault.) You'll now see a handy "invalid credentials" or "email already registered" message when trying to log in or sign up.
+
 # Version 1.3.0 (2016-09-20)
 
 - New version of language-salesforce allows users to `alterState` with a custom function.
