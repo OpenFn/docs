@@ -1,3 +1,18 @@
+# Version 1.5.0 (2016-10-05)
+
+New features:
+
+- Delete credentials
+- Delete triggers
+- Archive jobs
+- Continual testing from status.openfn.org
+
+**Delete credentials and triggers:** Users can now delete credentials and triggers.
+
+**Archive jobs:** Users can now archive jobs, rendering them inactive. Click "view archived jobs" to see and restore jobs.
+
+**status.openfn.org**: is now live, providing continual testing of key OpenFn services. We run both message-filter-based and timer-trigger-based jobs every five minutes to ensure availability, as well as measuring the round-trip time (in ms) that it takes for a server in a different geographical location to send valid JSON to OpenFn then receive and process the 200 response. (This time will vary according to the location of your servers, but it's important to note that we test the full round trip. Our servers typically send out 200s in about 5-6ms, but you can expect the round trip to complete in closer to 750ms.)
+
 # Version 1.4.0 (2016-09-26)
 
 New features:
@@ -10,7 +25,7 @@ New features:
 
 **Latest notifications:** User notifications will now be displayed *newest-on-top* and when there are multiple stacked notifications users will be... well... notified. Click the small "x" to dismiss the latest notification, moving backwards in time until all have been read.
 
-**Until now, invalid login messages and duplicate singup emails had been only displayed in your brower's logs. (That's our fault.) You'll now see a handy "invalid credentials" or "email already registered" message when trying to log in or sign up.
+**Login/signup errors:** Until now, invalid login messages and duplicate singup emails had been only displayed in your brower's logs. (That's our fault.) You'll now see a handy "invalid credentials" or "email already registered" message when trying to log in or sign up.
 
 # Version 1.3.0 (2016-09-20)
 
