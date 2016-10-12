@@ -92,6 +92,9 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#version-150-2016-10-05">Version 1.5.0 (2016-10-05)</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#version-140-2016-09-26">Version 1.4.0 (2016-09-26)</a></li>
                 
             
@@ -145,7 +148,18 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="version-140-2016-09-26">Version 1.4.0 (2016-09-26)<a class="headerlink" href="#version-140-2016-09-26" title="Permanent link">&para;</a></h1>
+                <h1 id="version-150-2016-10-05">Version 1.5.0 (2016-10-05)<a class="headerlink" href="#version-150-2016-10-05" title="Permanent link">&para;</a></h1>
+<p>New features:</p>
+<ul>
+<li>Delete credentials</li>
+<li>Delete triggers</li>
+<li>Archive jobs</li>
+<li>Continual testing from status.openfn.org</li>
+</ul>
+<p><strong>Delete credentials and triggers:</strong> Users can now delete credentials and triggers.</p>
+<p><strong>Archive jobs:</strong> Users can now archive jobs, rendering them inactive. Click "view archived jobs" to see and restore old jobs.</p>
+<p><strong>status.openfn.org</strong>: is now live, providing continual testing of key OpenFn services. We run both message-filter-based and timer-trigger-based jobs every five minutes to ensure availability, as well as measuring the round-trip time (in ms) that it takes for a server in a different geographical location to send valid JSON to OpenFn then receive and process the 200 response. (This time will vary according to the location of your servers, but it's important to note that we test the full round trip. Our servers typically send out 200s in about 5-6ms, but you can expect the round trip to complete in closer to 750ms.)</p>
+<h1 id="version-140-2016-09-26">Version 1.4.0 (2016-09-26)<a class="headerlink" href="#version-140-2016-09-26" title="Permanent link">&para;</a></h1>
 <p>New features:</p>
 <ul>
 <li>Run "matches" directly from your inbox view.</li>
