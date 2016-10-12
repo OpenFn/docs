@@ -9,7 +9,7 @@ New features:
 
 **Delete credentials and triggers:** Users can now delete credentials and triggers.
 
-**Archive jobs:** Users can now archive jobs, rendering them inactive. Click "view archived jobs" to see and restore jobs.
+**Archive jobs:** Users can now archive jobs, rendering them inactive. Click "view archived jobs" to see and restore old jobs.
 
 **status.openfn.org**: is now live, providing continual testing of key OpenFn services. We run both message-filter-based and timer-trigger-based jobs every five minutes to ensure availability, as well as measuring the round-trip time (in ms) that it takes for a server in a different geographical location to send valid JSON to OpenFn then receive and process the 200 response. (This time will vary according to the location of your servers, but it's important to note that we test the full round trip. Our servers typically send out 200s in about 5-6ms, but you can expect the round trip to complete in closer to 750ms.)
 
