@@ -17,7 +17,7 @@ The filter criteria takes the form of a string of valid `JSON`. In a SQL query, 
 ```sql
 SELECT * FROM receipts
   WHERE body::jsonb @>
-    '{"Name":"Alex Iwobi"}'::jsonb;
+    '{"Name":"Aleksa Iwobi"}'::jsonb;
 ```
 
 ## Filter Matching
