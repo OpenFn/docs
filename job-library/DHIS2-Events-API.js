@@ -1,6 +1,6 @@
 // ----
 // Create new events in DHIS2 using a generic JSON message, submitted by
-// Taylor Downs @ OpenFn.
+// Taylor Downs @ OpenFn for demonstration porpoises.
 // ---
 
 event(
