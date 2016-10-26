@@ -634,6 +634,23 @@ patient(
 )
 </code></pre>
 
+<h4 id="merge-many-values-into-a-child-path">merge many values into a child path<a class="headerlink" href="#merge-many-values-into-a-child-path" title="Permanent link">&para;</a></h4>
+<pre><code class="js">each(
+  merge(
+    dataPath(&quot;CHILD_ARRAY[*]&quot;),
+    fields(
+      field(&quot;metaId&quot;, dataValue(&quot;*meta-instance-id*&quot;)),
+      field(&quot;parentId&quot;, lastReferenceValue(&quot;id&quot;))
+    )
+  ),
+  create(...)
+)
+</code></pre>
+
+<h4 id="arraytostring">arrayToString<a class="headerlink" href="#arraytostring" title="Permanent link">&para;</a></h4>
+<pre><code class="js">arrayToString(arr, separator_string)
+</code></pre>
+
 <h4 id="alterstate-alter-state-to-make-sure-data-is-in-an-array">alterState (alter state) to make sure data is in an array<a class="headerlink" href="#alterstate-alter-state-to-make-sure-data-is-in-an-array" title="Permanent link">&para;</a></h4>
 <pre><code class="js">// Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
 alterState((state) =&gt; {
