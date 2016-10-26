@@ -487,6 +487,25 @@ patient(
 )
 ```
 
+#### merge many values into a child path
+```js
+each(
+  merge(
+    dataPath("CHILD_ARRAY[*]"),
+    fields(
+      field("metaId", dataValue("*meta-instance-id*")),
+      field("parentId", lastReferenceValue("id"))
+    )
+  ),
+  create(...)
+)
+```
+
+#### arrayToString
+```js
+arrayToString(arr, separator_string)
+```
+
 #### alterState (alter state) to make sure data is in an array
 ```js
 // Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
