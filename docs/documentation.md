@@ -375,6 +375,15 @@ beta.each(
 )
 ```
 
+#### Salesforce: perform an update
+```js
+update("Patient__c", fields(
+  field("Id", dataValue("pathToSalesforceId"),
+  field("Name__c", dataValue("patient.first_name")),
+  field(...)
+))
+```
+
 #### Salesforce: Set record type using 'relationship(...)'
 ```js
 create("custom_obj__c", fields(
@@ -415,6 +424,27 @@ send(
 )
 ```
 
+#### HTTP: fetch but don't fail!
+```js
+// =============
+// We use "fetchWithErrors(...)" so that when the
+// SMS gateway returns an error the run does not "fail".
+// It "succeeds" and then delivers that error message
+// back to Salesforce with the "Update SMS Status" job.
+// =============
+fetchWithErrors({
+  "getEndpoint": "send_to_contact",
+  "query": function(state) {
+      return {
+        "msisdn": state.data.Envelope.Body.notifications.Notification.sObject.SMS__Phone_Number__c,
+        "message": state.data.Envelope.Body.notifications.Notification.sObject.SMS__Message__c,
+        "api_key": "some-secret-key"
+      }
+  },
+  "externalId": state.data.Envelope.Body.notifications.Notification.sObject.Id,
+  "postUrl": "https://www.openfn.org/inbox/another-secret-key",
+})
+```
 
 #### Sample DHIS2 events API job:
 ```js

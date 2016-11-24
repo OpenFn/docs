@@ -1,3 +1,44 @@
+# Version 1.6.0 (2016-11-24)
+
+New features:
+
+- Updated payment receipts to include project names.
+- Added `update(...)` to Salesforce adaptor v0.3.0
+- Added `fetchWithErrors` to HTTP adaptor v0.3.1
+
+**New Salesforce helper function `update(...)`:** It takes an object and, so long as you're using the "Id" only updates.
+
+```js
+update("Patient__c", fields(
+  field("Id", dataValue("pathToSalesforceId"),
+  field("Name__c", dataValue("patient.first_name")),
+  field(...)
+))
+```
+
+**New http helper function `fetchWithErrors(...)`:** This function will perform a get request on an endpoint and return the response to another endpoint, regardless of whether the first GET suceeded or failed. It's currently being used to send message receipt confirmations back to a system of origin that uses OpenFn as an intermediary between it and an SMS gateway. If the SMS message doesn't get delivered because the phone number is invalid, we'd like that information the return all the way to Salesforce, rather than erroring out and staying in OpenFn.
+
+```js
+// =============
+// We use "fetchWithErrors(...)" so that when the
+// SMS gateway returns an error the run does not "fail".
+// It "succeeds" and then delivers that error message
+// back to Salesforce with the "Update SMS Status" job.
+// =============
+fetchWithErrors({
+  "getEndpoint": "send_to_contact",
+  "query": function(state) {
+      return {
+        "msisdn": state.data.Envelope.Body.notifications.Notification.sObject.SMS__Phone_Number__c,
+        "message": state.data.Envelope.Body.notifications.Notification.sObject.SMS__Message__c,
+        "api_key": "some-secret-key"
+      }
+  },
+  "externalId": state.data.Envelope.Body.notifications.Notification.sObject.Id,
+  "postUrl": "https://www.openfn.org/inbox/another-secret-key",
+})
+```
+
 # Version 1.5.0 (2016-10-05)
 
 New features:
