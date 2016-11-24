@@ -92,6 +92,9 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#version-160-2016-11-24">Version 1.6.0 (2016-11-24)</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#version-150-2016-10-05">Version 1.5.0 (2016-10-05)</a></li>
                 
             
@@ -148,7 +151,43 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="version-150-2016-10-05">Version 1.5.0 (2016-10-05)<a class="headerlink" href="#version-150-2016-10-05" title="Permanent link">&para;</a></h1>
+                <h1 id="version-160-2016-11-24">Version 1.6.0 (2016-11-24)<a class="headerlink" href="#version-160-2016-11-24" title="Permanent link">&para;</a></h1>
+<p>New features:</p>
+<ul>
+<li>Updated payment receipts to include project names.</li>
+<li>Added <code>update(...)</code> to Salesforce adaptor v0.3.0</li>
+<li>Added <code>fetchWithErrors</code> to HTTP adaptor v0.3.1</li>
+</ul>
+<p><strong>New Salesforce helper function <code>update(...)</code>:</strong> It takes an object and, so long as you're using the "Id" only updates.</p>
+<pre><code class="js">update(&quot;Patient__c&quot;, fields(
+  field(&quot;Id&quot;, dataValue(&quot;pathToSalesforceId&quot;),
+  field(&quot;Name__c&quot;, dataValue(&quot;patient.first_name&quot;)),
+  field(...)
+))
+</code></pre>
+
+<p><strong>New http helper function <code>fetchWithErrors(...)</code>:</strong> This function will perform a get request on an endpoint and return the response to another endpoint, regardless of whether the first GET suceeded or failed. It's currently being used to send message receipt confirmations back to a system of origin that uses OpenFn as an intermediary between it and an SMS gateway. If the SMS message doesn't get delivered because the phone number is invalid, we'd like that information the return all the way to Salesforce, rather than erroring out and staying in OpenFn.</p>
+<pre><code class="js">// =============
+// We use &quot;fetchWithErrors(...)&quot; so that when the
+// SMS gateway returns an error the run does not &quot;fail&quot;.
+// It &quot;succeeds&quot; and then delivers that error message
+// back to Salesforce with the &quot;Update SMS Status&quot; job.
+// =============
+fetchWithErrors({
+  &quot;getEndpoint&quot;: &quot;send_to_contact&quot;,
+  &quot;query&quot;: function(state) {
+      return {
+        &quot;msisdn&quot;: state.data.Envelope.Body.notifications.Notification.sObject.SMS__Phone_Number__c,
+        &quot;message&quot;: state.data.Envelope.Body.notifications.Notification.sObject.SMS__Message__c,
+        &quot;api_key&quot;: &quot;some-secret-key&quot;
+      }
+  },
+  &quot;externalId&quot;: state.data.Envelope.Body.notifications.Notification.sObject.Id,
+  &quot;postUrl&quot;: &quot;https://www.openfn.org/inbox/another-secret-key&quot;,
+})
+</code></pre>
+
+<h1 id="version-150-2016-10-05">Version 1.5.0 (2016-10-05)<a class="headerlink" href="#version-150-2016-10-05" title="Permanent link">&para;</a></h1>
 <p>New features:</p>
 <ul>
 <li>Delete credentials</li>

@@ -530,6 +530,14 @@ beta.each(
 )
 </code></pre>
 
+<h4 id="salesforce-perform-an-update">Salesforce: perform an update<a class="headerlink" href="#salesforce-perform-an-update" title="Permanent link">&para;</a></h4>
+<pre><code class="js">update(&quot;Patient__c&quot;, fields(
+  field(&quot;Id&quot;, dataValue(&quot;pathToSalesforceId&quot;),
+  field(&quot;Name__c&quot;, dataValue(&quot;patient.first_name&quot;)),
+  field(...)
+))
+</code></pre>
+
 <h4 id="salesforce-set-record-type-using-relationship">Salesforce: Set record type using 'relationship(...)'<a class="headerlink" href="#salesforce-set-record-type-using-relationship" title="Permanent link">&para;</a></h4>
 <pre><code class="js">create(&quot;custom_obj__c&quot;, fields(
             relationship(&quot;RecordType&quot;, &quot;name&quot;, dataValue(&quot;submission_type&quot;),
@@ -564,6 +572,27 @@ beta.each(
     })
   )
 )
+</code></pre>
+
+<h4 id="http-fetch-but-dont-fail">HTTP: fetch but don't fail!<a class="headerlink" href="#http-fetch-but-dont-fail" title="Permanent link">&para;</a></h4>
+<pre><code class="js">// =============
+// We use &quot;fetchWithErrors(...)&quot; so that when the
+// SMS gateway returns an error the run does not &quot;fail&quot;.
+// It &quot;succeeds&quot; and then delivers that error message
+// back to Salesforce with the &quot;Update SMS Status&quot; job.
+// =============
+fetchWithErrors({
+  &quot;getEndpoint&quot;: &quot;send_to_contact&quot;,
+  &quot;query&quot;: function(state) {
+      return {
+        &quot;msisdn&quot;: state.data.Envelope.Body.notifications.Notification.sObject.SMS__Phone_Number__c,
+        &quot;message&quot;: state.data.Envelope.Body.notifications.Notification.sObject.SMS__Message__c,
+        &quot;api_key&quot;: &quot;some-secret-key&quot;
+      }
+  },
+  &quot;externalId&quot;: state.data.Envelope.Body.notifications.Notification.sObject.Id,
+  &quot;postUrl&quot;: &quot;https://www.openfn.org/inbox/another-secret-key&quot;,
+})
 </code></pre>
 
 <h4 id="sample-dhis2-events-api-job">Sample DHIS2 events API job:<a class="headerlink" href="#sample-dhis2-events-api-job" title="Permanent link">&para;</a></h4>
