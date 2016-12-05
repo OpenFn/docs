@@ -1,0 +1,31 @@
+site_name: OpenFn Documentation
+site_url: https://openfn.github.io/docs/
+repo_url: https://github.com/OpenFn/docs
+site_description: README, Getting Started, Documentation, and Release Notes for OpenFn
+
+google_analytics:
+  - 'UA-57118569-4'
+  - 'openfn.org'
+
+pages:
+- Home: index.md
+- Documentation: documentation.md
+- Source Application Setup: source-applications.md
+- Release Notes: release-notes.md
+
+markdown_extensions:
+    - toc:
+        permalink: True
+
+
+theme: 'material'
+
+extra:
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
+  palette:
+    primary: 'indigo'
+    accent: 'deep purple'
+
+extra_css: [customizations.css]
