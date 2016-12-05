@@ -17,11 +17,11 @@ theme: 'material'
 
 # Options
 extra:
-  version: '1.0.0'
-  logo: 'images/logo.png'
+  version: '1.7.0'
+  logo: ''
   palette:
-    primary: 'indigo'
-    accent: 'light blue'
+    primary: 'red'
+    accent: 'teal'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'

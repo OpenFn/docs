@@ -1,3 +1,19 @@
+# Version 1.7.0 (2016-12-05)
+#### _1.7 is all about user experience!_
+New features:
+- Material design—more whitespace and cleaner lines.
+- Goto page on inbox and activity tables—save time when processing errors.
+- Change number of items per page on inbox and activity table—care with this one on slow connections!
+- Go to next or previous message or run—makes working through an audit trail easier
+- Change user profile settings without changing password
+- Select syntaxt style for code editors in user settings—clouds midnight is my new favorite
+- Filter projects, jobs, triggers by name—on the fly for quick navigation
+- Add adaptor logos to credentials list—quick identification
+- Specify connection types on "Apps" list—seems there was some confusion about this. I know we're missing plenty of apps that have good APIs. Will consider logging API documentation as well.
+- Shift second top-nav to a collapseable "side nav"—better use of screen real-esate.
+- Use 'masonry' packing module for jobs, triggers, credentials, and project settings boxes—more efficient use of space
+- Add material design to *this* documentation page!
+
 # Version 1.6.0 (2016-11-24)
 
 New features:
