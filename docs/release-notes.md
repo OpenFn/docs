@@ -7,7 +7,7 @@ New features:
 - Change number of items per page on inbox and activity table—care with this one on slow connections!
 - Go to next or previous message or run—makes working through an audit trail easier
 - Change user profile settings without changing password
-- Select syntaxt style for code editors in user settings—clouds midnight is my new favorite
+- Select syntax style for code editors in user settings—clouds midnight is my new favorite
 - Filter projects, jobs, triggers by name—on the fly for quick navigation
 - Add adaptor logos to credentials list—quick identification
 - Specify connection types on "Apps" list—seems there was some confusion about this. I know we're missing plenty of apps that have good APIs. Will consider logging API documentation as well.
