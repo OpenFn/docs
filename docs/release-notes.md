@@ -1,6 +1,7 @@
 # Version 1.7.0 (2016-12-05)
 #### _1.7 is all about user experience!_
 New features:
+
 - Material design—more whitespace and cleaner lines.
 - Goto page on inbox and activity tables—save time when processing errors.
 - Change number of items per page on inbox and activity table—care with this one on slow connections!
@@ -13,6 +14,7 @@ New features:
 - Shift second top-nav to a collapseable "side nav"—better use of screen real-esate.
 - Use 'masonry' packing module for jobs, triggers, credentials, and project settings boxes—more efficient use of space
 - Add material design to *this* documentation page!
+
 
 # Version 1.6.0 (2016-11-24)
 
