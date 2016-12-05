@@ -9,20 +9,24 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Release Notes - OpenFn Documentation</title>
+        <title>Release notes - OpenFn Documentation</title>
       
       
       
         <link rel="canonical" href="https://openfn.github.io/docs/release-notes/">
       
       
+        <meta name="author" content="OpenFn">
+      
     
     <meta property="og:url" content="https://openfn.github.io/docs/release-notes/">
     <meta property="og:title" content="OpenFn Documentation">
-    <meta property="og:image" content="https://openfn.github.io/docs/release-notes//../">
+    <meta property="og:image" content="https://openfn.github.io/docs/release-notes//../images/logo.png">
     <meta name="apple-mobile-web-app-title" content="OpenFn Documentation">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../images/logo.png">
     
     
     <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon-e565ddfa3b.ico">
@@ -70,7 +74,7 @@
   
   
   
-  <body class="palette-primary-indigo palette-accent-deep-purple">
+  <body class="palette-primary-indigo palette-accent-light-blue">
     
       
       
@@ -96,10 +100,20 @@
             
           </span>
         
-        Release Notes
+        Release notes
       </div>
     </div>
     
+      
+      <div class="button button-twitter" role="button" aria-label="Twitter">
+        <a href="https://twitter.com/openfn" title="@openfn on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+      </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/openfn" title="@openfn on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
     
     <div class="button button-search" role="button" aria-label="Search">
       <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
@@ -128,11 +142,15 @@
   <a href="https://github.com/OpenFn/docs" class="project">
     <div class="banner">
       
+        <div class="logo">
+          <img src="../images/logo.png">
+        </div>
+      
       <div class="name">
         <strong>
           OpenFn Documentation
           <span class="version">
-            
+            1.0.0
           </span>
         </strong>
         
@@ -148,7 +166,7 @@
         <ul class="repo">
           <li class="repo-download">
             
-            <a href="https://github.com/OpenFn/docs/archive/master.zip" target="_blank" title="Download" data-action="download">
+            <a href="https://github.com/OpenFn/docs/archive/1.0.0.zip" target="_blank" title="Download" data-action="download">
               <i class="icon icon-download"></i> Download
             </a>
           </li>
@@ -184,17 +202,8 @@
           
             
   <li>
-    <a class="" title="Source Application Setup" href="../source-applications/">
-      Source Application Setup
-    </a>
-    
-  </li>
-
-          
-            
-  <li>
-    <a class="current" title="Release Notes" href="./">
-      Release Notes
+    <a class="current" title="Release notes" href="./">
+      Release notes
     </a>
     
       
@@ -205,7 +214,37 @@
   </li>
 
           
+            
+  <li>
+    <a class="" title="Source applications" href="../source-applications/">
+      Source applications
+    </a>
+    
+  </li>
+
+          
         </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+              
+              <li>
+                <a href="https://twitter.com/openfn" target="_blank" title="@openfn on Twitter">
+                  @openfn on Twitter
+                </a>
+              </li>
+            
+            
+              
+              <li>
+                <a href="https://github.com/openfn" target="_blank" title="@openfn on GitHub">
+                  @openfn on GitHub
+                </a>
+              </li>
+            
+          </ul>
         
       </div>
     </div>
@@ -215,7 +254,7 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="version-160-2016-11-24">Version 1.6.0 (2016-11-24)<a class="headerlink" href="#version-160-2016-11-24" title="Permanent link">&para;</a></h1>
+          <h1 id="version-160-2016-11-24">Version 1.6.0 (2016-11-24)<a class="headerlink" href="#version-160-2016-11-24" title="Permanent link">#</a></h1>
 <p>New features:</p>
 <ul>
 <li>Updated payment receipts to include project names.</li>
@@ -223,35 +262,37 @@
 <li>Added <code>fetchWithErrors</code> to HTTP adaptor v0.3.1</li>
 </ul>
 <p><strong>New Salesforce helper function <code>update(...)</code>:</strong> It takes an object and, so long as you're using the "Id" only updates.</p>
-<pre><code class="js">update(&quot;Patient__c&quot;, fields(
-  field(&quot;Id&quot;, dataValue(&quot;pathToSalesforceId&quot;),
-  field(&quot;Name__c&quot;, dataValue(&quot;patient.first_name&quot;)),
-  field(...)
-))
-</code></pre>
+<div class="code"><pre><span></span><span class="nx">update</span><span class="p">(</span><span class="s2">&quot;Patient__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Id&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;pathToSalesforceId&quot;</span><span class="p">),</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Name__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;patient.first_name&quot;</span><span class="p">)),</span>
+  <span class="nx">field</span><span class="p">(...)</span>
+<span class="p">))</span>
+</pre></div>
+
 
 <p><strong>New http helper function <code>fetchWithErrors(...)</code>:</strong> This function will perform a get request on an endpoint and return the response to another endpoint, regardless of whether the first GET suceeded or failed. It's currently being used to send message receipt confirmations back to a system of origin that uses OpenFn as an intermediary between it and an SMS gateway. If the SMS message doesn't get delivered because the phone number is invalid, we'd like that information the return all the way to Salesforce, rather than erroring out and staying in OpenFn.</p>
-<pre><code class="js">// =============
-// We use &quot;fetchWithErrors(...)&quot; so that when the
-// SMS gateway returns an error the run does not &quot;fail&quot;.
-// It &quot;succeeds&quot; and then delivers that error message
-// back to Salesforce with the &quot;Update SMS Status&quot; job.
-// =============
-fetchWithErrors({
-  &quot;getEndpoint&quot;: &quot;send_to_contact&quot;,
-  &quot;query&quot;: function(state) {
-      return {
-        &quot;msisdn&quot;: state.data.Envelope.Body.notifications.Notification.sObject.SMS__Phone_Number__c,
-        &quot;message&quot;: state.data.Envelope.Body.notifications.Notification.sObject.SMS__Message__c,
-        &quot;api_key&quot;: &quot;some-secret-key&quot;
-      }
-  },
-  &quot;externalId&quot;: state.data.Envelope.Body.notifications.Notification.sObject.Id,
-  &quot;postUrl&quot;: &quot;https://www.openfn.org/inbox/another-secret-key&quot;,
-})
-</code></pre>
+<div class="code"><pre><span></span><span class="c1">// =============</span>
+<span class="c1">// We use &quot;fetchWithErrors(...)&quot; so that when the</span>
+<span class="c1">// SMS gateway returns an error the run does not &quot;fail&quot;.</span>
+<span class="c1">// It &quot;succeeds&quot; and then delivers that error message</span>
+<span class="c1">// back to Salesforce with the &quot;Update SMS Status&quot; job.</span>
+<span class="c1">// =============</span>
+<span class="nx">fetchWithErrors</span><span class="p">({</span>
+  <span class="s2">&quot;getEndpoint&quot;</span><span class="o">:</span> <span class="s2">&quot;send_to_contact&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;query&quot;</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;msisdn&quot;</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">Envelope</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">Notification</span><span class="p">.</span><span class="nx">sObject</span><span class="p">.</span><span class="nx">SMS__Phone_Number__c</span><span class="p">,</span>
+        <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">Envelope</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">Notification</span><span class="p">.</span><span class="nx">sObject</span><span class="p">.</span><span class="nx">SMS__Message__c</span><span class="p">,</span>
+        <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;some-secret-key&quot;</span>
+      <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;externalId&quot;</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">Envelope</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">Notification</span><span class="p">.</span><span class="nx">sObject</span><span class="p">.</span><span class="nx">Id</span><span class="p">,</span>
+  <span class="s2">&quot;postUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.openfn.org/inbox/another-secret-key&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
 
-<h1 id="version-150-2016-10-05">Version 1.5.0 (2016-10-05)<a class="headerlink" href="#version-150-2016-10-05" title="Permanent link">&para;</a></h1>
+
+<h1 id="version-150-2016-10-05">Version 1.5.0 (2016-10-05)<a class="headerlink" href="#version-150-2016-10-05" title="Permanent link">#</a></h1>
 <p>New features:</p>
 <ul>
 <li>Delete credentials</li>
@@ -262,7 +303,7 @@ fetchWithErrors({
 <p><strong>Delete credentials and triggers:</strong> Users can now delete credentials and triggers.</p>
 <p><strong>Archive jobs:</strong> Users can now archive jobs, rendering them inactive. Click "view archived jobs" to see and restore old jobs.</p>
 <p><strong>status.openfn.org</strong>: is now live, providing continual testing of key OpenFn services. We run both message-filter-based and timer-trigger-based jobs every five minutes to ensure availability, as well as measuring the round-trip time (in ms) that it takes for a server in a different geographical location to send valid JSON to OpenFn then receive and process the 200 response. (This time will vary according to the location of your servers, but it's important to note that we test the full round trip. Our servers typically send out 200s in about 5-6ms, but you can expect the round trip to complete in closer to 750ms.)</p>
-<h1 id="version-140-2016-09-26">Version 1.4.0 (2016-09-26)<a class="headerlink" href="#version-140-2016-09-26" title="Permanent link">&para;</a></h1>
+<h1 id="version-140-2016-09-26">Version 1.4.0 (2016-09-26)<a class="headerlink" href="#version-140-2016-09-26" title="Permanent link">#</a></h1>
 <p>New features:</p>
 <ul>
 <li>Run "matches" directly from your inbox view.</li>
@@ -272,19 +313,19 @@ fetchWithErrors({
 <p><strong>Run "matches" from inbox:</strong> Users can now run matches in a single click from their inbox, getting notifications that runs have successfully started without having to navigate to the Message Inspector page for a given message. Look for the blue "play" button next to each match. Simply click to start running that job with the message in question.</p>
 <p><strong>Latest notifications:</strong> User notifications will now be displayed <em>newest-on-top</em> and when there are multiple stacked notifications users will be... well... notified. Click the small "x" to dismiss the latest notification, moving backwards in time until all have been read.</p>
 <p><strong>Login/signup errors:</strong> Until now, invalid login messages and duplicate singup emails had been only displayed in your brower's logs. (That's our fault.) You'll now see a handy "invalid credentials" or "email already registered" message when trying to log in or sign up.</p>
-<h1 id="version-130-2016-09-20">Version 1.3.0 (2016-09-20)<a class="headerlink" href="#version-130-2016-09-20" title="Permanent link">&para;</a></h1>
+<h1 id="version-130-2016-09-20">Version 1.3.0 (2016-09-20)<a class="headerlink" href="#version-130-2016-09-20" title="Permanent link">#</a></h1>
 <ul>
 <li>New version of language-salesforce allows users to <code>alterState</code> with a custom function.</li>
 </ul>
 <p><strong>alterState:</strong> <a href="https://openfn.github.io/docs/documentation/#alterstate-alter-state-to-make-sure-data-is-in-an-array">documentation</a></p>
-<h1 id="version-120-2016-09-15">Version 1.2.0 (2016-09-15)<a class="headerlink" href="#version-120-2016-09-15" title="Permanent link">&para;</a></h1>
+<h1 id="version-120-2016-09-15">Version 1.2.0 (2016-09-15)<a class="headerlink" href="#version-120-2016-09-15" title="Permanent link">#</a></h1>
 <ul>
 <li>Users can now select specific adaptor versions for their jobs.</li>
 <li>Jobs will "auto-upgrade" unless locked to a specific version.</li>
 </ul>
 <p><strong>Adaptor versions:</strong>  This means that the code beneath your job, once saved with a specific adaptor version, will never change. This is an important step forward for the whole community, as it enables more rapid progress—especially considering the growing number of outside contributors—without risking introducing instability to existing jobs.</p>
 <p>Each new version of an adaptor will have release notes introducing the new features or changes to helper functions. To allow easy upgrades, we will still mandate that all new versions are backwards compatible.</p>
-<h1 id="version-110-2016-08-29">Version 1.1.0 (2016-08-29)<a class="headerlink" href="#version-110-2016-08-29" title="Permanent link">&para;</a></h1>
+<h1 id="version-110-2016-08-29">Version 1.1.0 (2016-08-29)<a class="headerlink" href="#version-110-2016-08-29" title="Permanent link">#</a></h1>
 <p>New features:</p>
 <ul>
 <li>Users can now run jobs based on <strong>timers</strong> as well as filters.</li>
@@ -300,38 +341,40 @@ fetchWithErrors({
 </blockquote>
 <p><strong>get(...) and post(...):</strong> Have a look at this complex job using language-http. See how it is possible to provide a query and a callback for <code>get</code> while <code>post</code> takes a url and a body object. At the end, the user is setting state.lastSubmissionDate to <code>submissions[submissions.length-1].SubmissionDate</code>.</p>
 <p>See the functions themselves at <a href="https://github.com/OpenFn/language-http/blob/master/src/Adaptor.js">language-http</a>.</p>
-<pre><code class="js">get(&quot;forms/data/wide/json/someForm&quot;, {
-  query: function(state) {
-    return { date: state.lastSubmissionDate || &quot;Aug 29, 2016 4:44:26 PM&quot;}
-  },
-  callback: function(state) {
-    // Pick submissions out in order to avoid `post` overwriting `response`.
-    var submissions = state.response.body;
-    // return submissions
-    return submissions.reduce(function(acc, item) {
-        // tag submissions as part of the &quot;someForm&quot; form
-        item.formId = &quot;someForm&quot;
-        return acc.then(
-          post(
-            &quot;https://www.openfn.org/inbox/some-inbox-uuid&quot;,
-            { body: item }
-          )
-        )
-      }, Promise.resolve(state))
-      .then(function(state) {
-        if (submissions.length) {
-          state.lastSubmissionDate = submissions[submissions.length-1].SubmissionDate
-        }
-        return state;
-      })
-      .then(function(state) {
-        delete state.response
-        return state;
-      })
-  }
-})
-</code></pre>
+<div class="code"><pre><span></span><span class="nx">get</span><span class="p">(</span><span class="s2">&quot;forms/data/wide/json/someForm&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span> <span class="nx">date</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">lastSubmissionDate</span> <span class="o">||</span> <span class="s2">&quot;Aug 29, 2016 4:44:26 PM&quot;</span><span class="p">}</span>
+  <span class="p">},</span>
+  <span class="nx">callback</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// Pick submissions out in order to avoid `post` overwriting `response`.</span>
+    <span class="kd">var</span> <span class="nx">submissions</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
+    <span class="c1">// return submissions</span>
+    <span class="k">return</span> <span class="nx">submissions</span><span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// tag submissions as part of the &quot;someForm&quot; form</span>
+        <span class="nx">item</span><span class="p">.</span><span class="nx">formId</span> <span class="o">=</span> <span class="s2">&quot;someForm&quot;</span>
+        <span class="k">return</span> <span class="nx">acc</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span>
+          <span class="nx">post</span><span class="p">(</span>
+            <span class="s2">&quot;https://www.openfn.org/inbox/some-inbox-uuid&quot;</span><span class="p">,</span>
+            <span class="p">{</span> <span class="nx">body</span><span class="o">:</span> <span class="nx">item</span> <span class="p">}</span>
+          <span class="p">)</span>
+        <span class="p">)</span>
+      <span class="p">},</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">state</span><span class="p">))</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="nx">submissions</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">state</span><span class="p">.</span><span class="nx">lastSubmissionDate</span> <span class="o">=</span> <span class="nx">submissions</span><span class="p">[</span><span class="nx">submissions</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nx">SubmissionDate</span>
+        <span class="p">}</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+      <span class="p">})</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">delete</span> <span class="nx">state</span><span class="p">.</span><span class="nx">response</span>
+        <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+      <span class="p">})</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
           <aside class="copyright" role="note">
+            
+              Copyright (c) 2016 Open Function Group &ndash;
             
             Documentation built with
             <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
@@ -347,7 +390,7 @@ fetchWithErrors({
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../source-applications/" title="Source Application Setup">
+        <a href="../documentation/" title="Documentation">
           <span class="direction">
             Previous
           </span>
@@ -357,7 +400,7 @@ fetchWithErrors({
             </div>
             <div class="stretch">
               <div class="title">
-                Source Application Setup
+                Documentation
               </div>
             </div>
           </div>
@@ -365,6 +408,22 @@ fetchWithErrors({
       
     </div>
     <div class="next">
+      
+        <a href="../source-applications/" title="Source applications">
+          <span class="direction">
+            Next
+          </span>
+          <div class="page">
+            <div class="stretch">
+              <div class="title">
+                Source applications
+              </div>
+            </div>
+            <div class="button button-next" role="button" aria-label="Next">
+              <i class="icon icon-forward"></i>
+            </div>
+          </div>
+        </a>
       
     </div>
   </nav>

@@ -18,13 +18,17 @@
         <link rel="canonical" href="https://openfn.github.io/docs/">
       
       
+        <meta name="author" content="OpenFn">
+      
     
     <meta property="og:url" content="https://openfn.github.io/docs/">
     <meta property="og:title" content="OpenFn Documentation">
-    <meta property="og:image" content="https://openfn.github.io/docs//./">
+    <meta property="og:image" content="https://openfn.github.io/docs//./images/logo.png">
     <meta name="apple-mobile-web-app-title" content="OpenFn Documentation">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="./images/logo.png">
     
     
     <link rel="shortcut icon" type="image/x-icon" href="./assets/images/favicon-e565ddfa3b.ico">
@@ -72,7 +76,7 @@
   
   
   
-  <body class="palette-primary-indigo palette-accent-deep-purple">
+  <body class="palette-primary-indigo palette-accent-light-blue">
     
       
       
@@ -102,6 +106,16 @@
       </div>
     </div>
     
+      
+      <div class="button button-twitter" role="button" aria-label="Twitter">
+        <a href="https://twitter.com/openfn" title="@openfn on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+      </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/openfn" title="@openfn on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
     
     <div class="button button-search" role="button" aria-label="Search">
       <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
@@ -130,11 +144,15 @@
   <a href="https://github.com/OpenFn/docs" class="project">
     <div class="banner">
       
+        <div class="logo">
+          <img src="./images/logo.png">
+        </div>
+      
       <div class="name">
         <strong>
           OpenFn Documentation
           <span class="version">
-            
+            1.0.0
           </span>
         </strong>
         
@@ -150,7 +168,7 @@
         <ul class="repo">
           <li class="repo-download">
             
-            <a href="https://github.com/OpenFn/docs/archive/master.zip" target="_blank" title="Download" data-action="download">
+            <a href="https://github.com/OpenFn/docs/archive/1.0.0.zip" target="_blank" title="Download" data-action="download">
               <i class="icon icon-download"></i> Download
             </a>
           </li>
@@ -191,8 +209,8 @@
           
             
   <li>
-    <a class="" title="Source Application Setup" href="source-applications/">
-      Source Application Setup
+    <a class="" title="Release notes" href="release-notes/">
+      Release notes
     </a>
     
   </li>
@@ -200,14 +218,35 @@
           
             
   <li>
-    <a class="" title="Release Notes" href="release-notes/">
-      Release Notes
+    <a class="" title="Source applications" href="source-applications/">
+      Source applications
     </a>
     
   </li>
 
           
         </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+              
+              <li>
+                <a href="https://twitter.com/openfn" target="_blank" title="@openfn on Twitter">
+                  @openfn on Twitter
+                </a>
+              </li>
+            
+            
+              
+              <li>
+                <a href="https://github.com/openfn" target="_blank" title="@openfn on GitHub">
+                  @openfn on GitHub
+                </a>
+              </li>
+            
+          </ul>
         
       </div>
     </div>
@@ -217,7 +256,7 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="openfn-documentation">OpenFn Documentation<a class="headerlink" href="#openfn-documentation" title="Permanent link">&para;</a></h1>
+          <h1 id="openfn-documentation">OpenFn Documentation<a class="headerlink" href="#openfn-documentation" title="Permanent link">#</a></h1>
 <p>Thanks for visiting! This documentation is for <a href="https://www.openfn.org">OpenFn.org</a>, and is primarily intended to help users of the site. Technical documentation for OpenFn's open-source integration tools and language-packs can be found in their respective repositories at <a href="https://github.com/openfn">Github.com/OpenFn</a>.</p>
 <p>We've broken the documentation into three parts: an introduction, detailed documentation, and release notes.</p>
 <p>If you want a new feature or find a bug, please <a href="https://github.com/openfn/docs/issues">submit an issue</a>. If you find an issue with the documentation or want to share your custom functions, please <a href="https://github.com/OpenFn/docs/compare">submit a pull request</a>!</p>
@@ -239,7 +278,7 @@
 <p>OpenFn has harnessed the extreme  stability and scalability of Erlang to coordinate these actions and provide users with email alerts, project management tools, and an online job writing IDE.</p>
 <p>In this guide you'll find documentation to help you write filters and jobs, along with explanations of OpenFn's key concepts.</p>
 <p>If you have any questions, please don't hesitate to email <a href="mailto:admin@openfn.org">admin@openfn.org</a>.</p>
-<h1 id="quick-start-guide">Quick-start guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">&para;</a></h1>
+<h1 id="quick-start-guide">Quick-start guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">#</a></h1>
 <p>Want to get up and running with OpenFn in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!</p>
 <p><strong>1. Create your account.</strong> If you haven't already, create an account at <a href="https://www.openfn.org/signup">OpenFn.org</a></p>
 <p><strong>2. Log In.</strong> After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer <strong>Dashboard</strong>. Click on one to start.</p>
@@ -271,6 +310,8 @@
 <p>Navigate to <strong>Credentials</strong> to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
 <p>Navigate to the <strong>Settings</strong> tab to change the project's name, upgrade your account for more jobs and runs, add collaborators, and transfer project ownership.</p>
           <aside class="copyright" role="note">
+            
+              Copyright (c) 2016 Open Function Group &ndash;
             
             Documentation built with
             <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>

@@ -16,13 +16,17 @@
         <link rel="canonical" href="https://openfn.github.io/docs/documentation/">
       
       
+        <meta name="author" content="OpenFn">
+      
     
     <meta property="og:url" content="https://openfn.github.io/docs/documentation/">
     <meta property="og:title" content="OpenFn Documentation">
-    <meta property="og:image" content="https://openfn.github.io/docs/documentation//../">
+    <meta property="og:image" content="https://openfn.github.io/docs/documentation//../images/logo.png">
     <meta name="apple-mobile-web-app-title" content="OpenFn Documentation">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../images/logo.png">
     
     
     <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon-e565ddfa3b.ico">
@@ -70,7 +74,7 @@
   
   
   
-  <body class="palette-primary-indigo palette-accent-deep-purple">
+  <body class="palette-primary-indigo palette-accent-light-blue">
     
       
       
@@ -100,6 +104,16 @@
       </div>
     </div>
     
+      
+      <div class="button button-twitter" role="button" aria-label="Twitter">
+        <a href="https://twitter.com/openfn" title="@openfn on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+      </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/openfn" title="@openfn on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
     
     <div class="button button-search" role="button" aria-label="Search">
       <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
@@ -128,11 +142,15 @@
   <a href="https://github.com/OpenFn/docs" class="project">
     <div class="banner">
       
+        <div class="logo">
+          <img src="../images/logo.png">
+        </div>
+      
       <div class="name">
         <strong>
           OpenFn Documentation
           <span class="version">
-            
+            1.0.0
           </span>
         </strong>
         
@@ -148,7 +166,7 @@
         <ul class="repo">
           <li class="repo-download">
             
-            <a href="https://github.com/OpenFn/docs/archive/master.zip" target="_blank" title="Download" data-action="download">
+            <a href="https://github.com/OpenFn/docs/archive/1.0.0.zip" target="_blank" title="Download" data-action="download">
               <i class="icon icon-download"></i> Download
             </a>
           </li>
@@ -189,8 +207,8 @@
           
             
   <li>
-    <a class="" title="Source Application Setup" href="../source-applications/">
-      Source Application Setup
+    <a class="" title="Release notes" href="../release-notes/">
+      Release notes
     </a>
     
   </li>
@@ -198,14 +216,35 @@
           
             
   <li>
-    <a class="" title="Release Notes" href="../release-notes/">
-      Release Notes
+    <a class="" title="Source applications" href="../source-applications/">
+      Source applications
     </a>
     
   </li>
 
           
         </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+              
+              <li>
+                <a href="https://twitter.com/openfn" target="_blank" title="@openfn on Twitter">
+                  @openfn on Twitter
+                </a>
+              </li>
+            
+            
+              
+              <li>
+                <a href="https://github.com/openfn" target="_blank" title="@openfn on GitHub">
+                  @openfn on GitHub
+                </a>
+              </li>
+            
+          </ul>
         
       </div>
     </div>
@@ -215,7 +254,7 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="connecting-source-applications">Connecting Source Applications<a class="headerlink" href="#connecting-source-applications" title="Permanent link">&para;</a></h1>
+          <h1 id="connecting-source-applications">Connecting Source Applications<a class="headerlink" href="#connecting-source-applications" title="Permanent link">#</a></h1>
 <p>Most modern web applications have a feature that allows you to <code>push</code>, <code>publish</code>, or <code>post</code> data to another URL when a certain <strong>event</strong> takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when <em>something happens</em>.</p>
 <ol>
 <li>
@@ -228,58 +267,64 @@
 <p>Soon you'll see new messages arrive in your <strong><a href="https://www.openfn.org/receipts">history</a></strong> page.</p>
 </li>
 </ol>
-<h1 id="triggers">Triggers<a class="headerlink" href="#triggers" title="Permanent link">&para;</a></h1>
+<h1 id="triggers">Triggers<a class="headerlink" href="#triggers" title="Permanent link">#</a></h1>
 <p>Triggers run jobs. They can either be "filter" triggers or "timer" triggers. Filter triggers watch incoming messages and run them through jobs when they match the filter criteria. Timer triggers run jobs after a recurring interval has elapsed.</p>
 <p>You, as a user, specify the filter <strong>criteria</strong> which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body <strong>matches</strong> the string of <code>JSON</code> you gave as a filter, the filter will run and trigger a job (assuming you created one).</p>
 <p>The filter criteria takes the form of a string of valid <code>JSON</code>. In a SQL query, this string will be used in the WHERE clause, for example:</p>
-<pre><code class="sql">SELECT * FROM receipts
-  WHERE body::jsonb @&gt;
-    '{&quot;Name&quot;:&quot;Aleksa Iwobi&quot;}'::jsonb;
-</code></pre>
+<div class="code"><pre><span></span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">receipts</span>
+  <span class="k">WHERE</span> <span class="n">body</span><span class="p">::</span><span class="n">jsonb</span> <span class="o">@&gt;</span>
+    <span class="s1">&#39;{&quot;Name&quot;:&quot;Aleksa Iwobi&quot;}&#39;</span><span class="p">::</span><span class="n">jsonb</span><span class="p">;</span>
+</pre></div>
 
-<h2 id="filter-matching">Filter Matching<a class="headerlink" href="#filter-matching" title="Permanent link">&para;</a></h2>
+
+<h2 id="filter-matching">Filter Matching<a class="headerlink" href="#filter-matching" title="Permanent link">#</a></h2>
 <p>To illustrate filter matching, refer to the <code>JSON</code> strings below. Message "a" will match filter '1', but message "b" will not.</p>
-<h3 id="filter-1">filter 1:<a class="headerlink" href="#filter-1" title="Permanent link">&para;</a></h3>
-<pre><code class="json">{&quot;formID&quot;:&quot;patient_registration_v7&quot;}
-</code></pre>
+<h3 id="filter-1">filter 1:<a class="headerlink" href="#filter-1" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="p">{</span><span class="nt">&quot;formID&quot;</span><span class="p">:</span><span class="s2">&quot;patient_registration_v7&quot;</span><span class="p">}</span>
+</pre></div>
 
-<h3 id="message-a-match">message a (MATCH):<a class="headerlink" href="#message-a-match" title="Permanent link">&para;</a></h3>
-<pre><code class="json">{&quot;submissionDate&quot;:&quot;2016-01-15&quot;, &quot;formID&quot;:&quot;patient_registration_v7&quot;, &quot;name&quot;:&quot;Jack Wilshere&quot;, &quot;dob&quot;:&quot;1986-05-16&quot;, &quot;medications&quot;: [&quot;anaphlene&quot;,&quot;zaradood&quot;,&quot;morphofast&quot;]}
-</code></pre>
 
-<h3 id="message-b-no-match">message b (NO MATCH):<a class="headerlink" href="#message-b-no-match" title="Permanent link">&para;</a></h3>
-<pre><code class="json">{&quot;submissionDate&quot;:&quot;2016-01-16&quot;, &quot;formID&quot;:&quot;patient_registration_v8&quot;, &quot;name&quot;:&quot;Larry Bird&quot;, &quot;dob&quot;:&quot;1982-03-21&quot;, &quot;medications&quot;: [&quot;anaphlene&quot;,&quot;zaradood&quot;,&quot;morphofast&quot;]}
-</code></pre>
+<h3 id="message-a-match">message a (MATCH):<a class="headerlink" href="#message-a-match" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="p">{</span><span class="nt">&quot;submissionDate&quot;</span><span class="p">:</span><span class="s2">&quot;2016-01-15&quot;</span><span class="p">,</span> <span class="nt">&quot;formID&quot;</span><span class="p">:</span><span class="s2">&quot;patient_registration_v7&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Jack Wilshere&quot;</span><span class="p">,</span> <span class="nt">&quot;dob&quot;</span><span class="p">:</span><span class="s2">&quot;1986-05-16&quot;</span><span class="p">,</span> <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;anaphlene&quot;</span><span class="p">,</span><span class="s2">&quot;zaradood&quot;</span><span class="p">,</span><span class="s2">&quot;morphofast&quot;</span><span class="p">]}</span>
+</pre></div>
+
+
+<h3 id="message-b-no-match">message b (NO MATCH):<a class="headerlink" href="#message-b-no-match" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="p">{</span><span class="nt">&quot;submissionDate&quot;</span><span class="p">:</span><span class="s2">&quot;2016-01-16&quot;</span><span class="p">,</span> <span class="nt">&quot;formID&quot;</span><span class="p">:</span><span class="s2">&quot;patient_registration_v8&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Larry Bird&quot;</span><span class="p">,</span> <span class="nt">&quot;dob&quot;</span><span class="p">:</span><span class="s2">&quot;1982-03-21&quot;</span><span class="p">,</span> <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;anaphlene&quot;</span><span class="p">,</span><span class="s2">&quot;zaradood&quot;</span><span class="p">,</span><span class="s2">&quot;morphofast&quot;</span><span class="p">]}</span>
+</pre></div>
+
 
 <p>Message 'b' does not include <code>"formID":"patient_registration_v7"</code> and will not match filter '1'.</p>
-<h1 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">&para;</a></h1>
+<h1 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">#</a></h1>
 <p>Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.</p>
 <p>Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final "/" in these Urls:
 <code>https://login.salesforce.com</code> or <code>http://demo.openmrs.org/openmrs</code> or <code>https://play.dhis2.org</code>.</p>
 <p>Credentials can only be viewed, or edited by a single user — their "owner" (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.</p>
-<h1 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">&para;</a></h1>
+<h1 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">#</a></h1>
 <p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed.</p>
-<h3 id="composing-job-expressions">Composing Job Expressions<a class="headerlink" href="#composing-job-expressions" title="Permanent link">&para;</a></h3>
+<h3 id="composing-job-expressions">Composing Job Expressions<a class="headerlink" href="#composing-job-expressions" title="Permanent link">#</a></h3>
 <p>In most cases, a job expression is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
-<pre><code class="js">create(&quot;Patient__c&quot;, fields(
-  field(&quot;Name&quot;, dataValue(&quot;form.surname&quot;)),
-  field(&quot;Age__c&quot;, 7)
-))
-</code></pre>
+<div class="code"><pre><span></span><span class="nx">create</span><span class="p">(</span><span class="s2">&quot;Patient__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form.surname&quot;</span><span class="p">)),</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Age__c&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="p">))</span>
+</pre></div>
+
 
 <p>That would create a new <code>Patient__c</code> in some other system. The patient's <code>Name</code> will be determined by the triggering message (the value inside <code>form.name</code>, specifically) and the patient's <code>Age__c</code> will <em>always</em> be 7. See how we hard coded it?</p>
 <p>What you see above is OpenFn's own syntax, and you've got access to dozens of common "helper functions" like <code>dataValue(path)</code> and destination specific functions like <code>create(object,attributes)</code>. While most cases are covered out-of-the-box, jobs are <strong>evaluated as Javascript</strong>. This means that you can write your own custom, anonymous functions to do whatever your heart desires:</p>
-<pre><code class="js">create(&quot;Patient__c&quot;, fields(
-  field(&quot;Name&quot;, function(state) {
-    return Array.apply(
-      null, dataValue(&quot;patient_names&quot;)(state)
-    ).join(', ')
-  })
-  field(&quot;Age__c&quot;, 7)
-</code></pre>
+<div class="code"><pre><span></span><span class="nx">create</span><span class="p">(</span><span class="s2">&quot;Patient__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span>
+      <span class="kc">null</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;patient_names&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span>
+    <span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+  <span class="p">})</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Age__c&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+
 
 <p>Here, the patient's name will be a comma separated concatenation of all the values in the <code>patient_names</code> array from our source message.</p>
-<h2 id="available-javascript-globals">Available Javascript Globals<a class="headerlink" href="#available-javascript-globals" title="Permanent link">&para;</a></h2>
+<h2 id="available-javascript-globals">Available Javascript Globals<a class="headerlink" href="#available-javascript-globals" title="Permanent link">#</a></h2>
 <p>For security reasons, users start with access to the following standard Javascript globals, and can request more by opening an issue on Github:</p>
 <ul>
 <li>Array</li>
@@ -297,9 +342,9 @@
 <li><strong>Credential</strong> - The credential that will be used to gain access to that destination system.</li>
 <li><strong>Active?</strong> - A boolean which determines whether the job runs in real-time when matching messages arrive.</li>
 </ol>
-<h2 id="selected-named-functions">Selected Named Functions<a class="headerlink" href="#selected-named-functions" title="Permanent link">&para;</a></h2>
+<h2 id="selected-named-functions">Selected Named Functions<a class="headerlink" href="#selected-named-functions" title="Permanent link">#</a></h2>
 <p>There are lots more available in the language-packs.</p>
-<h3 id="language-common">language-common<a class="headerlink" href="#language-common" title="Permanent link">&para;</a></h3>
+<h3 id="language-common">language-common<a class="headerlink" href="#language-common" title="Permanent link">#</a></h3>
 <ul>
 <li><code>field('destination_field_name__c', 'value')</code> Returns a key, value pair in an array. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L248">(source)</a></li>
 <li><code>fields(list_of_fields)</code> zips key value pairs into an object. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L258">(source)</a></li>
@@ -310,34 +355,34 @@
 <li><code>lastReferenceValue('id')</code> gets the sfID of the last item created <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100">(source)</a></li>
 <li><code>function(state){return state.references[state.references.length-N].id})</code> gets the sfID of the nth item created</li>
 </ul>
-<h3 id="salesforce">Salesforce<a class="headerlink" href="#salesforce" title="Permanent link">&para;</a></h3>
+<h3 id="salesforce">Salesforce<a class="headerlink" href="#salesforce" title="Permanent link">#</a></h3>
 <ul>
 <li><code>create("DEST_OBJECT_NAME__C", fields(...))</code> Create a new object. Takes 2 parameters: An object and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63">(source)</a></li>
 <li><code>upsert("DEST_OBJECT_NAME__C", "DEST_OBJECT_EXTERNAL_ID__C", fields(...))</code> Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80">(source)</a></li>
 <li><code>relationship("DEST_RELATIONSHIP_NAME__r", "EXTERNAL_ID_ON_RELATED_OBJECT__C", "SOURCE_DATA_OR_VALUE")</code> Adds a lookup or 'dome insert' to a record. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40">(source)</a></li>
 </ul>
-<h3 id="dhis2">dhis2<a class="headerlink" href="#dhis2" title="Permanent link">&para;</a></h3>
+<h3 id="dhis2">dhis2<a class="headerlink" href="#dhis2" title="Permanent link">#</a></h3>
 <ul>
 <li><code>event(...)</code> Creates an event. <a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60">(source)</a></li>
 <li><code>dataValueSet(...)</code> Send data values using the dataValueSets resource <a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L62-L82">(source)</a></li>
 </ul>
-<h3 id="openmrs">OpenMRS<a class="headerlink" href="#openmrs" title="Permanent link">&para;</a></h3>
+<h3 id="openmrs">OpenMRS<a class="headerlink" href="#openmrs" title="Permanent link">#</a></h3>
 <ul>
 <li><code>person(...)</code> Takes a payload of data to create a person <a href="https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L31-L60">(source)</a></li>
 <li><code>patient(...)</code> Takes a payload of data to create a patient <a href="https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90">(source)</a></li>
 </ul>
 <p><strong>For code block examples of job expressions, go to the <a href="#appendix">Appendix</a>.</strong></p>
-<h1 id="inbox">Inbox<a class="headerlink" href="#inbox" title="Permanent link">&para;</a></h1>
+<h1 id="inbox">Inbox<a class="headerlink" href="#inbox" title="Permanent link">#</a></h1>
 <p>Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job. Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)</p>
 <p>To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.</p>
-<h1 id="activity">Activity<a class="headerlink" href="#activity" title="Permanent link">&para;</a></h1>
+<h1 id="activity">Activity<a class="headerlink" href="#activity" title="Permanent link">#</a></h1>
 <p>In this section of the portal, you can view a list of all "runs" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).</p>
-<h3 id="runs">Runs<a class="headerlink" href="#runs" title="Permanent link">&para;</a></h3>
+<h3 id="runs">Runs<a class="headerlink" href="#runs" title="Permanent link">#</a></h3>
 <p>Runs are attempts made on a destination system by running a receipt through a Job Description. Runs can be viewed and re-processed. Each submission has a <code>success</code>, <code>started_at</code>, <code>finsihed_at</code>, <code>job_description_id</code>, and <code>receipt_id</code> attribute. <code>Started_at</code> and <code>finished_at</code> are the timestamps when the submission began and ended.</p>
 <blockquote>
 <p><strong>Note:</strong> Some runs may take a really long time, particularly if they are performing multiple actions in a destination system or if they are fetching lots of data from a REST api at the start of a migration. They will appear as red if they have failed. In the case of failure, refer to our <a href="#troubleshooting">Troubleshooting</a> section below.</p>
 </blockquote>
-<h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h1>
+<h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">#</a></h1>
 <blockquote>
 <p>What happens if my survey data from ODK needs to link to existing records in my Salesforce system but a respondent enters or selects an invalid <code>external ID</code>?</p>
 </blockquote>
@@ -354,12 +399,12 @@
 </li>
 </ol>
 <p>Editing data in your destination system can be done through that system's interface. Many tools that act as <code>sources</code> (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.</p>
-<h2 id="common-error-messages">Common Error Messages<a class="headerlink" href="#common-error-messages" title="Permanent link">&para;</a></h2>
+<h2 id="common-error-messages">Common Error Messages<a class="headerlink" href="#common-error-messages" title="Permanent link">#</a></h2>
 <p>The most common error messages with English explanations are:
 + <code>DUPLICATE_VALUE: duplicate value found: ODK_uuid__c duplicates value on record with id: a0524000005wNw0</code> - The insert is blocked because you are attempting to create a new record with a unique field with the same value as an existing record.
 + <code>Required value missing</code>
 + <code>ExternalId not found</code></p>
-<h1 id="diy">DIY<a class="headerlink" href="#diy" title="Permanent link">&para;</a></h1>
+<h1 id="diy">DIY<a class="headerlink" href="#diy" title="Permanent link">#</a></h1>
 <p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line. You can even take this further and wrap them together in your own hosted service!</p>
 <blockquote>
 <p><strong>ETL</strong> = Extracting, Transforming and Loading of data</p>
@@ -370,15 +415,17 @@
     - <code>git clone</code> <a href="https://github.com/OpenFn/fn-lang">fn-lang</a>
     - <code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-common</a>
     - <code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</p>
-<pre><code>#### fn-lang (diesl)
-fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the "TL" part of "ETL" on command. It can be run from a command line, or built into a hosted web service.
+<div class="code"><pre><span></span>#### fn-lang (diesl)
+fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the &quot;TL&quot; part of &quot;ETL&quot; on command. It can be run from a command line, or built into a hosted web service.
 
 #### language-common
 `language-common` provides basic data manipulation functionality like `each`, `field`, and `toArray`.
 
 #### language-xxx
-`language-xxx` is a "destination adaptor" that knows how to connect to the system in question and provides system-specific operations, like `relationship` or `upsert`. Examples: `language-dhis2`, `language-salesforce`, `language-openmrs`.
-</code></pre>
+`language-xxx` is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system-specific operations, like `relationship` or `upsert`. Examples: `language-dhis2`, `language-salesforce`, `language-openmrs`.
+</pre></div>
+
+
 <ol>
 <li>cd into 'fn-lang'</li>
 <li>
@@ -408,407 +455,437 @@ fn-lang is a coordination tool that takes a job expression, a JSON payload, an a
 <ol>
 <li>Check out the results of the posted data! Open up expression.js and message.json to manipulate the outcome and get a feel for how it works.</li>
 </ol>
-<h1 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">&para;</a></h1>
-<h2 id="sample-code-for-diy-section">Sample code for DIY section<a class="headerlink" href="#sample-code-for-diy-section" title="Permanent link">&para;</a></h2>
+<h1 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">#</a></h1>
+<h2 id="sample-code-for-diy-section">Sample code for DIY section<a class="headerlink" href="#sample-code-for-diy-section" title="Permanent link">#</a></h2>
 <p>Below you can find sample code to fill the 3 files required to run fn-lang - <code>message.json</code>, <code>expression.js</code> and <code>config.json</code>.</p>
-<h3 id="messagejson">message.json<a class="headerlink" href="#messagejson" title="Permanent link">&para;</a></h3>
-<pre><code class="json">{
-  &quot;xform_ids&quot;: [],
-  &quot;version&quot;: null,
-  &quot;user_id&quot;: &quot;user1&quot;,
-  &quot;server_date_opened&quot;: null,
-  &quot;server_date_modified&quot;: null,
-  &quot;properties&quot;: {
-    &quot;prop_c&quot;: &quot;2013-05-18&quot;,
-    &quot;prop_b&quot;: &quot;Female&quot;,
-    &quot;prop_a&quot;: 99,
-    &quot;owner_id&quot;: null,
-    &quot;external_id&quot;: null,
-    &quot;date_opened&quot;: null,
-    &quot;date&quot;: &quot;2013-05-17&quot;,
-    &quot;case_type&quot;: &quot;case_type&quot;,
-    &quot;case_name&quot;: &quot;Demo&quot;
-  },
-  &quot;indices&quot;: {}
-}
-</code></pre>
+<h3 id="messagejson">message.json<a class="headerlink" href="#messagejson" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;xform_ids&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;user_id&quot;</span><span class="p">:</span> <span class="s2">&quot;user1&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;server_date_opened&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;server_date_modified&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;properties&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;prop_c&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-18&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;prop_b&quot;</span><span class="p">:</span> <span class="s2">&quot;Female&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;prop_a&quot;</span><span class="p">:</span> <span class="mi">99</span><span class="p">,</span>
+    <span class="nt">&quot;owner_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;external_id&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;date_opened&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2013-05-17&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;case_type&quot;</span><span class="p">:</span> <span class="s2">&quot;case_type&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;case_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Demo&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;indices&quot;</span><span class="p">:</span> <span class="p">{}</span>
+<span class="p">}</span>
+</pre></div>
 
-<h3 id="expressionjs">expression.js<a class="headerlink" href="#expressionjs" title="Permanent link">&para;</a></h3>
-<pre><code class="js">event(
-  fields(
-    field(&quot;program&quot;, &quot;eBAyeGv0exc&quot;),
-    field(&quot;orgUnit&quot;, &quot;DiszpKrYNg8&quot;),
-    field(&quot;eventDate&quot;, dataValue(&quot;properties.date&quot;)),
-    field(&quot;status&quot;, &quot;COMPLETED&quot;),
-    field(&quot;storedBy&quot;, &quot;admin&quot;),
-    field(&quot;coordinate&quot;, {
-      &quot;latitude&quot;: &quot;59.8&quot;,
-      &quot;longitude&quot;: &quot;10.9&quot;
-    }),
-    field(&quot;dataValues&quot;, function(state) {
-      return [
-        { &quot;dataElement&quot;: &quot;qrur9Dvnyt5&quot;, &quot;value&quot;: dataValue(&quot;properties.prop_a&quot;)(state) },
-        { &quot;dataElement&quot;: &quot;oZg33kd9taw&quot;, &quot;value&quot;: dataValue(&quot;properties.prop_b&quot;)(state) },
-        { &quot;dataElement&quot;: &quot;msodh3rEMJa&quot;, &quot;value&quot;: dataValue(&quot;properties.prop_c&quot;)(state) }
-      ]
-    })
-  )
-)
-</code></pre>
 
-<h3 id="configjson">config.json<a class="headerlink" href="#configjson" title="Permanent link">&para;</a></h3>
-<pre><code class="json">{
-  &quot;username&quot;: &quot;admin&quot;,
-  &quot;password&quot;: &quot;district&quot;,
-  &quot;apiUrl&quot;: &quot;https://play.dhis2.org/demo&quot;
-}
-</code></pre>
+<h3 id="expressionjs">expression.js<a class="headerlink" href="#expressionjs" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="nx">event</span><span class="p">(</span>
+  <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;program&quot;</span><span class="p">,</span> <span class="s2">&quot;eBAyeGv0exc&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;orgUnit&quot;</span><span class="p">,</span> <span class="s2">&quot;DiszpKrYNg8&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;eventDate&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;properties.date&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;COMPLETED&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;storedBy&quot;</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="s2">&quot;59.8&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="s2">&quot;10.9&quot;</span>
+    <span class="p">}),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;dataValues&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="s2">&quot;dataElement&quot;</span><span class="o">:</span> <span class="s2">&quot;qrur9Dvnyt5&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;properties.prop_a&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;dataElement&quot;</span><span class="o">:</span> <span class="s2">&quot;oZg33kd9taw&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;properties.prop_b&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;dataElement&quot;</span><span class="o">:</span> <span class="s2">&quot;msodh3rEMJa&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;properties.prop_c&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">})</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
 
-<h2 id="more-example-filters">More example filters<a class="headerlink" href="#more-example-filters" title="Permanent link">&para;</a></h2>
-<h3 id="match-messages-where-the-formid-is-robot_photo_21042015">Match messages <code>WHERE</code> the <code>formId</code> is <code>"Robot_Photo_21.04.2015"</code>:<a class="headerlink" href="#match-messages-where-the-formid-is-robot_photo_21042015" title="Permanent link">&para;</a></h3>
-<pre><code class="json">{&quot;formId&quot;:&quot;Robot_Photo_21.04.2015&quot;}
-</code></pre>
 
-<h3 id="match-a-message-where-this-and-that-are-both-included">Match a message <code>WHERE</code> this <code>AND</code> that are both included:<a class="headerlink" href="#match-a-message-where-this-and-that-are-both-included" title="Permanent link">&para;</a></h3>
-<pre><code class="json">{&quot;formId&quot;:&quot;Robot_Photo_21.04.2015&quot;, &quot;secret_number&quot;:8}
-</code></pre>
+<h3 id="configjson">config.json<a class="headerlink" href="#configjson" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;district&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;apiUrl&quot;</span><span class="p">:</span> <span class="s2">&quot;https://play.dhis2.org/demo&quot;</span>
+<span class="p">}</span>
+</pre></div>
 
-<h3 id="match-a-message-with-two-fragments-inside-an-array-called-data">Match a message with two fragments inside an array called <code>data</code>:<a class="headerlink" href="#match-a-message-with-two-fragments-inside-an-array-called-data" title="Permanent link">&para;</a></h3>
+
+<h2 id="more-example-filters">More example filters<a class="headerlink" href="#more-example-filters" title="Permanent link">#</a></h2>
+<h3 id="match-messages-where-the-formid-is-robot_photo_21042015">Match messages <code>WHERE</code> the <code>formId</code> is <code>"Robot_Photo_21.04.2015"</code>:<a class="headerlink" href="#match-messages-where-the-formid-is-robot_photo_21042015" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="p">{</span><span class="nt">&quot;formId&quot;</span><span class="p">:</span><span class="s2">&quot;Robot_Photo_21.04.2015&quot;</span><span class="p">}</span>
+</pre></div>
+
+
+<h3 id="match-a-message-where-this-and-that-are-both-included">Match a message <code>WHERE</code> this <code>AND</code> that are both included:<a class="headerlink" href="#match-a-message-where-this-and-that-are-both-included" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="p">{</span><span class="nt">&quot;formId&quot;</span><span class="p">:</span><span class="s2">&quot;Robot_Photo_21.04.2015&quot;</span><span class="p">,</span> <span class="nt">&quot;secret_number&quot;</span><span class="p">:</span><span class="mi">8</span><span class="p">}</span>
+</pre></div>
+
+
+<h3 id="match-a-message-with-two-fragments-inside-an-array-called-data">Match a message with two fragments inside an array called <code>data</code>:<a class="headerlink" href="#match-a-message-with-two-fragments-inside-an-array-called-data" title="Permanent link">#</a></h3>
 <p>(This is useful when gathering data via ODK)</p>
-<pre><code class="json">{&quot;data&quot;:[{&quot;outlet_call&quot;:&quot;TRUE&quot;,&quot;new_existing&quot;:&quot;Existing&quot;}]}
-</code></pre>
+<div class="code"><pre><span></span><span class="p">{</span><span class="nt">&quot;data&quot;</span><span class="p">:[{</span><span class="nt">&quot;outlet_call&quot;</span><span class="p">:</span><span class="s2">&quot;TRUE&quot;</span><span class="p">,</span><span class="nt">&quot;new_existing&quot;</span><span class="p">:</span><span class="s2">&quot;Existing&quot;</span><span class="p">}]}</span>
+</pre></div>
 
-<h3 id="match-a-message-with-a-fragment-inside-another-object-called-form">Match a message with a fragment inside another object called <code>form</code>:<a class="headerlink" href="#match-a-message-with-a-fragment-inside-another-object-called-form" title="Permanent link">&para;</a></h3>
-<pre><code class="json">{&quot;form&quot;:{&quot;@xmlns&quot;:&quot;http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one&quot;}}
-</code></pre>
 
-<h2 id="more-example-jobs">More example jobs<a class="headerlink" href="#more-example-jobs" title="Permanent link">&para;</a></h2>
+<h3 id="match-a-message-with-a-fragment-inside-another-object-called-form">Match a message with a fragment inside another object called <code>form</code>:<a class="headerlink" href="#match-a-message-with-a-fragment-inside-another-object-called-form" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="p">{</span><span class="nt">&quot;form&quot;</span><span class="p">:{</span><span class="nt">&quot;@xmlns&quot;</span><span class="p">:</span><span class="s2">&quot;http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one&quot;</span><span class="p">}}</span>
+</pre></div>
+
+
+<h2 id="more-example-jobs">More example jobs<a class="headerlink" href="#more-example-jobs" title="Permanent link">#</a></h2>
 <p>Below you can find some examples of block code for different functions and data handling contexts.</p>
-<h4 id="job-expression-for-commcare-to-sf">Job expression (for CommCare to SF)<a class="headerlink" href="#job-expression-for-commcare-to-sf" title="Permanent link">&para;</a></h4>
+<h4 id="job-expression-for-commcare-to-sf">Job expression (for CommCare to SF)<a class="headerlink" href="#job-expression-for-commcare-to-sf" title="Permanent link">#</a></h4>
 <p>The following job expression will take a matching receipt and use data from that receipt to upsert a <code>Patient__c</code> record in Salesforce and create multiple new <code>Patient_Visit__c</code> (child to Patient) records.</p>
-<pre><code class="js">upsert(&quot;Patient__c&quot;, &quot;Patient_Id__c&quot;, fields(
-  field(&quot;Patient_Id__c&quot;, dataValue(&quot;form.patient_ID&quot;)),
-  relationship(&quot;Nurse__r&quot;, &quot;Nurse_ID_code__c&quot;, dataValue(&quot;form.staff_id&quot;)),
-  field(&quot;Phone_Number__c&quot;, dataValue(&quot;form.mobile_phone&quot;))
-)),
-each(
-  join(&quot;$.data.form.visits[*]&quot;, &quot;$.references[0].id&quot;, &quot;Id&quot;),
-  create(&quot;Visit__c&quot;, fields(
-    field(&quot;Patient__c&quot;, dataValue(&quot;Id&quot;)),
-    field(&quot;Date__c&quot;, dataValue(&quot;date&quot;)),
-    field(&quot;Reason__c&quot;, dataValue(&quot;why_did_they_see_doctor&quot;))
-  ))
-)
-</code></pre>
+<div class="code"><pre><span></span><span class="nx">upsert</span><span class="p">(</span><span class="s2">&quot;Patient__c&quot;</span><span class="p">,</span> <span class="s2">&quot;Patient_Id__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Patient_Id__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form.patient_ID&quot;</span><span class="p">)),</span>
+  <span class="nx">relationship</span><span class="p">(</span><span class="s2">&quot;Nurse__r&quot;</span><span class="p">,</span> <span class="s2">&quot;Nurse_ID_code__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form.staff_id&quot;</span><span class="p">)),</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Phone_Number__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form.mobile_phone&quot;</span><span class="p">))</span>
+<span class="p">)),</span>
+<span class="nx">each</span><span class="p">(</span>
+  <span class="nx">join</span><span class="p">(</span><span class="s2">&quot;$.data.form.visits[*]&quot;</span><span class="p">,</span> <span class="s2">&quot;$.references[0].id&quot;</span><span class="p">,</span> <span class="s2">&quot;Id&quot;</span><span class="p">),</span>
+  <span class="nx">create</span><span class="p">(</span><span class="s2">&quot;Visit__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Patient__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Id&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Date__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Reason__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;why_did_they_see_doctor&quot;</span><span class="p">))</span>
+  <span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
 
-<h4 id="accessing-the-data-array-in-open-data-kit-submissions">Accessing the "data array" in Open Data Kit submissions<a class="headerlink" href="#accessing-the-data-array-in-open-data-kit-submissions" title="Permanent link">&para;</a></h4>
+
+<h4 id="accessing-the-data-array-in-open-data-kit-submissions">Accessing the "data array" in Open Data Kit submissions<a class="headerlink" href="#accessing-the-data-array-in-open-data-kit-submissions" title="Permanent link">#</a></h4>
 <p>Notice how we use "each" to get data from each item inside the "data array" in ODK.</p>
-<pre><code class="js">each(
-  &quot;$.data.data[*]&quot;,
-  create(&quot;ODK_Submission__c&quot;, fields(
-    field(&quot;Site_School_ID_Number__c&quot;, dataValue(&quot;school&quot;)),
-    field(&quot;Date_Completed__c&quot;, dataValue(&quot;date&quot;)),
-    field(&quot;comments__c&quot;, dataValue(&quot;comments&quot;)),
-    field(&quot;ODK_Key__c&quot;, dataValue(&quot;*meta-instance-id*&quot;))
-  ))
-)
-</code></pre>
+<div class="code"><pre><span></span><span class="nx">each</span><span class="p">(</span>
+  <span class="s2">&quot;$.data.data[*]&quot;</span><span class="p">,</span>
+  <span class="nx">create</span><span class="p">(</span><span class="s2">&quot;ODK_Submission__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Site_School_ID_Number__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;school&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Date_Completed__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;comments__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;comments&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;ODK_Key__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;*meta-instance-id*&quot;</span><span class="p">))</span>
+  <span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
 
-<h4 id="odk-to-salesforce-create-parent-record-with-many-children-from-parent-data">ODK to Salesforce: create parent record with many children from parent data<a class="headerlink" href="#odk-to-salesforce-create-parent-record-with-many-children-from-parent-data" title="Permanent link">&para;</a></h4>
+
+<h4 id="odk-to-salesforce-create-parent-record-with-many-children-from-parent-data">ODK to Salesforce: create parent record with many children from parent data<a class="headerlink" href="#odk-to-salesforce-create-parent-record-with-many-children-from-parent-data" title="Permanent link">#</a></h4>
 <p>Here, the user brings <code>time_end</code> and <code>parentId</code> onto the line items from the parent object.</p>
-<pre><code class="js">each(
-  dataPath(&quot;data[*]&quot;),
-  combine(
-    create(&quot;transaction__c&quot;, fields(
-      field(&quot;Transaction_Date__c&quot;, dataValue(&quot;today&quot;)),
-      relationship(&quot;Person_Responsible__r&quot;, &quot;Staff_ID_Code__c&quot;, dataValue(&quot;person_code&quot;)),
-      field(&quot;metainstanceid__c&quot;, dataValue(&quot;*meta-instance-id*&quot;))
-    )),
-    each(
-      merge(dataPath(&quot;line_items[*]&quot;), fields(
-        field(&quot;end&quot;, dataValue(&quot;time_end&quot;)),
-        field(&quot;parentId&quot;, lastReferenceValue(&quot;id&quot;))
-      )),
-      create(&quot;line_item__c&quot;, fields(
-        field(&quot;transaction__c&quot;, dataValue(&quot;parentId&quot;)),
-        field(&quot;Barcode__c&quot;, dataValue(&quot;product_barcode&quot;)),
-        field(&quot;ODK_Form_Completed__c&quot;, dataValue(&quot;end&quot;))
-      ))
-    )
-  )
-)
-</code></pre>
+<div class="code"><pre><span></span><span class="nx">each</span><span class="p">(</span>
+  <span class="nx">dataPath</span><span class="p">(</span><span class="s2">&quot;data[*]&quot;</span><span class="p">),</span>
+  <span class="nx">combine</span><span class="p">(</span>
+    <span class="nx">create</span><span class="p">(</span><span class="s2">&quot;transaction__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+      <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Transaction_Date__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;today&quot;</span><span class="p">)),</span>
+      <span class="nx">relationship</span><span class="p">(</span><span class="s2">&quot;Person_Responsible__r&quot;</span><span class="p">,</span> <span class="s2">&quot;Staff_ID_Code__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;person_code&quot;</span><span class="p">)),</span>
+      <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;metainstanceid__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;*meta-instance-id*&quot;</span><span class="p">))</span>
+    <span class="p">)),</span>
+    <span class="nx">each</span><span class="p">(</span>
+      <span class="nx">merge</span><span class="p">(</span><span class="nx">dataPath</span><span class="p">(</span><span class="s2">&quot;line_items[*]&quot;</span><span class="p">),</span> <span class="nx">fields</span><span class="p">(</span>
+        <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;time_end&quot;</span><span class="p">)),</span>
+        <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;parentId&quot;</span><span class="p">,</span> <span class="nx">lastReferenceValue</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">))</span>
+      <span class="p">)),</span>
+      <span class="nx">create</span><span class="p">(</span><span class="s2">&quot;line_item__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+        <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;transaction__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;parentId&quot;</span><span class="p">)),</span>
+        <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Barcode__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;product_barcode&quot;</span><span class="p">)),</span>
+        <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;ODK_Form_Completed__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;end&quot;</span><span class="p">))</span>
+      <span class="p">))</span>
+    <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+
 
 <blockquote>
 <p><strong>NB - there was a known bug with the <code>combine</code> function which has been resolved. <code>combine</code> can be used to combine two operations into one and is commonly used to run multiple <code>create</code>'s inside an <code>each(path, operation)</code>. The source code for combine can be found here: <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222">language-common: combine</a></strong></p>
 </blockquote>
-<h4 id="create-many-child-records-without-a-repeat-group-in-odk">Create many child records WITHOUT a repeat group in ODK<a class="headerlink" href="#create-many-child-records-without-a-repeat-group-in-odk" title="Permanent link">&para;</a></h4>
-<pre><code class="js">beta.each(
-  &quot;$.data.data[*]&quot;,
-  upsert(&quot;Outlet__c&quot;, &quot;Outlet_Code__c&quot;, fields(
-    field(&quot;Outlet_Code__c&quot;, dataValue(&quot;outlet_code&quot;)),
-    field(&quot;Location__Latitude__s&quot;, dataValue(&quot;gps:Latitude&quot;)),
-    field(&quot;Location__Longitude__s&quot;, dataValue(&quot;gps:Longitude&quot;))
-  ))
-),
-beta.each(
-    &quot;$.data.data[*]&quot;,
-    upsert(&quot;Outlet_Call__c&quot;, &quot;Invoice_Number__c&quot;, fields(
-      field(&quot;Invoice_Number__c&quot;, dataValue(&quot;invoice_number&quot;)),
-      relationship(&quot;Outlet__r&quot;, &quot;Outlet_Code__c&quot;, dataValue(&quot;outlet_code&quot;)),
-      relationship(&quot;RecordType&quot;, &quot;name&quot;, &quot;No Call Card&quot;),
-      field(&quot;Trip__c&quot;, &quot;a0FN0000008jPue&quot;),
-      relationship(&quot;Sales_Person__r&quot;, &quot;Sales_Rep_Code__c&quot;, dataValue(&quot;sales_rep_code&quot;)),
-      field(&quot;Date__c&quot;, dataValue(&quot;date&quot;)),
-      field(&quot;Comments__c&quot;, dataValue(&quot;comments&quot;))
-  ))
-)
-</code></pre>
+<h4 id="create-many-child-records-without-a-repeat-group-in-odk">Create many child records WITHOUT a repeat group in ODK<a class="headerlink" href="#create-many-child-records-without-a-repeat-group-in-odk" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">beta</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span>
+  <span class="s2">&quot;$.data.data[*]&quot;</span><span class="p">,</span>
+  <span class="nx">upsert</span><span class="p">(</span><span class="s2">&quot;Outlet__c&quot;</span><span class="p">,</span> <span class="s2">&quot;Outlet_Code__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Outlet_Code__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;outlet_code&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Location__Latitude__s&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;gps:Latitude&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Location__Longitude__s&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;gps:Longitude&quot;</span><span class="p">))</span>
+  <span class="p">))</span>
+<span class="p">),</span>
+<span class="nx">beta</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span>
+    <span class="s2">&quot;$.data.data[*]&quot;</span><span class="p">,</span>
+    <span class="nx">upsert</span><span class="p">(</span><span class="s2">&quot;Outlet_Call__c&quot;</span><span class="p">,</span> <span class="s2">&quot;Invoice_Number__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+      <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Invoice_Number__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;invoice_number&quot;</span><span class="p">)),</span>
+      <span class="nx">relationship</span><span class="p">(</span><span class="s2">&quot;Outlet__r&quot;</span><span class="p">,</span> <span class="s2">&quot;Outlet_Code__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;outlet_code&quot;</span><span class="p">)),</span>
+      <span class="nx">relationship</span><span class="p">(</span><span class="s2">&quot;RecordType&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;No Call Card&quot;</span><span class="p">),</span>
+      <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Trip__c&quot;</span><span class="p">,</span> <span class="s2">&quot;a0FN0000008jPue&quot;</span><span class="p">),</span>
+      <span class="nx">relationship</span><span class="p">(</span><span class="s2">&quot;Sales_Person__r&quot;</span><span class="p">,</span> <span class="s2">&quot;Sales_Rep_Code__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;sales_rep_code&quot;</span><span class="p">)),</span>
+      <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Date__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)),</span>
+      <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Comments__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;comments&quot;</span><span class="p">))</span>
+  <span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
 
-<h4 id="salesforce-perform-an-update">Salesforce: perform an update<a class="headerlink" href="#salesforce-perform-an-update" title="Permanent link">&para;</a></h4>
-<pre><code class="js">update(&quot;Patient__c&quot;, fields(
-  field(&quot;Id&quot;, dataValue(&quot;pathToSalesforceId&quot;),
-  field(&quot;Name__c&quot;, dataValue(&quot;patient.first_name&quot;)),
-  field(...)
-))
-</code></pre>
 
-<h4 id="salesforce-set-record-type-using-relationship">Salesforce: Set record type using 'relationship(...)'<a class="headerlink" href="#salesforce-set-record-type-using-relationship" title="Permanent link">&para;</a></h4>
-<pre><code class="js">create(&quot;custom_obj__c&quot;, fields(
-            relationship(&quot;RecordType&quot;, &quot;name&quot;, dataValue(&quot;submission_type&quot;),
-            field(&quot;name&quot;, dataValue(&quot;Name&quot;))
-            )
-      ))
-</code></pre>
+<h4 id="salesforce-perform-an-update">Salesforce: perform an update<a class="headerlink" href="#salesforce-perform-an-update" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">update</span><span class="p">(</span><span class="s2">&quot;Patient__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Id&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;pathToSalesforceId&quot;</span><span class="p">),</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Name__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;patient.first_name&quot;</span><span class="p">)),</span>
+  <span class="nx">field</span><span class="p">(...)</span>
+<span class="p">))</span>
+</pre></div>
 
-<h4 id="salesforce-set-record-type-using-record-type-id">Salesforce: Set record type using record Type ID<a class="headerlink" href="#salesforce-set-record-type-using-record-type-id" title="Permanent link">&para;</a></h4>
-<pre><code class="js">each(
-  &quot;$.data.data[*]&quot;,
-  create(&quot;fancy_object__c&quot;, fields(
-    field(&quot;RecordTypeId&quot;, &quot;012110000008s19&quot;),
-    field(&quot;site_size&quot;, dataValue(&quot;size&quot;))
-  ))
-)
-</code></pre>
 
-<h4 id="telerivet-send-sms-based-on-salesforce-workflow-alert">Telerivet: Send SMS based on Salesforce workflow alert<a class="headerlink" href="#telerivet-send-sms-based-on-salesforce-workflow-alert" title="Permanent link">&para;</a></h4>
-<pre><code class="js">send(
-  fields(
-    field(&quot;to_number&quot;, dataValue(&quot;Envelope.Body.notifications.Notification.sObject.phone_number__c&quot;)),
-    field(&quot;message_type&quot;, &quot;sms&quot;),
-    field(&quot;route_id&quot;, &quot;&quot;),
-    field(&quot;content&quot;, function(state) {
-      return (
-        &quot;Hey there. Your name is &quot;.concat(
-          dataValue(&quot;Envelope.Body.notifications.Notification.sObject.name__c&quot;)(state),
-          &quot;.&quot;
-        )
-      )
-    })
-  )
-)
-</code></pre>
+<h4 id="salesforce-set-record-type-using-relationship">Salesforce: Set record type using 'relationship(...)'<a class="headerlink" href="#salesforce-set-record-type-using-relationship" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">create</span><span class="p">(</span><span class="s2">&quot;custom_obj__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+            <span class="nx">relationship</span><span class="p">(</span><span class="s2">&quot;RecordType&quot;</span><span class="p">,</span> <span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;submission_type&quot;</span><span class="p">),</span>
+            <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">))</span>
+            <span class="p">)</span>
+      <span class="p">))</span>
+</pre></div>
 
-<h4 id="http-fetch-but-dont-fail">HTTP: fetch but don't fail!<a class="headerlink" href="#http-fetch-but-dont-fail" title="Permanent link">&para;</a></h4>
-<pre><code class="js">// =============
-// We use &quot;fetchWithErrors(...)&quot; so that when the
-// SMS gateway returns an error the run does not &quot;fail&quot;.
-// It &quot;succeeds&quot; and then delivers that error message
-// back to Salesforce with the &quot;Update SMS Status&quot; job.
-// =============
-fetchWithErrors({
-  &quot;getEndpoint&quot;: &quot;send_to_contact&quot;,
-  &quot;query&quot;: function(state) {
-      return {
-        &quot;msisdn&quot;: state.data.Envelope.Body.notifications.Notification.sObject.SMS__Phone_Number__c,
-        &quot;message&quot;: state.data.Envelope.Body.notifications.Notification.sObject.SMS__Message__c,
-        &quot;api_key&quot;: &quot;some-secret-key&quot;
-      }
-  },
-  &quot;externalId&quot;: state.data.Envelope.Body.notifications.Notification.sObject.Id,
-  &quot;postUrl&quot;: &quot;https://www.openfn.org/inbox/another-secret-key&quot;,
-})
-</code></pre>
 
-<h4 id="sample-dhis2-events-api-job">Sample DHIS2 events API job:<a class="headerlink" href="#sample-dhis2-events-api-job" title="Permanent link">&para;</a></h4>
-<pre><code class="js">event(
-  fields(
-    field(&quot;program&quot;, &quot;eBAyeGv0exc&quot;),
-    field(&quot;orgUnit&quot;, &quot;DiszpKrYNg8&quot;),
-    field(&quot;eventDate&quot;, dataValue(&quot;properties.date&quot;)),
-    field(&quot;status&quot;, &quot;COMPLETED&quot;),
-    field(&quot;storedBy&quot;, &quot;admin&quot;),
-    field(&quot;coordinate&quot;, {
-      &quot;latitude&quot;: &quot;59.8&quot;,
-      &quot;longitude&quot;: &quot;10.9&quot;
-    }),
-    field(&quot;dataValues&quot;, function(state) {
-      return [
-        { &quot;dataElement&quot;: &quot;qrur9Dvnyt5&quot;, &quot;value&quot;: dataValue(&quot;properties.prop_a&quot;)(state) },
-        { &quot;dataElement&quot;: &quot;oZg33kd9taw&quot;, &quot;value&quot;: dataValue(&quot;properties.prop_b&quot;)(state) },
-        { &quot;dataElement&quot;: &quot;msodh3rEMJa&quot;, &quot;value&quot;: dataValue(&quot;properties.prop_c&quot;)(state) }
-      ]
-    })
-  )
-)
-</code></pre>
+<h4 id="salesforce-set-record-type-using-record-type-id">Salesforce: Set record type using record Type ID<a class="headerlink" href="#salesforce-set-record-type-using-record-type-id" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">each</span><span class="p">(</span>
+  <span class="s2">&quot;$.data.data[*]&quot;</span><span class="p">,</span>
+  <span class="nx">create</span><span class="p">(</span><span class="s2">&quot;fancy_object__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;RecordTypeId&quot;</span><span class="p">,</span> <span class="s2">&quot;012110000008s19&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;site_size&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;size&quot;</span><span class="p">))</span>
+  <span class="p">))</span>
+<span class="p">)</span>
+</pre></div>
 
-<h4 id="sample-dhis2-data-value-sets-api-job">Sample DHIS2 data value sets API job:<a class="headerlink" href="#sample-dhis2-data-value-sets-api-job" title="Permanent link">&para;</a></h4>
-<pre><code class="js">dataValueSet(
-  fields(
-    field(&quot;dataSet&quot;, &quot;pBOMPrpg1QX&quot;),
-    field(&quot;orgUnit&quot;, &quot;DiszpKrYNg8&quot;),
-    field(&quot;period&quot;, &quot;201401&quot;),
-    field(&quot;completeData&quot;, dataValue(&quot;date&quot;)),
-    field(&quot;dataValues&quot;, function(state) {
-      return [
-        { &quot;dataElement&quot;: &quot;f7n9E0hX8qk&quot;, &quot;value&quot;: dataValue(&quot;prop_a&quot;)(state) },
-        { &quot;dataElement&quot;: &quot;Ix2HsbDMLea&quot;, &quot;value&quot;: dataValue(&quot;prop_b&quot;)(state) },
-        { &quot;dataElement&quot;: &quot;eY5ehpbEsB7&quot;, &quot;value&quot;: dataValue(&quot;prop_c&quot;)(state) }
-      ]
-    })
-  )
-)
-</code></pre>
 
-<h4 id="sample-openmrs-expression-creates-a-person-and-then-a-patient">sample openMRS expression, creates a person and then a patient<a class="headerlink" href="#sample-openmrs-expression-creates-a-person-and-then-a-patient" title="Permanent link">&para;</a></h4>
-<pre><code class="js">person(
-  fields(
-    field(&quot;gender&quot;, &quot;F&quot;),
-    field(&quot;names&quot;, function(state) {
-      return [{
-        &quot;givenName&quot;: dataValue(&quot;form.first_name&quot;)(state),
-        &quot;familyName&quot;: dataValue(&quot;form.last_name&quot;)(state)
-      }]
-    })
-  )
-),
-patient(
-  fields(
-    field(&quot;person&quot;, lastReferenceValue(&quot;uuid&quot;)),
-    field(&quot;identifiers&quot;, function(state) {
-      return [{
-        &quot;identifier&quot;: &quot;1234&quot;,
-        &quot;identifierType&quot;: &quot;8d79403a-c2cc-11de-8d13-0010c6dffd0f&quot;,
-        &quot;location&quot;: &quot;8d6c993e-c2cc-11de-8d13-0010c6dffd0f&quot;,
-        &quot;preferred&quot;: true
-      }]
-    })
-  )
-)
-</code></pre>
+<h4 id="telerivet-send-sms-based-on-salesforce-workflow-alert">Telerivet: Send SMS based on Salesforce workflow alert<a class="headerlink" href="#telerivet-send-sms-based-on-salesforce-workflow-alert" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">send</span><span class="p">(</span>
+  <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;to_number&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Envelope.Body.notifications.Notification.sObject.phone_number__c&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;message_type&quot;</span><span class="p">,</span> <span class="s2">&quot;sms&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;route_id&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;content&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">(</span>
+        <span class="s2">&quot;Hey there. Your name is &quot;</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span>
+          <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Envelope.Body.notifications.Notification.sObject.name__c&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">),</span>
+          <span class="s2">&quot;.&quot;</span>
+        <span class="p">)</span>
+      <span class="p">)</span>
+    <span class="p">})</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
 
-<h4 id="merge-many-values-into-a-child-path">merge many values into a child path<a class="headerlink" href="#merge-many-values-into-a-child-path" title="Permanent link">&para;</a></h4>
-<pre><code class="js">each(
-  merge(
-    dataPath(&quot;CHILD_ARRAY[*]&quot;),
-    fields(
-      field(&quot;metaId&quot;, dataValue(&quot;*meta-instance-id*&quot;)),
-      field(&quot;parentId&quot;, lastReferenceValue(&quot;id&quot;))
-    )
-  ),
-  create(...)
-)
-</code></pre>
 
-<h4 id="arraytostring">arrayToString<a class="headerlink" href="#arraytostring" title="Permanent link">&para;</a></h4>
-<pre><code class="js">arrayToString(arr, separator_string)
-</code></pre>
+<h4 id="http-fetch-but-dont-fail">HTTP: fetch but don't fail!<a class="headerlink" href="#http-fetch-but-dont-fail" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="c1">// =============</span>
+<span class="c1">// We use &quot;fetchWithErrors(...)&quot; so that when the</span>
+<span class="c1">// SMS gateway returns an error the run does not &quot;fail&quot;.</span>
+<span class="c1">// It &quot;succeeds&quot; and then delivers that error message</span>
+<span class="c1">// back to Salesforce with the &quot;Update SMS Status&quot; job.</span>
+<span class="c1">// =============</span>
+<span class="nx">fetchWithErrors</span><span class="p">({</span>
+  <span class="s2">&quot;getEndpoint&quot;</span><span class="o">:</span> <span class="s2">&quot;send_to_contact&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;query&quot;</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">{</span>
+        <span class="s2">&quot;msisdn&quot;</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">Envelope</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">Notification</span><span class="p">.</span><span class="nx">sObject</span><span class="p">.</span><span class="nx">SMS__Phone_Number__c</span><span class="p">,</span>
+        <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">Envelope</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">Notification</span><span class="p">.</span><span class="nx">sObject</span><span class="p">.</span><span class="nx">SMS__Message__c</span><span class="p">,</span>
+        <span class="s2">&quot;api_key&quot;</span><span class="o">:</span> <span class="s2">&quot;some-secret-key&quot;</span>
+      <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;externalId&quot;</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">Envelope</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">Notification</span><span class="p">.</span><span class="nx">sObject</span><span class="p">.</span><span class="nx">Id</span><span class="p">,</span>
+  <span class="s2">&quot;postUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.openfn.org/inbox/another-secret-key&quot;</span><span class="p">,</span>
+<span class="p">})</span>
+</pre></div>
 
-<h4 id="alterstate-alter-state-to-make-sure-data-is-in-an-array">alterState (alter state) to make sure data is in an array<a class="headerlink" href="#alterstate-alter-state-to-make-sure-data-is-in-an-array" title="Permanent link">&para;</a></h4>
-<pre><code class="js">// Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
-alterState((state) =&gt; {
-  const idCards = state.data.form.ID_cards_given_to_vendor;
-  if (!Array.isArray(idCards)) {
-    state.data.form.ID_cards_given_to_vendor = [idCards];
-  }
-  return state;
-});
 
-// Now state has been changed, and we carry on...
-each(
-  merge(dataPath(&quot;form.ID_cards_given_to_vendor[*]&quot;), fields(
-    field(&quot;Vendor_Id&quot;, dataValue(&quot;form.ID_vendor&quot;)),
-    field(&quot;form_finished_time&quot;, dataValue(&quot;form.meta.timeEnd&quot;))
-  )),
-  upsert(&quot;Small_Packet__c&quot;, &quot;sp_id__c&quot;, fields(
-     field(&quot;sp_id__c&quot;, dataValue(&quot;ID_cards_given_to_vendor&quot;)),
-     relationship(&quot;Vendor__r&quot;, &quot;Badge_Code__c&quot;, dataValue(&quot;Vendor_Id&quot;)),
-     field(&quot;Small_Packet_Distribution_Date__c&quot;, dataValue(&quot;form_finished_time&quot;))
-  ))
-);
-</code></pre>
+<h4 id="sample-dhis2-events-api-job">Sample DHIS2 events API job:<a class="headerlink" href="#sample-dhis2-events-api-job" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">event</span><span class="p">(</span>
+  <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;program&quot;</span><span class="p">,</span> <span class="s2">&quot;eBAyeGv0exc&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;orgUnit&quot;</span><span class="p">,</span> <span class="s2">&quot;DiszpKrYNg8&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;eventDate&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;properties.date&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="s2">&quot;COMPLETED&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;storedBy&quot;</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;coordinate&quot;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="s2">&quot;latitude&quot;</span><span class="o">:</span> <span class="s2">&quot;59.8&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;longitude&quot;</span><span class="o">:</span> <span class="s2">&quot;10.9&quot;</span>
+    <span class="p">}),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;dataValues&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="s2">&quot;dataElement&quot;</span><span class="o">:</span> <span class="s2">&quot;qrur9Dvnyt5&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;properties.prop_a&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;dataElement&quot;</span><span class="o">:</span> <span class="s2">&quot;oZg33kd9taw&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;properties.prop_b&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;dataElement&quot;</span><span class="o">:</span> <span class="s2">&quot;msodh3rEMJa&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;properties.prop_c&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">})</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
 
-<h2 id="examples-of-anonymous-functions">Examples of Anonymous Functions<a class="headerlink" href="#examples-of-anonymous-functions" title="Permanent link">&para;</a></h2>
+
+<h4 id="sample-dhis2-data-value-sets-api-job">Sample DHIS2 data value sets API job:<a class="headerlink" href="#sample-dhis2-data-value-sets-api-job" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">dataValueSet</span><span class="p">(</span>
+  <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;dataSet&quot;</span><span class="p">,</span> <span class="s2">&quot;pBOMPrpg1QX&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;orgUnit&quot;</span><span class="p">,</span> <span class="s2">&quot;DiszpKrYNg8&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;period&quot;</span><span class="p">,</span> <span class="s2">&quot;201401&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;completeData&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;date&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;dataValues&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">[</span>
+        <span class="p">{</span> <span class="s2">&quot;dataElement&quot;</span><span class="o">:</span> <span class="s2">&quot;f7n9E0hX8qk&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;prop_a&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;dataElement&quot;</span><span class="o">:</span> <span class="s2">&quot;Ix2HsbDMLea&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;prop_b&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="p">},</span>
+        <span class="p">{</span> <span class="s2">&quot;dataElement&quot;</span><span class="o">:</span> <span class="s2">&quot;eY5ehpbEsB7&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;prop_c&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="p">}</span>
+      <span class="p">]</span>
+    <span class="p">})</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h4 id="sample-openmrs-expression-creates-a-person-and-then-a-patient">sample openMRS expression, creates a person and then a patient<a class="headerlink" href="#sample-openmrs-expression-creates-a-person-and-then-a-patient" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">person</span><span class="p">(</span>
+  <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;gender&quot;</span><span class="p">,</span> <span class="s2">&quot;F&quot;</span><span class="p">),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;names&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">[{</span>
+        <span class="s2">&quot;givenName&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form.first_name&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">),</span>
+        <span class="s2">&quot;familyName&quot;</span><span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form.last_name&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span>
+      <span class="p">}]</span>
+    <span class="p">})</span>
+  <span class="p">)</span>
+<span class="p">),</span>
+<span class="nx">patient</span><span class="p">(</span>
+  <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;person&quot;</span><span class="p">,</span> <span class="nx">lastReferenceValue</span><span class="p">(</span><span class="s2">&quot;uuid&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;identifiers&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="p">[{</span>
+        <span class="s2">&quot;identifier&quot;</span><span class="o">:</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;identifierType&quot;</span><span class="o">:</span> <span class="s2">&quot;8d79403a-c2cc-11de-8d13-0010c6dffd0f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;location&quot;</span><span class="o">:</span> <span class="s2">&quot;8d6c993e-c2cc-11de-8d13-0010c6dffd0f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;preferred&quot;</span><span class="o">:</span> <span class="kc">true</span>
+      <span class="p">}]</span>
+    <span class="p">})</span>
+  <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h4 id="merge-many-values-into-a-child-path">merge many values into a child path<a class="headerlink" href="#merge-many-values-into-a-child-path" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">each</span><span class="p">(</span>
+  <span class="nx">merge</span><span class="p">(</span>
+    <span class="nx">dataPath</span><span class="p">(</span><span class="s2">&quot;CHILD_ARRAY[*]&quot;</span><span class="p">),</span>
+    <span class="nx">fields</span><span class="p">(</span>
+      <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;metaId&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;*meta-instance-id*&quot;</span><span class="p">)),</span>
+      <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;parentId&quot;</span><span class="p">,</span> <span class="nx">lastReferenceValue</span><span class="p">(</span><span class="s2">&quot;id&quot;</span><span class="p">))</span>
+    <span class="p">)</span>
+  <span class="p">),</span>
+  <span class="nx">create</span><span class="p">(...)</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<h4 id="arraytostring">arrayToString<a class="headerlink" href="#arraytostring" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">arrayToString</span><span class="p">(</span><span class="nx">arr</span><span class="p">,</span> <span class="nx">separator_string</span><span class="p">)</span>
+</pre></div>
+
+
+<h4 id="alterstate-alter-state-to-make-sure-data-is-in-an-array">alterState (alter state) to make sure data is in an array<a class="headerlink" href="#alterstate-alter-state-to-make-sure-data-is-in-an-array" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="c1">// Here, we make sure CommCare gives us an array to use in each(merge(...), ...)</span>
+<span class="nx">alterState</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+  <span class="kr">const</span> <span class="nx">idCards</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ID_cards_given_to_vendor</span><span class="p">;</span>
+  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">idCards</span><span class="p">))</span> <span class="p">{</span>
+    <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ID_cards_given_to_vendor</span> <span class="o">=</span> <span class="p">[</span><span class="nx">idCards</span><span class="p">];</span>
+  <span class="p">}</span>
+  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">});</span>
+
+<span class="c1">// Now state has been changed, and we carry on...</span>
+<span class="nx">each</span><span class="p">(</span>
+  <span class="nx">merge</span><span class="p">(</span><span class="nx">dataPath</span><span class="p">(</span><span class="s2">&quot;form.ID_cards_given_to_vendor[*]&quot;</span><span class="p">),</span> <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Vendor_Id&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form.ID_vendor&quot;</span><span class="p">)),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;form_finished_time&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form.meta.timeEnd&quot;</span><span class="p">))</span>
+  <span class="p">)),</span>
+  <span class="nx">upsert</span><span class="p">(</span><span class="s2">&quot;Small_Packet__c&quot;</span><span class="p">,</span> <span class="s2">&quot;sp_id__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+     <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;sp_id__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;ID_cards_given_to_vendor&quot;</span><span class="p">)),</span>
+     <span class="nx">relationship</span><span class="p">(</span><span class="s2">&quot;Vendor__r&quot;</span><span class="p">,</span> <span class="s2">&quot;Badge_Code__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Vendor_Id&quot;</span><span class="p">)),</span>
+     <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Small_Packet_Distribution_Date__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form_finished_time&quot;</span><span class="p">))</span>
+  <span class="p">))</span>
+<span class="p">);</span>
+</pre></div>
+
+
+<h2 id="examples-of-anonymous-functions">Examples of Anonymous Functions<a class="headerlink" href="#examples-of-anonymous-functions" title="Permanent link">#</a></h2>
 <p>Different to <a href="#named-functions">Named Functions</a>, Anoynmous functions are generic pieces of javascript which you can write to suit your needs. Here are some examples of these custom functions:</p>
-<h4 id="custom-replacer">Custom replacer<a class="headerlink" href="#custom-replacer" title="Permanent link">&para;</a></h4>
-<pre><code class="js">field(
-  &quot;destination__c&quot;,
-  function(state){
-    return dataValue(&quot;path_to_data&quot;)(state).toString().replace(&quot;cats&quot;,&quot;dogs&quot;)
-  }
-)
-</code></pre>
+<h4 id="custom-replacer">Custom replacer<a class="headerlink" href="#custom-replacer" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">field</span><span class="p">(</span>
+  <span class="s2">&quot;destination__c&quot;</span><span class="p">,</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">){</span>
+    <span class="k">return</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;path_to_data&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="s2">&quot;cats&quot;</span><span class="p">,</span><span class="s2">&quot;dogs&quot;</span><span class="p">)</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+
 
 <p>This will replace all "cats" with "dogs" in the string that lives at <code>path_to_data</code>.</p>
 <blockquote>
 <p><strong>NOTE:</strong> The JavaScript <code>replace()</code> function only replaces the first instance of whatever argument you specify.
 If you're looking for a way to replace all instances, we suggest you use a regex like we did in the <a href="#custom-concatenation-of-null-values">example</a> below.</p>
 </blockquote>
-<h4 id="custom-arraytostring">Custom arrayToString<a class="headerlink" href="#custom-arraytostring" title="Permanent link">&para;</a></h4>
-<pre><code class="js">field(&quot;target_specie_list__c&quot;, function(state) {
-  return Array.apply(
-    null, sourceValue(&quot;$.data.target_specie_list&quot;)(state)
-  ).join(', ')
-}),
-</code></pre>
+<h4 id="custom-arraytostring">Custom arrayToString<a class="headerlink" href="#custom-arraytostring" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">field</span><span class="p">(</span><span class="s2">&quot;target_specie_list__c&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span>
+    <span class="kc">null</span><span class="p">,</span> <span class="nx">sourceValue</span><span class="p">(</span><span class="s2">&quot;$.data.target_specie_list&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span>
+  <span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
+<span class="p">}),</span>
+</pre></div>
+
 
 <p>It will take an array, and concatenate each item into a string with a ", " separator.</p>
-<h4 id="custom-concatenation">Custom concatenation<a class="headerlink" href="#custom-concatenation" title="Permanent link">&para;</a></h4>
-<pre><code class="js">field(&quot;ODK_Key__c&quot;, function (state) {
-  return (
-    dataValue(&quot;metaId&quot;)(state).concat(
-      &quot;(&quot;, dataValue(&quot;index&quot;)(state), &quot;)&quot;
-    )
-  )
-})
-</code></pre>
+<h4 id="custom-concatenation">Custom concatenation<a class="headerlink" href="#custom-concatenation" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">field</span><span class="p">(</span><span class="s2">&quot;ODK_Key__c&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="p">(</span>
+    <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;metaId&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">).</span><span class="nx">concat</span><span class="p">(</span>
+      <span class="s2">&quot;(&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">),</span> <span class="s2">&quot;)&quot;</span>
+    <span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">})</span>
+</pre></div>
+
 
 <p>This will concatenate two values.</p>
-<h3 id="custom-concatenation-of-null-values">Custom concatenation of null values<a class="headerlink" href="#custom-concatenation-of-null-values" title="Permanent link">&para;</a></h3>
+<h3 id="custom-concatenation-of-null-values">Custom concatenation of null values<a class="headerlink" href="#custom-concatenation-of-null-values" title="Permanent link">#</a></h3>
 <p>This will concatenate many values, even if one or more are null, writing them to a field called Main_Office_City_c.</p>
-<pre><code class="js">...
-  field(&quot;Main_Office_City__c&quot;, function(state) {
-    return arrayToString([
-      dataValue(&quot;Main_Office_City_a&quot;)(state) === null ? &quot;&quot; : dataValue(&quot;Main_Office_City_a&quot;)(state).toString().replace(/-/g, &quot; &quot;),
-      dataValue(&quot;Main_Office_City_b&quot;)(state) === null ? &quot;&quot; : dataValue(&quot;Main_Office_City_b&quot;)(state).toString().replace(/-/g, &quot; &quot;),
-      dataValue(&quot;Main_Office_City_c&quot;)(state) === null ? &quot;&quot; : dataValue(&quot;Main_Office_City_c&quot;)(state).toString().replace(/-/g, &quot; &quot;),
-      dataValue(&quot;Main_Office_City_d&quot;)(state) === null ? &quot;&quot; : dataValue(&quot;Main_Office_City_d&quot;)(state).toString().replace(/-/g, &quot; &quot;),
-    ].filter(Boolean), ',')
-  })
-</code></pre>
+<div class="code"><pre><span></span><span class="p">...</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Main_Office_City__c&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">arrayToString</span><span class="p">([</span>
+      <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Main_Office_City_a&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">?</span> <span class="s2">&quot;&quot;</span> <span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Main_Office_City_a&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/-/g</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">),</span>
+      <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Main_Office_City_b&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">?</span> <span class="s2">&quot;&quot;</span> <span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Main_Office_City_b&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/-/g</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">),</span>
+      <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Main_Office_City_c&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">?</span> <span class="s2">&quot;&quot;</span> <span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Main_Office_City_c&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/-/g</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">),</span>
+      <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Main_Office_City_d&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span> <span class="o">===</span> <span class="kc">null</span> <span class="o">?</span> <span class="s2">&quot;&quot;</span> <span class="o">:</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;Main_Office_City_d&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/-/g</span><span class="p">,</span> <span class="s2">&quot; &quot;</span><span class="p">),</span>
+    <span class="p">].</span><span class="nx">filter</span><span class="p">(</span><span class="nb">Boolean</span><span class="p">),</span> <span class="s1">&#39;,&#39;</span><span class="p">)</span>
+  <span class="p">})</span>
+</pre></div>
+
 
 <blockquote>
 <p>Notice how this custom function makes use of the <strong>regex</strong> <code>/-/g</code> to ensure that all instances are accounted for (g = global search).</p>
 </blockquote>
-<h4 id="custom-nth-reference-id">Custom Nth reference ID<a class="headerlink" href="#custom-nth-reference-id" title="Permanent link">&para;</a></h4>
+<h4 id="custom-nth-reference-id">Custom Nth reference ID<a class="headerlink" href="#custom-nth-reference-id" title="Permanent link">#</a></h4>
 <p>If you ever want to retrieve the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick.</p>
-<pre><code class="js">field(&quot;parent__c&quot;, function(state) {
-    return state.references[state.references.length-1].id
-  })
-</code></pre>
+<div class="code"><pre><span></span><span class="nx">field</span><span class="p">(</span><span class="s2">&quot;parent__c&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="nx">state</span><span class="p">.</span><span class="nx">references</span><span class="p">[</span><span class="nx">state</span><span class="p">.</span><span class="nx">references</span><span class="p">.</span><span class="nx">length</span><span class="o">-</span><span class="mi">1</span><span class="p">].</span><span class="nx">id</span>
+  <span class="p">})</span>
+</pre></div>
+
 
 <p>See how instead of taking the id of the "last" thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace "length-1" with "length-2".</p>
-<h4 id="convert-date-string-to-standard-iso-date-for-salesforce">Convert date string to standard ISO date for Salesforce<a class="headerlink" href="#convert-date-string-to-standard-iso-date-for-salesforce" title="Permanent link">&para;</a></h4>
-<pre><code class="js">field(&quot;Payment_Date__c&quot;, function(state) {
-  return new Date(dataValue(&quot;payment_date&quot;)(state)).toISOString()
-})
-</code></pre>
+<h4 id="convert-date-string-to-standard-iso-date-for-salesforce">Convert date string to standard ISO date for Salesforce<a class="headerlink" href="#convert-date-string-to-standard-iso-date-for-salesforce" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Payment_Date__c&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;payment_date&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)).</span><span class="nx">toISOString</span><span class="p">()</span>
+<span class="p">})</span>
+</pre></div>
+
 
 <blockquote>
 <p><strong>NOTE</strong>: The output of this function will always be formatted according to GMT time-zone.</p>
 </blockquote>
           <aside class="copyright" role="note">
+            
+              Copyright (c) 2016 Open Function Group &ndash;
             
             Documentation built with
             <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
@@ -843,14 +920,14 @@ If you're looking for a way to replace all instances, we suggest you use a regex
     </div>
     <div class="next">
       
-        <a href="../source-applications/" title="Source Application Setup">
+        <a href="../release-notes/" title="Release notes">
           <span class="direction">
             Next
           </span>
           <div class="page">
             <div class="stretch">
               <div class="title">
-                Source Application Setup
+                Release notes
               </div>
             </div>
             <div class="button button-next" role="button" aria-label="Next">

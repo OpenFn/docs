@@ -9,20 +9,24 @@
     <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1">
     
       
-        <title>Source Application Setup - OpenFn Documentation</title>
+        <title>Source applications - OpenFn Documentation</title>
       
       
       
         <link rel="canonical" href="https://openfn.github.io/docs/source-applications/">
       
       
+        <meta name="author" content="OpenFn">
+      
     
     <meta property="og:url" content="https://openfn.github.io/docs/source-applications/">
     <meta property="og:title" content="OpenFn Documentation">
-    <meta property="og:image" content="https://openfn.github.io/docs/source-applications//../">
+    <meta property="og:image" content="https://openfn.github.io/docs/source-applications//../images/logo.png">
     <meta name="apple-mobile-web-app-title" content="OpenFn Documentation">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+      <link rel="apple-touch-icon" href="../images/logo.png">
     
     
     <link rel="shortcut icon" type="image/x-icon" href="../assets/images/favicon-e565ddfa3b.ico">
@@ -70,7 +74,7 @@
   
   
   
-  <body class="palette-primary-indigo palette-accent-deep-purple">
+  <body class="palette-primary-indigo palette-accent-light-blue">
     
       
       
@@ -96,10 +100,20 @@
             
           </span>
         
-        Source Application Setup
+        Source applications
       </div>
     </div>
     
+      
+      <div class="button button-twitter" role="button" aria-label="Twitter">
+        <a href="https://twitter.com/openfn" title="@openfn on Twitter" target="_blank" class="toggle-button icon icon-twitter"></a>
+      </div>
+    
+    
+      
+      <div class="button button-github" role="button" aria-label="GitHub">
+        <a href="https://github.com/openfn" title="@openfn on GitHub" target="_blank" class="toggle-button icon icon-github"></a>
+      </div>
     
     <div class="button button-search" role="button" aria-label="Search">
       <label class="toggle-button icon icon-search" title="Search" for="toggle-search"></label>
@@ -128,11 +142,15 @@
   <a href="https://github.com/OpenFn/docs" class="project">
     <div class="banner">
       
+        <div class="logo">
+          <img src="../images/logo.png">
+        </div>
+      
       <div class="name">
         <strong>
           OpenFn Documentation
           <span class="version">
-            
+            1.0.0
           </span>
         </strong>
         
@@ -148,7 +166,7 @@
         <ul class="repo">
           <li class="repo-download">
             
-            <a href="https://github.com/OpenFn/docs/archive/master.zip" target="_blank" title="Download" data-action="download">
+            <a href="https://github.com/OpenFn/docs/archive/1.0.0.zip" target="_blank" title="Download" data-action="download">
               <i class="icon icon-download"></i> Download
             </a>
           </li>
@@ -184,8 +202,17 @@
           
             
   <li>
-    <a class="current" title="Source Application Setup" href="./">
-      Source Application Setup
+    <a class="" title="Release notes" href="../release-notes/">
+      Release notes
+    </a>
+    
+  </li>
+
+          
+            
+  <li>
+    <a class="current" title="Source applications" href="./">
+      Source applications
     </a>
     
       
@@ -212,16 +239,28 @@
   </li>
 
           
-            
-  <li>
-    <a class="" title="Release Notes" href="../release-notes/">
-      Release Notes
-    </a>
-    
-  </li>
-
-          
         </ul>
+        
+          <hr>
+          <span class="section">The author</span>
+          <ul>
+            
+              
+              <li>
+                <a href="https://twitter.com/openfn" target="_blank" title="@openfn on Twitter">
+                  @openfn on Twitter
+                </a>
+              </li>
+            
+            
+              
+              <li>
+                <a href="https://github.com/openfn" target="_blank" title="@openfn on GitHub">
+                  @openfn on GitHub
+                </a>
+              </li>
+            
+          </ul>
         
       </div>
     </div>
@@ -231,9 +270,9 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="setting-up-real-time-sources">Setting up real-time sources<a class="headerlink" href="#setting-up-real-time-sources" title="Permanent link">&para;</a></h1>
+          <h1 id="setting-up-real-time-sources">Setting up real-time sources<a class="headerlink" href="#setting-up-real-time-sources" title="Permanent link">#</a></h1>
 <p>This section describes how to enable push notifications from selected source applications. Many web apps have some sort of events-based notifications engine. If you don't see yours listed below feel free to add it with a pull request.</p>
-<h2 id="open-data-kit-odk-aggregate">Open Data Kit (ODK) Aggregate<a class="headerlink" href="#open-data-kit-odk-aggregate" title="Permanent link">&para;</a></h2>
+<h2 id="open-data-kit-odk-aggregate">Open Data Kit (ODK) Aggregate<a class="headerlink" href="#open-data-kit-odk-aggregate" title="Permanent link">#</a></h2>
 <ol>
 <li>To new submissions from ODK in real-time, click the "Form Management" tab at the top of your Aggregate interface.</li>
 <li>Click "Publish" next to the form you'd like to publish to OpenFn.</li>
@@ -246,7 +285,7 @@
 <li>Click "Publish" and enter your email address in the dialogue box.</li>
 <li>Click the "Published Data" tab under "Form Management" and select your form to view the status of your publisher. You can also now check your OpenFn inbox to see ODK submissions arrive.</li>
 </ol>
-<h2 id="kobo">Kobo<a class="headerlink" href="#kobo" title="Permanent link">&para;</a></h2>
+<h2 id="kobo">Kobo<a class="headerlink" href="#kobo" title="Permanent link">#</a></h2>
 <ol>
 <li>To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.</li>
 <li>Once selecting a project, the <code>Project Settings</code> link will appear at the top left side of the screen. Click it to open the Project Settings page.</li>
@@ -255,31 +294,33 @@
 </ol>
 <p>To test to integration, add a submission manually using the <code>enter data in browser</code> button. Head back to your history page at OpenFn to view the newly submitted data and write a new <code>filter</code> and <code>job</code> to map your Kobo data to any destination system on OpenFn.</p>
 <p>Here's a sample post from Kobo REST service. Note that questions inside groups are prefixed with <code>groupname/</code> rather than sitting inside a group object like ODK:</p>
-<pre><code class="json">{
-  &quot;meta/instanceID&quot;: &quot;uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;,
-  &quot;group1/name&quot;: &quot;twenty&quot;,
-  &quot;group1/age&quot;: &quot;19&quot;,
-  &quot;formhub/uuid&quot;: &quot;6f5773a110b046cb97e3d71f6c04e7a6&quot;,
-  &quot;first_q&quot;: &quot;hello&quot;,
-  &quot;final_q&quot;: &quot;why not?&quot;,
-  &quot;_xform_id_string&quot;: &quot;groups&quot;,
-  &quot;_uuid&quot;: &quot;19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;,
-  &quot;_userform_id&quot;: &quot;taylordowns2000_groups&quot;,
-  &quot;_tags&quot;: [],
-  &quot;_submitted_by&quot;: null,
-  &quot;_submission_time&quot;: &quot;2016-04-22T06:38:20&quot;,
-  &quot;_status&quot;: &quot;submitted_via_web&quot;,
-  &quot;_notes&quot;: [],
-  &quot;_id&quot;: 889409,
-  &quot;_geolocation&quot;: [
-    null,
-    null
-  ],
-  &quot;_bamboo_dataset_id&quot;: &quot;&quot;,
-  &quot;_attachments&quot;: []
-}
-</code></pre>
+<div class="code"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;meta/instanceID&quot;</span><span class="p">:</span> <span class="s2">&quot;uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;group1/name&quot;</span><span class="p">:</span> <span class="s2">&quot;twenty&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;group1/age&quot;</span><span class="p">:</span> <span class="s2">&quot;19&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;formhub/uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;6f5773a110b046cb97e3d71f6c04e7a6&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;first_q&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;final_q&quot;</span><span class="p">:</span> <span class="s2">&quot;why not?&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;_xform_id_string&quot;</span><span class="p">:</span> <span class="s2">&quot;groups&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;_uuid&quot;</span><span class="p">:</span> <span class="s2">&quot;19d72997-8316-4e02-8016-4a8ddf6a2aa4&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;_userform_id&quot;</span><span class="p">:</span> <span class="s2">&quot;taylordowns2000_groups&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;_tags&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;_submitted_by&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+  <span class="nt">&quot;_submission_time&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-04-22T06:38:20&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;_status&quot;</span><span class="p">:</span> <span class="s2">&quot;submitted_via_web&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;_notes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+  <span class="nt">&quot;_id&quot;</span><span class="p">:</span> <span class="mi">889409</span><span class="p">,</span>
+  <span class="nt">&quot;_geolocation&quot;</span><span class="p">:</span> <span class="p">[</span>
+    <span class="kc">null</span><span class="p">,</span>
+    <span class="kc">null</span>
+  <span class="p">],</span>
+  <span class="nt">&quot;_bamboo_dataset_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;_attachments&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
           <aside class="copyright" role="note">
+            
+              Copyright (c) 2016 Open Function Group &ndash;
             
             Documentation built with
             <a href="http://www.mkdocs.org" target="_blank">MkDocs</a>
@@ -295,7 +336,7 @@
   <nav class="pagination" aria-label="Footer">
     <div class="previous">
       
-        <a href="../documentation/" title="Documentation">
+        <a href="../release-notes/" title="Release notes">
           <span class="direction">
             Previous
           </span>
@@ -305,7 +346,7 @@
             </div>
             <div class="stretch">
               <div class="title">
-                Documentation
+                Release notes
               </div>
             </div>
           </div>
@@ -313,22 +354,6 @@
       
     </div>
     <div class="next">
-      
-        <a href="../release-notes/" title="Release Notes">
-          <span class="direction">
-            Next
-          </span>
-          <div class="page">
-            <div class="stretch">
-              <div class="title">
-                Release Notes
-              </div>
-            </div>
-            <div class="button button-next" role="button" aria-label="Next">
-              <i class="icon icon-forward"></i>
-            </div>
-          </div>
-        </a>
       
     </div>
   </nav>
