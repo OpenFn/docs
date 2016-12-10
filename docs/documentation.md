@@ -99,11 +99,13 @@ There are lots more available in the language-packs.
 - `field('destination_field_name__c', 'value')` Returns a key, value pair in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L248)
 - `fields(list_of_fields)` zips key value pairs into an object. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L258)
 - `dataValue('JSON_path')` Picks out a single value from source data. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L71)
-- `each(JSON_path, operation(...))` Scopes an array of data based on a JSONPath [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L160)
-- `beta.each(JSON_path, operation(...))` Pre-release: new feature details coming. [(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2)
+- `each(JSON_path, operation(...))` Scopes an array of data based on a JSONPath [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L194). See beta.each when using multiple each()'s in an expression.
 - `each(merge(dataPath("CHILD_ARRAY[*]"),fields(field("metaId", dataValue("*meta-instance-id*")),field("parentId", lastReferenceValue("id")))), create(...))` merges data into an array then creates for each item in the array [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L272)
 - `lastReferenceValue('id')` gets the sfID of the last item created [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100)
 - `function(state){return state.references[state.references.length-N].id})` gets the sfID of the nth item created
+
+#### `beta.each(JSON_path, operation(...))`
+Scopes an array of data based on a JSONPath but but then returns to the state it was given upon completion [(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44). This is necessary if you string multiple `each(...)` functions together in-line in the same expression. (E.g., Given data which has multiple separate 'repeat groups' in a form which are rendered as arrays, you want to create new records for each item inside the first repeat group, then _RETURN TO THE TOP LEVEL_ of the data, and then create new records for each item in the second repeat group. Using `beta.each(...)` lets you enter the first array, create your records, then return to the top level and be able to enter the second array.
 
 ### Salesforce
 - `create("DEST_OBJECT_NAME__C", fields(...))` Create a new object. Takes 2 parameters: An object and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63)

@@ -1,3 +1,10 @@
+# Version 1.75.0 (2016-12-08)
+
+New features:
+
+- Hold control while clicking on navigation buttons to open the target in a new window.
+- Filter messages in your inbox by their content by selecting a message-filter trigger.
+
 # Version 1.7.0 (2016-12-05)
 #### _1.7 is all about user experience!_
 New features:
