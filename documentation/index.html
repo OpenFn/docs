@@ -343,12 +343,13 @@
 <li><code>field('destination_field_name__c', 'value')</code> Returns a key, value pair in an array. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L248">(source)</a></li>
 <li><code>fields(list_of_fields)</code> zips key value pairs into an object. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L258">(source)</a></li>
 <li><code>dataValue('JSON_path')</code> Picks out a single value from source data. <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L71">(source)</a></li>
-<li><code>each(JSON_path, operation(...))</code> Scopes an array of data based on a JSONPath <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L160">(source)</a></li>
-<li><code>beta.each(JSON_path, operation(...))</code> Pre-release: new feature details coming. <a href="https://github.com/OpenFn/language-common/blob/master/src/beta.js#L2">(source)</a></li>
+<li><code>each(JSON_path, operation(...))</code> Scopes an array of data based on a JSONPath <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L194">(source)</a>. See beta.each when using multiple each()'s in an expression.</li>
 <li><code>each(merge(dataPath("CHILD_ARRAY[*]"),fields(field("metaId", dataValue("*meta-instance-id*")),field("parentId", lastReferenceValue("id")))), create(...))</code> merges data into an array then creates for each item in the array <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L272">(source)</a></li>
 <li><code>lastReferenceValue('id')</code> gets the sfID of the last item created <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100">(source)</a></li>
 <li><code>function(state){return state.references[state.references.length-N].id})</code> gets the sfID of the nth item created</li>
 </ul>
+<h4 id="betaeachjson_path-operation"><code>beta.each(JSON_path, operation(...))</code><a class="headerlink" href="#betaeachjson_path-operation" title="Permanent link">#</a></h4>
+<p>Scopes an array of data based on a JSONPath but but then returns to the state it was given upon completion <a href="https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44">(source)</a>. This is necessary if you string multiple <code>each(...)</code> functions together in-line in the same expression. (E.g., Given data which has multiple separate 'repeat groups' in a form which are rendered as arrays, you want to create new records for each item inside the first repeat group, then <em>RETURN TO THE TOP LEVEL</em> of the data, and then create new records for each item in the second repeat group. Using <code>beta.each(...)</code> lets you enter the first array, create your records, then return to the top level and be able to enter the second array.</p>
 <h3 id="salesforce">Salesforce<a class="headerlink" href="#salesforce" title="Permanent link">#</a></h3>
 <ul>
 <li><code>create("DEST_OBJECT_NAME__C", fields(...))</code> Create a new object. Takes 2 parameters: An object and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63">(source)</a></li>
