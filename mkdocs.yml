@@ -17,7 +17,6 @@ theme: 'material'
 
 # Options
 extra:
-  version: '1.75.0'
   logo: ''
   palette:
     primary: 'red'
