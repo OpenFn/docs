@@ -19,8 +19,8 @@ theme: 'material'
 extra:
   logo: ''
   palette:
-    primary: 'red'
-    accent: 'teal'
+    primary: 'blue grey'
+    accent: 'black'
   font:
     text: 'Roboto'
     code: 'Roboto Mono'
