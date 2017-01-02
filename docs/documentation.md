@@ -58,7 +58,7 @@ create("Patient__c", fields(
   field("Age__c", 7)
 ))
 ```
-That would create a new `Patient__c` in some other system. The patient's `Name` will be determined by the triggering message (the value inside `form.name`, specifically) and the patient's `Age__c` will *always* be 7. See how we hard coded it?
+That would create a new `Patient__c` in some other system. The patient's `Name` will be determined by the triggering message (the value inside `form.surname`, specifically) and the patient's `Age__c` will *always* be 7. See how we hard coded it?
 
 What you see above is OpenFn's own syntax, and you've got access to dozens of common "helper functions" like `dataValue(path)` and destination specific functions like `create(object,attributes)`. While most cases are covered out-of-the-box, jobs are **evaluated as Javascript**. This means that you can write your own custom, anonymous functions to do whatever your heart desires:
 ```js
@@ -105,7 +105,7 @@ There are lots more available in the language-packs.
 - `function(state){return state.references[state.references.length-N].id})` gets the sfID of the nth item created
 
 #### `beta.each(JSON_path, operation(...))`
-Scopes an array of data based on a JSONPath but but then returns to the state it was given upon completion [(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44). This is necessary if you string multiple `each(...)` functions together in-line in the same expression. (E.g., Given data which has multiple separate 'repeat groups' in a form which are rendered as arrays, you want to create new records for each item inside the first repeat group, then _RETURN TO THE TOP LEVEL_ of the data, and then create new records for each item in the second repeat group. Using `beta.each(...)` lets you enter the first array, create your records, then return to the top level and be able to enter the second array.
+Scopes an array of data based on a JSONPath but then returns to the state it was given upon completion [(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44). This is necessary if you string multiple `each(...)` functions together in-line in the same expression. (E.g., Given data which has multiple separate 'repeat groups' in a form which are rendered as arrays, you want to create new records for each item inside the first repeat group, then _RETURN TO THE TOP LEVEL_ of the data, and then create new records for each item in the second repeat group. Using `beta.each(...)` lets you enter the first array, create your records, then return to the top level and be able to enter the second array.
 
 ### Salesforce
 - `create("DEST_OBJECT_NAME__C", fields(...))` Create a new object. Takes 2 parameters: An object and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63)
