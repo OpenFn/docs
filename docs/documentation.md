@@ -165,48 +165,37 @@ The most common error messages with English explanations are:
 
 
 # DIY
+
 OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line. You can even take this further and wrap them together in your own hosted service!
 
-> **ETL** = Extracting, Transforming and Loading of data
+To create an integration service like OpenFn.org, you will need to build a REST endpoint that allows JSON or XML to be posted to it, returning a `2XX` and checking the body of that message to see if it matches some criteria. If the criteria match for that message, you must perform `execute` from fn-lang, using the message data and some stored configuration as state. See a sample state.json below:
 
-**To get started, follow these steps:**
+### State.json
+```json
+{
+    "data": {
+      "word_count": 284,
+      "last_update": "2016-11-10 13:58:47",
+      "folder_name": "Civil Disobedience",
+      "file_owner": "student@school.org.za",
+      "file_name": "Mock Journal Article"
+    },
+    "configuration": {
+      "host": "109.XXX.11X.2XX",
+      "port": "5432",
+      "database": "data-warehouse",
+      "user": "postgres",
+      "password": "secret-password",
+      "ssl": true
+    }
+}
+```
 
-  1. Create an empty directory somewhere on your local machine (e.g. call it "OpenFn")
-  2. Open up a terminal, cd into the new directory, and git clone the following:
-    - `git clone` [fn-lang](https://github.com/OpenFn/fn-lang)
-    - `git clone` [language-common](https://github.com/OpenFn/language-common)
-    - `git clone` [language-xxx](https://github.com/OpenFn/language-common) (an adaptor of your choice, from github.com/OpenFn)
+Make sure to store your logs. If you'd like to be able to retry transactions, persist the message data and provide an interface for manipulating that data by hand, or re-running certain transactions after the job expression has been altered.
 
-    #### fn-lang (diesl)
-    fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the "TL" part of "ETL" on command. It can be run from a command line, or built into a hosted web service.
+Make sure that a single inbound message can kick off the running of multiple jobs.
 
-    #### language-common
-    `language-common` provides basic data manipulation functionality like `each`, `field`, and `toArray`.
-
-    #### language-xxx
-    `language-xxx` is a "destination adaptor" that knows how to connect to the system in question and provides system-specific operations, like `relationship` or `upsert`. Examples: `language-dhis2`, `language-salesforce`, `language-openmrs`.
-
-  3. cd into 'fn-lang'
-  4. type into the terminal the following commands (in order):
-    - npm install
-    - npm link ../language-common
-    - npm link ../language-xxx (Whatever adaptor you chose. For this demonstration we will use DHIS2)
-
-  5. Create a folder named "tmp" inside "fn-lang".
-  6. Inside "tmp", you need to create 3 files: `config.json`, `expression.js` and `message.json`.
-
-  > Click [HERE](#sample-code-for-diy-section) to get started by using some sample code for each of the 3 files.
-
-  7. Run fn-lang from the command line with the following:
-
-  `~/fn-lang$ lib/cli.js execute -l dhis2 -e tmp/expression.js -c tmp/config.json -d tmp/message.json`
-
-  **Command Explained:** Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and a destination configuration file (-c).
-
-  > **Note:** Depending on which language-pack you have decided to use, you will need to change this command by replacing "dhis2" with the name of the language-pack you are using. E.g. "openmrs" or "salesforce/FakeAdaptor" (special case).
-
-  8. Check out the results of the posted data! Open up expression.js and message.json to manipulate the outcome and get a feel for how it works.
-
+To get started, or just run fn-lang manually, from your command line, check out [openfn-devtools](https://github.com/OpenFn/openfn-devtools). With windows and linux install scripts, it's the fastest way to get up and running with OpenFn on your local machine.
 
 # Appendix
 
