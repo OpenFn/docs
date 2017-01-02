@@ -158,6 +158,7 @@ Editing data in your destination system can be done through that system's interf
 
 ## Common Error Messages
 The most common error messages with English explanations are:
+
 + `DUPLICATE_VALUE: duplicate value found: ODK_uuid__c duplicates value on record with id: a0524000005wNw0` - The insert is blocked because you are attempting to create a new record with a unique field with the same value as an existing record.
 + `Required value missing`
 + `ExternalId not found`
@@ -169,6 +170,7 @@ OpenFn's core ETL tools are all open-source, and here we will explain how those 
 > **ETL** = Extracting, Transforming and Loading of data
 
 **To get started, follow these steps:**
+
   1. Create an empty directory somewhere on your local machine (e.g. call it "OpenFn")
   2. Open up a terminal, cd into the new directory, and git clone the following:
     - `git clone` [fn-lang](https://github.com/OpenFn/fn-lang)
