@@ -403,56 +403,31 @@
 </ul>
 <h1 id="diy">DIY<a class="headerlink" href="#diy" title="Permanent link">#</a></h1>
 <p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line. You can even take this further and wrap them together in your own hosted service!</p>
-<blockquote>
-<p><strong>ETL</strong> = Extracting, Transforming and Loading of data</p>
-</blockquote>
-<p><strong>To get started, follow these steps:</strong></p>
-<ol>
-<li>Create an empty directory somewhere on your local machine (e.g. call it "OpenFn")</li>
-<li>
-<p>Open up a terminal, cd into the new directory, and git clone the following:</p>
-<ul>
-<li><code>git clone</code> <a href="https://github.com/OpenFn/fn-lang">fn-lang</a></li>
-<li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-common</a></li>
-<li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</li>
-</ul>
-<h4 id="fn-lang-diesl">fn-lang (diesl)<a class="headerlink" href="#fn-lang-diesl" title="Permanent link">#</a></h4>
-<p>fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the "TL" part of "ETL" on command. It can be run from a command line, or built into a hosted web service.</p>
-<h4 id="language-common_1">language-common<a class="headerlink" href="#language-common_1" title="Permanent link">#</a></h4>
-<p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
-<h4 id="language-xxx">language-xxx<a class="headerlink" href="#language-xxx" title="Permanent link">#</a></h4>
-<p><code>language-xxx</code> is a "destination adaptor" that knows how to connect to the system in question and provides system-specific operations, like <code>relationship</code> or <code>upsert</code>. Examples: <code>language-dhis2</code>, <code>language-salesforce</code>, <code>language-openmrs</code>.</p>
-</li>
-<li>
-<p>cd into 'fn-lang'</p>
-</li>
-<li>
-<p>type into the terminal the following commands (in order):</p>
-<ul>
-<li>npm install</li>
-<li>npm link ../language-common</li>
-<li>npm link ../language-xxx (Whatever adaptor you chose. For this demonstration we will use DHIS2)</li>
-</ul>
-</li>
-<li>
-<p>Create a folder named "tmp" inside "fn-lang".</p>
-</li>
-<li>Inside "tmp", you need to create 3 files: <code>config.json</code>, <code>expression.js</code> and <code>message.json</code>.</li>
-</ol>
-<blockquote>
-<p>Click <a href="#sample-code-for-diy-section">HERE</a> to get started by using some sample code for each of the 3 files.</p>
-</blockquote>
-<ol>
-<li>Run fn-lang from the command line with the following:</li>
-</ol>
-<p><code>~/fn-lang$ lib/cli.js execute -l dhis2 -e tmp/expression.js -c tmp/config.json -d tmp/message.json</code></p>
-<p><strong>Command Explained:</strong> Execute an expression (-e) and load on some data (-d) using a language-pack (-l) and a destination configuration file (-c).</p>
-<blockquote>
-<p><strong>Note:</strong> Depending on which language-pack you have decided to use, you will need to change this command by replacing "dhis2" with the name of the language-pack you are using. E.g. "openmrs" or "salesforce/FakeAdaptor" (special case).</p>
-</blockquote>
-<ol>
-<li>Check out the results of the posted data! Open up expression.js and message.json to manipulate the outcome and get a feel for how it works.</li>
-</ol>
+<p>To create an integration service like OpenFn.org, you will need to build a REST endpoint that allows JSON or XML to be posted to it, returning a <code>2XX</code> and checking the body of that message to see if it matches some criteria. If the criteria match for that message, you must perform <code>execute</code> from fn-lang, using the message data and some stored configuration as state. See a sample state.json below:</p>
+<h3 id="statejson">State.json<a class="headerlink" href="#statejson" title="Permanent link">#</a></h3>
+<div class="code"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;word_count&quot;</span><span class="p">:</span> <span class="mi">284</span><span class="p">,</span>
+      <span class="nt">&quot;last_update&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-11-10 13:58:47&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;folder_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Civil Disobedience&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;file_owner&quot;</span><span class="p">:</span> <span class="s2">&quot;student@school.org.za&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;file_name&quot;</span><span class="p">:</span> <span class="s2">&quot;Mock Journal Article&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;109.XXX.11X.2XX&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="s2">&quot;5432&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;data-warehouse&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;user&quot;</span><span class="p">:</span> <span class="s2">&quot;postgres&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;secret-password&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;ssl&quot;</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Make sure to store your logs. If you'd like to be able to retry transactions, persist the message data and provide an interface for manipulating that data by hand, or re-running certain transactions after the job expression has been altered.</p>
+<p>Make sure that a single inbound message can kick off the running of multiple jobs.</p>
+<p>To get started, or just run fn-lang manually, from your command line, check out <a href="https://github.com/OpenFn/openfn-devtools">openfn-devtools</a>. With windows and linux install scripts, it's the fastest way to get up and running with OpenFn on your local machine.</p>
 <h1 id="appendix">Appendix<a class="headerlink" href="#appendix" title="Permanent link">#</a></h1>
 <h2 id="sample-code-for-diy-section">Sample code for DIY section<a class="headerlink" href="#sample-code-for-diy-section" title="Permanent link">#</a></h2>
 <p>Below you can find sample code to fill the 3 files required to run fn-lang - <code>message.json</code>, <code>expression.js</code> and <code>config.json</code>.</p>
