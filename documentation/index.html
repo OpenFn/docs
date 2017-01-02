@@ -255,10 +255,10 @@
 <p>Go to the "settings" or "administration" page for your source app, and look for a <code>Webhook API</code>, <code>Data Forwarding API</code>, or <code>Notifications API</code>. Write to the developers of your application if none is provided out of the box.</p>
 </li>
 <li>
-<p>When setting up forwarding, select to send messages in <code>JSON</code> to your project's <code>inbox URL</code>. You can find and copy your secure inbox URL by clicking on the "copy URL" link in the bottom-right corner of the project in question on your <strong><a href="https://www.openfn.org/projects">project dashboard</a></strong> page.</p>
+<p>When setting up forwarding, select to send messages in <code>JSON</code> to your project's <code>inbox URL</code>. This is a UUID that serves as your API token. You can find and copy your secure inbox URL by clicking on the "copy URL" link in the bottom-right corner of the project in question on your <strong><a href="https://www.openfn.org/projects">project dashboard</a></strong> page or by using the "Copy URL" button on your project's "Inbox" page..</p>
 </li>
 <li>
-<p>Soon you'll see new messages arrive in your <strong><a href="https://www.openfn.org/receipts">history</a></strong> page.</p>
+<p>Soon you'll see new messages arrive in your <strong>Inbox</strong>.</p>
 </li>
 </ol>
 <h1 id="triggers">Triggers<a class="headerlink" href="#triggers" title="Permanent link">#</a></h1>
@@ -305,7 +305,7 @@
 </pre></div>
 
 
-<p>That would create a new <code>Patient__c</code> in some other system. The patient's <code>Name</code> will be determined by the triggering message (the value inside <code>form.name</code>, specifically) and the patient's <code>Age__c</code> will <em>always</em> be 7. See how we hard coded it?</p>
+<p>That would create a new <code>Patient__c</code> in some other system. The patient's <code>Name</code> will be determined by the triggering message (the value inside <code>form.surname</code>, specifically) and the patient's <code>Age__c</code> will <em>always</em> be 7. See how we hard coded it?</p>
 <p>What you see above is OpenFn's own syntax, and you've got access to dozens of common "helper functions" like <code>dataValue(path)</code> and destination specific functions like <code>create(object,attributes)</code>. While most cases are covered out-of-the-box, jobs are <strong>evaluated as Javascript</strong>. This means that you can write your own custom, anonymous functions to do whatever your heart desires:</p>
 <div class="code"><pre><span></span><span class="nx">create</span><span class="p">(</span><span class="s2">&quot;Patient__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
   <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
@@ -349,7 +349,7 @@
 <li><code>function(state){return state.references[state.references.length-N].id})</code> gets the sfID of the nth item created</li>
 </ul>
 <h4 id="betaeachjson_path-operation"><code>beta.each(JSON_path, operation(...))</code><a class="headerlink" href="#betaeachjson_path-operation" title="Permanent link">#</a></h4>
-<p>Scopes an array of data based on a JSONPath but but then returns to the state it was given upon completion <a href="https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44">(source)</a>. This is necessary if you string multiple <code>each(...)</code> functions together in-line in the same expression. (E.g., Given data which has multiple separate 'repeat groups' in a form which are rendered as arrays, you want to create new records for each item inside the first repeat group, then <em>RETURN TO THE TOP LEVEL</em> of the data, and then create new records for each item in the second repeat group. Using <code>beta.each(...)</code> lets you enter the first array, create your records, then return to the top level and be able to enter the second array.</p>
+<p>Scopes an array of data based on a JSONPath but then returns to the state it was given upon completion <a href="https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44">(source)</a>. This is necessary if you string multiple <code>each(...)</code> functions together in-line in the same expression. (E.g., Given data which has multiple separate 'repeat groups' in a form which are rendered as arrays, you want to create new records for each item inside the first repeat group, then <em>RETURN TO THE TOP LEVEL</em> of the data, and then create new records for each item in the second repeat group. Using <code>beta.each(...)</code> lets you enter the first array, create your records, then return to the top level and be able to enter the second array.</p>
 <h3 id="salesforce">Salesforce<a class="headerlink" href="#salesforce" title="Permanent link">#</a></h3>
 <ul>
 <li><code>create("DEST_OBJECT_NAME__C", fields(...))</code> Create a new object. Takes 2 parameters: An object and attributes. <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63">(source)</a></li>
@@ -395,34 +395,37 @@
 </ol>
 <p>Editing data in your destination system can be done through that system's interface. Many tools that act as <code>sources</code> (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.</p>
 <h2 id="common-error-messages">Common Error Messages<a class="headerlink" href="#common-error-messages" title="Permanent link">#</a></h2>
-<p>The most common error messages with English explanations are:
-+ <code>DUPLICATE_VALUE: duplicate value found: ODK_uuid__c duplicates value on record with id: a0524000005wNw0</code> - The insert is blocked because you are attempting to create a new record with a unique field with the same value as an existing record.
-+ <code>Required value missing</code>
-+ <code>ExternalId not found</code></p>
+<p>The most common error messages with English explanations are:</p>
+<ul>
+<li><code>DUPLICATE_VALUE: duplicate value found: ODK_uuid__c duplicates value on record with id: a0524000005wNw0</code> - The insert is blocked because you are attempting to create a new record with a unique field with the same value as an existing record.</li>
+<li><code>Required value missing</code></li>
+<li><code>ExternalId not found</code></li>
+</ul>
 <h1 id="diy">DIY<a class="headerlink" href="#diy" title="Permanent link">#</a></h1>
 <p>OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line. You can even take this further and wrap them together in your own hosted service!</p>
 <blockquote>
 <p><strong>ETL</strong> = Extracting, Transforming and Loading of data</p>
 </blockquote>
-<p><strong>To get started, follow these steps:</strong>
-  1. Create an empty directory somewhere on your local machine (e.g. call it "OpenFn")
-  2. Open up a terminal, cd into the new directory, and git clone the following:
-    - <code>git clone</code> <a href="https://github.com/OpenFn/fn-lang">fn-lang</a>
-    - <code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-common</a>
-    - <code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</p>
-<div class="code"><pre><span></span>#### fn-lang (diesl)
-fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the &quot;TL&quot; part of &quot;ETL&quot; on command. It can be run from a command line, or built into a hosted web service.
-
-#### language-common
-`language-common` provides basic data manipulation functionality like `each`, `field`, and `toArray`.
-
-#### language-xxx
-`language-xxx` is a &quot;destination adaptor&quot; that knows how to connect to the system in question and provides system-specific operations, like `relationship` or `upsert`. Examples: `language-dhis2`, `language-salesforce`, `language-openmrs`.
-</pre></div>
-
-
+<p><strong>To get started, follow these steps:</strong></p>
 <ol>
-<li>cd into 'fn-lang'</li>
+<li>Create an empty directory somewhere on your local machine (e.g. call it "OpenFn")</li>
+<li>
+<p>Open up a terminal, cd into the new directory, and git clone the following:</p>
+<ul>
+<li><code>git clone</code> <a href="https://github.com/OpenFn/fn-lang">fn-lang</a></li>
+<li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-common</a></li>
+<li><code>git clone</code> <a href="https://github.com/OpenFn/language-common">language-xxx</a> (an adaptor of your choice, from github.com/OpenFn)</li>
+</ul>
+<h4 id="fn-lang-diesl">fn-lang (diesl)<a class="headerlink" href="#fn-lang-diesl" title="Permanent link">#</a></h4>
+<p>fn-lang is a coordination tool that takes a job expression, a JSON payload, an adaptor, and a configuration file, and runs the "TL" part of "ETL" on command. It can be run from a command line, or built into a hosted web service.</p>
+<h4 id="language-common_1">language-common<a class="headerlink" href="#language-common_1" title="Permanent link">#</a></h4>
+<p><code>language-common</code> provides basic data manipulation functionality like <code>each</code>, <code>field</code>, and <code>toArray</code>.</p>
+<h4 id="language-xxx">language-xxx<a class="headerlink" href="#language-xxx" title="Permanent link">#</a></h4>
+<p><code>language-xxx</code> is a "destination adaptor" that knows how to connect to the system in question and provides system-specific operations, like <code>relationship</code> or <code>upsert</code>. Examples: <code>language-dhis2</code>, <code>language-salesforce</code>, <code>language-openmrs</code>.</p>
+</li>
+<li>
+<p>cd into 'fn-lang'</p>
+</li>
 <li>
 <p>type into the terminal the following commands (in order):</p>
 <ul>
