@@ -3,9 +3,9 @@ Most modern web applications have a feature that allows you to `push`, `publish`
 
 1. Go to the "settings" or "administration" page for your source app, and look for a `Webhook API`, `Data Forwarding API`, or `Notifications API`. Write to the developers of your application if none is provided out of the box.
 
-2. When setting up forwarding, select to send messages in `JSON` to your project's `inbox URL`. You can find and copy your secure inbox URL by clicking on the "copy URL" link in the bottom-right corner of the project in question on your **[project dashboard](https://www.openfn.org/projects)** page.
+2. When setting up forwarding, select to send messages in `JSON` to your project's `inbox URL`. This is a UUID that serves as your API token. You can find and copy your secure inbox URL by clicking on the "copy URL" link in the bottom-right corner of the project in question on your **[project dashboard](https://www.openfn.org/projects)** page or by using the "Copy URL" button on your project's "Inbox" page..
 
-3. Soon you'll see new messages arrive in your **[history](https://www.openfn.org/receipts)** page.
+3. Soon you'll see new messages arrive in your **Inbox**.
 
 # Triggers
 Triggers run jobs. They can either be "filter" triggers or "timer" triggers. Filter triggers watch incoming messages and run them through jobs when they match the filter criteria. Timer triggers run jobs after a recurring interval has elapsed.
