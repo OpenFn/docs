@@ -58,7 +58,7 @@ create("Patient__c", fields(
   field("Age__c", 7)
 ))
 ```
-That would create a new `Patient__c` in some other system. The patient's `Name` will be determined by the triggering message (the value inside `form.name`, specifically) and the patient's `Age__c` will *always* be 7. See how we hard coded it?
+That would create a new `Patient__c` in some other system. The patient's `Name` will be determined by the triggering message (the value inside `form.surname`, specifically) and the patient's `Age__c` will *always* be 7. See how we hard coded it?
 
 What you see above is OpenFn's own syntax, and you've got access to dozens of common "helper functions" like `dataValue(path)` and destination specific functions like `create(object,attributes)`. While most cases are covered out-of-the-box, jobs are **evaluated as Javascript**. This means that you can write your own custom, anonymous functions to do whatever your heart desires:
 ```js
