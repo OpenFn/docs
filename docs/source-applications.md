@@ -1,6 +1,14 @@
 # Setting up real-time sources
 This section describes how to enable push notifications from selected source applications. Many web apps have some sort of events-based notifications engine. If you don't see yours listed below feel free to add it with a pull request.
 
+## CommCare HQ
+1. Go to "Project Settings".
+2. Click "Data Forwarding".
+3. "Add a forwarding location" for Cases, Forms, or both.
+4. Specify JSON, using your OpenFn inbox URL as the target. See the [CommCare documentation](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128).
+2. Create a [message-filter trigger like this](https://openfn.github.io/docs/documentation/#match-a-message-with-a-fragment-inside-another-object-called-form).
+3. Set up a `job` running on that filter to process CommCare submissions or case updates.
+
 ## Open Data Kit (ODK) Aggregate
 1. To new submissions from ODK in real-time, click the "Form Management" tab at the top of your Aggregate interface.
 2. Click "Publish" next to the form you'd like to publish to OpenFn.

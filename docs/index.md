@@ -1,5 +1,5 @@
 # OpenFn Documentation
-Thanks for visiting! This documentation is for [OpenFn.org](https://www.openfn.org), and is primarily intended to help users of the site. Technical documentation for OpenFn's open-source integration tools and language-packs can be found in their respective repositories at [Github.com/OpenFn](https://github.com/openfn).
+This documentation is for [OpenFn.org](https://www.openfn.org), and is primarily intended to help users of the site. Technical documentation for OpenFn's open-source integration tools and language-packs can be found in their respective repositories at [Github.com/OpenFn](https://github.com/openfn).
 
 We've broken the documentation into three parts: an introduction, detailed documentation, and release notes.
 
