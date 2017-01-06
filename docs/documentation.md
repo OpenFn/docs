@@ -1,3 +1,38 @@
+# Quick-start guide
+
+**1. Create your account.** If you haven't already, create an account at [OpenFn.org](https://www.openfn.org/signup)
+
+**2. Log In.** After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer **Dashboard**. Click on one to start.
+
+**3. Check your inbox.** You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:
+
+`Jobs` | `Triggers` | `Credentials` | `Inbox` | `Run History` | `Settings`
+
+Click on the Inbox tab.
+
+**4. Run a job.** You should see your first message associated with a "sample job". Click on it. You can now choose to do the following:
+
+- Edit the message (mainly for the purpose of fixing mistakes in data),
+- Manually run the job associated with a filter which has identified your first message as a trigger.
+
+Click run.
+
+**5. View the logs.** Wait for the job to finish and then click on "View Logs" to see what happened to the data inside of the message. You can view every job run from the "Activity" tab.
+
+**6. Familiarize yourself with the other tabs.**
+
+Navigate to **Triggers**. You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.
+
+Navigate to **Jobs**. Here you can:
+
+- You can click to view the job that was run when triggered by the sample filter and sample message.
+- Click on "Edit Job" to edit the .js file which executes a specific action (job).
+- Click on the specified filter to change which filter should trigger that job.
+
+Navigate to **Credentials** to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.
+
+Navigate to the **Settings** tab to change the project's name, upgrade your account for more jobs and runs, add collaborators, and transfer project ownership.
+
 # Connecting Source Applications
 Most modern web applications have a feature that allows you to `push`, `publish`, or `post` data to another URL when a certain **event** takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
 
