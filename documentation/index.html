@@ -248,7 +248,30 @@
       <article class="article">
         <div class="wrapper">
           
-          <h1 id="connecting-source-applications">Connecting Source Applications<a class="headerlink" href="#connecting-source-applications" title="Permanent link">#</a></h1>
+          <h1 id="quick-start-guide">Quick-start guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">#</a></h1>
+<p><strong>1. Create your account.</strong> If you haven't already, create an account at <a href="https://www.openfn.org/signup">OpenFn.org</a></p>
+<p><strong>2. Log In.</strong> After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer <strong>Dashboard</strong>. Click on one to start.</p>
+<p><strong>3. Check your inbox.</strong> You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:</p>
+<p><code>Jobs</code> | <code>Triggers</code> | <code>Credentials</code> | <code>Inbox</code> | <code>Run History</code> | <code>Settings</code></p>
+<p>Click on the Inbox tab.</p>
+<p><strong>4. Run a job.</strong> You should see your first message associated with a "sample job". Click on it. You can now choose to do the following:</p>
+<ul>
+<li>Edit the message (mainly for the purpose of fixing mistakes in data),</li>
+<li>Manually run the job associated with a filter which has identified your first message as a trigger.</li>
+</ul>
+<p>Click run.</p>
+<p><strong>5. View the logs.</strong> Wait for the job to finish and then click on "View Logs" to see what happened to the data inside of the message. You can view every job run from the "Activity" tab.</p>
+<p><strong>6. Familiarize yourself with the other tabs.</strong></p>
+<p>Navigate to <strong>Triggers</strong>. You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.</p>
+<p>Navigate to <strong>Jobs</strong>. Here you can:</p>
+<ul>
+<li>You can click to view the job that was run when triggered by the sample filter and sample message.</li>
+<li>Click on "Edit Job" to edit the .js file which executes a specific action (job).</li>
+<li>Click on the specified filter to change which filter should trigger that job.</li>
+</ul>
+<p>Navigate to <strong>Credentials</strong> to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
+<p>Navigate to the <strong>Settings</strong> tab to change the project's name, upgrade your account for more jobs and runs, add collaborators, and transfer project ownership.</p>
+<h1 id="connecting-source-applications">Connecting Source Applications<a class="headerlink" href="#connecting-source-applications" title="Permanent link">#</a></h1>
 <p>Most modern web applications have a feature that allows you to <code>push</code>, <code>publish</code>, or <code>post</code> data to another URL when a certain <strong>event</strong> takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when <em>something happens</em>.</p>
 <ol>
 <li>

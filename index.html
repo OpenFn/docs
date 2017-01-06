@@ -188,6 +188,22 @@
         
       
       
+        <ul>
+          
+            <li class="anchor">
+              <a title="The OpenFn Google Group" href="#the-openfn-google-group">
+                The OpenFn Google Group
+              </a>
+            </li>
+          
+            <li class="anchor">
+              <a title="FAQs" href="#faqs">
+                FAQs
+              </a>
+            </li>
+          
+        </ul>
+      
     
   </li>
 
@@ -252,12 +268,15 @@
           
           <h1 id="openfn-documentation">OpenFn Documentation<a class="headerlink" href="#openfn-documentation" title="Permanent link">#</a></h1>
 <p>This documentation is for <a href="https://www.openfn.org">OpenFn.org</a>, and is primarily intended to help users of the site. Technical documentation for OpenFn's open-source integration tools and language-packs can be found in their respective repositories at <a href="https://github.com/openfn">Github.com/OpenFn</a>.</p>
-<p>We've broken the documentation into three parts: an introduction, detailed documentation, and release notes.</p>
+<p>There are four sections in this documentation site: an introduction (you are here), detailed documentation, source application setup walkthroughs, and release notes.</p>
 <p>If you want a new feature or find a bug, please <a href="https://github.com/openfn/docs/issues">submit an issue</a>. If you find an issue with the documentation or want to share your custom functions, please <a href="https://github.com/OpenFn/docs/compare">submit a pull request</a>!</p>
+<h2 id="the-openfn-google-group">The OpenFn Google Group<a class="headerlink" href="#the-openfn-google-group" title="Permanent link">#</a></h2>
+<p>Please make sure to check out the <a href="https://groups.google.com/forum/#!forum/openfn">OpenFn Google Group</a> if you've got questions that aren't answered here.</p>
+<h2 id="faqs">FAQs<a class="headerlink" href="#faqs" title="Permanent link">#</a></h2>
 <blockquote>
 <p><em>Wait, so, OpenFn does what now?</em></p>
 </blockquote>
-<p>Good question:</p>
+<p>Good question. OpenFn is an integration platform as a service. This means our prime directive is to move data quickly and securely between various technologies. In most cases:</p>
 <ol>
 <li>
 <p>A source application sends <strong>messages</strong> to your project’s <strong>inbox</strong> when something happens.</p>
@@ -272,37 +291,6 @@
 <p>OpenFn has harnessed the extreme  stability and scalability of Erlang to coordinate these actions and provide users with email alerts, project management tools, and an online job writing IDE.</p>
 <p>In this guide you'll find documentation to help you write filters and jobs, along with explanations of OpenFn's key concepts.</p>
 <p>If you have any questions, please don't hesitate to email <a href="mailto:admin@openfn.org">admin@openfn.org</a>.</p>
-<h1 id="quick-start-guide">Quick-start guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">#</a></h1>
-<p>Want to get up and running with OpenFn in a few minutes? Follow these steps to set up your project and see the power of OpenFn in action!</p>
-<p><strong>1. Create your account.</strong> If you haven't already, create an account at <a href="https://www.openfn.org/signup">OpenFn.org</a></p>
-<p><strong>2. Log In.</strong> After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer <strong>Dashboard</strong>. Click on one to start.</p>
-<p><strong>3. Check your inbox.</strong> You should now be looking at the OpenFn User dashboard for a particular project, made up of the following navigation tabs:</p>
-<ul>
-<li>Jobs</li>
-<li>Triggers</li>
-<li>Credentials</li>
-<li>Inbox</li>
-<li>Activity</li>
-<li>Settings</li>
-</ul>
-<p>Click on the Inbox tab.</p>
-<p><strong>4. Run a job.</strong> You should see your first message associated with a "sample job". Click on it. You can now choose to do the following:</p>
-<ul>
-<li>Edit the message (mainly for the purpose of fixing mistakes in data),</li>
-<li>Manually run the job associated with a filter which has identified your first message as a trigger.</li>
-</ul>
-<p>Click run.</p>
-<p><strong>5. View the logs.</strong> Wait for the job to finish and then click on "View Logs" to see what happened to the data inside of the message. You can view every job run from the "Activity" tab.</p>
-<p><strong>6. Familiarize yourself with the other tabs.</strong></p>
-<p>Navigate to <strong>Triggers</strong>. You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.</p>
-<p>Navigate to <strong>Jobs</strong>. Here you can:</p>
-<ul>
-<li>You can click to view the job that was run when triggered by the sample filter and sample message.</li>
-<li>Click on "Edit Job" to edit the .js file which executes a specific action (job).</li>
-<li>Click on the specified filter to change which filter should trigger that job.</li>
-</ul>
-<p>Navigate to <strong>Credentials</strong> to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
-<p>Navigate to the <strong>Settings</strong> tab to change the project's name, upgrade your account for more jobs and runs, add collaborators, and transfer project ownership.</p>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 Open Function Group &ndash;
