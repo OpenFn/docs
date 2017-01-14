@@ -42,6 +42,9 @@ Most modern web applications have a feature that allows you to `push`, `publish`
 
 3. Soon you'll see new messages arrive in your **Inbox**.
 
+## Creating a compatible notifications service
+If you are a developer, looking to set up a compatible notifications API for OpenFn, please see our [Application Developers](/source-applications/#application-developers) section.
+
 # Triggers
 Triggers run jobs. They can either be "filter" triggers or "timer" triggers. Filter triggers watch incoming messages and run them through jobs when they match the filter criteria. Timer triggers run jobs after a recurring interval has elapsed.
 
