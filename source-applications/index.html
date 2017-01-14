@@ -233,6 +233,12 @@
               </a>
             </li>
           
+            <li class="anchor">
+              <a title="Application Developers" href="#application-developers">
+                Application Developers
+              </a>
+            </li>
+          
         </ul>
       
     
@@ -327,6 +333,27 @@
   <span class="nt">&quot;_attachments&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
 </pre></div>
+
+
+<h2 id="application-developers">Application Developers<a class="headerlink" href="#application-developers" title="Permanent link">#</a></h2>
+<p>This section is for you if you are hoping to build or extend an existing application that can connect to OpenFn. We follow modern web-standard JSON api guidelines.</p>
+<p>For your application to a be data provider (or "source") for OpenFn integrations, we highly recommend that you create a "notifications service" (sometimes called a "webhooks service" or "event-based push API"). This is preferrable to using a REST api for two reasons: (1) A notifications service will give your clients the ability to set up real-time integrations, and (2) a notifications service is more efficient for both your servers and OpenFn—instead of having requests be made and handled every X seconds, your servers and OpenFn's servers will only work when new data is available.</p>
+<p>For your appliation to be a consumer (or "destination") for OpenFn, you must either have a standard, JSON-based rest API or create a language-package that meets your API specifications.</p>
+<h3 id="sending-data-to-openfn">Sending data to OpenFn<a class="headerlink" href="#sending-data-to-openfn" title="Permanent link">#</a></h3>
+<p>To send data to OpenFn, your application must be able to make an HTTPS post to an external URL with a valid JSON object as the post body. See the following example using cURL:</p>
+<div class="code"><pre><span></span>curl -X POST \
+  -H &quot;Content-Type: application/json&quot; \
+  -H &quot;Cache-Control: no-cache&quot; \
+  -d &#39;{&quot;foo&quot;:&quot;bar&quot;, &quot;baz&quot;:&quot;qux&quot;}&#39; \
+  &quot;https://staging.openfn.org/inbox/some-secret-api-key&quot;
+</pre></div>
+
+
+<p>OpenFn will respond with a 200 and an empty JSON object in the event of a successful post. 400s mean that the user's external URL is wrong, and 500s means that there is an application error on OpenFn. While 500s are rare, they could be due to invalid JSON in your POST body.</p>
+<p>If you cannot notifiy an external URL when some event takes place, you can still integrate with OpenFn if you have a JSON-based REST API. OpenFn users can make HTTP GET requests to your application and perform additional actions based on your response. You should allow either basic or token authentication and responsd to a valid GET with JSON. There is no specific format for your response, as users can parse it any way they'd like, extracting relevant data and then performing other actions—like loading it into a destination system—with that data. See <a href="https://www.github.com/openfn/language-http">language-http</a> for details on how users make these generic HTTP requests.</p>
+<h3 id="receiving-data-from-openfn">Receiving data from OpenFn<a class="headerlink" href="#receiving-data-from-openfn" title="Permanent link">#</a></h3>
+<p>To make it easy for users to connect to your application, it's highly recommended that you create a language-package with your required authentication and a set of simple, allowable actions nicely abstracted into "helper functions". See <a href="https://www.github.com/openfn/language-dhis2">language-dhis2</a> for an example of a language-package which creates a simpler interface for a traditional JSON-based REST api. Language packages are written in Javascript and execute in Node. You can convert OpenFn's JSON into XML, or any other format before sending it to your application and you may make use of any node modules you'd like. See <a href="https://www.github.com/openfn/language-postgresql">language-postgresql</a> for an example of a language package that connects directly to PostgreSQL databases using a popular NPM module called "pg".</p>
+<p>To receive data from OpenFn's generic language-http langauge package, your application must allow either basic, token, or digest authenticated POST, PUT, or GET requests. (Though it is not advisable to create an API that requires GET requests to create or update data.)</p>
           <aside class="copyright" role="note">
             
               Copyright (c) 2016 Open Function Group &ndash;

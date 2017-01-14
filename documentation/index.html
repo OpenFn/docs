@@ -284,6 +284,8 @@
 <p>Soon you'll see new messages arrive in your <strong>Inbox</strong>.</p>
 </li>
 </ol>
+<h2 id="creating-a-compatible-notifications-service">Creating a compatible notifications service<a class="headerlink" href="#creating-a-compatible-notifications-service" title="Permanent link">#</a></h2>
+<p>If you are a developer, looking to set up a compatible notifications API for OpenFn, please see our <a href="../source-applications/#application-developers">Application Developers</a> section.</p>
 <h1 id="triggers">Triggers<a class="headerlink" href="#triggers" title="Permanent link">#</a></h1>
 <p>Triggers run jobs. They can either be "filter" triggers or "timer" triggers. Filter triggers watch incoming messages and run them through jobs when they match the filter criteria. Timer triggers run jobs after a recurring interval has elapsed.</p>
 <p>You, as a user, specify the filter <strong>criteria</strong> which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body <strong>matches</strong> the string of <code>JSON</code> you gave as a filter, the filter will run and trigger a job (assuming you created one).</p>
