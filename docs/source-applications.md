@@ -1,6 +1,18 @@
 # Setting up real-time sources
 This section describes how to enable push notifications from selected source applications. Many web apps have some sort of events-based notifications engine. If you don't see yours listed below feel free to add it with a pull request.
 
+## SurveyCTO
+SurveyCTO does not push data to OpenFn. In order to fetch data from SurveyCTO, you must run a job on a timer, like this:
+```js
+fetchSubmissions(
+  "form_id", //the form id
+  "Sep 1, 2016 3:56:02 PM", // the initial "after" date
+  // after the first run, OpenFn will only fetch new submissions
+  "https://www.openfn.org/inbox/something-secret" //the inbox to post form data to.
+)
+```
+Now, your SurveyCTO data will be flowing into OpenFn and you can set up normal filters and jobs as necessary.
+
 ## CommCare HQ
 1. Go to "Project Settings".
 2. Click "Data Forwarding".
