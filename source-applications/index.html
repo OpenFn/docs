@@ -216,6 +216,12 @@
         <ul>
           
             <li class="anchor">
+              <a title="SurveyCTO" href="#surveycto">
+                SurveyCTO
+              </a>
+            </li>
+          
+            <li class="anchor">
               <a title="CommCare HQ" href="#commcare-hq">
                 CommCare HQ
               </a>
@@ -278,6 +284,18 @@
           
           <h1 id="setting-up-real-time-sources">Setting up real-time sources<a class="headerlink" href="#setting-up-real-time-sources" title="Permanent link">#</a></h1>
 <p>This section describes how to enable push notifications from selected source applications. Many web apps have some sort of events-based notifications engine. If you don't see yours listed below feel free to add it with a pull request.</p>
+<h2 id="surveycto">SurveyCTO<a class="headerlink" href="#surveycto" title="Permanent link">#</a></h2>
+<p>SurveyCTO does not push data to OpenFn. In order to fetch data from SurveyCTO, you must run a job on a timer, like this:</p>
+<div class="code"><pre><span></span><span class="nx">fetchSubmissions</span><span class="p">(</span>
+  <span class="s2">&quot;form_id&quot;</span><span class="p">,</span> <span class="c1">//the form id</span>
+  <span class="s2">&quot;Sep 1, 2016 3:56:02 PM&quot;</span><span class="p">,</span> <span class="c1">// the initial &quot;after&quot; date</span>
+  <span class="c1">// after the first run, OpenFn will only fetch new submissions</span>
+  <span class="s2">&quot;https://www.openfn.org/inbox/something-secret&quot;</span> <span class="c1">//the inbox to post form data to.</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>Now, your SurveyCTO data will be flowing into OpenFn and you can set up normal filters and jobs as necessary.</p>
 <h2 id="commcare-hq">CommCare HQ<a class="headerlink" href="#commcare-hq" title="Permanent link">#</a></h2>
 <ol>
 <li>Go to "Project Settings".</li>
