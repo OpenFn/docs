@@ -1,3 +1,9 @@
+# Version 1.9.0 (2017-03-07)
+New features:
+
+- View matching messages in the job writing interface when a message filter trigger is selected.
+- "Tree view" exposed for job expression viewing. With valid syntax, you're able to see your expression as a syntax tree as we step slowly towards a more point-and-click interface.
+
 # Version 1.75.0 (2016-12-08)
 
 New features:
