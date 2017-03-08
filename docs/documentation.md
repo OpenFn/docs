@@ -567,6 +567,12 @@ each(
 arrayToString(arr, separator_string)
 ```
 
+#### access an image URL from an ODK submission
+```js
+// In ODK the image URL is inside an image object...
+field("Photo_URL_text__c", dataValue("image.url")),
+```
+
 #### alterState (alter state) to make sure data is in an array
 ```js
 // Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
