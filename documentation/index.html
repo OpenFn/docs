@@ -781,6 +781,12 @@
 </pre></div>
 
 
+<h4 id="access-an-image-url-from-an-odk-submission">access an image URL from an ODK submission<a class="headerlink" href="#access-an-image-url-from-an-odk-submission" title="Permanent link">#</a></h4>
+<div class="code"><pre><span></span><span class="c1">// In ODK the image URL is inside an image object...</span>
+<span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Photo_URL_text__c&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;image.url&quot;</span><span class="p">)),</span>
+</pre></div>
+
+
 <h4 id="alterstate-alter-state-to-make-sure-data-is-in-an-array">alterState (alter state) to make sure data is in an array<a class="headerlink" href="#alterstate-alter-state-to-make-sure-data-is-in-an-array" title="Permanent link">#</a></h4>
 <div class="code"><pre><span></span><span class="c1">// Here, we make sure CommCare gives us an array to use in each(merge(...), ...)</span>
 <span class="nx">alterState</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
