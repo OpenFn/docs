@@ -1,4 +1,6 @@
-# Quick-start guide
+# Open Function Documentation
+
+## Quick-start guide
 
 **1. Create your account.** If you haven't already, create an account at [OpenFn.org](https://www.openfn.org/signup)
 
@@ -33,7 +35,7 @@ Navigate to **Credentials** to edit the destination system you want to connect t
 
 Navigate to the **Settings** tab to change the project's name, upgrade your account for more jobs and runs, add collaborators, and transfer project ownership.
 
-# Connecting Source Applications
+## Connecting Source Applications
 Most modern web applications have a feature that allows you to `push`, `publish`, or `post` data to another URL when a certain **event** takes place. This event could be a form submission, mobile payment, patient registration, or barcode scan submission from a mobile app. The key is that your source application will notify OpenFn when *something happens*.
 
 1. Go to the "settings" or "administration" page for your source app, and look for a `Webhook API`, `Data Forwarding API`, or `Notifications API`. Write to the developers of your application if none is provided out of the box.
@@ -45,7 +47,7 @@ Most modern web applications have a feature that allows you to `push`, `publish`
 ## Creating a compatible notifications service
 If you are a developer, looking to set up a compatible notifications API for OpenFn, please see our [Application Developers](/source-applications/#application-developers) section.
 
-# Triggers
+## Triggers
 Triggers run jobs. They can either be "filter" triggers or "timer" triggers. Filter triggers watch incoming messages and run them through jobs when they match the filter criteria. Timer triggers run jobs after a recurring interval has elapsed.
 
 You, as a user, specify the filter **criteria** which determines which messages in your inbox should trigger job runs. This means that if any segment of a message body **matches** the string of `JSON` you gave as a filter, the filter will run and trigger a job (assuming you created one).
@@ -58,7 +60,7 @@ SELECT * FROM receipts
     '{"Name":"Aleksa Iwobi"}'::jsonb;
 ```
 
-## Filter Matching
+### Filter Matching
 To illustrate filter matching, refer to the `JSON` strings below. Message "a" will match filter '1', but message "b" will not.
 
 ### filter 1:
@@ -77,7 +79,7 @@ To illustrate filter matching, refer to the `JSON` strings below. Message "a" wi
 ```
 Message 'b' does not include `"formID":"patient_registration_v7"` and will not match filter '1'.
 
-# Credentials
+## Credentials
 Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.
 
 Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final "/" in these Urls:
@@ -85,7 +87,7 @@ Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUr
 
 Credentials can only be viewed, or edited by a single user — their "owner" (or the person that created that credential). All the collaborators on a particular project can choose those credentials for use when defining a job.
 
-# Jobs
+## Jobs
 A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed.
 
 ### Composing Job Expressions
@@ -107,11 +109,12 @@ create("Patient__c", fields(
     ).join(', ')
   })
   field("Age__c", 7)
+));
 ```
 
 Here, the patient's name will be a comma separated concatenation of all the values in the `patient_names` array from our source message.
 
-## Available Javascript Globals
+### Available Javascript Globals
 For security reasons, users start with access to the following standard Javascript globals, and can request more by opening an issue on Github:
 
 - Array
@@ -130,10 +133,10 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 2. **Credential** - The credential that will be used to gain access to that destination system.
 4. **Active?** - A boolean which determines whether the job runs in real-time when matching messages arrive.
 
-## Selected Named Functions
+### Selected Named Functions
 There are lots more available in the language-packs.
 
-### language-common
+#### language-common
 - `field('destination_field_name__c', 'value')` Returns a key, value pair in an array. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L248)
 - `fields(list_of_fields)` zips key value pairs into an object. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L258)
 - `dataValue('JSON_path')` Picks out a single value from source data. [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L71)
@@ -145,29 +148,28 @@ There are lots more available in the language-packs.
 #### `beta.each(JSON_path, operation(...))`
 Scopes an array of data based on a JSONPath but then returns to the state it was given upon completion [(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44). This is necessary if you string multiple `each(...)` functions together in-line in the same expression. (E.g., Given data which has multiple separate 'repeat groups' in a form which are rendered as arrays, you want to create new records for each item inside the first repeat group, then _RETURN TO THE TOP LEVEL_ of the data, and then create new records for each item in the second repeat group. Using `beta.each(...)` lets you enter the first array, create your records, then return to the top level and be able to enter the second array.
 
-### Salesforce
+#### Salesforce
 - `create("DEST_OBJECT_NAME__C", fields(...))` Create a new object. Takes 2 parameters: An object and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63)
 - `upsert("DEST_OBJECT_NAME__C", "DEST_OBJECT_EXTERNAL_ID__C", fields(...))` Creates or updates an object. Takes 3 paraneters: An object, an ID field and attributes. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80)
 - `relationship("DEST_RELATIONSHIP_NAME__r", "EXTERNAL_ID_ON_RELATED_OBJECT__C", "SOURCE_DATA_OR_VALUE")` Adds a lookup or 'dome insert' to a record. [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40)
 
-### dhis2
+#### dhis2
 - `event(...)` Creates an event. [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60)
 - `dataValueSet(...)` Send data values using the dataValueSets resource [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L62-L82)
 
-### OpenMRS
+#### OpenMRS
 - `person(...)` Takes a payload of data to create a person [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L31-L60)
 - `patient(...)` Takes a payload of data to create a patient [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90)
 
 **For code block examples of job expressions, go to the [Appendix](#appendix).**
 
-
-# Inbox
+## Inbox
 Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job. Messages are stored payloads or data that were sent via HTTP post to your inbox. They can be viewed in formatted JSON, edited, or manually processed (if they did not match a filter when they were originally delivered.)
 
 To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.
 
 
-# Activity
+## Activity
 In this section of the portal, you can view a list of all "runs" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).
 
 ### Runs
@@ -176,7 +178,7 @@ Runs are attempts made on a destination system by running a receipt through a Jo
 > **Note:** Some runs may take a really long time, particularly if they are performing multiple actions in a destination system or if they are fetching lots of data from a REST api at the start of a migration. They will appear as red if they have failed. In the case of failure, refer to our [Troubleshooting](#troubleshooting) section below.
 
 
-# Troubleshooting
+## Troubleshooting
 
 > What happens if my survey data from ODK needs to link to existing records in my Salesforce system but a respondent enters or selects an invalid `external ID`?
 
@@ -194,15 +196,14 @@ Great question, and don't worry, it happens all the time. Assuming you've alread
 
 Editing data in your destination system can be done through that system's interface. Many tools that act as `sources` (like ODK) do not allow for easy editing and re-submission of data. You can use OpenFn to edit the source data before retrying the attempt.
 
-## Common Error Messages
+### Common Error Messages
 The most common error messages with English explanations are:
 
 + `DUPLICATE_VALUE: duplicate value found: ODK_uuid__c duplicates value on record with id: a0524000005wNw0` - The insert is blocked because you are attempting to create a new record with a unique field with the same value as an existing record.
 + `Required value missing`
 + `ExternalId not found`
 
-
-# DIY
+## DIY
 
 OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line. You can even take this further and wrap them together in your own hosted service!
 
@@ -235,12 +236,12 @@ Make sure that a single inbound message can kick off the running of multiple job
 
 To get started, or just run fn-lang manually, from your command line, check out [openfn-devtools](https://github.com/OpenFn/openfn-devtools). With windows and linux install scripts, it's the fastest way to get up and running with OpenFn on your local machine.
 
-# Appendix
+## Appendix
 
-## Sample code for DIY section
+### Sample code for DIY section
 Below you can find sample code to fill the 3 files required to run fn-lang - `message.json`, `expression.js` and `config.json`.
 
-### message.json
+#### message.json
 ```json
 {
   "xform_ids": [],
@@ -263,7 +264,7 @@ Below you can find sample code to fill the 3 files required to run fn-lang - `me
 }
 ```
 
-### expression.js
+#### expression.js
 ```js
 event(
   fields(
@@ -287,7 +288,7 @@ event(
 )
 ```
 
-### config.json
+#### config.json
 ```json
 {
   "username": "admin",
@@ -296,29 +297,29 @@ event(
 }
 ```
 
-## More example filters
-### Match messages `WHERE` the `formId` is `"Robot_Photo_21.04.2015"`:
+### Filters (cont.)
+#### Match messages `WHERE` the `formId` is `"Robot_Photo_21.04.2015"`:
 ```json
 {"formId":"Robot_Photo_21.04.2015"}
 ```
 
-### Match a message `WHERE` this `AND` that are both included:
+#### Match a message `WHERE` this `AND` that are both included:
 ```json
 {"formId":"Robot_Photo_21.04.2015", "secret_number":8}
 ```
 
-### Match a message with two fragments inside an array called `data`:
+#### Match a message with two fragments inside an array called `data`:
 (This is useful when gathering data via ODK)
 ```json
 {"data":[{"outlet_call":"TRUE","new_existing":"Existing"}]}
 ```
 
-### Match a message with a fragment inside another object called `form`:
+#### Match a message with a fragment inside another object called `form`:
 ```json
 {"form":{"@xmlns":"http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}
 ```
 
-## More example jobs
+### Jobs (cont.)
 Below you can find some examples of block code for different functions and data handling contexts.
 
 #### Job expression (for CommCare to SF)
@@ -409,10 +410,10 @@ beta.each(
 #### Salesforce: perform an update
 ```js
 update("Patient__c", fields(
-  field("Id", dataValue("pathToSalesforceId"),
+  field("Id", dataValue("pathToSalesforceId")),
   field("Name__c", dataValue("patient.first_name")),
   field(...)
-))
+));
 ```
 
 #### Salesforce: Set record type using 'relationship(...)'
@@ -452,7 +453,7 @@ send(
       )
     })
   )
-)
+);
 ```
 
 #### HTTP: fetch but don't fail!
@@ -598,7 +599,7 @@ each(
 );
 ```
 
-## Examples of Anonymous Functions
+### Anonymous Functions (cont.)
 Different to [Named Functions](#named-functions), Anoynmous functions are generic pieces of javascript which you can write to suit your needs. Here are some examples of these custom functions:
 
 #### Custom replacer
@@ -637,7 +638,7 @@ field("ODK_Key__c", function (state) {
 ```
 This will concatenate two values.
 
-### Custom concatenation of null values
+#### Concatenation of null values
 This will concatenate many values, even if one or more are null, writing them to a field called Main_Office_City_c.
 
 ```js
