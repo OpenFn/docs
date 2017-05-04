@@ -14,6 +14,8 @@ copyright: 'Copyright (c) 2016 Open Function Group'
 # Documentation and theme
 docs_dir: 'docs'
 theme: 'material'
+extra_css:
+  - customizations.css
 
 # Options
 extra:
