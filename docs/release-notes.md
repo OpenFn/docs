@@ -1,3 +1,8 @@
+# Version 1.10.0 (2017-05-04)
+New features:
+
+- GitHub integration now generally available for enterprise users. Self-setup interface completed.
+
 # Version 1.9.0 (2017-03-07)
 New features:
 

@@ -1,17 +1,7 @@
 # Setting up real-time sources
-This section describes how to enable push notifications from selected source applications. Many web apps have some sort of events-based notifications engine. If you don't see yours listed below feel free to add it with a pull request.
+This section describes how to enable push notifications from selected source applications or how to configure pull jobs to fetch data from those sources. If you don't see yours in the alphabetical list below feel free to add it with a pull request.
 
-## SurveyCTO
-SurveyCTO does not push data to OpenFn. In order to fetch data from SurveyCTO, you must run a job on a timer, like this:
-```js
-fetchSubmissions(
-  "form_id", //the form id
-  "Sep 1, 2016 3:56:02 PM", // the initial "after" date
-  // after the first run, OpenFn will only fetch new submissions
-  "https://www.openfn.org/inbox/something-secret" //the inbox to post form data to.
-)
-```
-Now, your SurveyCTO data will be flowing into OpenFn and you can set up normal filters and jobs as necessary.
+***N.B.: This is by no means an exhaustive list.*** It is merely a list of common sources that external contributors have added. Remember that anything with a REST api or a JSON-based notification service can be used with OpenFn.
 
 ## CommCare HQ
 1. Go to "Project Settings".
@@ -20,6 +10,30 @@ Now, your SurveyCTO data will be flowing into OpenFn and you can set up normal f
 4. Specify JSON, using your OpenFn inbox URL as the target. See the [CommCare documentation](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128).
 2. Create a [message-filter trigger like this](https://openfn.github.io/docs/documentation/#match-a-message-with-a-fragment-inside-another-object-called-form).
 3. Set up a `job` running on that filter to process CommCare submissions or case updates.
+
+## Magpi
+Magpi does not push data to OpenFn. In order to fetch data from Magpi, you must run a job on a timer using `langugage-magpi`:
+```js
+fetchSurveyData({
+  "surveyId": 37479, // the survey id
+  "afterDate": "2016-05-31", // the initial "after" date
+  // after the first run, OpenFn will only fetch new submissions
+  "postUrl": "https://www.openfn.org/inbox/secret-5c25-inbox-ba2c-url" // the inbox to post form data to.
+});
+```
+Every time this job runs it will only fetch new data, by default.
+
+## SurveyCTO
+SurveyCTO does not push data to OpenFn. In order to fetch data from SurveyCTO, you must run a job on a using `language-surveycto`:
+```js
+fetchSubmissions(
+  "form_id", // the form id
+  "Sep 1, 2016 3:56:02 PM", // the initial "after" date
+  // after the first run, OpenFn will only fetch new submissions
+  "https://www.openfn.org/inbox/something-secret" // the inbox to post form data to.
+)
+```
+Every time this job runs it will only fetch new data, by default.
 
 ## Open Data Kit (ODK) Aggregate
 1. To new submissions from ODK in real-time, click the "Form Management" tab at the top of your Aggregate interface.
