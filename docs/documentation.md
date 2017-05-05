@@ -63,17 +63,17 @@ SELECT * FROM receipts
 ### Filter Matching
 To illustrate filter matching, refer to the `JSON` strings below. Message "a" will match filter '1', but message "b" will not.
 
-### filter 1:
+#### Filter 1:
 ```json
 {"formID":"patient_registration_v7"}
 ```
 
-### message a (MATCH):
+#### Message a (MATCH):
 ```json
 {"submissionDate":"2016-01-15", "formID":"patient_registration_v7", "name":"Jack Wilshere", "dob":"1986-05-16", "medications": ["anaphlene","zaradood","morphofast"]}
 ```
 
-### message b (NO MATCH):
+#### Message b (NO MATCH):
 ```json
 {"submissionDate":"2016-01-16", "formID":"patient_registration_v8", "name":"Larry Bird", "dob":"1982-03-21", "medications": ["anaphlene","zaradood","morphofast"]}
 ```
