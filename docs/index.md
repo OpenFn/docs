@@ -1,5 +1,3 @@
-# Introduction
-
 This documentation is for [OpenFn.org](https://www.openfn.org), and is primarily
 intended to help users of the site. Technical documentation for OpenFn's
 open-source integration tools and language-packs can be found in their
