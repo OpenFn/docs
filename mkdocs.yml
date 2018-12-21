@@ -14,7 +14,14 @@ copyright: 'Copyright (c) 2018 Open Function Group'
 
 # Documentation and theme
 docs_dir: 'docs'
-theme: 'material'
+theme:
+  name: 'material'
+  palette:
+    primary: 'blue'
+    accent: 'pink'
+  font:
+    text: 'Roboto'
+    code: 'Roboto Mono'
 extra_css:
   - customizations.css
 
@@ -22,17 +29,12 @@ nav:
   - 'Introduction': 'index.md'
   - 'Platform Docs': 'documentation.md'
   - 'Release Notes': 'release-notes.md'
+  - 'Job Execution': 'core.md'
   - 'Source Apps': 'source-apps.md'
 
 # Options
 extra:
   logo: ''
-  palette:
-    primary: 'indigo'
-    accent: 'light blue'
-  font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
   i18n:
     prev: 'Previous'
     next: 'Next'
