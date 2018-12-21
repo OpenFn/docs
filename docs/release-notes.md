@@ -1,22 +1,22 @@
-# Version 1.10.0 (2017-05-04)
+## Version 1.10.0 (2017-05-04)
 New features:
 
 - GitHub integration now generally available for enterprise users. Self-setup interface completed.
 
-# Version 1.9.0 (2017-03-07)
+## Version 1.9.0 (2017-03-07)
 New features:
 
 - View matching messages in the job writing interface when a message filter trigger is selected.
 - "Tree view" exposed for job expression viewing. With valid syntax, you're able to see your expression as a syntax tree as we step slowly towards a more point-and-click interface.
 
-# Version 1.75.0 (2016-12-08)
+## Version 1.75.0 (2016-12-08)
 
 New features:
 
 - Hold control while clicking on navigation buttons to open the target in a new window.
 - Filter messages in your inbox by their content by selecting a message-filter trigger.
 
-# Version 1.7.0 (2016-12-05)
+## Version 1.7.0 (2016-12-05)
 #### _1.7 is all about user experience!_
 New features:
 
@@ -34,7 +34,7 @@ New features:
 - Add material design to *this* documentation page!
 
 
-# Version 1.6.0 (2016-11-24)
+## Version 1.6.0 (2016-11-24)
 
 New features:
 
@@ -75,7 +75,7 @@ fetchWithErrors({
 })
 ```
 
-# Version 1.5.0 (2016-10-05)
+## Version 1.5.0 (2016-10-05)
 
 New features:
 
@@ -90,7 +90,7 @@ New features:
 
 **status.openfn.org**: is now live, providing continual testing of key OpenFn services. We run both message-filter-based and timer-trigger-based jobs every five minutes to ensure availability, as well as measuring the round-trip time (in ms) that it takes for a server in a different geographical location to send valid JSON to OpenFn then receive and process the 200 response. (This time will vary according to the location of your servers, but it's important to note that we test the full round trip. Our servers typically send out 200s in about 5-6ms, but you can expect the round trip to complete in closer to 750ms.)
 
-# Version 1.4.0 (2016-09-26)
+## Version 1.4.0 (2016-09-26)
 
 New features:
 
@@ -104,13 +104,13 @@ New features:
 
 **Login/signup errors:** Until now, invalid login messages and duplicate singup emails had been only displayed in your brower's logs. (That's our fault.) You'll now see a handy "invalid credentials" or "email already registered" message when trying to log in or sign up.
 
-# Version 1.3.0 (2016-09-20)
+## Version 1.3.0 (2016-09-20)
 
 - New version of language-salesforce allows users to `alterState` with a custom function.
 
 **alterState:** [documentation](https://openfn.github.io/docs/documentation/#alterstate-alter-state-to-make-sure-data-is-in-an-array)
 
-# Version 1.2.0 (2016-09-15)
+## Version 1.2.0 (2016-09-15)
 
 - Users can now select specific adaptor versions for their jobs.
 - Jobs will "auto-upgrade" unless locked to a specific version.
@@ -119,7 +119,7 @@ New features:
 
 Each new version of an adaptor will have release notes introducing the new features or changes to helper functions. To allow easy upgrades, we will still mandate that all new versions are backwards compatible.
 
-# Version 1.1.0 (2016-08-29)
+## Version 1.1.0 (2016-08-29)
 
 New features:
 

@@ -1,4 +1,4 @@
-# Introduction to the docs
+# Introduction
 
 This documentation is for [OpenFn.org](https://www.openfn.org), and is primarily
 intended to help users of the site. Technical documentation for OpenFn's
@@ -23,7 +23,9 @@ Please make sure to check out the [OpenFn Google
 Group](https://groups.google.com/forum/#!forum/openfn) if you've got questions
 that aren't answered here.
 
-## FAQs ### ***What is OpenFn?***
+## FAQs
+
+### ***What is OpenFn?***
 
 OpenFn is an ***integration platform as a service***. This means our prime
 directive is to move data quickly and securely between different software

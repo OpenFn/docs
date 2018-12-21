@@ -9,7 +9,7 @@ repo_name: 'GitHub'
 repo_url: 'https://github.com/OpenFn/docs'
 
 # Copyright
-copyright: 'Copyright (c) 2017 Open Function Group'
+copyright: 'Copyright (c) 2019 Open Function Group'
 
 # Documentation and theme
 docs_dir: 'docs'
