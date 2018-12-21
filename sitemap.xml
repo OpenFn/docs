@@ -1,44 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-    
     <url>
-     <loc>https://openfn.github.io/docs//</loc>
+     <loc>https://openfn.github.io/docs/</loc>
      <lastmod>2018-12-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>https://openfn.github.io/docs//documentation/</loc>
+     <loc>https://openfn.github.io/docs/docs/</loc>
      <lastmod>2018-12-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>https://openfn.github.io/docs//github-integration/</loc>
+     <loc>https://openfn.github.io/docs/release-notes/</loc>
      <lastmod>2018-12-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
     <url>
-     <loc>https://openfn.github.io/docs//release-notes/</loc>
+     <loc>https://openfn.github.io/docs/source-apps/</loc>
      <lastmod>2018-12-21</lastmod>
      <changefreq>daily</changefreq>
     </url>
-    
-
-    
-    <url>
-     <loc>https://openfn.github.io/docs//source-applications/</loc>
-     <lastmod>2018-12-21</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
 </urlset>
