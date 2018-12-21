@@ -3,6 +3,7 @@ site_name: 'OpenFn Documentation'
 site_description: 'README, Getting Started, Documentation, and Release Notes for OpenFn'
 site_author: 'OpenFn'
 site_url: 'https://openfn.github.io/docs'
+use_directory_urls: false
 
 # Repository
 repo_name: 'GitHub'
@@ -19,7 +20,7 @@ extra_css:
 
 nav:
   - 'Introduction': 'index.md'
-  - 'Docs': 'docs.md'
+  - 'Platform Docs': 'documentation.md'
   - 'Release Notes': 'release-notes.md'
   - 'Source Apps': 'source-apps.md'
 

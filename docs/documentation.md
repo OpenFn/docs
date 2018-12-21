@@ -1,3 +1,5 @@
+# Platform Docs
+
 ## Quick-start guide
 
 **1. Create your account.** If you haven't already, create an account at [OpenFn.org](https://www.openfn.org/signup)
