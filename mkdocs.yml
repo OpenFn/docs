@@ -10,18 +10,19 @@ repo_name: 'GitHub'
 repo_url: 'https://github.com/OpenFn/docs'
 
 # Copyright
-copyright: 'Copyright (c) 2018 Open Function Group'
+copyright: 'Copyright (c) 2019 Open Function Group LLC'
 
 # Documentation and theme
 docs_dir: 'docs'
 theme:
   name: 'material'
   palette:
-    primary: 'blue'
+    primary: 'deep-purple'
     accent: 'pink'
   font:
-    text: 'Roboto'
-    code: 'Roboto Mono'
+    text: 'Inconsolata'
+    code: 'Inconsolata'
+
 extra_css:
   - customizations.css
 
@@ -41,6 +42,15 @@ extra:
   author:
     github: 'openfn'
     twitter: 'openfn'
+  social:
+    - type: 'github'
+      link: 'https://github.com/openfn'
+    - type: 'facebook'
+      link: 'https://facebook.com/openfn'
+    - type: 'twitter'
+      link: 'https://twitter.com/openfn'
+    - type: 'linkedin'
+      link: 'https://linkedin.com/in/openfn'
 
 # Google Analytics
 google_analytics:
@@ -49,7 +59,8 @@ google_analytics:
 
 # Extensions
 markdown_extensions:
-  - codehilite(css_class=code)
+  - codehilite:
+      linenums: true
   - admonition
   - toc:
       permalink: '#'

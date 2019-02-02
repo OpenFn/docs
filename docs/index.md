@@ -7,10 +7,11 @@ There are five sections in this documentation site: an introduction (you are
 here), detailed documentation, GitHub version control documentation, source
 application setup walkthroughs, and release notes.
 
-If you want a new feature or find a bug, please [submit an
-issue](https://github.com/openfn/docs/issues). If you find an issue with the
-documentation or want to share your custom functions, you can make those changes
-yourself and [submit a pull request](https://github.com/OpenFn/docs/compare)!
+!!! info "You Can Contribute"
+    If you want a new feature or find a bug, please [submit an
+    issue](https://github.com/openfn/docs/issues). If you find an issue with the
+    documentation or want to share your custom functions, you can make those changes
+    yourself and [submit a pull request](https://github.com/OpenFn/docs/compare)!
 
 If you have any questions, please don't hesitate to email
 [admin@openfn.org](mailto:admin@openfn.org).
