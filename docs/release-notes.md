@@ -1,3 +1,24 @@
+## Version 1.20.1 (2019-03-07)
+New features:
+
+- Messages & the "Inbox" view
+ - Filter messages by text. (Be patient, doing tsvector searching across millions of payloads.)
+ - Filter by date. (Default inbox view shows last 30 days.)
+ - Export messages as a CSV, based on your currently applied filters.
+ - Bulk reprocess messages in a series.
+ - All projects on paid plans now have their own queues.
+ - Partial loading to address inbox view performance issues: messages are loaded first on the inbox view, and then their related "run states" are calculated and loaded in a second action.
+- Runs & the "Activity History" view
+ - Filter runs by text in the run log. (This is a full text search and may take some time.)
+ - Filter by date. (Default activity history view shows last 30 days.)
+ - Bulk retry messages in a series. (With the ability to limit retries to a certain job.)
+- Project Settings
+ - View the "inbox URL" as text with a click-to-reveal button.
+ - Show "pace" of estimated usage to determine when a plan upgrade will be necessary.
+- Jobs
+ - Ability to create a job, and a trigger all from the same "Wizard" view.
+
+
 ## Version 1.10.0 (2017-05-04)
 New features:
 
