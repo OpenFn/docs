@@ -1,23 +1,39 @@
-## Version 1.20.1 (2019-03-07)
+## Version 1.20.0 (2019-03-07)
 New features:
+- **We've been busy, but negligent on release notes. To explain all that's
+changed we've broken the new features list into multiple sections.**
 
-- Messages & the "Inbox" view
- - Filter messages by text. (Be patient, doing tsvector searching across millions of payloads.)
- - Filter by date. (Default inbox view shows last 30 days.)
- - Export messages as a CSV, based on your currently applied filters.
- - Bulk reprocess messages in a series.
- - All projects on paid plans now have their own queues.
- - Partial loading to address inbox view performance issues: messages are loaded first on the inbox view, and then their related "run states" are calculated and loaded in a second action.
-- Runs & the "Activity History" view
- - Filter runs by text in the run log. (This is a full text search and may take some time.)
- - Filter by date. (Default activity history view shows last 30 days.)
- - Bulk retry messages in a series. (With the ability to limit retries to a certain job.)
-- Project Settings
- - View the "inbox URL" as text with a click-to-reveal button.
- - Show "pace" of estimated usage to determine when a plan upgrade will be necessary.
-- Jobs
- - Ability to create a job, and a trigger all from the same "Wizard" view.
+Messages & the "Inbox" view:
 
+- **Filter messages by body text**. (Be patient, doing `tsvector` searching across millions
+of payloads.)
+- Filter by date. (Default inbox view shows last 30 days.)
+- **Export messages** as a CSV, based on your currently applied filters.
+- **Bulk reprocess messages** in a series.
+- All projects on paid plans now have their own job running queues.
+- Partial loading to address inbox view performance issues: messages are loaded
+first on the inbox view, and then their related "run states" are calculated and
+loaded in a second action.
+
+Runs & the "Activity History" view:
+- **Filter runs by log text**. (This is a full text search and may take some time.)
+- Filter by date. (Default activity history view shows last 30 days.)
+- **Bulk retry runs** in a series. (With the ability to limit retries to a certain job.)
+- **Export runs** as a CSV, based on your currently applied filters.
+
+Authentication & Security:
+- Require basic auth or token auth to make HTTP requests to a project inbox.
+
+Project Settings:
+- View the "inbox URL" as text with a click-to-reveal button.
+- Show "pace" of estimated usage to determine when a plan upgrade will be necessary.
+
+Jobs:
+- Ability to create a job, and a trigger all from the same "Wizard" view.
+
+Triggers:
+- Ability to create "success" and "failure" triggers so that jobs can
+be run based on the success or failure of another job run.
 
 ## Version 1.10.0 (2017-05-04)
 New features:
