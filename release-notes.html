@@ -113,7 +113,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#version-1100-2017-05-04" tabindex="1" class="md-skip">
+      <a href="#version-1201-2019-03-07" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -303,6 +303,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-1201-2019-03-07" title="Version 1.20.1 (2019-03-07)" class="md-nav__link">
+    Version 1.20.1 (2019-03-07)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-1100-2017-05-04" title="Version 1.10.0 (2017-05-04)" class="md-nav__link">
     Version 1.10.0 (2017-05-04)
   </a>
@@ -439,6 +446,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-1201-2019-03-07" title="Version 1.20.1 (2019-03-07)" class="md-nav__link">
+    Version 1.20.1 (2019-03-07)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-1100-2017-05-04" title="Version 1.10.0 (2017-05-04)" class="md-nav__link">
     Version 1.10.0 (2017-05-04)
   </a>
@@ -542,7 +556,27 @@
                 
                   <h1>Release Notes</h1>
                 
-                <h2 id="version-1100-2017-05-04">Version 1.10.0 (2017-05-04)<a class="headerlink" href="#version-1100-2017-05-04" title="Permanent link">#</a></h2>
+                <h2 id="version-1201-2019-03-07">Version 1.20.1 (2019-03-07)<a class="headerlink" href="#version-1201-2019-03-07" title="Permanent link">#</a></h2>
+<p>New features:</p>
+<ul>
+<li>Messages &amp; the "Inbox" view</li>
+<li>Filter messages by text. (Be patient, doing tsvector searching across millions of payloads.)</li>
+<li>Filter by date. (Default inbox view shows last 30 days.)</li>
+<li>Export messages as a CSV, based on your currently applied filters.</li>
+<li>Bulk reprocess messages in a series.</li>
+<li>All projects on paid plans now have their own queues.</li>
+<li>Partial loading to address inbox view performance issues: messages are loaded first on the inbox view, and then their related "run states" are calculated and loaded in a second action.</li>
+<li>Runs &amp; the "Activity History" view</li>
+<li>Filter runs by text in the run log. (This is a full text search and may take some time.)</li>
+<li>Filter by date. (Default activity history view shows last 30 days.)</li>
+<li>Bulk retry messages in a series. (With the ability to limit retries to a certain job.)</li>
+<li>Project Settings</li>
+<li>View the "inbox URL" as text with a click-to-reveal button.</li>
+<li>Show "pace" of estimated usage to determine when a plan upgrade will be necessary.</li>
+<li>Jobs</li>
+<li>Ability to create a job, and a trigger all from the same "Wizard" view.</li>
+</ul>
+<h2 id="version-1100-2017-05-04">Version 1.10.0 (2017-05-04)<a class="headerlink" href="#version-1100-2017-05-04" title="Permanent link">#</a></h2>
 <p>New features:</p>
 <ul>
 <li>GitHub integration now generally available for enterprise users. Self-setup interface completed.</li>
