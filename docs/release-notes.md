@@ -1,3 +1,10 @@
+## Version 1.21.0 (2019-03-07)
+New features:
+
+- Added buttons to the Job, Run, and Activity History pages that allow a user to
+**run a time triggered job on demand** so that they don't have to wait for the
+timer to expire to test.
+
 ## Version 1.20.0 (2019-03-07)
 New features:
 - **We've been busy, but negligent on release notes. To explain all that's
