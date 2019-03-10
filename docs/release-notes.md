@@ -1,4 +1,10 @@
-## Version 1.21.0 (2019-03-07)
+## Version 1.22.0 (2019-03-10)
+New features:
+
+- Allow **filtering by run status (any, success, failed) for bulk retrying
+runs** in the Run Retry modal.
+
+## Version 1.21.0 (2019-03-09)
 New features:
 
 - Added buttons to the Job, Run, and Activity History pages that allow a user to
