@@ -3,6 +3,9 @@ New features:
 
 - Allow **filtering by run status (any, success, failed) for bulk retrying
 runs** in the Run Retry modal.
+- Hovering over a message/run **displays the full date-time** at which it was
+received/started as well as the relative time (i.e., how long ago) of that
+action.
 
 ## Version 1.21.0 (2019-03-09)
 New features:
