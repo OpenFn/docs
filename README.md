@@ -1,10 +1,18 @@
-Welcome to OpenFn's documentation repo.
+# OpenFn Documentation
 
-All documentation can be found at [openfn.github.io/docs](https://openfn.github.io/docs) and in the `/docs` folder of this repository.
+## [openfn.github.io/docs](https://openfn.github.io/docs)
+To view the documentation please visit
+[openfn.github.io/docs](https://openfn.github.io/docs).
 
-Documentation for various OpenFn tools, such as [fn-lang](https://github.com/OpenFn/fn-lang), [openfn-devtools](https://github.com/OpenFn/openfn-devtools) and all of our open-source language packages can be found in [OpenFn's Github organization](https://github.com/OpenFn).
+Documentation for various OpenFn tools, such as
+[openfn/core](https://github.com/OpenFn/core),
+[openfn-devtools](https://github.com/OpenFn/openfn-devtools) and all of our
+open-source language packages can be found in [OpenFn's Github
+organization](https://github.com/OpenFn).
 
-Please feel free to open an issue here if you're having trouble or would like to request a new feature!
+This repository is used to maintain the docs site, and for users to submit
+issues and feature requests.
 
-Thank you,
-The OpenFn Core Team
+## Buidling and deploying the public docs site
+- `mkdocs serve` to serve locally and test
+- `mkdocs gh-deploy` to deploy to openfn.github.io/docs
