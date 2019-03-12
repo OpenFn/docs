@@ -178,6 +178,13 @@ Your inbox contains the history of all messages that have passed in to your proj
 
 To edit a message, click the "pencil and paper" icon next to that receipt. Be careful, as no original copy will be persisted.
 
+### Filter messages in your inbox
+To help you more quickly find relevant messages, you can now filter your inbox by:
+- *Body Text* - Search your messages for specific text (e.g., find surveys that contain “India” in the body). As individual projects may have millions of messages containing tens of thousands of lines of JSON each, we’ve implemented a “tsvector” search strategy. Please be patient and note that this text-based search may take a moment to return results.. If you’re curious about how tsvector works from a technical perspective, check out the [official documentation](https://www.postgresql.org/docs/10/datatype-textsearch.html#DATATYPE-TSVECTOR).
+- *Date* - Choose a relative date range (e.g., “Last 90 Days”) or define a custom date range yourself. Note that the default inbox view shows “Last 30 Days”.
+
+![Image of Inbox Filters](https://github.com/OpenFn/docs/blob/master/docs/images/inbox_filter.png)
+
 
 ## Activity
 In this section of the portal, you can view a list of all "runs" - i.e. individual job runs. This list is essentially a compilation of all jobs, messages and credentials flowing through your OpenFn account towards your destination system(s).
