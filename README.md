@@ -1,6 +1,6 @@
-# OpenFn Documentation
+# OpenFn Documentation & Issue Tracking
 
-## [openfn.github.io/docs](https://openfn.github.io/docs)
+## ![Logo](/docs/images/round-logo.png) [openfn.github.io/docs](https://openfn.github.io/docs)
 To view the documentation please visit
 [openfn.github.io/docs](https://openfn.github.io/docs).
 
@@ -13,6 +13,10 @@ organization](https://github.com/OpenFn).
 This repository is used to maintain the docs site, and for users to submit
 issues and feature requests.
 
-## Buidling and deploying the public docs site
+## Writing documentation
+- Install and familiarize yourself with [mkdocs](https://www.mkdocs.org/).
+- `[Link name](/relative-path/#some-section)` to link to sections on this site.
+- `[Link name](https://www.openfn.org)` to link to external websites.
+- `![Screenshot](/relative-path/screenshot.png)` to include an image.
 - `mkdocs serve` to serve locally and test
 - `mkdocs gh-deploy` to deploy to openfn.github.io/docs
