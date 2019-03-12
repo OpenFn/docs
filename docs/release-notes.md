@@ -1,3 +1,10 @@
+## Version 1.23.0 (2019-03-12)
+New features:
+
+- Allow users to **create new messages** by making fully configurable HTTP
+requests from their browsers in the Inbox view. (Accessed by clicking the "+"
+floating action button in the bottom right of the Inbox view.)
+
 ## Version 1.22.0 (2019-03-10)
 New features:
 
