@@ -1,9 +1,10 @@
 # OpenFn Documentation & Issue Tracking
 
-## ![Logo](/docs/images/round-logo.png) [openfn.github.io/docs](https://openfn.github.io/docs)
-To view the documentation please visit
-[openfn.github.io/docs](https://openfn.github.io/docs).
+## [![Logo](/docs/images/round-logo.png)&nbsp;&nbsp;openfn.github.io/docs](https://openfn.github.io/docs)
+***To view the documentation please visit
+[openfn.github.io/docs](https://openfn.github.io/docs).***
 
+## Other documentation
 Documentation for various OpenFn tools, such as
 [openfn/core](https://github.com/OpenFn/core),
 [openfn-devtools](https://github.com/OpenFn/openfn-devtools) and all of our
