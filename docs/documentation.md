@@ -92,9 +92,9 @@ Message 'b' does not include `"formID":"patient_registration_v7"` and will not m
 ### Processing time-triggered jobs
 **On-demand processing for jobs triggered by timers.** If you’re leveraging timer triggers to run jobs at specific time intervals, you can now run a time triggered job on demand. This way you don’t have to wait for the timer to expire before testing! Simply click the process/ “play” button now available via the Job, Run, and Activity History pages.
 
-![Runs list run time trigger buttton](/images/timetriggerunslist.png)
+![Runs list run time trigger buttton](/docs/images/timetriggerunslist.png)
 
-![Run history time trigger buttton](/images/runtimetrigger1.png)
+![Run history time trigger buttton](/docs/images/runtimetrigger1.png)
 
 ## Credentials
 Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.
@@ -191,23 +191,23 @@ To help you more quickly find relevant messages, you can now filter your inbox b
 - **Body Text** - Search your messages for specific text (e.g., find surveys that contain “India” in the body). As individual projects may have millions of messages containing tens of thousands of lines of JSON each, we’ve implemented a “tsvector” search strategy. Please be patient and note that this text-based search may take a moment to return results.. If you’re curious about how tsvector works from a technical perspective, check out the [official documentation](https://www.postgresql.org/docs/10/datatype-textsearch.html#DATATYPE-TSVECTOR).
 - **Date** - Choose a relative date range (e.g., “Last 90 Days”) or define a custom date range yourself. Note that the default inbox view shows “Last 30 Days”.
 
-![Image of Inbox Filters](/images/inbox_filter.png)
+![Image of Inbox Filters](/docs/images/inbox_filter.png)
 
 ### Bulk reprocess messages
 Need to re-run a series of messages? If you had a job fail because of an error for multiple messages, or need to re-process the data in OpenFn to re-send to a destination application, then this feature will help you do so more quickly!
 
 1. Simply click on the new **Reprocess** button via the Inbox view.
-![Reprocess button](/images/reprocess_msgs.png)
+![Reprocess button](/docs/images/reprocess_msgs.png)
 
 2. Specify the **ID range** for messages that you want to re-run (e.g., messages with IDs 4622741 through 4622749 → 9 messages to reprocess).
-![Bulk reprocess screen](/images/bulk_reprocess.png)
+![Bulk reprocess screen](/docs/images/bulk_reprocess.png)
 
 **Note when bulk reprocessing messages:**
 
 - This will trigger any jobs that would have run when the given  messages first arrived in your OpenFn inbox. In other words, any jobs that are have the autoprocess setting “on” will automatically be run if triggered by one of the reprocessed messages.
 
 - Remember that OpenFn plans are run-based, and you can monitor usage in **Project Settings** to ensure that you don’t hit any run limits when bulk reprocessing!
-![Usage stats chart](/images/usage.png)
+![Usage stats chart](/docs/images/usage.png)
 
 ### Export messages to CSV
 You can now download and review OpenFn message data by exporting to a CSV file.
@@ -216,7 +216,7 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 
 2. Click the **Export as CSV** button to generate an export. The link to download this file will be sent to your email address.
 
-![Export CSV button](/images/exportcsv.png)
+![Export CSV button](/docs/images/exportcsv.png)
 
 
 ## Activity
@@ -238,10 +238,10 @@ You can filter the run logs in the Activity View by:
 Need to re-process a series of runs? This could be helpful if you had multiple runs fail due to an error message.
 
 1. Simply click on the new **Retry** button via the Runs view.
-![Retry run button](/images/retrybutton.png)
+![Retry run button](/docs/images/retrybutton.png)
 
 2. Specify the **ID range** for the runs that you want to re-process. Choose to filter by Job and/or Status to only reprocess runs associated with a specific job or runs that have failed/ succeeded.
-![Bulk retry runs](/images/runs_retry.png)
+![Bulk retry runs](/docs/images/runs_retry.png)
 
 
 Remember that OpenFn plans are run-based, and you can monitor usage in **Project Settings** to ensure that you don’t hit any run limits when bulk reprocessing!
@@ -252,7 +252,7 @@ You can download your run logs by exporting to a CSV file.
 1. Via the Runs Activity History view, filter the runs you’d like to export. Choose to filter by text, date, job, and status.
 
 2. Click the **Export as CSV** button to generate an export. The link to download this file will be sent to your email address.
-![Export runs button](/images/exportruns.png)
+![Export runs button](/docs/images/exportruns.png)
 
 
 ## GitHub version control
