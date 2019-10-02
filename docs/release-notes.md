@@ -1,3 +1,14 @@
+## Version 1.36.0 (2019-10-01)
+
+New features:
+
+- Allow messages to be deleted (in accordance with plan retention periods)
+  despite having more recent runs related to them. We set the message to
+  "null" for these younger runs, but the run logs will still be available until
+  they're past the retention period. This allows sensitive data in the initial
+  message payload to be purged with the retention period, while less sensitive
+  data in the run logs is still kept.
+
 ## Version 1.35.0 (2019-10-01)
 
 New features:
