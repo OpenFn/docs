@@ -623,19 +623,21 @@
 <li>Added more specific exit codes to runs for non-standard exits. Note that exit
   codes above 2 are <em>very</em> rare. See below for new codes from <code>v1.36.0</code> onwards.</li>
 </ul>
-<p>Enhanced Error Codes:
-- <code>0</code>: success (run succeeded, e.g. a destination system responded with a <code>200</code>)
-- <code>1</code>: error (run failed normally, e.g. a destination system responded with a
-  <code>4XX</code>, <code>5XX</code>, or some specialized <code>RequiredFieldMissing</code> error.)
-- <code>2</code>: run timed out (runs &gt;100s only supported in enterprise plans)
-- <code>3</code>: run could not start due to error (could relate to network traffic, but
+<p>Enhanced Error Codes:</p>
+<ul>
+<li><code>0</code>: success (run succeeded, e.g. a destination system responded with a <code>200</code>)</li>
+<li><code>1</code>: error (run failed normally, e.g. a destination system responded with a
+  <code>4XX</code>, <code>5XX</code>, or some specialized <code>RequiredFieldMissing</code> error.)</li>
+<li><code>2</code>: run timed out (runs &gt;100s only supported in enterprise plans)</li>
+<li><code>3</code>: run could not start due to error (could relate to network traffic, but
 very rare as an error <em>before</em> the run is started will be retried from Redis
-with an exponential backoff for a very long time)
-- <code>4</code>: run completed but logs could not be saved due to error (could relate to
+with an exponential backoff for a very long time)</li>
+<li><code>4</code>: run completed but logs could not be saved due to error (could relate to
 network traffice but very rare as an error <em>after</em> the run completed will be
-retried from Redis with an exponential backoff for a very long time)
-- <code>5</code>: unexpected error during job execution
-- <code>10</code>: error in <code>core/cli.js execute</code></p>
+retried from Redis with an exponential backoff for a very long time)</li>
+<li><code>5</code>: unexpected error during job execution</li>
+<li><code>10</code>: error in <code>core/cli.js execute</code></li>
+</ul>
 <h2 id="version-1350-2019-10-01">Version 1.35.0 (2019-10-01)<a class="headerlink" href="#version-1350-2019-10-01" title="Permanent link">#</a></h2>
 <p>New features:</p>
 <ul>
