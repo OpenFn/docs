@@ -8,6 +8,19 @@ New features:
   they're past the retention period. This allows sensitive data in the initial
   message payload to be purged with the retention period, while less sensitive
   data in the run logs is still kept.
+- Added more specific exit codes to runs for non-standard exits. Note that exit
+  codes above 2 are _very_ rare. The list from `v1.36.0` onwards is:
+  of exit codes is now:
+  - `0`: success (run succeeded)
+  - `1`: error (run failed normally)
+  - `2`: run timed out (runs >100s only supported in enterprise plans)
+  - `3`: run could not start due to error (could relate to network traffic, but very rare as an error _before_ the
+    run is started will be retried from Redis with an exponential backoff for a very long time)
+  - `4`: run completed but logs could not be saved due to error (could related
+    to network traffice but very rare as an error _after_ the
+    run completed will be retried from Redis with an exponential backoff for a very long time)
+  - `5`: unexpected error during job execution
+  - `10`: error in `core/cli.js execute`
 
 ## Version 1.35.0 (2019-10-01)
 
