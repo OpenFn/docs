@@ -12,6 +12,7 @@ New features:
   codes above 2 are _very_ rare. See below for new codes from `v1.36.0` onwards.
 
 Enhanced Error Codes:
+
 - `0`: success (run succeeded, e.g. a destination system responded with a `200`)
 - `1`: error (run failed normally, e.g. a destination system responded with a
   `4XX`, `5XX`, or some specialized `RequiredFieldMissing` error.)
