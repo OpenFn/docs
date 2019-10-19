@@ -13,7 +13,7 @@ configured it on the "Access & Security" page, no authentication is required.
 2. Click "Data Forwarding".
 3. "Add a forwarding location" for Cases, Forms, or both.
 4. Specify JSON, using your OpenFn inbox URL as the target. See the [CommCare documentation](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128).
-2. Create a [message-filter trigger like this](https://openfn.github.io/docs/documentation/#match-a-message-with-a-fragment-inside-another-object-called-form).
+2. Create a [message-filter trigger like this](/documentation.html#match-a-message-with-a-fragment-inside-another-object-called-form).
 3. Set up a `job` running on that filter to process CommCare submissions or case updates.
 
 ## Magpi

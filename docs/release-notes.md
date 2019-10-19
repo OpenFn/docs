@@ -222,7 +222,7 @@ New features:
 
 - New version of language-salesforce allows users to `alterState` with a custom function.
 
-**alterState:** [documentation](https://openfn.github.io/docs/documentation/#alterstate-alter-state-to-make-sure-data-is-in-an-array)
+**alterState:** [documentation](/documentation.html#alterstate-alter-state-to-make-sure-data-is-in-an-array)
 
 ## Version 1.2.0 (2016-09-15)
 
