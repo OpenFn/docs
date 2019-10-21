@@ -1,3 +1,9 @@
+## Version 1.37.0 (2019-10-21)
+New features:
+
+- Submit ODK Collect forms (or any OpenRosa compliant form) directly to an
+  OpenFn inbox, rather than to ODK Aggregate or some other server before forwarding.
+
 ## Version 1.36.0 (2019-10-01)
 
 New features:

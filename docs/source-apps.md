@@ -61,7 +61,7 @@ changes in your ODK Collect app.
 your `username` and `password` on this same screen.
 
 Note that you cannot load forms from OpenFn. Forms must be loaded directly via
-[ODK's direct method](https://docs.opendatakit.org/collect-forms/#loading-forms-directly)
+[ODK's direct method](https://docs.opendatakit.org/collect-forms/#loading-forms-directly).
 
 ## Open Data Kit (ODK) Aggregate
 1. To new submissions from ODK in real-time, click the "Form Management" tab at
