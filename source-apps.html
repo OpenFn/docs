@@ -354,6 +354,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#open-data-kit-odk-collect" class="md-nav__link">
+    Open Data Kit (ODK) Collect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#open-data-kit-odk-aggregate" class="md-nav__link">
     Open Data Kit (ODK) Aggregate
   </a>
@@ -361,8 +368,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kobo" class="md-nav__link">
-    Kobo
+  <a href="#kobo-toolbox" class="md-nav__link">
+    Kobo Toolbox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onaio" class="md-nav__link">
+    Ona.io
   </a>
   
 </li>
@@ -459,6 +473,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#open-data-kit-odk-collect" class="md-nav__link">
+    Open Data Kit (ODK) Collect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#open-data-kit-odk-aggregate" class="md-nav__link">
     Open Data Kit (ODK) Aggregate
   </a>
@@ -466,8 +487,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#kobo" class="md-nav__link">
-    Kobo
+  <a href="#kobo-toolbox" class="md-nav__link">
+    Kobo Toolbox
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onaio" class="md-nav__link">
+    Ona.io
   </a>
   
 </li>
@@ -528,23 +556,30 @@
                   <h1>Source Apps</h1>
                 
                 <h2 id="standard-webhook-configuration">Standard webhook configuration<a class="headerlink" href="#standard-webhook-configuration" title="Permanent link">#</a></h2>
-<p>This section describes how to enable push notifications from selected source applications or how to configure pull jobs to fetch data from those sources. If you don't see yours in the alphabetical list below feel free to add it with a pull request.</p>
+<p>This section describes how to enable push notifications from selected source
+applications or how to configure pull jobs to fetch data from those sources. If
+you don't see yours in the alphabetical list below feel free to add it with a
+pull request.</p>
 <p>To connect an application with standard JSON webhooks, copy your inbox
 URL from the "Inbox" page or your "Project Settings" screen and use it as the
 destination URL on your source application. Unless you have specifically
 configured it on the "Access &amp; Security" page, no authentication is required.</p>
-<p><strong><em>N.B.: This is by no means an exhaustive list.</em></strong> It is merely a list of common sources that external contributors have added. Remember that anything with a REST api or a JSON-based notification service can be used with OpenFn.</p>
+<p><strong><em>N.B.: This is by no means an exhaustive list.</em></strong> It is merely a list of
+common sources that external contributors have added. Remember that anything
+with a REST api or a JSON-based notification service can be used with OpenFn.</p>
 <h2 id="commcare-hq">CommCare HQ<a class="headerlink" href="#commcare-hq" title="Permanent link">#</a></h2>
 <ol>
 <li>Go to "Project Settings".</li>
 <li>Click "Data Forwarding".</li>
 <li>"Add a forwarding location" for Cases, Forms, or both.</li>
-<li>Specify JSON, using your OpenFn inbox URL as the target. See the <a href="https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128">CommCare documentation</a>.</li>
+<li>Specify JSON, using your OpenFn inbox URL as the target. See
+the <a href="https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128">CommCare documentation</a>.</li>
 <li>Create a <a href="/docs/documentation.html#match-a-message-with-a-fragment-inside-another-object-called-form">message-filter trigger like this</a>.</li>
 <li>Set up a <code>job</code> running on that filter to process CommCare submissions or case updates.</li>
 </ol>
 <h2 id="magpi">Magpi<a class="headerlink" href="#magpi" title="Permanent link">#</a></h2>
-<p>Magpi does not push data to OpenFn. In order to fetch data from Magpi, you must run a job on a timer using <code>langugage-magpi</code>:</p>
+<p>Magpi is not able to push data to external URLs. In order to fetch data from
+Magpi, you must run a job on a timer using <code>langugage-magpi</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -561,7 +596,8 @@ configured it on the "Access &amp; Security" page, no authentication is required
 
 <p>Every time this job runs it will only fetch new data, by default.</p>
 <h2 id="surveycto">SurveyCTO<a class="headerlink" href="#surveycto" title="Permanent link">#</a></h2>
-<p>SurveyCTO does not push data to OpenFn. In order to fetch data from SurveyCTO, you must run a job on a using <code>language-surveycto</code>:</p>
+<p>SurveyCTO is not able to push data to external URLs. In order to fetch data from
+SurveyCTO, you must run a job on a using <code>language-surveycto</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -577,24 +613,50 @@ configured it on the "Access &amp; Security" page, no authentication is required
 </td></tr></table>
 
 <p>Every time this job runs it will only fetch new data, by default.</p>
+<h2 id="open-data-kit-odk-collect">Open Data Kit (ODK) Collect<a class="headerlink" href="#open-data-kit-odk-collect" title="Permanent link">#</a></h2>
+<p>To bypass ODK Aggregate and submit forms directly to OpenFn make the following
+changes in your ODK Collect app.</p>
+<ol>
+<li>Select <code>General Settings</code>.</li>
+<li>Select <code>Server Settings</code>.</li>
+<li>Under <code>Type</code>, select <code>Other</code>.</li>
+<li>Under <code>URL</code>, enter `https://www.openfn.org</li>
+<li>Under <code>Submission path</code>, enter <code>/inbox/your-unique-inbox-url</code>.</li>
+<li>Optional: If you have enabled auth methods on your inbox, enter
+your <code>username</code> and <code>password</code> on this same screen.</li>
+</ol>
+<p>Note that you cannot load forms from OpenFn. Forms must be loaded directly via
+<a href="https://docs.opendatakit.org/collect-forms/#loading-forms-directly">ODK's direct method</a></p>
 <h2 id="open-data-kit-odk-aggregate">Open Data Kit (ODK) Aggregate<a class="headerlink" href="#open-data-kit-odk-aggregate" title="Permanent link">#</a></h2>
 <ol>
-<li>To new submissions from ODK in real-time, click the "Form Management" tab at the top of your Aggregate interface.</li>
+<li>To new submissions from ODK in real-time, click the "Form Management" tab at
+the top of your Aggregate interface.</li>
 <li>Click "Publish" next to the form you'd like to publish to OpenFn.</li>
 <li>A dialogue box will open.</li>
 <li>In the "Publish To:" picklist, select <code>Z-ALPHA JSON Server</code>.</li>
-<li>Choose which data to publish in the "Data to Publish:" picklist. You may: <strong>"Upload Existing Data ONLY"</strong> (ideal for migrations of finished data sets), <strong>"Stream New Submission Data ONLY"</strong> (ideal for new projects), or <strong>"BOTH Upload Existing &amp; Stream New Submission Data"</strong> (ideal for connecting ongoing projects which are already running).</li>
-<li>In the "URL to publish to:" text box, enter your OpenFn Inbox UUID. (e.g., <code>https://www.openfn.org/inbox/8ad63a29-mUCh-sEcRET-cODes-wOW</code>)</li>
+<li>Choose which data to publish in the "Data to Publish:" picklist. You
+may: <strong>"Upload Existing Data ONLY"</strong> (ideal for migrations of finished data
+sets), <strong>"Stream New Submission Data ONLY"</strong> (ideal for new projects),
+or <strong>"BOTH Upload Existing &amp; Stream New Submission Data"</strong> (ideal for connecting
+ongoing projects which are already running).</li>
+<li>In the "URL to publish to:" text box, enter your OpenFn Inbox UUID.
+(e.g., <code>https://www.openfn.org/inbox/8ad63a29-mUCh-sEcRET-cODes-wOW</code>)</li>
 <li>Leave "Authorization token:" blank.</li>
 <li>Leave "Include Media as:" set to "Links(URLs) to Media".</li>
 <li>Click "Publish" and enter your email address in the dialogue box.</li>
-<li>Click the "Published Data" tab under "Form Management" and select your form to view the status of your publisher. You can also now check your OpenFn inbox to see ODK submissions arrive.</li>
+<li>Click the "Published Data" tab under "Form Management" and select your form
+to view the status of your publisher. You can also now check your OpenFn inbox
+to see ODK submissions arrive.</li>
 </ol>
-<h2 id="kobo">Kobo<a class="headerlink" href="#kobo" title="Permanent link">#</a></h2>
+<h2 id="kobo-toolbox">Kobo Toolbox<a class="headerlink" href="#kobo-toolbox" title="Permanent link">#</a></h2>
 <ol>
-<li>To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.</li>
-<li>Once selecting a project, the <code>Project Settings</code> link will appear at the top left side of the screen. Click it to open the Project Settings page.</li>
-<li>In the bottom left pane of the project settings page, users must paste their inbox URL from OpenFn into the <code>Rest Services</code> <code>Service URL</code> input area and select <code>JSON Post</code> as the <code>Service Name</code>.</li>
+<li>To push data from Kobo, users must click the projects icon on their left-side
+nav bar. It's in the shape of a globe.</li>
+<li>Once selecting a project, the <code>Project Settings</code> link will appear at the top
+left side of the screen. Click it to open the Project Settings page.</li>
+<li>In the bottom left pane of the project settings page, users must paste their
+inbox URL from OpenFn into the <code>Rest Services</code> <code>Service URL</code> input area and
+select <code>JSON Post</code> as the <code>Service Name</code>.</li>
 <li>Click <code>Add Service</code> to start forwarding new Kobo submissions to OpenFn.org.</li>
 </ol>
 <p>To test to integration, add a submission manually using the <code>enter data in
@@ -611,6 +673,18 @@ ODK: <code>json { "meta/instanceID": "uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4"
 "_submission_time": "2016-04-22T06:38:20", "_status": "submitted_via_web",
 "_notes": [], "_id": 889409, "_geolocation": [ null, null ],
 "_bamboo_dataset_id": "", "_attachments": [] }</code></p>
+<h2 id="onaio">Ona.io<a class="headerlink" href="#onaio" title="Permanent link">#</a></h2>
+<ol>
+<li>To pus data from Ona.io, click on the drop-down menu next to a specific form
+   and select <code>Settings</code>.</li>
+<li>On the left-side menu, select <code>Webhooks</code>.</li>
+<li>Paste your OpenFn inbox URL into the URL input field.</li>
+<li>Click "Add webhook".</li>
+<li>Ensure that the webhook is now listed with the <code>JSON</code> tag, indicating that it
+   will forward data as JSON.</li>
+<li>Check to see that, once a form is submitted, it is forwarded to your OpenFn
+   inbox.</li>
+</ol>
 <h2 id="google-formsgoogle-sheets">Google Forms/Google Sheets<a class="headerlink" href="#google-formsgoogle-sheets" title="Permanent link">#</a></h2>
 <p>You can send data to OpenFn whenever a new row is added to a Google Sheet, for
 example when a new submission is made to a Google Form. Below is some sample
