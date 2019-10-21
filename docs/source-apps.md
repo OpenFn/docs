@@ -1,23 +1,30 @@
 ## Standard webhook configuration
-This section describes how to enable push notifications from selected source applications or how to configure pull jobs to fetch data from those sources. If you don't see yours in the alphabetical list below feel free to add it with a pull request.
+This section describes how to enable push notifications from selected source
+applications or how to configure pull jobs to fetch data from those sources. If
+you don't see yours in the alphabetical list below feel free to add it with a
+pull request.
 
 To connect an application with standard JSON webhooks, copy your inbox
 URL from the "Inbox" page or your "Project Settings" screen and use it as the
 destination URL on your source application. Unless you have specifically
 configured it on the "Access & Security" page, no authentication is required.
 
-***N.B.: This is by no means an exhaustive list.*** It is merely a list of common sources that external contributors have added. Remember that anything with a REST api or a JSON-based notification service can be used with OpenFn.
+***N.B.: This is by no means an exhaustive list.*** It is merely a list of
+common sources that external contributors have added. Remember that anything
+with a REST api or a JSON-based notification service can be used with OpenFn.
 
 ## CommCare HQ
 1. Go to "Project Settings".
 2. Click "Data Forwarding".
 3. "Add a forwarding location" for Cases, Forms, or both.
-4. Specify JSON, using your OpenFn inbox URL as the target. See the [CommCare documentation](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128).
+4. Specify JSON, using your OpenFn inbox URL as the target. See
+the [CommCare documentation](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128).
 2. Create a [message-filter trigger like this](/docs/documentation.html#match-a-message-with-a-fragment-inside-another-object-called-form).
 3. Set up a `job` running on that filter to process CommCare submissions or case updates.
 
 ## Magpi
-Magpi does not push data to OpenFn. In order to fetch data from Magpi, you must run a job on a timer using `langugage-magpi`:
+Magpi is not able to push data to external URLs. In order to fetch data from
+Magpi, you must run a job on a timer using `langugage-magpi`:
 ```js
 fetchSurveyData({
   "surveyId": 37479, // the survey id
@@ -29,7 +36,8 @@ fetchSurveyData({
 Every time this job runs it will only fetch new data, by default.
 
 ## SurveyCTO
-SurveyCTO does not push data to OpenFn. In order to fetch data from SurveyCTO, you must run a job on a using `language-surveycto`:
+SurveyCTO is not able to push data to external URLs. In order to fetch data from
+SurveyCTO, you must run a job on a using `language-surveycto`:
 ```js
 fetchSubmissions(
   "form_id", // the form id
@@ -40,22 +48,49 @@ fetchSubmissions(
 ```
 Every time this job runs it will only fetch new data, by default.
 
+## Open Data Kit (ODK) Collect
+To bypass ODK Aggregate and submit forms directly to OpenFn make the following
+changes in your ODK Collect app.
+
+1. Select `General Settings`.
+2. Select `Server Settings`.
+3. Under `Type`, select `Other`.
+4. Under `URL`, enter `https://www.openfn.org
+5. Under `Submission path`, enter `/inbox/your-unique-inbox-url`.
+6. Optional: If you have enabled auth methods on your inbox, enter
+your `username` and `password` on this same screen.
+
+Note that you cannot load forms from OpenFn. Forms must be loaded directly via
+[ODK's direct method](https://docs.opendatakit.org/collect-forms/#loading-forms-directly)
+
 ## Open Data Kit (ODK) Aggregate
-1. To new submissions from ODK in real-time, click the "Form Management" tab at the top of your Aggregate interface.
+1. To new submissions from ODK in real-time, click the "Form Management" tab at
+the top of your Aggregate interface.
 2. Click "Publish" next to the form you'd like to publish to OpenFn.
 3. A dialogue box will open.
 4. In the "Publish To:" picklist, select `Z-ALPHA JSON Server`.
-5. Choose which data to publish in the "Data to Publish:" picklist. You may: **"Upload Existing Data ONLY"** (ideal for migrations of finished data sets), **"Stream New Submission Data ONLY"** (ideal for new projects), or **"BOTH Upload Existing & Stream New Submission Data"** (ideal for connecting ongoing projects which are already running).
-6. In the "URL to publish to:" text box, enter your OpenFn Inbox UUID. (e.g., `https://www.openfn.org/inbox/8ad63a29-mUCh-sEcRET-cODes-wOW`)
+5. Choose which data to publish in the "Data to Publish:" picklist. You
+may: **"Upload Existing Data ONLY"** (ideal for migrations of finished data
+sets), **"Stream New Submission Data ONLY"** (ideal for new projects),
+or **"BOTH Upload Existing & Stream New Submission Data"** (ideal for connecting
+ongoing projects which are already running).
+6. In the "URL to publish to:" text box, enter your OpenFn Inbox UUID.
+(e.g., `https://www.openfn.org/inbox/8ad63a29-mUCh-sEcRET-cODes-wOW`)
 7. Leave "Authorization token:" blank.
 8. Leave "Include Media as:" set to "Links(URLs) to Media".
 9. Click "Publish" and enter your email address in the dialogue box.
-10. Click the "Published Data" tab under "Form Management" and select your form to view the status of your publisher. You can also now check your OpenFn inbox to see ODK submissions arrive.
+10. Click the "Published Data" tab under "Form Management" and select your form
+to view the status of your publisher. You can also now check your OpenFn inbox
+to see ODK submissions arrive.
 
-## Kobo
-1. To push data from Kobo, users must click the projects icon on their left-side nav bar. It's in the shape of a globe.
-2. Once selecting a project, the `Project Settings` link will appear at the top left side of the screen. Click it to open the Project Settings page.
-3. In the bottom left pane of the project settings page, users must paste their inbox URL from OpenFn into the `Rest Services` `Service URL` input area and select `JSON Post` as the `Service Name`.
+## Kobo Toolbox
+1. To push data from Kobo, users must click the projects icon on their left-side
+nav bar. It's in the shape of a globe.
+2. Once selecting a project, the `Project Settings` link will appear at the top
+left side of the screen. Click it to open the Project Settings page.
+3. In the bottom left pane of the project settings page, users must paste their
+inbox URL from OpenFn into the `Rest Services` `Service URL` input area and
+select `JSON Post` as the `Service Name`.
 4. Click `Add Service` to start forwarding new Kobo submissions to OpenFn.org.
 
 To test to integration, add a submission manually using the `enter data in
@@ -73,6 +108,17 @@ ODK: ```json { "meta/instanceID": "uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4",
 "_submission_time": "2016-04-22T06:38:20", "_status": "submitted_via_web",
 "_notes": [], "_id": 889409, "_geolocation": [ null, null ],
 "_bamboo_dataset_id": "", "_attachments": [] } ```
+
+## Ona.io
+1. To pus data from Ona.io, click on the drop-down menu next to a specific form
+   and select `Settings`.
+2. On the left-side menu, select `Webhooks`.
+3. Paste your OpenFn inbox URL into the URL input field.
+4. Click "Add webhook".
+5. Ensure that the webhook is now listed with the `JSON` tag, indicating that it
+   will forward data as JSON.
+6. Check to see that, once a form is submitted, it is forwarded to your OpenFn
+   inbox.
 
 ## Google Forms/Google Sheets
 You can send data to OpenFn whenever a new row is added to a Google Sheet, for
