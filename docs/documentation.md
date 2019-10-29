@@ -108,24 +108,34 @@ Credentials can only be viewed, or edited by a single user — their "owner" (or
 A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed.
 
 ### Composing Job Expressions
-In most cases, a job expression is a series of `create` or `upsert` actions that are run after a message arrives, using data from that message. It could look like this:
+In most cases, a job expression is a series of `create` or `upsert` actions that
+are run after a message arrives, using data from that message. It could look
+like this:
+#### Basic Job Expression
 ```js
-create("Patient__c", fields(
-  field("Name", dataValue("form.surname")),
-  field("Age__c", 7)
-))
+create('Patient__c', fields(
+  field('Name', dataValue('form.surname')),
+  field('Age__c', 7)
+));
 ```
-That would create a new `Patient__c` in some other system. The patient's `Name` will be determined by the triggering message (the value inside `form.surname`, specifically) and the patient's `Age__c` will *always* be 7. See how we hard coded it?
+That would create a new `Patient__c` in some other system. The patient's `Name`
+will be determined by the triggering message (the value inside `form.surname`,
+specifically) and the patient's `Age__c` will *always* be 7. See how we hard
+coded it?
 
-What you see above is OpenFn's own syntax, and you've got access to dozens of common "helper functions" like `dataValue(path)` and destination specific functions like `create(object,attributes)`. While most cases are covered out-of-the-box, jobs are **evaluated as Javascript**. This means that you can write your own custom, anonymous functions to do whatever your heart desires:
+What you see above is OpenFn's own syntax, and you've got access to dozens of
+common "helper functions" like `dataValue(path)` and destination specific
+functions like `create(object,attributes)`. While most cases are covered
+out-of-the-box, jobs are **evaluated as Javascript**. This means that you can
+write your own custom, anonymous functions to do whatever your heart desires:
+#### Job Expression with Custom Javascript
 ```js
-create("Patient__c", fields(
-  field("Name", function(state) {
-    return Array.apply(
-      null, dataValue("patient_names")(state)
-    ).join(', ')
-  })
-  field("Age__c", 7)
+create('Patient__c', fields(
+  field('Name', state => {
+    console.log('Manipulate state to get your desired output.');
+    return Array.apply(null, state.data.form.names).join(', ');
+  }),
+  field('Age__c', 7)
 ));
 ```
 
