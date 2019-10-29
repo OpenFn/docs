@@ -388,6 +388,26 @@
     Composing Job Expressions
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-job-expression" class="md-nav__link">
+    Basic Job Expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-expression-with-custom-javascript" class="md-nav__link">
+    Job Expression with Custom Javascript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1029,6 +1049,26 @@
     Composing Job Expressions
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-job-expression" class="md-nav__link">
+    Basic Job Expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-expression-with-custom-javascript" class="md-nav__link">
+    Job Expression with Custom Javascript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1620,33 +1660,42 @@
 <h2 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">#</a></h2>
 <p>A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed.</p>
 <h3 id="composing-job-expressions">Composing Job Expressions<a class="headerlink" href="#composing-job-expressions" title="Permanent link">#</a></h3>
-<p>In most cases, a job expression is a series of <code>create</code> or <code>upsert</code> actions that are run after a message arrives, using data from that message. It could look like this:</p>
+<p>In most cases, a job expression is a series of <code>create</code> or <code>upsert</code> actions that
+are run after a message arrives, using data from that message. It could look
+like this:</p>
+<h4 id="basic-job-expression">Basic Job Expression<a class="headerlink" href="#basic-job-expression" title="Permanent link">#</a></h4>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">create</span><span class="p">(</span><span class="s2">&quot;Patient__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
-  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;form.surname&quot;</span><span class="p">)),</span>
-  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Age__c&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="p">))</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;Patient__c&#39;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s1">&#39;form.surname&#39;</span><span class="p">)),</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Age__c&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="p">));</span>
 </pre></div>
 </td></tr></table>
 
-<p>That would create a new <code>Patient__c</code> in some other system. The patient's <code>Name</code> will be determined by the triggering message (the value inside <code>form.surname</code>, specifically) and the patient's <code>Age__c</code> will <em>always</em> be 7. See how we hard coded it?</p>
-<p>What you see above is OpenFn's own syntax, and you've got access to dozens of common "helper functions" like <code>dataValue(path)</code> and destination specific functions like <code>create(object,attributes)</code>. While most cases are covered out-of-the-box, jobs are <strong>evaluated as Javascript</strong>. This means that you can write your own custom, anonymous functions to do whatever your heart desires:</p>
+<p>That would create a new <code>Patient__c</code> in some other system. The patient's <code>Name</code>
+will be determined by the triggering message (the value inside <code>form.surname</code>,
+specifically) and the patient's <code>Age__c</code> will <em>always</em> be 7. See how we hard
+coded it?</p>
+<p>What you see above is OpenFn's own syntax, and you've got access to dozens of
+common "helper functions" like <code>dataValue(path)</code> and destination specific
+functions like <code>create(object,attributes)</code>. While most cases are covered
+out-of-the-box, jobs are <strong>evaluated as Javascript</strong>. This means that you can
+write your own custom, anonymous functions to do whatever your heart desires:</p>
+<h4 id="job-expression-with-custom-javascript">Job Expression with Custom Javascript<a class="headerlink" href="#job-expression-with-custom-javascript" title="Permanent link">#</a></h4>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">create</span><span class="p">(</span><span class="s2">&quot;Patient__c&quot;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
-  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Name&quot;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span>
-      <span class="kc">null</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s2">&quot;patient_names&quot;</span><span class="p">)(</span><span class="nx">state</span><span class="p">)</span>
-    <span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">)</span>
-  <span class="p">})</span>
-  <span class="nx">field</span><span class="p">(</span><span class="s2">&quot;Age__c&quot;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;Patient__c&#39;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Manipulate state to get your desired output.&#39;</span><span class="p">);</span>
+    <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">names</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">);</span>
+  <span class="p">}),</span>
+  <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Age__c&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
 <span class="p">));</span>
 </pre></div>
 </td></tr></table>
