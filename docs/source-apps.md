@@ -56,12 +56,21 @@ changes in your ODK Collect app.
 2. Select `Server Settings`.
 3. Under `Type`, select `Other`.
 4. Under `URL`, enter `https://www.openfn.org
-5. Under `Submission path`, enter `/inbox/your-unique-inbox-url`.
+5. Under `Submission path`, enter `/inbox/your-unique-inbox-url` (you can copy this from your OpenFn Inbox).
 6. Optional: If you have enabled auth methods on your inbox, enter
 your `username` and `password` on this same screen.
 
 Note that you cannot load forms from OpenFn. Forms must be loaded directly via
-[ODK's direct method](https://docs.opendatakit.org/collect-forms/#loading-forms-directly).
+[ODK's direct method](https://docs.opendatakit.org/collect-forms/#loading-forms-directly), which allows you to send forms as files via email/Whatsapp. Users can then choose to download the files and save them in the `odk/ forms` folder on their mobile.
+
+Note that if you want to reverse this setup and re-configure ODK Collect to connect to your Aggregate instance:
+1. Go back to `General Settings`.
+2. Select `Server Settings`.
+3. Under `Type`, select `ODK Aggregate`.
+4. Under `URL`, enter `Your Aggregate URL`
+5. Under `Submission path`, enter `/submissions`.
+6. Enter your ODK Aggregate `username` and `password` on this same screen.
+
 
 ## Open Data Kit (ODK) Aggregate
 1. To new submissions from ODK in real-time, click the "Form Management" tab at
