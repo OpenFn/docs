@@ -63,7 +63,8 @@ your `username` and `password` on this same screen.
 Note that you cannot load forms from OpenFn. Forms must be loaded directly via
 [ODK's direct method](https://docs.opendatakit.org/collect-forms/#loading-forms-directly), which allows you to send forms as files via email/Whatsapp. Users can then choose to download the files and save them in the `odk/ forms` folder on their mobile.
 
-Note that if you want to reverse this setup and re-configure ODK Collect to connect to your Aggregate instance:
+Note that if you want to reverse this setup and configure ODK Collect to re-connect to your Aggregate instance again:`
+
 1. Go back to `General Settings`.
 2. Select `Server Settings`.
 3. Under `Type`, select `ODK Aggregate`.
