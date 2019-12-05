@@ -782,3 +782,14 @@ field("Payment_Date__c", function(state) {
 })
 ```
 > **NOTE**: The output of this function will always be formatted according to GMT time-zone.
+
+#### Use external ID fields for relationships during a bulk load in Salesforce
+```js
+array.map(item => {
+  return {
+    Patient_Name__c: item.fullName,
+    'Clinic__r.Unique_Clinic_Identifier__c': item.clinicId,
+    'RecordType.Name': item.type,
+  };
+})
+```
