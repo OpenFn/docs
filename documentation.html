@@ -884,6 +884,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#bulk-upsert-with-an-external-id-in-salesforce" class="md-nav__link">
+    Bulk upsert with an external ID in salesforce
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1548,6 +1555,13 @@
           <li class="md-nav__item">
   <a href="#use-external-id-fields-for-relationships-during-a-bulk-load-in-salesforce" class="md-nav__link">
     Use external ID fields for relationships during a bulk load in Salesforce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulk-upsert-with-an-external-id-in-salesforce" class="md-nav__link">
+    Bulk upsert with an external ID in salesforce
   </a>
   
 </li>
@@ -2640,6 +2654,29 @@ If you're looking for a way to replace all instances, we suggest you use a regex
     <span class="s1">&#39;RecordType.Name&#39;</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">type</span><span class="p">,</span>
   <span class="p">};</span>
 <span class="p">})</span>
+</pre></div>
+</td></tr></table>
+
+<h4 id="bulk-upsert-with-an-external-id-in-salesforce">Bulk upsert with an external ID in salesforce<a class="headerlink" href="#bulk-upsert-with-an-external-id-in-salesforce" title="Permanent link">#</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nx">bulk</span><span class="p">(</span>
+  <span class="s1">&#39;Visit_new__c&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;upsert&#39;</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="nx">extIdField</span><span class="o">:</span> <span class="s1">&#39;commcare_case_id__c&#39;</span><span class="p">,</span>
+    <span class="nx">failOnError</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="nx">allowNoOp</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">dataValue</span><span class="p">(</span><span class="s1">&#39;patients&#39;</span><span class="p">)</span>
+<span class="p">);</span>
 </pre></div>
 </td></tr></table>
                 
