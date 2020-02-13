@@ -793,3 +793,17 @@ array.map(item => {
   };
 })
 ```
+
+#### Bulk upsert with an external ID in salesforce
+```js
+bulk(
+  'Visit_new__c',
+  'upsert',
+  {
+    extIdField: 'commcare_case_id__c',
+    failOnError: true,
+    allowNoOp: true,
+  },
+  dataValue('patients')
+);
+```
