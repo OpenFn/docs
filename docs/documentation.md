@@ -807,3 +807,14 @@ bulk(
   dataValue('patients')
 );
 ```
+
+### Common errors and how to handle them
+
+#### Are Master-detail relationships in Salesforce reparentable?
+```
+{ INVALID_FIELD_FOR_INSERT_UPDATE: Unable to create/update fields: Contact__c.
+Please check the security settings of this field and verify that it is
+read/write for your profile or permission set. }
+```
+This error may arise if a master-detail relationship in Salesforce is not set as
+reparentable and the user attempts to run an upsert.
