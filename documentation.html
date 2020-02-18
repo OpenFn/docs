@@ -896,6 +896,26 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#common-errors-and-how-to-handle-them" class="md-nav__link">
+    Common errors and how to handle them
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#are-master-detail-relationships-in-salesforce-reparentable" class="md-nav__link">
+    Are Master-detail relationships in Salesforce reparentable?
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1562,6 +1582,26 @@
           <li class="md-nav__item">
   <a href="#bulk-upsert-with-an-external-id-in-salesforce" class="md-nav__link">
     Bulk upsert with an external ID in salesforce
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#common-errors-and-how-to-handle-them" class="md-nav__link">
+    Common errors and how to handle them
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#are-master-detail-relationships-in-salesforce-reparentable" class="md-nav__link">
+    Are Master-detail relationships in Salesforce reparentable?
   </a>
   
 </li>
@@ -2679,6 +2719,19 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 <span class="p">);</span>
 </pre></div>
 </td></tr></table>
+
+<h3 id="common-errors-and-how-to-handle-them">Common errors and how to handle them<a class="headerlink" href="#common-errors-and-how-to-handle-them" title="Permanent link">#</a></h3>
+<h4 id="are-master-detail-relationships-in-salesforce-reparentable">Are Master-detail relationships in Salesforce reparentable?<a class="headerlink" href="#are-master-detail-relationships-in-salesforce-reparentable" title="Permanent link">#</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>{ INVALID_FIELD_FOR_INSERT_UPDATE: Unable to create/update fields: Contact__c.
+Please check the security settings of this field and verify that it is
+read/write for your profile or permission set. }
+</pre></div>
+</td></tr></table>
+
+<p>This error may arise if a master-detail relationship in Salesforce is not set as
+reparentable and the user attempts to run an upsert.</p>
                 
                   
                 
