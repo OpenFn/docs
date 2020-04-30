@@ -7,50 +7,69 @@ use_directory_urls: false
 
 # Repository
 repo_name: 'GitHub'
-repo_url: 'https://github.com/OpenFn/docs'
+repo_url: 'https://github.com/openfn/docs'
 
 # Copyright
 copyright: 'Copyright (c) 2019 Open Function Group LLC'
 
+plugins:
+  - search
+
 # Documentation and theme
 docs_dir: 'docs'
 theme:
+  logo: images/logo.svg
+  icon:
+    # logo: material/cloud
+    repo: fontawesome/brands/github-alt
   name: 'material'
+  features:
+    - tabs
+    - instant
   palette:
-    primary: 'deep-purple'
-    accent: 'pink'
+    primary: 'light blue'
+    accent: 'deep purple'
   font:
-    text: 'Inconsolata'
-    code: 'Inconsolata'
+    text: 'Roboto'
+    code: 'Roboto Mono'
+    # text: 'Manrope'
+    # code: 'Roboto-Mono'
 
-extra_css:
-  - customizations.css
+# extra_css:
+  # - customizations.css
 
 nav:
-  - 'Introduction': 'index.md'
-  - 'Platform Docs': 'documentation.md'
-  - 'Release Notes': 'release-notes.md'
-  - 'Job Execution': 'core.md'
-  - 'Source Apps': 'source-apps.md'
+  - 'Home': 'index.md'
+  - 'Quick Start': 'quick-start.md'
+  - 'FAQs': faqs.md
+  - 'About us': about.md
+  - 'The OpenFn.org Platform':
+    - 'Basic Documentation': 'documentation.md'
+    - 'Troubleshooting Data Errors': 'trouble-shooting.md'
+    - 'Snippets & Sample Code': 'appendix.md'
+    - 'Release Notes': 'release-notes.md'
+    - 'DIY': 'diy.md'
+  - 'Writing Jobs':
+    - 'Job Execution': 'core.md'
+    - 'The Job Library': 'job-library.md'
+  - 'Connecting Data Sources':
+    - 'Source Apps': 'source-apps.md'
 
 # Options
 extra:
-  logo: ''
-  i18n:
-    prev: 'Previous'
-    next: 'Next'
+  # disqus: openfn
   author:
     github: 'openfn'
     twitter: 'openfn'
   social:
-    - type: 'github'
-      link: 'https://github.com/openfn'
-    - type: 'facebook'
-      link: 'https://facebook.com/openfn'
-    - type: 'twitter'
-      link: 'https://twitter.com/openfn'
-    - type: 'linkedin'
-      link: 'https://linkedin.com/in/openfn'
+    - icon: fontawesome/brands/github
+      link: https://github.com/openfn
+    - icon: fontawesome/brands/facebook
+      link: https://facebook.com/openfn
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/openfn
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/openfn
 
 # Google Analytics
 google_analytics:

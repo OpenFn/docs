@@ -1,3 +1,5 @@
+# Connecting Source Applications to OpenFn
+
 ## Standard webhook configuration
 This section describes how to enable push notifications from selected source
 applications or how to configure pull jobs to fetch data from those sources. If
