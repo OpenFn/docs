@@ -576,37 +576,22 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#application-developers" class="md-nav__link">
-    Application Developers
-  </a>
-  
-    <nav class="md-nav" aria-label="Application Developers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sending-data-to-openfn" class="md-nav__link">
-    Sending data to OpenFn
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#receiving-data-from-openfn" class="md-nav__link">
-    Receiving data from OpenFn
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
     </ul>
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="for-devs.html" title="Application Developers" class="md-nav__link">
+      Application Developers
+    </a>
   </li>
 
         
@@ -700,33 +685,6 @@
   <a href="#google-formsgoogle-sheets" class="md-nav__link">
     Google Forms/Google Sheets
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#application-developers" class="md-nav__link">
-    Application Developers
-  </a>
-  
-    <nav class="md-nav" aria-label="Application Developers">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#sending-data-to-openfn" class="md-nav__link">
-    Sending data to OpenFn
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#receiving-data-from-openfn" class="md-nav__link">
-    Receiving data from OpenFn
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1046,30 +1004,6 @@ new rows are added.</p>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
-
-<h2 id="application-developers">Application Developers<a class="headerlink" href="#application-developers" title="Permanent link">#</a></h2>
-<p>This section is for you if you are hoping to build or extend an existing application that can connect to OpenFn. We follow modern web-standard JSON api guidelines.</p>
-<p>For your application to a be data provider (or "source") for OpenFn integrations, we highly recommend that you create a "notifications service" (sometimes called a "webhooks service" or "event-based push API"). This is preferrable to using a REST api for two reasons: (1) A notifications service will give your clients the ability to set up real-time integrations, and (2) a notifications service is more efficient for both your servers and OpenFn—instead of having requests be made and handled every X seconds, your servers and OpenFn's servers will only work when new data is available.</p>
-<p>For your appliation to be a consumer (or "destination") for OpenFn, you must either have a standard, JSON-based rest API or create a language-package that meets your API specifications.</p>
-<h3 id="sending-data-to-openfn">Sending data to OpenFn<a class="headerlink" href="#sending-data-to-openfn" title="Permanent link">#</a></h3>
-<p>To send data to OpenFn, your application must be able to make an HTTPS post to an external URL with a valid JSON object as the post body. See the following example using cURL:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="err">curl -X POST \</span>
-<span class="err">  -H &quot;Content-Type: application/json&quot; \</span>
-<span class="err">  -H &quot;Cache-Control: no-cache&quot; \</span>
-<span class="err">  -d &#39;{&quot;foo&quot;:&quot;bar&quot;, &quot;baz&quot;:&quot;qux&quot;}&#39; \</span>
-<span class="err">  &quot;https://staging.openfn.org/inbox/some-secret-api-key&quot;</span>
-</code></pre></div>
-</td></tr></table>
-
-<p>OpenFn will respond with a 200 and an empty JSON object in the event of a successful post. 400s mean that the user's external URL is wrong, and 500s means that there is an application error on OpenFn. While 500s are rare, they could be due to invalid JSON in your POST body.</p>
-<p>If you cannot notifiy an external URL when some event takes place, you can still integrate with OpenFn if you have a JSON-based REST API. OpenFn users can make HTTP GET requests to your application and perform additional actions based on your response. You should allow either basic or token authentication and responsd to a valid GET with JSON. There is no specific format for your response, as users can parse it any way they'd like, extracting relevant data and then performing other actions—like loading it into a destination system—with that data. See <a href="https://www.github.com/openfn/language-http">language-http</a> for details on how users make these generic HTTP requests.</p>
-<h3 id="receiving-data-from-openfn">Receiving data from OpenFn<a class="headerlink" href="#receiving-data-from-openfn" title="Permanent link">#</a></h3>
-<p>To make it easy for users to connect to your application, it's highly recommended that you create a language-package with your required authentication and a set of simple, allowable actions nicely abstracted into "helper functions". See <a href="https://www.github.com/openfn/language-dhis2">language-dhis2</a> for an example of a language-package which creates a simpler interface for a traditional JSON-based REST api. Language packages are written in Javascript and execute in Node. You can convert OpenFn's JSON into XML, or any other format before sending it to your application and you may make use of any node modules you'd like. See <a href="https://www.github.com/openfn/language-postgresql">language-postgresql</a> for an example of a language package that connects directly to PostgreSQL databases using a popular NPM module called "pg".</p>
-<p>To receive data from OpenFn's generic language-http langauge package, your application must allow either basic, token, or digest authenticated POST, PUT, or GET requests. (Though it is not advisable to create an API that requires GET requests to create or update data.)</p>
                 
               
               
@@ -1102,6 +1036,20 @@ new rows are added.</p>
             </div>
           </a>
         
+        
+          <a href="for-devs.html" title="Application Developers" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Application Developers
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>

@@ -47,5 +47,9 @@
      <loc>https://openfn.github.io/docs/source-apps.html</loc>
      <lastmod>2020-04-30</lastmod>
      <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://openfn.github.io/docs/for-devs.html</loc>
+     <lastmod>2020-04-30</lastmod>
+     <changefreq>daily</changefreq>
     </url>
 </urlset>
