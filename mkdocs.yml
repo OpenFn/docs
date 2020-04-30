@@ -54,6 +54,7 @@ nav:
     - 'The Job Library': 'job-library.md'
   - 'Connecting Data Sources':
     - 'Source Apps': 'source-apps.md'
+    - 'Application Developers': 'for-devs.md'
 
 # Options
 extra:
