@@ -101,7 +101,9 @@ left side of the screen. Click it to open the Project Settings page.
 3. In the bottom left pane of the project settings page, users must paste their
 inbox URL from OpenFn into the `Rest Services` `Service URL` input area and
 select `JSON Post` as the `Service Name`.
-4. Click `Add Service` to start forwarding new Kobo submissions to OpenFn.org.
+4. It's helpful to add a wrapper to your form data if you will be publishing
+multiple forms to OpenFn. You could use `{"form":"my_form", "body": %SUBMISSION%}`.
+5. Click `Add Service` to start forwarding new Kobo submissions to OpenFn.org.
 
 To test to integration, add a submission manually using the `enter data in
 browser` button. Head back to your history page at OpenFn to view the newly
