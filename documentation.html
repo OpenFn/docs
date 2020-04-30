@@ -1133,25 +1133,49 @@
 <h3 id="filter-matching">Filter Matching<a class="headerlink" href="#filter-matching" title="Permanent link">#</a></h3>
 <p>To illustrate filter matching, refer to the <code>JSON</code> strings below. Message "a" will match filter '1', but message "b" will not.</p>
 <h4 id="filter-1">Filter 1:<a class="headerlink" href="#filter-1" title="Permanent link">#</a></h4>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;formID&quot;</span><span class="p">:</span><span class="s2">&quot;patient_registration_v7&quot;</span><span class="p">}</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">{</span> <span class="nt">&quot;formID&quot;</span><span class="p">:</span> <span class="s2">&quot;patient_registration_v7&quot;</span> <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
 <h4 id="message-a-match">Message a (MATCH):<a class="headerlink" href="#message-a-match" title="Permanent link">#</a></h4>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;submissionDate&quot;</span><span class="p">:</span><span class="s2">&quot;2016-01-15&quot;</span><span class="p">,</span> <span class="nt">&quot;formID&quot;</span><span class="p">:</span><span class="s2">&quot;patient_registration_v7&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Jack Wilshere&quot;</span><span class="p">,</span> <span class="nt">&quot;dob&quot;</span><span class="p">:</span><span class="s2">&quot;1986-05-16&quot;</span><span class="p">,</span> <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;anaphlene&quot;</span><span class="p">,</span><span class="s2">&quot;zaradood&quot;</span><span class="p">,</span><span class="s2">&quot;morphofast&quot;</span><span class="p">]}</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;submissionDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-01-15&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;formID&quot;</span><span class="p">:</span> <span class="s2">&quot;patient_registration_v7&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jack Wilshere&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;dob&quot;</span><span class="p">:</span> <span class="s2">&quot;1986-05-16&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;anaphlene&quot;</span><span class="p">,</span> <span class="s2">&quot;zaradood&quot;</span><span class="p">,</span> <span class="s2">&quot;morphofast&quot;</span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
 <h4 id="message-b-no-match">Message b (NO MATCH):<a class="headerlink" href="#message-b-no-match" title="Permanent link">#</a></h4>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">{</span><span class="nt">&quot;submissionDate&quot;</span><span class="p">:</span><span class="s2">&quot;2016-01-16&quot;</span><span class="p">,</span> <span class="nt">&quot;formID&quot;</span><span class="p">:</span><span class="s2">&quot;patient_registration_v8&quot;</span><span class="p">,</span> <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;Larry Bird&quot;</span><span class="p">,</span> <span class="nt">&quot;dob&quot;</span><span class="p">:</span><span class="s2">&quot;1982-03-21&quot;</span><span class="p">,</span> <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;anaphlene&quot;</span><span class="p">,</span><span class="s2">&quot;zaradood&quot;</span><span class="p">,</span><span class="s2">&quot;morphofast&quot;</span><span class="p">]}</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;submissionDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-01-16&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;formID&quot;</span><span class="p">:</span> <span class="s2">&quot;patient_registration_v8&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Larry Bird&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;dob&quot;</span><span class="p">:</span> <span class="s2">&quot;1982-03-21&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;anaphlene&quot;</span><span class="p">,</span> <span class="s2">&quot;zaradood&quot;</span><span class="p">,</span> <span class="s2">&quot;morphofast&quot;</span><span class="p">]</span>
+<span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
 
 <p>Message 'b' does not include <code>"formID":"patient_registration_v7"</code> and will not match filter '1'.</p>
 <h3 id="processing-time-triggered-jobs">Processing time-triggered jobs<a class="headerlink" href="#processing-time-triggered-jobs" title="Permanent link">#</a></h3>
 <p><strong>On-demand processing for jobs triggered by timers.</strong> If you’re leveraging timer triggers to run jobs at specific time intervals, you can now run a time triggered job on demand. This way you don’t have to wait for the timer to expire before testing! Simply click the process/ “play” button now available via the Job, Run, and Activity History pages.</p>
-<p><img alt="Runs list run time trigger button" src="/docs/images/timetriggerunslist.png" /></p>
-<p><img alt="Run history time trigger button" src="/docs/images/runtimetrigger1.png" /></p>
+<p><img alt="Runs list run time trigger button" src="images/timetriggerunslist.png" /></p>
+<p><img alt="Run history time trigger button" src="images/runtimetrigger1.png" /></p>
 <h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">#</a></h2>
 <p>Credentials are used to authorize connections to destination systems. In the future, our adaptors will use credentials to fetch meta-data from source and destination applications and make the job writing process easier.</p>
 <p>Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or ApiUrl. Leave off the final "/" in these Urls:
@@ -1167,10 +1191,10 @@ like this:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;Patient__c&#39;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
-  <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s1">&#39;form.surname&#39;</span><span class="p">)),</span>
-  <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Age__c&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="p">));</span>
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">create</span><span class="p">(</span>
+  <span class="s1">&#39;Patient__c&#39;</span><span class="p">,</span>
+  <span class="nx">fields</span><span class="p">(</span><span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s1">&#39;form.surname&#39;</span><span class="p">)),</span> <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Age__c&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
+<span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1184,19 +1208,25 @@ functions like <code>create(object,attributes)</code>. While most cases are cove
 out-of-the-box, jobs are <strong>evaluated as Javascript</strong>. This means that you can
 write your own custom, anonymous functions to do whatever your heart desires:</p>
 <h4 id="job-expression-with-custom-javascript">Job Expression with Custom Javascript<a class="headerlink" href="#job-expression-with-custom-javascript" title="Permanent link">#</a></h4>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">create</span><span class="p">(</span><span class="s1">&#39;Patient__c&#39;</span><span class="p">,</span> <span class="nx">fields</span><span class="p">(</span>
-  <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Manipulate state to get your desired output.&#39;</span><span class="p">);</span>
-    <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">names</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">);</span>
-  <span class="p">}),</span>
-  <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Age__c&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
-<span class="p">));</span>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">create</span><span class="p">(</span>
+  <span class="s1">&#39;Patient__c&#39;</span><span class="p">,</span>
+  <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Manipulate state to get your desired output.&#39;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">names</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">);</span>
+    <span class="p">}),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Age__c&#39;</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -1265,21 +1295,21 @@ write your own custom, anonymous functions to do whatever your heart desires:</p
 <ol>
 <li>
 <p>Simply click on the new <strong>Reprocess</strong> button via the Inbox view.
-<img alt="Reprocess button" src="/docs/images/reprocess_msgs.png" /></p>
+   <img alt="Reprocess button" src="/docs/images/reprocess_msgs.png" /></p>
 </li>
 <li>
 <p>Specify the <strong>ID range</strong> for messages that you want to re-run (e.g., messages with IDs 4622741 through 4622749 → 9 messages to reprocess).
-<img alt="Bulk reprocess screen" src="/docs/images/bulk_reprocess.png" /></p>
+   <img alt="Bulk reprocess screen" src="/docs/images/bulk_reprocess.png" /></p>
 </li>
 </ol>
 <p><strong>Note when bulk reprocessing messages:</strong></p>
 <ul>
 <li>
-<p>This will trigger any jobs that would have run when the given  messages first arrived in your OpenFn inbox. In other words, any jobs that are have the autoprocess setting “on” will automatically be run if triggered by one of the reprocessed messages.</p>
+<p>This will trigger any jobs that would have run when the given messages first arrived in your OpenFn inbox. In other words, any jobs that are have the autoprocess setting “on” will automatically be run if triggered by one of the reprocessed messages.</p>
 </li>
 <li>
 <p>Remember that OpenFn plans are run-based, and you can monitor usage in <strong>Project Settings</strong> to ensure that you don’t hit any run limits when bulk reprocessing!
-<img alt="Usage stats chart" src="/docs/images/usage.png" /></p>
+  <img alt="Usage stats chart" src="/docs/images/usage.png" /></p>
 </li>
 </ul>
 <h3 id="export-messages-to-csv">Export messages to CSV<a class="headerlink" href="#export-messages-to-csv" title="Permanent link">#</a></h3>
@@ -1315,11 +1345,11 @@ write your own custom, anonymous functions to do whatever your heart desires:</p
 <ol>
 <li>
 <p>Simply click on the new <strong>Retry</strong> button via the Runs view.
-<img alt="Retry run button" src="/docs/images/retrybutton.png" /></p>
+   <img alt="Retry run button" src="/docs/images/retrybutton.png" /></p>
 </li>
 <li>
 <p>Specify the <strong>ID range</strong> for the runs that you want to re-process. Choose to filter by Job and/or Status to only reprocess runs associated with a specific job or runs that have failed/ succeeded.
-<img alt="Bulk retry runs" src="/docs/images/runs_retry.png" /></p>
+   <img alt="Bulk retry runs" src="/docs/images/runs_retry.png" /></p>
 </li>
 </ol>
 <p>Remember that OpenFn plans are run-based, and you can monitor usage in <strong>Project Settings</strong> to ensure that you don’t hit any run limits when bulk reprocessing!</p>
@@ -1331,7 +1361,7 @@ write your own custom, anonymous functions to do whatever your heart desires:</p
 </li>
 <li>
 <p>Click the <strong>Export as CSV</strong> button to generate an export. The link to download this file will be sent to your email address.
-<img alt="Export runs button" src="/docs/images/exportruns.png" /></p>
+   <img alt="Export runs button" src="/docs/images/exportruns.png" /></p>
 </li>
 </ol>
 <h2 id="github-version-control">GitHub version control<a class="headerlink" href="#github-version-control" title="Permanent link">#</a></h2>
