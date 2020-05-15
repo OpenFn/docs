@@ -209,9 +209,9 @@ Need to re-run a series of messages? If you had a job fail because of an error f
 2. Specify the **ID range** for messages that you want to re-run (e.g., messages with IDs 4622741 through 4622749 → 9 messages to reprocess).
    ![Bulk reprocess screen](./images/bulk_reprocess.png)
 
-**Note when bulk reprocessing messages:**
+#### Note when bulk reprocessing messages:
 
-- This will trigger any jobs that would have run when the given messages first arrived in your OpenFn inbox. In other words, any jobs that are have the autoprocess setting “on” will automatically be run if triggered by one of the reprocessed messages.
+- This simulates the chain of events that starts when messages first arrive in your inbox. In other words, reprocessed messages will be handled by message filter triggers for any jobs that have the `autoprocess` setting “on”. If you've got messages that match certain triggers, but the associated jobs are switched "off" they will not be run when those messages are reprocessed.
 
 - Remember that OpenFn plans are run-based, and you can monitor usage in **Project Settings** to ensure that you don’t hit any run limits when bulk reprocessing!
   ![Usage stats chart](./images/usage.png)
