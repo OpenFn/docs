@@ -559,6 +559,19 @@
     Bulk reprocess messages
   </a>
   
+    <nav class="md-nav" aria-label="Bulk reprocess messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-when-bulk-reprocessing-messages" class="md-nav__link">
+    Note when bulk reprocessing messages:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1031,6 +1044,19 @@
     Bulk reprocess messages
   </a>
   
+    <nav class="md-nav" aria-label="Bulk reprocess messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-when-bulk-reprocessing-messages" class="md-nav__link">
+    Note when bulk reprocessing messages:
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1340,10 +1366,10 @@ write your own custom, anonymous functions to do whatever your heart desires:</p
    <img alt="Bulk reprocess screen" src="images/bulk_reprocess.png" /></p>
 </li>
 </ol>
-<p><strong>Note when bulk reprocessing messages:</strong></p>
+<h4 id="note-when-bulk-reprocessing-messages">Note when bulk reprocessing messages:<a class="headerlink" href="#note-when-bulk-reprocessing-messages" title="Permanent link">#</a></h4>
 <ul>
 <li>
-<p>This will trigger any jobs that would have run when the given messages first arrived in your OpenFn inbox. In other words, any jobs that are have the autoprocess setting “on” will automatically be run if triggered by one of the reprocessed messages.</p>
+<p>This simulates the chain of events that starts when messages first arrive in your inbox. In other words, reprocessed messages will be handled by message filter triggers for any jobs that have the <code>autoprocess</code> setting “on”. If you've got messages that match certain triggers, but the associated jobs are switched "off" they will not be run when those messages are reprocessed.</p>
 </li>
 <li>
 <p>Remember that OpenFn plans are run-based, and you can monitor usage in <strong>Project Settings</strong> to ensure that you don’t hit any run limits when bulk reprocessing!
