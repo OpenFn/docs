@@ -1,4 +1,4 @@
-# OpenFn Documentation & Issue Tracking
+# [OpenFn Documentation & Issue Tracking](https://openfn.github.io/docs)
 
 ## [![Logo](/docs/images/round-logo.png)&nbsp;&nbsp;openfn.github.io/docs](https://openfn.github.io/docs)
 ***To view the documentation please visit
