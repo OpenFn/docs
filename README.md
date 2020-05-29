@@ -16,7 +16,7 @@ open-source language packages can be found in
 This repository is used to maintain the docs site, and for users to submit
 issues and feature requests.
 
-#### Writing documentation
+#### Contributing to this documentation site
 
 - Install and familiarize yourself with [mkdocs](https://www.mkdocs.org/).
 - `[Link name](/relative-path/#some-section)` to link to sections on this site.
