@@ -1,9 +1,9 @@
-# [OpenFn Documentation & Issue Tracking](https://openfn.github.io/docs)
+# [OpenFn Documentation & Issue Tracking](https://docs.openfn.org)
 
-## [![Logo](/docs/images/round-logo.png)&nbsp;&nbsp;openfn.github.io/docs](https://openfn.github.io/docs)
+## [![Logo](/docs/images/round-logo.png)&nbsp;&nbsp;openfn.github.io/docs](https://docs.openfn.org)
 
 **_To view the documentation please visit
-[openfn.github.io/docs](https://openfn.github.io/docs)._**
+[docs.openfn.org](https://docs.openfn.org)._**
 
 #### Other documentation
 
@@ -23,4 +23,4 @@ issues and feature requests.
 - `[Link name](https://www.openfn.org)` to link to external websites.
 - `![Screenshot](/relative-path/screenshot.png)` to include an image.
 - `mkdocs serve` to serve locally and test
-- `mkdocs gh-deploy` to deploy to openfn.github.io/docs
+- `mkdocs gh-deploy` to deploy to docs.openfn.org
