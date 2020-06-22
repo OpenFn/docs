@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#version-1370-2019-10-21" class="md-skip">
+        <a href="#version-17217-2020-060-21" class="md-skip">
           Skip to content
         </a>
       
@@ -402,6 +402,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-17217-2020-060-21" class="md-nav__link">
+    Version 1.72.17 (2020-060-21)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-1370-2019-10-21" class="md-nav__link">
     Version 1.37.0 (2019-10-21)
   </a>
@@ -682,6 +689,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#version-17217-2020-060-21" class="md-nav__link">
+    Version 1.72.17 (2020-060-21)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#version-1370-2019-10-21" class="md-nav__link">
     Version 1.37.0 (2019-10-21)
   </a>
@@ -828,21 +842,42 @@
                 
                   <h1>Release Notes</h1>
                 
-                <h2 id="version-1370-2019-10-21">Version 1.37.0 (2019-10-21)<a class="headerlink" href="#version-1370-2019-10-21" title="Permanent link">#</a></h2>
+                <h2 id="version-17217-2020-060-21">Version 1.72.17 (2020-060-21)<a class="headerlink" href="#version-17217-2020-060-21" title="Permanent link">#</a></h2>
+<p>New features:</p>
+<ul>
+<li><strong>Credential sharing:</strong> Users can now share credentials across multiple
+  projects <em>and</em> transfer credential ownership to other users.</li>
+<li><strong>Enhanced credential security:</strong> Project owners can now <em>disable</em> <code>console</code>
+  for particular jobs in their projects. This can be used to stop unintentional
+  or malicious printing of credential data to the logs.</li>
+<li><strong>Test mode for HTTP jobs:</strong> Users can turn on "test mode" for jobs, which
+  will intercept all outbound HTTP requests, print the request parameters to the
+  log, and provide a 200 OK response. This can be used to test integrations for
+  systems that are still in development.</li>
+<li><strong>Enhanced debugging/open-source integration:</strong> Now using a new version of
+  OpenFn/core which displays the current langauge-package version and Node JS
+  version for better debugging and a tighter integration between our
+  offline/open-source tools and the platform.</li>
+<li><strong>Enhanced monitoring:</strong> Queue size monitor allows users to see approximately
+  how many runs are in their queue—this is useful for estimating time to
+  completing for big bulk reprocessing jobs.</li>
+</ul>
+<h2 id="version-1370-2019-10-21">Version 1.37.0 (2019-10-21)<a class="headerlink" href="#version-1370-2019-10-21" title="Permanent link">#</a></h2>
 <p>New features:</p>
 <ul>
 <li>Submit ODK Collect forms (or any OpenRosa compliant form) directly to an
-  OpenFn inbox, rather than to ODK Aggregate or some other server before forwarding.</li>
+  OpenFn inbox, rather than to ODK Aggregate or some other server before
+  forwarding.</li>
 </ul>
 <h2 id="version-1360-2019-10-01">Version 1.36.0 (2019-10-01)<a class="headerlink" href="#version-1360-2019-10-01" title="Permanent link">#</a></h2>
 <p>New features:</p>
 <ul>
 <li>Allow messages to be deleted (in accordance with plan retention periods)
-  despite having more recent runs related to them. We set the message to
-  "null" for these younger runs, but the run logs will still be available until
-  they're past the retention period. This allows sensitive data in the initial
-  message payload to be purged with the retention period, while less sensitive
-  data in the run logs is still kept.</li>
+  despite having more recent runs related to them. We set the message to "null"
+  for these younger runs, but the run logs will still be available until they're
+  past the retention period. This allows sensitive data in the initial message
+  payload to be purged with the retention period, while less sensitive data in
+  the run logs is still kept.</li>
 <li>Added more specific exit codes to runs for non-standard exits. Note that exit
   codes above 2 are <em>very</em> rare. See below for new codes from <code>v1.36.0</code> onwards.</li>
 </ul>
@@ -853,11 +888,11 @@
   <code>4XX</code>, <code>5XX</code>, or some specialized <code>RequiredFieldMissing</code> error.)</li>
 <li><code>2</code>: run timed out (runs &gt;100s only supported in enterprise plans)</li>
 <li><code>3</code>: run could not start due to error (could relate to network traffic, but
-very rare as an error <em>before</em> the run is started will be retried from Redis
-with an exponential backoff for a very long time)</li>
+  very rare as an error <em>before</em> the run is started will be retried from Redis
+  with an exponential backoff for a very long time)</li>
 <li><code>4</code>: run completed but logs could not be saved due to error (could relate to
-network traffice but very rare as an error <em>after</em> the run completed will be
-retried from Redis with an exponential backoff for a very long time)</li>
+  network traffice but very rare as an error <em>after</em> the run completed will be
+  retried from Redis with an exponential backoff for a very long time)</li>
 <li><code>5</code>: unexpected error during job execution</li>
 <li><code>10</code>: error in <code>core/cli.js execute</code></li>
 </ul>
@@ -871,8 +906,7 @@ retried from Redis with an exponential backoff for a very long time)</li>
 <li>Enhanced bulk-retry feature for runs</li>
 <li>Enhanced bulk-reprocess feature for messages</li>
 <li>Added user-warning when connecting a job to a GitHub filepath: the contents at
-  that filepath will overwrite your current OpenFn job on the next GitHub
-  commit</li>
+  that filepath will overwrite your current OpenFn job on the next GitHub commit</li>
 <li>Added historical project usage view</li>
 <li>Added activity cleaning, as per www.openfn.org/pricing#plans to better comply
   with data protection regulations and improve UI performance</li>
@@ -901,21 +935,23 @@ retried from Redis with an exponential backoff for a very long time)</li>
 </ul>
 <p>Messages &amp; the "Inbox" view:</p>
 <ul>
-<li><strong>Filter messages by body text</strong>. (Be patient, doing <code>tsvector</code> searching across millions
-  of payloads.)</li>
+<li><strong>Filter messages by body text</strong>. (Be patient, doing <code>tsvector</code> searching
+  across millions of payloads.)</li>
 <li>Filter by date. (Default inbox view shows last 30 days.)</li>
 <li><strong>Export messages</strong> as a CSV, based on your currently applied filters.</li>
 <li><strong>Bulk reprocess messages</strong> in a series.</li>
 <li>All projects on paid plans now have their own job running queues.</li>
 <li>Partial loading to address inbox view performance issues: messages are loaded
-  first on the inbox view, and then their related "run states" are calculated and
-  loaded in a second action.</li>
+  first on the inbox view, and then their related "run states" are calculated
+  and loaded in a second action.</li>
 </ul>
 <p>Runs &amp; the "Activity History" view:</p>
 <ul>
-<li><strong>Filter runs by log text</strong>. (This is a full text search and may take some time.)</li>
+<li><strong>Filter runs by log text</strong>. (This is a full text search and may take some
+  time.)</li>
 <li>Filter by date. (Default activity history view shows last 30 days.)</li>
-<li><strong>Bulk retry runs</strong> in a series. (With the ability to limit retries to a certain job.)</li>
+<li><strong>Bulk retry runs</strong> in a series. (With the ability to limit retries to a
+  certain job.)</li>
 <li><strong>Export runs</strong> as a CSV, based on your currently applied filters.</li>
 </ul>
 <p>Authentication &amp; Security:</p>
@@ -925,7 +961,8 @@ retried from Redis with an exponential backoff for a very long time)</li>
 <p>Project Settings:</p>
 <ul>
 <li>View the "inbox URL" as text with a click-to-reveal button.</li>
-<li>Show "pace" of estimated usage to determine when a plan upgrade will be necessary.</li>
+<li>Show "pace" of estimated usage to determine when a plan upgrade will be
+  necessary.</li>
 </ul>
 <p>Jobs:</p>
 <ul>
@@ -933,25 +970,31 @@ retried from Redis with an exponential backoff for a very long time)</li>
 </ul>
 <p>Triggers:</p>
 <ul>
-<li>Ability to create "success" and "failure" triggers so that jobs can
-  be run based on the success or failure of another job run.</li>
+<li>Ability to create "success" and "failure" triggers so that jobs can be run
+  based on the success or failure of another job run.</li>
 </ul>
 <h2 id="version-1100-2017-05-04">Version 1.10.0 (2017-05-04)<a class="headerlink" href="#version-1100-2017-05-04" title="Permanent link">#</a></h2>
 <p>New features:</p>
 <ul>
-<li>GitHub integration now generally available for enterprise users. Self-setup interface completed.</li>
+<li>GitHub integration now generally available for enterprise users. Self-setup
+  interface completed.</li>
 </ul>
 <h2 id="version-190-2017-03-07">Version 1.9.0 (2017-03-07)<a class="headerlink" href="#version-190-2017-03-07" title="Permanent link">#</a></h2>
 <p>New features:</p>
 <ul>
-<li>View matching messages in the job writing interface when a message filter trigger is selected.</li>
-<li>"Tree view" exposed for job expression viewing. With valid syntax, you're able to see your expression as a syntax tree as we step slowly towards a more point-and-click interface.</li>
+<li>View matching messages in the job writing interface when a message filter
+  trigger is selected.</li>
+<li>"Tree view" exposed for job expression viewing. With valid syntax, you're able
+  to see your expression as a syntax tree as we step slowly towards a more
+  point-and-click interface.</li>
 </ul>
 <h2 id="version-1750-2016-12-08">Version 1.75.0 (2016-12-08)<a class="headerlink" href="#version-1750-2016-12-08" title="Permanent link">#</a></h2>
 <p>New features:</p>
 <ul>
-<li>Hold control while clicking on navigation buttons to open the target in a new window.</li>
-<li>Filter messages in your inbox by their content by selecting a message-filter trigger.</li>
+<li>Hold control while clicking on navigation buttons to open the target in a new
+  window.</li>
+<li>Filter messages in your inbox by their content by selecting a message-filter
+  trigger.</li>
 </ul>
 <h2 id="version-170-2016-12-05">Version 1.7.0 (2016-12-05)<a class="headerlink" href="#version-170-2016-12-05" title="Permanent link">#</a></h2>
 <h4 id="17-is-all-about-user-experience"><em>1.7 is all about user experience!</em><a class="headerlink" href="#17-is-all-about-user-experience" title="Permanent link">#</a></h4>
@@ -959,15 +1002,22 @@ retried from Redis with an exponential backoff for a very long time)</li>
 <ul>
 <li>Material design—more whitespace and cleaner lines.</li>
 <li>Goto page on inbox and activity tables—save time when processing errors.</li>
-<li>Change number of items per page on inbox and activity table—care with this one on slow connections!</li>
-<li>Go to next or previous message or run—makes working through an audit trail easier</li>
+<li>Change number of items per page on inbox and activity table—care with this one
+  on slow connections!</li>
+<li>Go to next or previous message or run—makes working through an audit trail
+  easier</li>
 <li>Change user profile settings without changing password</li>
-<li>Select syntax style for code editors in user settings—clouds midnight is my new favorite</li>
+<li>Select syntax style for code editors in user settings—clouds midnight is my
+  new favorite</li>
 <li>Filter projects, jobs, triggers by name—on the fly for quick navigation</li>
 <li>Add adaptor logos to credentials list—quick identification</li>
-<li>Specify connection types on "Apps" list—seems there was some confusion about this. I know we're missing plenty of apps that have good APIs. Will consider logging API documentation as well.</li>
-<li>Shift second top-nav to a collapseable "side nav"—better use of screen real-esate.</li>
-<li>Use 'masonry' packing module for jobs, triggers, credentials, and project settings boxes—more efficient use of space</li>
+<li>Specify connection types on "Apps" list—seems there was some confusion about
+  this. I know we're missing plenty of apps that have good APIs. Will consider
+  logging API documentation as well.</li>
+<li>Shift second top-nav to a collapseable "side nav"—better use of screen
+  real-esate.</li>
+<li>Use 'masonry' packing module for jobs, triggers, credentials, and project
+  settings boxes—more efficient use of space</li>
 <li>Add material design to <em>this</em> documentation page!</li>
 </ul>
 <h2 id="version-160-2016-11-24">Version 1.6.0 (2016-11-24)<a class="headerlink" href="#version-160-2016-11-24" title="Permanent link">#</a></h2>
@@ -977,7 +1027,8 @@ retried from Redis with an exponential backoff for a very long time)</li>
 <li>Added <code>update(...)</code> to Salesforce adaptor v0.3.0</li>
 <li>Added <code>fetchWithErrors</code> to HTTP adaptor v0.3.1</li>
 </ul>
-<p><strong>New Salesforce helper function <code>update(...)</code>:</strong> It takes an object and, so long as you're using the "Id" only updates.</p>
+<p><strong>New Salesforce helper function <code>update(...)</code>:</strong> It takes an object and, so
+long as you're using the "Id" only updates.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -990,7 +1041,14 @@ retried from Redis with an exponential backoff for a very long time)</li>
 </code></pre></div>
 </td></tr></table>
 
-<p><strong>New http helper function <code>fetchWithErrors(...)</code>:</strong> This function will perform a get request on an endpoint and return the response to another endpoint, regardless of whether the first GET suceeded or failed. It's currently being used to send message receipt confirmations back to a system of origin that uses OpenFn as an intermediary between it and an SMS gateway. If the SMS message doesn't get delivered because the phone number is invalid, we'd like that information the return all the way to Salesforce, rather than erroring out and staying in OpenFn.</p>
+<p><strong>New http helper function <code>fetchWithErrors(...)</code>:</strong> This function will perform
+a get request on an endpoint and return the response to another endpoint,
+regardless of whether the first GET suceeded or failed. It's currently being
+used to send message receipt confirmations back to a system of origin that uses
+OpenFn as an intermediary between it and an SMS gateway. If the SMS message
+doesn't get delivered because the phone number is invalid, we'd like that
+information the return all the way to Salesforce, rather than erroring out and
+staying in OpenFn.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1020,7 +1078,7 @@ retried from Redis with an exponential backoff for a very long time)</li>
 <span class="c1">// =============</span>
 <span class="nx">fetchWithErrors</span><span class="p">({</span>
   <span class="nx">getEndpoint</span><span class="o">:</span> <span class="s1">&#39;send_to_contact&#39;</span><span class="p">,</span>
-  <span class="nx">query</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span>
       <span class="nx">msisdn</span><span class="o">:</span>
         <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">Envelope</span><span class="p">.</span><span class="nx">Body</span><span class="p">.</span><span class="nx">notifications</span><span class="p">.</span><span class="nx">Notification</span><span class="p">.</span><span class="nx">sObject</span>
@@ -1045,9 +1103,18 @@ retried from Redis with an exponential backoff for a very long time)</li>
 <li>Archive jobs</li>
 <li>Continual testing from status.openfn.org</li>
 </ul>
-<p><strong>Delete credentials and triggers:</strong> Users can now delete credentials and triggers.</p>
-<p><strong>Archive jobs:</strong> Users can now archive jobs, rendering them inactive. Click "view archived jobs" to see and restore old jobs.</p>
-<p><strong>status.openfn.org</strong>: is now live, providing continual testing of key OpenFn services. We run both message-filter-based and timer-trigger-based jobs every five minutes to ensure availability, as well as measuring the round-trip time (in ms) that it takes for a server in a different geographical location to send valid JSON to OpenFn then receive and process the 200 response. (This time will vary according to the location of your servers, but it's important to note that we test the full round trip. Our servers typically send out 200s in about 5-6ms, but you can expect the round trip to complete in closer to 750ms.)</p>
+<p><strong>Delete credentials and triggers:</strong> Users can now delete credentials and
+triggers.</p>
+<p><strong>Archive jobs:</strong> Users can now archive jobs, rendering them inactive. Click
+"view archived jobs" to see and restore old jobs.</p>
+<p><strong>status.openfn.org</strong>: is now live, providing continual testing of key OpenFn
+services. We run both message-filter-based and timer-trigger-based jobs every
+five minutes to ensure availability, as well as measuring the round-trip time
+(in ms) that it takes for a server in a different geographical location to send
+valid JSON to OpenFn then receive and process the 200 response. (This time will
+vary according to the location of your servers, but it's important to note that
+we test the full round trip. Our servers typically send out 200s in about 5-6ms,
+but you can expect the round trip to complete in closer to 750ms.)</p>
 <h2 id="version-140-2016-09-26">Version 1.4.0 (2016-09-26)<a class="headerlink" href="#version-140-2016-09-26" title="Permanent link">#</a></h2>
 <p>New features:</p>
 <ul>
@@ -1055,37 +1122,79 @@ retried from Redis with an exponential backoff for a very long time)</li>
 <li>Always display the latest notification, dismiss to scroll back in time.</li>
 <li>Login and signup server responses</li>
 </ul>
-<p><strong>Run "matches" from inbox:</strong> Users can now run matches in a single click from their inbox, getting notifications that runs have successfully started without having to navigate to the Message Inspector page for a given message. Look for the blue "play" button next to each match. Simply click to start running that job with the message in question.</p>
-<p><strong>Latest notifications:</strong> User notifications will now be displayed <em>newest-on-top</em> and when there are multiple stacked notifications users will be... well... notified. Click the small "x" to dismiss the latest notification, moving backwards in time until all have been read.</p>
-<p><strong>Login/signup errors:</strong> Until now, invalid login messages and duplicate singup emails had been only displayed in your brower's logs. (That's our fault.) You'll now see a handy "invalid credentials" or "email already registered" message when trying to log in or sign up.</p>
+<p><strong>Run "matches" from inbox:</strong> Users can now run matches in a single click from
+their inbox, getting notifications that runs have successfully started without
+having to navigate to the Message Inspector page for a given message. Look for
+the blue "play" button next to each match. Simply click to start running that
+job with the message in question.</p>
+<p><strong>Latest notifications:</strong> User notifications will now be displayed
+<em>newest-on-top</em> and when there are multiple stacked notifications users will
+be... well... notified. Click the small "x" to dismiss the latest notification,
+moving backwards in time until all have been read.</p>
+<p><strong>Login/signup errors:</strong> Until now, invalid login messages and duplicate singup
+emails had been only displayed in your brower's logs. (That's our fault.) You'll
+now see a handy "invalid credentials" or "email already registered" message when
+trying to log in or sign up.</p>
 <h2 id="version-130-2016-09-20">Version 1.3.0 (2016-09-20)<a class="headerlink" href="#version-130-2016-09-20" title="Permanent link">#</a></h2>
 <ul>
-<li>New version of language-salesforce allows users to <code>alterState</code> with a custom function.</li>
+<li>New version of language-salesforce allows users to <code>alterState</code> with a custom
+  function.</li>
 </ul>
-<p><strong>alterState:</strong> <a href="/docs/documentation.html#alterstate-alter-state-to-make-sure-data-is-in-an-array">documentation</a></p>
+<p><strong>alterState:</strong>
+<a href="/docs/documentation.html#alterstate-alter-state-to-make-sure-data-is-in-an-array">documentation</a></p>
 <h2 id="version-120-2016-09-15">Version 1.2.0 (2016-09-15)<a class="headerlink" href="#version-120-2016-09-15" title="Permanent link">#</a></h2>
 <ul>
 <li>Users can now select specific adaptor versions for their jobs.</li>
 <li>Jobs will "auto-upgrade" unless locked to a specific version.</li>
 </ul>
-<p><strong>Adaptor versions:</strong> This means that the code beneath your job, once saved with a specific adaptor version, will never change. This is an important step forward for the whole community, as it enables more rapid progress—especially considering the growing number of outside contributors—without risking introducing instability to existing jobs.</p>
-<p>Each new version of an adaptor will have release notes introducing the new features or changes to helper functions. To allow easy upgrades, we will still mandate that all new versions are backwards compatible.</p>
+<p><strong>Adaptor versions:</strong> This means that the code beneath your job, once saved with
+a specific adaptor version, will never change. This is an important step forward
+for the whole community, as it enables more rapid progress—especially
+considering the growing number of outside contributors—without risking
+introducing instability to existing jobs.</p>
+<p>Each new version of an adaptor will have release notes introducing the new
+features or changes to helper functions. To allow easy upgrades, we will still
+mandate that all new versions are backwards compatible.</p>
 <h2 id="version-110-2016-08-29">Version 1.1.0 (2016-08-29)<a class="headerlink" href="#version-110-2016-08-29" title="Permanent link">#</a></h2>
 <p>New features:</p>
 <ul>
 <li>Users can now run jobs based on <strong>timers</strong> as well as filters.</li>
 <li>Users can now view logs for all runs, not just the most recent.</li>
 <li>Jobs are "aware" of their last running state.</li>
-<li><code>get(...)</code> and <code>post(...)</code> are now supported using the language-http adaptor, allowing users to make their own HTTP calls in jobs.</li>
+<li><code>get(...)</code> and <code>post(...)</code> are now supported using the language-http adaptor,
+  allowing users to make their own HTTP calls in jobs.</li>
 </ul>
-<p><strong>Timer triggers:</strong> On the triggers tab, users can set the trigger type to "timer" and input a whole number of seconds for the "interval". Any "active" jobs associated with this trigger will run periodically after the interval elapses.</p>
-<p><strong>View logs for all runs:</strong> By clicking on an individual run from either the Activity tab or the Message Inspector, users can view the full logs for that run, regardless of whether or not a more recent run took place with the same job and message.</p>
-<p><strong>Job state:</strong> When a job runs based on a timer, not an incoming message, it will preserve it's state for the next run. This feature is commonly used by language packs like language-surveycto, language-odk, and others to create a "cursor" to offset or limit database queries.</p>
+<p><strong>Timer triggers:</strong> On the triggers tab, users can set the trigger type to
+"timer" and input a whole number of seconds for the "interval". Any "active"
+jobs associated with this trigger will run periodically after the interval
+elapses.</p>
+<p><strong>View logs for all runs:</strong> By clicking on an individual run from either the
+Activity tab or the Message Inspector, users can view the full logs for that
+run, regardless of whether or not a more recent run took place with the same job
+and message.</p>
+<p><strong>Job state:</strong> When a job runs based on a timer, not an incoming message, it
+will preserve it's state for the next run. This feature is commonly used by
+language packs like language-surveycto, language-odk, and others to create a
+"cursor" to offset or limit database queries.</p>
 <blockquote>
-<p>For example, <code>fetchSubmissions(...)</code> in the language-surveycto adaptor takes three arguments: <code>formId</code>, <code>afterDate</code>, and <code>postUrl</code>. The first time this job runs it will only fetch submissions <em>after</em> the <code>afterDate</code>. If any submissions are received, it will take the last submission from the array (by date) and persist it in the <code>job_state</code> as <code>lastSubmissionDate</code>. The next time this job runs, say, 300 seconds (5 minutes) later, it will ignore <code>afterDate</code> and instead fetch submissions after <code>lastSubmissionDate</code>. While this particular helper function is very abstract (it does this one thing well) it's possible to write a job that simply alters the final "state" before completing, passing whatever data you'd like from <em>THIS RUN</em> to the <em>NEXT RUN</em> of the job.</p>
+<p>For example, <code>fetchSubmissions(...)</code> in the language-surveycto adaptor takes
+three arguments: <code>formId</code>, <code>afterDate</code>, and <code>postUrl</code>. The first time this job
+runs it will only fetch submissions <em>after</em> the <code>afterDate</code>. If any
+submissions are received, it will take the last submission from the array (by
+date) and persist it in the <code>job_state</code> as <code>lastSubmissionDate</code>. The next time
+this job runs, say, 300 seconds (5 minutes) later, it will ignore <code>afterDate</code>
+and instead fetch submissions after <code>lastSubmissionDate</code>. While this
+particular helper function is very abstract (it does this one thing well) it's
+possible to write a job that simply alters the final "state" before
+completing, passing whatever data you'd like from <em>THIS RUN</em> to the <em>NEXT RUN</em>
+of the job.</p>
 </blockquote>
-<p><strong>get(...) and post(...):</strong> Have a look at this complex job using language-http. See how it is possible to provide a query and a callback for <code>get</code> while <code>post</code> takes a url and a body object. At the end, the user is setting state.lastSubmissionDate to <code>submissions[submissions.length-1].SubmissionDate</code>.</p>
-<p>See the functions themselves at <a href="https://github.com/OpenFn/language-http/blob/master/src/Adaptor.js">language-http</a>.</p>
+<p><strong>get(...) and post(...):</strong> Have a look at this complex job using language-http.
+See how it is possible to provide a query and a callback for <code>get</code> while <code>post</code>
+takes a url and a body object. At the end, the user is setting
+state.lastSubmissionDate to <code>submissions[submissions.length-1].SubmissionDate</code>.</p>
+<p>See the functions themselves at
+<a href="https://github.com/OpenFn/language-http/blob/master/src/Adaptor.js">language-http</a>.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1115,29 +1224,29 @@ retried from Redis with an exponential backoff for a very long time)</li>
 27
 28
 29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;forms/data/wide/json/someForm&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="nx">query</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">query</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="p">{</span> <span class="nx">date</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">lastSubmissionDate</span> <span class="o">||</span> <span class="s1">&#39;Aug 29, 2016 4:44:26 PM&#39;</span> <span class="p">};</span>
   <span class="p">},</span>
-  <span class="nx">callback</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">callback</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// Pick submissions out in order to avoid `post` overwriting `response`.</span>
     <span class="kd">var</span> <span class="nx">submissions</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">response</span><span class="p">.</span><span class="nx">body</span><span class="p">;</span>
     <span class="c1">// return submissions</span>
     <span class="k">return</span> <span class="nx">submissions</span>
-      <span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">.</span><span class="nx">reduce</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">item</span><span class="p">)</span> <span class="p">{</span>
         <span class="c1">// tag submissions as part of the &quot;someForm&quot; form</span>
         <span class="nx">item</span><span class="p">.</span><span class="nx">formId</span> <span class="o">=</span> <span class="s1">&#39;someForm&#39;</span><span class="p">;</span>
         <span class="k">return</span> <span class="nx">acc</span><span class="p">.</span><span class="nx">then</span><span class="p">(</span>
           <span class="nx">post</span><span class="p">(</span><span class="s1">&#39;https://www.openfn.org/inbox/some-inbox-uuid&#39;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">body</span><span class="o">:</span> <span class="nx">item</span> <span class="p">})</span>
         <span class="p">);</span>
       <span class="p">},</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">resolve</span><span class="p">(</span><span class="nx">state</span><span class="p">))</span>
-      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span><span class="nx">submissions</span><span class="p">.</span><span class="nx">length</span><span class="p">)</span> <span class="p">{</span>
           <span class="nx">state</span><span class="p">.</span><span class="nx">lastSubmissionDate</span> <span class="o">=</span>
             <span class="nx">submissions</span><span class="p">[</span><span class="nx">submissions</span><span class="p">.</span><span class="nx">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">].</span><span class="nx">SubmissionDate</span><span class="p">;</span>
         <span class="p">}</span>
         <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
       <span class="p">})</span>
-      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
         <span class="k">delete</span> <span class="nx">state</span><span class="p">.</span><span class="nx">response</span><span class="p">;</span>
         <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
       <span class="p">});</span>
