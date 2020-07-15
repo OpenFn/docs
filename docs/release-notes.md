@@ -1,3 +1,14 @@
+## Version 1.75.0 (2020-07-14)
+
+New features:
+
+- **Scheduled jobs replace timer jobs:** In the past "interval trigger." behaved
+  like sand timers, executing your jobs every `x` seconds. This functionality
+  has been completely overhauled, giving users much greater control over when
+  jobs get executed by introducing `cron` expressions. Learn about `cron` via
+  the OpenFn UI, or at
+  <a href="https://crontab.guru" target="_blank">crontab.guru</a>.
+
 ## Version 1.72.17 (2020-06-21)
 
 New features:

@@ -30,7 +30,8 @@ OpenFn, please see our
 ## Triggers
 
 Triggers _start_ jobs running. They come in 4 types. The most common are
-"message filters", but there are also "timers", "flows", and "fails".
+"message filter" triggers, but there are also "cron" triggers, "flow" triggers,
+and "fail" triggers.
 
 ### Message Filter Triggers
 
@@ -54,13 +55,17 @@ SELECT * FROM receipts
 
 There is a more detailed explanation of filter matching below.
 
-### Timer Triggers
+### Cron Triggers (formerly timers)
 
-Timer triggers run jobs after a recurring interval has elapsed. They can run as
-frequently as once every 10 seconds, or as infrequently as you desire. (E.g.,
-once per week or month.) Each time a timed job succeeds, its `final_state` will
+Cron triggers run jobs based on a cron scheuled. They can run as frequently as
+once every minutes, or as infrequently as you desire and can be scheuled on very
+specific dates or times. Each time a timed job succeeds, its `final_state` will
 be saved and used as the `initial_state` for its next run. See "Managing state"
 and "Keeping a cursor" below for implementation help.
+
+The best way to learn about `cron`, if you're not already familiar, is through
+the OpenFn interface or
+<a href="https://crontab.guru" target="_blank">crontab.guru</a>.
 
 ### Flow Triggers
 
@@ -172,13 +177,13 @@ alterState(state => {
 });
 ```
 
-### Processing time-triggered jobs
+### Processing cron jobs
 
-**On-demand processing for jobs triggered by timers.** If you’re leveraging
-timer triggers to run jobs at specific time intervals, you can now run a time
-triggered job on demand. This way you don’t have to wait for the timer to expire
-before testing! Simply click the process/ “play” button now available via the
-Job, Run, and Activity History pages.
+**On-demand processing for cron jobs.** If you’re leveraging cron triggers to
+run jobs at specific times, you can also run that cron triggered job on demand.
+This way you don’t have to wait for the timer to expire before testing! Simply
+click the process/ “play” button now available via the Job, Run, and Activity
+History pages.
 
 ![Runs list run time trigger button](./images/timetriggerunslist.png)
 
@@ -218,7 +223,8 @@ credential will be selected and applied for that particular job run.
 ## Jobs
 
 A job defines the specific series of tasks or database actions to be performed
-when a triggering message is received or a timer interval has elapsed.
+when a triggering message is received (even-based) or a pre-scheduled (and
+recurring) time is reached.
 
 ### Composing Job Expressions
 
