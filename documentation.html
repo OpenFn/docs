@@ -399,8 +399,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#timer-triggers" class="md-nav__link">
-    Timer Triggers
+  <a href="#cron-triggers-formerly-timers" class="md-nav__link">
+    Cron Triggers (formerly timers)
   </a>
   
 </li>
@@ -481,8 +481,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#processing-time-triggered-jobs" class="md-nav__link">
-    Processing time-triggered jobs
+  <a href="#processing-cron-jobs" class="md-nav__link">
+    Processing cron jobs
   </a>
   
 </li>
@@ -959,8 +959,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#timer-triggers" class="md-nav__link">
-    Timer Triggers
+  <a href="#cron-triggers-formerly-timers" class="md-nav__link">
+    Cron Triggers (formerly timers)
   </a>
   
 </li>
@@ -1041,8 +1041,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#processing-time-triggered-jobs" class="md-nav__link">
-    Processing time-triggered jobs
+  <a href="#processing-cron-jobs" class="md-nav__link">
+    Processing cron jobs
   </a>
   
 </li>
@@ -1347,7 +1347,8 @@ OpenFn, please see our
 <a href="/source-applications/#application-developers">Application Developers</a> section.</p>
 <h2 id="triggers">Triggers<a class="headerlink" href="#triggers" title="Permanent link">#</a></h2>
 <p>Triggers <em>start</em> jobs running. They come in 4 types. The most common are
-"message filters", but there are also "timers", "flows", and "fails".</p>
+"message filter" triggers, but there are also "cron" triggers, "flow" triggers,
+and "fail" triggers.</p>
 <h3 id="message-filter-triggers">Message Filter Triggers<a class="headerlink" href="#message-filter-triggers" title="Permanent link">#</a></h3>
 <p>Message Filter triggers watch for inbound messages and check to see if the data
 in those message match their <strong>criteria</strong>. If they do, and there is an active
@@ -1367,12 +1368,15 @@ this string will be used in the WHERE clause, for example:</p>
 </td></tr></table>
 
 <p>There is a more detailed explanation of filter matching below.</p>
-<h3 id="timer-triggers">Timer Triggers<a class="headerlink" href="#timer-triggers" title="Permanent link">#</a></h3>
-<p>Timer triggers run jobs after a recurring interval has elapsed. They can run as
-frequently as once every 10 seconds, or as infrequently as you desire. (E.g.,
-once per week or month.) Each time a timed job succeeds, its <code>final_state</code> will
+<h3 id="cron-triggers-formerly-timers">Cron Triggers (formerly timers)<a class="headerlink" href="#cron-triggers-formerly-timers" title="Permanent link">#</a></h3>
+<p>Cron triggers run jobs based on a cron scheuled. They can run as frequently as
+once every minutes, or as infrequently as you desire and can be scheuled on very
+specific dates or times. Each time a timed job succeeds, its <code>final_state</code> will
 be saved and used as the <code>initial_state</code> for its next run. See "Managing state"
 and "Keeping a cursor" below for implementation help.</p>
+<p>The best way to learn about <code>cron</code>, if you're not already familiar, is through
+the OpenFn interface or
+<a href="https://crontab.guru" target="_blank">crontab.guru</a>.</p>
 <h3 id="flow-triggers">Flow Triggers<a class="headerlink" href="#flow-triggers" title="Permanent link">#</a></h3>
 <p>Flow triggers will execute a job <em>after</em> another specified job finishes
 successfully. E.g., a flow trigger which specifies the succesful run of Job A
@@ -1486,12 +1490,12 @@ appending an <code>alterState(...)</code> operation after your operation.</p>
 </code></pre></div>
 </td></tr></table>
 
-<h3 id="processing-time-triggered-jobs">Processing time-triggered jobs<a class="headerlink" href="#processing-time-triggered-jobs" title="Permanent link">#</a></h3>
-<p><strong>On-demand processing for jobs triggered by timers.</strong> If you’re leveraging
-timer triggers to run jobs at specific time intervals, you can now run a time
-triggered job on demand. This way you don’t have to wait for the timer to expire
-before testing! Simply click the process/ “play” button now available via the
-Job, Run, and Activity History pages.</p>
+<h3 id="processing-cron-jobs">Processing cron jobs<a class="headerlink" href="#processing-cron-jobs" title="Permanent link">#</a></h3>
+<p><strong>On-demand processing for cron jobs.</strong> If you’re leveraging cron triggers to
+run jobs at specific times, you can also run that cron triggered job on demand.
+This way you don’t have to wait for the timer to expire before testing! Simply
+click the process/ “play” button now available via the Job, Run, and Activity
+History pages.</p>
 <p><img alt="Runs list run time trigger button" src="images/timetriggerunslist.png" /></p>
 <p><img alt="Run history time trigger button" src="images/runtimetrigger1.png" /></p>
 <h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">#</a></h2>
@@ -1518,7 +1522,8 @@ present in the data for a given source message, for example, <em>another</em>
 credential will be selected and applied for that particular job run.</p>
 <h2 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">#</a></h2>
 <p>A job defines the specific series of tasks or database actions to be performed
-when a triggering message is received or a timer interval has elapsed.</p>
+when a triggering message is received (even-based) or a pre-scheduled (and
+recurring) time is reached.</p>
 <h3 id="composing-job-expressions">Composing Job Expressions<a class="headerlink" href="#composing-job-expressions" title="Permanent link">#</a></h3>
 <p>In most cases, a job expression is a series of <code>create</code> or <code>upsert</code> actions that
 are run after a message arrives, using data from that message. It could look

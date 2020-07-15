@@ -678,47 +678,83 @@
                 
                 <h1 id="quick-start-guide">Quick-start guide<a class="headerlink" href="#quick-start-guide" title="Permanent link">#</a></h1>
 <h2 id="1-create-your-account">1. Create your account<a class="headerlink" href="#1-create-your-account" title="Permanent link">#</a></h2>
-<p>If you haven't already, create an account at <a href="https://www.openfn.org/signup">OpenFn.org</a></p>
+<p>If you haven't already, create an account at
+<a href="https://www.openfn.org/signup">OpenFn.org</a></p>
 <h2 id="2-log-in">2. Log In<a class="headerlink" href="#2-log-in" title="Permanent link">#</a></h2>
-<p>After logging into your new account, you will see an overview of your current projects and the job runs associated with that project. This is called the outer <strong>Dashboard</strong>. Click on one project to start.</p>
+<p>After logging into your new account, you will see an overview of your current
+projects and the job runs associated with that project. This is called the outer
+<strong>Dashboard</strong>. Click on one project to start.</p>
 <h2 id="3-review-the-navigation-bar">3. Review the navigation bar<a class="headerlink" href="#3-review-the-navigation-bar" title="Permanent link">#</a></h2>
-<p>You should now be looking at the OpenFn User dashboard for a particular project. Review the following navigation tabs:
-<code>Jobs</code> | <code>Triggers</code> | <code>Credentials</code> | <code>Inbox</code> | <code>Run History</code> | <code>Version Control</code> | <code>Access &amp; Security</code> | <code>Project Settings</code></p>
+<p>You should now be looking at the OpenFn User dashboard for a particular project.
+Review the following navigation tabs: <code>Jobs</code> | <code>Triggers</code> | <code>Credentials</code> |
+<code>Inbox</code> | <code>Run History</code> | <code>Version Control</code> | <code>Access &amp; Security</code> |
+<code>Project Settings</code></p>
 <ul>
-<li><code>Jobs.</code> A job defines the specific series of tasks or database actions to be performed when a triggering message is received or a timer interval has elapsed. Jobs are like the “instructions” you might give a data entry staff member (e.g., create new Patient record in the database, send SMS with payment confirmation number, etc.).</li>
-<li><code>Triggers.</code> A trigger runs jobs based on events, including incoming messages (this is known as a “message filter”) or on a timer (a “time trigger”).</li>
-<li><code>Credentials.</code> A credential is used to authorize connection to a destination system (e.g., Salesforce username, password &amp; login URL).</li>
-<li><code>Inbox.</code> Your inbox contains the history of all messages that have passed in to your project, which may or may not have triggered a specific job. Messages are stored payloads or data (e.g., an incoming SMS, a submitted CommCare form) that were sent via HTTP post to your inbox.</li>
-<li><code>Run History.</code> Runs are OpenFn attempts made on a destination system by running a message through a job. Runs can be viewed here and re-processed if there were any errors flagged when running a job.</li>
-<li><code>Version Control.</code> Sync your project with a GitHub repository so that every change is tracked using git and jobs can be 'rolled back' to previous commits at the touch of a button.</li>
-<li><code>Access &amp; Security.</code> - Invite other OpenFn users to collaborate with you on your project and create authentication methods for your project to restrict which applications can send data to your inbox.</li>
+<li><code>Jobs.</code> A job defines the specific series of tasks or database actions to be
+  performed when a triggering message is received or a scheduled/recurring time
+  is reached. Jobs are like the “instructions” you might give a data entry staff
+  member (e.g., create new Patient record in the database, send SMS with payment
+  confirmation number, etc.).</li>
+<li><code>Triggers.</code> A trigger runs jobs based on events, including incoming messages
+  (this is known as a <code>filter</code> trigger), on a cron schedule (a <code>cron</code> trigger)
+  or based on the success or failure of <em>another</em> job(a <code>flow</code> or <code>catch</code>
+  trigger).</li>
+<li><code>Credentials.</code> A credential is used to authorize connection to a destination
+  system (e.g., Salesforce username, password &amp; login URL).</li>
+<li><code>Inbox.</code> Your inbox contains the history of all messages that have passed in
+  to your project, which may or may not have triggered a specific job. Messages
+  are stored payloads or data (e.g., an incoming SMS, a submitted CommCare form)
+  that were sent via HTTP post to your inbox.</li>
+<li><code>Run History.</code> Runs are OpenFn attempts made on a destination system by
+  running a message through a job. Runs can be viewed here and re-processed if
+  there were any errors flagged when running a job.</li>
+<li><code>Version Control.</code> Sync your project with a GitHub repository so that every
+  change is tracked using git and jobs can be 'rolled back' to previous commits
+  at the touch of a button.</li>
+<li><code>Access &amp; Security.</code> - Invite other OpenFn users to collaborate with you on
+  your project and create authentication methods for your project to restrict
+  which applications can send data to your inbox.</li>
 <li><code>Settings.</code> Monitor your usage and update your project settings here.</li>
 </ul>
 <h2 id="4-check-your-inbox">4. Check your inbox<a class="headerlink" href="#4-check-your-inbox" title="Permanent link">#</a></h2>
-<p>Click on the Inbox tab to view messages -- receipts of data that was sent to your project inbox. Click on the Inbox tab.</p>
+<p>Click on the Inbox tab to view messages -- receipts of data that was sent to
+your project inbox. Click on the Inbox tab.</p>
 <h2 id="5-run-a-job">5. Run a job<a class="headerlink" href="#5-run-a-job" title="Permanent link">#</a></h2>
-<p>You should see your first message associated with a "sample job". Click on it. You can now choose to do the following:</p>
+<p>You should see your first message associated with a "sample job". Click on it.
+You can now choose to do the following:</p>
 <ul>
 <li>Edit the message (mainly for the purpose of fixing mistakes in data),</li>
-<li>Manually run the job associated with a filter which has identified your first message as a trigger. See the <code>Current Potential</code> section for all jobs that can be run against this message based on their triggers and the message body.</li>
+<li>Manually run the job associated with a filter which has identified your first
+  message as a trigger. See the <code>Current Potential</code> section for all jobs that
+  can be run against this message based on their triggers and the message body.</li>
 </ul>
 <p>Click run.</p>
 <h2 id="6-view-the-associated-runs">6. View the Associated Runs<a class="headerlink" href="#6-view-the-associated-runs" title="Permanent link">#</a></h2>
 <p>After running the job, view the run logs in this section below.</p>
 <ul>
-<li>Click into a run to see what happened to the data inside of the message. In the logs, you should be able to see the status (success/error) of the run.</li>
-<li>Go to the "Run History" navigation tab to also view every job run log and its status.</li>
+<li>Click into a run to see what happened to the data inside of the message. In
+  the logs, you should be able to see the status (success/error) of the run.</li>
+<li>Go to the "Run History" navigation tab to also view every job run log and its
+  status.</li>
 </ul>
 <h2 id="7-familiarize-yourself-with-the-other-tabs">7. Familiarize yourself with the other tabs<a class="headerlink" href="#7-familiarize-yourself-with-the-other-tabs" title="Permanent link">#</a></h2>
-<p>Navigate to <strong>Triggers</strong>. You can see that the sample filter we provided you required a message to be sent from OpenFn in order to trigger a job run. Click on the filter to edit it. Click save when you are done.</p>
+<p>Navigate to <strong>Triggers</strong>. You can see that the sample filter we provided you
+required a message to be sent from OpenFn in order to trigger a job run. Click
+on the filter to edit it. Click save when you are done.</p>
 <p>Navigate to <strong>Jobs</strong>. Here you can:</p>
 <ul>
-<li>You can click to view the job that was run when triggered by the sample filter and sample message.</li>
-<li>Click on "Edit Job" to edit the .js file which executes a specific action (job).</li>
+<li>You can click to view the job that was run when triggered by the sample filter
+  and sample message.</li>
+<li>Click on "Edit Job" to edit the .js file which executes a specific action
+  (job).</li>
 <li>Click on the specified filter to change which filter should trigger that job.</li>
 </ul>
-<p>Navigate to <strong>Credentials</strong> to edit the destination system you want to connect to. By default, we have provided credentials to access the Salesforce sandbox environment.</p>
-<p>Navigate to the <strong>Settings</strong> tab to change the project's name, upgrade your account for more jobs and runs, add collaborators, and transfer project ownership.</p>
+<p>Navigate to <strong>Credentials</strong> to edit the destination system you want to connect
+to. By default, we have provided credentials to access the Salesforce sandbox
+environment.</p>
+<p>Navigate to the <strong>Settings</strong> tab to change the project's name, upgrade your
+account for more jobs and runs, add collaborators, and transfer project
+ownership.</p>
                 
               
               

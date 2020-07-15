@@ -714,10 +714,10 @@
 applications or how to configure pull jobs to fetch data from those sources. If
 you don't see yours in the alphabetical list below feel free to add it with a
 pull request.</p>
-<p>To connect an application with standard JSON webhooks, copy your inbox
-URL from the "Inbox" page or your "Project Settings" screen and use it as the
-destination URL on your source application. Unless you have specifically
-configured it on the "Access &amp; Security" page, no authentication is required.</p>
+<p>To connect an application with standard JSON webhooks, copy your inbox URL from
+the "Inbox" page or your "Project Settings" screen and use it as the destination
+URL on your source application. Unless you have specifically configured it on
+the "Access &amp; Security" page, no authentication is required.</p>
 <p><strong><em>N.B.: This is by no means an exhaustive list.</em></strong> It is merely a list of
 common sources that external contributors have added. Remember that anything
 with a REST api or a JSON-based notification service can be used with OpenFn.</p>
@@ -726,24 +726,26 @@ with a REST api or a JSON-based notification service can be used with OpenFn.</p
 <li>Go to "Project Settings".</li>
 <li>Click "Data Forwarding".</li>
 <li>"Add a forwarding location" for Cases, Forms, or both.</li>
-<li>Specify JSON, using your OpenFn inbox URL as the target. See
-the <a href="https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128">CommCare documentation</a>.</li>
-<li>Create a <a href="/docs/documentation.html#match-a-message-with-a-fragment-inside-another-object-called-form">message-filter trigger like this</a>.</li>
-<li>Set up a <code>job</code> running on that filter to process CommCare submissions or case updates.</li>
+<li>Specify JSON, using your OpenFn inbox URL as the target. See the
+   <a href="https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128">CommCare documentation</a>.</li>
+<li>Create a
+   <a href="/docs/documentation.html#match-a-message-with-a-fragment-inside-another-object-called-form">message-filter trigger like this</a>.</li>
+<li>Set up a <code>job</code> running on that filter to process CommCare submissions or case
+   updates.</li>
 </ol>
 <h2 id="magpi">Magpi<a class="headerlink" href="#magpi" title="Permanent link">#</a></h2>
 <p>Magpi is not able to push data to external URLs. In order to fetch data from
-Magpi, you must run a job on a timer using <code>langugage-magpi</code>:</p>
+Magpi, you must run a scheduled job with a cron trigger using <code>langugage-magpi</code>:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
 4
 5
 6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">fetchSurveyData</span><span class="p">({</span>
-  <span class="s2">&quot;surveyId&quot;</span><span class="o">:</span> <span class="mi">37479</span><span class="p">,</span> <span class="c1">// the survey id</span>
-  <span class="s2">&quot;afterDate&quot;</span><span class="o">:</span> <span class="s2">&quot;2016-05-31&quot;</span><span class="p">,</span> <span class="c1">// the initial &quot;after&quot; date</span>
+  <span class="nx">surveyId</span><span class="o">:</span> <span class="mi">37479</span><span class="p">,</span> <span class="c1">// the survey id</span>
+  <span class="nx">afterDate</span><span class="o">:</span> <span class="s1">&#39;2016-05-31&#39;</span><span class="p">,</span> <span class="c1">// the initial &quot;after&quot; date</span>
   <span class="c1">// after the first run, OpenFn will only fetch new submissions</span>
-  <span class="s2">&quot;postUrl&quot;</span><span class="o">:</span> <span class="s2">&quot;https://www.openfn.org/inbox/secret-5c25-inbox-ba2c-url&quot;</span> <span class="c1">// the inbox to post form data to.</span>
+  <span class="nx">postUrl</span><span class="o">:</span> <span class="s1">&#39;https://www.openfn.org/inbox/secret-5c25-inbox-ba2c-url&#39;</span><span class="p">,</span> <span class="c1">// the inbox to post form data to.</span>
 <span class="p">});</span>
 </code></pre></div>
 </td></tr></table>
@@ -758,11 +760,11 @@ SurveyCTO, you must run a job on a using <code>language-surveycto</code>:</p>
 4
 5
 6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">fetchSubmissions</span><span class="p">(</span>
-  <span class="s2">&quot;form_id&quot;</span><span class="p">,</span> <span class="c1">// the form id</span>
-  <span class="s2">&quot;Sep 1, 2016 3:56:02 PM&quot;</span><span class="p">,</span> <span class="c1">// the initial &quot;after&quot; date</span>
+  <span class="s1">&#39;form_id&#39;</span><span class="p">,</span> <span class="c1">// the form id</span>
+  <span class="s1">&#39;Sep 1, 2016 3:56:02 PM&#39;</span><span class="p">,</span> <span class="c1">// the initial &quot;after&quot; date</span>
   <span class="c1">// after the first run, OpenFn will only fetch new submissions</span>
-  <span class="s2">&quot;https://www.openfn.org/inbox/something-secret&quot;</span> <span class="c1">// the inbox to post form data to.</span>
-<span class="p">)</span>
+  <span class="s1">&#39;https://www.openfn.org/inbox/something-secret&#39;</span> <span class="c1">// the inbox to post form data to.</span>
+<span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
 
@@ -775,13 +777,18 @@ changes in your ODK Collect app.</p>
 <li>Select <code>Server Settings</code>.</li>
 <li>Under <code>Type</code>, select <code>Other</code>.</li>
 <li>Under <code>URL</code>, enter `https://www.openfn.org</li>
-<li>Under <code>Submission path</code>, enter <code>/inbox/your-unique-inbox-url</code> (you can copy this from your OpenFn Inbox).</li>
-<li>Optional: If you have enabled auth methods on your inbox, enter
-your <code>username</code> and <code>password</code> on this same screen.</li>
+<li>Under <code>Submission path</code>, enter <code>/inbox/your-unique-inbox-url</code> (you can copy
+   this from your OpenFn Inbox).</li>
+<li>Optional: If you have enabled auth methods on your inbox, enter your
+   <code>username</code> and <code>password</code> on this same screen.</li>
 </ol>
 <p>Note that you cannot load forms from OpenFn. Forms must be loaded directly via
-<a href="https://docs.opendatakit.org/collect-forms/#loading-forms-directly">ODK's direct method</a>, which allows you to send forms as files via email/Whatsapp. Users can then choose to download the files and save them in the <code>odk/ forms</code> folder on their mobile.</p>
-<p>Note that if you want to reverse this setup and configure ODK Collect to re-connect to your Aggregate instance again:`</p>
+<a href="https://docs.opendatakit.org/collect-forms/#loading-forms-directly">ODK's direct method</a>,
+which allows you to send forms as files via email/Whatsapp. Users can then
+choose to download the files and save them in the <code>odk/ forms</code> folder on their
+mobile.</p>
+<p>Note that if you want to reverse this setup and configure ODK Collect to
+re-connect to your Aggregate instance again:`</p>
 <ol>
 <li>Go back to <code>General Settings</code>.</li>
 <li>Select <code>Server Settings</code>.</li>
@@ -793,51 +800,46 @@ your <code>username</code> and <code>password</code> on this same screen.</li>
 <h2 id="open-data-kit-odk-aggregate">Open Data Kit (ODK) Aggregate<a class="headerlink" href="#open-data-kit-odk-aggregate" title="Permanent link">#</a></h2>
 <ol>
 <li>To new submissions from ODK in real-time, click the "Form Management" tab at
-the top of your Aggregate interface.</li>
+   the top of your Aggregate interface.</li>
 <li>Click "Publish" next to the form you'd like to publish to OpenFn.</li>
 <li>A dialogue box will open.</li>
 <li>In the "Publish To:" picklist, select <code>Z-ALPHA JSON Server</code>.</li>
-<li>Choose which data to publish in the "Data to Publish:" picklist. You
-may: <strong>"Upload Existing Data ONLY"</strong> (ideal for migrations of finished data
-sets), <strong>"Stream New Submission Data ONLY"</strong> (ideal for new projects),
-or <strong>"BOTH Upload Existing &amp; Stream New Submission Data"</strong> (ideal for connecting
-ongoing projects which are already running).</li>
-<li>In the "URL to publish to:" text box, enter your OpenFn Inbox UUID.
-(e.g., <code>https://www.openfn.org/inbox/8ad63a29-mUCh-sEcRET-cODes-wOW</code>)</li>
+<li>Choose which data to publish in the "Data to Publish:" picklist. You may:
+   <strong>"Upload Existing Data ONLY"</strong> (ideal for migrations of finished data sets),
+   <strong>"Stream New Submission Data ONLY"</strong> (ideal for new projects), or <strong>"BOTH
+   Upload Existing &amp; Stream New Submission Data"</strong> (ideal for connecting ongoing
+   projects which are already running).</li>
+<li>In the "URL to publish to:" text box, enter your OpenFn Inbox UUID. (e.g.,
+   <code>https://www.openfn.org/inbox/8ad63a29-mUCh-sEcRET-cODes-wOW</code>)</li>
 <li>Leave "Authorization token:" blank.</li>
 <li>Leave "Include Media as:" set to "Links(URLs) to Media".</li>
 <li>Click "Publish" and enter your email address in the dialogue box.</li>
 <li>Click the "Published Data" tab under "Form Management" and select your form
-to view the status of your publisher. You can also now check your OpenFn inbox
-to see ODK submissions arrive.</li>
+    to view the status of your publisher. You can also now check your OpenFn
+    inbox to see ODK submissions arrive.</li>
 </ol>
 <h2 id="kobo-toolbox">Kobo Toolbox<a class="headerlink" href="#kobo-toolbox" title="Permanent link">#</a></h2>
 <ol>
 <li>To push data from Kobo, users must click the projects icon on their left-side
-nav bar. It's in the shape of a globe.</li>
+   nav bar. It's in the shape of a globe.</li>
 <li>Once selecting a project, the <code>Project Settings</code> link will appear at the top
-left side of the screen. Click it to open the Project Settings page.</li>
+   left side of the screen. Click it to open the Project Settings page.</li>
 <li>In the bottom left pane of the project settings page, users must paste their
-inbox URL from OpenFn into the <code>Rest Services</code> <code>Service URL</code> input area and
-select <code>JSON Post</code> as the <code>Service Name</code>.</li>
+   inbox URL from OpenFn into the <code>Rest Services</code> <code>Service URL</code> input area and
+   select <code>JSON Post</code> as the <code>Service Name</code>.</li>
 <li>It's helpful to add a wrapper to your form data if you will be publishing
-multiple forms to OpenFn. You could use <code>{"form":"my_form", "body": %SUBMISSION%}</code>.</li>
+   multiple forms to OpenFn. You could use
+   <code>{"form":"my_form", "body": %SUBMISSION%}</code>.</li>
 <li>Click <code>Add Service</code> to start forwarding new Kobo submissions to OpenFn.org.</li>
 </ol>
-<p>To test to integration, add a submission manually using the <code>enter data in
-browser</code> button. Head back to your history page at OpenFn to view the newly
-submitted data and write a new <code>filter</code> and <code>job</code> to map your Kobo data to any
-destination system on OpenFn.</p>
+<p>To test to integration, add a submission manually using the
+<code>enter data in browser</code> button. Head back to your history page at OpenFn to view
+the newly submitted data and write a new <code>filter</code> and <code>job</code> to map your Kobo
+data to any destination system on OpenFn.</p>
 <p>Here's a sample post from Kobo REST service. Note that questions inside groups
 are prefixed with <code>groupname/</code> rather than sitting inside a group object like
-ODK: <code>json { "meta/instanceID": "uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4",
-"group1/name": "twenty", "group1/age": "19", "formhub/uuid":
-"6f5773a110b046cb97e3d71f6c04e7a6", "first_q": "hello", "final_q": "why not?",
-"_xform_id_string": "groups", "_uuid": "19d72997-8316-4e02-8016-4a8ddf6a2aa4",
-"_userform_id": "taylordowns2000_groups", "_tags": [], "_submitted_by": null,
-"_submission_time": "2016-04-22T06:38:20", "_status": "submitted_via_web",
-"_notes": [], "_id": 889409, "_geolocation": [ null, null ],
-"_bamboo_dataset_id": "", "_attachments": [] }</code></p>
+ODK:
+<code>json { "meta/instanceID": "uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4", "group1/name": "twenty", "group1/age": "19", "formhub/uuid": "6f5773a110b046cb97e3d71f6c04e7a6", "first_q": "hello", "final_q": "why not?", "_xform_id_string": "groups", "_uuid": "19d72997-8316-4e02-8016-4a8ddf6a2aa4", "_userform_id": "taylordowns2000_groups", "_tags": [], "_submitted_by": null, "_submission_time": "2016-04-22T06:38:20", "_status": "submitted_via_web", "_notes": [], "_id": 889409, "_geolocation": [ null, null ], "_bamboo_dataset_id": "", "_attachments": [] }</code></p>
 <h2 id="onaio">Ona.io<a class="headerlink" href="#onaio" title="Permanent link">#</a></h2>
 <ol>
 <li>To pus data from Ona.io, click on the drop-down menu next to a specific form
@@ -922,26 +924,19 @@ new rows are added.</p>
 65
 66
 67
-68
-69
-70
-71
-72
-73
-74</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">sendToOpenFn</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+68</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">sendToOpenFn</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
   <span class="kd">var</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
   <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.openfn.org/inbox/your-id-here&#39;</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="s1">&#39;method&#39;</span><span class="o">:</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span>
-      <span class="s2">&quot;contentType&quot;</span> <span class="o">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
-      <span class="s1">&#39;payload&#39;</span><span class="o">:</span> <span class="nx">payload</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span>
+    <span class="nx">contentType</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="nx">payload</span><span class="o">:</span> <span class="nx">payload</span><span class="p">,</span>
   <span class="p">};</span>
   <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">UrlFetchApp</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
 <span class="p">}</span>
 
-
 <span class="kd">function</span> <span class="nx">isDate</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="o">===</span> <span class="s2">&quot;[object Date]&quot;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;[object Date]&#39;</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">if</span> <span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()))</span> <span class="p">{</span>
       <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
     <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
@@ -952,55 +947,50 @@ new rows are added.</p>
   <span class="p">}</span>
 <span class="p">}</span>
 
-
 <span class="kd">function</span> <span class="nx">isNumber</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="o">===</span> <span class="s2">&quot;[object Number]&quot;</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;[object Number]&#39;</span><span class="p">)</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="k">else</span> <span class="p">{</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
     <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
-
-<span class="kd">function</span> <span class="nx">getReportData</span><span class="p">(){</span>
-  <span class="kd">var</span> <span class="nx">bookReportData</span> <span class="o">=</span> <span class="p">{</span><span class="nx">formId</span> <span class="o">:</span> <span class="s2">&quot;bookReport&quot;</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span> <span class="p">[]};</span>
+<span class="kd">function</span> <span class="nx">getReportData</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">bookReportData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">formId</span><span class="o">:</span> <span class="s1">&#39;bookReport&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span> <span class="p">[]</span> <span class="p">};</span>
   <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSheet</span><span class="p">().</span><span class="nx">getDataRange</span><span class="p">().</span><span class="nx">getValues</span><span class="p">();</span>
 
   <span class="kd">var</span> <span class="nx">pageCount</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
   <span class="kd">var</span> <span class="nx">bookRating</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
   <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="k">in</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
-
-    <span class="k">if</span> <span class="p">(</span><span class="nx">isDate</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])){</span>        <span class="c1">//  ignore header line</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">isDate</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="c1">//  ignore header line</span>
       <span class="k">if</span> <span class="p">(</span><span class="nx">isNumber</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]))</span> <span class="p">{</span>
-        <span class="nx">pageCount</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
+        <span class="nx">pageCount</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
       <span class="p">}</span>
 
       <span class="k">if</span> <span class="p">(</span><span class="nx">isNumber</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">6</span><span class="p">]))</span> <span class="p">{</span>
-        <span class="nx">bookRating</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">6</span><span class="p">]</span>
+        <span class="nx">bookRating</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">6</span><span class="p">];</span>
       <span class="p">}</span>
 
-      <span class="nx">bookReportData</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span>
-        <span class="p">{</span>
-          <span class="nx">Timestamp</span> <span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
-          <span class="nx">Title</span> <span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
-          <span class="nx">Author</span> <span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>
-          <span class="nx">NumberOfPages</span> <span class="o">:</span> <span class="nx">pageCount</span><span class="p">,</span>
-          <span class="nx">Summary</span> <span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">4</span><span class="p">],</span>
-          <span class="nx">Protagonist</span> <span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">5</span><span class="p">],</span>
-          <span class="nx">Rating</span> <span class="o">:</span> <span class="nx">bookRating</span><span class="p">,</span>
-          <span class="nx">EmailTeacher</span> <span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">7</span><span class="p">],</span>
-          <span class="nx">EmailStudent</span> <span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">8</span><span class="p">],</span>
-          <span class="nx">SendStatus</span> <span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">9</span><span class="p">]</span>
-        <span class="p">}</span>
-      <span class="p">);</span>
+      <span class="nx">bookReportData</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="nx">Timestamp</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+        <span class="nx">Title</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span>
+        <span class="nx">Author</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span>
+        <span class="nx">NumberOfPages</span><span class="o">:</span> <span class="nx">pageCount</span><span class="p">,</span>
+        <span class="nx">Summary</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">4</span><span class="p">],</span>
+        <span class="nx">Protagonist</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">5</span><span class="p">],</span>
+        <span class="nx">Rating</span><span class="o">:</span> <span class="nx">bookRating</span><span class="p">,</span>
+        <span class="nx">EmailTeacher</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">7</span><span class="p">],</span>
+        <span class="nx">EmailStudent</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">8</span><span class="p">],</span>
+        <span class="nx">SendStatus</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mi">9</span><span class="p">],</span>
+      <span class="p">});</span>
     <span class="p">}</span>
   <span class="p">}</span>
 
-<span class="c1">//  Logger.log(bookReportData);</span>
+  <span class="c1">//  Logger.log(bookReportData);</span>
 
-  <span class="nx">sendToOpenFn</span><span class="p">(</span><span class="nx">bookReportData</span><span class="p">);</span>  
+  <span class="nx">sendToOpenFn</span><span class="p">(</span><span class="nx">bookReportData</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div>
 </td></tr></table>
