@@ -17,9 +17,16 @@ application will notify OpenFn when _something happens_.
    find and copy your secure inbox URL by clicking on the "copy URL" link in the
    bottom-right corner of the project in question on your
    **[project dashboard](https://www.openfn.org/projects)** page or by using the
-   "Copy URL" button on your project's "Inbox" page..
+   "Copy URL" button on your project's "Inbox" page.
 
 3. Soon you'll see new messages arrive in your **Inbox**.
+
+See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for specific 
+instructions for connecting common applications. 
+
+### Inbox Security
+OpenFn project administrators can choose to configure additional authentication for any inbound requests made to the project's inbox URL. In the "Access & Security" page of their OpenFn project, Administrators can choose from API Key and Basic Auth types, which will prompt administrators to either generate an API token or to setup a username:password credential. Once this inbox authentication is configured, any HTTP requests made to the OpenFn Inbox URL must include either this token or username:password in the request header. 
+![inbox security](./images/inbox-security.png)
 
 ## Creating a compatible notifications service
 
