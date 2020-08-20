@@ -9,19 +9,18 @@ pull request.
 
 Every OpenFn project has a unique **Inbox URL** address that can be used as an 
 endpoint for any JSON webhook. To set up a data source, configure that source 
-to make a POST over HTTPS to your Inbox URL.
+to make a POST over HTTPS to your Inbox URL. See [Connecting Source Applications]
+(https://docs.openfn.org/documentation.html#connecting-source-applications). 
 
 To connect an application with standard JSON webhooks, copy your inbox URL from
 the "Inbox" page or your "Project Settings" screen and use it as the destination
 URL on your source application. Unless you have specifically configured it on
-the "Access & Security" page (see below section), no authentication is required. 
+the "Access & Security" page, no authentication is required. 
 
 **_N.B.: This is by no means an exhaustive list._** It is merely a list of
 common sources that external contributors have added. Remember that anything
 with a REST api or a JSON-based notification service can be used with OpenFn.
 
-### Inbox Security
-OpenFn project administrators can choose to configure additional authentication for any inbound requests made to the project's inbox URL. In the "Access & Security" page of their OpenFn project, Administrators can choose from API Key and Basic Auth types, which will prompt administrators to either generate an API token or to setup a username:password credential. Once this inbox authentication is configured, any HTTP requests made to the OpenFn Inbox URL must include either this token or username:password in the request header. 
 
 ## CommCare HQ
 
