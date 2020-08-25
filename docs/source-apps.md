@@ -9,8 +9,7 @@ pull request.
 
 Every OpenFn project has a unique **Inbox URL** address that can be used as an 
 endpoint for any JSON webhook. To set up a data source, configure that source 
-to make a POST over HTTPS to your Inbox URL. See [Connecting Source Applications]
-(https://docs.openfn.org/documentation.html#connecting-source-applications). 
+to make a POST over HTTPS to your Inbox URL. See [Connecting Source Applications](https://docs.openfn.org/documentation.html#connecting-source-applications). 
 
 To connect an application with standard JSON webhooks, copy your inbox URL from
 the "Inbox" page or your "Project Settings" screen and use it as the destination
