@@ -32,7 +32,7 @@ OpenFn project administrators can choose to configure additional authentication 
 
 If you are a developer, looking to set up a compatible notifications API for
 OpenFn, please see our
-[Application Developers](/source-applications/#application-developers) section.
+[Application Developers](https://docs.openfn.org/for-devs.html) section.
 
 ## Triggers
 
