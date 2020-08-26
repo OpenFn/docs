@@ -552,6 +552,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#community-health-toolkit" title="Community Health Toolkit" class="md-nav__link">
+    Community Health Toolkit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#google-formsgoogle-sheets" title="Google Forms/Google Sheets" class="md-nav__link">
     Google Forms/Google Sheets
   </a>
@@ -658,6 +665,13 @@
         <li class="md-nav__item">
   <a href="#onaio" title="Ona.io" class="md-nav__link">
     Ona.io
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-health-toolkit" title="Community Health Toolkit" class="md-nav__link">
+    Community Health Toolkit
   </a>
   
 </li>
@@ -825,7 +839,7 @@ ODK:
 <code>json { "meta/instanceID": "uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4", "group1/name": "twenty", "group1/age": "19", "formhub/uuid": "6f5773a110b046cb97e3d71f6c04e7a6", "first_q": "hello", "final_q": "why not?", "_xform_id_string": "groups", "_uuid": "19d72997-8316-4e02-8016-4a8ddf6a2aa4", "_userform_id": "taylordowns2000_groups", "_tags": [], "_submitted_by": null, "_submission_time": "2016-04-22T06:38:20", "_status": "submitted_via_web", "_notes": [], "_id": 889409, "_geolocation": [ null, null ], "_bamboo_dataset_id": "", "_attachments": [] }</code></p>
 <h2 id="onaio">Ona.io<a class="headerlink" href="#onaio" title="Permanent link">#</a></h2>
 <ol>
-<li>To pus data from Ona.io, click on the drop-down menu next to a specific form
+<li>To push data from Ona.io, click on the drop-down menu next to a specific form
    and select <code>Settings</code>.</li>
 <li>On the left-side menu, select <code>Webhooks</code>.</li>
 <li>Paste your OpenFn inbox URL into the URL input field.</li>
@@ -834,6 +848,12 @@ ODK:
    will forward data as JSON.</li>
 <li>Check to see that, once a form is submitted, it is forwarded to your OpenFn
    inbox.</li>
+</ol>
+<h2 id="community-health-toolkit">Community Health Toolkit<a class="headerlink" href="#community-health-toolkit" title="Permanent link">#</a></h2>
+<ol>
+<li>To push data from CHT applications to OpenFn, leverage the <a href="https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/">Outbound Push</a> feature to forward specified data to your OpenFn project. </li>
+<li>When definining the <a href="https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#destination"><code>destination</code></a>, specify your OpenFn inbox URL as the <code>baseURL</code>. No <code>auth</code> parameters are required, unless you have configured Inbox Security on your OpenFn project. </li>
+<li>Define the data to forward to OpenFn in the <a href="https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#mapping"><code>mapping</code></a> property. This will structure the payload that is sent to your OpenFn Inbox as a "Message". </li>
 </ol>
 <h2 id="google-formsgoogle-sheets">Google Forms/Google Sheets<a class="headerlink" href="#google-formsgoogle-sheets" title="Permanent link">#</a></h2>
 <p>You can send data to OpenFn whenever a new row is added to a Google Sheet, for
