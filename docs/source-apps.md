@@ -142,7 +142,7 @@ ODK:
 
 ## Ona.io
 
-1. To pus data from Ona.io, click on the drop-down menu next to a specific form
+1. To push data from Ona.io, click on the drop-down menu next to a specific form
    and select `Settings`.
 2. On the left-side menu, select `Webhooks`.
 3. Paste your OpenFn inbox URL into the URL input field.
@@ -151,6 +151,12 @@ ODK:
    will forward data as JSON.
 6. Check to see that, once a form is submitted, it is forwarded to your OpenFn
    inbox.
+   
+## Community Health Toolkit
+
+1. To push data from CHT applications to OpenFn, leverage the [Outbound Push](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/) feature to forward specified data to your OpenFn project. 
+2. When definining the [`destination`](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#destination), specify your OpenFn inbox URL as the `baseURL`. No `auth` parameters are required, unless you have configured Inbox Security on your OpenFn project. 
+3. Define the data to forward to OpenFn in the [`mapping`](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#mapping) property. This will structure the payload that is sent to your OpenFn Inbox as a "Message". 
 
 ## Google Forms/Google Sheets
 
