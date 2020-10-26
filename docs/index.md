@@ -7,23 +7,23 @@ intended to help users of the site. Technical documentation for OpenFn's
 open-source integration tools and language-packs can be found in their
 respective repositories at [Github.com/OpenFn](https://github.com/openfn).
 
-Check out the tabs at the top of the page. They'll take you to documentation about
-[the Platform](documentation.md), [job writing](core.md) (for both hosted and
-locally-deployed/open-source version of OpenFn), and connecting
-[source applications](source-apps.md) so you can publish data to OpenFn in
-real time.
+Check out the tabs at the top of the page. They'll take you to documentation
+about [the Platform](documentation.md), [job writing](core.md) (for both hosted
+and locally-deployed/open-source version of OpenFn), and connecting
+[source applications](source-apps.md) so you can publish data to OpenFn in real
+time.
 
-!!! warning "You Can Contribute!"
-If you want a new feature or find a bug, please [submit an
-issue](https://github.com/openfn/docs/issues). If you find an issue with the
-documentation or want to share your custom functions, you can make those changes
-yourself and [submit a pull request](https://github.com/OpenFn/docs/compare)!
+If you want a new feature or find a bug, please
+[submit an issue](https://github.com/openfn/docs/issues). If you find an issue
+with the documentation or want to share your custom functions, you can make
+those changes yourself and
+[submit a pull request](https://github.com/OpenFn/docs/compare)!
 
 If you have any questions, please don't hesitate to email
 [admin@openfn.org](mailto:admin@openfn.org).
 
 ## The OpenFn Google Group
 
-Please make sure to check out the [OpenFn Google
-Group](https://groups.google.com/forum/#!forum/openfn) if you've got questions
-that aren't answered here.
+Please make sure to check out the
+[OpenFn Google Group](https://groups.google.com/forum/#!forum/openfn) if you've
+got questions that aren't answered here.
