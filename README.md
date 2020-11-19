@@ -1,6 +1,6 @@
 # [OpenFn Documentation & Issue Tracking](https://docs.openfn.org)
 
-## [![Logo](/docs/images/round-logo.png)&nbsp;&nbsp;openfn.github.io/docs](https://docs.openfn.org)
+## [![Logo](/docs/images/round-logo.png)&nbsp;&nbsp;docs.openfn.org](https://docs.openfn.org)
 
 **_To view the documentation please visit
 [docs.openfn.org](https://docs.openfn.org)._**
