@@ -43,6 +43,7 @@ theme:
 nav:
   - "Home": "index.md"
   - "Quick Start": "quick-start.md"
+  - "Community Forum": "https://community.openfn.org"
   - "FAQs": faqs.md
   - "About us": about.md
   - "The OpenFn.org Platform":

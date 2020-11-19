@@ -22,8 +22,8 @@ those changes yourself and
 If you have any questions, please don't hesitate to email
 [admin@openfn.org](mailto:admin@openfn.org).
 
-## The OpenFn Google Group
+## The OpenFn Community on Discourse
 
-Please make sure to check out the
-[OpenFn Google Group](https://groups.google.com/forum/#!forum/openfn) if you've
-got questions that aren't answered here.
+Please make sure to check out
+[community.openfn.org](https://community.openfn.org) if you've got questions
+that aren't answered here.
