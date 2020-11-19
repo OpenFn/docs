@@ -52,12 +52,13 @@ nav:
       - "Snippets & Sample Code": "appendix.md"
       - "Release Notes": "release-notes.md"
       - "DIY": "diy.md"
+  - "Connecting Apps":
+      - "Kobo Toolbox": "kobo-toolbox.md"
+      - "Other Applications": "source-apps.md"
+      - "Application Developers": "for-devs.md"
   - "Writing Jobs":
       - "Job Execution": "core.md"
       - "The Job Library": "job-library.md"
-  - "Connecting Data Sources":
-      - "Source Apps": "source-apps.md"
-      - "Application Developers": "for-devs.md"
 
 # Options
 extra:
