@@ -54,6 +54,7 @@ nav:
       - "DIY": "diy.md"
   - "Connecting Apps":
       - "Kobo Toolbox": "kobo-toolbox.md"
+      - "CommCare": "commcare.md"
       - "Other Applications": "source-apps.md"
       - "Application Developers": "for-devs.md"
   - "Writing Jobs":
