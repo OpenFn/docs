@@ -36,11 +36,11 @@
      <lastmod>2020-11-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://openfn.github.io/docs/core.html</loc>
+     <loc>https://openfn.github.io/docs/kobo-toolbox.html</loc>
      <lastmod>2020-11-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
-     <loc>https://openfn.github.io/docs/job-library.html</loc>
+     <loc>https://openfn.github.io/docs/commcare.html</loc>
      <lastmod>2020-11-19</lastmod>
      <changefreq>daily</changefreq>
     </url><url>
@@ -49,6 +49,14 @@
      <changefreq>daily</changefreq>
     </url><url>
      <loc>https://openfn.github.io/docs/for-devs.html</loc>
+     <lastmod>2020-11-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://openfn.github.io/docs/core.html</loc>
+     <lastmod>2020-11-19</lastmod>
+     <changefreq>daily</changefreq>
+    </url><url>
+     <loc>https://openfn.github.io/docs/job-library.html</loc>
      <lastmod>2020-11-19</lastmod>
      <changefreq>daily</changefreq>
     </url>
