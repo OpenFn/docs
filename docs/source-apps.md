@@ -7,19 +7,19 @@ applications or how to configure pull jobs to fetch data from those sources. If
 you don't see yours in the alphabetical list below feel free to add it with a
 pull request.
 
-Every OpenFn project has a unique **Inbox URL** address that can be used as an 
-endpoint for any JSON webhook. To set up a data source, configure that source 
-to make a POST over HTTPS to your Inbox URL. See [Connecting Source Applications](https://docs.openfn.org/documentation.html#connecting-source-applications). 
+Every OpenFn project has a unique **Inbox URL** address that can be used as an
+endpoint for any JSON webhook. To set up a data source, configure that source to
+make a POST over HTTPS to your Inbox URL. See
+[Connecting Source Applications](https://docs.openfn.org/documentation.html#connecting-source-applications).
 
 To connect an application with standard JSON webhooks, copy your inbox URL from
 the "Inbox" page or your "Project Settings" screen and use it as the destination
 URL on your source application. Unless you have specifically configured it on
-the "Access & Security" page, no authentication is required. 
+the "Access & Security" page, no authentication is required.
 
 **_N.B.: This is by no means an exhaustive list._** It is merely a list of
 common sources that external contributors have added. Remember that anything
 with a REST api or a JSON-based notification service can be used with OpenFn.
-
 
 ## CommCare HQ
 
@@ -127,14 +127,23 @@ re-connect to your Aggregate instance again:`
    will forward data as JSON.
 6. Check to see that, once a form is submitted, it is forwarded to your OpenFn
    inbox.
-   
+
 ## Community Health Toolkit
 
-1. To push data from CHT applications to OpenFn, leverage the [Outbound Push](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/) feature to forward specified data to your OpenFn project. 
-2. When definining the [`destination`](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#destination), specify your OpenFn inbox URL as the `baseURL`. No `auth` parameters are required, unless you have configured Inbox Security on your OpenFn project. 
-3. Define the data to forward to OpenFn in the [`mapping`](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#mapping) property. This will structure the payload that is sent to your OpenFn Inbox as a "Message". 
+1. To push data from CHT applications to OpenFn, leverage the
+   [Outbound Push](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/)
+   feature to forward specified data to your OpenFn project.
+2. When definining the
+   [`destination`](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#destination),
+   specify your OpenFn inbox URL as the `baseURL`. No `auth` parameters are
+   required, unless you have configured Inbox Security on your OpenFn project.
+3. Define the data to forward to OpenFn in the
+   [`mapping`](https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#mapping)
+   property. This will structure the payload that is sent to your OpenFn Inbox
+   as a "Message".
 
-To send data _to_ CHT applications, check out the [CHT API](https://docs.communityhealthtoolkit.org/apps/reference/api/).
+To send data _to_ CHT applications, check out the
+[CHT API](https://docs.communityhealthtoolkit.org/apps/reference/api/).
 
 ## Google Forms/Google Sheets
 
