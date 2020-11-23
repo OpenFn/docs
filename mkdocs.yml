@@ -1,16 +1,17 @@
 # Project information
-site_name: "OpenFn Documentation"
-site_description: "README, Getting Started, Documentation, and Release Notes for OpenFn"
-site_author: "OpenFn"
-site_url: "https://openfn.github.io/docs"
+site_name: 'OpenFn Documentation'
+site_description:
+  'README, Getting Started, Documentation, and Release Notes for OpenFn'
+site_author: 'OpenFn'
+site_url: 'https://openfn.github.io/docs'
 use_directory_urls: false
 
 # Repository
-repo_name: "GitHub"
-repo_url: "https://github.com/openfn/docs"
+repo_name: 'GitHub'
+repo_url: 'https://github.com/openfn/docs'
 
 # Copyright
-copyright: "Copyright (c) 2019 Open Function Group LLC"
+copyright: 'Copyright (c) 2019 Open Function Group LLC'
 
 plugins:
   - search
@@ -18,55 +19,50 @@ plugins:
 extra_javascript: [freshChat.js]
 
 # Documentation and theme
-docs_dir: "docs"
+docs_dir: 'docs'
 theme:
   logo: images/logo.svg
   icon:
     # logo: material/cloud
     repo: fontawesome/brands/github-alt
-  name: "material"
+  name: 'material'
   features:
     - tabs
     - instant
   palette:
-    primary: "light blue"
-    accent: "deep purple"
+    primary: 'light blue'
+    accent: 'deep purple'
   font:
-    text: "Roboto"
-    code: "Roboto Mono"
-    # text: 'Manrope'
-    # code: 'Roboto-Mono'
-
-# extra_css:
-# - customizations.css
+    text: 'Roboto'
+    code: 'Roboto Mono'
 
 nav:
-  - "Home": "index.md"
-  - "Quick Start": "quick-start.md"
-  - "Community Forum": "https://community.openfn.org"
-  - "FAQs": faqs.md
-  - "About us": about.md
-  - "The OpenFn.org Platform":
-      - "Basic Documentation": "documentation.md"
-      - "Troubleshooting Data Errors": "trouble-shooting.md"
-      - "Snippets & Sample Code": "appendix.md"
-      - "Release Notes": "release-notes.md"
-      - "DIY": "diy.md"
-  - "Connecting Apps":
-      - "Kobo Toolbox": "kobo-toolbox.md"
-      - "CommCare": "commcare.md"
-      - "Other Applications": "source-apps.md"
-      - "Application Developers": "for-devs.md"
-  - "Writing Jobs":
-      - "Job Execution": "core.md"
-      - "The Job Library": "job-library.md"
+  - 'Home': 'index.md'
+  - 'Quick Start': 'quick-start.md'
+  - 'Community Forum': 'https://community.openfn.org'
+  - 'FAQs': faqs.md
+  - 'About us': about.md
+  - 'The OpenFn.org Platform':
+      - 'Basic Documentation': 'documentation.md'
+      - 'Troubleshooting Data Errors': 'trouble-shooting.md'
+      - 'Snippets & Sample Code': 'appendix.md'
+      - 'Release Notes': 'release-notes.md'
+      - 'DIY': 'diy.md'
+  - 'Connecting Apps':
+      - 'Kobo Toolbox': 'kobo-toolbox.md'
+      - 'CommCare': 'commcare.md'
+      - 'Other Applications': 'source-apps.md'
+      - 'Application Developers': 'for-devs.md'
+  - 'Writing Jobs':
+      - 'Job Execution': 'core.md'
+      - 'The Job Library': 'job-library.md'
 
 # Options
 extra:
   # disqus: openfn
   author:
-    github: "openfn"
-    twitter: "openfn"
+    github: 'openfn'
+    twitter: 'openfn'
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/openfn
@@ -79,8 +75,8 @@ extra:
 
 # Google Analytics
 google_analytics:
-  - "UA-57118569-4"
-  - "openfn.org"
+  - 'UA-57118569-4'
+  - 'openfn.org'
 
 # Extensions
 markdown_extensions:
@@ -88,4 +84,4 @@ markdown_extensions:
       linenums: true
   - admonition
   - toc:
-      permalink: "#"
+      permalink: '#'
