@@ -15,5 +15,11 @@ Example user stories...
 ## Integration Options
 Data integration via the Go.Data web API - link here: ...
 
+## OpenFn Adaptor
+The open-source [`language-godata`](https://openfn.github.io/language-godata/) adaptor has been developed with a series of helper functions for common operations to expedite integration setup. 
+
+Also, the generic [`language-http`](https://github.com/OpenFn/language-http#language-http-) can be used to make HTTP requests to the Go.Data API and can perform any operations not supported by `language-godata`. 
+
 
 ## Implementation Examples 
+Links to jobs and code snippets...
