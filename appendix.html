@@ -496,6 +496,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#login-in-to-a-server-with-a-custom-ssl-certificate" class="md-nav__link">
+    Login in to a server with a custom SSL Certificate
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -914,6 +921,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#login-in-to-a-server-with-a-custom-ssl-certificate" class="md-nav__link">
+    Login in to a server with a custom SSL Certificate
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1033,9 +1047,12 @@
 </code></pre></div>
 </td></tr></table>
 <h2 id="job-expressions">Job Expressions<a class="headerlink" href="#job-expressions" title="Permanent link">#</a></h2>
-<p>Below you can find some examples of block code for different functions and data handling contexts.</p>
+<p>Below you can find some examples of block code for different functions and data
+handling contexts.</p>
 <h3 id="job-expression-for-commcare-to-sf">Job expression (for CommCare to SF)<a class="headerlink" href="#job-expression-for-commcare-to-sf" title="Permanent link">#</a></h3>
-<p>The following job expression will take a matching receipt and use data from that receipt to upsert a <code>Patient__c</code> record in Salesforce and create multiple new <code>Patient_Visit__c</code> (child to Patient) records.</p>
+<p>The following job expression will take a matching receipt and use data from that
+receipt to upsert a <code>Patient__c</code> record in Salesforce and create multiple new
+<code>Patient_Visit__c</code> (child to Patient) records.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1078,7 +1095,8 @@
 </code></pre></div>
 </td></tr></table>
 <h3 id="accessing-the-data-array-in-open-data-kit-submissions">Accessing the "data array" in Open Data Kit submissions<a class="headerlink" href="#accessing-the-data-array-in-open-data-kit-submissions" title="Permanent link">#</a></h3>
-<p>Notice how we use "each" to get data from each item inside the "data array" in ODK.</p>
+<p>Notice how we use "each" to get data from each item inside the "data array" in
+ODK.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1105,7 +1123,8 @@
 </code></pre></div>
 </td></tr></table>
 <h3 id="odk-to-salesforce-create-parent-record-with-many-children-from-parent-data">ODK to Salesforce: create parent record with many children from parent data<a class="headerlink" href="#odk-to-salesforce-create-parent-record-with-many-children-from-parent-data" title="Permanent link">#</a></h3>
-<p>Here, the user brings <code>time_end</code> and <code>parentId</code> onto the line items from the parent object.</p>
+<p>Here, the user brings <code>time_end</code> and <code>parentId</code> onto the line items from the
+parent object.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -1176,7 +1195,11 @@
 </code></pre></div>
 </td></tr></table>
 <blockquote>
-<p><strong>NB - there was a known bug with the <code>combine</code> function which has been resolved. <code>combine</code> can be used to combine two operations into one and is commonly used to run multiple <code>create</code>'s inside an <code>each(path, operation)</code>. The source code for combine can be found here: <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222">language-common: combine</a></strong></p>
+<p><strong>NB - there was a known bug with the <code>combine</code> function which has been
+resolved. <code>combine</code> can be used to combine two operations into one and is
+commonly used to run multiple <code>create</code>'s inside an <code>each(path, operation)</code>.
+The source code for combine can be found here:
+<a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222">language-common: combine</a></strong></p>
 </blockquote>
 <h3 id="create-many-child-records-without-a-repeat-group-in-odk">Create many child records WITHOUT a repeat group in ODK<a class="headerlink" href="#create-many-child-records-without-a-repeat-group-in-odk" title="Permanent link">#</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
@@ -1604,7 +1627,7 @@
 29
 30
 31</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="c1">// Here, we make sure CommCare gives us an array to use in each(merge(...), ...)</span>
-<span class="nx">alterState</span><span class="p">((</span><span class="nx">state</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+<span class="nx">alterState</span><span class="p">(</span><span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="kr">const</span> <span class="nx">idCards</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ID_cards_given_to_vendor</span><span class="p">;</span>
   <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nb">Array</span><span class="p">.</span><span class="nx">isArray</span><span class="p">(</span><span class="nx">idCards</span><span class="p">))</span> <span class="p">{</span>
     <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">ID_cards_given_to_vendor</span> <span class="o">=</span> <span class="p">[</span><span class="nx">idCards</span><span class="p">];</span>
@@ -1636,20 +1659,56 @@
 <span class="p">);</span>
 </code></pre></div>
 </td></tr></table>
+<h3 id="login-in-to-a-server-with-a-custom-ssl-certificate">Login in to a server with a custom SSL Certificate<a class="headerlink" href="#login-in-to-a-server-with-a-custom-ssl-certificate" title="Permanent link">#</a></h3>
+<p>This snippet describes how you would connect to a secure server ignoring SSL
+certificate verification. Set <code>strictSSL: false</code> in the options argument of the
+<code>post</code> function in <code>language-http</code>.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">post</span><span class="p">(</span>
+  <span class="sb">`</span><span class="si">${</span><span class="nx">state</span><span class="p">.</span><span class="nx">configuration</span><span class="p">.</span><span class="nx">url</span><span class="si">}</span><span class="sb">/</span><span class="si">${</span><span class="nx">path</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span>
+  <span class="p">{</span>
+    <span class="nx">headers</span><span class="o">:</span> <span class="p">{</span> <span class="s1">&#39;content-type&#39;</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span> <span class="p">},</span>
+    <span class="nx">body</span><span class="o">:</span> <span class="p">{</span>
+      <span class="nx">email</span><span class="o">:</span> <span class="s1">&#39;Luka&#39;</span><span class="p">,</span>
+      <span class="nx">password</span><span class="o">:</span> <span class="s1">&#39;somethingSecret&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nx">strictSSL</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="nx">callback</span>
+<span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
 <h2 id="anonymous-functions">Anonymous Functions<a class="headerlink" href="#anonymous-functions" title="Permanent link">#</a></h2>
-<p>Different to <a href="documentation.html#named-functions">Named Functions</a>, Anoynmous functions are generic pieces of javascript which you can write to suit your needs. Here are some examples of these custom functions:</p>
+<p>Different to <a href="documentation.html#named-functions">Named Functions</a>, Anonymous
+functions are generic pieces of javascript which you can write to suit your
+needs. Here are some examples of these custom functions:</p>
 <h3 id="custom-replacer">Custom replacer<a class="headerlink" href="#custom-replacer" title="Permanent link">#</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">field</span><span class="p">(</span><span class="s1">&#39;destination__c&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">field</span><span class="p">(</span><span class="s1">&#39;destination__c&#39;</span><span class="p">,</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">something</span><span class="p">);</span>
   <span class="k">return</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s1">&#39;path_to_data&#39;</span><span class="p">)(</span><span class="nx">state</span><span class="p">).</span><span class="nx">toString</span><span class="p">().</span><span class="nx">replace</span><span class="p">(</span><span class="s1">&#39;cats&#39;</span><span class="p">,</span> <span class="s1">&#39;dogs&#39;</span><span class="p">);</span>
 <span class="p">});</span>
 </code></pre></div>
 </td></tr></table>
-<p>This will replace all "cats" with "dogs" in the string that lives at <code>path_to_data</code>.</p>
+<p>This will replace all "cats" with "dogs" in the string that lives at
+<code>path_to_data</code>.</p>
 <blockquote>
-<p><strong>NOTE:</strong> The JavaScript <code>replace()</code> function only replaces the first instance of whatever argument you specify.
-If you're looking for a way to replace all instances, we suggest you use a regex like we did in the <a href="#custom-concatenation-of-null-values">example</a> below.</p>
+<p><strong>NOTE:</strong> The JavaScript <code>replace()</code> function only replaces the first instance
+of whatever argument you specify. If you're looking for a way to replace all
+instances, we suggest you use a regex like we did in the
+<a href="#custom-concatenation-of-null-values">example</a> below.</p>
 </blockquote>
 <h3 id="custom-arraytostring">Custom arrayToString<a class="headerlink" href="#custom-arraytostring" title="Permanent link">#</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -1663,7 +1722,8 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 <span class="p">}),</span>
 </code></pre></div>
 </td></tr></table>
-<p>It will take an array, and concatenate each item into a string with a ", " separator.</p>
+<p>It will take an array, and concatenate each item into a string with a ", "
+separator.</p>
 <h3 id="custom-concatenation">Custom concatenation<a class="headerlink" href="#custom-concatenation" title="Permanent link">#</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1674,7 +1734,8 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 </td></tr></table>
 <p>This will concatenate two values.</p>
 <h3 id="concatenation-of-null-values">Concatenation of null values<a class="headerlink" href="#concatenation-of-null-values" title="Permanent link">#</a></h3>
-<p>This will concatenate many values, even if one or more are null, writing them to a field called Main_Office_City_c.</p>
+<p>This will concatenate many values, even if one or more are null, writing them to
+a field called Main_Office_City_c.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
@@ -1695,10 +1756,12 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 </code></pre></div>
 </td></tr></table>
 <blockquote>
-<p>Notice how this custom function makes use of the <strong>regex</strong> <code>/-/g</code> to ensure that all instances are accounted for (g = global search).</p>
+<p>Notice how this custom function makes use of the <strong>regex</strong> <code>/-/g</code> to ensure
+that all instances are accounted for (g = global search).</p>
 </blockquote>
 <h3 id="custom-nth-reference-id">Custom Nth reference ID<a class="headerlink" href="#custom-nth-reference-id" title="Permanent link">#</a></h3>
-<p>If you ever want to retrieve the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick.</p>
+<p>If you ever want to retrieve the FIRST object you created, or the SECOND, or the
+Nth, for that matter, a function like this will do the trick.</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">field</span><span class="p">(</span><span class="s1">&#39;parent__c&#39;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">state</span><span class="p">)</span> <span class="p">{</span>
@@ -1706,7 +1769,9 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 <span class="p">});</span>
 </code></pre></div>
 </td></tr></table>
-<p>See how instead of taking the id of the "last" thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace "length-1" with "length-2".</p>
+<p>See how instead of taking the id of the "last" thing that was created in
+Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace
+"length-1" with "length-2".</p>
 <h3 id="convert-date-string-to-standard-iso-date-for-salesforce">Convert date string to standard ISO date for Salesforce<a class="headerlink" href="#convert-date-string-to-standard-iso-date-for-salesforce" title="Permanent link">#</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -1716,7 +1781,8 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 </code></pre></div>
 </td></tr></table>
 <blockquote>
-<p><strong>NOTE</strong>: The output of this function will always be formatted according to GMT time-zone.</p>
+<p><strong>NOTE</strong>: The output of this function will always be formatted according to
+GMT time-zone.</p>
 </blockquote>
 <h3 id="use-external-id-fields-for-relationships-during-a-bulk-load-in-salesforce">Use external ID fields for relationships during a bulk load in Salesforce<a class="headerlink" href="#use-external-id-fields-for-relationships-during-a-bulk-load-in-salesforce" title="Permanent link">#</a></h3>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -1725,7 +1791,7 @@ If you're looking for a way to replace all instances, we suggest you use a regex
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">array</span><span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">item</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">array</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">item</span> <span class="p">=&gt;</span> <span class="p">{</span>
   <span class="k">return</span> <span class="p">{</span>
     <span class="nx">Patient_Name__c</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">fullName</span><span class="p">,</span>
     <span class="s1">&#39;Clinic__r.Unique_Clinic_Identifier__c&#39;</span><span class="o">:</span> <span class="nx">item</span><span class="p">.</span><span class="nx">clinicId</span><span class="p">,</span>
