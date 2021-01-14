@@ -511,3 +511,20 @@ bulk(
   dataValue('patients')
 );
 ```
+
+### Login in to a server with a custom SSL Certificate
+This snippet describes how you would connect to a secure server ignoring SSL certificate verification
+
+```js
+post(
+  `${state.configuration.url}/${path}`,
+  {
+    headers: { 'content-type': 'application/json' },
+    body: {
+      email: 'Luka',
+      password: 'somethingSecret',
+    },
+    strictSSL: false,
+  }, callback
+);
+```
