@@ -44,10 +44,10 @@ module.exports = {
               label: 'Style Guide',
               to: 'docs/',
             },
-            {
-              label: 'Second Doc',
-              to: 'docs/doc2/',
-            },
+            // {
+            //   label: 'Second Doc',
+            //   to: 'docs/doc2/',
+            // },
           ],
         },
         {
@@ -96,8 +96,7 @@ module.exports = {
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl:
-            'https://github.com/openfn/docs/edit/master/',
+          editUrl: 'https://github.com/openfn/docs/edit/master/',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
