@@ -1,3 +1,8 @@
+---
+title: Alter state before other operations
+---
+
+```js
 // Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
 alterState((state) => {
   const idCards = state.data.form.ID_cards_given_to_vendor;
@@ -19,3 +24,4 @@ each(
      field("Small_Packet_Distribution_Date__c", dataValue("form_finished_time"))
   ))
 );
+```

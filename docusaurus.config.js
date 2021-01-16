@@ -1,6 +1,6 @@
 module.exports = {
   title: 'OpenFn',
-  tagline: 'Connecting stuff',
+  tagline: 'Data Integration & Interoperability in ICT4D',
   url: 'https://docs.openfn.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -12,7 +12,7 @@ module.exports = {
     navbar: {
       title: 'OpenFn/docs',
       logo: {
-        alt: 'My Site Logo',
+        alt: 'OpenFn',
         src: 'img/logo.svg',
       },
       items: [
@@ -20,6 +20,11 @@ module.exports = {
           to: 'docs/',
           activeBasePath: 'docs',
           label: 'Docs',
+          position: 'left',
+        },
+        {
+          to: 'docs/library',
+          label: 'Library',
           position: 'left',
         },
         {
@@ -38,32 +43,36 @@ module.exports = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
+          title: 'This Site',
           items: [
             {
-              label: 'Style Guide',
-              to: 'docs/',
+              label: 'Documentation',
+              to: 'docs',
             },
-            // {
-            //   label: 'Second Doc',
-            //   to: 'docs/doc2/',
-            // },
+            {
+              label: 'Library',
+              to: 'docs/library',
+            },
+            {
+              label: 'Blog',
+              to: 'blog',
+            },
           ],
         },
         {
           title: 'Community',
           items: [
             {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+              label: 'Forum',
+              href: 'https://community.openfn.org',
             },
             {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
+              label: 'Stack Overflow',
+              href: 'https://stackoverflow.com/questions/tagged/openfn',
             },
             {
               label: 'Twitter',
-              href: 'https://twitter.com/docusaurus',
+              href: 'https://twitter.com/openfn',
             },
           ],
         },
@@ -76,12 +85,12 @@ module.exports = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/facebook/docusaurus',
+              href: 'https://github.com/openfn',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} Open Function Group LLC`,
     },
   },
   presets: [
