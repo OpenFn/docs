@@ -1,4 +1,8 @@
-# Welcome to the OpenFn Docs
+---
+title: We ❤️ documentation.
+sidebar_label: Introduction
+slug: /
+---
 
 ## OpenFn.org and OpenFn/Core Documentation
 

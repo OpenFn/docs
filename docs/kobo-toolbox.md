@@ -1,4 +1,6 @@
-# Kobo Toolbox
+---
+title: Kobo Toolbox
+---
 
 ## Push submissions from Kobo to OpenFn
 

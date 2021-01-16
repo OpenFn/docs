@@ -1,4 +1,6 @@
-# Quick-start guide
+---
+title: Quick-start
+---
 
 ## 1. Create your account
 

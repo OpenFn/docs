@@ -1,4 +1,6 @@
-# Job Library
+---
+title: Job Library
+---
 
 There have been over 3,000 distinct jobs written with OpenFn, and they provide
 the best way for newcomers to learn how to use the platform.

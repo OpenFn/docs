@@ -1,3 +1,7 @@
+---
+title: Release Notes
+---
+
 ## Version 1.75.0 (2020-07-14)
 
 New features:

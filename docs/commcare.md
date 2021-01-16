@@ -1,4 +1,6 @@
-# CommCare HQ
+---
+title: CommCare HQ
+---
 
 ## Push cases and/or forms from CommCare to OpenFn
 

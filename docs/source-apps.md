@@ -1,4 +1,6 @@
-# Connecting Source Applications to OpenFn
+---
+title: Connecting Source Applications to OpenFn
+---
 
 ## Standard webhook configuration
 

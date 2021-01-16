@@ -1,4 +1,6 @@
-# DIY
+---
+title: DIY
+---
 
 OpenFn's core ETL tools are all open-source, and here we will explain how those tools can be used to perform ETL operations from your command line. You can even take this further and wrap them together in your own hosted service!
 

@@ -1,4 +1,6 @@
-# Snippets & Sample Code
+---
+title: Snippets & Sample Code
+---
 
 ## Filters
 
