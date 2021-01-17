@@ -1,3 +1,4 @@
+```js
 each(
   dataPath('someArray[*]'),
   post(
@@ -15,7 +16,7 @@ each(
         {},
         // Note how we don't use: `put(args)(state)` because state is already
         // provided by the parent operation, get(), to its callback...
-        put('https://en7a5l7u3izq6.x.pipedream.net/') 
+        put('https://en7a5l7u3izq6.x.pipedream.net/')
         // ...but since we've called get() INSIDE an anonymous function, we'll
         // need to pass state to it manually: get(args)(state)...
       )(state);
@@ -23,3 +24,4 @@ each(
     }
   )
 );
+```

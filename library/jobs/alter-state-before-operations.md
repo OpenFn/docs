@@ -1,7 +1,3 @@
----
-title: Alter state before other operations
----
-
 ```js
 // Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
 alterState(state => {

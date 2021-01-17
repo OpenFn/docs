@@ -1,3 +1,4 @@
+```js
 create('Patient__c', fields(
   field('Name', 'John Doe'),
   field('Age__c', state.data.age)
@@ -33,3 +34,4 @@ create('Visit__c', fields(
   // Related to the patient you just upserted...
   relationship('Patient__r', 'My_Ext_ID__c', state.data.patientNumber)
 ));
+```
