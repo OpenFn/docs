@@ -1,7 +1,7 @@
 ---
 title: Welcome to the Job Library
-id: intro
-slug: /library
+id: library-intro
+slug: /
 ---
 
-Lorem ipsum
+wip...

@@ -23,8 +23,13 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'docs/library',
+          to: 'library',
           label: 'Library',
+          position: 'left',
+        },
+        {
+          to: 'articles',
+          label: 'Articles',
           position: 'left',
         },
         {
@@ -51,7 +56,7 @@ module.exports = {
             },
             {
               label: 'Library',
-              to: 'docs/library',
+              to: 'library',
             },
             {
               label: 'Blog',
@@ -111,6 +116,21 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.css'),
         },
       },
+    ],
+  ],
+  plugins: [
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'library',
+        path: 'library',
+        routeBasePath: 'library',
+        sidebarPath: require.resolve('./sidebars-library.js'),
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      { id: 'articles', routeBasePath: 'articles', path: './articles' },
     ],
   ],
 };
