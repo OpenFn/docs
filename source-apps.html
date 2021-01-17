@@ -1,0 +1,1047 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="README, Getting Started, Documentation, and Release Notes for OpenFn">
+      
+      
+        <link rel="canonical" href="https://openfn.github.io/docs/source-apps.html">
+      
+      
+        <meta name="author" content="OpenFn">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>Other Applications - OpenFn Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab28b872.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-57118569-4","openfn.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="deep-purple">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#connecting-source-applications-to-openfn" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://openfn.github.io/docs" title="OpenFn Documentation" class="md-header-nav__button md-logo" aria-label="OpenFn Documentation">
+      
+  <img src="images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OpenFn Documentation
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Other Applications
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/openfn/docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://openfn.github.io/docs" title="OpenFn Documentation" class="md-nav__button md-logo" aria-label="OpenFn Documentation">
+      
+  <img src="images/logo.svg" alt="logo">
+
+    </a>
+    OpenFn Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/openfn/docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="quick-start.html" class="md-nav__link">
+      Quick Start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://community.openfn.org" class="md-nav__link">
+      Community Forum
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="faqs.html" class="md-nav__link">
+      FAQs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="about.html" class="md-nav__link">
+      About us
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      The OpenFn.org Platform
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="The OpenFn.org Platform" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        The OpenFn.org Platform
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="documentation.html" class="md-nav__link">
+      Basic Documentation
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="trouble-shooting.html" class="md-nav__link">
+      Troubleshooting Data Errors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="appendix.html" class="md-nav__link">
+      Snippets & Sample Code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="release-notes.html" class="md-nav__link">
+      Release Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="diy.html" class="md-nav__link">
+      DIY
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+    
+    <label class="md-nav__link" for="nav-7">
+      Connecting Apps
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Connecting Apps" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Connecting Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="kobo-toolbox.html" class="md-nav__link">
+      Kobo Toolbox
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="commcare.html" class="md-nav__link">
+      CommCare
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Other Applications
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="source-apps.html" class="md-nav__link md-nav__link--active">
+      Other Applications
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#standard-webhook-configuration" class="md-nav__link">
+    Standard webhook configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#magpi" class="md-nav__link">
+    Magpi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#surveycto" class="md-nav__link">
+    SurveyCTO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-data-kit-odk-collect" class="md-nav__link">
+    Open Data Kit (ODK) Collect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-data-kit-odk-aggregate" class="md-nav__link">
+    Open Data Kit (ODK) Aggregate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onaio" class="md-nav__link">
+    Ona.io
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-health-toolkit" class="md-nav__link">
+    Community Health Toolkit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-formsgoogle-sheets" class="md-nav__link">
+    Google Forms/Google Sheets
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="for-devs.html" class="md-nav__link">
+      Application Developers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Writing Jobs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Writing Jobs" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Writing Jobs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="core.html" class="md-nav__link">
+      Job Execution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="job-library.html" class="md-nav__link">
+      The Job Library
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#standard-webhook-configuration" class="md-nav__link">
+    Standard webhook configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#magpi" class="md-nav__link">
+    Magpi
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#surveycto" class="md-nav__link">
+    SurveyCTO
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-data-kit-odk-collect" class="md-nav__link">
+    Open Data Kit (ODK) Collect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-data-kit-odk-aggregate" class="md-nav__link">
+    Open Data Kit (ODK) Aggregate
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#onaio" class="md-nav__link">
+    Ona.io
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#community-health-toolkit" class="md-nav__link">
+    Community Health Toolkit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-formsgoogle-sheets" class="md-nav__link">
+    Google Forms/Google Sheets
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/openfn/docs/edit/master/docs/source-apps.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="connecting-source-applications-to-openfn">Connecting Source Applications to OpenFn<a class="headerlink" href="#connecting-source-applications-to-openfn" title="Permanent link">#</a></h1>
+<h2 id="standard-webhook-configuration">Standard webhook configuration<a class="headerlink" href="#standard-webhook-configuration" title="Permanent link">#</a></h2>
+<p>This section describes how to enable push notifications from selected source
+applications or how to configure pull jobs to fetch data from those sources. If
+you don't see yours in the alphabetical list below feel free to add it with a
+pull request.</p>
+<p>Every OpenFn project has a unique <strong>Inbox URL</strong> address that can be used as an
+endpoint for any JSON webhook. To set up a data source, configure that source to
+make a POST over HTTPS to your Inbox URL. See
+<a href="https://docs.openfn.org/documentation.html#connecting-source-applications">Connecting Source Applications</a>.</p>
+<p>To connect an application with standard JSON webhooks, copy your inbox URL from
+the "Inbox" page or your "Project Settings" screen and use it as the destination
+URL on your source application. Unless you have specifically configured it on
+the "Access &amp; Security" page, no authentication is required.</p>
+<p><strong><em>N.B.: This is by no means an exhaustive list.</em></strong> It is merely a list of
+common sources that external contributors have added. Remember that anything
+with a REST api or a JSON-based notification service can be used with OpenFn.</p>
+<h2 id="magpi">Magpi<a class="headerlink" href="#magpi" title="Permanent link">#</a></h2>
+<p>Magpi is not able to push data to external URLs. In order to fetch data from
+Magpi, you must run a scheduled job with a cron trigger using <code>langugage-magpi</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">fetchSurveyData</span><span class="p">({</span>
+  <span class="nx">surveyId</span><span class="o">:</span> <span class="mf">37479</span><span class="p">,</span> <span class="c1">// the survey id</span>
+  <span class="nx">afterDate</span><span class="o">:</span> <span class="s1">&#39;2016-05-31&#39;</span><span class="p">,</span> <span class="c1">// the initial &quot;after&quot; date</span>
+  <span class="c1">// after the first run, OpenFn will only fetch new submissions</span>
+  <span class="nx">postUrl</span><span class="o">:</span> <span class="s1">&#39;https://www.openfn.org/inbox/secret-5c25-inbox-ba2c-url&#39;</span><span class="p">,</span> <span class="c1">// the inbox to post form data to.</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>Every time this job runs it will only fetch new data, by default.</p>
+<h2 id="surveycto">SurveyCTO<a class="headerlink" href="#surveycto" title="Permanent link">#</a></h2>
+<p>SurveyCTO is not able to push data to external URLs. In order to fetch data from
+SurveyCTO, you must run a job on a using <code>language-surveycto</code>:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">fetchSubmissions</span><span class="p">(</span>
+  <span class="s1">&#39;form_id&#39;</span><span class="p">,</span> <span class="c1">// the form id</span>
+  <span class="s1">&#39;Sep 1, 2016 3:56:02 PM&#39;</span><span class="p">,</span> <span class="c1">// the initial &quot;after&quot; date</span>
+  <span class="c1">// after the first run, OpenFn will only fetch new submissions</span>
+  <span class="s1">&#39;https://www.openfn.org/inbox/something-secret&#39;</span> <span class="c1">// the inbox to post form data to.</span>
+<span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Every time this job runs it will only fetch new data, by default.</p>
+<h2 id="open-data-kit-odk-collect">Open Data Kit (ODK) Collect<a class="headerlink" href="#open-data-kit-odk-collect" title="Permanent link">#</a></h2>
+<p>To bypass ODK Aggregate and submit forms directly to OpenFn make the following
+changes in your ODK Collect app.</p>
+<ol>
+<li>Select <code>General Settings</code>.</li>
+<li>Select <code>Server Settings</code>.</li>
+<li>Under <code>Type</code>, select <code>Other</code>.</li>
+<li>Under <code>URL</code>, enter `https://www.openfn.org</li>
+<li>Under <code>Submission path</code>, enter <code>/inbox/your-unique-inbox-url</code> (you can copy
+   this from your OpenFn Inbox).</li>
+<li>Optional: If you have enabled auth methods on your inbox, enter your
+   <code>username</code> and <code>password</code> on this same screen.</li>
+</ol>
+<p>Note that you cannot load forms from OpenFn. Forms must be loaded directly via
+<a href="https://docs.opendatakit.org/collect-forms/#loading-forms-directly">ODK's direct method</a>,
+which allows you to send forms as files via email/Whatsapp. Users can then
+choose to download the files and save them in the <code>odk/ forms</code> folder on their
+mobile.</p>
+<p>Note that if you want to reverse this setup and configure ODK Collect to
+re-connect to your Aggregate instance again:`</p>
+<ol>
+<li>Go back to <code>General Settings</code>.</li>
+<li>Select <code>Server Settings</code>.</li>
+<li>Under <code>Type</code>, select <code>ODK Aggregate</code>.</li>
+<li>Under <code>URL</code>, enter <code>Your Aggregate URL</code></li>
+<li>Under <code>Submission path</code>, enter <code>/submissions</code>.</li>
+<li>Enter your ODK Aggregate <code>username</code> and <code>password</code> on this same screen.</li>
+</ol>
+<h2 id="open-data-kit-odk-aggregate">Open Data Kit (ODK) Aggregate<a class="headerlink" href="#open-data-kit-odk-aggregate" title="Permanent link">#</a></h2>
+<ol>
+<li>To new submissions from ODK in real-time, click the "Form Management" tab at
+   the top of your Aggregate interface.</li>
+<li>Click "Publish" next to the form you'd like to publish to OpenFn.</li>
+<li>A dialogue box will open.</li>
+<li>In the "Publish To:" picklist, select <code>Z-ALPHA JSON Server</code>.</li>
+<li>Choose which data to publish in the "Data to Publish:" picklist. You may:
+   <strong>"Upload Existing Data ONLY"</strong> (ideal for migrations of finished data sets),
+   <strong>"Stream New Submission Data ONLY"</strong> (ideal for new projects), or <strong>"BOTH
+   Upload Existing &amp; Stream New Submission Data"</strong> (ideal for connecting ongoing
+   projects which are already running).</li>
+<li>In the "URL to publish to:" text box, enter your OpenFn Inbox UUID. (e.g.,
+   <code>https://www.openfn.org/inbox/8ad63a29-mUCh-sEcRET-cODes-wOW</code>)</li>
+<li>Leave "Authorization token:" blank.</li>
+<li>Leave "Include Media as:" set to "Links(URLs) to Media".</li>
+<li>Click "Publish" and enter your email address in the dialogue box.</li>
+<li>Click the "Published Data" tab under "Form Management" and select your form
+    to view the status of your publisher. You can also now check your OpenFn
+    inbox to see ODK submissions arrive.</li>
+</ol>
+<h2 id="onaio">Ona.io<a class="headerlink" href="#onaio" title="Permanent link">#</a></h2>
+<ol>
+<li>To push data from Ona.io, click on the drop-down menu next to a specific form
+   and select <code>Settings</code>.</li>
+<li>On the left-side menu, select <code>Webhooks</code>.</li>
+<li>Paste your OpenFn inbox URL into the URL input field.</li>
+<li>Click "Add webhook".</li>
+<li>Ensure that the webhook is now listed with the <code>JSON</code> tag, indicating that it
+   will forward data as JSON.</li>
+<li>Check to see that, once a form is submitted, it is forwarded to your OpenFn
+   inbox.</li>
+</ol>
+<h2 id="community-health-toolkit">Community Health Toolkit<a class="headerlink" href="#community-health-toolkit" title="Permanent link">#</a></h2>
+<ol>
+<li>To push data from CHT applications to OpenFn, leverage the
+   <a href="https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/">Outbound Push</a>
+   feature to forward specified data to your OpenFn project.</li>
+<li>When definining the
+   <a href="https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#destination"><code>destination</code></a>,
+   specify your OpenFn inbox URL as the <code>baseURL</code>. No <code>auth</code> parameters are
+   required, unless you have configured Inbox Security on your OpenFn project.</li>
+<li>Define the data to forward to OpenFn in the
+   <a href="https://docs.communityhealthtoolkit.org/apps/reference/app-settings/outbound/#mapping"><code>mapping</code></a>
+   property. This will structure the payload that is sent to your OpenFn Inbox
+   as a "Message".</li>
+</ol>
+<p>To send data <em>to</em> CHT applications, check out the
+<a href="https://docs.communityhealthtoolkit.org/apps/reference/api/">CHT API</a>.</p>
+<h2 id="google-formsgoogle-sheets">Google Forms/Google Sheets<a class="headerlink" href="#google-formsgoogle-sheets" title="Permanent link">#</a></h2>
+<p>You can send data to OpenFn whenever a new row is added to a Google Sheet, for
+example when a new submission is made to a Google Form. Below is some sample
+code you may add to your Google Sheet to make it push data to OpenFn whenever
+new rows are added.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="kd">function</span> <span class="nx">sendToOpenFn</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">payload</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">e</span><span class="p">);</span>
+  <span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s1">&#39;https://www.openfn.org/inbox/your-id-here&#39;</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">method</span><span class="o">:</span> <span class="s1">&#39;post&#39;</span><span class="p">,</span>
+    <span class="nx">contentType</span><span class="o">:</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+    <span class="nx">payload</span><span class="o">:</span> <span class="nx">payload</span><span class="p">,</span>
+  <span class="p">};</span>
+  <span class="kd">var</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">UrlFetchApp</span><span class="p">.</span><span class="nx">fetch</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">options</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">isDate</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;[object Date]&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">v</span><span class="p">.</span><span class="nx">getTime</span><span class="p">()))</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+      <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">isNumber</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nb">Object</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">toString</span><span class="p">.</span><span class="nx">call</span><span class="p">(</span><span class="nx">v</span><span class="p">)</span> <span class="o">===</span> <span class="s1">&#39;[object Number]&#39;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+  <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">function</span> <span class="nx">getReportData</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">bookReportData</span> <span class="o">=</span> <span class="p">{</span> <span class="nx">formId</span><span class="o">:</span> <span class="s1">&#39;bookReport&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="o">:</span> <span class="p">[]</span> <span class="p">};</span>
+  <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">SpreadsheetApp</span><span class="p">.</span><span class="nx">getActiveSheet</span><span class="p">().</span><span class="nx">getDataRange</span><span class="p">().</span><span class="nx">getValues</span><span class="p">();</span>
+
+  <span class="kd">var</span> <span class="nx">pageCount</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+  <span class="kd">var</span> <span class="nx">bookRating</span> <span class="o">=</span> <span class="mf">0</span><span class="p">;</span>
+
+  <span class="k">for</span> <span class="p">(</span><span class="nx">i</span> <span class="k">in</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">isDate</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">0</span><span class="p">]))</span> <span class="p">{</span>
+      <span class="c1">//  ignore header line</span>
+      <span class="k">if</span> <span class="p">(</span><span class="nx">isNumber</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">3</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="nx">pageCount</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">3</span><span class="p">];</span>
+      <span class="p">}</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">isNumber</span><span class="p">(</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">6</span><span class="p">]))</span> <span class="p">{</span>
+        <span class="nx">bookRating</span> <span class="o">=</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">6</span><span class="p">];</span>
+      <span class="p">}</span>
+
+      <span class="nx">bookReportData</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span>
+        <span class="nx">Timestamp</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">0</span><span class="p">],</span>
+        <span class="nx">Title</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">1</span><span class="p">],</span>
+        <span class="nx">Author</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">2</span><span class="p">],</span>
+        <span class="nx">NumberOfPages</span><span class="o">:</span> <span class="nx">pageCount</span><span class="p">,</span>
+        <span class="nx">Summary</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">4</span><span class="p">],</span>
+        <span class="nx">Protagonist</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">5</span><span class="p">],</span>
+        <span class="nx">Rating</span><span class="o">:</span> <span class="nx">bookRating</span><span class="p">,</span>
+        <span class="nx">EmailTeacher</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">7</span><span class="p">],</span>
+        <span class="nx">EmailStudent</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">8</span><span class="p">],</span>
+        <span class="nx">SendStatus</span><span class="o">:</span> <span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">][</span><span class="mf">9</span><span class="p">],</span>
+      <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+
+  <span class="c1">//  Logger.log(bookReportData);</span>
+
+  <span class="nx">sendToOpenFn</span><span class="p">(</span><span class="nx">bookReportData</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="commcare.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                CommCare
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="for-devs.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Application Developers
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright (c) 2019 Open Function Group LLC
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/openfn" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://facebook.com/openfn" target="_blank" rel="noopener" title="facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/openfn" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://linkedin.com/in/openfn" target="_blank" rel="noopener" title="linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: ".",
+          features: ['tabs', 'instant'],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="freshChat.js"></script>
+      
+    
+  </body>
+</html>

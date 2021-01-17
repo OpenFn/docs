@@ -1,0 +1,1978 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="README, Getting Started, Documentation, and Release Notes for OpenFn">
+      
+      
+        <link rel="canonical" href="https://openfn.github.io/docs/documentation.html">
+      
+      
+        <meta name="author" content="OpenFn">
+      
+      <link rel="shortcut icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.1.0">
+    
+    
+      
+        <title>Basic Documentation - OpenFn Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.bc7e593a.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab28b872.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#02a6f2">
+        
+      
+    
+    
+    
+      
+        
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-57118569-4","openfn.org"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="light-blue" data-md-color-accent="deep-purple">
+      
+  
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#platform-docs" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://openfn.github.io/docs" title="OpenFn Documentation" class="md-header-nav__button md-logo" aria-label="OpenFn Documentation">
+      
+  <img src="images/logo.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            OpenFn Documentation
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Basic Documentation
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/openfn/docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://openfn.github.io/docs" title="OpenFn Documentation" class="md-nav__button md-logo" aria-label="OpenFn Documentation">
+      
+  <img src="images/logo.svg" alt="logo">
+
+    </a>
+    OpenFn Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/openfn/docs/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 512"><path d="M186.1 328.7c0 20.9-10.9 55.1-36.7 55.1s-36.7-34.2-36.7-55.1 10.9-55.1 36.7-55.1 36.7 34.2 36.7 55.1zM480 278.2c0 31.9-3.2 65.7-17.5 95-37.9 76.6-142.1 74.8-216.7 74.8-75.8 0-186.2 2.7-225.6-74.8-14.6-29-20.2-63.1-20.2-95 0-41.9 13.9-81.5 41.5-113.6-5.2-15.8-7.7-32.4-7.7-48.8 0-21.5 4.9-32.3 14.6-51.8 45.3 0 74.3 9 108.8 36 29-6.9 58.8-10 88.7-10 27 0 54.2 2.9 80.4 9.2 34-26.7 63-35.2 107.8-35.2 9.8 19.5 14.6 30.3 14.6 51.8 0 16.4-2.6 32.7-7.7 48.2 27.5 32.4 39 72.3 39 114.2zm-64.3 50.5c0-43.9-26.7-82.6-73.5-82.6-18.9 0-37 3.4-56 6-14.9 2.3-29.8 3.2-45.1 3.2-15.2 0-30.1-.9-45.1-3.2-18.7-2.6-37-6-56-6-46.8 0-73.5 38.7-73.5 82.6 0 87.8 80.4 101.3 150.4 101.3h48.2c70.3 0 150.6-13.4 150.6-101.3zm-82.6-55.1c-25.8 0-36.7 34.2-36.7 55.1s10.9 55.1 36.7 55.1 36.7-34.2 36.7-55.1-10.9-55.1-36.7-55.1z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="index.html" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="quick-start.html" class="md-nav__link">
+      Quick Start
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://community.openfn.org" class="md-nav__link">
+      Community Forum
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="faqs.html" class="md-nav__link">
+      FAQs
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="about.html" class="md-nav__link">
+      About us
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" checked>
+    
+    <label class="md-nav__link" for="nav-6">
+      The OpenFn.org Platform
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="The OpenFn.org Platform" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        The OpenFn.org Platform
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Basic Documentation
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="documentation.html" class="md-nav__link md-nav__link--active">
+      Basic Documentation
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-source-applications" class="md-nav__link">
+    Connecting Source Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Source Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inbox-security" class="md-nav__link">
+    Inbox Security
+  </a>
+  
+    <nav class="md-nav" aria-label="Inbox Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotating-auth-methods" class="md-nav__link">
+    Rotating auth methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-compatible-notifications-service" class="md-nav__link">
+    Creating a compatible notifications service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#triggers" class="md-nav__link">
+    Triggers
+  </a>
+  
+    <nav class="md-nav" aria-label="Triggers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-filter-triggers" class="md-nav__link">
+    Message Filter Triggers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cron-triggers-formerly-timers" class="md-nav__link">
+    Cron Triggers (formerly timers)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flow-triggers" class="md-nav__link">
+    Flow Triggers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fail-triggers" class="md-nav__link">
+    Fail Triggers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-matching-in-detail" class="md-nav__link">
+    Filter Matching in Detail
+  </a>
+  
+    <nav class="md-nav" aria-label="Filter Matching in Detail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-1" class="md-nav__link">
+    Filter 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-a-match" class="md-nav__link">
+    Message a (MATCH)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-b-no-match" class="md-nav__link">
+    Message b (NO MATCH)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keeping-a-cursor-in-state-for-timer-jobs" class="md-nav__link">
+    Keeping a cursor in state for timer Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-the-size-of-state-for-timer-jobs" class="md-nav__link">
+    Managing the size of state for Timer Jobs
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing the size of state for Timer Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quick-fix-for-final-state-bloat" class="md-nav__link">
+    A quick fix for final state bloat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing-cron-jobs" class="md-nav__link">
+    Processing cron jobs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credentials" class="md-nav__link">
+    Credentials
+  </a>
+  
+    <nav class="md-nav" aria-label="Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-credentials" class="md-nav__link">
+    Raw Credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keychain-credentials" class="md-nav__link">
+    Keychain Credentials
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jobs" class="md-nav__link">
+    Jobs
+  </a>
+  
+    <nav class="md-nav" aria-label="Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#composing-job-expressions" class="md-nav__link">
+    Composing Job Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="Composing Job Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-job-expression" class="md-nav__link">
+    Basic Job Expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-expression-with-custom-javascript" class="md-nav__link">
+    Job Expression with Custom Javascript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-javascript-globals" class="md-nav__link">
+    Available Javascript Globals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-functions" class="md-nav__link">
+    Named Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Named Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#language-common" class="md-nav__link">
+    language-common
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#betaeachjson_path-operation" class="md-nav__link">
+    beta.each(JSON_path, operation(...))
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#salesforce" class="md-nav__link">
+    Salesforce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhis2" class="md-nav__link">
+    dhis2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openmrs" class="md-nav__link">
+    OpenMRS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inbox" class="md-nav__link">
+    Inbox
+  </a>
+  
+    <nav class="md-nav" aria-label="Inbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-messages-in-your-inbox" class="md-nav__link">
+    Filter messages in your inbox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulk-reprocess-messages" class="md-nav__link">
+    Bulk reprocess messages
+  </a>
+  
+    <nav class="md-nav" aria-label="Bulk reprocess messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-when-bulk-reprocessing-messages" class="md-nav__link">
+    Note when bulk reprocessing messages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-messages-to-csv" class="md-nav__link">
+    Export messages to CSV
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    Activity
+  </a>
+  
+    <nav class="md-nav" aria-label="Activity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runs" class="md-nav__link">
+    Runs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-runs-in-the-activity-view" class="md-nav__link">
+    Filter runs in the Activity view
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulk-retry-runs" class="md-nav__link">
+    Bulk retry runs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-runs-to-csv" class="md-nav__link">
+    Export runs to CSV
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-version-control" class="md-nav__link">
+    GitHub version control
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub version control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    Setup Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-version-control" class="md-nav__link">
+    Advanced Version Control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="trouble-shooting.html" class="md-nav__link">
+      Troubleshooting Data Errors
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="appendix.html" class="md-nav__link">
+      Snippets & Sample Code
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="release-notes.html" class="md-nav__link">
+      Release Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="diy.html" class="md-nav__link">
+      DIY
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Connecting Apps
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Connecting Apps" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Connecting Apps
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="kobo-toolbox.html" class="md-nav__link">
+      Kobo Toolbox
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="commcare.html" class="md-nav__link">
+      CommCare
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="source-apps.html" class="md-nav__link">
+      Other Applications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="for-devs.html" class="md-nav__link">
+      Application Developers
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+    <label class="md-nav__link" for="nav-8">
+      Writing Jobs
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Writing Jobs" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Writing Jobs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="core.html" class="md-nav__link">
+      Job Execution
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="job-library.html" class="md-nav__link">
+      The Job Library
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-source-applications" class="md-nav__link">
+    Connecting Source Applications
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Source Applications">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inbox-security" class="md-nav__link">
+    Inbox Security
+  </a>
+  
+    <nav class="md-nav" aria-label="Inbox Security">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotating-auth-methods" class="md-nav__link">
+    Rotating auth methods
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-compatible-notifications-service" class="md-nav__link">
+    Creating a compatible notifications service
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#triggers" class="md-nav__link">
+    Triggers
+  </a>
+  
+    <nav class="md-nav" aria-label="Triggers">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#message-filter-triggers" class="md-nav__link">
+    Message Filter Triggers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cron-triggers-formerly-timers" class="md-nav__link">
+    Cron Triggers (formerly timers)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#flow-triggers" class="md-nav__link">
+    Flow Triggers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fail-triggers" class="md-nav__link">
+    Fail Triggers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-matching-in-detail" class="md-nav__link">
+    Filter Matching in Detail
+  </a>
+  
+    <nav class="md-nav" aria-label="Filter Matching in Detail">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-1" class="md-nav__link">
+    Filter 1
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-a-match" class="md-nav__link">
+    Message a (MATCH)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-b-no-match" class="md-nav__link">
+    Message b (NO MATCH)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keeping-a-cursor-in-state-for-timer-jobs" class="md-nav__link">
+    Keeping a cursor in state for timer Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-the-size-of-state-for-timer-jobs" class="md-nav__link">
+    Managing the size of state for Timer Jobs
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing the size of state for Timer Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-quick-fix-for-final-state-bloat" class="md-nav__link">
+    A quick fix for final state bloat
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#processing-cron-jobs" class="md-nav__link">
+    Processing cron jobs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credentials" class="md-nav__link">
+    Credentials
+  </a>
+  
+    <nav class="md-nav" aria-label="Credentials">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#raw-credentials" class="md-nav__link">
+    Raw Credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keychain-credentials" class="md-nav__link">
+    Keychain Credentials
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jobs" class="md-nav__link">
+    Jobs
+  </a>
+  
+    <nav class="md-nav" aria-label="Jobs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#composing-job-expressions" class="md-nav__link">
+    Composing Job Expressions
+  </a>
+  
+    <nav class="md-nav" aria-label="Composing Job Expressions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-job-expression" class="md-nav__link">
+    Basic Job Expression
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-expression-with-custom-javascript" class="md-nav__link">
+    Job Expression with Custom Javascript
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#available-javascript-globals" class="md-nav__link">
+    Available Javascript Globals
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#named-functions" class="md-nav__link">
+    Named Functions
+  </a>
+  
+    <nav class="md-nav" aria-label="Named Functions">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#language-common" class="md-nav__link">
+    language-common
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#betaeachjson_path-operation" class="md-nav__link">
+    beta.each(JSON_path, operation(...))
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#salesforce" class="md-nav__link">
+    Salesforce
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dhis2" class="md-nav__link">
+    dhis2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#openmrs" class="md-nav__link">
+    OpenMRS
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inbox" class="md-nav__link">
+    Inbox
+  </a>
+  
+    <nav class="md-nav" aria-label="Inbox">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-messages-in-your-inbox" class="md-nav__link">
+    Filter messages in your inbox
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulk-reprocess-messages" class="md-nav__link">
+    Bulk reprocess messages
+  </a>
+  
+    <nav class="md-nav" aria-label="Bulk reprocess messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#note-when-bulk-reprocessing-messages" class="md-nav__link">
+    Note when bulk reprocessing messages
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-messages-to-csv" class="md-nav__link">
+    Export messages to CSV
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#activity" class="md-nav__link">
+    Activity
+  </a>
+  
+    <nav class="md-nav" aria-label="Activity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#runs" class="md-nav__link">
+    Runs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filter-runs-in-the-activity-view" class="md-nav__link">
+    Filter runs in the Activity view
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bulk-retry-runs" class="md-nav__link">
+    Bulk retry runs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#export-runs-to-csv" class="md-nav__link">
+    Export runs to CSV
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#github-version-control" class="md-nav__link">
+    GitHub version control
+  </a>
+  
+    <nav class="md-nav" aria-label="GitHub version control">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#motivation" class="md-nav__link">
+    Motivation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setup-steps" class="md-nav__link">
+    Setup Steps
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#advanced-version-control" class="md-nav__link">
+    Advanced Version Control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/openfn/docs/edit/master/docs/documentation.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="platform-docs">Platform Docs<a class="headerlink" href="#platform-docs" title="Permanent link">#</a></h1>
+<h2 id="connecting-source-applications">Connecting Source Applications<a class="headerlink" href="#connecting-source-applications" title="Permanent link">#</a></h2>
+<p>Most modern web applications have a feature that allows you to <code>push</code>,
+<code>publish</code>, or <code>post</code> data to another URL when a certain <strong>event</strong> takes place.
+This event could be a form submission, mobile payment, patient registration, or
+barcode scan submission from a mobile app. The key is that your source
+application will notify OpenFn when <em>something happens</em>.</p>
+<ol>
+<li>
+<p>Go to the "settings" or "administration" page for your source app, and look
+   for a <code>Webhook API</code>, <code>Data Forwarding API</code>, or <code>Notifications API</code>. Write to
+   the developers of your application if none is provided out of the box.</p>
+</li>
+<li>
+<p>When setting up forwarding, select to send messages in <code>JSON</code> to your
+   project's <code>inbox URL</code>. This is a UUID that serves as your API token. You can
+   find and copy your secure inbox URL by clicking on the "copy URL" link in the
+   bottom-right corner of the project in question on your
+   <strong><a href="https://www.openfn.org/projects">project dashboard</a></strong> page or by using the
+   "Copy URL" button on your project's "Inbox" page.</p>
+</li>
+<li>
+<p>Soon you'll see new messages arrive in your <strong>Inbox</strong>.</p>
+</li>
+</ol>
+<p>See <a href="https://docs.openfn.org/source-apps.html">Connecting Data Sources</a> for specific 
+instructions for connecting common applications. </p>
+<h3 id="inbox-security">Inbox Security<a class="headerlink" href="#inbox-security" title="Permanent link">#</a></h3>
+<p>OpenFn project administrators can choose to configure additional authentication
+for any inbound requests made to the project's inbox URL. In the "Access &amp;
+Security" page of their OpenFn project, Administrators can choose from API Key
+and Basic Auth types, which will prompt administrators to either generate an API
+token or to setup a username:password credential. Once this inbox authentication
+is configured, any HTTP requests made to the OpenFn Inbox URL must include
+either this token or username:password in the request header. <img alt="inbox
+security" src="images/inbox-security.png" /></p>
+<h4 id="rotating-auth-methods">Rotating auth methods<a class="headerlink" href="#rotating-auth-methods" title="Permanent link">#</a></h4>
+<p>Because more than one auth method may be accepted at a given time, some
+organizations choose to periodically rotate their auth methods for extra
+security and can do so without disrupting live production integrations. To
+rotate your inbox auth methods:</p>
+<ol>
+<li>Create a <em>second</em> valid auth method with a new token or user:pass combination.</li>
+<li>Provide that token to your external systems so that they can start using it
+   in their webhooks/requests to OpenFn.</li>
+<li>Once you are certain that all external services are now using the new auth
+   token, <em>revoke</em> the old auth token.</li>
+</ol>
+<p>You can repeat this process as frequently as is required by your organization's
+internal security protocols.</p>
+<h2 id="creating-a-compatible-notifications-service">Creating a compatible notifications service<a class="headerlink" href="#creating-a-compatible-notifications-service" title="Permanent link">#</a></h2>
+<p>If you are a developer, looking to set up a compatible notifications API for
+OpenFn, please see our
+<a href="https://docs.openfn.org/for-devs.html">Application Developers</a> section.</p>
+<h2 id="triggers">Triggers<a class="headerlink" href="#triggers" title="Permanent link">#</a></h2>
+<p>Triggers <em>start</em> jobs running. They come in 4 types. The most common are
+"message filter" triggers, but there are also "cron" triggers, "flow" triggers,
+and "fail" triggers.</p>
+<h3 id="message-filter-triggers">Message Filter Triggers<a class="headerlink" href="#message-filter-triggers" title="Permanent link">#</a></h3>
+<p>Message Filter triggers watch for inbound messages and check to see if the data
+in those message match their <strong>criteria</strong>. If they do, and there is an active
+job configured to use that trigger, a run will be started.</p>
+<p>You, as a user, specify the filter <strong>criteria</strong> which determines which inbound
+messages should trigger job runs. This means that if any segment of a message
+body <strong>matches</strong> the string of <code>JSON</code> you gave as a filter, the filter will run
+and trigger a job (assuming you created one).</p>
+<p>The filter criteria takes the form of a string of valid <code>JSON</code>. In a SQL query,
+this string will be used in the WHERE clause, for example:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">receipts</span>
+  <span class="k">WHERE</span> <span class="n">body</span><span class="p">::</span><span class="n">jsonb</span> <span class="o">@&gt;</span>
+    <span class="s1">&#39;{&quot;Name&quot;:&quot;Aleksa Iwobi&quot;}&#39;</span><span class="p">::</span><span class="n">jsonb</span><span class="p">;</span>
+</code></pre></div>
+</td></tr></table>
+<p>There is a more detailed explanation of filter matching below.</p>
+<h3 id="cron-triggers-formerly-timers">Cron Triggers (formerly timers)<a class="headerlink" href="#cron-triggers-formerly-timers" title="Permanent link">#</a></h3>
+<p>Cron triggers run jobs based on a cron scheuled. They can run as frequently as
+once every minutes, or as infrequently as you desire and can be scheuled on very
+specific dates or times. Each time a timed job succeeds, its <code>final_state</code> will
+be saved and used as the <code>initial_state</code> for its next run. See "Managing state"
+and "Keeping a cursor" below for implementation help.</p>
+<p>The best way to learn about <code>cron</code>, if you're not already familiar, is through
+the OpenFn interface or
+<a href="https://crontab.guru" target="_blank">crontab.guru</a>.</p>
+<h3 id="flow-triggers">Flow Triggers<a class="headerlink" href="#flow-triggers" title="Permanent link">#</a></h3>
+<p>Flow triggers will execute a job <em>after</em> another specified job finishes
+successfully. E.g., a flow trigger which specifies the succesful run of Job A
+can be used by Job B. Each time Job A succeeds, Job B will start to run with the
+<code>final_state</code> of Job A as its <code>initial_state</code>.</p>
+<h3 id="fail-triggers">Fail Triggers<a class="headerlink" href="#fail-triggers" title="Permanent link">#</a></h3>
+<p>Fail, or "catch", triggers work just like flow triggers, except that they watch
+for the failure, rather than the success, of a specified job. (E.g., Job A pays
+a CHW via MPESA. If Job A <em>fails</em> we should initiate Job B, which sends an SMS
+to the district manager instructing them to manually pay the CHW.)</p>
+<h3 id="filter-matching-in-detail">Filter Matching in Detail<a class="headerlink" href="#filter-matching-in-detail" title="Permanent link">#</a></h3>
+<p>To illustrate filter matching, refer to the <code>JSON</code> strings below. Message "a"
+will match filter '1', but message "b" will not.</p>
+<h4 id="filter-1">Filter 1<a class="headerlink" href="#filter-1" title="Permanent link">#</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">{</span> <span class="nt">&quot;formID&quot;</span><span class="p">:</span> <span class="s2">&quot;patient_registration_v7&quot;</span> <span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="message-a-match">Message a (MATCH)<a class="headerlink" href="#message-a-match" title="Permanent link">#</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;submissionDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-01-15&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;formID&quot;</span><span class="p">:</span> <span class="s2">&quot;patient_registration_v7&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Jack Wilshere&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;dob&quot;</span><span class="p">:</span> <span class="s2">&quot;1986-05-16&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;anaphlene&quot;</span><span class="p">,</span> <span class="s2">&quot;zaradood&quot;</span><span class="p">,</span> <span class="s2">&quot;morphofast&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<h4 id="message-b-no-match">Message b (NO MATCH)<a class="headerlink" href="#message-b-no-match" title="Permanent link">#</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;submissionDate&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-01-16&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;formID&quot;</span><span class="p">:</span> <span class="s2">&quot;patient_registration_v8&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Larry Bird&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;dob&quot;</span><span class="p">:</span> <span class="s2">&quot;1982-03-21&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;medications&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;anaphlene&quot;</span><span class="p">,</span> <span class="s2">&quot;zaradood&quot;</span><span class="p">,</span> <span class="s2">&quot;morphofast&quot;</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Message 'b' does not include <code>"formID":"patient_registration_v7"</code> and will not
+match filter '1'.</p>
+<h4 id="keeping-a-cursor-in-state-for-timer-jobs">Keeping a cursor in <code>state</code> for timer Jobs<a class="headerlink" href="#keeping-a-cursor-in-state-for-timer-jobs" title="Permanent link">#</a></h4>
+<p>Because many timer jobs require keeping some sort of record of their previous
+run to modify their later actions, <code>state</code> is passed between the runs. One
+example might be keeping a "cursor" to select only new records from a database.
+We'd expect the following logic:</p>
+<ol>
+<li><code>job-1</code> fetches patients from the database</li>
+<li><code>job-1</code> does something important with those patient records</li>
+<li><code>job-1</code> saves the <code>id</code> of the last successfully processed patient to
+   <code>final_state</code></li>
+<li>when <code>job-1</code> runs again, it fetches patients whose <code>id</code> is greater than the
+   <code>id</code> of the last successfully processed patient.</li>
+</ol>
+<p>To achieve this you might write:</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">fetchPatient</span><span class="p">({</span> <span class="nx">type</span><span class="o">:</span> <span class="s1">&#39;referral&#39;</span><span class="p">,</span> <span class="nx">offset</span><span class="o">:</span> <span class="nx">state</span><span class="p">.</span><span class="nx">lastId</span> <span class="p">},</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="c1">// Assuming the system returned an array of patients in the &quot;data&quot; key.</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">lastId</span> <span class="o">=</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">patients</span><span class="p">.</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">id</span> <span class="o">-</span> <span class="nx">a</span><span class="p">.</span><span class="nx">id</span><span class="p">)[</span><span class="mf">0</span><span class="p">];</span>
+  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<p>The initial offset will be <code>null</code>, but the subsequent runs will automatically
+only fetch "new" patients.</p>
+<h4 id="managing-the-size-of-state-for-timer-jobs">Managing the size of <code>state</code> for Timer Jobs<a class="headerlink" href="#managing-the-size-of-state-for-timer-jobs" title="Permanent link">#</a></h4>
+<p>Since state is passed between each run of a timer job, if your job adds
+something new to state each time it runs, it may quickly become too large to be
+practically handled. Imagine if a server response were adding, via
+<code>array.push(...)</code>, to <code>state.references</code> each time the job ran. OpenFn supports
+up to 50,000 bytes (via Erlang's <code>byte_size</code>), though most <code>final_state</code> byte
+sizes are between 100 and 1000.</p>
+<p>If the size of your <code>final_state</code> exceeds 10,000 bytes, OpenFn will send project
+collaborators a warning email. If it exceeds 50,000 bytes, your run will still
+succeed but its <code>final_state</code> will not be saved and the next time that job runs
+it will inherit the previous, un-updated final state. (I.e., the last state that
+was &lt; 50,000 bytes.)</p>
+<h5 id="a-quick-fix-for-final-state-bloat">A quick fix for final state bloat<a class="headerlink" href="#a-quick-fix-for-final-state-bloat" title="Permanent link">#</a></h5>
+<p>Most often, final state bloat is due to improper handling of <code>state.references</code>
+or <code>state.data</code>. This can be fixed by adding the following lines <em>either</em> to the
+callback of your language-package's operation (if it allows for one) or by
+appending an <code>alterState(...)</code> operation after your operation.</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">alterState</span><span class="p">(</span><span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">{</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">custom</span> <span class="o">=</span> <span class="nx">somethingIntentional</span><span class="p">;</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">data</span> <span class="o">=</span> <span class="p">{};</span>
+  <span class="nx">state</span><span class="p">.</span><span class="nx">references</span> <span class="o">=</span> <span class="p">[];</span>
+  <span class="k">return</span> <span class="nx">state</span><span class="p">;</span>
+<span class="p">});</span>
+</code></pre></div>
+</td></tr></table>
+<h3 id="processing-cron-jobs">Processing cron jobs<a class="headerlink" href="#processing-cron-jobs" title="Permanent link">#</a></h3>
+<p><strong>On-demand processing for cron jobs.</strong> If you’re leveraging cron triggers to
+run jobs at specific times, you can also run that cron triggered job on demand.
+This way you don’t have to wait for the timer to expire before testing! Simply
+click the process/ “play” button now available via the Job, Run, and Activity
+History pages.</p>
+<p><img alt="Runs list run time trigger button" src="images/timetriggerunslist.png" /></p>
+<p><img alt="Run history time trigger button" src="images/runtimetrigger1.png" /></p>
+<h2 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">#</a></h2>
+<p>Credentials are used to authorize connections to destination systems. In the
+future, our adaptors will use credentials to fetch meta-data from source and
+destination applications and make the job writing process easier.</p>
+<p>Some systems (Salesforce, OpenMRS, DHIS2) require an instanceUrl, host, or
+ApiUrl. Leave off the final "/" in these Urls: <code>https://login.salesforce.com</code> or
+<code>http://demo.openmrs.org/openmrs</code> or <code>https://play.dhis2.org</code>.</p>
+<p>Credentials can only be viewed, or edited by a single user — their "owner" (or
+the person that created that credential). All the collaborators on a particular
+project can choose those credentials for use when defining a job.</p>
+<p>There are two special types of credentials, in addition to the myriad standard
+application-specific and authentication protocol-specific credentials.</p>
+<h3 id="raw-credentials">Raw Credentials<a class="headerlink" href="#raw-credentials" title="Permanent link">#</a></h3>
+<p>Raw credentials are valid JSON documents which are passed into a job's runtime
+state. Note that owners of these credentials will be able to view them, in their
+entirety, in the clear.</p>
+<h3 id="keychain-credentials">Keychain Credentials<a class="headerlink" href="#keychain-credentials" title="Permanent link">#</a></h3>
+<p>Keychain credentials allow for a single job to make use of multiple credentials.
+They work by inspecting the data in the job's runtime state (i.e., <code>state.data</code>)
+and checking for the value of a predetermined identifier. Based on that value,
+present in the data for a given source message, for example, <em>another</em>
+credential will be selected and applied for that particular job run.</p>
+<h2 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">#</a></h2>
+<p>A job defines the specific series of tasks or database actions to be performed
+when a triggering message is received (even-based) or a pre-scheduled (and
+recurring) time is reached.</p>
+<h3 id="composing-job-expressions">Composing Job Expressions<a class="headerlink" href="#composing-job-expressions" title="Permanent link">#</a></h3>
+<p>In most cases, a job expression is a series of <code>create</code> or <code>upsert</code> actions that
+are run after a message arrives, using data from that message. It could look
+like this:</p>
+<h4 id="basic-job-expression">Basic Job Expression<a class="headerlink" href="#basic-job-expression" title="Permanent link">#</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">create</span><span class="p">(</span>
+  <span class="s1">&#39;Patient__c&#39;</span><span class="p">,</span>
+  <span class="nx">fields</span><span class="p">(</span><span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="nx">dataValue</span><span class="p">(</span><span class="s1">&#39;form.surname&#39;</span><span class="p">)),</span> <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Age__c&#39;</span><span class="p">,</span> <span class="mf">7</span><span class="p">))</span>
+<span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>That would create a new <code>Patient__c</code> in some other system. The patient's <code>Name</code>
+will be determined by the triggering message (the value inside <code>form.surname</code>,
+specifically) and the patient's <code>Age__c</code> will <em>always</em> be 7. See how we hard
+coded it?</p>
+<p>What you see above is OpenFn's own syntax, and you've got access to dozens of
+common "helper functions" like <code>dataValue(path)</code> and destination specific
+functions like <code>create(object,attributes)</code>. While most cases are covered
+out-of-the-box, jobs are <strong>evaluated as Javascript</strong>. This means that you can
+write your own custom, anonymous functions to do whatever your heart desires:</p>
+<h4 id="job-expression-with-custom-javascript">Job Expression with Custom Javascript<a class="headerlink" href="#job-expression-with-custom-javascript" title="Permanent link">#</a></h4>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><code><span class="nx">create</span><span class="p">(</span>
+  <span class="s1">&#39;Patient__c&#39;</span><span class="p">,</span>
+  <span class="nx">fields</span><span class="p">(</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Name&#39;</span><span class="p">,</span> <span class="nx">state</span> <span class="p">=&gt;</span> <span class="p">{</span>
+      <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Manipulate state to get your desired output.&#39;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="nb">Array</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="kc">null</span><span class="p">,</span> <span class="nx">state</span><span class="p">.</span><span class="nx">data</span><span class="p">.</span><span class="nx">form</span><span class="p">.</span><span class="nx">names</span><span class="p">).</span><span class="nx">join</span><span class="p">(</span><span class="s1">&#39;, &#39;</span><span class="p">);</span>
+    <span class="p">}),</span>
+    <span class="nx">field</span><span class="p">(</span><span class="s1">&#39;Age__c&#39;</span><span class="p">,</span> <span class="mf">7</span><span class="p">)</span>
+  <span class="p">)</span>
+<span class="p">);</span>
+</code></pre></div>
+</td></tr></table>
+<p>Here, the patient's name will be a comma separated concatenation of all the
+values in the <code>patient_names</code> array from our source message.</p>
+<h3 id="available-javascript-globals">Available Javascript Globals<a class="headerlink" href="#available-javascript-globals" title="Permanent link">#</a></h3>
+<p>For security reasons, users start with access to the following standard
+Javascript globals, and can request more by opening an issue on Github:</p>
+<ul>
+<li>Array</li>
+<li>console</li>
+<li>JSON</li>
+<li>Number</li>
+<li>Promise</li>
+<li>String</li>
+</ul>
+<p>*N.B. The runtime environment on the server is Node v6.17.0.</p>
+<p>Other than the expression tree, Jobs have certain attributes that must be set:</p>
+<ol>
+<li><strong>Filter</strong> - The message filter that will triggers the job.</li>
+<li><strong>Adaptor</strong> - The adaptor for the destination system you're connecting to.</li>
+<li><strong>Credential</strong> - The credential that will be used to gain access to that
+   destination system.</li>
+<li><strong>Active?</strong> - A boolean which determines whether the job runs in real-time
+   when matching messages arrive.</li>
+</ol>
+<h3 id="named-functions">Named Functions<a class="headerlink" href="#named-functions" title="Permanent link">#</a></h3>
+<p><strong>N.B.: This is just a sample.</strong> There are lots more available in the
+language-packs.</p>
+<h4 id="language-common">language-common<a class="headerlink" href="#language-common" title="Permanent link">#</a></h4>
+<ul>
+<li><code>field('destination_field_name__c', 'value')</code> Returns a key, value pair in an
+  array.
+  <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L248">(source)</a></li>
+<li><code>fields(list_of_fields)</code> zips key value pairs into an object.
+  <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L258">(source)</a></li>
+<li><code>dataValue('JSON_path')</code> Picks out a single value from source data.
+  <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L71">(source)</a></li>
+<li><code>each(JSON_path, operation(...))</code> Scopes an array of data based on a JSONPath
+  <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L194">(source)</a>.
+  See beta.each when using multiple each()'s in an expression.</li>
+<li><code>each(merge(dataPath("CHILD_ARRAY[*]"),fields(field("metaId", dataValue("*meta-instance-id*")),field("parentId", lastReferenceValue("id")))), create(...))</code>
+  merges data into an array then creates for each item in the array
+  <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L272">(source)</a></li>
+<li><code>lastReferenceValue('id')</code> gets the sfID of the last item created
+  <a href="https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100">(source)</a></li>
+<li><code>function(state){return state.references[state.references.length-N].id})</code> gets
+  the sfID of the nth item created</li>
+</ul>
+<h4 id="betaeachjson_path-operation"><code>beta.each(JSON_path, operation(...))</code><a class="headerlink" href="#betaeachjson_path-operation" title="Permanent link">#</a></h4>
+<p>Scopes an array of data based on a JSONPath but then returns to the state it was
+given upon completion
+<a href="https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44">(source)</a>.
+This is necessary if you string multiple <code>each(...)</code> functions together in-line
+in the same expression. (E.g., Given data which has multiple separate 'repeat
+groups' in a form which are rendered as arrays, you want to create new records
+for each item inside the first repeat group, then <em>RETURN TO THE TOP LEVEL</em> of
+the data, and then create new records for each item in the second repeat group.
+Using <code>beta.each(...)</code> lets you enter the first array, create your records, then
+return to the top level and be able to enter the second array.</p>
+<h4 id="salesforce">Salesforce<a class="headerlink" href="#salesforce" title="Permanent link">#</a></h4>
+<ul>
+<li><code>create("DEST_OBJECT_NAME__C", fields(...))</code> Create a new object. Takes 2
+  parameters: An object and attributes.
+  <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63">(source)</a></li>
+<li><code>upsert("DEST_OBJECT_NAME__C", "DEST_OBJECT_EXTERNAL_ID__C", fields(...))</code>
+  Creates or updates an object. Takes 3 paraneters: An object, an ID field and
+  attributes.
+  <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80">(source)</a></li>
+<li><code>relationship("DEST_RELATIONSHIP_NAME__r", "EXTERNAL_ID_ON_RELATED_OBJECT__C", "SOURCE_DATA_OR_VALUE")</code>
+  Adds a lookup or 'dome insert' to a record.
+  <a href="https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40">(source)</a></li>
+</ul>
+<h4 id="dhis2">dhis2<a class="headerlink" href="#dhis2" title="Permanent link">#</a></h4>
+<ul>
+<li><code>event(...)</code> Creates an event.
+  <a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60">(source)</a></li>
+<li><code>dataValueSet(...)</code> Send data values using the dataValueSets resource
+  <a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L62-L82">(source)</a></li>
+</ul>
+<h4 id="openmrs">OpenMRS<a class="headerlink" href="#openmrs" title="Permanent link">#</a></h4>
+<ul>
+<li><code>person(...)</code> Takes a payload of data to create a person
+  <a href="https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L31-L60">(source)</a></li>
+<li><code>patient(...)</code> Takes a payload of data to create a patient
+  <a href="https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90">(source)</a></li>
+</ul>
+<p><strong>For code block examples of job expressions, go to the
+<a href="#appendix.md">code samples page</a>.</strong></p>
+<h2 id="inbox">Inbox<a class="headerlink" href="#inbox" title="Permanent link">#</a></h2>
+<p>Your inbox contains the history of all messages that have passed in to your
+project, which may or may not have triggered a specific job. Messages are stored
+payloads or data that were sent via HTTP post to your inbox. They can be viewed
+in formatted JSON, edited, or manually processed (if they did not match a filter
+when they were originally delivered.)</p>
+<p>To edit a message, click the "pencil and paper" icon next to that receipt. Be
+careful, as no original copy will be persisted.</p>
+<h3 id="filter-messages-in-your-inbox">Filter messages in your inbox<a class="headerlink" href="#filter-messages-in-your-inbox" title="Permanent link">#</a></h3>
+<p>To help you more quickly find relevant messages, you can now filter your inbox
+by:</p>
+<ul>
+<li><strong>Body Text</strong> - Search your messages for specific text (e.g., find surveys
+  that contain “India” in the body). As individual projects may have millions of
+  messages containing tens of thousands of lines of JSON each, we’ve implemented
+  a “tsvector” search strategy. Please be patient and note that this text-based
+  search may take a moment to return results.. If you’re curious about how
+  tsvector works from a technical perspective, check out the
+  <a href="https://www.postgresql.org/docs/10/datatype-textsearch.html#DATATYPE-TSVECTOR">official documentation</a>.</li>
+<li><strong>Date</strong> - Choose a relative date range (e.g., “Last 90 Days”) or define a
+  custom date range yourself. Note that the default inbox view shows “Last 30
+  Days”.</li>
+</ul>
+<p><img alt="Image of Inbox Filters" src="images/inbox_filter.png" /></p>
+<h3 id="bulk-reprocess-messages">Bulk reprocess messages<a class="headerlink" href="#bulk-reprocess-messages" title="Permanent link">#</a></h3>
+<p>Need to re-run a series of messages? If you had a job fail because of an error
+for multiple messages, or need to re-process the data in OpenFn to re-send to a
+destination application, then this feature will help you do so more quickly!</p>
+<ol>
+<li>
+<p>Simply click on the new <strong>Reprocess</strong> button via the Inbox view.
+   <img alt="Reprocess button" src="images/reprocess_msgs.png" /></p>
+</li>
+<li>
+<p>Specify the <strong>ID range</strong> for messages that you want to re-run (e.g., messages
+   with IDs 4622741 through 4622749 → 9 messages to reprocess).
+   <img alt="Bulk reprocess screen" src="images/bulk_reprocess.png" /></p>
+</li>
+</ol>
+<h4 id="note-when-bulk-reprocessing-messages">Note when bulk reprocessing messages<a class="headerlink" href="#note-when-bulk-reprocessing-messages" title="Permanent link">#</a></h4>
+<ul>
+<li>
+<p>This simulates the chain of events that starts when messages first arrive in
+  your inbox. In other words, reprocessed messages will be handled by message
+  filter triggers for any jobs that have the <code>autoprocess</code> setting “on”. If
+  you've got messages that match certain triggers, but the associated jobs are
+  switched "off" they will not be run when those messages are reprocessed.</p>
+</li>
+<li>
+<p>Remember that OpenFn plans are run-based, and you can monitor usage in
+  <strong>Project Settings</strong> to ensure that you don’t hit any run limits when bulk
+  reprocessing! <img alt="Usage stats chart" src="images/usage.png" /></p>
+</li>
+</ul>
+<h3 id="export-messages-to-csv">Export messages to CSV<a class="headerlink" href="#export-messages-to-csv" title="Permanent link">#</a></h3>
+<p>You can now download and review OpenFn message data by exporting to a CSV file.</p>
+<ol>
+<li>
+<p>In your inbox, filter the messages you’d like to export to CSV. Choose to
+   filter by text, date, trigger, and run state.</p>
+</li>
+<li>
+<p>Click the <strong>Export as CSV</strong> button to generate an export. The link to
+   download this file will be sent to your email address.</p>
+</li>
+</ol>
+<p><img alt="Export CSV button" src="images/exportcsv.png" /></p>
+<h2 id="activity">Activity<a class="headerlink" href="#activity" title="Permanent link">#</a></h2>
+<p>In this section of the portal, you can view a list of all "runs" - i.e.
+individual job runs. This list is essentially a compilation of all jobs,
+messages and credentials flowing through your OpenFn account towards your
+destination system(s).</p>
+<h3 id="runs">Runs<a class="headerlink" href="#runs" title="Permanent link">#</a></h3>
+<p>Runs are attempts made on a destination system by running a receipt through a
+Job Description. Runs can be viewed and re-processed. Each submission has a
+<code>success</code>, <code>started_at</code>, <code>finsihed_at</code>, <code>job_description_id</code>, and <code>receipt_id</code>
+attribute. <code>Started_at</code> and <code>finished_at</code> are the timestamps when the submission
+began and ended.</p>
+<blockquote>
+<p><strong>Note:</strong> Some runs may take a really long time, particularly if they are
+performing multiple actions in a destination system or if they are fetching
+lots of data from a REST api at the start of a migration. They will appear as
+red if they have failed. In the case of failure, refer to our
+<a href="trouble-shooting.html">Troubleshooting</a> section below.</p>
+</blockquote>
+<h3 id="filter-runs-in-the-activity-view">Filter runs in the Activity view<a class="headerlink" href="#filter-runs-in-the-activity-view" title="Permanent link">#</a></h3>
+<p>You can filter the run logs in the Activity View by:</p>
+<ul>
+<li>
+<p><strong>Text</strong> - Remember to be patient as a full log text search can take time
+  process. Leverage this feature to search for runs with specific error messages
+  to support with troubleshooting any failed runs.</p>
+</li>
+<li>
+<p><strong>Date</strong> - Filter the view to only show runs that failed in the last few
+  hours/ days/ year – or a custom date range! Note that the default activity
+  history view shows runs from the last 30 days.</p>
+</li>
+</ul>
+<h3 id="bulk-retry-runs">Bulk retry runs<a class="headerlink" href="#bulk-retry-runs" title="Permanent link">#</a></h3>
+<p>Need to re-process a series of runs? This could be helpful if you had multiple
+runs fail due to an error message.</p>
+<ol>
+<li>
+<p>Simply click on the new <strong>Retry</strong> button via the Runs view.
+   <img alt="Retry run button" src="images/retrybutton.png" /></p>
+</li>
+<li>
+<p>Specify the <strong>ID range</strong> for the runs that you want to re-process. Choose to
+   filter by Job and/or Status to only reprocess runs associated with a specific
+   job or runs that have failed/ succeeded.
+   <img alt="Bulk retry runs" src="images/runs_retry.png" /></p>
+</li>
+</ol>
+<p>Remember that OpenFn plans are run-based, and you can monitor usage in <strong>Project
+Settings</strong> to ensure that you don’t hit any run limits when bulk reprocessing!</p>
+<h3 id="export-runs-to-csv">Export runs to CSV<a class="headerlink" href="#export-runs-to-csv" title="Permanent link">#</a></h3>
+<p>You can download your run logs by exporting to a CSV file.</p>
+<ol>
+<li>
+<p>Via the Runs Activity History view, filter the runs you’d like to export.
+   Choose to filter by text, date, job, and status.</p>
+</li>
+<li>
+<p>Click the <strong>Export as CSV</strong> button to generate an export. The link to
+   download this file will be sent to your email address.
+   <img alt="Export runs button" src="images/exportruns.png" /></p>
+</li>
+</ol>
+<h2 id="github-version-control">GitHub version control<a class="headerlink" href="#github-version-control" title="Permanent link">#</a></h2>
+<p>You're ready to manage your jobs via GitHub, the leading hosted version control
+software on the web? Great, this section describes the steps necessary to get
+going.</p>
+<p><strong><em>N.B.: GitHub integration is currently only available for enterprise users.
+Contact <a href="mailto:enterprise@openfn.org">enterprise@openfn.org</a> to build a custom
+plan for your needs.</em></strong></p>
+<h3 id="motivation">Motivation<a class="headerlink" href="#motivation" title="Permanent link">#</a></h3>
+<p>Managing large numbers of jobs with multiple contributors is complicated. We
+developed the GitHub integration so that OpenFn projects can be linked to GitHub
+repositories. You can work collaboratively on your jobs. When commits are made
+to a particular branch OpenFn will automatically update the linked job with the
+new job file from GitHub.</p>
+<h3 id="setup-steps">Setup Steps<a class="headerlink" href="#setup-steps" title="Permanent link">#</a></h3>
+<ol>
+<li>Github: Settings -&gt; Personal Access Tokens -&gt;
+   <a href="https://github.com/settings/tokens/new">Generate New Token</a>: This token
+   should have full control of private repositories.</li>
+<li>OpenFn: <a href="https://www.openfn.org/account">User Settings</a>: Once the token is
+   generated, copy and paste it into the "GitHub Access Token" field on your
+   user settings page.</li>
+<li>OpenFn: Project -&gt; Version Control: Specify the repository owner, repository
+   name and branch for automatic deploys. You'd also select to turn on or off
+   automatic deploys.</li>
+<li>GitHub: Repoistory -&gt; Settings -&gt; Webhooks -&gt; Add webhook</li>
+<li>Copy Payload URL from OpenFn Version Control page and paste into GitHub.</li>
+<li>Select <code>application/json</code> as the Content Type.</li>
+<li>Copy Secret from OpenFn Version Control page into GitHub.</li>
+<li>Leave "Just the push event" and "Active" selected, then click "Add Webook".</li>
+<li>OpenFn: Project -&gt; Jobs -&gt; Job Edit: To link an individual job to a file in a
+   GitHub repo, edit that job and paste in the path to the job from the root of
+   your GitHub repo. If your repo looks like this, you'd type <code>sample_job_1.js</code>
+   or <code>some_folder/some_other_job.js</code> to link your OpenFn job to the select file
+   in your repo.</li>
+</ol>
+<h3 id="advanced-version-control">Advanced Version Control<a class="headerlink" href="#advanced-version-control" title="Permanent link">#</a></h3>
+<p>Using this GitHub integration, you can revert to previous version of jobs
+quickly by resending old GitHub Webhook Events. Access the "Manage Webhook"
+interface on GitHub to see a list of all past events and send whichever version
+of the job you'd like deployed to your OpenFn project.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="about.html" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                About us
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="trouble-shooting.html" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Troubleshooting Data Errors
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright (c) 2019 Open Function Group LLC
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://github.com/openfn" target="_blank" rel="noopener" title="github.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://facebook.com/openfn" target="_blank" rel="noopener" title="facebook.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://twitter.com/openfn" target="_blank" rel="noopener" title="twitter.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+      </a>
+    
+      
+      
+        
+        
+      
+      <a href="https://linkedin.com/in/openfn" target="_blank" rel="noopener" title="linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="assets/javascripts/vendor.6a3d08fc.min.js"></script>
+      <script src="assets/javascripts/bundle.71201edf.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: ".",
+          features: ['tabs', 'instant'],
+          search: Object.assign({
+            worker: "assets/javascripts/worker/search.4ac00218.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="freshChat.js"></script>
+      
+    
+  </body>
+</html>
