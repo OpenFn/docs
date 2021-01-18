@@ -9,6 +9,15 @@ module.exports = {
   organizationName: 'openfn',
   projectName: 'docs',
   themeConfig: {
+    // algolia: {
+    //   apiKey: 'YOUR_API_KEY',
+    //   indexName: 'YOUR_INDEX_NAME',
+    //   // Optional: see doc section bellow
+    //   contextualSearch: true,
+    //   // Optional: Algolia search parameters
+    //   searchParameters: {},
+    //   //... other Algolia params
+    // },
     navbar: {
       title: 'OpenFn/docs',
       logo: {
@@ -32,6 +41,11 @@ module.exports = {
           label: 'Articles',
           position: 'left',
         },
+        // {
+        //   to: 'blog',
+        //   label: 'Blog',
+        //   position: 'left',
+        // },
         {
           href: 'https://github.com/openfn/docs',
           label: 'GitHub',
@@ -53,6 +67,14 @@ module.exports = {
               label: 'Library',
               to: 'library',
             },
+            {
+              label: 'Articles',
+              to: 'articles',
+            },
+            // {
+            //   label: 'Blog',
+            //   to: 'blog',
+            // },
           ],
         },
         {

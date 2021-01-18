@@ -6,14 +6,6 @@ module.exports = {
     },
     { type: 'doc', id: 'quick-start' },
     {
-      type: 'doc',
-      id: 'faqs',
-    },
-    {
-      type: 'doc',
-      id: 'about',
-    },
-    {
       type: 'category',
       label: 'The OpenFn.org Platform',
       items: [
@@ -32,12 +24,20 @@ module.exports = {
     {
       type: 'category',
       label: 'Writing Jobs',
-      items: ['core', 'job-library'],
+      items: ['core', { type: 'link', label: 'Library', href: '../library' }],
+    },
+    {
+      type: 'doc',
+      id: 'faqs',
     },
     {
       type: 'category',
       label: 'Writing Docs',
       items: ['style-guide'],
+    },
+    {
+      type: 'doc',
+      id: 'about',
     },
     {
       type: 'link',
