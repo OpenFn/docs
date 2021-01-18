@@ -33,11 +33,6 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'blog',
-          label: 'Blog',
-          position: 'left',
-        },
-        {
           href: 'https://github.com/openfn/docs',
           label: 'GitHub',
           position: 'right',
@@ -57,10 +52,6 @@ module.exports = {
             {
               label: 'Library',
               to: 'library',
-            },
-            {
-              label: 'Blog',
-              to: 'blog',
             },
           ],
         },
@@ -85,12 +76,16 @@ module.exports = {
           title: 'More',
           items: [
             {
-              label: 'Blog',
-              to: 'blog',
+              label: 'Articles',
+              to: 'articles',
             },
             {
               label: 'GitHub',
               href: 'https://github.com/openfn',
+            },
+            {
+              label: 'Blog',
+              href: 'https://blog.openfn.org',
             },
           ],
         },
@@ -107,11 +102,11 @@ module.exports = {
           // Please change this to your repo.
           editUrl: 'https://github.com/openfn/docs/edit/master',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          editUrl: 'https://github.com/openfn/docs/edit/master/',
-        },
+        // blog: {
+        //   showReadingTime: true,
+        //   // Please change this to your repo.
+        //   editUrl: 'https://github.com/openfn/docs/edit/master/',
+        // },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
