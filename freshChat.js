@@ -2,7 +2,6 @@ function initFreshChat() {
   window.fcWidget.init({
     token: '65bdf1af-2348-467a-ba1c-e1383fcb9ce9',
     host: 'https://wchat.freshchat.com',
-    tags: ['docs'],
   });
 }
 function initialize(i, t) {

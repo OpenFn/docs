@@ -153,4 +153,5 @@ module.exports = {
       { id: 'articles', routeBasePath: 'articles', path: './articles' },
     ],
   ],
+  scripts: [{ src: './freshChat.js', async: true }],
 };
