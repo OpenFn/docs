@@ -10,14 +10,16 @@ module.exports = {
   projectName: 'docs',
   themeConfig: {
     // algolia: {
-    //   apiKey: 'YOUR_API_KEY',
-    //   indexName: 'YOUR_INDEX_NAME',
-    //   // Optional: see doc section bellow
-    //   contextualSearch: true,
-    //   // Optional: Algolia search parameters
-    //   searchParameters: {},
-    //   //... other Algolia params
+    //   apiKey: '25626fae796133dc1e734c6bcaaeac3c',
+    //   indexName: 'docsearch',
+    //   //   // Optional: Algolia search parameters
+    //   //   searchParameters: {},
+    //   //   //... other Algolia params
     // },
+    googleAnalytics: {
+      trackingID: 'UA-57118569-4',
+      anonymizeIP: true, // Should IPs be anonymized?
+    },
     navbar: {
       title: 'OpenFn/docs',
       logo: {
@@ -136,6 +138,7 @@ module.exports = {
     ],
   ],
   plugins: [
+    '@docusaurus/plugin-google-analytics',
     [
       '@docusaurus/plugin-content-docs',
       {
