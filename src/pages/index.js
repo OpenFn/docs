@@ -58,10 +58,7 @@ function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout
-      title={`Docs`}
-      description="The OpenFn Documentation Site"
-    >
+    <Layout title={`Docs`} description="The OpenFn Documentation Site">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <div className="container">
           <h1 className="hero__title">{siteConfig.title}</h1>
