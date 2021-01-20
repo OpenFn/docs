@@ -12,7 +12,7 @@ open-source integration tools and language-packs can be found in their
 respective repositories at [Github.com/OpenFn](https://github.com/openfn).
 
 Check out the tabs at the top of the page. They'll take you to documentation
-about [the Platform](documentation.md), [job writing](core.md) (for both hosted
+about [the Platform](documentation.md), [job writing](jobs/core.md) (for both hosted
 and locally-deployed/open-source version of OpenFn), and connecting
 [source applications](source-apps.md) so you can publish data to OpenFn in real
 time.
