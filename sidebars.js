@@ -24,7 +24,12 @@ module.exports = {
     {
       type: 'category',
       label: 'Writing Jobs',
-      items: ['core', { type: 'link', label: 'Library', href: '../library' }],
+      items: [
+        'jobs/core',
+        'jobs/operations',
+        'jobs/multiple-operations',
+        { type: 'link', label: 'Library', href: '../../library' },
+      ],
     },
     {
       type: 'doc',
