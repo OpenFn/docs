@@ -4,8 +4,12 @@ title: Kobo Toolbox
 
 ## Overview
 
-<!---Tool docs are (1) to ensure all OpenFn can more quickly and easily
-integrate with common tools, and (2) to educate any OpenFn user/the wider sector.--->
+:::note
+
+Tool docs are (1) to ensure all OpenFn can more quickly and easily integrate
+with common tools, and (2) to educate any OpenFn user/the wider sector.
+
+:::
 
 ## Integration Use Cases
 

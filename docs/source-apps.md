@@ -1,5 +1,5 @@
 ---
-title: Connecting Source Applications to OpenFn
+title: Connecting Data Sources
 ---
 
 ## Standard webhook configuration

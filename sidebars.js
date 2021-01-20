@@ -19,7 +19,14 @@ module.exports = {
     {
       type: 'category',
       label: 'Connecting Apps',
-      items: ['kobo-toolbox', 'commcare', 'source-apps', 'for-devs'],
+      items: [
+        'source-apps',
+        // 'tools/bamboohr',
+        'tools/commcare',
+        'tools/godata',
+        'tools/kobo-toolbox',
+        'for-devs',
+      ],
     },
     {
       type: 'category',
