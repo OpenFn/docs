@@ -1,20 +1,29 @@
-# Kobo Toolbox
-<!---Tool docs are (1) to ensure all OpenFn can more quickly and easily integrate with common tools, and (2) to educate any OpenFn user/the wider sector.---> 
-## Overview
-Kobo Toolbox is...
+---
+title: Kobo Toolbox
+---
 
-### Integration Use Cases
+## Overview
+
+<!---Tool docs are (1) to ensure all OpenFn can more quickly and easily
+integrate with common tools, and (2) to educate any OpenFn user/the wider sector.--->
+
+## Integration Use Cases
+
 Example user stories...
 
-### Further Reading:
+## Further Reading
+
 1. Links to external sites and OpenFn docs...
 
 ## Integration Options
+
 ### Data & Metadata integration via Kobo Web API
-Summary & links...
-Learning about Kobo API, what we can/cannot extract from different endpoints...
+
+Summary & links... Learning about Kobo API, what we can/cannot extract from
+different endpoints...
 
 ### Webhook service to push submission data to OpenFn endpoint
+
 1. To push data from Kobo, users must click the projects icon on their left-side
    nav bar. It's in the shape of a globe.
 2. Once selecting a project, the `Project Settings` link will appear at the top
@@ -35,12 +44,35 @@ data to any destination system on OpenFn.
 Here's a sample post from Kobo REST service. Note that questions inside groups
 are prefixed with `groupname/` rather than sitting inside a group object like
 ODK:
-`json { "meta/instanceID": "uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4", "group1/name": "twenty", "group1/age": "19", "formhub/uuid": "6f5773a110b046cb97e3d71f6c04e7a6", "first_q": "hello", "final_q": "why not?", "_xform_id_string": "groups", "_uuid": "19d72997-8316-4e02-8016-4a8ddf6a2aa4", "_userform_id": "taylordowns2000_groups", "_tags": [], "_submitted_by": null, "_submission_time": "2016-04-22T06:38:20", "_status": "submitted_via_web", "_notes": [], "_id": 889409, "_geolocation": [ null, null ], "_bamboo_dataset_id": "", "_attachments": [] }`
 
+```json
+{
+  "meta/instanceID": "uuid:19d72997-8316-4e02-8016-4a8ddf6a2aa4",
+  "group1/name": "twenty",
+  "group1/age": "19",
+  "formhub/uuid": "6f5773a110b046cb97e3d71f6c04e7a6",
+  "first_q": "hello",
+  "final_q": "why not?",
+  "_xform_id_string": "groups",
+  "_uuid": "19d72997-8316-4e02-8016-4a8ddf6a2aa4",
+  "_userform_id": "taylordowns2000_groups",
+  "_tags": [],
+  "_submitted_by": null,
+  "_submission_time": "2016-04-22T06:38:20",
+  "_status": "submitted_via_web",
+  "_notes": [],
+  "_id": 889409,
+  "_geolocation": [null, null],
+  "_bamboo_dataset_id": "",
+  "_attachments": []
+}
+```
 
 ## OpenFn Adaptor
-Currently there is no tool-specific adaptor, so `language-http` has been implemented to integrate via HTTP requests to the web API. 
 
-## Integration Examples 
+Check out
+[OpenFn/language-kobotoolbox](https://www.github.com/openfn/language-kobotoolbox)
+
+## Integration Examples
+
 Links to sample jobs/ code snippets...
-

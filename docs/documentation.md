@@ -1,4 +1,6 @@
-# Platform Docs
+---
+title: Platform Docs
+---
 
 ## Connecting Source Applications
 
@@ -21,12 +23,34 @@ application will notify OpenFn when _something happens_.
 
 3. Soon you'll see new messages arrive in your **Inbox**.
 
-See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for specific 
-instructions for connecting common applications. 
+See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for specific
+instructions for connecting common applications.
 
 ### Inbox Security
-OpenFn project administrators can choose to configure additional authentication for any inbound requests made to the project's inbox URL. In the "Access & Security" page of their OpenFn project, Administrators can choose from API Key and Basic Auth types, which will prompt administrators to either generate an API token or to setup a username:password credential. Once this inbox authentication is configured, any HTTP requests made to the OpenFn Inbox URL must include either this token or username:password in the request header. 
-![inbox security](./images/inbox-security.png)
+
+OpenFn project administrators can choose to configure additional authentication
+for any inbound requests made to the project's inbox URL. In the "Access &
+Security" page of their OpenFn project, Administrators can choose from API Key
+and Basic Auth types, which will prompt administrators to either generate an API
+token or to setup a username:password credential. Once this inbox authentication
+is configured, any HTTP requests made to the OpenFn Inbox URL must include
+either this token or username:password in the request header. ![inbox security](../static/img/inbox-security.png)
+
+#### Rotating auth methods
+
+Because more than one auth method may be accepted at a given time, some
+organizations choose to periodically rotate their auth methods for extra
+security and can do so without disrupting live production integrations. To
+rotate your inbox auth methods:
+
+1. Create a _second_ valid auth method with a new token or user:pass combination.
+2. Provide that token to your external systems so that they can start using it
+   in their webhooks/requests to OpenFn.
+3. Once you are certain that all external services are now using the new auth
+   token, _revoke_ the old auth token.
+
+You can repeat this process as frequently as is required by your organization's
+internal security protocols.
 
 ## Creating a compatible notifications service
 
@@ -143,7 +167,7 @@ We'd expect the following logic:
 To achieve this you might write:
 
 ```js
-fetchPatient({ type: 'referral', offset: state.lastId }, state => {
+fetchPatient({ type: 'referral', offset: state.lastId }, (state) => {
   // Assuming the system returned an array of patients in the "data" key.
   state.lastId = state.data.patients.sort((a, b) => b.id - a.id)[0];
   return state;
@@ -176,7 +200,7 @@ callback of your language-package's operation (if it allows for one) or by
 appending an `alterState(...)` operation after your operation.
 
 ```js
-alterState(state => {
+alterState((state) => {
   state.custom = somethingIntentional;
   state.data = {};
   state.references = [];
@@ -192,9 +216,9 @@ This way you don’t have to wait for the timer to expire before testing! Simply
 click the process/ “play” button now available via the Job, Run, and Activity
 History pages.
 
-![Runs list run time trigger button](./images/timetriggerunslist.png)
+![Runs list run time trigger button](../static/img/timetriggerunslist.png)
 
-![Run history time trigger button](./images/runtimetrigger1.png)
+![Run history time trigger button](../static/img/runtimetrigger1.png)
 
 ## Credentials
 
@@ -265,7 +289,7 @@ write your own custom, anonymous functions to do whatever your heart desires:
 create(
   'Patient__c',
   fields(
-    field('Name', state => {
+    field('Name', (state) => {
       console.log('Manipulate state to get your desired output.');
       return Array.apply(null, state.data.form.names).join(', ');
     }),
@@ -366,7 +390,7 @@ return to the top level and be able to enter the second array.
   [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90)
 
 **For code block examples of job expressions, go to the
-[code samples page](#appendix.md).**
+[code samples page](appendix.md).**
 
 ## Inbox
 
@@ -395,7 +419,7 @@ by:
   custom date range yourself. Note that the default inbox view shows “Last 30
   Days”.
 
-![Image of Inbox Filters](./images/inbox_filter.png)
+![Image of Inbox Filters](../static/img/inbox_filter.png)
 
 ### Bulk reprocess messages
 
@@ -404,11 +428,11 @@ for multiple messages, or need to re-process the data in OpenFn to re-send to a
 destination application, then this feature will help you do so more quickly!
 
 1. Simply click on the new **Reprocess** button via the Inbox view.
-   ![Reprocess button](./images/reprocess_msgs.png)
+   ![Reprocess button](../static/img/reprocess_msgs.png)
 
 2. Specify the **ID range** for messages that you want to re-run (e.g., messages
    with IDs 4622741 through 4622749 → 9 messages to reprocess).
-   ![Bulk reprocess screen](./images/bulk_reprocess.png)
+   ![Bulk reprocess screen](../static/img/bulk_reprocess.png)
 
 #### Note when bulk reprocessing messages
 
@@ -420,7 +444,7 @@ destination application, then this feature will help you do so more quickly!
 
 - Remember that OpenFn plans are run-based, and you can monitor usage in
   **Project Settings** to ensure that you don’t hit any run limits when bulk
-  reprocessing! ![Usage stats chart](./images/usage.png)
+  reprocessing! ![Usage stats chart](../static/img/usage.png)
 
 ### Export messages to CSV
 
@@ -432,7 +456,7 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 2. Click the **Export as CSV** button to generate an export. The link to
    download this file will be sent to your email address.
 
-![Export CSV button](./images/exportcsv.png)
+![Export CSV button](../static/img/exportcsv.png)
 
 ## Activity
 
@@ -473,12 +497,12 @@ Need to re-process a series of runs? This could be helpful if you had multiple
 runs fail due to an error message.
 
 1. Simply click on the new **Retry** button via the Runs view.
-   ![Retry run button](./images/retrybutton.png)
+   ![Retry run button](../static/img/retrybutton.png)
 
 2. Specify the **ID range** for the runs that you want to re-process. Choose to
    filter by Job and/or Status to only reprocess runs associated with a specific
    job or runs that have failed/ succeeded.
-   ![Bulk retry runs](./images/runs_retry.png)
+   ![Bulk retry runs](../static/img/runs_retry.png)
 
 Remember that OpenFn plans are run-based, and you can monitor usage in **Project
 Settings** to ensure that you don’t hit any run limits when bulk reprocessing!
@@ -492,7 +516,7 @@ You can download your run logs by exporting to a CSV file.
 
 2. Click the **Export as CSV** button to generate an export. The link to
    download this file will be sent to your email address.
-   ![Export runs button](./images/exportruns.png)
+   ![Export runs button](../static/img/exportruns.png)
 
 ## GitHub version control
 

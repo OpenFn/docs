@@ -1,4 +1,6 @@
-# Snippets & Sample Code
+---
+title: Snippets & Sample Code
+---
 
 ## Filters
 
@@ -34,11 +36,14 @@
 
 ## Job Expressions
 
-Below you can find some examples of block code for different functions and data handling contexts.
+Below you can find some examples of block code for different functions and data
+handling contexts.
 
 ### Job expression (for CommCare to SF)
 
-The following job expression will take a matching receipt and use data from that receipt to upsert a `Patient__c` record in Salesforce and create multiple new `Patient_Visit__c` (child to Patient) records.
+The following job expression will take a matching receipt and use data from that
+receipt to upsert a `Patient__c` record in Salesforce and create multiple new
+`Patient_Visit__c` (child to Patient) records.
 
 ```js
 upsert(
@@ -65,7 +70,8 @@ upsert(
 
 ### Accessing the "data array" in Open Data Kit submissions
 
-Notice how we use "each" to get data from each item inside the "data array" in ODK.
+Notice how we use "each" to get data from each item inside the "data array" in
+ODK.
 
 ```js
 each(
@@ -84,7 +90,8 @@ each(
 
 ### ODK to Salesforce: create parent record with many children from parent data
 
-Here, the user brings `time_end` and `parentId` onto the line items from the parent object.
+Here, the user brings `time_end` and `parentId` onto the line items from the
+parent object.
 
 ```js
 each(
@@ -123,7 +130,11 @@ each(
 );
 ```
 
-> **NB - there was a known bug with the `combine` function which has been resolved. `combine` can be used to combine two operations into one and is commonly used to run multiple `create`'s inside an `each(path, operation)`. The source code for combine can be found here: [language-common: combine](https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222)**
+> **NB - there was a known bug with the `combine` function which has been
+> resolved. `combine` can be used to combine two operations into one and is
+> commonly used to run multiple `create`'s inside an `each(path, operation)`.
+> The source code for combine can be found here:
+> [language-common: combine](https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222)**
 
 ### Create many child records WITHOUT a repeat group in ODK
 
@@ -374,7 +385,7 @@ field("Photo_URL_text__c", dataValue("image.url")),
 
 ```js
 // Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
-alterState((state) => {
+alterState(state => {
   const idCards = state.data.form.ID_cards_given_to_vendor;
   if (!Array.isArray(idCards)) {
     state.data.form.ID_cards_given_to_vendor = [idCards];
@@ -406,22 +417,49 @@ each(
 );
 ```
 
+### Login in to a server with a custom SSL Certificate
+
+This snippet describes how you would connect to a secure server ignoring SSL
+certificate verification. Set `strictSSL: false` in the options argument of the
+`post` function in `language-http`.
+
+```js
+post(
+  `${state.configuration.url}/${path}`,
+  {
+    headers: { 'content-type': 'application/json' },
+    body: {
+      email: 'Luka',
+      password: 'somethingSecret',
+    },
+    strictSSL: false,
+  },
+  callback
+);
+```
+
 ## Anonymous Functions
 
-Different to [Named Functions](documentation.md#named-functions), Anoynmous functions are generic pieces of javascript which you can write to suit your needs. Here are some examples of these custom functions:
+Different to [Named Functions](documentation.md#named-functions), Anonymous
+functions are generic pieces of javascript which you can write to suit your
+needs. Here are some examples of these custom functions:
 
 ### Custom replacer
 
 ```js
-field('destination__c', function (state) {
+field('destination__c', state => {
+  console.log(something);
   return dataValue('path_to_data')(state).toString().replace('cats', 'dogs');
 });
 ```
 
-This will replace all "cats" with "dogs" in the string that lives at `path_to_data`.
+This will replace all "cats" with "dogs" in the string that lives at
+`path_to_data`.
 
-> **NOTE:** The JavaScript `replace()` function only replaces the first instance of whatever argument you specify.
-> If you're looking for a way to replace all instances, we suggest you use a regex like we did in the [example](#custom-concatenation-of-null-values) below.
+> **NOTE:** The JavaScript `replace()` function only replaces the first instance
+> of whatever argument you specify. If you're looking for a way to replace all
+> instances, we suggest you use a regex like we did in the
+> [example](#custom-concatenation-of-null-values) below.
 
 ### Custom arrayToString
 
@@ -433,7 +471,8 @@ field("target_specie_list__c", function(state) {
 }),
 ```
 
-It will take an array, and concatenate each item into a string with a ", " separator.
+It will take an array, and concatenate each item into a string with a ", "
+separator.
 
 ### Custom concatenation
 
@@ -447,7 +486,8 @@ This will concatenate two values.
 
 ### Concatenation of null values
 
-This will concatenate many values, even if one or more are null, writing them to a field called Main_Office_City_c.
+This will concatenate many values, even if one or more are null, writing them to
+a field called Main_Office_City_c.
 
 ```js
 ...
@@ -461,11 +501,13 @@ This will concatenate many values, even if one or more are null, writing them to
   })
 ```
 
-> Notice how this custom function makes use of the **regex** `/-/g` to ensure that all instances are accounted for (g = global search).
+> Notice how this custom function makes use of the **regex** `/-/g` to ensure
+> that all instances are accounted for (g = global search).
 
 ### Custom Nth reference ID
 
-If you ever want to retrieve the FIRST object you created, or the SECOND, or the Nth, for that matter, a function like this will do the trick.
+If you ever want to retrieve the FIRST object you created, or the SECOND, or the
+Nth, for that matter, a function like this will do the trick.
 
 ```js
 field('parent__c', function (state) {
@@ -473,7 +515,9 @@ field('parent__c', function (state) {
 });
 ```
 
-See how instead of taking the id of the "last" thing that was created in Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace "length-1" with "length-2".
+See how instead of taking the id of the "last" thing that was created in
+Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace
+"length-1" with "length-2".
 
 ### Convert date string to standard ISO date for Salesforce
 
@@ -483,12 +527,13 @@ field('Payment_Date__c', function (state) {
 });
 ```
 
-> **NOTE**: The output of this function will always be formatted according to GMT time-zone.
+> **NOTE**: The output of this function will always be formatted according to
+> GMT time-zone.
 
 ### Use external ID fields for relationships during a bulk load in Salesforce
 
 ```js
-array.map((item) => {
+array.map(item => {
   return {
     Patient_Name__c: item.fullName,
     'Clinic__r.Unique_Clinic_Identifier__c': item.clinicId,

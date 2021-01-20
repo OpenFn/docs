@@ -1,3 +1,7 @@
+---
+title: Release Notes
+---
+
 ## Version 1.75.0 (2020-07-14)
 
 New features:
@@ -306,7 +310,7 @@ trying to log in or sign up.
   function.
 
 **alterState:**
-[documentation](/docs/documentation.html#alterstate-alter-state-to-make-sure-data-is-in-an-array)
+[documentation](https://github.com/OpenFn/docs/blob/master/job-library/alter-state-before-operations.js)
 
 ## Version 1.2.0 (2016-09-15)
 
