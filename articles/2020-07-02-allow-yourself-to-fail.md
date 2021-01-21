@@ -69,4 +69,4 @@ two different systems that are bound to evolve, go offline, have a bad day, etc
 [Sign up](https://openfn.org/signup){: .btn} to set up a project today,
 absolutely free.
 
-[Reach out](admin@openfn.org){: .btn} for more information.
+[Reach out](mailto:admin@openfn.org){: .btn} for more information.

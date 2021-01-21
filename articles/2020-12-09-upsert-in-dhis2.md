@@ -51,4 +51,4 @@ if you’d like to learn more.
 [Sign up](https://openfn.org/signup){: .btn} to set up a project today,
 absolutely free.
 
-[Reach out](admin@openfn.org){: .btn} for more information.
+[Reach out](mailto:admin@openfn.org){: .btn} for more information.

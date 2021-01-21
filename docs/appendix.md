@@ -4,19 +4,19 @@ title: Snippets & Sample Code
 
 ## Filters
 
-### Match messages `WHERE` the `formId` is `"Robot_Photo_21.04.2015"`:
+### Match messages `WHERE` the `formId` is `"Robot_Photo_21.04.2015"`
 
 ```json
 { "formId": "Robot_Photo_21.04.2015" }
 ```
 
-### Match a message `WHERE` this `AND` that are both included:
+### Match a message `WHERE` this `AND` that are both included
 
 ```json
 { "formId": "Robot_Photo_21.04.2015", "secret_number": 8 }
 ```
 
-### Match a message with two fragments inside an array called `data`:
+### Match a message with two fragments inside an array called `data`
 
 (This is useful when gathering data via ODK)
 
@@ -24,7 +24,7 @@ title: Snippets & Sample Code
 { "data": [{ "outlet_call": "TRUE", "new_existing": "Existing" }] }
 ```
 
-### Match a message with a fragment inside another object called `form`:
+### Match a message with a fragment inside another object called `form`
 
 ```json
 {
