@@ -50,8 +50,9 @@ module.exports = {
         // },
         {
           href: 'https://github.com/openfn/docs',
-          label: 'GitHub',
           position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
         },
       ],
     },
@@ -100,11 +101,11 @@ module.exports = {
           title: 'More',
           items: [
             {
-              label: 'Articles',
-              to: 'articles',
+              label: 'OpenFn.org',
+              to: 'https://www.openfn.org',
             },
             {
-              label: 'GitHub',
+              label: 'Github',
               href: 'https://github.com/openfn',
             },
             {
