@@ -18,7 +18,14 @@ function Search() {
       <input
         autocomplete="on"
         class="form-control search"
-        className="customSearchInput"
+        style={{
+          borderRadius: 30,
+          marginLeft: 30,
+          padding: 4,
+          paddingLeft: 8,
+          borderColor: 'gray',
+          outline: 'none',
+        }}
         name="q"
         placeholder="Search docs.openfn.org"
         required="required"
