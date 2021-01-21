@@ -1,6 +1,7 @@
 ---
-title: Welcome to the Job Library
 id: library-intro
+title: Welcome to the Job Library
+sidebar_label: Introduction
 slug: /
 ---
 
@@ -11,9 +12,8 @@ We're currently designing a "job library" which organizations can opt into,
 which would share all their job expressions (without exposing source data, of
 course) for the benefit of the broader community.
 
-While we get this all together, please browse some of our client's open-source
-jobs on the OpenFn [Github page](https://www.github.com/openfn) and check out a
-few extra samples [here](https://github.com/OpenFn/docs/tree/master/job-library).
+While we get this all together you'll be able to browse and search these
+open-source jobs here.
 
-As always, please feel free to submit your own private jobs as a pull request if
-you think they'd help others.
+In the meantime, please feel free to submit your own jobs by submitting a pull
+request to this docs site if you think they'd help others.
