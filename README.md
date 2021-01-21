@@ -1,6 +1,6 @@
 # [OpenFn Documentation & Issue Tracking](https://docs.openfn.org)
 
-## [![Logo](/docs/images/round-logo.png)&nbsp;&nbsp;docs.openfn.org](https://docs.openfn.org)
+## [![Logo](static/img/round-logo.png)&nbsp;&nbsp;docs.openfn.org](https://docs.openfn.org)
 
 **_To view the documentation please visit
 [docs.openfn.org](https://docs.openfn.org)._**
@@ -18,10 +18,7 @@ issues and feature requests.
 
 #### Contributing to this documentation site
 
-- Install and familiarize yourself with [mkdocs](https://www.mkdocs.org/).
-- `[Link name](/relative-path/#some-section)` to link to sections on this site.
-- `[Link name](https://www.openfn.org)` to link to external websites.
-- `![Screenshot](/relative-path/screenshot.png)` to include an image.
+Visit https://docs.openfn.org/docs/style-guide.
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern
 static website generator.
