@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 const features = [
   {
     title: 'Documentation',
-    imageUrl: 'static/img/undraw_Code_review_re_woeb.svg',
+    imageUrl: 'img/undraw_Code_review_re_woeb.svg',
     description: (
       <>
         Documentation on all aspects of OpenFn data integration, whether you're
@@ -19,7 +19,7 @@ const features = [
   },
   {
     title: 'Library',
-    imageUrl: 'static/img/undraw_pair_programming_njlp.svg',
+    imageUrl: 'img/undraw_pair_programming_njlp.svg',
     description: (
       <>
         Searchable and browseable jobs, triggers, and static data objects shared
@@ -29,7 +29,7 @@ const features = [
   },
   {
     title: 'Articles',
-    imageUrl: 'static/img/undraw_Portfolio_update_re_jqnp.svg',
+    imageUrl: 'img/undraw_Portfolio_update_re_jqnp.svg',
     description: (
       <>
         How to prepare for data integration? How to structure external IDs? How
