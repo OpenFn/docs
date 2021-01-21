@@ -440,7 +440,7 @@ post(
 
 ## Anonymous Functions
 
-Different to [Named Functions](documentation.md#named-functions), Anonymous
+Different to [Named Functions](platform.md#named-functions), Anonymous
 functions are generic pieces of javascript which you can write to suit your
 needs. Here are some examples of these custom functions:
 
