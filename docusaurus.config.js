@@ -125,7 +125,7 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
           routeBasePath: '/documentation',
-          editUrl: 'https://github.com/openfn/docs/edit/master',
+          editUrl: 'https://github.com/openfn/docs/edit/main',
         },
         // blog: {
         //   showReadingTime: true,
