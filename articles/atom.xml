@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://docs.openfn.org/articles</id>
+    <title>OpenFn Blog</title>
+    <updated>2020-12-09T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://docs.openfn.org/articles"/>
+    <subtitle>OpenFn Blog</subtitle>
+    <icon>https://docs.openfn.org/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Tracked entity instances in DHIS2]]></title>
+        <id>Tracked entity instances in DHIS2</id>
+        <link href="https://docs.openfn.org/articles/2020/12/09/upsert-in-dhis2"/>
+        <updated>2020-12-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Product News: Enhanced Scheduled/Periodic Job Control]]></title>
+        <id>Product News: Enhanced Scheduled/Periodic Job Control</id>
+        <link href="https://docs.openfn.org/articles/2020/07/14/cron-is-better-than-a-timer"/>
+        <updated>2020-07-14T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Hi all, this is a quick one from the product team at]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Allow Yourself to Fail]]></title>
+        <id>Allow Yourself to Fail</id>
+        <link href="https://docs.openfn.org/articles/2020/07/02/allow-yourself-to-fail"/>
+        <updated>2020-07-02T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Hi all, this is a very short post with a simple message: design for failure.]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[To Automate or Not to Automate? Ask Yourself These 3 Questions.]]></title>
+        <id>To Automate or Not to Automate? Ask Yourself These 3 Questions.</id>
+        <link href="https://docs.openfn.org/articles/2020/06/24/three-questions-to-ask"/>
+        <updated>2020-06-24T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[_Automation can save time, unlock critical resources, and enable scale–but it]]></summary>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[How Information Is Organized... In Organizations]]></title>
+        <id>How Information Is Organized... In Organizations</id>
+        <link href="https://docs.openfn.org/articles/2020/06/16/how-information-is-organized"/>
+        <updated>2020-06-16T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Does your organization's information have an underlying structure? Try this exercise using boxes and crow's feet.]]></summary>
+    </entry>
+</feed>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0">
+    <channel>
+        <title>OpenFn Blog</title>
+        <link>https://docs.openfn.org/articles</link>
+        <description>OpenFn Blog</description>
+        <lastBuildDate>Wed, 09 Dec 2020 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Tracked entity instances in DHIS2]]></title>
+            <link>https://docs.openfn.org/articles/2020/12/09/upsert-in-dhis2</link>
+            <guid>Tracked entity instances in DHIS2</guid>
+            <pubDate>Wed, 09 Dec 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Product News: Enhanced Scheduled/Periodic Job Control]]></title>
+            <link>https://docs.openfn.org/articles/2020/07/14/cron-is-better-than-a-timer</link>
+            <guid>Product News: Enhanced Scheduled/Periodic Job Control</guid>
+            <pubDate>Tue, 14 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Hi all, this is a quick one from the product team at]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Allow Yourself to Fail]]></title>
+            <link>https://docs.openfn.org/articles/2020/07/02/allow-yourself-to-fail</link>
+            <guid>Allow Yourself to Fail</guid>
+            <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Hi all, this is a very short post with a simple message: design for failure.]]></description>
+        </item>
+        <item>
+            <title><![CDATA[To Automate or Not to Automate? Ask Yourself These 3 Questions.]]></title>
+            <link>https://docs.openfn.org/articles/2020/06/24/three-questions-to-ask</link>
+            <guid>To Automate or Not to Automate? Ask Yourself These 3 Questions.</guid>
+            <pubDate>Wed, 24 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[_Automation can save time, unlock critical resources, and enable scale–but it]]></description>
+        </item>
+        <item>
+            <title><![CDATA[How Information Is Organized... In Organizations]]></title>
+            <link>https://docs.openfn.org/articles/2020/06/16/how-information-is-organized</link>
+            <guid>How Information Is Organized... In Organizations</guid>
+            <pubDate>Tue, 16 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Does your organization's information have an underlying structure? Try this exercise using boxes and crow's feet.]]></description>
+        </item>
+    </channel>
+</rss>

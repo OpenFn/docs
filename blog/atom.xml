@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://docs.openfn.org/blog</id>
+    <title>OpenFn Blog</title>
+    <updated>2021-01-18T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://docs.openfn.org/blog"/>
+    <subtitle>OpenFn Blog</subtitle>
+    <icon>https://docs.openfn.org/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Welcome]]></title>
+        <id>welcome</id>
+        <link href="https://docs.openfn.org/blog/welcome"/>
+        <updated>2021-01-18T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Welcome to the new docs.openfn.org!]]></summary>
+    </entry>
+</feed>

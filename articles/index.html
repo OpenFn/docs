@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="generator" content="Docusaurus v2.0.0-alpha.70">
+<link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="OpenFn Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="OpenFn Blog Atom Feed">
+<link rel="preconnect" href="https://www.google-analytics.com">
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-57118569-4","auto"),ga("set","anonymizeIp",!0),ga("send","pageview")</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+<link rel="alternate" type="application/rss+xml" href="/articles/rss.xml" title="OpenFn Blog RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/articles/atom.xml" title="OpenFn Blog Atom Feed">
+<script src="./freshChat.js" async></script><title data-react-helmet="true">Blog | OpenFn</title><meta data-react-helmet="true" property="og:title" content="Blog | OpenFn"><meta data-react-helmet="true" name="description" content="Blog"><meta data-react-helmet="true" property="og:description" content="Blog"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docusaurus_locale" content="en"><meta data-react-helmet="true" name="docusaurus_tag" content="default"><link data-react-helmet="true" rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/styles.c714c6b2.css">
+<link rel="preload" href="/styles.25c177b7.js" as="script">
+<link rel="preload" href="/runtime~main.00b1f1a4.js" as="script">
+<link rel="preload" href="/main.812c4ab9.js" as="script">
+<link rel="preload" href="/1.fc756be5.js" as="script">
+<link rel="preload" href="/2.3742d79f.js" as="script">
+<link rel="preload" href="/3.0395cf5c.js" as="script">
+<link rel="preload" href="/01a85c17.2c6a0500.js" as="script">
+<link rel="preload" href="/1be78505.199ac2f1.js" as="script">
+<link rel="preload" href="/6875c492.29c43dc8.js" as="script">
+<link rel="preload" href="/a6aa9e1f.8572570f.js" as="script">
+<link rel="preload" href="/c4f5d8e4.ab899335.js" as="script">
+<link rel="preload" href="/ccc49370.b0e021de.js" as="script">
+<link rel="preload" href="/73.3cbd3297.js" as="script">
+<link rel="preload" href="/30ef78ca.8a601c09.js" as="script">
+<link rel="preload" href="/09a69b27.4f0ca44f.js" as="script">
+<link rel="preload" href="/0f427d40.5423e6f8.js" as="script">
+<link rel="preload" href="/fca34444.2e49929d.js" as="script">
+<link rel="preload" href="/e1d93203.e55a4bae.js" as="script">
+<link rel="preload" href="/a12f1ef9.18ef8e74.js" as="script">
+<link rel="preload" href="/f50ed874.ceb82544.js" as="script">
+</head>
+<body>
+<script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){var t=null;try{t=localStorage.getItem("theme")}catch(t){}return t}();t(null!==e?e:"light")}()</script><div id="__docusaurus">
+<nav aria-label="Skip navigation links"><button type="button" tabindex="0" class="skipToContent_11B0">Skip to main content</button></nav><nav class="navbar navbar--fixed-top"><div class="navbar__inner"><div class="navbar__items"><div aria-label="Navigation bar toggle" class="navbar__toggle" role="button" tabindex="0"><svg aria-label="Menu" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false"><title>Menu</title><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></div><a class="navbar__brand" href="/"><img src="/img/logo.svg" alt="OpenFn" class="themedImage_YANc themedImage--light_3CMI navbar__logo"><img src="/img/logo.svg" alt="OpenFn" class="themedImage_YANc themedImage--dark_3ARp navbar__logo"><strong class="navbar__title">OpenFn/docs</strong></a><a class="navbar__item navbar__link" href="/docs/">Docs</a><a class="navbar__item navbar__link" href="/library">Library</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/articles">Articles</a></div><div class="navbar__items navbar__items--right"><a href="https://github.com/openfn/docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub</a><div class="react-toggle react-toggle--disabled displayOnlyInLargeViewport_2N3Q"><div class="react-toggle-track"><div class="react-toggle-track-check"><span class="toggle_3NWk">🌜</span></div><div class="react-toggle-track-x"><span class="toggle_3NWk">🌞</span></div></div><div class="react-toggle-thumb"></div><input type="checkbox" disabled="" aria-label="Dark mode toggle" class="react-toggle-screenreader-only"></div><form action="https://www.google.com/search" name="searchform" target="_blank"><input type="hidden" name="sitesearch" value="docs.openfn.org"><input autocomplete="on" class="form-control search" class="customSearchInput" name="q" placeholder="Search docs.openfn.org" required=""></form></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div><div class="navbar-sidebar"><div class="navbar-sidebar__brand"><a class="navbar__brand" href="/"><img src="/img/logo.svg" alt="OpenFn" class="themedImage_YANc themedImage--light_3CMI navbar__logo"><img src="/img/logo.svg" alt="OpenFn" class="themedImage_YANc themedImage--dark_3ARp navbar__logo"><strong class="navbar__title">OpenFn/docs</strong></a></div><div class="navbar-sidebar__items"><div class="menu"><ul class="menu__list"><li class="menu__list-item"><a class="menu__link" href="/docs/">Docs</a></li><li class="menu__list-item"><a class="menu__link" href="/library">Library</a></li><li class="menu__list-item"><a aria-current="page" class="menu__link navbar__link--active" href="/articles">Articles</a></li><li class="menu__list-item"><a href="https://github.com/openfn/docs" target="_blank" rel="noopener noreferrer" class="menu__link">GitHub</a></li></ul></div></div></div></nav><div class="main-wrapper blog-wrapper"><div class="container margin-vert--lg"><div class="row"><div class="col col--2"><div class="sidebar_SWld thin-scrollbar"><h3 class="sidebarItemTitle_Km2m">Recent posts</h3><ul class="sidebarItemList_3UpA"><li class="sidebarItem_2T0D"><a class="sidebarItemLink_v5H9" href="/articles/2020/12/09/upsert-in-dhis2">Tracked entity instances in DHIS2</a></li><li class="sidebarItem_2T0D"><a class="sidebarItemLink_v5H9" href="/articles/2020/07/14/cron-is-better-than-a-timer">Product News: Enhanced Scheduled/Periodic Job Control</a></li><li class="sidebarItem_2T0D"><a class="sidebarItemLink_v5H9" href="/articles/2020/07/02/allow-yourself-to-fail">Allow Yourself to Fail</a></li><li class="sidebarItem_2T0D"><a class="sidebarItemLink_v5H9" href="/articles/2020/06/24/three-questions-to-ask">To Automate or Not to Automate? Ask Yourself These 3 Questions.</a></li><li class="sidebarItem_2T0D"><a class="sidebarItemLink_v5H9" href="/articles/2020/06/16/how-information-is-organized">How Information Is Organized... In Organizations</a></li></ul></div></div><main class="col col--8"><article class="margin-bottom--xl"><header><h2 class="margin-bottom--sm blogPostTitle_3-lP"><a href="/articles/2020/12/09/upsert-in-dhis2">Tracked entity instances in DHIS2</a></h2><div class="margin-vert--md"><time datetime="2020-12-09T00:00:00.000Z" class="blogPostDate_Ta7i">December 9, 2020  · 2 min read</time></div><div class="avatar margin-vert--md"><a class="avatar__photo-link avatar__photo" href="https://github.com/taylordowns2000" target="_blank" rel="noreferrer noopener"><img src="https://avatars1.githubusercontent.com/u/8732845?s=460&amp;u=5aa58a0e73b25e089668134e0bd1fe971019c960&amp;v=4" alt="Taylor Downs"></a><div class="avatar__intro"><h4 class="avatar__name"><a href="https://github.com/taylordowns2000" target="_blank" rel="noreferrer noopener">Taylor Downs</a></h4><small class="avatar__subtitle"></small></div></div></header><section class="markdown"><p>tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but
+upserts aren’t supported by a standard DHIS2 API endpoint. We built one in our
+dhis2 adaptor: it’s composed of existing APIs and a bit of logic 🤔. Now you can
+<code>upsert</code> tracked entity instances to DHIS2 👍 ✅.</p><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="a-bit-more"></a>A bit more...<a class="hash-link" href="#a-bit-more" title="Direct link to heading">#</a></h2><p>An “UPSERT” is a portmanteau of the database functions UPDATE and INSERT. It’s
+critical to handle upserts properly when integrating systems. As of version 35
+of the API, DHIS2 does not allow for an administrator to upsert tracked entity
+instances (“TEIs”). OpenFn’s own
+<a href="https://github.com/chaiwa-berian" target="_blank" rel="noopener noreferrer">Chaiwa Berian</a> has come up with a solution
+that highlights the utility of helper functions in our dhis2 adaptor. By
+combining various DHIS2 APIs through an upsertTEI function in OpenFn, DHIS2
+users can now perform upserts to TEIs.</p><p>If you’re curious, check out his implementation
+<a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L347" target="_blank" rel="noopener noreferrer">here</a>.</p><h2><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="even-more"></a>Even more!<a class="hash-link" href="#even-more" title="Direct link to heading">#</a></h2><p>A tracked entity instance in DHIS2 is a type of entity that can be tracked
+through the system. It can be anything from a person to a commodity like a
+medicine. If I am a database administrator presiding over two different systems
+that are connected to one another, let’s call them “System A” and “System B,” I
+would like for any updates made to the TEI of a user named “Jim Smith” in System
+A to also appear in Jim’s record in System B. Before upserts came about, doing
+so was difficult because of the possibility of duplicate record creation.
+Because an upsert simultaneously UPDATES and INSERTS, it prevents duplicates.</p><p>Upserts are important and good because they cut down on the risk of duplicate
+data entry and they also allow for transactions to be retried over and over to
+ensure data integrity. That last bit is called “idempotency” and you can read
+about it <a href="https://blog.openfn.org/allow-yourself-to-fail/" target="_blank" rel="noopener noreferrer">over here</a>.</p><p>Please don’t hesitate to reach out to one of OpenFn’s implementation specialists
+if you’d like to learn more.</p><p>— Taylor</p><p><a href="https://openfn.org/signup" target="_blank" rel="noopener noreferrer">Sign up</a>{: .btn} to set up a project today,
+absolutely free.</p><p><a href="mailto:admin@openfn.org" target="_blank" rel="noopener noreferrer">Reach out</a>{: .btn} for more information.</p></section></article><article class="margin-bottom--xl"><header><h2 class="margin-bottom--sm blogPostTitle_3-lP"><a href="/articles/2020/07/14/cron-is-better-than-a-timer">Product News: Enhanced Scheduled/Periodic Job Control</a></h2><div class="margin-vert--md"><time datetime="2020-07-14T00:00:00.000Z" class="blogPostDate_Ta7i">July 14, 2020  · 2 min read</time></div><div class="avatar margin-vert--md"><a class="avatar__photo-link avatar__photo" href="https://github.com/taylordowns2000" target="_blank" rel="noreferrer noopener"><img src="https://avatars1.githubusercontent.com/u/8732845?s=460&amp;u=5aa58a0e73b25e089668134e0bd1fe971019c960&amp;v=4" alt="Taylor Downs"></a><div class="avatar__intro"><h4 class="avatar__name"><a href="https://github.com/taylordowns2000" target="_blank" rel="noreferrer noopener">Taylor Downs</a></h4><small class="avatar__subtitle"></small></div></div></header><section class="markdown"><p>Hi all, this is a quick one from the product team at
+<a href="https://openfn.org/" target="_blank" rel="noopener noreferrer">OpenFn</a> — we&#x27;ve made a major upgrade to how timed/period
+jobs work.</p><p>In the past, if you weren&#x27;t using OpenFn to drive some real-time (or
+&quot;event-based&quot;) automation, you&#x27;d need to set up an &quot;interval trigger.&quot; Like the
+photo above, this was essentially a sand timer. Set your trigger to <code>10</code> seconds
+and your job fetches data from DHIS2, some regional public health data set, or
+whatever, then cleans, transforms, and loads it into some other system.</p><p>For the most part, this has got the job done for the last 5 years, but as our
+NGO and government clients came up with increasingly specific requirements on
+not only how often but <em>when</em> a crucial job gets executed, we began finding
+ourselves creating little customizations for them on a once-off basis. We&#x27;re
+happy to annouce that as of <code>v1.75</code> (released today), you can now schedule jobs
+to run based on <code>cron</code> expressions, giving you incredible control over when your
+tasks get executed.</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="scheduling-is-better-than-timing"></a>Scheduling is better than timing.<a class="hash-link" href="#scheduling-is-better-than-timing" title="Direct link to heading">#</a></h3><p>Using <code>cron</code>, you can choose to run a job every minute by typing <code>* * * * *</code>.</p><p>Or maybe you&#x27;ve got a batch sync that you want to take place while your users
+are asleep—why not run it every night at 11pm with <code>23 * * * *</code>.</p><p>What if you&#x27;ve got to submit reuqests for medical inventory only during the
+onset of flu season? Simply type <code>0 0 1 2-4 *</code> and your job will run at midnight
+the 1st of the month, from February through April.</p><p>You can still run jobs at the click of a button and create timers with
+expressions like <code>*/10 * * * *</code> for &quot;every 10 minutes&quot;, but scheduling with cron
+gives OpenFn.org users so much more control over how they run their
+organizations. (And that&#x27;s a good thing.)</p><p>If you&#x27;re keen on learning by doing but don&#x27;t have an OpenFn account yet,
+<a href="https://www.openfn.org/signup" target="_blank" rel="noopener noreferrer">sign up for free</a> or mess around with cron
+expressions at <a href="https://crontab.guru" target="_blank" rel="noopener noreferrer">crontab.guru</a>,
+a brilliant site to quickly build complex cron expressions.</p><p>That&#x27;s all from product for today. Speak soon.</p><p>Taylor</p></section></article><article class="margin-bottom--xl"><header><h2 class="margin-bottom--sm blogPostTitle_3-lP"><a href="/articles/2020/07/02/allow-yourself-to-fail">Allow Yourself to Fail</a></h2><div class="margin-vert--md"><time datetime="2020-07-02T00:00:00.000Z" class="blogPostDate_Ta7i">July 2, 2020  · 2 min read</time></div><div class="avatar margin-vert--md"><a class="avatar__photo-link avatar__photo" href="https://github.com/taylordowns2000" target="_blank" rel="noreferrer noopener"><img src="https://avatars1.githubusercontent.com/u/8732845?s=460&amp;u=5aa58a0e73b25e089668134e0bd1fe971019c960&amp;v=4" alt="Taylor Downs"></a><div class="avatar__intro"><h4 class="avatar__name"><a href="https://github.com/taylordowns2000" target="_blank" rel="noreferrer noopener">Taylor Downs</a></h4><small class="avatar__subtitle"></small></div></div></header><section class="markdown"><p>Hi all, this is a very short post with a simple message: design for failure.
+Even if you&#x27;ve never heard of
+<a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noopener noreferrer">MSSQL</a> (or
+<a href="https://azure.microsoft.com/en-us/" target="_blank" rel="noopener noreferrer">Azure</a>, or Microsoft?), I want to talk for
+one moment about the importance of upserts and a funny developer term called
+&quot;idempotence.&quot;</p><p>We just extended our
+<a href="https://github.com/OpenFn/language-mssql" target="_blank" rel="noopener noreferrer">language-mssql adaptor</a> with a custom
+function that allows upserts (an <code>upsert</code> is when you either insert a new record
+or update an existing record based on some identifier). Before, you&#x27;d need to
+write something tedious like:</p><div class="mdxCodeBlock_1zKU"><div class="codeBlockContent_actS"><div tabindex="0" class="prism-code language-js codeBlock_tuNs thin-scrollbar"><div class="codeBlockLines_3uvA" style="color:#bfc7d5;background-color:#292d3e"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">sql</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  query</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token template-string template-punctuation string" style="color:rgb(195, 232, 141)">`</span><span class="token template-string string" style="color:rgb(195, 232, 141)">MERGE my_table AS [Target]</span></div><div class="token-line" style="color:#bfc7d5"><span class="token template-string string" style="color:rgb(195, 232, 141)">          USING (SELECT &#x27;8675309&#x27; AS some_unique_id, &#x27;writing_blog_posts&#x27; AS skill) AS [Source]</span></div><div class="token-line" style="color:#bfc7d5"><span class="token template-string string" style="color:rgb(195, 232, 141)">          ON [Target].some_unique_id = [Source].some_unique_id</span></div><div class="token-line" style="color:#bfc7d5"><span class="token template-string string" style="color:rgb(195, 232, 141)">          WHEN MATCHED THEN</span></div><div class="token-line" style="color:#bfc7d5"><span class="token template-string string" style="color:rgb(195, 232, 141)">            UPDATE SET [Target].some_unique_id=8675309, [Target].skill=&#x27;writing_blog_posts&#x27;</span></div><div class="token-line" style="color:#bfc7d5"><span class="token template-string string" style="color:rgb(195, 232, 141)">          WHEN NOT MATCHED THEN</span></div><div class="token-line" style="color:#bfc7d5"><span class="token template-string string" style="color:rgb(195, 232, 141)">            INSERT (some_unique_id, skill) VALUES ([Source].some_unique_id, [Source].skill);</span><span class="token template-string template-punctuation string" style="color:rgb(195, 232, 141)">`</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span></div></div></div><button type="button" aria-label="Copy code to clipboard" class="copyButton_2GIj">Copy</button></div></div><p>whereas now you can simply write:</p><div class="mdxCodeBlock_1zKU"><div class="codeBlockContent_actS"><div tabindex="0" class="prism-code language-js codeBlock_tuNs thin-scrollbar"><div class="codeBlockLines_3uvA" style="color:#bfc7d5;background-color:#292d3e"><div class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">upsert</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;my_table&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;some_unique_id&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  some_unique_id</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">8675309</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  skill</span><span class="token punctuation" style="color:rgb(199, 146, 234)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;writing blog posts&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span></div></div></div><button type="button" aria-label="Copy code to clipboard" class="copyButton_2GIj">Copy</button></div></div><p>For an operation to be idempotent means that it can be repeated time and time
+again without producing an unintended result. This is SUPER important for
+creating S3 (<strong>S</strong>ecure, <strong>S</strong>table and <strong>S</strong>calable—more on that
+<a href="https://openfn.org/trust" target="_blank" rel="noopener noreferrer">here</a>) integrations because it provides you with two
+&quot;get-out-of-jail-free&quot; cards.</p><ol><li><p>If a destination application fails, if a connection times out, or if (for
+whatever reason) you&#x27;re not sure if the <code>job</code> was completed (say... making a
+payment to CHW) then an idempotent operation can be RETRIED without fear of
+making a double-payment.</p></li><li><p>If you make some change to how your <code>job</code> works, make some modification to
+one of your destination systems, or just because you want to be <em>extra extra
+sure</em> that all the data in a 9 month survey made it to the national public
+health reporting system, you can <em>REPROCESS</em> every single message that&#x27;s come
+through OpenFn at the click of a button, without having to worry about
+duplicates.</p></li></ol><p>So... when clients let me mess around with their jobs, I <em>always</em> recommend we
+design for idempotence. It&#x27;s common sense when you&#x27;re passing messages between
+two different systems that are bound to evolve, go offline, have a bad day, etc</p><p>— Taylor</p><p><a href="https://openfn.org/signup" target="_blank" rel="noopener noreferrer">Sign up</a>{: .btn} to set up a project today,
+absolutely free.</p><p><a href="mailto:admin@openfn.org" target="_blank" rel="noopener noreferrer">Reach out</a>{: .btn} for more information.</p></section></article><article class="margin-bottom--xl"><header><h2 class="margin-bottom--sm blogPostTitle_3-lP"><a href="/articles/2020/06/24/three-questions-to-ask">To Automate or Not to Automate? Ask Yourself These 3 Questions.</a></h2><div class="margin-vert--md"><time datetime="2020-06-24T00:00:00.000Z" class="blogPostDate_Ta7i">June 24, 2020  · 3 min read</time></div><div class="avatar margin-vert--md"><a class="avatar__photo-link avatar__photo" target="_blank" rel="noreferrer noopener"><img src="https://secure.gravatar.com/avatar/b59257a59a25dfc3b3e3ba1b5184dbf4" alt="Aleksa Krolls"></a><div class="avatar__intro"><h4 class="avatar__name"><a target="_blank" rel="noreferrer noopener">Aleksa Krolls</a></h4><small class="avatar__subtitle"></small></div></div></header><section class="markdown"><p><em>Automation can save time, unlock critical resources, and enable scale–but it
+typically requires investment to set up. Wondering whether you should automate
+your processes? Ask yourself these 3 questions.</em></p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="our-partners-use-openfn-automation-solutions-to-drive-efficiency-and-scale-their-processes-delivering-integrated-digital-systems-that-work-better-faster-and-together"></a>Our partners use <a href="https://openfn.org" target="_blank" rel="noopener noreferrer">OpenFn</a> automation solutions to drive efficiency and scale their processes, delivering integrated digital systems that work better, faster, and together.<a class="hash-link" href="#our-partners-use-openfn-automation-solutions-to-drive-efficiency-and-scale-their-processes-delivering-integrated-digital-systems-that-work-better-faster-and-together" title="Direct link to heading">#</a></h3><p>To date, we have worked with 43 social sector organizations that operate across
+sectors–from health, education, and agriculture, to livelihoods and emergency
+response. Over the last 6 years, OpenFn has been implemented worldwide for a
+wide range of use cases, including building real-time data monitoring systems,
+streamlining data cleaning pipelines, securely exchanging sensitive information,
+and automating routine processes like uploading indicator results, sending
+SMS/email alerts, making mobile payments,
+<a href="https://openfn.org/solutions" target="_blank" rel="noopener noreferrer">and more</a>.</p><p>By connecting any app, OpenFn can integrate and automate all apps within a
+digital ecosystem. However, a question that we frequently ask our partners is:</p><h4><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="just-because-you-can-automateshould-you"></a>Just because you <em>can</em> automate—<em>should</em> you?<a class="hash-link" href="#just-because-you-can-automateshould-you" title="Direct link to heading">#</a></h4><p>While integration and automation have the potential to enable scale and save
+time and money (we’ve learned this from our
+<a href="https:openfn.org/clients" target="_blank" rel="noopener noreferrer">partners</a>), solutions require investment to set up
+and maintain. These costs sometimes outweigh expected efficiency gains and
+service outcomes. Therefore, when evaluating the cost-benefit of investing in
+automation and integration solutions, we at Open Function Group typically ask 3
+key questions.</p><h4><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="1-security--will-automation-limit-the-exposure-of-sensitive-data"></a>1. Security — Will automation limit the exposure of sensitive data?<a class="hash-link" href="#1-security--will-automation-limit-the-exposure-of-sensitive-data" title="Direct link to heading">#</a></h4><p>Can the exposure of sensitive data be limited by integrating with secure API
+endpoints (rather than relying on human beings to interact with those data, for
+example)? Or by automating a data cleaning process?</p><h4><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="2-accuracy--will-automation-increase-data-accuracy-and-reduce-data-entry-errors"></a>2. Accuracy — Will automation increase data accuracy and reduce data entry errors?<a class="hash-link" href="#2-accuracy--will-automation-increase-data-accuracy-and-reduce-data-entry-errors" title="Direct link to heading">#</a></h4><p>Can the process take place more reliably by limiting the opportunity for human
+error (in automating data manipulation or simple algorithmic work, for example)?</p><h4><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="3-speed--will-automation-increase-the-speed-of-impact"></a>3. Speed — Will automation increase the speed of impact?<a class="hash-link" href="#3-speed--will-automation-increase-the-speed-of-impact" title="Direct link to heading">#</a></h4><p>Can the process be done more quickly via automation and is there value in having
+it done faster? (The answer to the first part is almost always yes, but
+sometimes there&#x27;s not actually lots of value generated by doing something
+faster.)</p><h4><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="if-you-find-yourself-answering-yes-to-these-questions-it-may-be-time-to-consider-automating-critical-processes-at-your-organization"></a>If you find yourself answering “yes” to these questions, it may be time to consider automating critical processes at your organization.<a class="hash-link" href="#if-you-find-yourself-answering-yes-to-these-questions-it-may-be-time-to-consider-automating-critical-processes-at-your-organization" title="Direct link to heading">#</a></h4><p>Tasks that meet these 3 criteria, take a lot of time to complete or are very
+repetitive, and/or involve moving data between apps are typically great
+candidates for automation.</p><p>If you find yourself answering “no”, then it may not be worth the investment in
+automation... at least not yet. This is especially true if these processes are
+still in flux or require a lot of human involvement to complete. That said, now
+may be a good time to refine your existing workflows, think about how your
+processes might change at scale, and consider what <em>new</em> processes, services, or
+outcomes could be unlocked by automation.</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="delegate-your-busywork-to-openfn-and-try-it-today"></a>Delegate your busywork to OpenFn, and try it today!<a class="hash-link" href="#delegate-your-busywork-to-openfn-and-try-it-today" title="Direct link to heading">#</a></h3><p>If you want to try out automation for your organization,
+<a href="https://openfn.org/signup" target="_blank" rel="noopener noreferrer">sign up</a> for OpenFn, free of charge. Check out
+<a href="https://docs.openfn.org/" target="_blank" rel="noopener noreferrer">our documentation</a> and <a href="http://openfn.org" target="_blank" rel="noopener noreferrer">website</a>
+to learn how to get started.</p><p>Having trouble setting up your first automation &quot;job&quot;? Email us at
+<a href="mailto:admin@openfn.org_" target="_blank" rel="noopener noreferrer">admin@openfn.org</a> for support. Our team is always
+happy to assist and help you evaluate the total cost of ownership of automation
+solutions.</p></section></article><article class="margin-bottom--xl"><header><h2 class="margin-bottom--sm blogPostTitle_3-lP"><a href="/articles/2020/06/16/how-information-is-organized">How Information Is Organized... In Organizations</a></h2><div class="margin-vert--md"><time datetime="2020-06-16T00:00:00.000Z" class="blogPostDate_Ta7i">June 16, 2020  · 6 min read</time></div><div class="avatar margin-vert--md"><a class="avatar__photo-link avatar__photo" href="https://github.com/taylordowns2000" target="_blank" rel="noreferrer noopener"><img src="https://avatars1.githubusercontent.com/u/8732845?s=460&amp;u=5aa58a0e73b25e089668134e0bd1fe971019c960&amp;v=4" alt="Taylor Downs"></a><div class="avatar__intro"><h4 class="avatar__name"><a href="https://github.com/taylordowns2000" target="_blank" rel="noreferrer noopener">Taylor Downs</a></h4><small class="avatar__subtitle"></small></div></div></header><section class="markdown"><h4><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="does-your-organizations-information-have-an-underlying-structure-try-this-exercise-using-boxes-and-crows-feet"></a><em>Does your organization&#x27;s information have an underlying structure? Try this exercise using boxes and crow&#x27;s feet.</em><a class="hash-link" href="#does-your-organizations-information-have-an-underlying-structure-try-this-exercise-using-boxes-and-crows-feet" title="Direct link to heading">#</a></h4><p><em>This article was originally posted by Taylor Downs, Head of Product, on
+<a href="https://medium.com/@taylordowns2000" target="_blank" rel="noopener noreferrer">The OpenFn Founder&#x27;s blog</a> as &quot;The power
+of crow&#x27;s feet.&quot;</em></p><p>It’s Saturday Morning in Cape Town and I’ve just spent an hour talking about how
+a non-profit is organized. I thought I was getting into a technical
+discussion—I’ve been doing system architecture discussions for years—but what we
+ended up talking about was how this NGO thinks.</p><p>This engagement is largely about mapping an already existing “people &amp; paper”
+based system to technology. Vera Solutions will build a system for this client
+using Open Data Kit for field data collection and Salesforce.com for the
+management “back-end”. Because we’re not explicitly being asked to help redesign
+processes at this organization, the client is “telling us how things are”, then
+expecting us to create a relational database model that facilitates
+business-as-usual, only in a more efficient, digital way. Seems reasonable.</p><p>This organization runs multiple programs focusing on a handful of strategic
+objectives. They coordinate various activities in their target communities and
+report on those activities against numerous (sometimes overlapping) indicators.
+Sound familiar? As we get to the 3rd explanation of these programs, and the 11th
+iteration of the system schema, it hits me…</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="drawing-a-relational-object-model-sounds-technical-but-its-actually-an-exercise-in-clear-communication-and-everyone-can-benefit-from-it"></a>Drawing a &quot;relational object model&quot; sounds technical, but it&#x27;s actually an exercise in clear communication... and everyone can benefit from it.<a class="hash-link" href="#drawing-a-relational-object-model-sounds-technical-but-its-actually-an-exercise-in-clear-communication-and-everyone-can-benefit-from-it" title="Direct link to heading">#</a></h3><p>When we—human beings—wrestle with complex problems (like managing lots of
+programs, other humans, community stakeholders, etc.) we have the capacity to
+trick ourselves into thinking that we have wrapped our heads around a system
+(for clinic registration, for after-school education, etc.) when, in fact, we’re
+engaging in mental hand-waving and are simply ‘papering-over’ sections which are
+secretly not just complicated, but totally incongruous with other parts of the
+system. We can make ourselves believe that our logic is sound because we want it
+to be sound, when in reality the organization might be held together by good
+people, not good, clear, defined processes. By learning a couple of key
+concepts, it’s possible for non-technical people to articulate their thoughts
+clearly using “boxes” and “crow’s feet” and see whether or not there is an
+underlying structure to their organization’s information.</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="by-forcing-yourself-to-reduce-complex-systems-to-sketches-containing-only-two-elements-youll-be-able-to-detect-important-conflicts-and-confusions-in-how-you-think-about-your-organization-that-you-might-otherwise-miss"></a>By forcing yourself to reduce complex systems to sketches containing only two elements, you’ll be able to detect important conflicts and confusions in how you think about your organization that you might otherwise miss.<a class="hash-link" href="#by-forcing-yourself-to-reduce-complex-systems-to-sketches-containing-only-two-elements-youll-be-able-to-detect-important-conflicts-and-confusions-in-how-you-think-about-your-organization-that-you-might-otherwise-miss" title="Direct link to heading">#</a></h3><p>If you can’t diagram the information structure in your organization using boxes
+and crow’s feet, it’s a smell that something isn’t quite right (or at least that
+something isn’t easily scalable… more on this later!). Let me show you the tools
+in the toolbox and then wrap up by waxing poetic on people, processes, and
+technology.</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="boxes-and-crows-feet"></a>Boxes and crow&#x27;s feet<a class="hash-link" href="#boxes-and-crows-feet" title="Direct link to heading">#</a></h3><p>![]({{ site.baseurl }}/assets/images/box5.png)</p><p>The box is my favorite. It represents an entity in your data system. Entities
+(like <code>teachers</code>) have attributes (like <code>name</code>, <code>phone number</code>, <code>date of birth</code>,
+<code>gender</code>, etc.) Some people like thinking of entities as simple forms. The
+“Teacher Registration Form” will ask for the teacher’s name, phone number,
+gender, etc. These are the fields on your teacher entity. By submitting one of
+these forms, you’ll add a new teacher to your database. If you’re an Excel
+person, the attributes are columns in your <code>teachers</code> table.</p><p>![]({{ site.baseurl }}/assets/images/crowsfeet2.png)</p><p>The crow’s foot is my second favorite. It’s used to show relationships between
+entities. We know that teachers are related to the sessions that they conduct.
+(And <code>session</code> might be another entity, with fields like <code>date</code>,
+<code>subject taught</code>, and <code>venue</code>, to name just a few.) The crow’s foot allows us to
+specify exactly how they are related. On that session entity, we’ll need to
+specify the name (or ID) of the teacher who led it. On the teacher entity,
+however, there won’t be a field to specify the name or ID of the session…
+because a single teacher can lead MANY sessions. This is a one-to-many
+relationship. The crow’s foot (that little three-pronged fella) denotes the
+many. One teacher can have many sessions. One session, however, can only have
+one teacher. See the diagram below.</p><p>![]({{ site.baseurl }}/assets/images/objectmodel3.png)</p><p>If we focus just on <code>teacher</code> and <code>session</code> and think back to MS Excel, we can
+envision a <code>teachers</code> table and a <code>sessions</code> table. Let’s put them on different
+sheets in the same workbook. On the <code>teachers</code> table, there is no column for
+<code>session</code>, but on the <code>sessions</code> table, there <em>is</em> a column for <code>teacher ID</code>.
+We’ve just established a one-to-many relationship.</p><p>Next time, we’ll talk about what’s going with the <code>attendance</code> entity above.
+It’s sometimes called a “junction object” or a “join table”, and it’s what
+allows MANY students to be related to MANY sessions. I’ll write more on this
+next time, but there is no magic going on, no technicalities here. The way that
+many students are related to many sessions is through this Real World Concept
+that we call <code>attendance</code>. Attendance is what happens when a student shows up at
+a session. It’s so important to get the language right in these discussions, and
+make sure that you’re talking about real-world concepts.</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="relational-object-models-with-lots-of-confusing-terms-are-not-technical-they-are-bad"></a>Relational object models with lots of confusing terms are not &quot;technical&quot;. They are &quot;bad.&quot;<a class="hash-link" href="#relational-object-models-with-lots-of-confusing-terms-are-not-technical-they-are-bad" title="Direct link to heading">#</a></h3><p>Remember that as you start to put pen to paper. And allow yourselves time (and
+multiple drafts) to get the boxes and terminology right. Understanding
+relational object modelling is an incredibly powerful way to organize a company.
+As I said before, if you can’t model it with boxes and arrows, it’s a smell that
+something might not be conceptually sound.</p><h3><a aria-hidden="true" tabindex="-1" class="anchor enhancedAnchor_prK2" id="a-disclaimer-and-some-thoughts-on-scaling"></a>A disclaimer and some thoughts on scaling:<a class="hash-link" href="#a-disclaimer-and-some-thoughts-on-scaling" title="Direct link to heading">#</a></h3><p>Some organizations do amazing work without good conceptual systems. They rely on
+humans, instinct, improvisation, nouse, and other not-so-clearly-defined things.
+They might do really great work. They might get the job done. But they need to
+be well aware of their condition and face it head on. If you can’t systematize
+your program implementation processes, then you need to focus tremendous effort
+on finding and retaining the right people.</p><p>A friend once told me that “people are not scalable.” I couldn’t agree more, and
+defend my earlier stance that if your organization’s information structure can’t
+be defined with boxes and crow’s feet, it may be very hard for you to scale
+responsibly. However, if you can create a ruthlessly efficient, world-class
+“people operations” system (recruitment, training, management, compensation, HR,
+etc.) that ensures you’ve always got the right people to figure things out you
+might be better off than those operating a well defined assembly-line with
+interchangeable parts. Alas, the middle way is probably the best.</p><p>That’s all for now. More soon.</p><p><em>Need help organizing or scaling your organization&#x27;s information or process
+flows? Contact our team of ICT4D specialists at <a href="mailto:support@openfn.org" target="_blank" rel="noopener noreferrer">support@openfn.org</a>.</em></p></section></article><nav class="pagination-nav" aria-label="Blog list page navigation"><div class="pagination-nav__item"></div><div class="pagination-nav__item pagination-nav__item--next"></div></nav></main></div></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">This Site</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/docs">Documentation</a></li><li class="footer__item"><a class="footer__link-item" href="/library">Library</a></li><li class="footer__item"><a class="footer__link-item" href="/articles">Articles</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Community</h4><ul class="footer__items"><li class="footer__item"><a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Forum</a></li><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow</a></li><li class="footer__item"><a href="https://twitter.com/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">More</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/articles">Articles</a></li><li class="footer__item"><a href="https://github.com/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub</a></li><li class="footer__item"><a href="https://blog.openfn.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2021 Open Function Group LLC</div></div></div></footer></div>
+<script src="/styles.25c177b7.js"></script>
+<script src="/runtime~main.00b1f1a4.js"></script>
+<script src="/main.812c4ab9.js"></script>
+<script src="/1.fc756be5.js"></script>
+<script src="/2.3742d79f.js"></script>
+<script src="/3.0395cf5c.js"></script>
+<script src="/01a85c17.2c6a0500.js"></script>
+<script src="/1be78505.199ac2f1.js"></script>
+<script src="/6875c492.29c43dc8.js"></script>
+<script src="/a6aa9e1f.8572570f.js"></script>
+<script src="/c4f5d8e4.ab899335.js"></script>
+<script src="/ccc49370.b0e021de.js"></script>
+<script src="/73.3cbd3297.js"></script>
+<script src="/30ef78ca.8a601c09.js"></script>
+<script src="/09a69b27.4f0ca44f.js"></script>
+<script src="/0f427d40.5423e6f8.js"></script>
+<script src="/fca34444.2e49929d.js"></script>
+<script src="/e1d93203.e55a4bae.js"></script>
+<script src="/a12f1ef9.18ef8e74.js"></script>
+<script src="/f50ed874.ceb82544.js"></script>
+</body>
+</html>
