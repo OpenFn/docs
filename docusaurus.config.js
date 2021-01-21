@@ -28,8 +28,8 @@ module.exports = {
       },
       items: [
         {
-          to: 'docs/',
-          activeBasePath: 'docs',
+          to: 'documentation/',
+          activeBasePath: 'documentation',
           label: 'Docs',
           position: 'left',
         },
@@ -63,7 +63,7 @@ module.exports = {
           items: [
             {
               label: 'Documentation',
-              to: 'docs',
+              to: 'documentation',
             },
             {
               label: 'Library',
@@ -124,6 +124,7 @@ module.exports = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
+          routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/master',
         },
         // blog: {

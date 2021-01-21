@@ -7,9 +7,9 @@ module.exports = {
     { type: 'doc', id: 'quick-start' },
     {
       type: 'category',
-      label: 'The OpenFn.org Platform',
+      label: 'Integration Platform',
       items: [
-        'documentation',
+        'platform',
         'trouble-shooting',
         'appendix',
         'release-notes',
