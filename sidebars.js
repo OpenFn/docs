@@ -7,6 +7,13 @@ module.exports = {
     { type: 'doc', id: 'quick-start' },
     {
       type: 'category',
+      label: 'Getting Started',
+      items: [
+        'getting-started/overview',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Integration Platform',
       items: [
         'platform',
