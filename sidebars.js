@@ -17,7 +17,6 @@ module.exports = {
       label: 'Designing Integrations',
       items: [
         'design/design-integration',
-        ''
       ],
     },
     {
