@@ -35,6 +35,7 @@ module.exports = {
         'jobs/core',
         'jobs/operations',
         'jobs/multiple-operations',
+        'jobs/errors',
         { type: 'link', label: 'The Library', href: '../../library' },
       ],
     },

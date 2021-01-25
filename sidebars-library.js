@@ -6,6 +6,7 @@ module.exports = {
       label: 'Jobs',
       items: [
         'jobs/alter-state-before-operations',
+        'jobs/timeout',
         'jobs/async-and-array-dot-map',
         'jobs/bring-formId-into-data-array-then-create-parent-and-children-in-salesforce',
         'jobs/CommCare-FHIR',

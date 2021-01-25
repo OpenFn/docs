@@ -64,9 +64,6 @@ Enhanced Error Codes:
 - `3`: run could not start due to error (could relate to network traffic, but
   very rare as an error _before_ the run is started will be retried from Redis
   with an exponential backoff for a very long time)
-- `4`: run completed but logs could not be saved due to error (could relate to
-  network traffice but very rare as an error _after_ the run completed will be
-  retried from Redis with an exponential backoff for a very long time)
 - `5`: unexpected error during job execution
 - `10`: error in `core/cli.js execute`
 
