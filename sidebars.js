@@ -14,6 +14,14 @@ module.exports = {
     },
     {
       type: 'category',
+      label: 'Designing Integrations',
+      items: [
+        'design/design-integration',
+        ''
+      ],
+    },
+    {
+      type: 'category',
       label: 'Integration Platform',
       items: [
         'platform',
