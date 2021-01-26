@@ -13,6 +13,7 @@ module.exports = {
         'getting-started/deployment-options',
         'getting-started/quick-start',
         'getting-started/connecting-applications',
+        'getting-started/connecting-applications',
         'getting-started/language-glossary',
         'getting-started/designing-integrations',
         'getting-started/automation-inspiration',
