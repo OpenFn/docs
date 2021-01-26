@@ -58,6 +58,7 @@ If you are a developer, looking to set up a compatible notifications API for
 OpenFn, please see our
 [Application Developers](https://docs.openfn.org/for-devs.html) section.
 
+<!-- (Copied to build/triggers -->
 ## Triggers
 
 Triggers _start_ jobs running. They come in 4 types. The most common are
@@ -219,6 +220,8 @@ History pages.
 ![Runs list run time trigger button](../static/img/timetriggerunslist.png)
 
 ![Run history time trigger button](../static/img/runtimetrigger1.png)
+
+<!-- copied to build/triggers) -->
 
 ## Credentials
 <!-- copied to build/credentials.md -->
