@@ -153,6 +153,12 @@ module.exports = {
       '@docusaurus/plugin-content-blog',
       { id: 'articles', routeBasePath: 'articles', path: './articles' },
     ],
+    [
+      require.resolve('docusaurus-lunr-search'),
+      {
+        indexBaseUrl: true,
+      },
+    ],
   ],
   scripts: [{ src: './freshChat.js', async: true }],
 };
