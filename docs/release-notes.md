@@ -2,6 +2,17 @@
 title: Release Notes
 ---
 
+## Version 1.87.8
+
+New features:
+
+- **Improved logging on timeouts:** We've enhanced job timeouts significantly,
+  splitting into two separate types of timeouts. Exit code `2` is a standard
+  timeout which allows us to display the full Javascript logs up to the moment
+  of the timeout instead of a mysterious "we timed out your run" message. Exit
+  code `4` will be used for when the NodeVM fails to time itself out and becomes
+  unresponsive. This second case is extremely rare.
+
 ## Version 1.75.0 (2020-07-14)
 
 New features:

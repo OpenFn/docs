@@ -161,5 +161,5 @@ module.exports = {
       },
     ],
   ],
-  scripts: [{ src: './freshChat.js', async: true }],
+  scripts: [{ src: './js/freshChat.js', async: true }],
 };
