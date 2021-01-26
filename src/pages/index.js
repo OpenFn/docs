@@ -4,6 +4,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
+import Particles from 'react-particles-js';
 import styles from './styles.module.css';
 
 const features = [
@@ -68,13 +69,14 @@ function Home() {
   return (
     <Layout title={`Docs`} description="The OpenFn Documentation Site">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
-        <div className="container">
+        <Particles style={{ position: 'absolute', top: 0 }} />
+        <div className="container" style={{ zIndex: 1000 }}>
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
             <Link
               className={clsx(
-                'button button--outline button--secondary button--lg',
+                'button button--secondary button--lg',
                 styles.getStarted
               )}
               to={useBaseUrl('documentation/')}

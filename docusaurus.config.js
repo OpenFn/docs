@@ -1,6 +1,7 @@
 module.exports = {
   title: 'OpenFn',
-  tagline: 'Data Integration & Interoperability in ICT4D',
+  tagline:
+    'Data Integration & Interoperability for Health and Humanitarian Interventions',
   url: 'https://docs.openfn.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
