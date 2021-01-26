@@ -47,10 +47,10 @@ module.exports = {
       label: 'Deploy',
       items: [
         'deploy/platform',
-        'build/microservices',
-        'build/devtools',
-        'build/core',
-        'build/troubleshooting',
+        'deploy/microservices',
+        'deploy/devtools',
+        'deploy/core',
+        'deploy/troubleshooting',
       ],
     },
     {
