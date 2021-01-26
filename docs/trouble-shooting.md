@@ -1,7 +1,7 @@
 ---
 title: Troubleshooting
 ---
-
+<!-- (copied to build/troubleshooting.md -->
 > What happens if my survey data from ODK needs to link to existing records in
 > my Salesforce system but a respondent enters or selects an invalid
 > `external ID`?
@@ -61,3 +61,4 @@ read/write for your profile or permission set. }
 
 This error may arise if a master-detail relationship in Salesforce is not set as
 reparentable and the user attempts to run an upsert.
+<!-- Copied to build/troubleshooting.md) -->

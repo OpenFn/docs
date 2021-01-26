@@ -1,15 +1,19 @@
 ---
 title: Runs
 ---
+<!-- TODO: @Jed -->
+<!-- Should we include the "platform ##runs section?-->
 
-# Records of everything that OpenFn does
+(Work in progress)
 
-# Exit Codes
+## Overview
 
-# Logs
+## Exit Codes
 
-# Persistence
+## Logs
 
-## On the platform, runs will be saved to a db
+## Persistence
 
-## On microservice, they are available in the logs to be consumed by \_\_
+### On the platform, runs will be saved to a db
+
+### On microservice, they are available in the logs to be consumed by \_\_
