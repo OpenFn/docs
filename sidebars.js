@@ -41,7 +41,7 @@ module.exports = {
         'build/job-library',
       ],
     },
-        {
+    {
       type: 'category',
       label: 'Deploy',
       items: [
@@ -54,35 +54,9 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Integration Platform',
+      label: 'Manage',
       items: [
-        'platform',
-        'trouble-shooting',
-        'appendix',
-        'release-notes',
-        'diy',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Connecting Apps',
-      items: [
-        'source-apps',
-        // 'tools/bamboohr',
-        'tools/commcare',
-        'tools/godata',
-        'tools/kobo-toolbox',
-        'for-devs',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Writing Jobs',
-      items: [
-        'jobs/core',
-        'jobs/operations',
-        'jobs/multiple-operations',
-        { type: 'link', label: 'The Library', href: '../../library' },
+        'manage/placeholder',
       ],
     },
     {
