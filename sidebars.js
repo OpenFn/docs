@@ -41,6 +41,17 @@ module.exports = {
         'build/job-library',
       ],
     },
+        {
+      type: 'category',
+      label: 'Deploy',
+      items: [
+        'deploy/platform',
+        'build/microservices',
+        'build/devtools',
+        'build/core',
+        'build/troubleshooting',
+      ],
+    },
     {
       type: 'category',
       label: 'Integration Platform',
