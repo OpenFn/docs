@@ -1,5 +1,6 @@
 ---
 title: Quick-start
+sidebar_label: Quick-start
 ---
 
 ## 1. Create your account
