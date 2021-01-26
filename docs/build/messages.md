@@ -1,13 +1,16 @@
 ---
 title: Messages
 ---
+<!-- TODO: @Jed -->
 
-# Messages
+This section is a work in progress... 
 
-# Data from the outside world that gets sent to your integration platform
+## Messages
 
-# How it gets put into state
+## Data from the outside world that gets sent to your integration platform
 
-## On the Platform
+# #How it gets put into state
 
-## On Microservice
+### On the Platform
+
+### On Microservice
