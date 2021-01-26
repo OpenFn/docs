@@ -252,6 +252,7 @@ present in the data for a given source message, for example, _another_
 credential will be selected and applied for that particular job run.
 
 ## Jobs
+<!-- copied to build/jobs -->
 
 A job defines the specific series of tasks or database actions to be performed
 when a triggering message is received (even-based) or a pre-scheduled (and
@@ -328,6 +329,8 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 
 **N.B.: This is just a sample.** There are lots more available in the
 language-packs.
+
+<!-- copied to build/jobs -->
 
 #### language-common
 

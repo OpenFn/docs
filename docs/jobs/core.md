@@ -1,7 +1,7 @@
 ---
 title: Understanding Jobs
 ---
-
+<!-- copied to build/jobs -->
 ## Introduction
 
 This is technical documentation aimed at making complex custom jobs easier to

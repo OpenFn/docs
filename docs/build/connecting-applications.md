@@ -15,7 +15,7 @@ title: Connecting Applications
 <!-- TODO: @Jed -->
 
 ## App Specific Examples
-
+<!-- @Taylor do these examples belong here? -->
 ## Overview
 
 :::note
