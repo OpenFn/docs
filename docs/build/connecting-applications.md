@@ -1,3 +1,7 @@
+---
+title: Connecting Applications
+---
+
 # General Introduction
 
 # Microservices
