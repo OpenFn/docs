@@ -14,9 +14,24 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Designing Integrations',
+      label: 'Design',
       items: [
         'design/design-integration',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Build',
+      items: [
+        'build/connecting-applications',
+        'jobs',
+        'credentials',
+        'triggers',
+        'messages',
+        'runs',
+        'troubleshooting',
+        'diy',
+        'job library',
       ],
     },
     {
