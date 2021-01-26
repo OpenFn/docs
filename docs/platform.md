@@ -221,7 +221,7 @@ History pages.
 ![Run history time trigger button](../static/img/runtimetrigger1.png)
 
 ## Credentials
-
+<!-- copied to build/credentials.md -->
 Credentials are used to authorize connections to destination systems. In the
 future, our adaptors will use credentials to fetch meta-data from source and
 destination applications and make the job writing process easier.

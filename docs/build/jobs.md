@@ -2,29 +2,8 @@
 title: Jobs
 ---
 
-# What is a Job
-
 <!-- TODO: @Jed -->
-
-Work in progress
-
-# Composing Job Expressions
-
-<!-- TODO: @Jed -->
-
-Work in progress
-
-# Available JavaScript Globals
-
-<!-- TODO: @Jed -->
-
-Work in progress
-
-# Named Functions
-
-<!-- TODO: @Jed -->
-
-Work in progress
+(Work in progress)
 
 ## Jobs
 
@@ -111,7 +90,7 @@ language-packs.
 This is technical documentation aimed at making complex custom jobs easier to
 write.
 
-## Key Terms and Concepts
+### Key Terms and Concepts
 
 1. **core** (https://github.com/openfn/core) is the Javascript program which
    executes jobs for OpenFn in an emphemeral Node.js environment.
@@ -143,7 +122,7 @@ write.
 4. **operations** are named functions, exported for use by specific
    language-packages, which take state and return state.
 
-## State is passed to operations. Operations Return state.
+### State is passed to operations. Operations Return state.
 
 This is a key concept. When you write:
 
@@ -165,7 +144,7 @@ alterState(state => {
 });
 ```
 
-## Sequences of operations inside custom functions.
+### Sequences of operations inside custom functions.
 
 Using `execute` you can string together several sequential operations inside a
 custom function.
@@ -192,7 +171,7 @@ alterState(state => {
 });
 ```
 
-## Controlling timing between operations with async functions.
+### Controlling timing between operations with async functions.
 
 To get really complex, you might want to execute a number of async functions
 inside an `alterState` operation, but WAIT for those functions to resolve before
