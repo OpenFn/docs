@@ -1,5 +1,6 @@
 ---
 title: Deployment Options
+sidebar_label: Deployment Options
 ---
 
 | Deployment Option     |      Information    |
