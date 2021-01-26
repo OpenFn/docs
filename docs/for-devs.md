@@ -1,7 +1,7 @@
 ---
 title: For Application Developers
 ---
-
+<!-- copied -->
 This section is for you if you are hoping to build or extend an existing
 application that can connect to OpenFn. We follow modern web-standard JSON api
 guidelines.

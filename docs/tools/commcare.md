@@ -1,7 +1,7 @@
 ---
 title: CommCare HQ
 ---
-
+<!-- copied -->
 ## Push cases and/or forms from CommCare to OpenFn
 
 1. Go to "Project Settings".
