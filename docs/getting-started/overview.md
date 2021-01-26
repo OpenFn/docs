@@ -63,6 +63,5 @@ completes, when another job fails, or when a certain message is received.
 
 (work in progress)
 
- <!-- TODO: @jed please fill this out -->
 
 
