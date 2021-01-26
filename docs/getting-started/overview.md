@@ -10,7 +10,7 @@ as short and simple or as long and detailed as you like. You also will learn
 about all of the ways you can choose to deploy the automations you create. Let's
 start off with some key terminology before we get started.
 
-## Key Terms
+## Key Terms to Know Before Getting Started
 
 ### Job
 
@@ -58,3 +58,11 @@ Each job must be initiated with an event that acts as a trigger.
 
 Triggers can be activated at a certain time (scheduled), when another job
 completes, when another job fails, or when a certain message is received.
+
+### Language Package
+
+(work in progress)
+
+ <!-- TODO: @jed please fill this out -->
+
+
