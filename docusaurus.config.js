@@ -17,9 +17,10 @@ module.exports = {
     //   //   searchParameters: {},
     //   //   //... other Algolia params
     // },
-    googleAnalytics: {
+    hideableSidebar: true,
+    gtag: {
       trackingID: 'UA-57118569-4',
-      anonymizeIP: true, // Should IPs be anonymized?
+      anonymizeIP: true,
     },
     navbar: {
       title: 'OpenFn/docs',
