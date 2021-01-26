@@ -9,6 +9,14 @@ module.exports = {
       label: 'Getting Started',
       items: [
         'getting-started/overview',
+        'getting-started/use-cases',
+        'getting-started/deployment-options',
+        'getting-started/quick-start',
+        'getting-started/connecting-applications',
+        'getting-started/language-glossary',
+        'getting-started/designing-integrations',
+        'getting-started/automation-inspiration',
+        'getting-started/faq',
       ],
     },
     {
