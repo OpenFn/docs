@@ -70,7 +70,7 @@ function Home() {
     <Layout title={`Docs`} description="The OpenFn Documentation Site">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <Particles style={{ position: 'absolute', top: 0 }} />
-        <div className="container" style={{ zIndex: 1000 }}>
+        <div className="container" style={{ zIndex: 1 }}>
           <h1 className="hero__title">{siteConfig.title}</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
