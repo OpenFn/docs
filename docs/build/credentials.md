@@ -2,6 +2,8 @@
 title: Credentials
 ---
 
+## Credentials
+
 Credentials are used to authorize connections to destination systems. In the
 future, our adaptors will use credentials to fetch meta-data from source and
 destination applications and make the job writing process easier.
@@ -30,4 +32,3 @@ They work by inspecting the data in the job's runtime state (i.e., `state.data`)
 and checking for the value of a predetermined identifier. Based on that value,
 present in the data for a given source message, for example, _another_
 credential will be selected and applied for that particular job run.
-
