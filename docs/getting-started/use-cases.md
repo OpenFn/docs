@@ -3,4 +3,4 @@ title: Use Cases
 sidebar_label: Use Cases
 ---
 
-testing testing testing -- apollo can you read me?
+This article is a work in progress. Check back soon :)

@@ -28,7 +28,9 @@ confirmation number when payment confirmation message is received etc.).
 Jobs are fully configurable and reusable. They can also be chained together to
 create [multi-step automation](jobs/multiple-operations) flows, two-way syncs.
 and to keep data consistent between multiple applications (using multi-app Saga
-patterns). You can read more on two-way synching below. :::note
+patterns). You can read more on two-way synching below. 
+
+:::note
 
 ### Run
 
@@ -48,7 +50,9 @@ DHIS2 for the last 2 weeks and publishes it to a public map using CartoDB. This
 job will be triggered at specified time intervals, every 2 weeks in this case,
 and after a month, we’ll only see 2 runs in OpenFn (that’s one run every two
 weeks). Each run will have succeeded or failed, and each one might have
-processed thousands of events from DHIS2. :::note
+processed thousands of events from DHIS2. 
+
+:::note
 
 ### Triggers
 

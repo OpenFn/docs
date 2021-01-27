@@ -91,7 +91,7 @@ by:
   custom date range yourself. Note that the default inbox view shows “Last 30
   Days”.
 
-![Image of Inbox Filters](../static/img/inbox_filter.png)
+<!-- TODO: @Jed figure out images![Image of Inbox Filters](../static/img/inbox_filter.png) -->
 
 ### Bulk reprocess messages
 
@@ -100,11 +100,11 @@ for multiple messages, or need to re-process the data in OpenFn to re-send to a
 destination application, then this feature will help you do so more quickly!
 
 1. Simply click on the new **Reprocess** button via the Inbox view.
-   ![Reprocess button](../static/img/reprocess_msgs.png)
+   <!-- TODO: @Jed ![Reprocess button](../static/img/reprocess_msgs.png) -->
 
 2. Specify the **ID range** for messages that you want to re-run (e.g., messages
    with IDs 4622741 through 4622749 → 9 messages to reprocess).
-   ![Bulk reprocess screen](../static/img/bulk_reprocess.png)
+   <!--TODO: @Jed ![Bulk reprocess screen](../static/img/bulk_reprocess.png) -->
 
 #### Note when bulk reprocessing messages
 
@@ -116,7 +116,7 @@ destination application, then this feature will help you do so more quickly!
 
 - Remember that OpenFn plans are run-based, and you can monitor usage in
   **Project Settings** to ensure that you don’t hit any run limits when bulk
-  reprocessing! ![Usage stats chart](../static/img/usage.png)
+  <!--TODO: @Jed reprocessing! ![Usage stats chart](../static/img/usage.png) -->
 
 ### Export messages to CSV
 
@@ -128,7 +128,7 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 2. Click the **Export as CSV** button to generate an export. The link to
    download this file will be sent to your email address.
 
-![Export CSV button](../static/img/exportcsv.png)
+<!-- TODO: @Jed ![Export CSV button](../static/img/exportcsv.png) -->
 
 ## Account Management
 (work in progress)
@@ -156,7 +156,7 @@ Security" page of their OpenFn project, Administrators can choose from API Key
 and Basic Auth types, which will prompt administrators to either generate an API
 token or to setup a username:password credential. Once this inbox authentication
 is configured, any HTTP requests made to the OpenFn Inbox URL must include
-either this token or username:password in the request header. ![inbox security](../static/img/inbox-security.png)
+<!-- either this token or username:password in the request header. TODO: @Jed  ![inbox security](../static/img/inbox-security.png) -->
 
 #### Rotating auth methods
 
