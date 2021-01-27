@@ -94,69 +94,11 @@ return to the top level and be able to enter the second array.
 
 # <!--(copied to deploy/platform  -->
 
-![Export CSV button](/img/exportcsv.png)
+
 
 > > > > > > > origin/main
 
-## Activity
 
-In this section of the portal, you can view a list of all "runs" - i.e.
-individual job runs. This list is essentially a compilation of all jobs,
-messages and credentials flowing through your OpenFn account towards your
-destination system(s).
-
-### Runs
-
-Runs are attempts made on a destination system by running a receipt through a
-Job Description. Runs can be viewed and re-processed. Each submission has a
-`success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id`
-attribute. `Started_at` and `finished_at` are the timestamps when the submission
-began and ended.
-
-> **Note:** Some runs may take a really long time, particularly if they are
-> performing multiple actions in a destination system or if they are fetching
-> lots of data from a REST api at the start of a migration. They will appear as
-> red if they have failed. In the case of failure, refer to our
-> [Troubleshooting](trouble-shooting.md) section below.
-
-### Filter runs in the Activity view
-
-You can filter the run logs in the Activity View by:
-
-- **Text** - Remember to be patient as a full log text search can take time
-  process. Leverage this feature to search for runs with specific error messages
-  to support with troubleshooting any failed runs.
-
-- **Date** - Filter the view to only show runs that failed in the last few
-  hours/ days/ year – or a custom date range! Note that the default activity
-  history view shows runs from the last 30 days.
-
-### Bulk retry runs
-
-Need to re-process a series of runs? This could be helpful if you had multiple
-runs fail due to an error message.
-
-1. Simply click on the new **Retry** button via the Runs view.
-   ![Retry run button](/img/retrybutton.png)
-
-2. Specify the **ID range** for the runs that you want to re-process. Choose to
-   filter by Job and/or Status to only reprocess runs associated with a specific
-   job or runs that have failed/ succeeded.
-   ![Bulk retry runs](/img/runs_retry.png)
-
-Remember that OpenFn plans are run-based, and you can monitor usage in **Project
-Settings** to ensure that you don’t hit any run limits when bulk reprocessing!
-
-### Export runs to CSV
-
-You can download your run logs by exporting to a CSV file.
-
-1. Via the Runs Activity History view, filter the runs you’d like to export.
-   Choose to filter by text, date, job, and status.
-
-2. Click the **Export as CSV** button to generate an export. The link to
-   download this file will be sent to your email address.
-   ![Export runs button](/img/exportruns.png)
 
 <!--copied to deploy/platform)  -->
 <!--(copied to deploy/platform  -->

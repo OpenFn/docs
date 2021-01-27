@@ -23,8 +23,7 @@ began and ended.
 > performing multiple actions in a destination system or if they are fetching
 > lots of data from a REST api at the start of a migration. They will appear as
 > red if they have failed. In the case of failure, refer to our
-
-<!-- > TODO: @Jed how to link? [Troubleshooting](trouble-shooting.md) section below. -->
+> [Troubleshooting](trouble-shooting.md) section below.
 
 ### Filter runs in the Activity view
 
@@ -44,12 +43,12 @@ Need to re-process a series of runs? This could be helpful if you had multiple
 runs fail due to an error message.
 
 1. Simply click on the new **Retry** button via the Runs view.
-   <!-- TODO: @Jed images ![Retry run button](../static/img/retrybutton.png) -->
+   ![Retry run button](/img/retrybutton.png)
 
 2. Specify the **ID range** for the runs that you want to re-process. Choose to
    filter by Job and/or Status to only reprocess runs associated with a specific
    job or runs that have failed/ succeeded.
-   <!-- TODO: @Jed images ![Bulk retry runs](../static/img/runs_retry.png) -->
+   ![Bulk retry runs](/img/runs_retry.png)
 
 Remember that OpenFn plans are run-based, and you can monitor usage in **Project
 Settings** to ensure that you don’t hit any run limits when bulk reprocessing!
@@ -63,7 +62,7 @@ You can download your run logs by exporting to a CSV file.
 
 2. Click the **Export as CSV** button to generate an export. The link to
    download this file will be sent to your email address.
-   <!-- TODO: @Jed images again ![Export runs button](../static/img/exportruns.png) -->
+   ![Export runs button](/img/exportruns.png)
 
 ## Inbox
 
@@ -130,6 +129,7 @@ You can now download and review OpenFn message data by exporting to a CSV file.
    download this file will be sent to your email address.
 
 <<<<<<< HEAD ![Export CSV button](../static/img/exportcsv.png)
+<!-- TODO: @Jed ask Taylor about this![Export CSV button](/img/exportcsv.png) -->
 
 ## Account Management
 
