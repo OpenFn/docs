@@ -2,7 +2,7 @@
 title: Release Notes
 ---
 
-## Version 1.75.0 (2020-07-14)
+### Version 1.75.0 (2020-07-14)
 
 New features:
 
@@ -13,7 +13,7 @@ New features:
   the OpenFn UI, or at
   <a href="https://crontab.guru" target="_blank">crontab.guru</a>.
 
-## Version 1.72.17 (2020-06-21)
+### Version 1.72.17 (2020-06-21)
 
 New features:
 
@@ -34,7 +34,7 @@ New features:
   how many runs are in their queue—this is useful for estimating time to
   completing for big bulk reprocessing jobs.
 
-## Version 1.37.0 (2019-10-21)
+### Version 1.37.0 (2019-10-21)
 
 New features:
 
@@ -42,7 +42,7 @@ New features:
   OpenFn inbox, rather than to ODK Aggregate or some other server before
   forwarding.
 
-## Version 1.36.0 (2019-10-01)
+### Version 1.36.0 (2019-10-01)
 
 New features:
 
@@ -70,7 +70,7 @@ Enhanced Error Codes:
 - `5`: unexpected error during job execution
 - `10`: error in `core/cli.js execute`
 
-## Version 1.35.0 (2019-10-01)
+### Version 1.35.0 (2019-10-01)
 
 New features:
 
@@ -86,7 +86,7 @@ New features:
 - Added activity cleaning, as per www.openfn.org/pricing#plans to better comply
   with data protection regulations and improve UI performance
 
-## Version 1.22.0 (2019-03-10)
+### Version 1.22.0 (2019-03-10)
 
 New features:
 
@@ -96,7 +96,7 @@ New features:
   received/started as well as the relative time (i.e., how long ago) of that
   action.
 
-## Version 1.21.0 (2019-03-09)
+### Version 1.21.0 (2019-03-09)
 
 New features:
 
@@ -104,7 +104,7 @@ New features:
   **run a time triggered job on demand** so that they don't have to wait for the
   timer to expire to test.
 
-## Version 1.20.0 (2019-03-07)
+### Version 1.20.0 (2019-03-07)
 
 New features:
 
@@ -151,14 +151,14 @@ Triggers:
 - Ability to create "success" and "failure" triggers so that jobs can be run
   based on the success or failure of another job run.
 
-## Version 1.10.0 (2017-05-04)
+### Version 1.10.0 (2017-05-04)
 
 New features:
 
 - GitHub integration now generally available for enterprise users. Self-setup
   interface completed.
 
-## Version 1.9.0 (2017-03-07)
+### Version 1.9.0 (2017-03-07)
 
 New features:
 
@@ -168,7 +168,7 @@ New features:
   to see your expression as a syntax tree as we step slowly towards a more
   point-and-click interface.
 
-## Version 1.75.0 (2016-12-08)
+### Version 1.75.0 (2016-12-08)
 
 New features:
 
@@ -177,9 +177,9 @@ New features:
 - Filter messages in your inbox by their content by selecting a message-filter
   trigger.
 
-## Version 1.7.0 (2016-12-05)
+### Version 1.7.0 (2016-12-05)
 
-#### _1.7 is all about user experience!_
+##### _1.7 is all about user experience!_
 
 New features:
 
@@ -203,7 +203,7 @@ New features:
   settings boxes—more efficient use of space
 - Add material design to _this_ documentation page!
 
-## Version 1.6.0 (2016-11-24)
+### Version 1.6.0 (2016-11-24)
 
 New features:
 
@@ -256,7 +256,7 @@ fetchWithErrors({
 });
 ```
 
-## Version 1.5.0 (2016-10-05)
+### Version 1.5.0 (2016-10-05)
 
 New features:
 
@@ -280,7 +280,7 @@ vary according to the location of your servers, but it's important to note that
 we test the full round trip. Our servers typically send out 200s in about 5-6ms,
 but you can expect the round trip to complete in closer to 750ms.)
 
-## Version 1.4.0 (2016-09-26)
+### Version 1.4.0 (2016-09-26)
 
 New features:
 
@@ -304,7 +304,7 @@ emails had been only displayed in your brower's logs. (That's our fault.) You'll
 now see a handy "invalid credentials" or "email already registered" message when
 trying to log in or sign up.
 
-## Version 1.3.0 (2016-09-20)
+### Version 1.3.0 (2016-09-20)
 
 - New version of language-salesforce allows users to `alterState` with a custom
   function.
@@ -312,7 +312,7 @@ trying to log in or sign up.
 **alterState:**
 [documentation](https://github.com/OpenFn/docs/blob/master/job-library/alter-state-before-operations.js)
 
-## Version 1.2.0 (2016-09-15)
+### Version 1.2.0 (2016-09-15)
 
 - Users can now select specific adaptor versions for their jobs.
 - Jobs will "auto-upgrade" unless locked to a specific version.
@@ -327,7 +327,7 @@ Each new version of an adaptor will have release notes introducing the new
 features or changes to helper functions. To allow easy upgrades, we will still
 mandate that all new versions are backwards compatible.
 
-## Version 1.1.0 (2016-08-29)
+### Version 1.1.0 (2016-08-29)
 
 New features:
 

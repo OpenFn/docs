@@ -33,13 +33,13 @@ module.exports = {
         'build/connecting-applications',
         'build/jobs',
         { type: 'link', label: 'Jobs Library', href: '../../library' },
+        // TODO:@Jed maybe we get put jobs library link in build/jobs ##overview?
         'build/credentials',
         'build/triggers',
         'build/messages',
         'build/runs',
         'build/troubleshooting',
         'build/diy',
-        { type: 'link', label: 'Job Library', href: '../../library' },
       ],
     },
     {

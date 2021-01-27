@@ -1,7 +1,7 @@
 ---
 title: Platform Docs
 ---
-
+<!-- (copied to build/connecting-applications -->
 ## Connecting Source Applications
 
 Most modern web applications have a feature that allows you to `push`,
@@ -25,7 +25,8 @@ application will notify OpenFn when _something happens_.
 
 See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for specific
 instructions for connecting common applications.
-
+<!--<!-- copied to build/connecting-applications) -->  -->
+<!-- (copied to deploy.platform ###inbox security -->
 ### Inbox Security
 
 OpenFn project administrators can choose to configure additional authentication
@@ -52,12 +53,14 @@ rotate your inbox auth methods:
 You can repeat this process as frequently as is required by your organization's
 internal security protocols.
 
+<!-- copied to deploy.platform ###inbox security) -->
+<!-- (copied to deploy.platform #creating a compatible notifications service -->
 ## Creating a compatible notifications service
 
 If you are a developer, looking to set up a compatible notifications API for
 OpenFn, please see our
 [Application Developers](https://docs.openfn.org/for-devs.html) section.
-
+<!-- copied to deploy.platform #creating a compatible notifications service)  -->
 <!-- (Copied to build/triggers -->
 ## Triggers
 
@@ -397,7 +400,7 @@ return to the top level and be able to enter the second array.
 
 **For code block examples of job expressions, go to the
 [code samples page](appendix.md).**
-
+<!-- (copied to deploy/platform -->
 ## Inbox
 
 Your inbox contains the history of all messages that have passed in to your
@@ -463,7 +466,8 @@ You can now download and review OpenFn message data by exporting to a CSV file.
    download this file will be sent to your email address.
 
 ![Export CSV button](../static/img/exportcsv.png)
-
+<!-- copied to deploy/platform) -->
+<!--(copied to deploy/platform  -->
 ## Activity
 
 In this section of the portal, you can view a list of all "runs" - i.e.
@@ -524,6 +528,8 @@ You can download your run logs by exporting to a CSV file.
    download this file will be sent to your email address.
    ![Export runs button](../static/img/exportruns.png)
 
+<!--copied to deploy/platform)  -->
+<!--(copied to deploy/platform  -->
 ## GitHub version control
 
 You're ready to manage your jobs via GitHub, the leading hosted version control
@@ -570,3 +576,4 @@ Using this GitHub integration, you can revert to previous version of jobs
 quickly by resending old GitHub Webhook Events. Access the "Manage Webhook"
 interface on GitHub to see a list of all past events and send whichever version
 of the job you'd like deployed to your OpenFn project.
+<!--copied to deploy/platform)  -->

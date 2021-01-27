@@ -12,6 +12,30 @@ title: Connecting Applications
 
 ## Platform Projects
 
+### Connecting Source Applications
+
+Most modern web applications have a feature that allows you to `push`,
+`publish`, or `post` data to another URL when a certain **event** takes place.
+This event could be a form submission, mobile payment, patient registration, or
+barcode scan submission from a mobile app. The key is that your source
+application will notify OpenFn when _something happens_.
+
+1. Go to the "settings" or "administration" page for your source app, and look
+   for a `Webhook API`, `Data Forwarding API`, or `Notifications API`. Write to
+   the developers of your application if none is provided out of the box.
+
+2. When setting up forwarding, select to send messages in `JSON` to your
+   project's `inbox URL`. This is a UUID that serves as your API token. You can
+   find and copy your secure inbox URL by clicking on the "copy URL" link in the
+   bottom-right corner of the project in question on your
+   **[project dashboard](https://www.openfn.org/projects)** page or by using the
+   "Copy URL" button on your project's "Inbox" page.
+
+3. Soon you'll see new messages arrive in your **Inbox**.
+
+See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for specific
+instructions for connecting common applications.
+
 <!-- TODO: @Jed -->
 
 ## App Specific Examples
