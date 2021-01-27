@@ -39,7 +39,9 @@ specific instructions for connecting common applications.
 <!-- TODO: @Jed -->
 
 ## App Specific Examples
+
 <!-- @Taylor do these examples belong here? -->
+
 ## Overview
 
 :::note
