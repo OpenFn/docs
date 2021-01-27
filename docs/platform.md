@@ -8,25 +8,6 @@ title: Platform Docs
 <!--<!-- copied to build/connecting-applications) -->  -->
 <!-- (copied to deploy.platform ###inbox security -->
 
-
-
-#### Rotating auth methods
-
-Because more than one auth method may be accepted at a given time, some
-organizations choose to periodically rotate their auth methods for extra
-security and can do so without disrupting live production integrations. To
-rotate your inbox auth methods:
-
-1. Create a _second_ valid auth method with a new token or user:pass
-   combination.
-2. Provide that token to your external systems so that they can start using it
-   in their webhooks/requests to OpenFn.
-3. Once you are certain that all external services are now using the new auth
-   token, _revoke_ the old auth token.
-
-You can repeat this process as frequently as is required by your organization's
-internal security protocols.
-
 <!-- copied to deploy.platform ###inbox security) -->
 <!-- (copied to deploy.platform #creating a compatible notifications service -->
 
