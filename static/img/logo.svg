@@ -11,7 +11,7 @@
    inkscape:export-ydpi="96.760002"
    inkscape:export-xdpi="96.760002"
    inkscape:export-filename="/home/taylor/GoogleDrive/openFn/Art &amp; Logo/new_logo_green.png"
-   sodipodi:docname="new_logo-gradient.svg"
+   sodipodi:docname="logo.svg"
    inkscape:version="1.0.1 (0767f8302a, 2020-10-17)"
    version="1.1"
    id="svg2"
@@ -47,7 +47,7 @@
      units="px"
      inkscape:window-maximized="1"
      inkscape:window-y="27"
-     inkscape:window-x="1920"
+     inkscape:window-x="0"
      inkscape:window-height="1016"
      inkscape:window-width="1920"
      fit-margin-bottom="0"
@@ -99,17 +99,19 @@
        width="759.70593"
        id="rect3348"
        style="opacity:0.99;fill:url(#linearGradient1464);fill-opacity:1;stroke:#000000;stroke-width:40.2941;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-    <text
+    <g
+       aria-label="Fn"
        transform="scale(1.0183501,0.98198054)"
        id="text3344"
-       y="467.23065"
-       x="233.22781"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'NeuzeitS LT Book';-inkscape-font-specification:'NeuzeitS LT Book, Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       xml:space="preserve"><tspan
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;line-height:0%;font-family:'NeuzeitS LT Book';-inkscape-font-specification:'NeuzeitS LT Book, Bold';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1">
+      <path
+         d="m 271.68852,118.7674 h 204.35146 v 62.09318 H 341.19582 V 260.0989 H 472.7963 v 62.09319 H 341.19582 v 145.03856 h -69.5073 z"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:463.382px;line-height:125%;font-family:'NeuzeitS LT Book';-inkscape-font-specification:'NeuzeitS LT Book, Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1"
-         y="467.23065"
-         x="233.22781"
-         id="tspan3346"
-         sodipodi:role="line">Fn</tspan></text>
+         id="path838" />
+      <path
+         d="m 675.12769,322.19209 q 0,-12.9747 -3.70706,-21.77895 -3.24367,-8.80426 -9.26764,-13.90146 -6.02396,-5.56059 -13.43807,-7.8775 -7.41412,-2.31691 -15.29161,-2.31691 -20.38881,0 -31.97336,15.75499 -11.58455,15.29161 -11.58455,39.85085 v 135.30754 h -66.727 V 229.05231 h 63.94671 v 31.04659 h 0.92676 q 14.82823,-21.77895 32.43674,-29.65644 17.60852,-7.8775 37.99733,-7.8775 21.31557,0 37.07056,6.48735 15.75498,6.48735 25.94939,18.0719 10.65778,11.12117 15.2916,26.41277 5.0972,14.82822 5.0972,31.97336 v 161.72031 h -66.727 z"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:463.382px;line-height:125%;font-family:'NeuzeitS LT Book';-inkscape-font-specification:'NeuzeitS LT Book, Bold';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1"
+         id="path840" />
+    </g>
   </g>
 </svg>
