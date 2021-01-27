@@ -1,6 +1,7 @@
 module.exports = {
   title: 'OpenFn',
-  tagline: 'Data Integration & Interoperability in ICT4D',
+  tagline:
+    'Data Integration & Interoperability for Health and Humanitarian Interventions',
   url: 'https://docs.openfn.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
@@ -16,9 +17,10 @@ module.exports = {
     //   //   searchParameters: {},
     //   //   //... other Algolia params
     // },
-    googleAnalytics: {
+    hideableSidebar: true,
+    gtag: {
       trackingID: 'UA-57118569-4',
-      anonymizeIP: true, // Should IPs be anonymized?
+      anonymizeIP: true,
     },
     navbar: {
       title: 'OpenFn/docs',
@@ -124,13 +126,11 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/main',
         },
         // blog: {
         //   showReadingTime: true,
-        //   // Please change this to your repo.
         //   editUrl: 'https://github.com/openfn/docs/edit/master/',
         // },
         theme: {
@@ -151,8 +151,19 @@ module.exports = {
     ],
     [
       '@docusaurus/plugin-content-blog',
-      { id: 'articles', routeBasePath: 'articles', path: './articles' },
+      {
+        id: 'articles',
+        routeBasePath: 'articles',
+        path: './articles',
+        showReadingTime: true,
+      },
+    ],
+    [
+      require.resolve('docusaurus-lunr-search'),
+      {
+        indexBaseUrl: true,
+      },
     ],
   ],
-  scripts: [{ src: './freshChat.js', async: true }],
+  scripts: [{ src: '/js/freshChat.js', async: true }],
 };

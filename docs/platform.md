@@ -1,7 +1,9 @@
 ---
 title: Platform Docs
 ---
+
 <!-- (copied to build/connecting-applications -->
+
 ## Connecting Source Applications
 
 Most modern web applications have a feature that allows you to `push`,
@@ -23,10 +25,12 @@ application will notify OpenFn when _something happens_.
 
 3. Soon you'll see new messages arrive in your **Inbox**.
 
-See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for specific
-instructions for connecting common applications.
+See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for
+specific instructions for connecting common applications.
+
 <!--<!-- copied to build/connecting-applications) -->  -->
 <!-- (copied to deploy.platform ###inbox security -->
+
 ### Inbox Security
 
 OpenFn project administrators can choose to configure additional authentication
@@ -35,7 +39,8 @@ Security" page of their OpenFn project, Administrators can choose from API Key
 and Basic Auth types, which will prompt administrators to either generate an API
 token or to setup a username:password credential. Once this inbox authentication
 is configured, any HTTP requests made to the OpenFn Inbox URL must include
-either this token or username:password in the request header. ![inbox security](../static/img/inbox-security.png)
+either this token or username:password in the request header.
+![inbox security](/img/inbox-security.png)
 
 #### Rotating auth methods
 
@@ -44,7 +49,8 @@ organizations choose to periodically rotate their auth methods for extra
 security and can do so without disrupting live production integrations. To
 rotate your inbox auth methods:
 
-1. Create a _second_ valid auth method with a new token or user:pass combination.
+1. Create a _second_ valid auth method with a new token or user:pass
+   combination.
 2. Provide that token to your external systems so that they can start using it
    in their webhooks/requests to OpenFn.
 3. Once you are certain that all external services are now using the new auth
@@ -55,13 +61,16 @@ internal security protocols.
 
 <!-- copied to deploy.platform ###inbox security) -->
 <!-- (copied to deploy.platform #creating a compatible notifications service -->
+
 ## Creating a compatible notifications service
 
 If you are a developer, looking to set up a compatible notifications API for
 OpenFn, please see our
 [Application Developers](https://docs.openfn.org/for-devs.html) section.
+
 <!-- copied to deploy.platform #creating a compatible notifications service)  -->
 <!-- (Copied to build/triggers -->
+
 ## Triggers
 
 Triggers _start_ jobs running. They come in 4 types. The most common are
@@ -171,7 +180,7 @@ We'd expect the following logic:
 To achieve this you might write:
 
 ```js
-fetchPatient({ type: 'referral', offset: state.lastId }, (state) => {
+fetchPatient({ type: 'referral', offset: state.lastId }, state => {
   // Assuming the system returned an array of patients in the "data" key.
   state.lastId = state.data.patients.sort((a, b) => b.id - a.id)[0];
   return state;
@@ -204,7 +213,7 @@ callback of your language-package's operation (if it allows for one) or by
 appending an `alterState(...)` operation after your operation.
 
 ```js
-alterState((state) => {
+alterState(state => {
   state.custom = somethingIntentional;
   state.data = {};
   state.references = [];
@@ -220,14 +229,16 @@ This way you don’t have to wait for the timer to expire before testing! Simply
 click the process/ “play” button now available via the Job, Run, and Activity
 History pages.
 
-![Runs list run time trigger button](../static/img/timetriggerunslist.png)
+![Runs list run time trigger button](/img/timetriggerunslist.png)
 
-![Run history time trigger button](../static/img/runtimetrigger1.png)
+![Run history time trigger button](/img/runtimetrigger1.png)
 
 <!-- copied to build/triggers) -->
 
 ## Credentials
+
 <!-- copied to build/credentials.md -->
+
 Credentials are used to authorize connections to destination systems. In the
 future, our adaptors will use credentials to fetch meta-data from source and
 destination applications and make the job writing process easier.
@@ -258,6 +269,7 @@ present in the data for a given source message, for example, _another_
 credential will be selected and applied for that particular job run.
 
 ## Jobs
+
 <!-- copied to build/jobs -->
 
 A job defines the specific series of tasks or database actions to be performed
@@ -296,7 +308,7 @@ write your own custom, anonymous functions to do whatever your heart desires:
 create(
   'Patient__c',
   fields(
-    field('Name', (state) => {
+    field('Name', state => {
       console.log('Manipulate state to get your desired output.');
       return Array.apply(null, state.data.form.names).join(', ');
     }),
@@ -400,7 +412,9 @@ return to the top level and be able to enter the second array.
 
 **For code block examples of job expressions, go to the
 [code samples page](appendix.md).**
+
 <!-- (copied to deploy/platform -->
+
 ## Inbox
 
 Your inbox contains the history of all messages that have passed in to your
@@ -428,7 +442,7 @@ by:
   custom date range yourself. Note that the default inbox view shows “Last 30
   Days”.
 
-![Image of Inbox Filters](../static/img/inbox_filter.png)
+![Image of Inbox Filters](/img/inbox_filter.png)
 
 ### Bulk reprocess messages
 
@@ -437,11 +451,11 @@ for multiple messages, or need to re-process the data in OpenFn to re-send to a
 destination application, then this feature will help you do so more quickly!
 
 1. Simply click on the new **Reprocess** button via the Inbox view.
-   ![Reprocess button](../static/img/reprocess_msgs.png)
+   ![Reprocess button](/img/reprocess_msgs.png)
 
 2. Specify the **ID range** for messages that you want to re-run (e.g., messages
    with IDs 4622741 through 4622749 → 9 messages to reprocess).
-   ![Bulk reprocess screen](../static/img/bulk_reprocess.png)
+   ![Bulk reprocess screen](/img/bulk_reprocess.png)
 
 #### Note when bulk reprocessing messages
 
@@ -453,7 +467,7 @@ destination application, then this feature will help you do so more quickly!
 
 - Remember that OpenFn plans are run-based, and you can monitor usage in
   **Project Settings** to ensure that you don’t hit any run limits when bulk
-  reprocessing! ![Usage stats chart](../static/img/usage.png)
+  reprocessing! ![Usage stats chart](/img/usage.png)
 
 ### Export messages to CSV
 
@@ -465,9 +479,16 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 2. Click the **Export as CSV** button to generate an export. The link to
    download this file will be sent to your email address.
 
-![Export CSV button](../static/img/exportcsv.png)
+<<<<<<< HEAD ![Export CSV button](../static/img/exportcsv.png)
+
 <!-- copied to deploy/platform) -->
-<!--(copied to deploy/platform  -->
+
+# <!--(copied to deploy/platform  -->
+
+![Export CSV button](/img/exportcsv.png)
+
+> > > > > > > origin/main
+
 ## Activity
 
 In this section of the portal, you can view a list of all "runs" - i.e.
@@ -507,12 +528,12 @@ Need to re-process a series of runs? This could be helpful if you had multiple
 runs fail due to an error message.
 
 1. Simply click on the new **Retry** button via the Runs view.
-   ![Retry run button](../static/img/retrybutton.png)
+   ![Retry run button](/img/retrybutton.png)
 
 2. Specify the **ID range** for the runs that you want to re-process. Choose to
    filter by Job and/or Status to only reprocess runs associated with a specific
    job or runs that have failed/ succeeded.
-   ![Bulk retry runs](../static/img/runs_retry.png)
+   ![Bulk retry runs](/img/runs_retry.png)
 
 Remember that OpenFn plans are run-based, and you can monitor usage in **Project
 Settings** to ensure that you don’t hit any run limits when bulk reprocessing!
@@ -526,10 +547,11 @@ You can download your run logs by exporting to a CSV file.
 
 2. Click the **Export as CSV** button to generate an export. The link to
    download this file will be sent to your email address.
-   ![Export runs button](../static/img/exportruns.png)
+   ![Export runs button](/img/exportruns.png)
 
 <!--copied to deploy/platform)  -->
 <!--(copied to deploy/platform  -->
+
 ## GitHub version control
 
 You're ready to manage your jobs via GitHub, the leading hosted version control
@@ -576,4 +598,5 @@ Using this GitHub integration, you can revert to previous version of jobs
 quickly by resending old GitHub Webhook Events. Access the "Manage Webhook"
 interface on GitHub to see a list of all past events and send whichever version
 of the job you'd like deployed to your OpenFn project.
+
 <!--copied to deploy/platform)  -->
