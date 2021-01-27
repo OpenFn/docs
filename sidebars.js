@@ -94,7 +94,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Writing Docs',
+      label: 'Contributing',
       items: ['style-guide'],
     },
     {
