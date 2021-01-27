@@ -32,13 +32,14 @@ module.exports = {
       items: [
         'build/connecting-applications',
         'build/jobs',
+        { type: 'link', label: 'Jobs Library', href: '../../library' },
         'build/credentials',
         'build/triggers',
         'build/messages',
         'build/runs',
         'build/troubleshooting',
         'build/diy',
-        'build/job-library',
+        { type: 'link', label: 'Job Library', href: '../../library' },
       ],
     },
     {
