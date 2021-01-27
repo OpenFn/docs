@@ -33,8 +33,8 @@ application will notify OpenFn when _something happens_.
 
 3. Soon you'll see new messages arrive in your **Inbox**.
 
-See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for specific
-instructions for connecting common applications.
+See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for
+specific instructions for connecting common applications.
 
 <!-- TODO: @Jed -->
 

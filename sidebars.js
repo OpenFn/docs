@@ -21,7 +21,7 @@ module.exports = {
         'trouble-shooting',
         'appendix',
         'release-notes',
-        'diy',
+        'build/diy',
         'portability',
       ],
     },
