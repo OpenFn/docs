@@ -2,7 +2,7 @@
 title: Triggers
 ---
 
-### Overview
+## Triggers
 
 Triggers _start_ jobs running. They come in 4 types. The most common are
 "message filter" triggers, but there are also "cron" triggers, "flow" triggers,
@@ -111,7 +111,7 @@ We'd expect the following logic:
 To achieve this you might write:
 
 ```js
-fetchPatient({ type: 'referral', offset: state.lastId }, (state) => {
+fetchPatient({ type: 'referral', offset: state.lastId }, state => {
   // Assuming the system returned an array of patients in the "data" key.
   state.lastId = state.data.patients.sort((a, b) => b.id - a.id)[0];
   return state;
@@ -144,7 +144,7 @@ callback of your language-package's operation (if it allows for one) or by
 appending an `alterState(...)` operation after your operation.
 
 ```js
-alterState((state) => {
+alterState(state => {
   state.custom = somethingIntentional;
   state.data = {};
   state.references = [];
@@ -160,8 +160,6 @@ This way you don’t have to wait for the timer to expire before testing! Simply
 click the process/ “play” button now available via the Job, Run, and Activity
 History pages.
 
-![Runs list run time trigger button]
-<!-- TODO: @Jed -- Taylor pictures are having some problems -- ![Runs list run time trigger button](../static/img/timetriggerunslist.png) -->
-![Run history time trigger button]
-<!-- TODO: @Jed -- Taylor pictures are having some problems -- ![Run history time trigger button](../static/img/runtimetrigger1.png)  -->
+![Runs list run time trigger button](/img/timetriggerunslist.png)
 
+![Run history time trigger button](/img/runtimetrigger1.png)
