@@ -40,7 +40,7 @@ module.exports = {
           type: 'category',
           label: 'Connecting Applications',
           items: [
-            'inbox',
+            'build/inbox',
             'source-apps',
             // 'tools/bamboohr',
             'tools/commcare',
