@@ -19,7 +19,6 @@ module.exports = {
         'getting-started/faq',
         'platform',
         'trouble-shooting',
-        'appendix',
         'release-notes',
         'build/diy',
         'portability',
@@ -58,6 +57,7 @@ module.exports = {
         'build/runs',
         'build/troubleshooting',
         'build/diy',
+        'build/appendix',
       ],
     },
     {
