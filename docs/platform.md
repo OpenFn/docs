@@ -88,71 +88,7 @@ return to the top level and be able to enter the second array.
 
 <!-- (copied to deploy/platform -->
 
-## Inbox
 
-Your inbox contains the history of all messages that have passed in to your
-project, which may or may not have triggered a specific job. Messages are stored
-payloads or data that were sent via HTTP post to your inbox. They can be viewed
-in formatted JSON, edited, or manually processed (if they did not match a filter
-when they were originally delivered.)
-
-To edit a message, click the "pencil and paper" icon next to that receipt. Be
-careful, as no original copy will be persisted.
-
-### Filter messages in your inbox
-
-To help you more quickly find relevant messages, you can now filter your inbox
-by:
-
-- **Body Text** - Search your messages for specific text (e.g., find surveys
-  that contain “India” in the body). As individual projects may have millions of
-  messages containing tens of thousands of lines of JSON each, we’ve implemented
-  a “tsvector” search strategy. Please be patient and note that this text-based
-  search may take a moment to return results.. If you’re curious about how
-  tsvector works from a technical perspective, check out the
-  [official documentation](https://www.postgresql.org/docs/10/datatype-textsearch.html#DATATYPE-TSVECTOR).
-- **Date** - Choose a relative date range (e.g., “Last 90 Days”) or define a
-  custom date range yourself. Note that the default inbox view shows “Last 30
-  Days”.
-
-![Image of Inbox Filters](/img/inbox_filter.png)
-
-### Bulk reprocess messages
-
-Need to re-run a series of messages? If you had a job fail because of an error
-for multiple messages, or need to re-process the data in OpenFn to re-send to a
-destination application, then this feature will help you do so more quickly!
-
-1. Simply click on the new **Reprocess** button via the Inbox view.
-   ![Reprocess button](/img/reprocess_msgs.png)
-
-2. Specify the **ID range** for messages that you want to re-run (e.g., messages
-   with IDs 4622741 through 4622749 → 9 messages to reprocess).
-   ![Bulk reprocess screen](/img/bulk_reprocess.png)
-
-#### Note when bulk reprocessing messages
-
-- This simulates the chain of events that starts when messages first arrive in
-  your inbox. In other words, reprocessed messages will be handled by message
-  filter triggers for any jobs that have the `autoprocess` setting “on”. If
-  you've got messages that match certain triggers, but the associated jobs are
-  switched "off" they will not be run when those messages are reprocessed.
-
-- Remember that OpenFn plans are run-based, and you can monitor usage in
-  **Project Settings** to ensure that you don’t hit any run limits when bulk
-  reprocessing! ![Usage stats chart](/img/usage.png)
-
-### Export messages to CSV
-
-You can now download and review OpenFn message data by exporting to a CSV file.
-
-1. In your inbox, filter the messages you’d like to export to CSV. Choose to
-   filter by text, date, trigger, and run state.
-
-2. Click the **Export as CSV** button to generate an export. The link to
-   download this file will be sent to your email address.
-
-<<<<<<< HEAD ![Export CSV button](../static/img/exportcsv.png)
 
 <!-- copied to deploy/platform) -->
 

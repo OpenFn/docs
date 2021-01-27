@@ -92,7 +92,7 @@ by:
   custom date range yourself. Note that the default inbox view shows “Last 30
   Days”.
 
-<!-- TODO: @Jed figure out images![Image of Inbox Filters](../static/img/inbox_filter.png) -->
+![Image of Inbox Filters](/img/inbox_filter.png)
 
 ### Bulk reprocess messages
 
@@ -101,11 +101,11 @@ for multiple messages, or need to re-process the data in OpenFn to re-send to a
 destination application, then this feature will help you do so more quickly!
 
 1. Simply click on the new **Reprocess** button via the Inbox view.
-   <!-- TODO: @Jed ![Reprocess button](../static/img/reprocess_msgs.png) -->
+   ![Reprocess button](/img/reprocess_msgs.png)
 
 2. Specify the **ID range** for messages that you want to re-run (e.g., messages
    with IDs 4622741 through 4622749 → 9 messages to reprocess).
-   <!--TODO: @Jed ![Bulk reprocess screen](../static/img/bulk_reprocess.png) -->
+   ![Bulk reprocess screen](/img/bulk_reprocess.png)
 
 #### Note when bulk reprocessing messages
 
@@ -117,7 +117,7 @@ destination application, then this feature will help you do so more quickly!
 
 - Remember that OpenFn plans are run-based, and you can monitor usage in
   **Project Settings** to ensure that you don’t hit any run limits when bulk
-  <!--TODO: @Jed reprocessing! ![Usage stats chart](../static/img/usage.png) -->
+  reprocessing! ![Usage stats chart](/img/usage.png)
 
 ### Export messages to CSV
 
@@ -129,7 +129,7 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 2. Click the **Export as CSV** button to generate an export. The link to
    download this file will be sent to your email address.
 
-<!-- TODO: @Jed ![Export CSV button](../static/img/exportcsv.png) -->
+<<<<<<< HEAD ![Export CSV button](../static/img/exportcsv.png)
 
 ## Account Management
 
