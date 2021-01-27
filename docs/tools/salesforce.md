@@ -30,4 +30,5 @@ A "Salesforce" Credential record should include:
 ### Resetting Your Security Token
 [See instructions here](https://help.salesforce.com/articleView?id=sf.user_security_token.htm&type=5) or below screenshot. Once reset, you will receive an email from Salesforce. Please save this `security token` 
 in your OpenFn `Credential`. 
-![Salesforce Cred](.../static/img/security-token.png)
+
+![Token Reset](.../static/img/security-token.png)
