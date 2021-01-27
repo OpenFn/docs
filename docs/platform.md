@@ -411,7 +411,7 @@ return to the top level and be able to enter the second array.
   [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90)
 
 **For code block examples of job expressions, go to the
-[code samples page](appendix.md).**
+[code samples page](build/appendix.md).**
 
 <!-- (copied to deploy/platform -->
 

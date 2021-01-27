@@ -14,7 +14,7 @@ start off with some key terminology before we get started.
 
 ### Job
 
-OpenFn automation centers around [jobs](docs/build/jobs.md), which define the
+OpenFn automation centers around [jobs](../build/jobs.md), which define the
 specific series of tasks or database actions OpenFn should perform. They can be
 set to be activated (triggered) at certain time intervals or when data matching
 specified criteria is received. You can think of jobs as a set of instructions
@@ -26,7 +26,7 @@ confirmation number when payment confirmation message is received etc.).
 :::note
 
 Jobs are fully configurable and reusable. They can also be chained together to
-create [multi-step automation](jobs/multiple-operations) flows, two-way syncs.
+create [multi-step automation](../jobs/multiple-operations) flows, two-way syncs.
 and to keep data consistent between multiple applications (using multi-app Saga
 patterns). You can read more on two-way synching below. 
 
