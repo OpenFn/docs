@@ -129,6 +129,7 @@ You can now download and review OpenFn message data by exporting to a CSV file.
    download this file will be sent to your email address.
 
 <<<<<<< HEAD ![Export CSV button](../static/img/exportcsv.png)
+
 <!-- TODO: @Jed ask Taylor about this![Export CSV button](/img/exportcsv.png) -->
 
 ## Account Management
