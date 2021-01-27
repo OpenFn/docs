@@ -23,6 +23,7 @@ began and ended.
 > performing multiple actions in a destination system or if they are fetching
 > lots of data from a REST api at the start of a migration. They will appear as
 > red if they have failed. In the case of failure, refer to our
+
 <!-- > TODO: @Jed how to link? [Troubleshooting](trouble-shooting.md) section below. -->
 
 ### Filter runs in the Activity view
@@ -131,22 +132,34 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 <!-- TODO: @Jed ![Export CSV button](../static/img/exportcsv.png) -->
 
 ## Account Management
+
 (work in progress)
+
 ### Add a credit card
+
 (work in progress)
+
 ### Change plan
+
 (work in progress)
+
 ### Lost password
+
 (work in progress)
+
 ## Project Management
+
 (work in progress)
+
 ## Add collaborators
+
 (work in progress)
+
 <!-- TODO: @Jed -->
 
 ### Change concurrency
-(work in progress)
 
+(work in progress)
 
 ### Inbox Security
 
@@ -156,7 +169,8 @@ Security" page of their OpenFn project, Administrators can choose from API Key
 and Basic Auth types, which will prompt administrators to either generate an API
 token or to setup a username:password credential. Once this inbox authentication
 is configured, any HTTP requests made to the OpenFn Inbox URL must include
-<!-- either this token or username:password in the request header. TODO: @Jed  ![inbox security](../static/img/inbox-security.png) -->
+either this token or username:password in the request header.
+![inbox security](/img/inbox-security.png)
 
 #### Rotating auth methods
 
@@ -165,7 +179,8 @@ organizations choose to periodically rotate their auth methods for extra
 security and can do so without disrupting live production integrations. To
 rotate your inbox auth methods:
 
-1. Create a _second_ valid auth method with a new token or user:pass combination.
+1. Create a _second_ valid auth method with a new token or user:pass
+   combination.
 2. Provide that token to your external systems so that they can start using it
    in their webhooks/requests to OpenFn.
 3. Once you are certain that all external services are now using the new auth
@@ -175,9 +190,10 @@ You can repeat this process as frequently as is required by your organization's
 internal security protocols.
 
 # Creating a compatible notifications service
-(work in progress)
-If you are a developer, looking to set up a compatible notifications API for
-OpenFn, please see our
+
+(work in progress) If you are a developer, looking to set up a compatible
+notifications API for OpenFn, please see our
+
 <!-- TODO: Jed -- where to put this[Application Developers](https://docs.openfn.org/for-devs.html) section. -->
 
 ## GitHub version control
@@ -228,7 +244,9 @@ interface on GitHub to see a list of all past events and send whichever version
 of the job you'd like deployed to your OpenFn project.
 
 ## Release notes
+
 <!-- TODO: @Jed -- can we somehow make this a seperate section. Perhaps like jobs library? -->
+
 ### Version 1.75.0 (2020-07-14)
 
 New features:
@@ -630,5 +648,3 @@ get('forms/data/wide/json/someForm', {
   },
 });
 ```
-
-

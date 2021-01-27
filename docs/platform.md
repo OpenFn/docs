@@ -8,16 +8,7 @@ title: Platform Docs
 <!--<!-- copied to build/connecting-applications) -->  -->
 <!-- (copied to deploy.platform ###inbox security -->
 
-### Inbox Security
 
-OpenFn project administrators can choose to configure additional authentication
-for any inbound requests made to the project's inbox URL. In the "Access &
-Security" page of their OpenFn project, Administrators can choose from API Key
-and Basic Auth types, which will prompt administrators to either generate an API
-token or to setup a username:password credential. Once this inbox authentication
-is configured, any HTTP requests made to the OpenFn Inbox URL must include
-either this token or username:password in the request header.
-![inbox security](/img/inbox-security.png)
 
 #### Rotating auth methods
 
