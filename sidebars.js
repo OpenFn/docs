@@ -14,6 +14,7 @@ module.exports = {
         'appendix',
         'release-notes',
         'diy',
+        'portability',
       ],
     },
     {
