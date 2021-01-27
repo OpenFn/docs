@@ -13,21 +13,21 @@
 <link rel="alternate" type="application/rss+xml" href="/articles/rss.xml" title="OpenFn Blog RSS Feed">
 <link rel="alternate" type="application/atom+xml" href="/articles/atom.xml" title="OpenFn Blog Atom Feed">
 <script src="/js/freshChat.js" async></script><title data-react-helmet="true">Tracked entity instances in DHIS2 | OpenFn</title><meta data-react-helmet="true" property="og:title" content="Tracked entity instances in DHIS2 | OpenFn"><meta data-react-helmet="true" name="description" content="tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but"><meta data-react-helmet="true" property="og:description" content="tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but"><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"><meta data-react-helmet="true" name="docusaurus_locale" content="en"><meta data-react-helmet="true" name="docusaurus_tag" content="default"><link data-react-helmet="true" rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/styles.88553f97.css">
-<link rel="preload" href="/styles.38344650.js" as="script">
-<link rel="preload" href="/runtime~main.f4e0d1a8.js" as="script">
-<link rel="preload" href="/main.5d79b1a1.js" as="script">
-<link rel="preload" href="/1.4323d8ff.js" as="script">
-<link rel="preload" href="/2.6472bfba.js" as="script">
-<link rel="preload" href="/3.863e049d.js" as="script">
-<link rel="preload" href="/01a85c17.6808f82c.js" as="script">
-<link rel="preload" href="/1be78505.11a3b52a.js" as="script">
-<link rel="preload" href="/6875c492.a457f04a.js" as="script">
-<link rel="preload" href="/a6aa9e1f.70ffdc88.js" as="script">
-<link rel="preload" href="/c4f5d8e4.f9b4e6d5.js" as="script">
-<link rel="preload" href="/ccc49370.a2a53f1d.js" as="script">
-<link rel="preload" href="/80.d9b43ea6.js" as="script">
+<link rel="preload" href="/styles.28428ab4.js" as="script">
+<link rel="preload" href="/runtime~main.13bb6658.js" as="script">
+<link rel="preload" href="/main.22f77ae1.js" as="script">
+<link rel="preload" href="/1.27212484.js" as="script">
+<link rel="preload" href="/2.7a9db380.js" as="script">
+<link rel="preload" href="/3.c0302e06.js" as="script">
+<link rel="preload" href="/01a85c17.ef75bb68.js" as="script">
+<link rel="preload" href="/1be78505.9a10c445.js" as="script">
+<link rel="preload" href="/6875c492.5a8e7fbc.js" as="script">
+<link rel="preload" href="/a6aa9e1f.6346b639.js" as="script">
+<link rel="preload" href="/c4f5d8e4.fc54108e.js" as="script">
+<link rel="preload" href="/ccc49370.4f16ea7d.js" as="script">
+<link rel="preload" href="/81.d7672b9f.js" as="script">
 <link rel="preload" href="/30ef78ca.8a601c09.js" as="script">
-<link rel="preload" href="/4b75119c.fe4ec588.js" as="script">
+<link rel="preload" href="/4b75119c.b6c6cecd.js" as="script">
 </head>
 <body>
 <script>!function(){function t(t){document.documentElement.setAttribute("data-theme",t)}var e=function(){var t=null;try{t=localStorage.getItem("theme")}catch(t){}return t}();t(null!==e?e:"light")}()</script><div id="__docusaurus">
@@ -55,20 +55,20 @@ ensure data integrity. That last bit is called “idempotency” and you can rea
 about it <a href="https://blog.openfn.org/allow-yourself-to-fail/" target="_blank" rel="noopener noreferrer">over here</a>.</p><p>Please don’t hesitate to reach out to one of OpenFn’s implementation specialists
 if you’d like to learn more.</p><p>— Taylor</p><p><a href="https://openfn.org/signup" target="_blank" rel="noopener noreferrer">Sign up</a>{: .btn} to set up a project today,
 absolutely free.</p><p><a href="mailto:admin@openfn.org" target="_blank" rel="noopener noreferrer">Reach out</a>{: .btn} for more information.</p></section></article><div></div><div class="margin-vert--xl"><nav class="pagination-nav" aria-label="Blog post page navigation"><div class="pagination-nav__item"></div><div class="pagination-nav__item pagination-nav__item--next"><a class="pagination-nav__link" href="/articles/2020/07/14/cron-is-better-than-a-timer"><div class="pagination-nav__sublabel">Older Post</div><div class="pagination-nav__label">Product News: Enhanced Scheduled/Periodic Job Control »</div></a></div></nav></div></main><div class="col col--2"><div class="tableOfContents_2xL- thin-scrollbar"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#a-bit-more" class="table-of-contents__link">A bit more...</a></li><li><a href="#even-more" class="table-of-contents__link">Even more!</a></li></ul></div></div></div></div></div><footer class="footer footer--dark"><div class="container"><div class="row footer__links"><div class="col footer__col"><h4 class="footer__title">This Site</h4><ul class="footer__items"><li class="footer__item"><a class="footer__link-item" href="/documentation">Documentation</a></li><li class="footer__item"><a class="footer__link-item" href="/library">Library</a></li><li class="footer__item"><a class="footer__link-item" href="/articles">Articles</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">Community</h4><ul class="footer__items"><li class="footer__item"><a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Forum</a></li><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow</a></li><li class="footer__item"><a href="https://twitter.com/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter</a></li></ul></div><div class="col footer__col"><h4 class="footer__title">More</h4><ul class="footer__items"><li class="footer__item"><a href="https://www.openfn.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">OpenFn.org</a></li><li class="footer__item"><a href="https://github.com/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">Github</a></li><li class="footer__item"><a href="https://blog.openfn.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Blog</a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2021 Open Function Group LLC</div></div></div></footer></div>
-<script src="/styles.38344650.js"></script>
-<script src="/runtime~main.f4e0d1a8.js"></script>
-<script src="/main.5d79b1a1.js"></script>
-<script src="/1.4323d8ff.js"></script>
-<script src="/2.6472bfba.js"></script>
-<script src="/3.863e049d.js"></script>
-<script src="/01a85c17.6808f82c.js"></script>
-<script src="/1be78505.11a3b52a.js"></script>
-<script src="/6875c492.a457f04a.js"></script>
-<script src="/a6aa9e1f.70ffdc88.js"></script>
-<script src="/c4f5d8e4.f9b4e6d5.js"></script>
-<script src="/ccc49370.a2a53f1d.js"></script>
-<script src="/80.d9b43ea6.js"></script>
+<script src="/styles.28428ab4.js"></script>
+<script src="/runtime~main.13bb6658.js"></script>
+<script src="/main.22f77ae1.js"></script>
+<script src="/1.27212484.js"></script>
+<script src="/2.7a9db380.js"></script>
+<script src="/3.c0302e06.js"></script>
+<script src="/01a85c17.ef75bb68.js"></script>
+<script src="/1be78505.9a10c445.js"></script>
+<script src="/6875c492.5a8e7fbc.js"></script>
+<script src="/a6aa9e1f.6346b639.js"></script>
+<script src="/c4f5d8e4.fc54108e.js"></script>
+<script src="/ccc49370.4f16ea7d.js"></script>
+<script src="/81.d7672b9f.js"></script>
 <script src="/30ef78ca.8a601c09.js"></script>
-<script src="/4b75119c.fe4ec588.js"></script>
+<script src="/4b75119c.b6c6cecd.js"></script>
 </body>
 </html>
