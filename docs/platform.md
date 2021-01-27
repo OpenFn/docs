@@ -23,8 +23,8 @@ application will notify OpenFn when _something happens_.
 
 3. Soon you'll see new messages arrive in your **Inbox**.
 
-See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for specific
-instructions for connecting common applications.
+See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for
+specific instructions for connecting common applications.
 
 ### Inbox Security
 
@@ -34,7 +34,8 @@ Security" page of their OpenFn project, Administrators can choose from API Key
 and Basic Auth types, which will prompt administrators to either generate an API
 token or to setup a username:password credential. Once this inbox authentication
 is configured, any HTTP requests made to the OpenFn Inbox URL must include
-either this token or username:password in the request header. ![inbox security](../static/img/inbox-security.png)
+either this token or username:password in the request header.
+![inbox security](../static/img/inbox-security.png)
 
 #### Rotating auth methods
 
@@ -43,7 +44,8 @@ organizations choose to periodically rotate their auth methods for extra
 security and can do so without disrupting live production integrations. To
 rotate your inbox auth methods:
 
-1. Create a _second_ valid auth method with a new token or user:pass combination.
+1. Create a _second_ valid auth method with a new token or user:pass
+   combination.
 2. Provide that token to your external systems so that they can start using it
    in their webhooks/requests to OpenFn.
 3. Once you are certain that all external services are now using the new auth
@@ -167,7 +169,7 @@ We'd expect the following logic:
 To achieve this you might write:
 
 ```js
-fetchPatient({ type: 'referral', offset: state.lastId }, (state) => {
+fetchPatient({ type: 'referral', offset: state.lastId }, state => {
   // Assuming the system returned an array of patients in the "data" key.
   state.lastId = state.data.patients.sort((a, b) => b.id - a.id)[0];
   return state;
@@ -200,7 +202,7 @@ callback of your language-package's operation (if it allows for one) or by
 appending an `alterState(...)` operation after your operation.
 
 ```js
-alterState((state) => {
+alterState(state => {
   state.custom = somethingIntentional;
   state.data = {};
   state.references = [];
@@ -289,7 +291,7 @@ write your own custom, anonymous functions to do whatever your heart desires:
 create(
   'Patient__c',
   fields(
-    field('Name', (state) => {
+    field('Name', state => {
       console.log('Manipulate state to get your desired output.');
       return Array.apply(null, state.data.form.names).join(', ');
     }),

@@ -126,13 +126,11 @@ module.exports = {
       {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
           routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/main',
         },
         // blog: {
         //   showReadingTime: true,
-        //   // Please change this to your repo.
         //   editUrl: 'https://github.com/openfn/docs/edit/master/',
         // },
         theme: {
@@ -153,7 +151,12 @@ module.exports = {
     ],
     [
       '@docusaurus/plugin-content-blog',
-      { id: 'articles', routeBasePath: 'articles', path: './articles' },
+      {
+        id: 'articles',
+        routeBasePath: 'articles',
+        path: './articles',
+        showReadingTime: true,
+      },
     ],
     [
       require.resolve('docusaurus-lunr-search'),
@@ -162,5 +165,5 @@ module.exports = {
       },
     ],
   ],
-  scripts: [{ src: './js/freshChat.js', async: true }],
+  scripts: [{ src: '/js/freshChat.js', async: true }],
 };
