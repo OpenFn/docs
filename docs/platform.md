@@ -11,11 +11,6 @@ title: Platform Docs
 <!-- copied to deploy.platform ###inbox security) -->
 <!-- (copied to deploy.platform #creating a compatible notifications service -->
 
-## Creating a compatible notifications service
-
-If you are a developer, looking to set up a compatible notifications API for
-OpenFn, please see our
-[Application Developers](https://docs.openfn.org/for-devs.html) section.
 
 <!-- copied to deploy.platform #creating a compatible notifications service)  -->
 <!-- (Copied to build/triggers -->
