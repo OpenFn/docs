@@ -26,6 +26,7 @@ module.exports = {
         'tools/commcare',
         'tools/godata',
         'tools/kobo-toolbox',
+        'tools/salesforce',
         'for-devs',
       ],
     },
