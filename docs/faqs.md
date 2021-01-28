@@ -197,8 +197,8 @@ functions like fetchData()to export DHIS2 datasets.
 ## Does OpenFn support two-way syncing?
 
 Yes, OpenFn can support two-way syncing of applications. Utilizing
-[Flow Triggers](platform#flow-triggers), OpenFn jobs can be chained together to
-facilitate real-time two-way data sync,
+[Flow Triggers](build/triggers#flow-triggers), OpenFn jobs can be chained
+together to facilitate real-time two-way data sync,
 [multi-step automation](jobs/multiple-operations) and data cleaning processes,
 and complex branching logic. Users can also implement bi-directional data syncs,
 as well as complex Saga Patterns to implement a transaction that spans multiple

@@ -1,5 +1,5 @@
 ---
-title: For Application Developers
+title: Developing Connected Apps
 ---
 
 This section is for you if you are hoping to build or extend an existing

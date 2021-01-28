@@ -1,40 +1,164 @@
 ---
-title: Snippets & Sample Code
+title: Introduction to Jobs
 ---
 
-## Filters
+<!-- TODO: @Jed -->
 
-### Match messages `WHERE` the `formId` is `"Robot_Photo_21.04.2015"`
+A job defines the specific series of tasks or database actions to be performed
+when a triggering message is received (even-based) or a pre-scheduled (and
+recurring) time is reached.
 
-```json
-{ "formId": "Robot_Photo_21.04.2015" }
+## The properties of a job
+
+- `Name` - a human-readable name
+- `Project` - the project the job belongs to
+- `Trigger` - the trigger that is used to control initiation of the job
+- `Adaptor` - the adaptor that is used to provide tool-specific functionality
+  for this job (e.g., `language-dhis2` or `language-commcare`.)
+- `Auto-process?` - a true/false switch which sets the job to automatically run
+  on matching messages when they arrive.
+- `Expression` - the job "script" itself, a sequence of operations which tell
+  the job what to do.
+
+Here, we'll focus on the expression.
+
+## Composing job expressions
+
+In most cases, a job expression is a series of `create` or `upsert` actions that
+are run after a message arrives, using data from that message. It could look
+like this:
+
+### A basic expression
+
+```js
+create(
+  'Patient__c',
+  fields(field('Name', dataValue('form.surname')), field('Age__c', 7))
+);
 ```
 
-### Match a message `WHERE` this `AND` that are both included
+That would create a new `Patient__c` in some other system. The patient's `Name`
+will be determined by the triggering message (the value inside `form.surname`,
+specifically) and the patient's `Age__c` will _always_ be 7. See how we hard
+coded it?
 
-```json
-{ "formId": "Robot_Photo_21.04.2015", "secret_number": 8 }
+What you see above is OpenFn's own syntax, and you've got access to dozens of
+common "helper functions" like `dataValue(path)` and destination specific
+functions like `create(object,attributes)`. While most cases are covered
+out-of-the-box, jobs are **evaluated as Javascript**. This means that you can
+write your own custom, anonymous functions to do whatever your heart desires:
+
+### An expression with custom Javascript
+
+```js
+create(
+  'Patient__c',
+  fields(
+    field('Name', state => {
+      console.log('Manipulate state to get your desired output.');
+      return Array.apply(null, state.data.form.names).join(', ');
+    }),
+    field('Age__c', 7)
+  )
+);
 ```
 
-### Match a message with two fragments inside an array called `data`
+Here, the patient's name will be a comma separated concatenation of all the
+values in the `patient_names` array from our source message.
 
-(This is useful when gathering data via ODK)
+## Available Javascript Globals
 
-```json
-{ "data": [{ "outlet_call": "TRUE", "new_existing": "Existing" }] }
+For security reasons, users start with access to the following standard
+Javascript globals, and can request more by opening an issue on Github:
+
+- Array
+- console
+- JSON
+- Number
+- Promise
+- String
+
+\*N.B. The runtime environment on the server is Node v6.17.0.
+
+Other than the expression tree, Jobs have certain attributes that must be set:
+
+1. **Filter** - The message filter that will triggers the job.
+2. **Adaptor** - The adaptor for the destination system you're connecting to.
+3. **Credential** - The credential that will be used to gain access to that
+   destination system.
+4. **Active?** - A boolean which determines whether the job runs in real-time
+   when matching messages arrive.
+
+## Examples of adaptor-specific functions
+
+**N.B.: This is just a sample.** There are lots more available in the
+language-packs.
+
+### language-common
+
+- `field('destination_field_name__c', 'value')` Returns a key, value pair in an
+  array.
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L248)
+- `fields(list_of_fields)` zips key value pairs into an object.
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L258)
+- `dataValue('JSON_path')` Picks out a single value from source data.
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L71)
+- `each(JSON_path, operation(...))` Scopes an array of data based on a JSONPath
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L194).
+  See beta.each when using multiple each()'s in an expression.
+- `each(merge(dataPath("CHILD_ARRAY[*]"),fields(field("metaId", dataValue("*meta-instance-id*")),field("parentId", lastReferenceValue("id")))), create(...))`
+  merges data into an array then creates for each item in the array
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L272)
+- `lastReferenceValue('id')` gets the sfID of the last item created
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100)
+- `function(state){return state.references[state.references.length-N].id})` gets
+  the sfID of the nth item created
+
+#### beta.each
+
+```js
+beta.each(JSON_path, operation(...))
 ```
 
-### Match a message with a fragment inside another object called `form`
+Scopes an array of data based on a JSONPath but then returns to the state it was
+given upon completion
+[(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44).
+This is necessary if you string multiple `each(...)` functions together in-line
+in the same expression. (E.g., Given data which has multiple separate 'repeat
+groups' in a form which are rendered as arrays, you want to create new records
+for each item inside the first repeat group, then _RETURN TO THE TOP LEVEL_ of
+the data, and then create new records for each item in the second repeat group.
+Using `beta.each(...)` lets you enter the first array, create your records, then
+return to the top level and be able to enter the second array.
 
-```json
-{
-  "form": {
-    "@xmlns": "http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"
-  }
-}
-```
+### Salesforce
 
-## Job Expressions
+- `create("DEST_OBJECT_NAME__C", fields(...))` Create a new object. Takes 2
+  parameters: An object and attributes.
+  [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63)
+- `upsert("DEST_OBJECT_NAME__C", "DEST_OBJECT_EXTERNAL_ID__C", fields(...))`
+  Creates or updates an object. Takes 3 paraneters: An object, an ID field and
+  attributes.
+  [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80)
+- `relationship("DEST_RELATIONSHIP_NAME__r", "EXTERNAL_ID_ON_RELATED_OBJECT__C", "SOURCE_DATA_OR_VALUE")`
+  Adds a lookup or 'dome insert' to a record.
+  [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40)
+
+### dhis2
+
+- `event(...)` Creates an event.
+  [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60)
+- `dataValueSet(...)` Send data values using the dataValueSets resource
+  [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L62-L82)
+
+### OpenMRS
+
+- `person(...)` Takes a payload of data to create a person
+  [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L31-L60)
+- `patient(...)` Takes a payload of data to create a patient
+  [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90)
+
+## Snippets and samples
 
 Below you can find some examples of block code for different functions and data
 handling contexts.
@@ -440,7 +564,7 @@ post(
 
 ## Anonymous Functions
 
-Different to [Named Functions](platform.md#named-functions), Anonymous
+Different to [Named Functions](#examples-of-adaptor-specific-functions), Anonymous
 functions are generic pieces of javascript which you can write to suit your
 needs. Here are some examples of these custom functions:
 
