@@ -192,14 +192,6 @@ rotate your inbox auth methods:
 You can repeat this process as frequently as is required by your organization's
 internal security protocols.
 
-## Creating a compatible notifications service
-
-If you are a developer, looking to set up a compatible notifications API for
-OpenFn, please see our
-[Application Developers](https://docs.openfn.org/for-devs.html) section.
-
-<!-- TODO: Jed -- where to put this[Application Developers](https://docs.openfn.org/for-devs.html) section. -->
-
 ## GitHub version control
 
 You're ready to manage your jobs via GitHub, the leading hosted version control

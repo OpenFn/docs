@@ -69,11 +69,11 @@ outcomes could be unlocked by automation.
 ### Delegate your busywork to OpenFn, and try it today!
 
 If you want to try out automation for your organization,
-[sign up](https://openfn.org/signup) for OpenFn, free of charge. Check out
-[our documentation](https://docs.openfn.org/) and [website](http://openfn.org)
-to learn how to get started.
+[sign up](https://www.openfn.org/signup) for OpenFn, free of charge. Check out
+[our documentation](https://docs.openfn.org/) and
+[website](http://www.openfn.org) to learn how to get started.
 
 Having trouble setting up your first automation "job"? Email us at
-[admin@openfn.org](mailto:admin@openfn.org_) for support. Our team is always
+[admin@openfn.org](mailto:admin@openfn.org) for support. Our team is always
 happy to assist and help you evaluate the total cost of ownership of automation
 solutions.

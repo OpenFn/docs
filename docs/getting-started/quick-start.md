@@ -139,5 +139,5 @@ application will notify OpenFn when _something happens_.
 
 3. Soon you'll see new messages arrive in your **Inbox**.
 
-See [Connecting Data Sources](https://docs.openfn.org/source-apps.html) for
-specific instructions for connecting common applications.
+See [Generic Data Sources](/source-apps.md) for specific instructions for
+connecting common applications.
