@@ -1,8 +1,6 @@
 ---
-title: Platform
+title: Platform Overview
 ---
-
-# Overview
 
 ## Activity
 
@@ -128,7 +126,7 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 2. Click the **Export as CSV** button to generate an export. The link to
    download this file will be sent to your email address.
 
-<<<<<<< HEAD ![Export CSV button](../static/img/exportcsv.png)
+<<<<<<< HEAD ![Export CSV button](/img/exportcsv.png)
 
 <!-- TODO: @Jed ask Taylor about this![Export CSV button](/img/exportcsv.png) -->
 
