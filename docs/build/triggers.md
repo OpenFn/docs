@@ -2,11 +2,11 @@
 title: Triggers
 ---
 
-## Triggers
-
 Triggers _start_ jobs running. They come in 4 types. The most common are
 "message filter" triggers, but there are also "cron" triggers, "flow" triggers,
 and "fail" triggers.
+
+## Trigger types
 
 ### Message Filter Triggers
 
@@ -56,12 +56,24 @@ for the failure, rather than the success, of a specified job. (E.g., Job A pays
 a CHW via MPESA. If Job A _fails_ we should initiate Job B, which sends an SMS
 to the district manager instructing them to manually pay the CHW.)
 
-### Filter Matching in Detail
+## Processing cron jobs
+
+**On-demand processing for cron jobs.** If you’re leveraging cron triggers to
+run jobs at specific times, you can also run that cron triggered job on demand.
+This way you don’t have to wait for the timer to expire before testing! Simply
+click the process/ “play” button now available via the Job, Run, and Activity
+History pages.
+
+![Runs list run time trigger button](/img/timetriggerunslist.png)
+
+![Run history time trigger button](/img/runtimetrigger1.png)
+
+## Filter Matching in Detail
 
 To illustrate filter matching, refer to the `JSON` strings below. Message "a"
 will match filter '1', but message "b" will not.
 
-#### Filter 1
+### Filter 1
 
 ```json
 { "formID": "patient_registration_v7" }
@@ -152,14 +164,34 @@ alterState(state => {
 });
 ```
 
-### Processing cron jobs
+## More filter samples
 
-**On-demand processing for cron jobs.** If you’re leveraging cron triggers to
-run jobs at specific times, you can also run that cron triggered job on demand.
-This way you don’t have to wait for the timer to expire before testing! Simply
-click the process/ “play” button now available via the Job, Run, and Activity
-History pages.
+### Match messages `WHERE` the `formId` is `"Robot_Photo_21.04.2015"`
 
-![Runs list run time trigger button](/img/timetriggerunslist.png)
+```json
+{ "formId": "Robot_Photo_21.04.2015" }
+```
 
-![Run history time trigger button](/img/runtimetrigger1.png)
+### Match a message `WHERE` this `AND` that are both included
+
+```json
+{ "formId": "Robot_Photo_21.04.2015", "secret_number": 8 }
+```
+
+### Match a message with two fragments inside an array called `data`
+
+(This is useful when gathering data via ODK)
+
+```json
+{ "data": [{ "outlet_call": "TRUE", "new_existing": "Existing" }] }
+```
+
+### Match a message with a fragment inside another object called `form`
+
+```json
+{
+  "form": {
+    "@xmlns": "http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"
+  }
+}
+```

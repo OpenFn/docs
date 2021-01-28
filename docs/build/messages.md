@@ -1,9 +1,10 @@
 ---
 title: Messages
 ---
+
 <!-- TODO: @Jed -->
 
-This section is a work in progress... 
+This section is a work in progress...
 
 ## Overview
 

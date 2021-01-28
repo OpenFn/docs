@@ -1,7 +1,6 @@
 ---
 title: Kobo Toolbox
 ---
-<!-- Copied -->
 
 ## Overview
 

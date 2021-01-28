@@ -2,7 +2,9 @@
 title: Release Notes
 ---
 
-## Version 1.87.8
+Release notes for **OpenFn/plaform**
+
+## Version 1.87.8 (2021-01-28)
 
 New features:
 

@@ -1,5 +1,5 @@
 ---
-title: Connecting Data Sources
+title: Generic Data Sources
 ---
 
 ## Standard webhook configuration

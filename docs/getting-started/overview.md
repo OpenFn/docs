@@ -3,16 +3,34 @@ title: Overview
 sidebar_label: Overview
 ---
 
-Welcome to OpenFn's documentation!
+## What's OpenFn?
+
+OpenFn is a suite of data integration, interoperability, and workflow automation
+tools that's used by governments, NGOs, and social enterprises, primarily in the
+health and humanitarian sectors.
+
+:::tip
+
+In essence, it's software that makes it easier for these organizations to
+connect the different technologies they use, share data, drive critical business
+processes, and scale their interventions.
+
+:::
+
+## What's this site?
+
+It's the one-stop-shop documentation site for all of OpenFn's products. You're
+in the **getting started** section.
 
 Here you will learn how to use OpenFn to build automation workflows that can be
-as short and simple or as long and detailed as you like. You also will learn
-about all of the ways you can choose to deploy the automations you create. Let's
-start off with some key terminology before we get started.
+as short and simple or as long and complex as you like. You also will learn
+about all of the ways you can choose to deploy the automation flows you create.
+Before you dive into the [quick start](./quick-start.md), let's start off with
+some key terminology before we get started.
 
-## Key Terms to Know Before Getting Started
+## Key terms
 
-### Job
+### Jobs
 
 OpenFn automation centers around [jobs](../build/jobs.md), which define the
 specific series of tasks or database actions OpenFn should perform. They can be
@@ -26,13 +44,13 @@ confirmation number when payment confirmation message is received etc.).
 :::note
 
 Jobs are fully configurable and reusable. They can also be chained together to
-create [multi-step automation](../jobs/multiple-operations) flows, two-way syncs.
-and to keep data consistent between multiple applications (using multi-app Saga
-patterns). You can read more on two-way synching below. 
+create [multi-step automation](../jobs/multiple-operations) flows, two-way
+syncs. and to keep data consistent between multiple applications (using
+multi-app Saga patterns). You can read more on two-way synching below.
 
 :::note
 
-### Run
+### Runs
 
 A run is each individual execution of a job. Imagine that a job is configured to
 create a new patient in OpenMRS whenever a case is opened in CommCare. Over the
@@ -50,7 +68,7 @@ DHIS2 for the last 2 weeks and publishes it to a public map using CartoDB. This
 job will be triggered at specified time intervals, every 2 weeks in this case,
 and after a month, we’ll only see 2 runs in OpenFn (that’s one run every two
 weeks). Each run will have succeeded or failed, and each one might have
-processed thousands of events from DHIS2. 
+processed thousands of events from DHIS2.
 
 :::note
 
@@ -66,8 +84,12 @@ completes, when another job fails, or when a certain message is received.
 A credential is used to authorize connection to a destination system (e.g.,
 Salesforce username, password & login URL).
 
-### Language Package
+### Adaptors
 
-(work in progress)
+Adaptors, sometimes referred to as "language packages", are small, open-source
+modules that provide your jobs with the features they need to communicate with a
+particular system's API. Some examples are `language-salesforce`,
+`language-dhis2`, `language-commcare`, etc. There are ~50 active adaptors at the
+moment, and anyone if free to build or enhance them.
 
 <!-- TODO: @Jed -->

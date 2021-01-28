@@ -1,8 +1,6 @@
 ---
-title: Understanding Jobs
+title: A closer look at jobs
 ---
-<!-- copied to build/jobs -->
-## Introduction
 
 This is technical documentation aimed at making complex custom jobs easier to
 write.

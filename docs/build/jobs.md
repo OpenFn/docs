@@ -1,24 +1,34 @@
 ---
-title: Jobs
+title: Introduction to Jobs
 ---
 
 <!-- TODO: @Jed -->
-
-(Work in progress)
-
-## Jobs
 
 A job defines the specific series of tasks or database actions to be performed
 when a triggering message is received (even-based) or a pre-scheduled (and
 recurring) time is reached.
 
-### Composing Job Expressions
+## The properties of a job
+
+- `Name` - a human-readable name
+- `Project` - the project the job belongs to
+- `Trigger` - the trigger that is used to control initiation of the job
+- `Adaptor` - the adaptor that is used to provide tool-specific functionality
+  for this job (e.g., `language-dhis2` or `language-commcare`.)
+- `Auto-process?` - a true/false switch which sets the job to automatically run
+  on matching messages when they arrive.
+- `Expression` - the job "script" itself, a sequence of operations which tell
+  the job what to do.
+
+Here, we'll focus on the expression.
+
+## Composing job expressions
 
 In most cases, a job expression is a series of `create` or `upsert` actions that
 are run after a message arrives, using data from that message. It could look
 like this:
 
-#### Basic Job Expression
+### A basic expression
 
 ```js
 create(
@@ -38,7 +48,7 @@ functions like `create(object,attributes)`. While most cases are covered
 out-of-the-box, jobs are **evaluated as Javascript**. This means that you can
 write your own custom, anonymous functions to do whatever your heart desires:
 
-#### Job Expression with Custom Javascript
+### An expression with custom Javascript
 
 ```js
 create(
@@ -56,7 +66,7 @@ create(
 Here, the patient's name will be a comma separated concatenation of all the
 values in the `patient_names` array from our source message.
 
-### Available Javascript Globals
+## Available Javascript Globals
 
 For security reasons, users start with access to the following standard
 Javascript globals, and can request more by opening an issue on Github:
@@ -79,147 +89,594 @@ Other than the expression tree, Jobs have certain attributes that must be set:
 4. **Active?** - A boolean which determines whether the job runs in real-time
    when matching messages arrive.
 
-### Named Functions
+## Examples of adaptor-specific functions
 
 **N.B.: This is just a sample.** There are lots more available in the
 language-packs.
 
-## Complex Custom Jobs
+### language-common
 
-### Introduction
+- `field('destination_field_name__c', 'value')` Returns a key, value pair in an
+  array.
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L248)
+- `fields(list_of_fields)` zips key value pairs into an object.
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L258)
+- `dataValue('JSON_path')` Picks out a single value from source data.
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L71)
+- `each(JSON_path, operation(...))` Scopes an array of data based on a JSONPath
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L194).
+  See beta.each when using multiple each()'s in an expression.
+- `each(merge(dataPath("CHILD_ARRAY[*]"),fields(field("metaId", dataValue("*meta-instance-id*")),field("parentId", lastReferenceValue("id")))), create(...))`
+  merges data into an array then creates for each item in the array
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L272)
+- `lastReferenceValue('id')` gets the sfID of the last item created
+  [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100)
+- `function(state){return state.references[state.references.length-N].id})` gets
+  the sfID of the nth item created
 
-This is technical documentation aimed at making complex custom jobs easier to
-write.
-
-### Key Terms and Concepts
-
-1. **core** (https://github.com/openfn/core) is the Javascript program which
-   executes jobs for OpenFn in an emphemeral Node.js environment.
-2. **state** is a .JSON file that is built and passed into the Node environment.
-   It contains at least two keys, `configuration` and `data`. Configuration will
-   be populated with your credential and it used by language packages for
-   authentication, and data will be populated with message data if the job was
-   triggered by an incoming message.
-
-```json
-{
-  "configuration": {
-    "username": "taylor",
-    "password": "shhhhhh",
-    "loginUrl": "https://login.salesforce.com"
-  },
-  "data": {
-    "a": 1,
-    "b": {
-      "x": [1, 2, 3]
-    }
-  }
-}
-```
-
-3. **expressions** are sequences of operations to be executed. They are part of
-   "jobs", which also include a credential, a trigger, a label, and (sometimes)
-   a github filepath.
-4. **operations** are named functions, exported for use by specific
-   language-packages, which take state and return state.
-
-### State is passed to operations. Operations Return state.
-
-This is a key concept. When you write:
+#### beta.each
 
 ```js
-create('object', fields(
+beta.each(JSON_path, operation(...))
+```
+
+Scopes an array of data based on a JSONPath but then returns to the state it was
+given upon completion
+[(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44).
+This is necessary if you string multiple `each(...)` functions together in-line
+in the same expression. (E.g., Given data which has multiple separate 'repeat
+groups' in a form which are rendered as arrays, you want to create new records
+for each item inside the first repeat group, then _RETURN TO THE TOP LEVEL_ of
+the data, and then create new records for each item in the second repeat group.
+Using `beta.each(...)` lets you enter the first array, create your records, then
+return to the top level and be able to enter the second array.
+
+### Salesforce
+
+- `create("DEST_OBJECT_NAME__C", fields(...))` Create a new object. Takes 2
+  parameters: An object and attributes.
+  [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L42-L63)
+- `upsert("DEST_OBJECT_NAME__C", "DEST_OBJECT_EXTERNAL_ID__C", fields(...))`
+  Creates or updates an object. Takes 3 paraneters: An object, an ID field and
+  attributes.
+  [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/Adaptor.js#L65-L80)
+- `relationship("DEST_RELATIONSHIP_NAME__r", "EXTERNAL_ID_ON_RELATED_OBJECT__C", "SOURCE_DATA_OR_VALUE")`
+  Adds a lookup or 'dome insert' to a record.
+  [(source)](https://github.com/OpenFn/language-salesforce/blob/master/src/sourceHelpers.js#L21-L40)
+
+### dhis2
+
+- `event(...)` Creates an event.
+  [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L31-L60)
+- `dataValueSet(...)` Send data values using the dataValueSets resource
+  [(source)](https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L62-L82)
+
+### OpenMRS
+
+- `person(...)` Takes a payload of data to create a person
+  [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L31-L60)
+- `patient(...)` Takes a payload of data to create a patient
+  [(source)](https://github.com/OpenFn/language-openmrs/blob/master/src/Adaptor.js#L62-L90)
+
+## Snippets and samples
+
+Below you can find some examples of block code for different functions and data
+handling contexts.
+
+### Job expression (for CommCare to SF)
+
+The following job expression will take a matching receipt and use data from that
+receipt to upsert a `Patient__c` record in Salesforce and create multiple new
+`Patient_Visit__c` (child to Patient) records.
+
+```js
+upsert(
+  'Patient__c',
+  'Patient_Id__c',
+  fields(
+    field('Patient_Id__c', dataValue('form.patient_ID')),
+    relationship('Nurse__r', 'Nurse_ID_code__c', dataValue('form.staff_id')),
+    field('Phone_Number__c', dataValue('form.mobile_phone'))
+  )
+),
+  each(
+    join('$.data.form.visits[*]', '$.references[0].id', 'Id'),
+    create(
+      'Visit__c',
+      fields(
+        field('Patient__c', dataValue('Id')),
+        field('Date__c', dataValue('date')),
+        field('Reason__c', dataValue('why_did_they_see_doctor'))
+      )
+    )
+  );
+```
+
+### Accessing the "data array" in Open Data Kit submissions
+
+Notice how we use "each" to get data from each item inside the "data array" in
+ODK.
+
+```js
+each(
+  '$.data.data[*]',
+  create(
+    'ODK_Submission__c',
+    fields(
+      field('Site_School_ID_Number__c', dataValue('school')),
+      field('Date_Completed__c', dataValue('date')),
+      field('comments__c', dataValue('comments')),
+      field('ODK_Key__c', dataValue('*meta-instance-id*'))
+    )
+  )
+);
+```
+
+### ODK to Salesforce: create parent record with many children from parent data
+
+Here, the user brings `time_end` and `parentId` onto the line items from the
+parent object.
+
+```js
+each(
+  dataPath('data[*]'),
+  combine(
+    create(
+      'transaction__c',
+      fields(
+        field('Transaction_Date__c', dataValue('today')),
+        relationship(
+          'Person_Responsible__r',
+          'Staff_ID_Code__c',
+          dataValue('person_code')
+        ),
+        field('metainstanceid__c', dataValue('*meta-instance-id*'))
+      )
+    ),
+    each(
+      merge(
+        dataPath('line_items[*]'),
+        fields(
+          field('end', dataValue('time_end')),
+          field('parentId', lastReferenceValue('id'))
+        )
+      ),
+      create(
+        'line_item__c',
+        fields(
+          field('transaction__c', dataValue('parentId')),
+          field('Barcode__c', dataValue('product_barcode')),
+          field('ODK_Form_Completed__c', dataValue('end'))
+        )
+      )
+    )
+  )
+);
+```
+
+> **NB - there was a known bug with the `combine` function which has been
+> resolved. `combine` can be used to combine two operations into one and is
+> commonly used to run multiple `create`'s inside an `each(path, operation)`.
+> The source code for combine can be found here:
+> [language-common: combine](https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222)**
+
+### Create many child records WITHOUT a repeat group in ODK
+
+```js
+beta.each(
+  '$.data.data[*]',
+  upsert(
+    'Outlet__c',
+    'Outlet_Code__c',
+    fields(
+      field('Outlet_Code__c', dataValue('outlet_code')),
+      field('Location__Latitude__s', dataValue('gps:Latitude')),
+      field('Location__Longitude__s', dataValue('gps:Longitude'))
+    )
+  )
+),
+  beta.each(
+    '$.data.data[*]',
+    upsert(
+      'Outlet_Call__c',
+      'Invoice_Number__c',
+      fields(
+        field('Invoice_Number__c', dataValue('invoice_number')),
+        relationship('Outlet__r', 'Outlet_Code__c', dataValue('outlet_code')),
+        relationship('RecordType', 'name', 'No Call Card'),
+        field('Trip__c', 'a0FN0000008jPue'),
+        relationship(
+          'Sales_Person__r',
+          'Sales_Rep_Code__c',
+          dataValue('sales_rep_code')
+        ),
+        field('Date__c', dataValue('date')),
+        field('Comments__c', dataValue('comments'))
+      )
+    )
+  );
+```
+
+### Salesforce: perform an update
+
+```js
+update("Patient__c", fields(
+  field("Id", dataValue("pathToSalesforceId")),
+  field("Name__c", dataValue("patient.first_name")),
   field(...)
 ));
 ```
 
-The execute function in your language-package (e.g., `language-salesforce`) will
-execute each operation with state, then return state. If you want to execute
-operations inside another custom function, you must explicitly pass in state.
+### Salesforce: Set record type using 'relationship(...)'
 
 ```js
-alterState(state => {
-  return create('object', fields(
-    field(...)
-  ))(state)
-});
+create(
+  'custom_obj__c',
+  fields(
+    relationship(
+      'RecordType',
+      'name',
+      dataValue('submission_type'),
+      field('name', dataValue('Name'))
+    )
+  )
+);
 ```
 
-### Sequences of operations inside custom functions.
-
-Using `execute` you can string together several sequential operations inside a
-custom function.
+### Salesforce: Set record type using record Type ID
 
 ```js
-alterState(state => {
-  const { userName } = state.data.form.meta;
+each(
+  '$.data.data[*]',
+  create(
+    'fancy_object__c',
+    fields(
+      field('RecordTypeId', '012110000008s19'),
+      field('site_size', dataValue('size'))
+    )
+  )
+);
+```
 
-  if (userName != 'tester') {
-    return execute(
-      upsert("person__c", "Name", fields(
-        field(...),
-        field(...)
-      )),
-      beta.each(
-        dataPath("form.array[*]"),
-        upsert("object", "Name", fields(
-          field(...)
-        ))
+### Telerivet: Send SMS based on Salesforce workflow alert
+
+```js
+send(
+  fields(
+    field(
+      'to_number',
+      dataValue(
+        'Envelope.Body.notifications.Notification.sObject.phone_number__c'
       )
-    )(state)
-  }
-  return state;
+    ),
+    field('message_type', 'sms'),
+    field('route_id', ''),
+    field('content', function (state) {
+      return 'Hey there. Your name is '.concat(
+        dataValue('Envelope.Body.notifications.Notification.sObject.name__c')(
+          state
+        ),
+        '.'
+      );
+    })
+  )
+);
+```
+
+### HTTP: fetch but don't fail!
+
+```js
+// =============
+// We use "fetchWithErrors(...)" so that when the
+// SMS gateway returns an error the run does not "fail".
+// It "succeeds" and then delivers that error message
+// back to Salesforce with the "Update SMS Status" job.
+// =============
+fetchWithErrors({
+  getEndpoint: 'send_to_contact',
+  query: function (state) {
+    return {
+      msisdn:
+        state.data.Envelope.Body.notifications.Notification.sObject
+          .SMS__Phone_Number__c,
+      message:
+        state.data.Envelope.Body.notifications.Notification.sObject
+          .SMS__Message__c,
+      api_key: 'some-secret-key',
+    };
+  },
+  externalId: state.data.Envelope.Body.notifications.Notification.sObject.Id,
+  postUrl: 'https://www.openfn.org/inbox/another-secret-key',
 });
 ```
 
-### Controlling timing between operations with async functions.
-
-To get really complex, you might want to execute a number of async functions
-inside an `alterState` operation, but WAIT for those functions to resolve before
-moving on to your next operation. If `execute` doesn't work for your use case,
-you could use `Promise.all` and return an async function.
+### Sample DHIS2 events API job:
 
 ```js
-alterState(state => {
-  console.log('Here we will await the result of a LOT of async operations.');
-  console.log('First we define a bunch of different async functions.');
-  const postClinics = async c => {
-    return post(state.configuration.inboxUrl, {
-      body: { clinics: c },
-    })(state);
-  };
+event(
+  fields(
+    field('program', 'eBAyeGv0exc'),
+    field('orgUnit', 'DiszpKrYNg8'),
+    field('eventDate', dataValue('properties.date')),
+    field('status', 'COMPLETED'),
+    field('storedBy', 'admin'),
+    field('coordinate', {
+      latitude: '59.8',
+      longitude: '10.9',
+    }),
+    field('dataValues', function (state) {
+      return [
+        {
+          dataElement: 'qrur9Dvnyt5',
+          value: dataValue('properties.prop_a')(state),
+        },
+        {
+          dataElement: 'oZg33kd9taw',
+          value: dataValue('properties.prop_b')(state),
+        },
+        {
+          dataElement: 'msodh3rEMJa',
+          value: dataValue('properties.prop_c')(state),
+        },
+      ];
+    })
+  )
+);
+```
 
-  const postPatients = async p => {
-    return post(state.configuration.inboxUrl, {
-      body: { patients: p },
-    })(state);
-  };
+### Sample DHIS2 data value sets API job:
 
-  const postVisits = async v => {
-    return post(state.configuration.inboxUrl, {
-      body: { visits: v },
-    })(state);
-  };
+```js
+dataValueSet(
+  fields(
+    field('dataSet', 'pBOMPrpg1QX'),
+    field('orgUnit', 'DiszpKrYNg8'),
+    field('period', '201401'),
+    field('completeData', dataValue('date')),
+    field('dataValues', function (state) {
+      return [
+        { dataElement: 'f7n9E0hX8qk', value: dataValue('prop_a')(state) },
+        { dataElement: 'Ix2HsbDMLea', value: dataValue('prop_b')(state) },
+        { dataElement: 'eY5ehpbEsB7', value: dataValue('prop_c')(state) },
+      ];
+    })
+  )
+);
+```
 
-  console.log(
-    'Then we define a single function that wraps them all up and waits for all the individual functions to resolve.'
+### sample openMRS expression, creates a person and then a patient
+
+```js
+person(
+  fields(
+    field('gender', 'F'),
+    field('names', function (state) {
+      return [
+        {
+          givenName: dataValue('form.first_name')(state),
+          familyName: dataValue('form.last_name')(state),
+        },
+      ];
+    })
+  )
+),
+  patient(
+    fields(
+      field('person', lastReferenceValue('uuid')),
+      field('identifiers', function (state) {
+        return [
+          {
+            identifier: '1234',
+            identifierType: '8d79403a-c2cc-11de-8d13-0010c6dffd0f',
+            location: '8d6c993e-c2cc-11de-8d13-0010c6dffd0f',
+            preferred: true,
+          },
+        ];
+      })
+    )
   );
-  async function makePosts() {
-    return Promise.all([
-      ...state.data.clinicSets.map(item => postClinics(item)),
-      ...state.data.patientSets.map(item => postPatients(item)),
-      ...state.data.visitSets.map(item => postVisits(item)),
-    ]);
+```
+
+### merge many values into a child path
+
+```js
+each(
+  merge(
+    dataPath("CHILD_ARRAY[*]"),
+    fields(
+      field("metaId", dataValue("*meta-instance-id*")),
+      field("parentId", lastReferenceValue("id"))
+    )
+  ),
+  create(...)
+)
+```
+
+### arrayToString
+
+```js
+arrayToString(arr, separator_string);
+```
+
+### access an image URL from an ODK submission
+
+```js
+// In ODK the image URL is inside an image object...
+field("Photo_URL_text__c", dataValue("image.url")),
+```
+
+### alterState (alter state) to make sure data is in an array
+
+```js
+// Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
+alterState(state => {
+  const idCards = state.data.form.ID_cards_given_to_vendor;
+  if (!Array.isArray(idCards)) {
+    state.data.form.ID_cards_given_to_vendor = [idCards];
   }
-
-  console.log(
-    'Then we return that function, forcing our next operation to await the result of this one.'
-  );
-  return makePosts();
-});
-
-alterState(state => {
-  console.log('I get called AFTER those async functions are resolved.');
   return state;
 });
+
+// Now state has been changed, and we carry on...
+each(
+  merge(
+    dataPath('form.ID_cards_given_to_vendor[*]'),
+    fields(
+      field('Vendor_Id', dataValue('form.ID_vendor')),
+      field('form_finished_time', dataValue('form.meta.timeEnd'))
+    )
+  ),
+  upsert(
+    'Small_Packet__c',
+    'sp_id__c',
+    fields(
+      field('sp_id__c', dataValue('ID_cards_given_to_vendor')),
+      relationship('Vendor__r', 'Badge_Code__c', dataValue('Vendor_Id')),
+      field(
+        'Small_Packet_Distribution_Date__c',
+        dataValue('form_finished_time')
+      )
+    )
+  )
+);
+```
+
+### Login in to a server with a custom SSL Certificate
+
+This snippet describes how you would connect to a secure server ignoring SSL
+certificate verification. Set `strictSSL: false` in the options argument of the
+`post` function in `language-http`.
+
+```js
+post(
+  `${state.configuration.url}/${path}`,
+  {
+    headers: { 'content-type': 'application/json' },
+    body: {
+      email: 'Luka',
+      password: 'somethingSecret',
+    },
+    strictSSL: false,
+  },
+  callback
+);
+```
+
+## Anonymous Functions
+
+Different to [Named Functions](#examples-of-adaptor-specific-functions), Anonymous
+functions are generic pieces of javascript which you can write to suit your
+needs. Here are some examples of these custom functions:
+
+### Custom replacer
+
+```js
+field('destination__c', state => {
+  console.log(something);
+  return dataValue('path_to_data')(state).toString().replace('cats', 'dogs');
+});
+```
+
+This will replace all "cats" with "dogs" in the string that lives at
+`path_to_data`.
+
+> **NOTE:** The JavaScript `replace()` function only replaces the first instance
+> of whatever argument you specify. If you're looking for a way to replace all
+> instances, we suggest you use a regex like we did in the
+> [example](#custom-concatenation-of-null-values) below.
+
+### Custom arrayToString
+
+```js
+field("target_specie_list__c", function(state) {
+  return Array.apply(
+    null, sourceValue("$.data.target_specie_list")(state)
+  ).join(', ')
+}),
+```
+
+It will take an array, and concatenate each item into a string with a ", "
+separator.
+
+### Custom concatenation
+
+```js
+field('ODK_Key__c', function (state) {
+  return dataValue('metaId')(state).concat('(', dataValue('index')(state), ')');
+});
+```
+
+This will concatenate two values.
+
+### Concatenation of null values
+
+This will concatenate many values, even if one or more are null, writing them to
+a field called Main_Office_City_c.
+
+```js
+...
+  field("Main_Office_City__c", function(state) {
+    return arrayToString([
+      dataValue("Main_Office_City_a")(state) === null ? "" : dataValue("Main_Office_City_a")(state).toString().replace(/-/g, " "),
+      dataValue("Main_Office_City_b")(state) === null ? "" : dataValue("Main_Office_City_b")(state).toString().replace(/-/g, " "),
+      dataValue("Main_Office_City_c")(state) === null ? "" : dataValue("Main_Office_City_c")(state).toString().replace(/-/g, " "),
+      dataValue("Main_Office_City_d")(state) === null ? "" : dataValue("Main_Office_City_d")(state).toString().replace(/-/g, " "),
+    ].filter(Boolean), ',')
+  })
+```
+
+> Notice how this custom function makes use of the **regex** `/-/g` to ensure
+> that all instances are accounted for (g = global search).
+
+### Custom Nth reference ID
+
+If you ever want to retrieve the FIRST object you created, or the SECOND, or the
+Nth, for that matter, a function like this will do the trick.
+
+```js
+field('parent__c', function (state) {
+  return state.references[state.references.length - 1].id;
+});
+```
+
+See how instead of taking the id of the "last" thing that was created in
+Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace
+"length-1" with "length-2".
+
+### Convert date string to standard ISO date for Salesforce
+
+```js
+field('Payment_Date__c', function (state) {
+  return new Date(dataValue('payment_date')(state)).toISOString();
+});
+```
+
+> **NOTE**: The output of this function will always be formatted according to
+> GMT time-zone.
+
+### Use external ID fields for relationships during a bulk load in Salesforce
+
+```js
+array.map(item => {
+  return {
+    Patient_Name__c: item.fullName,
+    'Clinic__r.Unique_Clinic_Identifier__c': item.clinicId,
+    'RecordType.Name': item.type,
+  };
+});
+```
+
+### Bulk upsert with an external ID in salesforce
+
+```js
+bulk(
+  'Visit_new__c',
+  'upsert',
+  {
+    extIdField: 'commcare_case_id__c',
+    failOnError: true,
+    allowNoOp: true,
+  },
+  dataValue('patients')
+);
 ```
