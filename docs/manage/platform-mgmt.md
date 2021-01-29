@@ -160,7 +160,7 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 
 ## Add / remove collaborators
 
-You can add colleagues or collaborators to your project by:
+You can add collaborators to your project by:
 
 1. Navigate to your project's **Access & Security** page (#1)
 
@@ -174,11 +174,9 @@ You can add colleagues or collaborators to your project by:
 
 4. To revoke collaborator access simply click on the **Revoke** button (#4)
 
-   ![Access&Security Circled](/img/access&security1.png)
+   ![Access&Security Circled](/img/access_security_collaboration1.png)
 
 <!-- TODO: @Jed -->
-
-## Grant support access
 
 ## Inbox Security
 
