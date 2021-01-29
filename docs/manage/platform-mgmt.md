@@ -158,27 +158,50 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 
 (work in progress)
 
-## Add / remove collaborators
+## Access & Security
 
-You can add collaborators to your project by:
+This section covers the **Access & Security** features each OpenFn project has.
+To explore these features, on the left hand navigation ribbon click on the
+**Access & Security** tab (#1).
 
-1. Navigate to your project's **Access & Security** page (#1)
+_Please refer to the screenshot below for help navigating the functionality of
+this page._
 
-2. Enter the e-mail address of your collaborator in the "Add collaborator by
-   email" field. Note that you will need to select "colleague" or "collaborator"
-   to add him/her to the project (#2)
-   <!-- TODO: @Taylor please write what each access level gives you. As I recall a collaborator has same access as an admin with the only difference being billing stuff right? -->
+![Access&Security Circled](/img/access_security1.png)
 
-3. To grant OpenFn Implementation Specialists support access to your project
-   enable the **Grant support access** toggle (#3).
+### User Access
 
-4. To revoke collaborator access simply click on the **Revoke** button (#4)
+OpenFn provides users with the ability to **add collaborator access**, **revoke
+collaborator access**, and, in the event you get stuck and need help from an
+implementation specialist, **grant OpenFn support access**.
 
-   ![Access&Security Circled](/img/access_security_collaboration1.png)
+#### Add collaborator access
 
-<!-- TODO: @Jed -->
+To add collaborator access to your project from the **Access & Security** page:
 
-## Inbox Security
+- Enter the e-mail address of your collaborator in the "Add collaborator by
+email" field. Note that you will need to select "add as collaborator," or add as
+administrator" to add him/her to the project. See the screenshot above for
+reference (#2).
+<!-- TODO: @Taylor the only difference between collaborator and admin is billing access right?z -->
+
+#### Revoke collaborator access
+
+To revoke collaborator access to your project from the **Access & Security**
+page:
+
+- Find the collaborator's name in the **User** list and in the **Revoke** column
+  click on the on the **Revoke** button. See the screenshot above for reference
+  (#3).
+
+#### Grant OpenFn support access
+
+To add OpenFn support team's access to your project from the **Access &
+Security** page:
+
+- Enable the **Grant support access** toggle (#4).
+
+### Inbox Security
 
 OpenFn project administrators can choose to configure additional authentication
 for any inbound requests made to the project's inbox URL. In the "Access &
