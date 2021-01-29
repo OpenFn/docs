@@ -158,11 +158,27 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 
 (work in progress)
 
-## Add collaborators
+## Add / remove collaborators
 
-(work in progress)
+You can add colleagues or collaborators to your project by:
+
+1. Navigate to your project's **Access & Security** page (#1)
+
+2. Enter the e-mail address of your collaborator in the "Add collaborator by
+   email" field. Note that you will need to select "colleague" or "collaborator"
+   to add him/her to the project (#2)
+   <!-- TODO: @Taylor please write what each access level gives you. As I recall a collaborator has same access as an admin with the only difference being billing stuff right? -->
+
+3. To grant OpenFn Implementation Specialists support access to your project
+   enable the **Grant support access** toggle (#3).
+
+4. To revoke collaborator access simply click on the **Revoke** button (#4)
+
+   ![Access&Security Circled](/img/access&security1.png)
 
 <!-- TODO: @Jed -->
+
+## Grant support access
 
 ## Inbox Security
 
