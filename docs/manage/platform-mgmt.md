@@ -136,11 +136,23 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 
 ## Account Management
 
-(work in progress)
-
 ### Add a credit card
 
-(work in progress)
+OpenFn's hosted iPaaS plans start with a free tier, but should your organization
+require a more expansive feature set, there are several premium tiers to
+consider. For comprehensive pricing information please visit our
+[pricing page](https://openfn.org/pricing). 
+
+Activation of premium tiers will
+require credit card entry. To enter your credit card information follow these steps:
+
+1. Login to your OpenFn account.
+2. Click on your profile icon on the top right corner of the page and select
+   **Billing**.
+3. From the **Billing** page select **Add Card** and enter your credit card
+   information.
+
+![Credit Card](/img/add_credit_card.gif)
 
 ### Change plan
 
