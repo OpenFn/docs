@@ -44,6 +44,7 @@ Installation
 ```console
 yarn install
 ```
+(On Mac, I first had to run `npm install --global yarn` and then run this^ command in the `/docs` repo.)
 
 ##### Local Development
 
