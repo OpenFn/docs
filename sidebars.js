@@ -56,7 +56,7 @@ module.exports = {
           ],
         },
         'deploy/devtools',
-        
+        'build/adaptors',
         // 'build/messages',
         // 'build/runs',
       ],
