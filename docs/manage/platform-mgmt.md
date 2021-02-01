@@ -155,7 +155,18 @@ To enter your credit card information follow these steps:
 
 ### Change plan
 
-(work in progress)
+Once your credit card information is entered you can upgrade your plan by
+following these steps:
+
+1. Login to your OpenFn account.
+2. Click on your profile icon on the top right corner of the page and select
+   **Billing**
+3. Select the "Project" that you would like to upgrade. This will take you to
+   the "Project Settings" menu.
+4. Scroll down on the "Project Settings" page and change plans using the slider.
+5. Once you have selected the desired plan, confirm the change.
+
+![Change Plans](/img/change_plan.gif)
 
 ### Lost password
 
