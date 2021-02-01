@@ -138,13 +138,12 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 
 ### Add a credit card
 
-OpenFn's hosted iPaaS plans start with a free tier, but should your organization
-require a more expansive feature set, there are several premium tiers to
-consider. For comprehensive pricing information please visit our
-[pricing page](https://openfn.org/pricing). 
+OpenFn's hosted iPaaS has a free-forever tier, but if your organization requires
+more jobs or runs each month, you can add a credit card and change to a paid
+tier. For comprehensive pricing information please visit our
+[pricing page](https://openfn.org/pricing).
 
-Activation of premium tiers will
-require credit card entry. To enter your credit card information follow these steps:
+To enter your credit card information follow these steps:
 
 1. Login to your OpenFn account.
 2. Click on your profile icon on the top right corner of the page and select
