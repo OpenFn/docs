@@ -10,13 +10,10 @@ module.exports = {
   organizationName: 'openfn',
   projectName: 'docs',
   themeConfig: {
-    // algolia: {
-    //   apiKey: '25626fae796133dc1e734c6bcaaeac3c',
-    //   indexName: 'docsearch',
-    //   //   // Optional: Algolia search parameters
-    //   //   searchParameters: {},
-    //   //   //... other Algolia params
-    // },
+    algolia: {
+      apiKey: '9f286454b0688588aa96160ce8754bc0',
+      indexName: 'openfn',
+    },
     hideableSidebar: true,
     gtag: {
       trackingID: 'UA-57118569-4',
@@ -156,12 +153,6 @@ module.exports = {
         routeBasePath: 'articles',
         path: './articles',
         showReadingTime: true,
-      },
-    ],
-    [
-      require.resolve('docusaurus-lunr-search'),
-      {
-        indexBaseUrl: true,
       },
     ],
   ],
