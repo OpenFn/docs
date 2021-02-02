@@ -26,6 +26,19 @@ module.exports = {
     // },
     {
       type: 'category',
+      label: 'Apps',
+      items: [
+        // 'tools/bamboohr',
+        'tools/commcare',
+        'tools/godata',
+        'tools/kobo-toolbox',
+        'tools/salesforce',
+        'source-apps',
+        'for-devs',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Build',
       items: [
         {
@@ -41,20 +54,7 @@ module.exports = {
         },
         'build/credentials',
         'build/triggers',
-        {
-          type: 'category',
-          label: 'Data Sources',
-          items: [
-            'build/inbox',
-            'source-apps',
-            // 'tools/bamboohr',
-            'tools/commcare',
-            'tools/godata',
-            'tools/kobo-toolbox',
-            'tools/salesforce',
-            'for-devs',
-          ],
-        },
+        'build/inbox',
         'deploy/devtools',
         'build/adaptors',
         // 'build/messages',
