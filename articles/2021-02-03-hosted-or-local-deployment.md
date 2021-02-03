@@ -62,7 +62,7 @@ CommCare, DHIS2 and OpenFn do not provide hosting in the country where the
 software is needed. Plus, Zandile's organization has an experienced IT team that
 has a lot of experience in server management.
 
-## Which Deployment Option is Best for you?
+## Which Deployment Option is Best for your organization?
 
 The answer is: "it depends", but if your organization has never managed local
 software deployments, then we recommend going the SaaS approach. SaaS systems,

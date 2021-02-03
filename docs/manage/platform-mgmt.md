@@ -176,7 +176,18 @@ To following these steps:
 
 ### Lost password
 
-(work in progress)
+If at any time you forget the password for your OpenFn account follow these
+steps to reset it:
+
+1. Visit https://openfn.org/login .
+2. Enter the email address associated with your account.
+3. Click on **Recover Password** (see gif below). This will trigger OpenFn to send
+   a recovery token to your associated email account.
+4. Check your email for the recovery token and make a copy of it.
+5. Enter your recovery token and a new password into the OpenFn "Reset Password"
+   page.
+
+![Password Reset](/img/forgot_password1.gif)
 
 ## Project settings
 
