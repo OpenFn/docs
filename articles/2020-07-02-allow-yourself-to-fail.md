@@ -15,6 +15,8 @@ Even if you've never heard of
 one moment about the importance of upserts and a funny developer term called
 "idempotence."
 
+<!--truncate-->
+
 We just extended our
 [language-mssql adaptor](https://github.com/OpenFn/language-mssql) with a custom
 function that allows upserts (an `upsert` is when you either insert a new record

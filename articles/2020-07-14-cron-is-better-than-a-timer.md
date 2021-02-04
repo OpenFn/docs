@@ -12,6 +12,8 @@ Hi all, this is a quick one from the product team at
 [OpenFn](https://openfn.org/) — we've made a major upgrade to how timed/period
 jobs work.
 
+<!--truncate-->
+
 In the past, if you weren't using OpenFn to drive some real-time (or
 "event-based") automation, you'd need to set up an "interval trigger." Like the
 photo above, this was essentially a sand timer. Set your trigger to `10` seconds

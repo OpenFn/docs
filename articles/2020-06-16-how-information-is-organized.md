@@ -20,6 +20,8 @@ a non-profit is organized. I thought I was getting into a technical
 discussion—I’ve been doing system architecture discussions for years—but what we
 ended up talking about was how this NGO thinks.
 
+<!--truncate-->
+
 This engagement is largely about mapping an already existing “people & paper”
 based system to technology. Vera Solutions will build a system for this client
 using Open Data Kit for field data collection and Salesforce.com for the

@@ -11,6 +11,8 @@ _Automation can save time, unlock critical resources, and enable scale–but it
 typically requires investment to set up. Wondering whether you should automate
 your processes? Ask yourself these 3 questions._
 
+<!--truncate-->
+
 ### Our partners use [OpenFn](https://openfn.org) automation solutions to drive efficiency and scale their processes, delivering integrated digital systems that work better, faster, and together.
 
 To date, we have worked with 43 social sector organizations that operate across
