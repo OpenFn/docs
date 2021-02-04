@@ -13,6 +13,8 @@ upserts aren’t supported by a standard DHIS2 API endpoint. We built one in our
 dhis2 adaptor: it’s composed of existing APIs and a bit of logic 🤔. Now you can
 `upsert` tracked entity instances to DHIS2 👍 ✅.
 
+<!--truncate-->
+
 ## A bit more...
 
 An “UPSERT” is a portmanteau of the database functions UPDATE and INSERT. It’s
