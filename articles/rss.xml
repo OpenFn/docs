@@ -4,9 +4,16 @@
         <title>OpenFn Blog</title>
         <link>https://docs.openfn.org/articles</link>
         <description>OpenFn Blog</description>
-        <lastBuildDate>Wed, 09 Dec 2020 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 03 Feb 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <item>
+            <title><![CDATA[Our Servers or Yours: Thinking through deployment options]]></title>
+            <link>https://docs.openfn.org/articles/2021/02/03/hosted-or-local-deployment</link>
+            <guid>Our Servers or Yours: Thinking through deployment options</guid>
+            <pubDate>Wed, 03 Feb 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Zandile is a program manager at an iNGO and she needs to use CommCare, DHIS2,]]></description>
+        </item>
         <item>
             <title><![CDATA[Tracked entity instances in DHIS2]]></title>
             <link>https://docs.openfn.org/articles/2020/12/09/upsert-in-dhis2</link>
