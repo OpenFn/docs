@@ -63,3 +63,87 @@ export function create(path, params, callback) {
   };
 }
 ```
+
+## Build and tests
+
+### Build
+
+Building an adaptor is done by running the command `make` from the root folder.
+
+![Build an adaptor](/img/make.png)
+
+### Tests
+
+Tests can be written with nock under the path `test/index.js`.
+
+```javascript
+describe('createPatient', () => {
+  before(() => {
+    nock('https://fakepatient.server.com')
+      .post('/api/patients')
+      .reply(200, (uri, requestBody) => {
+        return { ...requestBody, fullName: 'Mamadou', gender: 'M' };
+      });
+  });
+
+  it('makes a post request to the patient endpoint', async () => {
+    const state = {
+      configuration: {
+        baseUrl: 'https://fakepatient.server.com',
+        username: 'hello',
+        password: 'there',
+      },
+      data: {
+        fullName: 'Mamadou',
+        gender: 'M',
+      },
+    };
+
+    const finalState = await execute(
+      create('api/patients', {
+        name: dataValue('fullName')(state),
+        gender: dataValue('gender')(state),
+      })
+    )(state);
+
+    expect(finalState.data).to.eql({
+      fullName: 'Mamadou',
+      gender: 'M',
+    });
+  });
+});
+```
+
+Run your tests with `npm run test`. Tests are written to assess dummy calls on
+the available helper functions. ![NPM run test](/img/runtest.png)
+
+When writing tests, bear in mind as well for scenarios that could trigger
+errors.
+
+```javascript
+describe('create', () => {
+  before(() => {
+    nock('https://fake.server.com')
+      .post('/api/noAccess')
+      .reply(404, (uri, requestBody) => {
+        return { detail: 'Not found.' };
+      });
+
+  it('throws an error for a 404', async () => {
+    const state = {
+      configuration: {
+        baseUrl: 'https://fake.server.com',
+        username: 'hello',
+        password: 'there',
+      },
+    };
+    const error = await execute(create('api/noAccess', { name: 'taylor' }))(
+      state
+    ).catch(error => {
+      return error;
+    });
+    expect(error.message).to.eql('Request failed with status code 404');
+  });
+
+});
+```

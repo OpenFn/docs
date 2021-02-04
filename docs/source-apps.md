@@ -25,7 +25,7 @@ with a REST api or a JSON-based notification service can be used with OpenFn.
 ## Magpi
 
 Magpi is not able to push data to external URLs. In order to fetch data from
-Magpi, you must run a scheduled job with a cron trigger using `langugage-magpi`:
+Magpi, you must run a scheduled job with a cron trigger using `language-magpi`:
 
 ```js
 fetchSurveyData({
