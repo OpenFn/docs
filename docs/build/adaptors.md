@@ -21,12 +21,13 @@ starting with the prefix `language-XXXX`. Some examples are:
 When creating or editing a job, you can choose the adaptor to run the job. This
 way you "import" the needed operations. Simply open the dropdown list of
 adaptors, and click on one.
-![Adaptors list in job editor](/img/adaptor_choice_openfn.png)
+
+<img src="/img/adaptor_choice_openfn.png" width="300" />
 
 ### On npm
 
 Some of our language-packages are also available in
-`npmjs (https://www.npmjs.com/search?q=%40openfn)`.
+[npmjs](https://www.npmjs.com/search?q=%40openfn).
 
 ![Adaptors list in npm](/img/adaptor_npm.png)
 
@@ -39,7 +40,7 @@ You can develop a new adaptor from scratch or extend an existing one.
 Extending an adaptor equals adding one or multiple new operations. The new
 operations can be added inside the `src/Adaptor.js` file of the adaptor.
 
-![Adaptor.js](/img/srcfolder.png)
+<img src="/img/srcfolder.png" width="400" />
 
 ### Developing a new adaptor
 
@@ -115,7 +116,34 @@ describe('createPatient', () => {
 ```
 
 Run your tests with `npm run test`. Tests are written to assess dummy calls on
-the available helper functions. ![NPM run test](/img/runtest.png)
+the available helper functions.
+
+```sh
+ ~/devtools/adaptors/adaptor > npm run test
+
+> language-template@1.0.0 test /home/taylor/devtools/adaptors/adaptor
+> mocha --require @babel/register
+
+
+
+  execute
+    ✓ executes each operation in sequence
+    ✓ assigns references, data to the initialState
+
+  create
+    ✓ makes a post request to the right endpoint
+    ✓ throws an error for a 404
+    ✓ handles and throws different kinds of errors
+
+  createPatient
+    ✓ makes a post request to the patient endpoint
+
+
+  6 passing (16ms)
+
+ ~/devtools/adaptors/adaptor >
+```
+
 
 When writing tests, bear in mind as well for scenarios that could trigger
 errors.
