@@ -187,7 +187,7 @@ steps to reset it:
 5. Enter your recovery token and a new password into the OpenFn "Reset Password"
    page.
 
-![Password Reset](/img/reset_password1.gif)
+![Password Reset](/img/recover_password.gif)
 
 ## Project settings
 
