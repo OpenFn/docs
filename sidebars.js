@@ -69,7 +69,6 @@ module.exports = {
         'deploy/platform',
         'deploy/microservices',
         'deploy/core',
-        // 'deploy/troubleshooting',
       ],
     },
     {

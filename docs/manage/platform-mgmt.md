@@ -181,13 +181,13 @@ steps to reset it:
 
 1. Visit https://openfn.org/login .
 2. Enter the email address associated with your account.
-3. Click on **Recover Password** (see gif below). This will trigger OpenFn to send
-   a recovery token to your associated email account.
+3. Click on **Recover Password** (see gif below). This will trigger OpenFn to
+   send a recovery token to your associated email account.
 4. Check your email for the recovery token and make a copy of it.
 5. Enter your recovery token and a new password into the OpenFn "Reset Password"
    page.
 
-![Password Reset](/img/forgot_password1.gif)
+![Password Reset](/img/recover_password.gif)
 
 ## Project settings
 
@@ -195,7 +195,38 @@ steps to reset it:
 
 ### Change concurrency
 
-(work in progress)
+**Concurrency** is the number of jobs that will be run at the same time.
+
+:::note
+
+Think of it as the number of workers or employees performing the same task at
+your organization. The task may be to convert an inbound patient record to meet
+the FHIR standard, then load it into OpenMRS. You could have 10 files waiting to
+be processed from separate deliveries. With a concurrency of 10, all ten files
+would start to be processed immediately. With a concurrency of 1, they'd be
+processed sequentially, the second only being started once your single worker
+finished working on the first.
+
+:::
+
+Projects are set to a concurrency of "1" by default. This means that runs will
+be processed one-at-a-time and that each subsequent run will be blocked until
+the previous run is completed.
+
+If your project is subscribed to a paid plan, you have the option of toggling
+concurrency from the default "1" all the way up to a concurrency of "10".
+
+To change the concurrency level for your project follow these steps:
+
+1. Login to your OpenFn account.
+2. Click on the **Project Settings** link on the left-hand menu of the project
+   you'd like to modify.
+3. This will take you to the **Project Settings** menu.
+4. On the **Project Settings** page change concurrency to the appropriate level
+   using the slider.
+5. Once you have selected the desired concurrency, click **Update Project**.
+
+![Password Reset](/img/change_concurrency.gif)
 
 ## Access & Security
 
