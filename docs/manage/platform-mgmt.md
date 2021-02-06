@@ -195,12 +195,23 @@ steps to reset it:
 
 ### Change concurrency
 
-**Concurrency** is when multiple sequences of operations are run in overlapping
-periods of time.
+**Concurrency** is the number of jobs that will be run at the same time.
 
-In the world of OpenFn integrations, all projects are set to a concurrency of
-"1" by default. This means that runs will be processed one-at-a-time and that
-each subsequent run will be blocked until the previous run is completed.
+:::note
+
+Think of it as the number of workers or employees performing the same task at
+your organization. The task may be to convert an inbound patient record to meet
+the FHIR standard, then load it into OpenMRS. You could have 10 files waiting to
+be processed from separate deliveries. With a concurrency of 10, all ten files
+would start to be processed immediately. With a concurrency of 1, they'd be
+processed sequentially, the second only being started once your single worker
+finished working on the first.
+
+:::
+
+Projects are set to a concurrency of "1" by default. This means that runs will
+be processed one-at-a-time and that each subsequent run will be blocked until
+the previous run is completed.
 
 If your project is subscribed to a paid plan, you have the option of toggling
 concurrency from the default "1" all the way up to a concurrency of "10".
