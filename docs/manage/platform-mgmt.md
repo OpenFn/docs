@@ -226,7 +226,7 @@ To change the concurrency level for your project follow these steps:
    using the slider.
 5. Once you have selected the desired concurrency, click **Update Project**.
 
-![Password Reset](/img/change_concurrency.gif)
+![Change Concurrency](/img/change_concurrency.gif)
 
 ## Access & Security
 
