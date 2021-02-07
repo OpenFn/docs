@@ -3,15 +3,17 @@ layout: post
 title:
   'Keeping Track of Payments to Help Sinapis Scale Small, Growing Businesses in
   Africa'
-author: leilei
+author: Lei Lei Tun
 categories: [case study, M-Pesa, Kopo Kopo, Salesforce, payments]
-image: assets/images/sinapis.jpg
+image: /img/sinapis.jpg
 featured: false
 ---
 
-_Integration has saved Sinapis staff hundreds of manual hours and ensures
-that all payment information is always accurate up-to-date to help Sinapis
-to run programs smoothly._
+_Integration has saved Sinapis staff hundreds of manual hours and ensures that
+all payment information is always accurate up-to-date to help Sinapis to run
+programs smoothly._
+
+<!--truncate-->
 
 ### Sinapis is accelerating small business development across Kenya, Uganda, and Rwanda with their innovative training program.
 
@@ -40,7 +42,8 @@ M-Pesa and other mobile payment types from enrolled entrepreneurs. Kopo Kopo,
 however, was not integrated with Salesforce, so Sinapis staff had no easy way to
 track payments and outstanding balances.
 
-### OpenFn saves Sinapis management time by integrating payments data for real-time account monitoring. 
+### OpenFn saves Sinapis management time by integrating payments data for real-time account monitoring.
+
 When payments are made via Kopo Kopo, OpenFn...
 
 1. Automatically matches incoming payments with existing Sinapis accounts,
@@ -53,7 +56,7 @@ hours of manual data entry work and ensures that all payment information is
 always accurate up-to-date. This helps Sinapis to run its programs more smoothly
 and focus on its mission to train 10,000 entrepreneurs. In 2018 and 2019 alone,
 Sinapis helped employ 4,863 people and impacted over 24,000 lives by creating
-jobs for those in extreme poverty. 
+jobs for those in extreme poverty.
 
 Check out Sinapis’s
 [2018-2019 annual report](https://sinapis.org/wp-content/uploads/2020/04/2018-19-Sinapis-Annual-Report-Digital-Version.pdf)

@@ -42,11 +42,11 @@ module.exports = {
           label: 'Articles',
           position: 'left',
         },
-        // {
-        //   to: 'blog',
-        //   label: 'Blog',
-        //   position: 'left',
-        // },
+        {
+          to: 'blog',
+          label: 'Blog',
+          position: 'left',
+        },
         {
           href: 'https://github.com/openfn/docs',
           position: 'right',
@@ -73,10 +73,10 @@ module.exports = {
               label: 'Articles',
               to: 'articles',
             },
-            // {
-            //   label: 'Blog',
-            //   to: 'blog',
-            // },
+            {
+              label: 'Blog',
+              to: 'blog',
+            },
           ],
         },
         {
@@ -126,10 +126,10 @@ module.exports = {
           routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/main',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   editUrl: 'https://github.com/openfn/docs/edit/master/',
-        // },
+        blog: {
+          showReadingTime: true,
+          editUrl: 'https://github.com/openfn/docs/edit/master/',
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },

@@ -2,7 +2,7 @@
 layout: post
 title: 'Enabling Scale at myAgro, 6 Years Later'
 snippet: 'This is just a test'
-author: leilei
+author: Lei Lei Tun
 categories:
   [
     case study,
@@ -14,7 +14,7 @@ categories:
     data monitoring,
     SMS,
   ]
-image: assets/images/myAgro1.JPG
+image: /img/myAgro1.JPG
 featured: true
 ---
 
@@ -24,6 +24,8 @@ world, but a majority of them are in an endless cycle of poverty and lack access
 to traditional banks and financing. In this post, we highlight our partner
 myAgro, an organization leveraging OpenFn automation to help scale its programs
 towards its goal of serving 1 million farmers in 2025._
+
+<!--truncate-->
 
 ### Here's the overview.
 
@@ -45,7 +47,7 @@ mobile layaway platform that connects their Telerivet SMS-based savings deposit
 system, Salesforce farmer tracking & supply chain system, and CommCare
 barcode-scanning mobile app.
 
-![myagro]({{ site.baseurl }}/assets/images/farmers.jpg)
+![myagro](/img/farmers.jpg)
 
 ### Using Excel and paper to manage thousands of farmer transactions.
 
@@ -76,7 +78,7 @@ tracking system that enables real-time program monitoring.
 - With the help of OpenFn, myAgro worked with 120,000 farmers in 2019, and plans
   to scale towards its goal of reaching `1 million farmers` by 2025.
   
-![myagro]({{ site.baseurl }}/assets/images/myagrograph.jpg)
+![myagro](/img/myagrograph.jpg)
 
 Read more about myAgro’s mission [here](https://www.myagro.org/), and stay tuned
 as myAgro continues to scale its OpenFn implementation.
