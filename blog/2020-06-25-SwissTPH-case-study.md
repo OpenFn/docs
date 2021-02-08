@@ -2,7 +2,7 @@
 layout: post
 title: 'Real-Time Disease Monitoring for SwissTPH'
 author: Lei Lei Tun
-categories: [case study, SwissTPH, healthcare, CommCare, DHIS2, data monitoring]
+tags: [case study, SwissTPH, healthcare, CommCare, DHIS2, data monitoring]
 image: /img/swisstph1.jpg
 featured: false
 ---

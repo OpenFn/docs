@@ -45,7 +45,7 @@ module.exports = {
         {
           to: 'blog',
           label: 'Blog',
-          position: 'left',
+          position: 'right',
         },
         {
           href: 'https://github.com/openfn/docs',
@@ -107,10 +107,6 @@ module.exports = {
               label: 'Github',
               href: 'https://github.com/openfn',
             },
-            {
-              label: 'Blog',
-              href: 'https://blog.openfn.org',
-            },
           ],
         },
       ],
@@ -128,7 +124,12 @@ module.exports = {
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/openfn/docs/edit/master/',
+          editUrl: 'https://github.com/openfn/docs/edit/main',
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
+            title: 'The OpenFn Blog',
+          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -153,6 +154,12 @@ module.exports = {
         routeBasePath: 'articles',
         path: './articles',
         showReadingTime: true,
+        editUrl: 'https://github.com/openfn/docs/edit/main',
+        feedOptions: {
+          type: 'all',
+          copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
+          title: 'OpenFn Help Articles',
+        },
       },
     ],
   ],

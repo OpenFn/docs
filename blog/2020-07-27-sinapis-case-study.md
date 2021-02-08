@@ -4,7 +4,7 @@ title:
   'Keeping Track of Payments to Help Sinapis Scale Small, Growing Businesses in
   Africa'
 author: Lei Lei Tun
-categories: [case study, M-Pesa, Kopo Kopo, Salesforce, payments]
+tags: [case study, M-Pesa, Kopo Kopo, Salesforce, payments]
 image: /img/sinapis.jpg
 featured: false
 ---

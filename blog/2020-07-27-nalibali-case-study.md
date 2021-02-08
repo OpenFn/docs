@@ -63,7 +63,7 @@ effective.
 
 As Nal’ibali continues to scale its programs and reach, it released a new online
 learning site for its readers earlier this year. Check it out the new site at
-[www.nalibali.mobi](www.nalibali.mobi)! To learn more about Nal'ibali's impact
+[www.nalibali.mobi](https://www.nalibali.mobi)! To learn more about Nal'ibali's impact
 and mission, also check out
 [their main website](https://www.nalibali.org/impact-reach).
 

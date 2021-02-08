@@ -3,7 +3,7 @@ layout: post
 title: 'To Automate or Not to Automate? Ask Yourself These 3 Questions.'
 author: Aleksa Krolls
 author_image_url: https://secure.gravatar.com/avatar/b59257a59a25dfc3b3e3ba1b5184dbf4
-categories: [tips]
+tags: [tips]
 featured: true
 ---
 

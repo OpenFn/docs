@@ -2,7 +2,7 @@
 layout: post
 title: 'Building Integrated Systems That Just Work'
 author: Taylor Downs
-categories: [tips]
+tags: [tips]
 image: /img/roads.jpg
 featured: false
 ---

@@ -2,7 +2,7 @@
 layout: post
 title: 'Technology Is Not The Answer, but It Should Not Be The Problem'
 author: Taylor Downs
-categories: [tips]
+tags: [tips]
 image: /img/technology1.jpg.jpg
 featured: false
 ---

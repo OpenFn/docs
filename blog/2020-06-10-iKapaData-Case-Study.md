@@ -2,7 +2,7 @@
 layout: post
 title: 'Automating Real-Time Census Monitoring and Data Cleaning for iKapaData'
 author: Lei Lei Tun
-categories: [case study, iKapaData, SurveyCTO, Zoho, Carto, data monitoring]
+tags: [case study, iKapaData, SurveyCTO, Zoho, Carto, data monitoring]
 image: /img/ikapa2.jpg
 featured: false
 ---
