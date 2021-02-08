@@ -1,8 +1,10 @@
 ---
 layout: post
 title: 'Tracking Real-Time Progress of HIV-Affected Communities in Haiti'
-author: taylor
-categories:
+author: Taylor Downs
+author_url: https://github.com/taylordowns2000
+author_image_url: https://avatars.githubusercontent.com/taylordowns2000
+tags:
   [
     case study,
     Caris Foundation,
@@ -15,8 +17,10 @@ image: /img/carisfoundation.jpeg
 featured: false
 ---
 
-_OpenFn data integration has enabled the Caris Foundation to "work towards a
-better experience for the patient, for the agent, and for external reporting."_
+![Caris](/img/carisfoundation.jpeg)
+
+OpenFn data integration has enabled the Caris Foundation to "work towards a
+better experience for the patient, for the agent, and for external reporting."
 
 <!--truncate-->
 

@@ -2,14 +2,15 @@
 layout: post
 title: 'To Automate or Not to Automate? Ask Yourself These 3 Questions.'
 author: Aleksa Krolls
-author_image_url: https://secure.gravatar.com/avatar/b59257a59a25dfc3b3e3ba1b5184dbf4
+author_url: https://github.com/aleksa-krolls
+author_image_url: https://avatars.githubusercontent.com/aleksa-krolls
 tags: [tips]
 featured: true
 ---
 
-_Automation can save time, unlock critical resources, and enable scale–but it
+Automation can save time, unlock critical resources, and enable scale–but it
 typically requires investment to set up. Wondering whether you should automate
-your processes? Ask yourself these 3 questions._
+your processes? Ask yourself these 3 questions.
 
 <!--truncate-->
 

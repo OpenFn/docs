@@ -125,6 +125,7 @@ module.exports = {
         blog: {
           showReadingTime: true,
           editUrl: 'https://github.com/openfn/docs/edit/main',
+          blogSidebarCount: 6,
           feedOptions: {
             type: 'all',
             copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
@@ -153,6 +154,7 @@ module.exports = {
         id: 'articles',
         routeBasePath: 'articles',
         path: './articles',
+        blogSidebarCount: 6,
         showReadingTime: true,
         editUrl: 'https://github.com/openfn/docs/edit/main',
         feedOptions: {

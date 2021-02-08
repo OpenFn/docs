@@ -4,15 +4,19 @@ title:
   'Connecting Beneficiaries, Data, and SMS to Expand the Reach of Literacy
   Groups Across South Africa'
 author: Lei Lei Tun
-categories:
+author_url: https://github.com/hninleileitun
+author_image_url: https://avatars.githubusercontent.com/hninleileitun
+tags:
   [case study, education, odk, Salesforce, SMS, learning management system]
 image: /img/nalibali.jpg
 ---
 
-_Nal’ibali is on a mission to change education across South Africa through its
+![Nal’ibali](/img/nalibali.jpg)
+
+Nal’ibali is on a mission to change education across South Africa through its
 reading-for-enjoyment initiative, which promotes reading and writing in mother
-tongue languages. To effecitvely monitor program activities and children reached
-across the country, Nal’ibali needed to integrate multiple data platforms._
+tongue languages. To effectively monitor program activities and children reached
+across the country, Nal’ibali needed to integrate multiple data platforms.
 
 <!--truncate-->
 
@@ -63,8 +67,8 @@ effective.
 
 As Nal’ibali continues to scale its programs and reach, it released a new online
 learning site for its readers earlier this year. Check it out the new site at
-[www.nalibali.mobi](https://www.nalibali.mobi)! To learn more about Nal'ibali's impact
-and mission, also check out
+[www.nalibali.mobi](https://www.nalibali.mobi)! To learn more about Nal'ibali's
+impact and mission, also check out
 [their main website](https://www.nalibali.org/impact-reach).
 
 _The photo above was originally posted on the

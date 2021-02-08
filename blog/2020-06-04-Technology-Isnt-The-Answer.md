@@ -2,13 +2,17 @@
 layout: post
 title: 'Technology Is Not The Answer, but It Should Not Be The Problem'
 author: Taylor Downs
+author_url: https://github.com/taylordowns2000
+author_image_url: https://avatars.githubusercontent.com/taylordowns2000
 tags: [tips]
-image: /img/technology1.jpg.jpg
+image: /img/technology1.jpg
 featured: false
 ---
 
-_OpenFn’s first objective is to knock down the technical hurdles so
-organizations can focus on the important contextual stuff._
+![tech1](/img/technology1.jpg)
+
+OpenFn’s first objective is to knock down the technical hurdles so organizations
+can focus on the important contextual stuff.
 
 <!--truncate-->
 

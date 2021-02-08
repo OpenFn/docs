@@ -1,9 +1,10 @@
 ---
 layout: post
 title: 'Enabling Scale at myAgro, 6 Years Later'
-snippet: 'This is just a test'
 author: Lei Lei Tun
-categories:
+author_url: https://github.com/hninleileitun
+author_image_url: https://avatars.githubusercontent.com/hninleileitun
+tags:
   [
     case study,
     myAgro,
@@ -18,12 +19,14 @@ image: /img/myAgro1.JPG
 featured: true
 ---
 
-_OpenFn is helping small-scale farmers break the cycle of poverty with an
+![myAgro](/img/myAgro1.JPG)
+
+OpenFn is helping small-scale farmers break the cycle of poverty with an
 automated savings & supply chain system. Small-scale farmers are feeding the
 world, but a majority of them are in an endless cycle of poverty and lack access
 to traditional banks and financing. In this post, we highlight our partner
 myAgro, an organization leveraging OpenFn automation to help scale its programs
-towards its goal of serving 1 million farmers in 2025._
+towards its goal of serving 1 million farmers in 2025.
 
 <!--truncate-->
 
@@ -77,7 +80,7 @@ tracking system that enables real-time program monitoring.
   Mali.
 - With the help of OpenFn, myAgro worked with 120,000 farmers in 2019, and plans
   to scale towards its goal of reaching `1 million farmers` by 2025.
-  
+
 ![myagro](/img/myagrograph.jpg)
 
 Read more about myAgro’s mission [here](https://www.myagro.org/), and stay tuned

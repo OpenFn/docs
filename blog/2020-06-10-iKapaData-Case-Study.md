@@ -2,15 +2,19 @@
 layout: post
 title: 'Automating Real-Time Census Monitoring and Data Cleaning for iKapaData'
 author: Lei Lei Tun
+author_url: https://github.com/hninleileitun
+author_image_url: https://avatars.githubusercontent.com/hninleileitun
 tags: [case study, iKapaData, SurveyCTO, Zoho, Carto, data monitoring]
 image: /img/ikapa2.jpg
 featured: false
 ---
 
-_In 2017, OpenFn has saved the iKapaData team valuable time typically spent on
+![ikapa](/img/ikapa2.jpg)
+
+In 2017, OpenFn has saved the iKapaData team valuable time typically spent on
 manual data entry and cleaning processes.The real-time connection has enabled
 live data monitoring for the team as iKapaData survey enumerators were
-conducting the survey._
+conducting the survey.
 
 <!--truncate-->
 

@@ -7,6 +7,8 @@ image: /img/team-no-td.jpg
 featured: true
 ---
 
+![team](/img/team-no-td.jpg)
+
 For the last few years, several OpenFn contributors and I have been blogging
 over at Medium. I'm still going to write there from time to time as part of the
 [OpenFn Founder's Blog](https://www.medium.com/@taylordowns2000), but today, I'm

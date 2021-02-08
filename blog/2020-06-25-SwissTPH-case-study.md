@@ -2,15 +2,19 @@
 layout: post
 title: 'Real-Time Disease Monitoring for SwissTPH'
 author: Lei Lei Tun
+author_url: https://github.com/hninleileitun
+author_image_url: https://avatars.githubusercontent.com/hninleileitun
 tags: [case study, SwissTPH, healthcare, CommCare, DHIS2, data monitoring]
 image: /img/swisstph1.jpg
-featured: false
+featured: true
 ---
 
-_By integrating a CommCare mobile data collection app with a national DHIS2
+![swissTPH](/img/swisstph1.jpg)
+
+By integrating a CommCare mobile data collection app with a national DHIS2
 reporting system for the ALMANACH health initiative, OpenFn provided SwissTPH
 with an automated, real-time connection that enables live disease monitoring
-in 2019._
+in 2019.
 
 <!--truncate-->
 

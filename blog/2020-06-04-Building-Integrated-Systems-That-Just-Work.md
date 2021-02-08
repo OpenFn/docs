@@ -2,13 +2,17 @@
 layout: post
 title: 'Building Integrated Systems That Just Work'
 author: Taylor Downs
+author_url: https://github.com/taylordowns2000
+author_image_url: https://avatars.githubusercontent.com/taylordowns2000
 tags: [tips]
 image: /img/roads.jpg
 featured: false
 ---
 
-_OpenFn provides the "Rosetta Stone" for your technologies and integrates any
-app._
+OpenFn provides the "Rosetta Stone" for your technologies and integrates any
+app.
+
+![roads](/img/roads.jpg)
 
 <!--truncate-->
 

@@ -3,16 +3,20 @@ layout: post
 title:
   'Helping an Airport Soar: Synchronizing Asset Data Between the Tarmac and HQ'
 author: Lei Lei Tun
-categories:
+author_url: https://github.com/hninleileitun
+author_image_url: https://avatars.githubusercontent.com/hninleileitun
+tags:
   [case study, airport, CommCare, development, IBM Maximo, automated reporting]
 image: /img/airport.jpeg
 featured: false
 ---
 
-_With real-time data syncs, OpenFn helps this airport ensure top-quality assets
+![airport](/img/airport.jpeg)
+
+With real-time data syncs, OpenFn helps this airport ensure top-quality assets
 and service for its workers and passengers. This integrated asset management
 system saves time and money, and prevents errors by reducing manual, paper-based
-data transfer between systems._
+data transfer between systems.
 
 <!--truncate-->
 

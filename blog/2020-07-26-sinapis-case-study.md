@@ -4,14 +4,18 @@ title:
   'Keeping Track of Payments to Help Sinapis Scale Small, Growing Businesses in
   Africa'
 author: Lei Lei Tun
+author_url: https://github.com/hninleileitun
+author_image_url: https://avatars.githubusercontent.com/hninleileitun
 tags: [case study, M-Pesa, Kopo Kopo, Salesforce, payments]
 image: /img/sinapis.jpg
 featured: false
 ---
 
-_Integration has saved Sinapis staff hundreds of manual hours and ensures that
+![Sinapis](/img/sinapis.jpg)
+
+Integration has saved Sinapis staff hundreds of manual hours and ensures that
 all payment information is always accurate up-to-date to help Sinapis to run
-programs smoothly._
+programs smoothly.
 
 <!--truncate-->
 

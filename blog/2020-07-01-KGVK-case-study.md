@@ -4,7 +4,9 @@ title:
   'Enhanced Survey Monitoring and Quicker Analysis for Program Improvement in
   India'
 author: Lei Lei Tun
-categories:
+author_url: https://github.com/hninleileitun
+author_image_url: https://avatars.githubusercontent.com/hninleileitun
+tags:
   [
     case study,
     KGVK,
@@ -20,9 +22,11 @@ image: /img/kgvk.v2.png
 featured: false
 ---
 
-_In the past, it took KGVK months to digitize and analyze survey data before
+![kgvk](/img/kgvk.v2.png)
+
+In the past, it took KGVK months to digitize and analyze survey data before
 sharing reports with key staff. By 2019, using OpenFn, KGVK was able to monitor
-data in near real-time and better serve the needs of its communities._
+data in near real-time and better serve the needs of its communities.
 
 <!--truncate-->
 
@@ -49,5 +53,5 @@ to monitor the village surveys, ensuring faster analysis. With enhanced data
 access, KGVK can more regularly evaluate and adjust its programs to better serve
 the needs of the Jharkhand communities it serves.
 
-_The photo above was originally posted on the KGVK Achievements
-[site](https://www.kgvk.org/achievements.html)._
+The photo above was originally posted on the KGVK Achievements
+[site](https://www.kgvk.org/achievements.html).

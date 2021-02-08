@@ -4,7 +4,9 @@ title:
   'Better Sanitation for Low-Income Urban Families Using an Integrated Supply
   Chain System'
 author: Lei Lei Tun
-categories:
+author_url: https://github.com/hninleileitun
+author_image_url: https://avatars.githubusercontent.com/hninleileitun
+tags:
   [
     case study,
     x-runner,
@@ -19,11 +21,13 @@ image: /img/x-runner.jpg
 featured: false
 ---
 
-_In 2017, x-runner implemented OpenFn to connect its existing systems and sync
+![X-Runner](/img/x-runner.jpg)
+
+In 2017, x-runner implemented OpenFn to connect its existing systems and sync
 data in real-time to more effectively manage and monitor waste collection
 activities. With this integrated service system, X-runner can deliver high
 quality customer service and technical assistance to their customers, with no
-time lag._
+time lag.
 
 <!--truncate-->
 

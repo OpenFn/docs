@@ -3,7 +3,9 @@ layout: post
 title:
   'Building an Integrated Data Warehouse to Track and Share Student Performance'
 author: Lei Lei Tun
-categories:
+author_url: https://github.com/hninleileitun
+author_image_url: https://avatars.githubusercontent.com/hninleileitun
+tags:
   [
     case study,
     African School of Excellence,
@@ -18,9 +20,11 @@ image: /img/ase.jpg
 featured: false
 ---
 
-_ASE had a diverse data portfolio spread across so many sources that couldn't
+![ase](/img/ase.jpg)
+
+ASE had a diverse data portfolio spread across so many sources that couldn't
 easily be analyzed. Open Function delivered a centralized, single-view solution
-for monitoring students and sharing data across schools._
+for monitoring students and sharing data across schools.
 
 <!--truncate-->
 
