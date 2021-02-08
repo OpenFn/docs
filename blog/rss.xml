@@ -1,18 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>OpenFn Blog</title>
+        <title>The OpenFn Blog</title>
         <link>https://docs.openfn.org/blog</link>
         <description>OpenFn Blog</description>
-        <lastBuildDate>Mon, 18 Jan 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 27 Jul 2020 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>Copyright © 2021 Open Function Group, LLC.</copyright>
         <item>
-            <title><![CDATA[Welcome]]></title>
-            <link>https://docs.openfn.org/blog/welcome</link>
-            <guid>welcome</guid>
-            <pubDate>Mon, 18 Jan 2021 00:00:00 GMT</pubDate>
-            <description><![CDATA[Welcome to the new docs.openfn.org!]]></description>
+            <title><![CDATA[Connecting Beneficiaries, Data, and SMS to Expand the Reach of Literacy Groups Across South Africa]]></title>
+            <link>https://docs.openfn.org/blog/2020/07/27/nalibali-case-study</link>
+            <guid>Connecting Beneficiaries, Data, and SMS to Expand the Reach of Literacy Groups Across South Africa</guid>
+            <pubDate>Mon, 27 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Nal’ibali]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Keeping Track of Payments to Help Sinapis Scale Small, Growing Businesses in Africa]]></title>
+            <link>https://docs.openfn.org/blog/2020/07/26/sinapis-case-study</link>
+            <guid>Keeping Track of Payments to Help Sinapis Scale Small, Growing Businesses in Africa</guid>
+            <pubDate>Sun, 26 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Sinapis]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Better Sanitation for Low-Income Urban Families Using an Integrated Supply Chain System]]></title>
+            <link>https://docs.openfn.org/blog/2020/07/13/x-runner-case-study</link>
+            <guid>Better Sanitation for Low-Income Urban Families Using an Integrated Supply Chain System</guid>
+            <pubDate>Mon, 13 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[X-Runner]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Tracking Real-Time Progress of HIV-Affected Communities in Haiti]]></title>
+            <link>https://docs.openfn.org/blog/2020/07/08/caris-foundation-case-study</link>
+            <guid>Tracking Real-Time Progress of HIV-Affected Communities in Haiti</guid>
+            <pubDate>Wed, 08 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[Caris]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Enhanced Survey Monitoring and Quicker Analysis for Program Improvement in India]]></title>
+            <link>https://docs.openfn.org/blog/2020/07/01/KGVK-case-study</link>
+            <guid>Enhanced Survey Monitoring and Quicker Analysis for Program Improvement in India</guid>
+            <pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[kgvk]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Building an Integrated Data Warehouse to Track and Share Student Performance]]></title>
+            <link>https://docs.openfn.org/blog/2020/07/01/african-school-of-excellence-case-study</link>
+            <guid>Building an Integrated Data Warehouse to Track and Share Student Performance</guid>
+            <pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[ase]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Helping an Airport Soar: Synchronizing Asset Data Between the Tarmac and HQ]]></title>
+            <link>https://docs.openfn.org/blog/2020/07/01/airport-case-study</link>
+            <guid>Helping an Airport Soar: Synchronizing Asset Data Between the Tarmac and HQ</guid>
+            <pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[airport]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Real-Time Disease Monitoring for SwissTPH]]></title>
+            <link>https://docs.openfn.org/blog/2020/06/25/SwissTPH-case-study</link>
+            <guid>Real-Time Disease Monitoring for SwissTPH</guid>
+            <pubDate>Thu, 25 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[swissTPH]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Automating Real-Time Census Monitoring and Data Cleaning for iKapaData]]></title>
+            <link>https://docs.openfn.org/blog/2020/06/10/iKapaData-Case-Study</link>
+            <guid>Automating Real-Time Census Monitoring and Data Cleaning for iKapaData</guid>
+            <pubDate>Wed, 10 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[ikapa]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Enabling Scale at myAgro, 6 Years Later]]></title>
+            <link>https://docs.openfn.org/blog/2020/06/09/enabling-scale-at-myagro</link>
+            <guid>Enabling Scale at myAgro, 6 Years Later</guid>
+            <pubDate>Tue, 09 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[myAgro]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Building Integrated Systems That Just Work]]></title>
+            <link>https://docs.openfn.org/blog/2020/06/04/Building-Integrated-Systems-That-Just-Work</link>
+            <guid>Building Integrated Systems That Just Work</guid>
+            <pubDate>Thu, 04 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[OpenFn provides the "Rosetta Stone" for your technologies and integrates any]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Technology Is Not The Answer, but It Should Not Be The Problem]]></title>
+            <link>https://docs.openfn.org/blog/2020/06/04/Technology-Isnt-The-Answer</link>
+            <guid>Technology Is Not The Answer, but It Should Not Be The Problem</guid>
+            <pubDate>Thu, 04 Jun 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[tech1]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Announcing the new OpenFn Blog]]></title>
+            <link>https://docs.openfn.org/blog/2020/05/31/the-new-openfn-blog</link>
+            <guid>Announcing the new OpenFn Blog</guid>
+            <pubDate>Sun, 31 May 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[team]]></description>
         </item>
     </channel>
 </rss>

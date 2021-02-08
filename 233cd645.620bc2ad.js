@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[31],{101:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"case-study","name":"case study","count":10,"permalink":"/blog/tags/case-study"}')}}]);

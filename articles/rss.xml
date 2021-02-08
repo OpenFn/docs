@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>OpenFn Blog</title>
+        <title>OpenFn Help Articles</title>
         <link>https://docs.openfn.org/articles</link>
         <description>OpenFn Blog</description>
         <lastBuildDate>Wed, 03 Feb 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
+        <copyright>Copyright © 2021 Open Function Group, LLC.</copyright>
         <item>
             <title><![CDATA[Our Servers or Yours: Thinking through deployment options]]></title>
             <link>https://docs.openfn.org/articles/2021/02/03/hosted-or-local-deployment</link>
@@ -40,7 +41,7 @@
             <link>https://docs.openfn.org/articles/2020/06/24/three-questions-to-ask</link>
             <guid>To Automate or Not to Automate? Ask Yourself These 3 Questions.</guid>
             <pubDate>Wed, 24 Jun 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[_Automation can save time, unlock critical resources, and enable scale–but it]]></description>
+            <description><![CDATA[Automation can save time, unlock critical resources, and enable scale–but it]]></description>
         </item>
         <item>
             <title><![CDATA[How Information Is Organized... In Organizations]]></title>
