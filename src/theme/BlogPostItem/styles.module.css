@@ -30,6 +30,8 @@
   padding: 3px 10px;
   font-size: 1em;
   margin-right: 10px;
+  margin-top: 10px;
+  display: inline-block;
 }
 
 .blogPostPreview {

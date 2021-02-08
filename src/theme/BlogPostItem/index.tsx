@@ -133,7 +133,7 @@ function BlogPostItem(props) {
         {(tags.length > 0 || truncated) && (
           <footer className="row margin-vert--md">
             {tags.length > 0 && (
-              <div className="col">
+              <div className="col" style={{ marginTop: -10 }}>
                 {tags.map(({ label, permalink: tagPermalink }) => (
                   <Link
                     key={tagPermalink}
@@ -146,7 +146,7 @@ function BlogPostItem(props) {
               </div>
             )}
             {truncated && (
-              <div className="col text--right">
+              <div className="col text--right" style={{ marginTop: 'auto' }}>
                 <Link
                   to={metadata.permalink}
                   aria-label={`Read more about ${title}`}

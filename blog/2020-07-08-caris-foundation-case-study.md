@@ -17,12 +17,12 @@ image: /img/carisfoundation.jpeg
 featured: false
 ---
 
-![Caris](/img/carisfoundation.jpeg)
-
 OpenFn data integration has enabled the Caris Foundation to "work towards a
 better experience for the patient, for the agent, and for external reporting."
 
 <!--truncate-->
+
+![Caris](/img/carisfoundation.jpeg)
 
 _This post was published by Taylor Downs, Head of Product, on
 [The OpenFn Founder’s blog](https://medium.com/@taylordowns2000/supporting-communities-affected-by-hiv-98eede455050)

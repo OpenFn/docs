@@ -11,14 +11,14 @@ image: /img/airport.jpeg
 featured: false
 ---
 
-![airport](/img/airport.jpeg)
-
 With real-time data syncs, OpenFn helps this airport ensure top-quality assets
 and service for its workers and passengers. This integrated asset management
 system saves time and money, and prevents errors by reducing manual, paper-based
 data transfer between systems.
 
 <!--truncate-->
+
+![airport](/img/airport.jpeg)
 
 ### Airports are complex businesses, responsible for passengers, equipment, employees, and safety.
 

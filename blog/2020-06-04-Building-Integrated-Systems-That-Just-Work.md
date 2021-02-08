@@ -12,9 +12,9 @@ featured: false
 OpenFn provides the "Rosetta Stone" for your technologies and integrates any
 app.
 
-![roads](/img/roads.jpg)
-
 <!--truncate-->
+
+![roads](/img/roads.jpg)
 
 _This article was originally posted by Taylor Downs, Head of Product, on
 [The OpenFn Founder's blog](https://medium.com/@taylordowns2000) as "Making

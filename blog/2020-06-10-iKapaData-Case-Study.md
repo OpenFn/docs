@@ -9,14 +9,14 @@ image: /img/ikapa2.jpg
 featured: false
 ---
 
-![ikapa](/img/ikapa2.jpg)
-
 In 2017, OpenFn has saved the iKapaData team valuable time typically spent on
 manual data entry and cleaning processes.The real-time connection has enabled
 live data monitoring for the team as iKapaData survey enumerators were
 conducting the survey.
 
 <!--truncate-->
+
+![ikapa](/img/ikapa2.jpg)
 
 ### iKapaData's essential work in South Africa
 

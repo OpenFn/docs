@@ -9,12 +9,12 @@ image: /img/technology1.jpg
 featured: false
 ---
 
-![tech1](/img/technology1.jpg)
-
 OpenFn’s first objective is to knock down the technical hurdles so organizations
 can focus on the important contextual stuff.
 
 <!--truncate-->
+
+![tech1](/img/technology1.jpg)
 
 _This article was originally posted by Taylor Downs, Head of Product, on
 [The OpenFn Founder's blog](https://medium.com/@taylordowns2000) as "Technology

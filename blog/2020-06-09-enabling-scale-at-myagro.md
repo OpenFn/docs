@@ -19,8 +19,6 @@ image: /img/myAgro1.JPG
 featured: true
 ---
 
-![myAgro](/img/myAgro1.JPG)
-
 OpenFn is helping small-scale farmers break the cycle of poverty with an
 automated savings & supply chain system. Small-scale farmers are feeding the
 world, but a majority of them are in an endless cycle of poverty and lack access
@@ -29,6 +27,8 @@ myAgro, an organization leveraging OpenFn automation to help scale its programs
 towards its goal of serving 1 million farmers in 2025.
 
 <!--truncate-->
+
+![myAgro](/img/myAgro1.JPG)
 
 ### Here's the overview.
 

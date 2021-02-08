@@ -6,12 +6,9 @@ title:
 author: Lei Lei Tun
 author_url: https://github.com/hninleileitun
 author_image_url: https://avatars.githubusercontent.com/hninleileitun
-tags:
-  [case study, education, odk, Salesforce, SMS, learning management system]
+tags: [case study, education, odk, Salesforce, SMS, learning management system]
 image: /img/nalibali.jpg
 ---
-
-![Nal’ibali](/img/nalibali.jpg)
 
 Nal’ibali is on a mission to change education across South Africa through its
 reading-for-enjoyment initiative, which promotes reading and writing in mother
@@ -19,6 +16,8 @@ tongue languages. To effectively monitor program activities and children reached
 across the country, Nal’ibali needed to integrate multiple data platforms.
 
 <!--truncate-->
+
+![Nal’ibali](/img/nalibali.jpg)
 
 ### Did you know that South Africa's education system ranks as one of the worst in the world?
 
