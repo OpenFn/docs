@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[12],{81:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"comm-care","name":"commcare","count":4,"permalink":"/blog/tags/comm-care"}')}}]);
