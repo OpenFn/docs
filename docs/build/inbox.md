@@ -1,5 +1,6 @@
 ---
-title: Your Inbox
+title: The Inbox
+sidebar_label: Your Inbox
 ---
 
 ## How it works
