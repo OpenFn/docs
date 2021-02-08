@@ -4,7 +4,7 @@ title: 'Our Servers or Yours: Thinking through deployment options'
 author: Jed Goldstein
 author_url: https://github.com/jedbgold
 author_image_url: https://avatars.githubusercontent.com/jedbgold
-categories: [how-to, tips]
+tags: [how-to, tips]
 featured: true
 ---
 

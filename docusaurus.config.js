@@ -42,11 +42,11 @@ module.exports = {
           label: 'Articles',
           position: 'left',
         },
-        // {
-        //   to: 'blog',
-        //   label: 'Blog',
-        //   position: 'left',
-        // },
+        {
+          to: 'blog',
+          label: 'Blog',
+          position: 'right',
+        },
         {
           href: 'https://github.com/openfn/docs',
           position: 'right',
@@ -73,10 +73,10 @@ module.exports = {
               label: 'Articles',
               to: 'articles',
             },
-            // {
-            //   label: 'Blog',
-            //   to: 'blog',
-            // },
+            {
+              label: 'Blog',
+              to: 'blog',
+            },
           ],
         },
         {
@@ -107,10 +107,6 @@ module.exports = {
               label: 'Github',
               href: 'https://github.com/openfn',
             },
-            {
-              label: 'Blog',
-              href: 'https://blog.openfn.org',
-            },
           ],
         },
       ],
@@ -126,10 +122,16 @@ module.exports = {
           routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/main',
         },
-        // blog: {
-        //   showReadingTime: true,
-        //   editUrl: 'https://github.com/openfn/docs/edit/master/',
-        // },
+        blog: {
+          showReadingTime: true,
+          editUrl: 'https://github.com/openfn/docs/edit/main',
+          blogSidebarCount: 6,
+          feedOptions: {
+            type: 'all',
+            copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
+            title: 'The OpenFn Blog',
+          },
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -152,7 +154,14 @@ module.exports = {
         id: 'articles',
         routeBasePath: 'articles',
         path: './articles',
+        blogSidebarCount: 6,
         showReadingTime: true,
+        editUrl: 'https://github.com/openfn/docs/edit/main',
+        feedOptions: {
+          type: 'all',
+          copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
+          title: 'OpenFn Help Articles',
+        },
       },
     ],
   ],

@@ -3,17 +3,17 @@ layout: post
 title: 'How Information Is Organized... In Organizations'
 author: Taylor Downs
 author_url: https://github.com/taylordowns2000
-author_image_url: https://avatars1.githubusercontent.com/u/8732845?s=460&u=5aa58a0e73b25e089668134e0bd1fe971019c960&v=4
-categories: [how-to, tips]
-# image: assets/images/informationorganized.jpg
+author_image_url: https://avatars.githubusercontent.com/taylordowns2000
+tags: [how-to, tips]
+image: /img/informationorganized.jpg
 featured: false
 ---
 
-#### _Does your organization's information have an underlying structure? Try this exercise using boxes and crow's feet._
+#### Does your organization's information have an underlying structure? Try this exercise using boxes and crow's feet.
 
-_This article was originally posted by Taylor Downs, Head of Product, on
+This article was originally posted by Taylor Downs, Head of Product, on
 [The OpenFn Founder's blog](https://medium.com/@taylordowns2000) as "The power
-of crow's feet."_
+of crow's feet."
 
 It’s Saturday Morning in Cape Town and I’ve just spent an hour talking about how
 a non-profit is organized. I thought I was getting into a technical
