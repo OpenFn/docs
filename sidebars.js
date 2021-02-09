@@ -90,6 +90,7 @@ module.exports = {
         'apps/ona',
         'apps/salesforce',
         'apps/survey-cto',
+        'apps/tableau',
       ],
     },
     {
