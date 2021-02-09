@@ -16,8 +16,7 @@ module.exports = {
     },
     hideableSidebar: true,
     gtag: {
-      trackingID: 'UA-57118569-4',
-      anonymizeIP: true,
+      trackingID: 'G-QGT8HTH1L0',
     },
     navbar: {
       title: 'OpenFn/docs',
