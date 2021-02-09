@@ -3,7 +3,7 @@
     <channel>
         <title>The OpenFn Blog</title>
         <link>https://docs.openfn.org/blog</link>
-        <description>OpenFn Blog</description>
+        <description>OpenFn/docs Blog</description>
         <lastBuildDate>Mon, 27 Jul 2020 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
