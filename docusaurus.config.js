@@ -1,5 +1,5 @@
 module.exports = {
-  title: 'OpenFn',
+  title: 'OpenFn/docs',
   tagline:
     'Data Integration & Interoperability for Health and Humanitarian Interventions',
   url: 'https://docs.openfn.org',
@@ -16,7 +16,7 @@ module.exports = {
     },
     hideableSidebar: true,
     gtag: {
-      trackingID: 'G-QGT8HTH1L0',
+      trackingID: 'G-TFLLYHHM0C',
     },
     navbar: {
       title: 'OpenFn/docs',
