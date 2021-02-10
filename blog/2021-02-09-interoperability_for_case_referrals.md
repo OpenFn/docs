@@ -95,15 +95,14 @@ If your organization is in the health and humanitarian sector and is thinking
 about automation and interoperability, contact services@openfn.org for a free
 consultation.
 
-<u>About UNICEF Cambodia:</u> UNICEF Cambodia’s mission is to promote the
-healthy development of children, to defend their rights and help them fulfil
-their potential, from early childhood to adolescence.
+**About UNICEF Cambodia:** UNICEF Cambodia’s mission is to promote the healthy
+development of children, to defend their rights and help them fulfil their
+potential, from early childhood to adolescence.
 
-<u>About Cambodia’s Ministry of Social Affairs, Veterans and Youth
-Rehabilitation (MoSVY):</u> Cambodia’s MoSVY is a government agency with a broad
-mandate that includes supporting the efforts of social workers across the
-country.
+**About Cambodia’s Ministry of Social Affairs, Veterans and Youth Rehabilitation
+(MoSVY):** Cambodia’s MoSVY is a government agency with a broad mandate that
+includes supporting the efforts of social workers across the country.
 
-<u>About OpenFn Group:\*</u> Open Function Group (“OFG”) helps health and
+**About OpenFn Group:** Open Function Group (“OFG”) helps health and
 humanitarian interventions in 40+ countries achieve scale and improve service
 delivery through automation, data integration, and interoperability solutions.
