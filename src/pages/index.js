@@ -10,6 +10,7 @@ import styles from './styles.module.css';
 const features = [
   {
     title: 'Docs',
+    link: 'documentation',
     imageUrl: 'img/undraw_Code_review_re_woeb.svg',
     description: (
       <>
@@ -20,6 +21,7 @@ const features = [
   },
   {
     title: 'Library',
+    link: 'library',
     imageUrl: 'img/undraw_pair_programming_njlp.svg',
     description: (
       <>
@@ -30,6 +32,7 @@ const features = [
   },
   {
     title: 'Articles',
+    link: 'articles',
     imageUrl: 'img/undraw_Portfolio_update_re_jqnp.svg',
     description: (
       <>
@@ -40,6 +43,7 @@ const features = [
   },
   {
     title: 'Blog',
+    link: 'blog',
     imageUrl: 'img/undraw_reading_time_gvg0.svg',
     description: (
       <>
@@ -49,9 +53,20 @@ const features = [
       </>
     ),
   },
+  {
+    title: 'iPaaS',
+    link: 'https://www.openfn.org',
+    imageUrl: 'img/undraw_secure_server_s9u8.svg',
+    description: (
+      <>
+        Build and deploy with our FOSS, or use the enterprise-grade OpenFn
+        integration-platform-as-a-service.
+      </>
+    ),
+  },
 ];
 
-function Feature({ imageUrl, title, description }) {
+function Feature({ imageUrl, title, description, link }) {
   const imgUrl = useBaseUrl(imageUrl);
   return (
     <div className={clsx('col col--4', styles.feature)}>
@@ -60,7 +75,7 @@ function Feature({ imageUrl, title, description }) {
           color: 'var(--ifm-font-color-base)',
           textDecoration: 'none',
         }}
-        to={useBaseUrl(title.toLowerCase())}
+        to={link.startsWith('http') ? link : useBaseUrl(link.toLowerCase())}
       >
         {imgUrl && (
           <div className="text--center">
@@ -105,28 +120,6 @@ function Home() {
                 {features.map((props, idx) => (
                   <Feature key={idx} {...props} />
                 ))}
-                <div className={clsx('col col--4', styles.feature)}>
-                  <Link
-                    style={{
-                      color: 'var(--ifm-font-color-base)',
-                      textDecoration: 'none',
-                    }}
-                    to="https://www.openfn.org"
-                  >
-                    <div className="text--center">
-                      <img
-                        className={styles.featureImage}
-                        src="img/undraw_secure_server_s9u8.svg"
-                        alt="Newsletter"
-                      />
-                    </div>
-                    <h3>iPaaS</h3>
-                    <p>
-                      Build and deploy with our FOSS, or use the
-                      enterprise-grade OpenFn integration-platform-as-a-service.
-                    </p>
-                  </Link>
-                </div>
                 <div className={clsx('col col--4', styles.feature)}>
                   <div className="text--center">
                     <img
