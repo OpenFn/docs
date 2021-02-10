@@ -44,7 +44,7 @@ module.exports = {
         {
           to: 'blog',
           label: 'Blog',
-          position: 'right',
+          position: 'left',
         },
         {
           href: 'https://github.com/openfn/docs',
