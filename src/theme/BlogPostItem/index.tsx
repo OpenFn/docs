@@ -87,7 +87,7 @@ function BlogPostItem(props) {
           </div>
 
           <div className="avatar__intro">
-            <h4 className={clsx(styles.blogPostAuthor, 'avatar__name')}>
+            <h4 className="avatar__name">
               {[{ name: author, url: author_url }].map(({ name, url }, idx) => (
                 <React.Fragment key={name}>
                   <a href={url} target="_blank" rel="noreferrer noopener">

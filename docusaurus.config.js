@@ -19,7 +19,7 @@ module.exports = {
       trackingID: 'G-TFLLYHHM0C',
     },
     navbar: {
-      title: 'OpenFn/docs',
+      title: 'OpenFn',
       logo: {
         alt: 'OpenFn',
         src: 'img/logo.svg',

@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 
 const features = [
   {
-    title: 'Documentation',
+    title: 'Docs',
     imageUrl: 'img/undraw_Code_review_re_woeb.svg',
     description: (
       <>
@@ -35,6 +35,17 @@ const features = [
       <>
         How to prepare for data integration? How to structure external IDs? How
         to...
+      </>
+    ),
+  },
+  {
+    title: 'Blog',
+    imageUrl: 'img/undraw_reading_time_gvg0.svg',
+    description: (
+      <>
+        We help the world's most promising social impact interventions achieve
+        scale through automation, data integration, and interoperability. These
+        are their stories.
       </>
     ),
   },
@@ -67,11 +78,11 @@ function Home() {
   const context = useDocusaurusContext();
   const { siteConfig = {} } = context;
   return (
-    <Layout title={`Docs`} description="The OpenFn Documentation Site">
+    <Layout title={`Home`} description="The OpenFn Documentation Site">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <Particles style={{ position: 'absolute', top: 0 }} />
         <div className="container" style={{ zIndex: 1 }}>
-          <h1 className="hero__title">{siteConfig.title}</h1>
+          <h1 className="hero__title">OpenFn Documentation</h1>
           <p className="hero__subtitle">{siteConfig.tagline}</p>
           <div className={styles.buttons}>
             <Link
@@ -94,6 +105,68 @@ function Home() {
                 {features.map((props, idx) => (
                   <Feature key={idx} {...props} />
                 ))}
+                <div className={clsx('col col--4', styles.feature)}>
+                  <Link
+                    style={{
+                      color: 'var(--ifm-font-color-base)',
+                      textDecoration: 'none',
+                    }}
+                    to="https://www.openfn.org"
+                  >
+                    <div className="text--center">
+                      <img
+                        className={styles.featureImage}
+                        src="img/undraw_secure_server_s9u8.svg"
+                        alt="Newsletter"
+                      />
+                    </div>
+                    <h3>iPaaS</h3>
+                    <p>
+                      Build and deploy with our FOSS, or use the
+                      enterprise-grade OpenFn integration-platform-as-a-service.
+                    </p>
+                  </Link>
+                </div>
+                <div className={clsx('col col--4', styles.feature)}>
+                  <div className="text--center">
+                    <img
+                      className={styles.featureImage}
+                      src="img/undraw_Newsletter_re_wrob.svg"
+                      alt="Newsletter"
+                    />
+                  </div>
+                  <h3>Newsletter</h3>
+                  <p>
+                    Never miss a story from us, subscribe to our newsletter
+                    here.
+                  </p>
+                  <form
+                    action="https://openfn.us11.list-manage.com/subscribe/post?u=ad898e5a4d5a9aab0bbd63aee&amp;id=bf982e5409"
+                    method="post"
+                    name="mc-embedded-subscribe-form"
+                    target="_blank"
+                    novalidate
+                  >
+                    <div className={styles.subscribeForm}>
+                      <input
+                        type="email"
+                        placeholder="Email"
+                        name="EMAIL"
+                        id="mce-EMAIL"
+                        autocomplete="on"
+                        required
+                        className={styles.emailButton}
+                      />
+                      <button
+                        type="submit"
+                        name="subscribe"
+                        className="button button--secondary button--sm"
+                      >
+                        Subscribe
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </section>
