@@ -22,6 +22,68 @@ recurring) time is reached.
 
 Here, we'll focus on the expression.
 
+### Adaptors
+
+We've got a whole section on creating new [Adaptors](./adaptors), but the
+critical thing to be aware of when writing a job is that you've got to choose an
+**adaptor**, and an **adaptor version**.
+
+All of the discussion below of helper functions like `create` or `findPatient`
+requires some understanding of adaptors. When you run a job, you're borrowing a
+bunch of functionality that's been built to connect with some particular type of
+API.
+
+For example, `create` means one thing in `language-salesforce` and another thing
+entirely in `language-dhis2`. For this reason, before you can begin writing a
+job you have to know what `adaptor` you're working with.
+
+Look at the following logs:
+
+```sh
+╭──────────────────────────────────────────────╮
+│ ◲ ◱  @openfn/core#v1.3.12 (Node.js v12.20.1) │
+│ ◳ ◰             @openfn/language-http#v3.1.5 │
+╰──────────────────────────────────────────────╯
+... the rest of the logs
+
+Finished.
+```
+
+Note how the _first 4 lines_ in the log of any run on OpenFn will tell you what
+adaptor you're running. (As well as the version of core and NodeJs) This is
+incredibly important, particularly if you're trying to troubleshoot jobs in
+various environments (like your own shell, OpenFn.org, OpenFn/microservice,
+etc.).
+
+#### Adaptor Versions
+
+Note that adaptors can change over time. They're open source, and we encourage
+as much contribution as possible—releasing new versions for use on OpenFn.org as
+soon as they pass our security reviews.
+
+Pay careful attention to which `version` you're using to write a job. Consider
+the following logs:
+
+```sh
+╭───────────────────────────────────────────────╮
+│ ◲ ◱  @openfn/core#v1.3.12 (Node.js v12.20.1)  │
+│ ◳ ◰             @openfn/language-http#v2.4.15 │
+╰───────────────────────────────────────────────╯
+... the rest of the logs
+
+Finished.
+```
+
+Note that here, OpenFn/core version `1.3.12` is running on Node.js `12.20.1` and
+using `@openfn/language-http#v2.4.15` which might have very different helper
+functions from `@openfn/language-http#v3.1.5`
+
+Adaptors follow [SEMVER](https://semver.org/) so you can be reasonably assured
+that upgrading from `x.1.z` to `x.2.z` will not lead to existing job code
+failing, but an upgrade from `3.y.z` to `4.y.z` may—in SEMVER _major_ upgrades
+(those that change the first number in the `x.y.z` version number) have
+"breaking" or "non-backwards compatible" changes.
+
 ## Composing job expressions
 
 In most cases, a job expression is a series of `create` or `upsert` actions that
@@ -564,9 +626,9 @@ post(
 
 ## Anonymous Functions
 
-Different to [Named Functions](#examples-of-adaptor-specific-functions), Anonymous
-functions are generic pieces of javascript which you can write to suit your
-needs. Here are some examples of these custom functions:
+Different to [Named Functions](#examples-of-adaptor-specific-functions),
+Anonymous functions are generic pieces of javascript which you can write to suit
+your needs. Here are some examples of these custom functions:
 
 ### Custom replacer
 

@@ -20,13 +20,13 @@ image: /img/ase.jpg
 featured: false
 ---
 
-![ase](/img/ase.jpg)
-
 ASE had a diverse data portfolio spread across so many sources that couldn't
 easily be analyzed. Open Function delivered a centralized, single-view solution
 for monitoring students and sharing data across schools.
 
 <!--truncate-->
+
+![ase](/img/ase.jpg)
 
 ### African School of Excellence is working to deliver quality, affordable education in South Africa.
 

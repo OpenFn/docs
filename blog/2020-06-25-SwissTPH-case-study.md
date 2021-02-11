@@ -9,14 +9,14 @@ image: /img/swisstph1.jpg
 featured: true
 ---
 
-![swissTPH](/img/swisstph1.jpg)
-
 By integrating a CommCare mobile data collection app with a national DHIS2
 reporting system for the ALMANACH health initiative, OpenFn provided SwissTPH
 with an automated, real-time connection that enables live disease monitoring
 in 2019.
 
 <!--truncate-->
+
+![swissTPH](/img/swisstph1.jpg)
 
 ### SwissTPH: A world-leading institute in global health
 

@@ -11,13 +11,13 @@ image: /img/sinapis.jpg
 featured: false
 ---
 
-![Sinapis](/img/sinapis.jpg)
-
 Integration has saved Sinapis staff hundreds of manual hours and ensures that
 all payment information is always accurate up-to-date to help Sinapis to run
 programs smoothly.
 
 <!--truncate-->
+
+![Sinapis](/img/sinapis.jpg)
 
 ### Sinapis is accelerating small business development across Kenya, Uganda, and Rwanda with their innovative training program.
 

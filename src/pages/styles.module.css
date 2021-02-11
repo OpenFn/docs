@@ -36,3 +36,17 @@
   height: 200px;
   width: 200px;
 }
+
+.subscribeForm {
+  margin-top: -10px;
+}
+
+.emailButton {
+  background-color: var(--ifm-button-background-color);
+  border-style: solid;
+  border-width: var(--ifm-button-border-width);
+  border-radius: var(--ifm-button-border-radius);
+  margin-right: 5px;
+  height: 27.5px;
+  padding-left: 10px;
+}
