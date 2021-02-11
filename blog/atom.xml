@@ -2,12 +2,19 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.openfn.org/blog</id>
     <title>The OpenFn Blog</title>
-    <updated>2020-07-27T00:00:00.000Z</updated>
+    <updated>2021-02-09T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.openfn.org/blog"/>
     <subtitle>OpenFn/docs Blog</subtitle>
     <icon>https://docs.openfn.org/img/favicon.ico</icon>
     <rights>Copyright © 2021 Open Function Group, LLC.</rights>
+    <entry>
+        <title type="html"><![CDATA[Enabling Interoperability for Child Case Referrals in Cambodia]]></title>
+        <id>Enabling Interoperability for Child Case Referrals in Cambodia</id>
+        <link href="https://docs.openfn.org/blog/2021/02/09/interoperability_for_case_referrals"/>
+        <updated>2021-02-09T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Cambodia School]]></summary>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Connecting Beneficiaries, Data, and SMS to Expand the Reach of Literacy Groups Across South Africa]]></title>
         <id>Connecting Beneficiaries, Data, and SMS to Expand the Reach of Literacy Groups Across South Africa</id>
