@@ -1,13 +1,12 @@
 ---
-title: Tableau
+title: Power BI
 ---
 
 (Work in progress)
 
 ## Overview
 
-[Tableau](https://www.tableau.com/) is a visual analytics platform that helps
-people use data to solve problems.
+Power BI is a business analytics service by Microsoft. It provide interactive visualizations and business intelligence capabilities with an interface simple enough for end users to create their own reports and dashboards.
 
 Tableau Desktop does not have a built-in database, rather it connects to
 different data sources (files, databases, etc). After connecting to a data
@@ -34,5 +33,4 @@ Refer to the diagram below for a visualization of the data flow cited in the
 above use case.
 
 ![Tableau Data Flow Visualization](/img/survey_db_tableau.png)
-
 <!-- please note that the diagram can be found at this link: https://lucid.app/lucidchart/invitations/accept/67c935c0-ec87-4454-b38f-57a6c002f597  -->
