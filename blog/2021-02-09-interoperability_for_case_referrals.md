@@ -1,14 +1,12 @@
 ---
 layout: post
-title: 'Enabling Interoperability for Child Case Referrals in Cambodia'
+title: Enabling Interoperability for Child Case Referrals in Cambodia
 author: Jed Goldstein
 author_url: https://github.com/jedbgold
 author_image_url: https://avatars.githubusercontent.com/jedbgold
 tags: [case study, UNICEF, Primero, OSCaR, Cambodia, case management]
 image: /img/cambodia_school.png
 ---
-
-![Cambodia School](/img/cambodia_school.png)
 
 Over the past 12 months, [OpenFn](https://openfn.org/) and
 [UNICEF Cambodia](https://www.unicef.org/cambodia/) have worked together to
@@ -20,6 +18,8 @@ to allow for the Cambodian government and their partner NGO caseworkers to
 communicate with one another seamlessly.
 
 <!--truncate-->
+
+![Cambodia School](/img/cambodia_school.png)
 
 Case management applications help social service providers coordinate critical
 support activities for vulnerable children; ensuring that they can securely
