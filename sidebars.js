@@ -88,6 +88,7 @@ module.exports = {
         'apps/magpi',
         'apps/odk',
         'apps/ona',
+        'apps/powerbi',
         'apps/salesforce',
         'apps/survey-cto',
         'apps/tableau',
