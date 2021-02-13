@@ -38,10 +38,8 @@ An integration is **only** as valuable as the insights it's output provide.
 
 ## Multiple technologies to get the job done
 
-<!-- Lots of different tools that each serve unique purpose and often times we need -->
-<!-- to connect this data. -->
+<!-- Lots of different tools that each serve unique purpose and often times we need to connect this data.Your organization is probably using multiple tools to get the job done. -->
 
-Your organization is probably using multiple tools to get the job done.
 
 <!-- show diagram of lots of tools -->
 
