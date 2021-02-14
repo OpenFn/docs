@@ -88,21 +88,51 @@ sketch of the current process.
 <!-- source for diagram: https://docs.google.com/presentation/d/1mVwxE7-0-B5NzTII3nCFaTw2DimGDcFlUQhIbwDE2TU/edit?usp=sharing -->
 
 Great! We can now visually see, in a very basic way, what's going on with our
-data, but a lot of the critical details related to the current process have not
-yet been considered.
+data, but a lot of the critical details related to the current process are missing. 
 
-To draw a really good diagram and to gain a fuller understanding of the data flow, we need to dig a bit deeper by getting answers to the following 6 question categories:
+To draw a really good diagram and to gain a fuller understanding of the data
+flow, we need to dig deeper by getting answers to the following 6 question
+categories:
 
 1. Tools?  
-*What software tools are we using?* 
+   _What software tools are we using?_
 2. Data flow?  
-*How is the data flowing between these tools?*  
+   _How is the data flowing between these tools?_
 3. Tranformation?  
-*Is there any data transformation taking place?* 
+   _Is there any data transformation taking place?_
 4. Timing?  
-*What initiates this data flow?* 
+   _What initiates this data flow?_
 5. Frequency?  
-*How often is this process happening?* 
+   _How often is this process happening?_
 6. Volume?  
-*What is the scale of this integration?*
+   _What is the scale of this integration?_
+
+
+### Tools?
+
+(work in progress)
+
+### Data Flow?
+
+(work in progress)
+
+### Transformation?
+
+(work in progress)
+
+### Timing?
+
+(work in progress)
+
+### Frequency?
+
+(work in progress)
+
+### Volume?
+
+(work in progress)
+
+Now that we have mapped this out, we can now easily analyze the process to figure out ways to streamline things, or even introduce some tools to **automate** this integration. 
+
+Did someone say the word **automate**? (Enter OpenFn from stage left)
 
