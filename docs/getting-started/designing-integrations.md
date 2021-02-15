@@ -95,7 +95,7 @@ flow, we need to dig deeper by getting answers to the following 6 questions:
 | Category         | Question                                                                                                                                                       |
 | :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 1. Tools         | _What tools are we hoping to integrate?_                                                                                                                       |
-| 2. Data flow     | _What data are we hoping to send between tools and in which direction does the data flow? What other tools, or humans are involved in facilitating this flow?_ |
+| 2. Data flow     | _What data are we hoping to send between tools? Which direction does the data flow? What other tools, or humans are involved in facilitating this flow?_ |
 | 3. Tranformation | _Is there any data transformation taking place to make sure the integration goes smoothly?_                                                                    |
 | 4. Timing        | _What initiates this data flow?_                                                                                                                               |
 | 5. Frequency     | _How often is this process happening?_                                                                                                                         |
