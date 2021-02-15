@@ -89,35 +89,45 @@ sketch of the current process.
 
 Great! We can now visually see, in a very basic way, what's going on with our
 data, but a lot of the critical details related to the current process are
-missing.
-
-To draw a really good diagram and to gain a fuller understanding of the data
+missing. To draw a great diagram and to gain a fuller understanding of the data
 flow, we need to dig deeper by getting answers to the following 6 questions:
 
-| Category      | Question                                         |
-| :------------ | :----------------------------------------------- |
-| 1. Tools         | _What software tools are we using?_              |
-| 2. Data flow     | _How is the data flowing between these tools?_   |
-| 3. Tranformation | _Is there any data transformation taking place?_ |
-| 4. Timing        | _What initiates this data flow?_                 |
-| 5. Frequency     | _How often is this process happening?_           |
-| 6. Volume        | _What is the scale of this integration?_         |
+| Category         | Question                                                                                                                                                       |
+| :--------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Tools         | _What tools are we hoping to integrate?_                                                                                                                       |
+| 2. Data flow     | _What data are we hoping to send between tools and in which direction does the data flow? What other tools, or humans are involved in facilitating this flow?_ |
+| 3. Tranformation | _Is there any data transformation taking place to make sure the integration goes smoothly?_                                                                    |
+| 4. Timing        | _What initiates this data flow?_                                                                                                                               |
+| 5. Frequency     | _How often is this process happening?_                                                                                                                         |
+| 6. Volume        | _What is the scale of this integration?_                                                                                                                       |
+
+Using the above example, lets answer these questions one by one...
 
 ### Tools?
 
 (work in progress)
 
+<!-- This data flow involves CommCare and dhis2.  -->
+
 ### Data Flow?
 
 (work in progress)
+
+<!-- The data is flowing from CommCare -> Microsoft Excel -> dhis2. -->
 
 ### Transformation?
 
 (work in progress)
 
+<!-- It turns out that date formats in CommCare are mm/dd/yyyy, but the required date format for dhis2 in dd/mm/yyyy, so this integration will require dates to be reformatted before the data gets transmitted to dhis2. -->
+
 ### Timing?
 
 (work in progress)
+
+<!-- For this section we figure out what triggers this data flow? Is a real time integration required whenever a new CommCare form is submitted, or , or can we batch  -->
+
+<!-- In this example the Ethiopian Ministry of Health refreshes the key indicator dashboards on a monthly basis, so the data flow can be batched and only needs to happen 1x per month.  -->
 
 ### Frequency?
 
@@ -127,11 +137,8 @@ flow, we need to dig deeper by getting answers to the following 6 questions:
 
 (work in progress)
 
-Now that we have mapped this out, we can now easily analyze the process to
-figure out ways to streamline things, or even introduce some tools to
-**automate** this integration.
-
-Did someone say the word **automate**? (Enter OpenFn from stage left)
+<!-- Now that we have mapped out the data process comprehensively, we can easily analyze the process to figure out ways to streamline things, or even introduce some tools to
+**automate** this integration. Did someone say the word **automate**? (Enter OpenFn from stage left) -->
 
 <!-- diagram of commcare to dhis2 with openfn in middle -->
 <!-- show the diagram of the multiple technologies with openfn in the middle -->
