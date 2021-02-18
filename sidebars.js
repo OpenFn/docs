@@ -104,6 +104,7 @@ module.exports = {
       items: [
         // 'writing-code',
         'for-devs',
+        'gsoc',
         'writing-docs',
         'style-guide',
       ],
