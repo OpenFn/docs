@@ -18,8 +18,8 @@ respecting both software systems’ independence.
 In this post we’ll discuss two different syncing protocols to consider when
 designing your data integration. These include:
 
-1. Real-time, or event-based, syncs
-2. Scheduled syncs
+1. **Real-time, or event-based, syncs**
+2. **Scheduled syncs**
 <!--truncate-->
 
 For a
@@ -60,7 +60,7 @@ fails to send? What if AWS or GCP goes down, taking half of the internet with
 it? If Primero “thinks” it sent the referral, OpenFn never receives it, that
 case might not get referred to Oscar!
 
-### Bi-Directional Schedule Dependent Syncs
+### Scheduled Syncs
 
 ![Schedule_Dependent_Sync](/img/syncs2.png)
 
@@ -88,7 +88,7 @@ data flow. That’s a crucial point to understand—the organizations operating 
 Cambodia decided that for this particular use case, being able to guarantee
 eventual syncing was more important than having real-time syncing.
 
-## Both Sync Options Have Their Pros and Cons
+### Both Sync Options Have Their Pros and Cons
 
 Both options definitely have their use-cases and OpenFn's platform versatility
 enables your team to decide which type of sync is right for your project.
