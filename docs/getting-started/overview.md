@@ -90,6 +90,6 @@ Adaptors, sometimes referred to as "language packages", are small, open-source
 modules that provide your jobs with the features they need to communicate with a
 particular system's API. Some examples are `language-salesforce`,
 `language-dhis2`, `language-commcare`, etc. There are ~50 active adaptors at the
-moment, and anyone if free to build or enhance them.
+moment, and anyone is free to build or enhance them.
 
 <!-- TODO: @Jed -->
