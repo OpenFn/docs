@@ -17,6 +17,7 @@ module.exports = {
         'jobs/DHIS2-DataValues-API',
         'jobs/DHIS2-Events-API',
         'jobs/ODK-Create-Many-Records-Moving-In-And-Out-Of-Repeat-Blocks',
+        'jobs/promise-all-nested-requests',
         'jobs/send-mail-in-mailgun',
         'jobs/send-sms-from-salesforce-workflow',
         'jobs/timeout',
