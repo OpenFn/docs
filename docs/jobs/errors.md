@@ -35,9 +35,10 @@ than down inside your run's NodeVM.
 
 ### 3: Failed to start
 
-Exit code `3` means the run could not be started due to an Erlang error (could
-relate to network traffic, but very rare as an error _before_ the run is started
-will be retried from Redis with an exponential backoff for a very long time)
+Exit code `3` means the run could not be started due to an Erlang error. This
+could relate to network traffic, but very rare as an error which takes place
+_before_ the run is started will be retried—with an exponential backoff—for a
+very long time.
 
 ### 4: The NodeVM is unresponsive
 
