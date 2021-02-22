@@ -4,6 +4,20 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
+## Version 1.87.8 (2021-02-22)
+
+New features:
+
+- **Better typeahead snippets:** Improved the "typeahead" documentation provided
+  while writing job expressions via the interface. Snippets are now provided
+  directly from the adaptor documentation and allow users to auto-complete fully
+  configured helpers.
+- **Better fullscreen mode:** Enhanced the job editing interface, allowing users
+  to toggle between full-screen and wizard-mode for editing jobs more fluidly.
+- **Tighter links to adaptor source code:** Provided direct links to source code
+  for each version of the adaptor in use so that users don't have to browse for
+  particular versions on Github.
+
 ## Version 1.87.8 (2021-01-28)
 
 New features:
