@@ -54,13 +54,13 @@ const features = [
     ),
   },
   {
-    title: 'iPaaS',
+    title: 'Enterprise',
     link: 'https://www.openfn.org',
     imageUrl: 'img/undraw_secure_server_s9u8.svg',
     description: (
       <>
-        Build and deploy with our FOSS, or use the enterprise-grade OpenFn
-        integration-platform-as-a-service.
+        Check out the enterprise-grade OpenFn integration-platform-as-a-service
+        (iPaaS), offering free-forever plans and affordable pathways to scale.
       </>
     ),
   },
