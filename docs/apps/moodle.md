@@ -4,41 +4,54 @@ title: Moodle
 
 ## Overview
 
-Go.Data is an outbreak investigation tool for field data collection during
-public health emergencies.
+Moodle is a free and open-source online learning management system.
 
 ### Integration Use Cases
 
-Example user stories...
+As a Go.Data implementer, I want to send a weekly report on Go.Data cases to my government's HIS for automated reporting across key health indicators related to my response effort.
+
+1. As a teacher on Moodle, I want to upload and download lecture notes and monitor my students' progress, grade and activities. 
+2. As a teacher on Moodle, I want to back up teaching and learning documents. 
+3. As a student on Moodle, I want to to easily track my grades and course progress throughout the course.
+
 
 ### Learn More
 Helpful links...
-1. OpenFn Go.Data notes -
-   https://drive.google.com/file/d/12YDZXt9_-XUv8HcAiyzZsqRitBkedKqf/view?usp=sharing
-2. Go.Data User Guides –
-   https://drive.google.com/drive/u/8/folders/1cTcXZLEM4XRxht6VvsSrKq8QGMie-knj
-3. Go.Data GitHub Repository – https://github.com/WorldHealthOrganization/godata
-4. Go.Data API Explorer - http://who-stable.clarisoft.com/explorer/#/
+1. OpenFn Moodle notes -
+
+2. Moodle Docs –
+   https://docs.moodle.org/310/en/Main_page
+3. Moodle API Docs - https://moodle.org/plugins/webservice_restful
 
 ## Integration Options
 
-Data integration via the Go.Data web API ...
+Data integration via the Moodle web API: https://moodle.org/plugins/webservice_restful
 
-Webhook options...
+Data forwarding using a Webhook: https://moodle.org/plugins/local_webhooks
 
 ### More on the Moodle API
-Learnings on the API, example requests, integration tips...
+
+**Sample requests**
+
+Retreive course information for all course:
+`GET /cv_dgdp/webservice/rest/server.php?wstoken=TOKEN&wsfunction=
+core_course_get_courses&moodlewsrestformat=json HTTP/1.1
+Host: ibertel.se.gob.hn`
+
+
+Retrieve enrolled users in a specific course: 
+`GET /cv_dgdp/webservice/rest/server.php?wstoken=TOKEN&wsfunction=
+core_enrol_get_enrolled_users&courseid=225&moodlewsrestformat=json HTTP/1.1
+Host: ibertel.se.gob.hn`
+
+
+**Integration tips:
+**
 
 ## Connect with OpenFn
 
-The open-source [`language-godata`](https://openfn.github.io/language-godata/)
-adaptor has been developed with a series of helper functions for common
-operations to expedite integration setup.
-
-Also, the generic
-[`language-http`](https://github.com/OpenFn/language-http#language-http-) can be
-used to make HTTP requests to the Go.Data API and can perform any operations not
-supported by `language-godata`.
+The [`language-http`](https://github.com/OpenFn/language-http#language-http-) can be
+used to make HTTP requests to the Moodle API.
 
 ## Implementation Examples
 
