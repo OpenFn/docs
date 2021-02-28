@@ -1,5 +1,5 @@
 ---
-title: Initial and final state runs
+title: Initial and final state for runs
 ---
 
 ## Initial state
