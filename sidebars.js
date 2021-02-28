@@ -36,6 +36,7 @@ module.exports = {
             'jobs/understanding',
             'jobs/operations',
             'jobs/multiple-operations',
+            'jobs/state',
             { type: 'link', label: 'The Library 📖', href: '../../library' },
           ],
         },
