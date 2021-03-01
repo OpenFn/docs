@@ -39,15 +39,22 @@ successful post. 400s mean that the user's external URL is wrong, and 500s means
 that there is an application error on OpenFn. While 500s are rare, they could be
 due to invalid JSON in your POST body.
 
-If you cannot notifiy an external URL when some event takes place, you can still
+If you cannot notify an external URL when some event takes place, you can still
 integrate with OpenFn if you have a JSON-based REST API. OpenFn users can make
 HTTP GET requests to your application and perform additional actions based on
 your response. You should allow either basic or token authentication and
-responsd to a valid GET with JSON. There is no specific format for your
+response to a valid GET with JSON. There is no specific format for your
 response, as users can parse it any way they'd like, extracting relevant data
 and then performing other actions—like loading it into a destination system—with
 that data. See [language-http](https://www.github.com/openfn/language-http) for
 details on how users make these generic HTTP requests.
+
+### Payload sizing
+
+If you're using the platform, and you're not planning on using an enterprise
+plan you'll have to consider the size of the data you're sending in each
+payload. Run `state` is typically limited to `10MB` and you should therefore
+keep your payloads well below that limit.
 
 ## Receiving data from OpenFn
 
@@ -64,7 +71,7 @@ you'd like. See
 example of a language package that connects directly to PostgreSQL databases
 using a popular NPM module called "pg".
 
-To receive data from OpenFn's generic language-http langauge package, your
+To receive data from OpenFn's generic language-http language package, your
 application must allow either basic, token, or digest authenticated POST, PUT,
 or GET requests. (Though it is not advisable to create an API that requires GET
 requests to create or update data.)
