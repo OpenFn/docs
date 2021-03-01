@@ -16,11 +16,10 @@ Moodle is a free and open-source online learning management system.
 
 ### Learn More
 Helpful links...
-1. OpenFn Moodle notes -
 
-2. Moodle Docs –
+1. Moodle Docs –
    https://docs.moodle.org/310/en/Main_page
-3. Moodle API Docs - https://moodle.org/plugins/webservice_restful
+2. Moodle API Docs - https://moodle.org/plugins/webservice_restful
 
 ## Integration Options
 
