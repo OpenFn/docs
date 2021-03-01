@@ -11,36 +11,54 @@ be used to import or export projects between OpenFn/platform and OpenFn/engine.
 jobs:
   job-1:
     expression: >
-      alterState((state) => {
+      alterState(state => {
+        state.data.number = state.data.number * 2
+        return state;
+      })
+    language_pack: '@openfn/language-common'
+    trigger: trigger-1
+    credential: my-secret-credential
+  recurring-job:
+    expression: >
+      alterState(state => {
         console.log("Hi there!")
         return state;
       })
     language_pack: '@openfn/language-common'
-    trigger: trigger-2
-  job-2:
-    expression: none
-    language_pack: '@openfn/language-common'
-    trigger: trigger-3
-  job-3:
-    expression: none
-    language_pack: '@openfn/language-common'
-    trigger: trigger-3
-  job-cron:
+    trigger: every-minute
+  flow-job:
     expression: >
-      alterState(({counter=0}) => {
-        console.log("Hi there!")
-        return {counter: counter+1}; 
+      alterState(state => {
+        state.data.number = state.data.number * 3
+        return state;
       })
     language_pack: '@openfn/language-common'
-    trigger: every-minute
+    trigger: after-j1
+  catch-job:
+    expression: >
+      alterState(state => {
+        state.message = "handled it."
+        return state;
+      })
+    language_pack: '@openfn/language-common'
+    trigger: j1-fails
 
 triggers:
-  trigger-2:
+  trigger-1:
     criteria: '{"number":2}'
-  trigger-3:
-    criteria: '{"b":2}'
   every-minute:
     cron: '* * * * *'
+  after-j1:
+    success: job-1
+  j1-fails:
+    failure: job-1
+
+# Note that credential keys get copied, but values must be manually entered
+# after the export is completed.
+credentials:
+  my-secret-credential:
+    username: '******'
+    password: '******'
 ```
 
 ## Proposal v1
