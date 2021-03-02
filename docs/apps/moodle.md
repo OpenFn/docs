@@ -1,6 +1,4 @@
----
-title: Moodle
----
+# Moodle
 
 ## Overview
 
@@ -30,21 +28,20 @@ Data forwarding using a Webhook: https://moodle.org/plugins/local_webhooks
 
 **Sample requests**
 
-Authentication: 
-
+Authentication:  
 `GET mymoodlesite.com/login/token.php?service=moodle_mobile_app
 &username=USERNAME&password=PASSWORD`
 
-Retrieve course information for all courses:
+Retrieve course information for all courses:  
 `GET /cv_dgdp/webservice/rest/server.php?wstoken=TOKEN&wsfunction=
 core_course_get_courses&moodlewsrestformat=json HTTP/1.1`
 
 
-Retrieve enrolled users in a specific course: 
+Retrieve enrolled users in a specific course:  
 `GET /cv_dgdp/webservice/rest/server.php?wstoken=TOKEN&wsfunction=
 core_enrol_get_enrolled_users&courseid=225&moodlewsrestformat=json HTTP/1.1`
 
-Retrieve all final grades for one student:
+Retrieve all final grades for one student:  
 `GET /cv_dgdp/webservice/rest/server.php?wstoken=TOKEN&wsfunction=
 gradereport_user_get_grade_items&userid=46580&courseid=225&moodlewsrestformat=json HTTP/1.1`
 
@@ -61,15 +58,14 @@ used to make HTTP requests to the Moodle API.
 
 ## Implementation Examples
 
-**Moodle -> CommCare Integration: 
-**
+**Moodle -> CommCare Integration:**
 
 In a pilot for the Empleando Futuros program, Dimagi and Banyan Global are developing a learning management system in Moodle and Commcare. OFG will sync the two platforms and automate data flow to enable monitoring of program enrollment and youth participation in CommCare.
 
 Example: As a coach, when a student's grade is updated in Moodle, I would like to automatically see that data reflected in our CommCare mobile app.
 
-Integration [Documentation](https://docs.google.com/spreadsheets/d/1jmMEXcvtQCZRnfQjpHFjN9qTulp8ThrvqCs8Ac7CvO4/edit#gid=0): 
-⋅⋅* Mapping specifications 
-⋅⋅* List of Moodle endpoints used and sample JSON responses
-⋅⋅* Data flows diagrams
+Integration [Documentation](https://docs.google.com/spreadsheets/d/1jmMEXcvtQCZRnfQjpHFjN9qTulp8ThrvqCs8Ac7CvO4/edit#gid=0):  
+-Mapping specifications  
+-List of Moodle endpoints used and sample JSON responses  
+-Data flows diagrams
 
