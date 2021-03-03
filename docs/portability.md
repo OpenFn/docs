@@ -5,6 +5,61 @@ title: Portability Proposal
 OpenFn is currently designing a portable project configuration schema that can
 be used to import or export projects between OpenFn/platform and OpenFn/engine.
 
+## Proposal v3
+
+v3 introduces
+[URI schemes](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
+`file://`, `https://`, `gcs://`
+
+```yaml
+jobs:
+  job-1:
+    expression: 'file://my-job.js' # URIs may be used (e.g., https://raw.githubusercontent.com/org/repo/my-job.js)
+    language_pack: '@openfn/language-common'
+    trigger: trigger-1
+    credential: my-secret-credential
+  recurring-job:
+    expression: >
+      alterState(state => {
+        console.log("Hi there!")
+        return state;
+      })
+    language_pack: '@openfn/language-common'
+    trigger: every-minute
+  flow-job:
+    expression: >
+      alterState(state => {
+        state.data.number = state.data.number * 3
+        return state;
+      })
+    language_pack: '@openfn/language-common'
+    trigger: after-j1
+  catch-job:
+    expression: >
+      alterState(state => {
+        state.message = "handled it."
+        return state;
+      })
+    language_pack: '@openfn/language-common'
+    trigger: j1-fails
+
+triggers:
+  trigger-1:
+    criteria: '{"number":2}'
+  every-minute:
+    cron: '* * * * *'
+  after-j1:
+    success: job-1
+  j1-fails:
+    failure: job-1
+
+credentials:
+  my-secret-credential:
+    username: '******' # Credential keys get exported, but values must be manually reentered
+    password: '******'
+  my-other-credential: 'file://gcp_credential.json' # And URIs may be specified directly for the credential body
+```
+
 ## Proposal v2
 
 ```yaml
