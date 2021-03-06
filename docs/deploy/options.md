@@ -2,8 +2,6 @@
 title: Planning for Deployment
 ---
 
-## Introduction
-
 OpenFn/platform (the iPaaS), OpenFn/microservice, OpenFn/core and more than 50
 open-source adaptors maintained by OpenFn can be used locally or on the cloud,
 and as stand-alone solutions or as modules in other applications. Together the
@@ -20,7 +18,7 @@ See below for a chart of the available implementation pathways.
 
 ![Implementation Pathways](/img/implementation_pathways.png)
 
-<!--Please note that the chart doesn't include anything re OpenFn/Core. Source for chart is: https://drive.google.com/file/d/1wRr7EH-PXT3gHgPnVWDA2kTZSSjigwqq/view?usp=sharing  -->
+<!--@Taylor would you be willing to spend some time creating an update to this chart? Please note that the chart doesn't include anything re OpenFn/Core or OpenFn/Engine. Source for chart is: https://drive.google.com/file/d/1wRr7EH-PXT3gHgPnVWDA2kTZSSjigwqq/view?usp=sharing  -->
 
 ## Platform
 
