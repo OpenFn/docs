@@ -2,6 +2,14 @@
 title: Platform
 ---
 
+The OpenFn integration platform provides a flexible, scalable, and secure
+infrastructure to connect your existing systems, streamline data sharing, and
+automate workflows.
+
+Pricing information can be found here: https://openfn.org/pricing. 
+
+Feel free to contact an implementation specialist for enterprise SaaS options that match your model and needs.
+
 :::tip
 
 If you're building on **OpenFn/platform**, you can simply scale up or down your

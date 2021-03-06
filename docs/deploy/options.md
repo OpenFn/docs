@@ -20,7 +20,7 @@ See below for a chart of the available implementation pathways.
 
 ![Implementation Pathways](/img/implementation_pathways.png)
 
-<!--source for chat is: https://drive.google.com/file/d/1wRr7EH-PXT3gHgPnVWDA2kTZSSjigwqq/view?usp=sharing  -->
+<!--Please note that the chart doesn't include anything re OpenFn/Core. Source for chart is: https://drive.google.com/file/d/1wRr7EH-PXT3gHgPnVWDA2kTZSSjigwqq/view?usp=sharing  -->
 
 ## Platform
 
