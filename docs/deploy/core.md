@@ -1,10 +1,11 @@
 ---
-title: Core
+title: DIY (engine and core)
 ---
 
 :::important
 
-We're in the process of migrating the docs for **OpenFn/core** over here.
+We're in the process of migrating the docs for **OpenFn/core** and
+**OpenFn/engine** over here.
 
 In the meantime, check out https://github.com/OpenFn/core
 
@@ -12,12 +13,10 @@ In the meantime, check out https://github.com/OpenFn/core
 
 ## Introduction
 
-OpenFn/core is the FOSS ETL tool at the heart of the OpenFn platform.
-
-We are currently working on getting this into a state where it can be deployed
-as a completely free and open source Engine which automatically receives
-messages and executes OpenFn jobs, harnessing all the power of thousands of
-existing OpenFn jobs and language-packages.
+OpenFn/core is the FOSS ETL tool at the heart of the OpenFn platform. It is used
+by `platform`, `microservice`, _and_ `engine`. It creates an isolated Node VM,
+passes in `state`, an `expression`, and an `adaptor`, then runs the expression
+in this limited access Node VM.
 
 ## On DIY implementations using OpenFn/core
 
