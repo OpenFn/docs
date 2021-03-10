@@ -204,6 +204,32 @@ language-packs.
 - `function(state){return state.references[state.references.length-N].id})` gets
   the sfID of the nth item created
 
+#### each()
+
+```js
+each(
+  dataPath('csvData[*]'),
+  upsertTEI(
+    'aX5hD4qUpRW', //piirs uid
+    {
+      trackedEntityType: 'bsDL4dvl2ni',
+      orgUnit: dataValue('OrgUnit'),
+      attributes: [
+        {
+          attribute: 'aX5hD4qUpRW',
+          value: dataValue('aX5hD4qUpRW'),
+        },
+        {
+          attribute: 'MxQPuS9G7hh',
+          value: dataValue('MxQPuS9G7hh'),
+        },
+      ],
+    },
+    { strict: false }
+  )
+);
+```
+
 #### beta.each
 
 ```js
