@@ -66,11 +66,11 @@ credentials:
 jobs:
   job-1:
     expression: >
-      alterState(state => {
-        state.data.number = state.data.number * 2
-        return state;
+      registerPatient({
+        patient-id: state.data.id,
+        dob: state.data.birth
       })
-    language_pack: '@openfn/language-common'
+    language_pack: '@openfn/language-openmrs'
     trigger: trigger-1
     credential: my-secret-credential
   recurring-job:

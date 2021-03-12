@@ -27,6 +27,15 @@ Exit code `10` means there was an error in `@openfn/core/cli.js execute`. It's
 possible that you job can't be run how it's written, but that various validation
 checks failed to warn you earlier.
 
+### 11: Node.js Error
+
+Exit code `11` means that there was an error exit from the NodeVM but the exit
+code wasn't captured.
+
+### 134: Out of memory
+
+This is a standard out of memory error from the NodeVM.
+
 ## Special Exit Codes (Platform)
 
 The OpenFn platform controls the execution of all of your jobs via the ErlangVM.
