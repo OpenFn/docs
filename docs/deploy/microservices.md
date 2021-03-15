@@ -153,4 +153,4 @@ config on the Project Settings page and running your project in microservice.
 `cd` into the folder and run the project with `docker-compose up`. If you don't have the docker
 image, it will be auto-pulled from `hub.docker.com`.
 
-![](https://github.com/OpenFn/microservice/blob/main/docs/assets/microservice_zip_export.gif)
+![Export Microservice Zip](/img/microservice_zip_export.gif)
