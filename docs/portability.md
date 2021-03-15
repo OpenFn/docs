@@ -15,7 +15,7 @@ v3 introduces
 jobs:
   job-1:
     expression: 'file://my-job.js' # URIs may be used (e.g., https://raw.githubusercontent.com/org/repo/my-job.js)
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: trigger-1
     credential: my-secret-credential
   recurring-job:
@@ -24,7 +24,7 @@ jobs:
         console.log("Hi there!")
         return state;
       })
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: every-minute
   flow-job:
     expression: >
@@ -32,7 +32,7 @@ jobs:
         state.data.number = state.data.number * 3
         return state;
       })
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: after-j1
   catch-job:
     expression: >
@@ -40,7 +40,7 @@ jobs:
         state.message = "handled it."
         return state;
       })
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: j1-fails
 
 triggers:
@@ -70,7 +70,7 @@ jobs:
         patient-id: state.data.id,
         dob: state.data.birth
       })
-    language_pack: '@openfn/language-openmrs'
+    adaptor: '@openfn/language-openmrs'
     trigger: trigger-1
     credential: my-secret-credential
   recurring-job:
@@ -79,7 +79,7 @@ jobs:
         console.log("Hi there!")
         return state;
       })
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: every-minute
   flow-job:
     expression: >
@@ -87,7 +87,7 @@ jobs:
         state.data.number = state.data.number * 3
         return state;
       })
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: after-j1
   catch-job:
     expression: >
@@ -95,7 +95,7 @@ jobs:
         state.message = "handled it."
         return state;
       })
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: j1-fails
 
 triggers:
