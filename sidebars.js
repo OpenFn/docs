@@ -63,7 +63,7 @@ module.exports = {
       items: [
         'deploy/options',
         'deploy/platform',
-        'deploy/microservices',
+        'deploy/microservice',
         'deploy/core',
       ],
     },

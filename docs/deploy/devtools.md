@@ -1,6 +1,6 @@
 ---
 title: Devtools
-sidebar_label: Setup and use
+sidebar_label: Devtools basics
 ---
 
 A set of tools for writing &amp; testing expressions, managing OpenFn projects,

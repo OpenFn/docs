@@ -39,16 +39,23 @@ helpful when considering the microservice approach.
 - [OpenFn/core](https://github.com/openFn/core)
 - [OpenFn/devtools](https://openfn.github.io/devtools/)
 
-## Docker run
+## Docker up and running
 
-Assuming you've got an `.env` and a project directory with a `project.yaml`
-spec:
+Assuming you've got an `.env` and a sample project at `./sample-project`
+directory with a `project.yaml` spec:
+
+```sh
+docker-compose up
+```
+
+You can configure either the compose file or the .env, or run the container
+using `docker run`:
 
 ```sh
 docker run -v <path-to-your-project-folder>:/home/microservice/<path-to-your-project-folder> \
   --env-file <path-to-your-env-file> \
   --network host \
-  openfn/microservice:v0.3.1
+  openfn/microservice:v0.3.2
 ```
 
 ## Development up and running guide
@@ -139,18 +146,21 @@ Time-based jobs will be run by `Engine` according to the `credential`,
 If you have a project configured on OpenFn, you have two ways for exporting your
 config on the Project Settings page and running your project in microservice.
 
-1. If you export as `project.yaml`, you can download your settings in `yaml` format from your platform project Download page or from a link in the auto-generated email sent to your address. You can plug this file into your environment as set
-   up using the [Development Up and Running Guide](#Development-up-and-running-guide).
+1. If you export as `project.yaml`, you can download your settings in `yaml`
+   format from your platform project Download page or from a link in the
+   auto-generated email sent to your address. You can plug this file into your
+   environment as set up using the
+   [Development Up and Running Guide](#Development-up-and-running-guide).
 
-2. If you export as `microservice.zip`, you'll get your microservice folder ready to
-   run with `docker`, containing
+2. If you export as `microservice.zip`, you'll get your microservice folder
+   ready to run with `docker`, containing
 
 - a `docker-compose.yaml` config file
--  a project folder containing `project.yaml`
+- a project folder containing `project.yaml`
 - `.env` file with the default environment variables for docker
 - a `Readme` file
 
-`cd` into the folder and run the project with `docker-compose up`. If you don't have the docker
-image, it will be auto-pulled from `hub.docker.com`.
+`cd` into the folder and run the project with `docker-compose up`. If you don't
+have the docker image, it will be auto-pulled from `hub.docker.com`.
 
 ![Export Microservice Zip](/img/microservice_zip_export.gif)
