@@ -50,6 +50,17 @@ multi-app Saga patterns). You can read more on two-way synching below.
 
 :::note
 
+### Inbox
+
+Most simply put, this is a secure URL which can receive HTTP requests from
+anywhere on the web. Each project has one on OpenFn.
+
+### Messages
+
+A message is a chunk of data that's received by your inbox. It might `trigger`
+(see below) a job run, and it contains the `body` and `headers` of the HTTP
+request that was made to your inbox.
+
 ### Runs
 
 A run is each individual execution of a job. Imagine that a job is configured to
