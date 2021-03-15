@@ -47,7 +47,11 @@ module.exports = {
           label: 'Live Data',
           items: ['build/inbox', 'source-apps'],
         },
-        'deploy/devtools',
+        {
+          type: 'category',
+          label: 'Devtools',
+          items: ['deploy/devtools', 'extra_tools_adaptors'],
+        },
         'build/adaptors',
         // 'build/messages',
         // 'build/runs',
