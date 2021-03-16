@@ -4,6 +4,16 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
+## Version 1.89.0 (2021-03-15)
+
+New features:
+
+- **Export as yaml or microservice.zip:** Users can now export their project
+  configurations (triggers, jobs, credentials) as a `.yaml` file which can be
+  run with `OpenFn/microservice` or as a `.zip` file with a prepared
+  microservice implementation which can be extracted and started with
+  `docker-compose up`.
+
 ## Version 1.88.0 (2021-02-22)
 
 New features:

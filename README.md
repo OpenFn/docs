@@ -18,7 +18,7 @@ issues and feature requests.
 
 #### Contributing to this documentation site
 
-Visit https://docs.openfn.org/docs/style-guide.
+Visit https://docs.openfn.org/documentation/writing-docs/.
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern
 static website generator.
@@ -44,7 +44,9 @@ Installation
 ```console
 yarn install
 ```
-(On Mac, I first had to run `npm install --global yarn` and then run this^ command in the `/docs` repo.)
+
+(On Mac, I first had to run `npm install --global yarn` and then run this^
+command in the `/docs` repo.)
 
 ##### Local Development
 

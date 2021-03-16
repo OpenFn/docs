@@ -1,35 +1,42 @@
 ---
-title: DIY (engine and core)
+title: Do-it-yourself Deployments
+sidebar_label: DIY
 ---
 
-:::important
+:::warning
 
-We're in the process of migrating the docs for **OpenFn/core** and
-**OpenFn/engine** over here.
-
-In the meantime, check out https://github.com/OpenFn/core
+Are you sure you want to build a new application using **core** and/or
+**engine**? OpenFn's completely free and open source
+**[microservice](microservice)** offering provides a pretty good base in the
+event that you'd like to extend our existing functionality for your own
+purposes.
 
 :::
 
-## Introduction
+:::note
 
-OpenFn/core is the FOSS ETL tool at the heart of the OpenFn platform. It is used
-by `platform`, `microservice`, _and_ `engine`. It creates an isolated Node VM,
-passes in `state`, an `expression`, and an `adaptor`, then runs the expression
-in this limited access Node VM.
+We're in the process of migrating the docs for **OpenFn/core** and
+**OpenFn/engine** here.
 
-## On DIY implementations using OpenFn/core
+In the meantime, check out:
+
+- https://github.com/OpenFn/core
+- https://github.com/OpenFn/engine
+
+:::
+
+## On DIY implementations using OpenFn/core and OpenFn/engine
 
 OpenFn's core ETL tools are all open-source, and here we will explain how those
 tools can be used to perform ETL operations from your command line. You can even
 take this further and wrap them together in your own hosted service!
 
-To create an integration service like OpenFn.org, you will need to build a REST
-endpoint that allows JSON or XML to be posted to it, returning a `2XX` and
-checking the body of that message to see if it matches some criteria. If the
-criteria match for that message, you must perform `execute` from fn-lang, using
-the message data and some stored configuration as state. See a sample state.json
-below:
+To create an integration service like `platform` or `microservice`, you will
+need to build a REST endpoint that allows JSON or XML to be posted to it,
+returning a `2XX` and checking the body of that message to see if it matches
+some criteria. If the criteria match for that message, you must perform
+`execute` from `core`, using the message data and some stored configuration as
+state. See a sample state.json below:
 
 ### State.json
 

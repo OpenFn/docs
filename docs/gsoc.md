@@ -80,6 +80,10 @@ They're NodeJs modules, but in order to make the adaptor development and _use_
 process better, we want to bring them into the future with Typescript. Adaptors
 should tell you how to use them while you use them.
 
+Check out this thread on
+[community.openfn.org](https://community.openfn.org/t/discussion-regarding-adapter-2-0-project)
+for more information.
+
 Difficulty level: `medium`
 
 You'll be working in [`NodeJs`](https://nodejs.dev/learn) and

@@ -47,11 +47,6 @@ module.exports = {
           label: 'Live Data',
           items: ['build/inbox', 'source-apps'],
         },
-        {
-          type: 'category',
-          label: 'Devtools',
-          items: ['deploy/devtools', 'deploy/extra-tools-adaptors'],
-        },
         'build/adaptors',
         // 'build/messages',
         // 'build/runs',
@@ -64,7 +59,7 @@ module.exports = {
         'deploy/options',
         'deploy/platform',
         'deploy/microservice',
-        'deploy/core',
+        'deploy/diy',
       ],
     },
     {
@@ -72,6 +67,11 @@ module.exports = {
       label: 'Manage',
       items: [
         'manage/platform-mgmt',
+        {
+          type: 'category',
+          label: 'Devtools',
+          items: ['devtools/devtools', 'devtools/extra-tools-adaptors'],
+        },
         'trouble-shooting',
         'jobs/errors',
         // 'manage/placeholder',
