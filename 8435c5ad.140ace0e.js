@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[95],{166:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"supply-chain-system","name":"supply chain system","count":1,"permalink":"/blog/tags/supply-chain-system"}')}}]);
