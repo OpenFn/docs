@@ -25,7 +25,9 @@ In the meantime, check out:
 
 :::
 
-## On DIY implementations using OpenFn/core and OpenFn/engine
+## Using `core` and `engine` directly
+
+### Where to begin
 
 OpenFn's core ETL tools are all open-source, and here we will explain how those
 tools can be used to perform ETL operations from your command line. You can even
@@ -38,7 +40,7 @@ some criteria. If the criteria match for that message, you must perform
 `execute` from `core`, using the message data and some stored configuration as
 state. See a sample state.json below:
 
-### State.json
+#### State.json
 
 ```json
 {

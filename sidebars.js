@@ -48,8 +48,6 @@ module.exports = {
           items: ['build/inbox', 'source-apps'],
         },
         'build/adaptors',
-        // 'build/messages',
-        // 'build/runs',
       ],
     },
     {
