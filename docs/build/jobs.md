@@ -95,7 +95,13 @@ like this:
 ```js
 create(
   'Patient__c',
-  fields(field('Name', dataValue('form.surname')), field('Age__c', 7))
+  fields(
+    field('Name', dataValue('form.surname')),
+    field('Other Names', dataValue('form.firstName')),
+    field('Age__c', dataValue('form.ageInYears')),
+    field('Is_Enrolled__c', true),
+    field('Enrollment_Status__c', 3)
+  )
 );
 ```
 
@@ -109,6 +115,28 @@ common "helper functions" like `dataValue(path)` and destination specific
 functions like `create(object,attributes)`. While most cases are covered
 out-of-the-box, jobs are **evaluated as Javascript**. This means that you can
 write your own custom, anonymous functions to do whatever your heart desires:
+
+### dataValue
+
+The most commonly used "helper function" is `dataValue(...)`. This function
+takes a single argument—the _path_ to some data that you're trying to access
+inside the message that has triggered a particular run. In the above example,
+you'll notice that `Is_Enrolled__c` is _always_ set to `true`, but `Name` will
+change for each message that triggers the running of this job. It's set to
+`dataValue('form.surname')` which means it will set `Name` to whatever value is
+present at `state.data.form.surname` for the triggering message. It might be Bob
+for one message, and Alice for another.
+
+:::note
+
+Note that for message-triggered jobs, `state` will always have it's `data` key
+(i.e., `state.data`) set to the body of the triggering message (aka HTTP
+request).
+
+I.e., `dataValue('some.path') === state.data.some.path`, as evaluated at the
+time that the operation (`create` in the above expression) is executed.
+
+:::
 
 ### An expression with custom Javascript
 
@@ -175,6 +203,32 @@ language-packs.
   [(source)](https://github.com/OpenFn/language-common/blob/master/src/index.js#L96-L100)
 - `function(state){return state.references[state.references.length-N].id})` gets
   the sfID of the nth item created
+
+#### each()
+
+```js
+each(
+  dataPath('csvData[*]'),
+  upsertTEI(
+    'aX5hD4qUpRW', //piirs uid
+    {
+      trackedEntityType: 'bsDL4dvl2ni',
+      orgUnit: dataValue('OrgUnit'),
+      attributes: [
+        {
+          attribute: 'aX5hD4qUpRW',
+          value: dataValue('aX5hD4qUpRW'),
+        },
+        {
+          attribute: 'MxQPuS9G7hh',
+          value: dataValue('MxQPuS9G7hh'),
+        },
+      ],
+    },
+    { strict: false }
+  )
+);
+```
 
 #### beta.each
 

@@ -4,6 +4,38 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
+## Version 1.89.0 (2021-03-15)
+
+New features:
+
+- **Export as yaml or microservice.zip:** Users can now export their project
+  configurations (triggers, jobs, credentials) as a `.yaml` file which can be
+  run with `OpenFn/microservice` or as a `.zip` file with a prepared
+  microservice implementation which can be extracted and started with
+  `docker-compose up`.
+
+## Version 1.88.0 (2021-02-22)
+
+New features:
+
+- **Typeahead snippets:** When writing jobs on OpenFn.org, users are now
+  prompted with a typeahead (or "autocomplete") dialog which shows them all
+  available helper functions and provides rich templates which can be accessed
+  at a keystroke. The result is a simpler, more intuitive job writing experience
+  that is more tightly coupled to the adaptors themselves.
+- **Better IDE mode:** When editing a job, users are now provided with either a
+  step-by-step "wizard" mode or a full-screen integrated development environment
+  (IDE) which gives them a flexible workspace for viewing sample receipts,
+  drafting jobs, and exploring documentation.
+- **Direct links to source code:** In the documentation drawer, users now find
+  direct links to the source code for each _version_ of the adaptor they're
+  using so that they don't need to take extra steps once on GitHub.
+- **Save and share searches and filters:** On the **Inbox** and **Activity
+  History** pages the current filter (e.g., "Only show messages from the last 7
+  days matching trigger X with associated job runs in a failed state") is now
+  stored in the URL, allowing users to bookmark particular searches and share
+  those searches/filters with colleagues.
+
 ## Version 1.87.8 (2021-01-28)
 
 New features:
