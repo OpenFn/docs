@@ -10,7 +10,7 @@ and developing new adaptors (language-packages).
 
 1. Make sure you've got [git](https://git-scm.com/downloads) (maybe GitBash for
    Windows?)
-2. And [Node.js](https://nodejs.org/en/download/) (version 6.11 or greater)
+2. And [Node.js](https://nodejs.org/en/download/) (version 12 or greater)
 3. Run `git clone git@github.com:OpenFn/devtools.git` for SSH or
    `git clone https://github.com/OpenFn/devtools.git`
 4. Run `cd devtools`
@@ -83,7 +83,12 @@ In `URI` mode, you’ll get a config file with URI-s to your defined jobs.
 
 ### Pre-Requisites
 
-1. [Make](http://www.gnu.org/software/make/) is used so that our modern (es9)
-   JavaScript can be run on older Node runtimes.
+1. [Node](https://nodejs.org/en/download/) is required to run jobs and use many
+   of the scripts in Devtools.
 
-2. _wip_
+2. [Make](http://www.gnu.org/software/make/) is used so that our modern (es9)
+   JavaScript can be run on older Node runtimes. To install it and other build
+   tools, you might run `sudo apt-get install build-essential`.
+
+3. A basic working knowledge of NodeJs, promises and asynchronous functions is
+   essential for writing adaptors.
