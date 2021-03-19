@@ -5,9 +5,9 @@ title: Portability
 ## Intent
 
 Beyond facilitating portability/transferability between OpenFn's
-[platform](deploy/platform) and [microservice](deploy/microservice) deployment
-pathways, the portability proposal (needs a better name... and...) seeks to
-establish a simple, globally-applicable way of **specifying workflow
+[platform](deploy/platform) and [microservice](/documentation/microservice/home)
+deployment pathways, the portability proposal (needs a better name... and...)
+seeks to establish a simple, globally-applicable way of **specifying workflow
 automation** that might be applied across workflow-engines/integration platforms
 across the sector. Nothing about the spec _must_ be specific to OpenFn or any
 one of our individual products. We envision a future in which software built on

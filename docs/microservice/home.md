@@ -13,7 +13,7 @@ deployed on any hardware.
 
 This microservice approach helps to ensure that governments and NGOs are never
 locked-in to OpenFn's SaaS offering, and can port their existing jobs, triggers,
-and credentials from [OpenFn.org](www.openfn.org) to their own infrastructure
+and credentials from [OpenFn.org](https://www.openfn.org) to their own infrastructure
 easily.
 
 ## Introduction
