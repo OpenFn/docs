@@ -2,7 +2,7 @@
 
 ## Overview
 
-Moodle is a free and open-source online learning management system.
+[Moodle](https://moodle.org/) is a free and open-source online learning management system.
 
 ### Integration Use Cases
 
@@ -26,7 +26,7 @@ Data forwarding using a Webhook: https://moodle.org/plugins/local_webhooks
 
 ### More on the Moodle API
 
-**Sample requests**
+**Sample HTTP requests**
 
 Authentication:  
 `GET mymoodlesite.com/login/token.php?service=moodle_mobile_app
@@ -60,12 +60,49 @@ used to make HTTP requests to the Moodle API.
 
 **Moodle -> CommCare Integration:**
 
-In a pilot for the Empleando Futuros program, Dimagi and Banyan Global are developing a learning management system in Moodle and Commcare. OFG will sync the two platforms and automate data flow to enable monitoring of program enrollment and youth participation in CommCare.
+In a project implementation for creating an education app (based on CommCare), we extract data from a Moodle learning management system daily, and then upload Moodle student `user` data as `case` records in Commcare.
 
-Example: As a coach, when a student's grade is updated in Moodle, I would like to automatically see that data reflected in our CommCare mobile app.
+_Example User Story: As a coach using CommCare, when a student's profile and grades are updated in Moodle, I would like to automatically see that data reflected in my mobile app so that I can follow-up with the relevant support to ensure they perform well._
 
-Integration [Documentation](https://docs.google.com/spreadsheets/d/1jmMEXcvtQCZRnfQjpHFjN9qTulp8ThrvqCs8Ac7CvO4/edit#gid=0):  
--Mapping specifications  
--List of Moodle endpoints used and sample JSON responses  
--Data flows diagrams
+Example job to get enrolled users via the Moodle API endpoint (aka `web service function`): `core_enrol_get_enrolled_users`
+```js
+alterState(state => {
+  const { loginUrl, username, password, host } = state.configuration;
+  return get(
+    `${loginUrl}&username=${username}&password=${password}`,
+    {},
+    state => {
+      const { token } = state.data;
+      const courseIds = [224, 225];
+      const enrolledUsers = [];
+      return each(
+        courseIds,
+        alterState(state => {
+          let courseid = state.data;
+          return get(
+            `${host}`,
+            {
+              query: {
+                wstoken: token,
+                wsfunction: 'core_enrol_get_enrolled_users',
+                courseid,
+                moodlewsrestformat: 'json',
+              },
+              headers: { 'content-type': 'application/json' },
+            },
+            state => {
+              console.log(
+                `Getting users enrolled in the course with ${courseid}...`
+              );
+              enrolledUsers.push(state.data);
+              return { ...state, enrolledUsers };
+            }
+          )(state);
+        })
+      )(state);
+    }
+  )(state);
+});
+```
+
 
