@@ -2,13 +2,19 @@
 title: Microservice
 ---
 
-:::important
+## Intent
 
-We're still in the process of migrating the docs for devtools over here.
+OpenFn is used by numerous health and humanitarian organizations around the
+world to scale their programs through real-time interoperability, systems
+integration, and workflow automation. **OpenFn/microservice** makes use of
+OpenFn's open-core technology—namely **OpenFn/core**, **OpenFn/engine**, and the
+various OpenFn **adaptors**—to create standalone microservices which can be
+deployed on any hardware.
 
-In the meantime, check out https://openfn.github.io/microservice/
-
-:::
+This microservice approach helps to ensure that governments and NGOs are never
+locked-in to OpenFn's SaaS offering, and can port their existing jobs, triggers,
+and credentials from [OpenFn.org](www.openfn.org) to their own infrastructure
+easily.
 
 ## Introduction
 

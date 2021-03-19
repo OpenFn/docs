@@ -1,5 +1,5 @@
 ---
-title: Portability Proposal
+title: Portability
 ---
 
 ## Intent

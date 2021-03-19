@@ -25,6 +25,8 @@ on OpenFn, you can deploy them in a number of different ways.
 
 ## Platform
 
+See: [platform](platform)
+
 The OpenFn integration platform provides a flexible, scalable, and secure
 infrastructure to connect your existing systems, streamline data sharing, and
 automate workflows.
@@ -43,6 +45,8 @@ can pick and choose exactly how and where OpenFn runs.
 
 ## Microservice
 
+See: [microservice](/documentation/microservice/home)
+
 Microservice is right for you if you are already managing high-availability
 software and don't need a web-front end. Microservice gives you lots of
 flexbility, and it's completely FOSS—meaning you use it for free and can even
@@ -60,6 +64,8 @@ iPaaS and used to create a Engine deployment using OpenFn's FOSS ETL tools. -->
 <!-- You might use Engine if... -->
 
 ## DIY
+
+See: [diy](diy)
 
 The OpenFn intgration toolkit is a collection of dozens of completely free and
 open source integration tools, applications, and modules. If the out-of-the-box

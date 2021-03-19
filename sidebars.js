@@ -40,13 +40,14 @@ module.exports = {
             { type: 'link', label: 'The Library 📖', href: '../../library' },
           ],
         },
-        'build/credentials',
         'build/triggers',
+        'build/credentials',
         {
           type: 'category',
           label: 'Live Data',
           items: ['build/inbox', 'source-apps'],
         },
+        'devtools/home',
         'build/adaptors',
       ],
     },
@@ -55,8 +56,9 @@ module.exports = {
       label: 'Deploy',
       items: [
         'deploy/options',
+        'portability',
         'deploy/platform',
-        'deploy/microservice',
+        'microservice/home',
         'deploy/diy',
       ],
     },
@@ -65,16 +67,9 @@ module.exports = {
       label: 'Manage',
       items: [
         'manage/platform-mgmt',
-        {
-          type: 'category',
-          label: 'Devtools',
-          items: ['devtools/devtools', 'devtools/extra-tools-adaptors'],
-        },
         'trouble-shooting',
         'jobs/errors',
-        // 'manage/placeholder',
         'release-notes',
-        'portability',
       ],
     },
     {
