@@ -1,8 +1,21 @@
 ---
-title: CommCare HQ
+title: CommCare
 ---
+# Overview
+[CommCare](https://www.dimagi.com/commcare/) is a powerful data collection platform developed by Dimagi. It offers proprietary and open-source options, and is primarly best for mobile case management. 
 
-## Push cases and/or forms from CommCare to OpenFn
+# Integration Options
+CommCare offers a number of integration options for extracting and/or loading data to and from CommCare HQ. 
+
+## Web API
+CommCare has different APIs for reading vs. updating data.  Some helpful links: 
+- Data APIs: https://confluence.dimagi.com/display/commcarepublic/Data+APIs
+- Bulk Case Upload API to mass update case records: https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data
+
+## Forward cases and/or forms from CommCare to OpenFn
+See [CommCare docs](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128) on how to configure this webhook to "push" data to an external system like OpenFn. This option is great for _real-time_ data forwarding. 
+
+Quick instructions: 
 
 1. Go to "Project Settings".
 2. Click "Data Forwarding".
@@ -13,3 +26,14 @@ title: CommCare HQ
    [message-filter trigger like this](../build/triggers#match-a-message-with-a-fragment-inside-another-object-called-form).
 6. Set up a `job` running on that filter to process CommCare submissions or case
    updates.
+   
+We recommend updating the `Connection Settings` to list emails that should be alerted if there is a data forwarding error. See docs: https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications
+
+## OpenFn Adaptors
+OpenFn implementations have leveraged both the `HTTP` and `CommCare` adaptors to connect with the CommCare API. 
+https://github.com/OpenFn/language-commcare
+https://github.com/OpenFn/language-http
+
+## Example Integrations
+https://github.com/OpenFn/miracle-feet
+https://github.com/OpenFn/lwala
