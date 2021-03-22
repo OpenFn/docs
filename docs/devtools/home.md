@@ -116,7 +116,7 @@ each `./scripts/bootstrap`- to clone and set up hooks in each
 
 ### generate-project.js
 
-<!-- TODO: Rita to add generate-project usage instructions and one-line explanation. -->
+`./scripts/generate-project.js` interactively generates a YAML project configuration file that can be used both on the OpenFn platform and in OpenFn microservice to define projects.
 
 ### generate-doclets
 
