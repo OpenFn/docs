@@ -4,6 +4,28 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
+## Version 1.89.29 (2021-03-24)
+
+New features:
+
+- **Sample message explorer:** When writing a job, users can view a selection of
+  matching messages which would cause the job to run. Now, that sample
+  `state.json` view is more easily browseable as a tree, and by clicking
+  individual nodes in the tree users can determine the require `path` to
+  accessing source data. For example, clicking on a node at
+  `state.data.patient.lastVisitDate` will copy
+  `dataValue('patient.lastVisitDate')` to your clipboard for pasting into the
+  job expression in the adjacent panel.
+
+Bug Fixes:
+
+- Addressed an issue with the archive service which resulted in incomplete
+  archiving of expired data. This impacted users with 365 day retention plans
+  and Google Cloud Storage `.zip` archiving for data past its platform expiry.
+  _Data stored on the platform itself was unaffected_ but automatic archives for
+  data that expired from August 1st, 2019 to March 31st, 2020 only contains a
+  subset of the messages and runs from that period.
+
 ## Version 1.89.0 (2021-03-15)
 
 New features:

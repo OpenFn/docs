@@ -76,9 +76,9 @@ module.exports = {
       type: 'category',
       label: 'Apps',
       items: [
+        'apps/anything',
         'apps/cht',
         'apps/commcare',
-        'apps/connect-anything',
         'apps/godata',
         'apps/google-sheets',
         'apps/kobo-toolbox',
