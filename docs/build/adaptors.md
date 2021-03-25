@@ -50,7 +50,7 @@ template available in this Url: `https://github.com/OpenFn/adaptor` via the
 
 ![Use this template button](/img/usethistemplate.png)
 
-#### Default operation
+### Default operation
 
 This template contains a default `create` operation that can be customized
 according to the objectives of the new language-package.
@@ -63,6 +63,37 @@ export function create(path, params, callback) {
     // return state
   };
 }
+```
+
+### General considerations
+#### Use of http
+
+In some special cases, the need to execute an http request can happen when working with a specific adaptor (e.g. posting the output of a primero case fetch to the openfn inbox). Considering this type of situations, our `language-common` fully implement and export `http`. To use `http` in any job executed with a specific language-package consider exporting it at the very bottom.
+
+```javascript
+...
+export {
+  alterState,
+  ...
+  http,
+  ...
+  sourceValue,
+} from '@openfn/language-common';
+```
+#### Import language-common from npm
+
+To leverage, the last tested available version of our language-common adaptor, consider importing the one published in `npm` through `@openfn/language-common`.
+
+Accordingly, your `package.json` should add a dependency to that version as this (snippet taken from `language-postgresql`): 
+
+```json
+...
+"dependencies": {
+    "@openfn/language-common": "1.2.6",
+    "pg": "^8.3.2",
+    "pg-format": "^1.0.4"
+  },
+  ...
 ```
 
 ## Build and tests
