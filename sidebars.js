@@ -56,7 +56,7 @@ module.exports = {
       label: 'Deploy',
       items: [
         'deploy/options',
-        'portability',
+        'deploy/portability',
         'deploy/platform',
         'microservice/home',
         'deploy/diy',
