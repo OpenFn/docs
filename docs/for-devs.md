@@ -63,15 +63,15 @@ recommended that you create a language-package with your required authentication
 and a set of simple, allowable actions nicely abstracted into "helper
 functions". See [language-dhis2](https://www.github.com/openfn/language-dhis2)
 for an example of a language-package which creates a simpler interface for a
-traditional JSON-based REST api. Language packages are written in Javascript and
-execute in Node. You can convert OpenFn's JSON into XML, or any other format
-before sending it to your application and you may make use of any node modules
-you'd like. See
+traditional JSON-based REST api. Adaptors are written in Javascript and execute
+in Node. You can convert OpenFn's JSON into XML, or any other format before
+sending it to your application and you may make use of any node modules you'd
+like. See
 [language-postgresql](https://www.github.com/openfn/language-postgresql) for an
-example of a language package that connects directly to PostgreSQL databases
-using a popular NPM module called "pg".
+example of an adaptor that connects directly to PostgreSQL databases using a
+popular NPM module called "pg".
 
-To receive data from OpenFn's generic language-http language package, your
-application must allow either basic, token, or digest authenticated POST, PUT,
-or GET requests. (Though it is not advisable to create an API that requires GET
+To receive data from OpenFn's generic `language-http` adaptor, your application
+must allow either basic, token, or digest authenticated POST, PUT, or GET
+requests. (Though it is not advisable to create an API that requires GET
 requests to create or update data.)

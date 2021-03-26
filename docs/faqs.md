@@ -187,12 +187,12 @@ accessed from an online location. Read more about
 [connecting source applications](source-apps), or check out the Apps page for
 applications widely implemented.
 
-We offer pre-built connectors (called “language-packages” or API “adaptors”) for
-our users’ most popular apps to make the integration setup quicker and more
-user-friendly when connecting with these tools. For example, users can implement
-language-http to send basic HTTP requests to any web application, or implement
-language-dhis2 to automatically handle DHIS2 authentication and access helper
-functions like fetchData()to export DHIS2 datasets.
+We offer pre-built connectors (called "adaptors") for our users' most popular
+apps to make the integration setup quicker and more user-friendly when
+connecting with these tools. For example, users can implement language-http to
+send basic HTTP requests to any web application, or implement language-dhis2 to
+automatically handle DHIS2 authentication and access helper functions like
+fetchData()to export DHIS2 datasets.
 
 ## Does OpenFn support two-way syncing?
 
@@ -211,7 +211,7 @@ No, but it helps to have written a formula in MS Excel! Many OpenFn users are
 familiar with data, not development, and quickly get comfortable with OpenFn
 jobs.
 
-If your project is leveraging an OpenFn adaptor (e.g.., language-dhis2), you
+If your project is leveraging an OpenFn adaptor (e.g., `language-dhis2`), you
 have access to pre-built helper functions (e.g., `getPatient`, `update`) so that
 you don’t need to write custom code, and rather can use OpenFn documentation or
 existing job scripts to write your own job. See OpenFn Github for inspiration
@@ -220,7 +220,7 @@ functions work in the same way that functions do in Excel… `sum(A1, A2, A3)`
 
 Jobs can be written and extended using raw Javascript for advanced data cleaning
 and manipulation. Therefore, you may want to implement Javascript to achieve
-specific requirements or to extend existing OpenFn language-packages, which are
+specific requirements or to extend existing OpenFn adaptors, which are
 open-source!
 
 ## Where is my data stored?
