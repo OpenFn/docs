@@ -3,7 +3,7 @@ title: Devtools
 ---
 
 A set of tools for writing &amp; testing expressions, managing OpenFn projects,
-and developing new adaptors (language-packages).
+and developing new adaptors.
 
 ## Up and running
 
@@ -56,10 +56,10 @@ Instead of using `-l ./language-salesforce.Adaptor`, use
 `-l./language-salesforce.FakeAdaptor` to test expressions offline:
 `./core/bin/core execute -l ./language-salesforce.FakeAdaptor -s ./tmp/state.json -o ./tmp/output.json -e ./tmp/expression.js`
 
-#### Offline testing for other `language-packages`
+#### Offline testing for other adaptors
 
-For most standard language packages which make use of HTTP requests, you can add
-`--test` to the execute command to intercept all HTTP requests.
+For most standard adaptors which make use of HTTP requests, you can add `--test`
+to the execute command to intercept all HTTP requests and return a `200`.
 
 ## Configure an OpenFn project
 
@@ -116,7 +116,9 @@ each `./scripts/bootstrap`- to clone and set up hooks in each
 
 ### generate-project.js
 
-`./scripts/generate-project.js` interactively generates a YAML project configuration file that can be used both on the OpenFn platform and in OpenFn microservice to define projects.
+`./scripts/generate-project.js` interactively generates a YAML project
+configuration file that can be used both on the OpenFn platform and in OpenFn
+microservice to define projects.
 
 ### generate-doclets
 

@@ -79,7 +79,7 @@ This is the FOSS ETL tool at the heart of the OpenFn platform. We are currently
 working on getting this into a state where it can be deployed as a completely
 free and open source Engine which automatically receives messages and executes
 OpenFn jobs, harnessing all the power of thousands of existing OpenFn jobs and
-language-packages. -->
+adaptors. -->
 
 <!-- You might use Core if... -->
 

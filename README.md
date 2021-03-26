@@ -11,7 +11,7 @@ Documentation for various OpenFn tools, such as
 [openfn/microservice](https://openfn.github.io/microservice/),
 [openfn/devtools](https://openfn.github.io/devtools/),
 [openfn/core](https://github.com/OpenFn/core), and all of our open-source
-language packages can be found in
+adaptors can be found in
 [OpenFn's Github organization](https://github.com/OpenFn).
 
 This repository is used to maintain the docs site, and for users to submit
