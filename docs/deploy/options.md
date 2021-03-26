@@ -1,7 +1,7 @@
 ---
 title: Planning for Deployment
 ---
-
+## Introduction
 OpenFn/platform (the iPaaS), OpenFn/microservice, OpenFn/diy and more than 50
 open-source adaptors maintained by OpenFn can be used locally or on the cloud,
 and as stand-alone solutions or as modules in other applications. Together the
@@ -17,11 +17,22 @@ deployed with Docker and/or Kubernetes.
 See below for a chart of the available implementation pathways.
 
 ![Implementation Pathways](/img/implementation_pathways.png)
+<!-- @taylor now that we have added in the new chart (see below), should we get rid of this chart? -->
 
 <!--@Taylor would you be willing to spend some time creating an update to this chart? Please note that the chart doesn't include anything re OpenFn/Core or OpenFn/Engine. Source for chart is: https://drive.google.com/file/d/1wRr7EH-PXT3gHgPnVWDA2kTZSSjigwqq/view?usp=sharing  -->
 
 When you configure projects (think `jobs`, `triggers`, and `credentials`) to run
-on OpenFn, you can deploy them in a number of different ways.
+on OpenFn, you can deploy them in a number of different ways. In fact, a key
+feature of OpenFn's offerings are the versatility they provide to users. A user
+can build her project using OpenFn's enterprise platform, or using components of
+the open source integration toolkit. A user may then choose to deploy the
+project initially on the platform and later migrate to her own servers when
+doing so makes sense. The good news is that OpenFn project
+[portability](./portability.md) will make these transitions easy. You will have full
+control and ownership of your integration project regardless of the deployment
+pathway you pursue.
+
+![Deployment Options](/img/deployment_options.png)
 
 ## Platform
 
