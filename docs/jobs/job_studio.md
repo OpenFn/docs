@@ -11,3 +11,5 @@ When editing a job, you can find messages in the inbox that match your job trigg
 You can find a list of avaible helper functions for your chosen adaptor in the job writing panel heading. Clicking the function name copies the function code that you can directly paste into the job.
 
 Clicking "Save and Run" will launch an Output panel where you can see your run logs real-time.
+
+![Job_Studio_Edit](/img/job_studio_edit.gif)
