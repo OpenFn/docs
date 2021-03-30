@@ -6,7 +6,7 @@ The OpenFn Job Studio allows you create and test jobs on the platform with easy 
 
 ## Job Studio Features
 
-When editing a job, you can find messages in the inbox that match your job trigger by clicking "Find messages matching this trigger". If you navigate to a field within the message JSON, you can copy the exact path to the field and paste it is a `dataValue` in your job.
+When editing a job, you can find messages in the inbox that match your job trigger by clicking "Find messages matching this trigger". If you navigate to a field within the message JSON, you can copy the exact path to the field and paste it as a `dataValue` in your job.
 
 You can find a list of avaible helper functions for your chosen adaptor in the job writing panel heading. Clicking the function name copies the function code that you can directly paste into the job.
 
