@@ -3,10 +3,10 @@ layout: post
 title:
   Becoming a Digital Global Good, Open Access, and Thoughts on OpenFn’s
   Long-Term Sustainability
-author: Taylor Downs
+author: Taylor Downs and Jed Goldstein
 author_url: https://github.com/taylordowns2000
 author_image_url: https://avatars.githubusercontent.com/taylordowns2000
-tags:
+tags: [announcement, global goods]
 image: /img/george-washington-bridge.jpg
 ---
 
@@ -22,8 +22,6 @@ global goods. OpenFn is proud to now be officially joining them on this list.
 <!--truncate-->
 
 ![Bridge as public good](/img/george-washington-bridge.jpg)
-
-<!-- @taylor I thought bridge image was kinda cool, but I'm not precious about it. feel free to pick an image you like -->
 
 ### The imperative for digital global goods
 
@@ -138,15 +136,11 @@ microservice might make better sense. The good news is that OpenFn integration
 transitions easy. Your integration will run just as well on your servers as
 ours.
 
-<!-- @Taylor the following paragraph was added after you last reviewed the doc based on Carl's comment that he'd like to see the diagram also expressed in words -->
-
 As the diagram below demonstrates we envision two main pathways for OpenFn
 integrations. The tech savvy project manager will configure their workflows via
 our intuitive platform, while the power IT user will configure their workflows
 from the command line. Regardless of the chosen approach, there is flexibility
 to change paths whenever required.
-
-<!--this is where the new paragraph ends  -->
 
 ![Deployment Paths](/img/deployment_paths.png)
 
