@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[135],{209:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"i-kapa-data","name":"ikapadata","count":1,"permalink":"/blog/tags/i-kapa-data"}')}}]);

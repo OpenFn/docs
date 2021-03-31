@@ -4,10 +4,17 @@
         <title>The OpenFn Blog</title>
         <link>https://docs.openfn.org/blog</link>
         <description>OpenFn/docs Blog</description>
-        <lastBuildDate>Tue, 09 Feb 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 30 Mar 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>Copyright © 2021 Open Function Group, LLC.</copyright>
+        <item>
+            <title><![CDATA[Becoming a Digital Global Good, Open Access, and Thoughts on OpenFn’s Long-Term Sustainability]]></title>
+            <link>https://docs.openfn.org/blog/2021/03/30/digital-global-good</link>
+            <guid>Becoming a Digital Global Good, Open Access, and Thoughts on OpenFn’s Long-Term Sustainability</guid>
+            <pubDate>Tue, 30 Mar 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Digital global goods]]></description>
+        </item>
         <item>
             <title><![CDATA[Enabling Interoperability for Child Case Referrals in Cambodia]]></title>
             <link>https://docs.openfn.org/blog/2021/02/09/interoperability_for_case_referrals</link>
