@@ -4,6 +4,19 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
+## Version 1.90.30 (2021-03-31)
+
+New features:
+
+- **Streaming logs:** Users can now view individual logs lines as they are
+  emitted by their NodeVM during the execution of a run.
+- **Click to find paths:** Users can now click on a node in a sample message in
+  the job studio to copy the path to that node. It can then be pasted into the
+  expression.
+- **Run directly from job studio:** While writing a job in the job studio, it's
+  now possible to start a run for that job given the sample message and the logs
+  will automatically be streamed back to the Job Studio.
+
 ## Version 1.89.29 (2021-03-24)
 
 New features:
