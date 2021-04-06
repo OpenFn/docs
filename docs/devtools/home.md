@@ -37,11 +37,24 @@ Execute takes:
 
 ### Bash usage
 
-`./core/bin/core execute execute -l ./adaptors/language-[XXX].Adaptor -s ./tmp/state.json -o ./tmp/output.json -e ./tmp/expression.js`
+```sh
+~/devtools/core/bin/core execute \
+  -l ~/devtools/adaptors/language-http \
+  -s ./tmp/state.json \
+  -o ./tmp/output.json \
+  -e ./tmp/expression.js
+```
 
 ### The `--test` option
 
-`./core/bin/core execute -l ./adaptors/language-[XXX].Adaptor -s ./tmp/state.json -o ./tmp/output.json -e ./tmp/expression.js --test`
+```sh
+~/devtools/core/bin/core execute \
+  -l ~/devtools/adaptors/language-http \
+  -s ./tmp/state.json \
+  -o ./tmp/output.json \
+  -e ./tmp/expression.js \
+  --test
+```
 
 This intercepts all HTTP requests and displays the request information for
 debugging.
