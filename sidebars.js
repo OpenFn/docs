@@ -12,6 +12,7 @@ module.exports = {
         // 'getting-started/use-cases',
         // 'getting-started/deployment-options',
         'getting-started/quick-start',
+        'build/example-build',
         // 'getting-started/designing-integrations',
         // 'getting-started/glossary',
         // 'getting-started/automation-inspiration',
