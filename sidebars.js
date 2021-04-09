@@ -50,6 +50,7 @@ module.exports = {
         },
         'devtools/home',
         'build/adaptors',
+        'build/example-build',
       ],
     },
     {
