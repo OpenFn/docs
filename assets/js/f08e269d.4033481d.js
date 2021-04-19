@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[175],{248:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"global-goods","name":"global goods","count":1,"permalink":"/blog/tags/global-goods"}')}}]);

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[151],{225:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"ibm-maximo","name":"ibm maximo","count":1,"permalink":"/blog/tags/ibm-maximo"}')}}]);
