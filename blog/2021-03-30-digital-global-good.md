@@ -101,7 +101,7 @@ another. Open source innovation drives platform innovation and vice versa.
 Crucially, both rely on each other.
 
 With a more robust
-[open source offering ](https://docs.openfn.org/documentation/deploy/microservices)and
+[open source offering ](https://docs.openfn.org/documentation/microservice/home)and
 a heavy investment in documentation, it will be easier than ever for
 organizations to get up and running with OpenFn and then choose whether they
 want to scale their solutions on the platform or deploy them on their own
