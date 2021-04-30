@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[105],{176:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"african-school-of-excellence","name":"african school of excellence","count":1,"permalink":"/blog/tags/african-school-of-excellence"}')}}]);
