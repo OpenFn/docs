@@ -61,6 +61,7 @@ module.exports = {
         'portability',
         'deploy/platform',
         'microservice/home',
+        'instant-openhie',
         'deploy/diy',
       ],
     },
