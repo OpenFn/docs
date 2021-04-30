@@ -18,7 +18,8 @@
     "clsx": "^1.1.1",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-particles-js": "^3.4.1"
+    "react-particles-js": "^3.4.1",
+    "react-player": "^2.9.0"
   },
   "browserslist": {
     "production": [

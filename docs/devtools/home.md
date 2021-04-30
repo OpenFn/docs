@@ -5,6 +5,10 @@ title: Devtools
 A set of tools for writing &amp; testing expressions, managing OpenFn projects,
 and developing new adaptors.
 
+import ReactPlayer from 'react-player';
+
+<ReactPlayer url='https://www.youtube.com/watch?v=fkGI5YLp18s' />
+
 ## Up and running
 
 1. Make sure you've got [git](https://git-scm.com/downloads) (maybe GitBash for

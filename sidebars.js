@@ -16,6 +16,7 @@ module.exports = {
         // 'getting-started/designing-integrations',
         // 'getting-started/glossary',
         // 'getting-started/automation-inspiration',
+        'getting-started/integration-toolkit',
       ],
     },
     // {

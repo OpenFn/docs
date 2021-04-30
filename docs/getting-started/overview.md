@@ -9,6 +9,9 @@ OpenFn is a suite of data integration, interoperability, and workflow automation
 tools that's used by governments, NGOs, and social enterprises, primarily in the
 health and humanitarian sectors.
 
+It includes both the OpenFn platform and the free and open-source
+[OpenFn Integration Toolkit](./integration-toolkit.md).
+
 :::tip
 
 In essence, it's software that makes it easier for these organizations to

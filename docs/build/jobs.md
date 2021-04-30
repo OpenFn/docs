@@ -2,7 +2,6 @@
 title: Introduction to Jobs
 ---
 
-<!-- TODO: @Jed -->
 
 A job defines the specific series of tasks or database actions to be performed
 when a triggering message is received (even-based) or a pre-scheduled (and
