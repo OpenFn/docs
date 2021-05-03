@@ -206,7 +206,7 @@ These two methods are detailed below:
        FHIR][hapifhir].
 
      **C. Export the [project.yaml][projectyaml] file using the Export Wizard of
-     the OpenFn.org**
+     the [OpenFn.org][openfn]**
 
      - The [generated YAML][projectyaml] file will then be used by the [OpenFn
        Microservice][openfnmicroservice] to execute the [jobs][jobs] for the
@@ -284,19 +284,19 @@ These two methods are detailed below:
 [openhiearchitecture]:
   https://wiki.ohie.org/pages/viewpage.action?pageId=8454157
 [openhim]: http://openhim.org/
-[jobs]: http://localhost:3000/documentation/build/jobs
+[jobs]: /documentation/build/jobs/
 [mediators]: http://openhim.org/mediator-library/
 [demorepo]: https://github.com/OpenFn/instant-demo
-[openfnmicroservice]: https://docs.openfn.org/documentation/microservice/home/
+[openfnmicroservice]: /documentation/microservice/home/
 [digitalsquare]: https://digitalsquare.org/
 [fhir]: https://fhir.org/
 [hapifhir]: https://hapifhir.io/
 [commcare]: https://www.commcarehq.org/
 [kobo]: https://www.kobotoolbox.org/
-[projects]: https://docs.openfn.org/documentation/build/example-build/
+[projects]: /documentation/build/example-build/
 [projectyaml]:
   https://github.com/OpenFn/microservice/blob/main/project.yaml.example
-[triggers]: https://docs.openfn.org/documentation/build/triggers/
+[triggers]: /documentation/build/triggers/
 [commcaresample]:
   https://github.com/OpenFn/instant-demo/blob/main/fixtures/commcare_sample.json
 [kobosample]:
@@ -305,19 +305,18 @@ These two methods are detailed below:
 [encouterspec]: https://www.hl7.org/fhir/encounter-example.json.html
 [openhiecomm]: https://ohie.org/tag/community/
 [jembi]: https://www.jembi.org/
-[cred]: https://docs.openfn.org/documentation/build/credentials/
-[trig]: https://docs.openfn.org/documentation/build/triggers/
+[cred]: /documentation/build/credentials/
+[trig]: /documentation/build/triggers/
 [devtools]: https://github.com/OpenFn/devtools
 [testfile]: https://github.com/OpenFn/instant-demo/blob/main/test.js
 [instantdemo]: https://github.com/OpenFn/instant-demo
 [samplecred]:
   https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml#L165-L167
-[openfncli]:
-  https://docs.openfn.org/documentation/devtools/home/#configure-an-openfn-project
+[openfncli]: /documentation/devtools/home/#configure-an-openfn-project
 [demoexpr]: https://github.com/OpenFn/instant-demo/tree/main/expressions
-[jobexpr]: https://docs.openfn.org/documentation/build/jobs/#a-basic-expression
+[jobexpr]: /documentation/build/jobs/#a-basic-expression
 [sampleyaml]:
   https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml
 [curl]: https://curl.se/
-[studio]: https://docs.openfn.org/documentation/jobs/job-studio/
+[studio]: /documentation/jobs/job-studio/
 [examplejobs]: https://openfn.org/projects/p5pqx3/jobs
