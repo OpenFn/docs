@@ -237,3 +237,22 @@ The inclusion criteria is `{ "name": "john doe" }` and the exclusion criteria is
 | inclusion                                                                             | exclusion |
 | ------------------------------------------------------------------------------------- | --------- |
 | `{"form": {"@xmlns": "http://openrosa.org/formdesigner/F732194-3278-nota-ReAL-one"}}` |           |
+
+## An exclusion demo
+
+Imagine that we had a filter which included messages with `form == 'bns_survey'`
+but we then want to start _excluding_ those that have
+`body.survey_type == 'practice'`. Our filter trigger would look need to like
+this:
+
+| inclusion                  | exclusion                               |
+| -------------------------- | --------------------------------------- |
+| `{ "form": "bns_survey" }` | `{"body": {"survey_type": "practice"}}` |
+
+We'd set it up from the trigger form like this:
+
+![img](../../static/img/exclusion.gif)
+
+And verify the result on the inbox:
+
+![img](../../static/img/demo-exclusion.gif)
