@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   title: 'OpenFn/docs',
   tagline:
@@ -147,6 +149,9 @@ module.exports = {
         sidebarPath: require.resolve('./sidebars-library.js'),
       },
     ],
+    [path.resolve(__dirname, 'job-library'), {
+      apiUrl: 'https://staging.openfn.org/api/public'
+    }],
     [
       '@docusaurus/plugin-content-blog',
       {
