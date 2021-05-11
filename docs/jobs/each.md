@@ -44,7 +44,7 @@ following ways:
 - `'$.data.form.participants[*]'`
 - `dataPath('form.participants[*]')`
 
-Note the JSON path syntax. 
+Note the JSON path syntax.
 
 ### the operation
 
@@ -87,6 +87,58 @@ each(
       // new fields...
       field('School__c', dataValue('school_id')),
       field('Intervention_Type__c', dataValue('intervention_type'))
+    )
+  )
+);
+```
+
+## beta.each
+
+After using an `each(...)` operation the scope of subsequent operations will be
+inside the array at `arrayPath`. If you want to return to the top-level scope so
+that you can iterate through another array rather than continuing to work inside
+the first array called with `each()`, you can use `beta.each`
+
+`beta.each(...)` will scopes an array of data based on a JSONPath but then
+**return** to the state it was given upon completion. See the
+[source](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44)
+here.
+
+This is necessary if you string multiple `each(...)` functions together in-line
+in the same expression. (E.g., given data which has multiple separate 'repeat
+groups' in a form which are rendered as arrays, you want to create new records
+for each item inside the first repeat group, then _RETURN TO THE TOP LEVEL_ of
+the data, and then create new records for each item in the second repeat group.
+Using `beta.each(...)` lets you enter the first array, create your records, then
+return to the top level and be able to enter the second array.
+
+```js
+// create some schools from the state.data.form.schools array...
+beta.each(
+  dataPath('form.schools[*]'),
+  upsert(
+    'School__c',
+    'School_ID__c',
+    fields(
+      field('School_ID__c', dataValue('schoolId')),
+      field('School_Name__c', dataValue('schoolName')),
+    )
+  )
+);
+
+// back up at the top level, we scope the next array with each...
+beta.each(
+  dataPath('form.participants[*]'),
+  upsert(
+    'Person__c',
+    'Participant_Identification_Number_PID__c',
+    fields(
+      field('Participant_Identification_Number_PID__c', dataValue('pid')),
+      relationship('RecordType', 'Name', 'Participant'),
+      field('First_Name__c', dataValue('participant_first_name')),
+      field('Surname__c', dataValue('participant_surname')),
+      field('Mobile_Number_1__c', dataValue('mobile_number'))
+      field('Sex__c', dataValue('gender')),
     )
   )
 );
