@@ -39,6 +39,7 @@ module.exports = {
             'jobs/operations',
             'jobs/multiple-operations',
             'jobs/state',
+            'jobs/each',
             'jobs/job-studio',
             { type: 'link', label: 'The Library 📖', href: '../../library' },
           ],
