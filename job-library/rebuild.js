@@ -4,7 +4,7 @@ const fs = require('fs');
 const axios = require('axios');
 const apiUrl = 'https://www.openfn.org/api/public';
 
-fs.existsSync('./library/jobs/public') || fs.mkdirSync('./library/jobs/public');
+fs.existsSync('./library/jobs/auto') || fs.mkdirSync('./library/jobs/auto');
 
 function hDate(str) {
   return str.substring(0, 10);
