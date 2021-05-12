@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
-    "build": "docusaurus build",
+    "generate-library": "docusaurus generate-library",
+    "start": "docusaurus generate-library && docusaurus start",
+    "build": "docusaurus generate-library && docusaurus build",
     "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
+    "deploy": "docusaurus generate-library && docusaurus deploy",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear"
   },

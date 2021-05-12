@@ -18,30 +18,35 @@ const filePaths = [];
 module.exports = function (context, { apiUrl }) {
   return {
     name: 'public-library',
-    async loadContent() {
-      fs.existsSync('./library/jobs/auto') ||
-        fs.mkdirSync('./library/jobs/auto');
+    extendCli(cli) {
+      cli
+        .command('generate-library')
+        .description('Generate OpenFn.org Public Job Library')
+        .action(async () => {
+          fs.existsSync('./library/jobs/auto') ||
+            fs.mkdirSync('./library/jobs/auto');
 
-      console.log('does it?', fs.existsSync('./library/jobs/auto'));
+          const jobs = await loadPublicLibrary(apiUrl);
 
-      const jobs = await loadPublicLibrary(apiUrl);
+          jobs.map(j => {
+            const uniqueName = `${j.name}-${hDate(j.inserted_at)}`.replace(
+              /[()]/g,
+              ''
+            );
+            filePaths.push({
+              adaptor: j.adaptor,
+              id: `jobs/auto/${uniqueName}`,
+            });
 
-      jobs.map(j => {
-        const uniqueName = `${j.name}-${hDate(j.inserted_at)}`.replace(
-          /[()]/g,
-          ''
-        );
-        filePaths.push({ adaptor: j.adaptor, id: `jobs/auto/${uniqueName}` });
+            const masterKeywords = JSON.parse(
+              fs.readFileSync('./job-library/master.temp.json')
+            );
 
-        const masterKeywords = JSON.parse(
-          fs.readFileSync('./job-library/master.temp.json')
-        );
+            const keywords = masterKeywords.filter(word =>
+              j.expression.includes(`${word}(`)
+            );
 
-        const keywords = masterKeywords.filter(word =>
-          j.expression.includes(`${word}(`)
-        );
-
-        const body = `---
+            const body = `---
 title: ${j.name} with ${j.adaptor}
 sidebar_label: ${j.name}
 id: ${uniqueName}
@@ -70,13 +75,14 @@ ${keywords.map(kw => `\`${kw}\``).join(', ')}
 ${j.expression}
 \`\`\``;
 
-        fs.writeFileSync(`./library/jobs/auto/${uniqueName}.md`, body);
-      });
+            fs.writeFileSync(`./library/jobs/auto/${uniqueName}.md`, body);
+          });
 
-      fs.writeFileSync(
-        './library/jobs/auto/publicPaths.json',
-        JSON.stringify(filePaths, null, 2)
-      );
+          fs.writeFileSync(
+            './library/jobs/auto/publicPaths.json',
+            JSON.stringify(filePaths, null, 2)
+          );
+        });
     },
   };
 };
