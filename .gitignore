@@ -5,6 +5,10 @@
 /build
 /site
 
+# this directory is built automatically and overwritten by the job library
+/library/jobs/auto/
+/library/publicPaths.json
+
 # Generated files
 .docusaurus
 .cache-loader
