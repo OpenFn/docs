@@ -45,6 +45,7 @@ keywords:
   - library
   - job
   - expression
+  - ${j.adaptor}
 ${keywords.map(kw => `  - ${kw}\n`).join('')}---
 
 ## Metadata
