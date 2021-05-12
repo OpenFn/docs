@@ -59,7 +59,7 @@ ${j.expression}
   filePaths;
 
   fs.writeFileSync(
-    './library/publicPaths.json',
+    './library/jobs/auto/publicPaths.json',
     JSON.stringify(filePaths, null, 2)
   );
 })();

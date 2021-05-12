@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const publicFile = fs.readFileSync('./library/publicPaths.json');
+const publicFile = fs.readFileSync('./library/jobs/auto/publicPaths.json');
 const publicJobs = JSON.parse(publicFile);
 
 // Note: we can include out own examples here.
