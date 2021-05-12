@@ -12,7 +12,7 @@ function hDate(str) {
 
 async function loadContent() {
   /* ... */
-  console.log('loading job library');
+  console.log('Loading job library from OpenFn.');
   return await axios.get(`${apiUrl}/jobs`).then(function (response) {
     // handle success
     const jobs = response.data;
@@ -28,12 +28,24 @@ const filePaths = [];
   jobs.map(j => {
     const uniqueName = `${j.name}-${hDate(j.inserted_at)}`.replace(/[()]/g, '');
     filePaths.push({ adaptor: j.adaptor, id: `jobs/auto/${uniqueName}` });
-    const keywords = ['salesforce', 'create'];
+
+    const masterKeywords = JSON.parse(
+      fs.readFileSync('./job-library/master.temp.json')
+    );
+
+    const keywords = masterKeywords.filter(word =>
+      j.expression.includes(`${word}(`)
+    );
+
     const content = `---
 title: ${j.name} with ${j.adaptor}
 sidebar_label: ${j.name}
 id: ${uniqueName}
----
+keywords:
+  - library
+  - job
+  - expression
+${keywords.map(kw => `  - ${kw}\n`).join('')}---
 
 ## Metadata
 
@@ -43,20 +55,18 @@ id: ${uniqueName}
 - Created at: ${hDate(j.inserted_at)}
 - Last modified at: ${hDate(j.updated_at)}
 
-## Keywords
+## Key Functions
 
 ${keywords.map(kw => `\`${kw}\``).join(', ')}
 
 ## Expression
-    
+
 \`\`\`js
 ${j.expression}
 \`\`\``;
 
     fs.writeFileSync(`./library/jobs/auto/${uniqueName}.md`, content);
   });
-
-  filePaths;
 
   fs.writeFileSync(
     './library/jobs/auto/publicPaths.json',
