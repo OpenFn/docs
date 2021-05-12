@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   title: 'OpenFn/docs',
   tagline:
@@ -138,6 +140,12 @@ module.exports = {
     ],
   ],
   plugins: [
+    [
+      path.resolve(__dirname, 'job-library'),
+      {
+        apiUrl: 'https://www.openfn.org/api/public',
+      },
+    ],
     [
       '@docusaurus/plugin-content-docs',
       {

@@ -32,5 +32,7 @@ While we get this all together you'll be able to browse and search through a few
 jobs here. Please feel free to submit your own jobs by submitting a pull request
 to this docs site if you think they'd help others.
 
-Down the line, projects that "opt-in" to the program will have their scripts
-uploaded to this site and tagged by adaptor and adaptor version.
+We've just started our official "opt-in" program and are developing the code
+that will extract data from the library API on OpenFn and build corresponding
+entries here on the docs site, tagged by adaptor, adaptor version, and helper
+function.
