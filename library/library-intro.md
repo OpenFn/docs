@@ -5,18 +5,6 @@ sidebar_label: Introduction
 slug: /
 ---
 
-import { usePluginData } from '@docusaurus/useGlobalData';
-
-export function JobsCounter() {
-  const { jobs } = usePluginData('public-library');
-  return (
-    <span>
-      OpenFn.org users have already contributed {jobs.length} jobs to the
-      library.
-    </span>
-  );
-}
-
 ## The library is coming...
 
 There have been **over 3,000 distinct jobs written** for the OpenFn platform,
@@ -47,4 +35,4 @@ to this docs site if you think they'd help others.
 We've just started our official "opt-in" program and are developing the code
 that will extract data from the library API on OpenFn and build corresponding
 entries here on the docs site, tagged by adaptor, adaptor version, and helper
-function. <JobsCounter />
+function.

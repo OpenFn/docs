@@ -141,6 +141,12 @@ module.exports = {
   ],
   plugins: [
     [
+      path.resolve(__dirname, 'job-library'),
+      {
+        apiUrl: 'https://www.openfn.org/api/public',
+      },
+    ],
+    [
       '@docusaurus/plugin-content-docs',
       {
         id: 'library',
@@ -149,9 +155,6 @@ module.exports = {
         sidebarPath: require.resolve('./sidebars-library.js'),
       },
     ],
-    [path.resolve(__dirname, 'job-library'), {
-      apiUrl: 'https://staging.openfn.org/api/public'
-    }],
     [
       '@docusaurus/plugin-content-blog',
       {

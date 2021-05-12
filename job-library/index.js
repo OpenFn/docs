@@ -1,39 +1,82 @@
+const fs = require('fs');
 const axios = require('axios');
 
+async function loadPublicLibrary(apiUrl) {
+  console.log('Loading job library from OpenFn.');
+  return await axios.get(`${apiUrl}/jobs`).then(function (response) {
+    const jobs = response.data;
+    return jobs;
+  });
+}
+
+function hDate(str) {
+  return str.substring(0, 10);
+}
+
+const filePaths = [];
+
 module.exports = function (context, { apiUrl }) {
-  // ...
   return {
     name: 'public-library',
     async loadContent() {
-      /* ... */
-      console.log('loading job library');
-      return await axios.get(`${apiUrl}/jobs`).then(function (response) {
-        // handle success
-        const jobs = response.data;
-        return jobs;
+      fs.existsSync('./library/jobs/auto') ||
+        fs.mkdirSync('./library/jobs/auto');
+
+      console.log('does it?', fs.existsSync('./library/jobs/auto'));
+
+      const jobs = await loadPublicLibrary(apiUrl);
+
+      jobs.map(j => {
+        const uniqueName = `${j.name}-${hDate(j.inserted_at)}`.replace(
+          /[()]/g,
+          ''
+        );
+        filePaths.push({ adaptor: j.adaptor, id: `jobs/auto/${uniqueName}` });
+
+        const masterKeywords = JSON.parse(
+          fs.readFileSync('./job-library/master.temp.json')
+        );
+
+        const keywords = masterKeywords.filter(word =>
+          j.expression.includes(`${word}(`)
+        );
+
+        const body = `---
+title: ${j.name} with ${j.adaptor}
+sidebar_label: ${j.name}
+id: ${uniqueName}
+keywords:
+  - library
+  - job
+  - expression
+  - ${j.adaptor}
+${keywords.map(kw => `  - ${kw}\n`).join('')}---
+
+## Metadata
+
+- Name: ${j.name}
+- Adaptor: \`@openfn/language-${j.adaptor}\`
+- Adaptor Version: \`${j.adaptor_version || 'latest'}\`
+- Created at: ${hDate(j.inserted_at)}
+- Last modified at: ${hDate(j.updated_at)}
+
+## Key Functions
+
+${keywords.map(kw => `\`${kw}\``).join(', ')}
+
+## Expression
+
+\`\`\`js
+${j.expression}
+\`\`\``;
+
+        fs.writeFileSync(`./library/jobs/auto/${uniqueName}.md`, body);
       });
-    },
-    async contentLoaded({ content, actions }) {
-      const { setGlobalData, createData, addRoute } = actions;
-      setGlobalData({ jobs: content });
 
-      //   const friends = ['Yangshun', 'Sebastien'];
-      //   const friendsJsonPath = await createData(
-      //     'friends.json',
-      //     JSON.stringify(friends)
-      //   );
-
-      //   // Add the '/friends' routes, and ensure it receives the friends props
-      //   addRoute({
-      //     path: '/friends',
-      //     component: '@site/src/components/Friends.js',
-      //     modules: {
-      //       // propName -> JSON file path
-      //       friends: friendsJsonPath,
-      //     },
-      //     exact: true,
-      //   });
+      fs.writeFileSync(
+        './library/jobs/auto/publicPaths.json',
+        JSON.stringify(filePaths, null, 2)
+      );
     },
-    /* other lifecycle API */
   };
 };
