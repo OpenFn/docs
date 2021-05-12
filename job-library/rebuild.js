@@ -28,7 +28,7 @@ const filePaths = [];
   jobs.map(j => {
     const uniqueName = `${j.name}-${hDate(j.inserted_at)}`.replace(/[()]/g, '');
     filePaths.push({ adaptor: j.adaptor, id: `jobs/auto/${uniqueName}` });
-    const keywords = ['salesforce', 'create'];
+    const keywords = [j.adaptor, 'create'];
     const content = `---
 title: ${j.name} with ${j.adaptor}
 sidebar_label: ${j.name}
