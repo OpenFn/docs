@@ -1945,12 +1945,12 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@crowdin/cli@3":
-  version "3.6.0"
-  resolved "https://registry.yarnpkg.com/@crowdin/cli/-/cli-3.6.0.tgz#67a882c1f15403da0d4492091b812d15ca593234"
-  integrity sha512-vXycSWnt45bRrV7u6KvvlN0hUm7pXMKlYYDKdRjvvcIFGB3km7WkVXvft9lYOpCH1wHmR7TqjsZQPPQRWqppyA==
+"@crowdin/cli@3.2":
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/@crowdin/cli/-/cli-3.2.2.tgz#25e1da08e1ab57629f00c8dce408e03b871584e9"
+  integrity sha512-8A3uKZAilv5NeZi/Fmi+ZYgGQfebIrMrUeERxtw9bNqB4rRobUeIiCGuU2A7jU34FEYbXuAFWC5lTl32gvNvvQ==
   dependencies:
-    shelljs "^0.8.4"
+    shelljs "^0.7.5"
 
 "@docsearch/css@3.0.0-alpha.34":
   version "3.0.0-alpha.34"
@@ -8587,6 +8587,15 @@ shell-quote@1.7.2:
   version "1.7.2"
   resolved "https://registry.npmjs.org/shell-quote/-/shell-quote-1.7.2.tgz"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
+
+shelljs@^0.7.5:
+  version "0.7.8"
+  resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.7.8.tgz#decbcf874b0d1e5fb72e14b164a9683048e9acb3"
+  integrity sha1-3svPh0sNHl+3LhSxZKloMEjprLM=
+  dependencies:
+    glob "^7.0.0"
+    interpret "^1.0.0"
+    rechoir "^0.6.2"
 
 shelljs@^0.8.4:
   version "0.8.4"
