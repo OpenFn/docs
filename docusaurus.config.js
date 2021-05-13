@@ -11,6 +11,10 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr'],
+  },
   themeConfig: {
     algolia: {
       apiKey: '9f286454b0688588aa96160ce8754bc0',
@@ -46,6 +50,10 @@ module.exports = {
         {
           to: 'blog',
           label: 'Blog',
+          position: 'left',
+        },
+        {
+          type: 'localeDropdown',
           position: 'left',
         },
         {
