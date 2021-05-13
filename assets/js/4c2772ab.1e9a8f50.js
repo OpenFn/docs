@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[70],{141:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"swiss-tph","name":"swisstph","count":1,"permalink":"/blog/tags/swiss-tph"}')}}]);
