@@ -1,4 +1,3 @@
-```js
 // ----
 // Add data to data value sets in DHIS2 using a generic JSON message, submitted
 // by Taylor Downs @ OpenFn.
@@ -19,4 +18,3 @@ dataValueSet(
     })
   )
 );
-```

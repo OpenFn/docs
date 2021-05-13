@@ -1,4 +1,3 @@
-```js
 send(
   fields(
     field(
@@ -19,4 +18,3 @@ send(
     })
   )
 );
-```

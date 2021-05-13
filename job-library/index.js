@@ -1,54 +1,41 @@
 const fs = require('fs');
 const axios = require('axios');
 
+var formatDistanceToNow = require('date-fns/formatDistanceToNow');
+var parseISO = require('date-fns/parseISO');
+
 async function loadPublicLibrary(apiUrl) {
-  console.log('Loading job library from OpenFn.');
+  console.log('Loading job library from OpenFn...');
   return await axios.get(`${apiUrl}/jobs`).then(function (response) {
+    console.log('Done ✓');
     const jobs = response.data;
     return jobs;
   });
 }
 
 function hDate(str) {
-  return str.substring(0, 10);
+  if (str) {
+    return str.substring(0, 10);
+  }
+  return 'unknown';
 }
 
-const filePaths = [];
+function relative(str) {
+  if (str) {
+    return `${formatDistanceToNow(parseISO(str))} ago`;
+  }
+  return 'date unknown';
+}
 
-module.exports = function (context, { apiUrl }) {
-  return {
-    name: 'public-library',
-    extendCli(cli) {
-      cli
-        .command('generate-library')
-        .description('Generate OpenFn.org Public Job Library')
-        .action(async () => {
-          fs.existsSync('./library/jobs/auto') ||
-            fs.mkdirSync('./library/jobs/auto');
+function getKeywords(expression) {
+  return masterKeywords.filter(word => expression.includes(`${word}(`));
+}
 
-          const jobs = await loadPublicLibrary(apiUrl);
-
-          jobs.map(j => {
-            const uniqueName = `${j.name}-${hDate(j.inserted_at)}`.replace(
-              /[()]/g,
-              ''
-            );
-            filePaths.push({
-              adaptor: j.adaptor,
-              id: `jobs/auto/${uniqueName}`,
-            });
-
-            const masterKeywords = JSON.parse(
-              fs.readFileSync('./job-library/master.temp.json')
-            );
-
-            const keywords = masterKeywords.filter(word =>
-              j.expression.includes(`${word}(`)
-            );
-
-            const body = `---
+function generateBody(j, uniqueName, keywords, official) {
+  const title = official ? `⭐ ${j.name}` : j.name;
+  return `---
 title: ${j.name} with ${j.adaptor}
-sidebar_label: ${j.name}
+sidebar_label: ${title}
 id: ${uniqueName}
 keywords:
   - library
@@ -57,13 +44,19 @@ keywords:
   - ${j.adaptor}
 ${keywords.map(kw => `  - ${kw}\n`).join('')}---
 
+<em>${
+    official
+      ? '⭐ This job is an official example from OpenFn.'
+      : 'This job was provided by an OpenFn.org user via the job library API.'
+  }</em>
+
 ## Metadata
 
 - Name: ${j.name}
 - Adaptor: \`@openfn/language-${j.adaptor}\`
 - Adaptor Version: \`${j.adaptor_version || 'latest'}\`
-- Created at: ${hDate(j.inserted_at)}
-- Last modified at: ${hDate(j.updated_at)}
+- Created ${relative(j.inserted_at)}
+- Updated ${relative(j.updated_at)}
 
 ## Key Functions
 
@@ -74,14 +67,73 @@ ${keywords.map(kw => `\`${kw}\``).join(', ')}
 \`\`\`js
 ${j.expression}
 \`\`\``;
+}
 
+function pushToPaths(j, uniqueName) {
+  filePaths.push({
+    adaptor: j.adaptor,
+    id: `jobs/auto/${uniqueName}`,
+  });
+}
+
+const masterKeywords = JSON.parse(
+  fs.readFileSync('./job-library/master.temp.json')
+);
+
+const filePaths = [];
+
+module.exports = function (context, { apiUrl }) {
+  return {
+    name: 'library',
+    extendCli(cli) {
+      cli
+        .command('generate-library')
+        .description('Generate OpenFn.org Public Job Library')
+        .action(async () => {
+          fs.existsSync('./library/jobs/auto') ||
+            fs.mkdirSync('./library/jobs/auto');
+
+          const jobs = await loadPublicLibrary(apiUrl);
+
+          console.log('Parsing static examples...');
+          const staticExamples = JSON.parse(
+            fs.readFileSync('./library/staticExamples.json')
+          )
+            .map(j => ({
+              ...j,
+              expression: fs.readFileSync(`./library/${j.expressionPath}.js`),
+            }))
+            .map(j => {
+              const keywords = getKeywords(j.expression);
+              const uniqueName = j.expressionPath.substring(5);
+              const body = generateBody(j, uniqueName, keywords, true);
+
+              pushToPaths(j, uniqueName);
+              fs.writeFileSync(`./library/jobs/auto/${uniqueName}.md`, body);
+            });
+          console.log('Done ✓'); 
+
+          console.log('Parsing public jobs API data...');
+          jobs.map(j => {
+            const uniqueName = `${j.name}-${hDate(j.inserted_at)}`.replace(
+              /[()]/g,
+              ''
+            );
+
+            const keywords = getKeywords(j.expression);
+            const body = generateBody(j, uniqueName, keywords);
+
+            pushToPaths(j, uniqueName);
             fs.writeFileSync(`./library/jobs/auto/${uniqueName}.md`, body);
           });
+          console.log('Done ✓');
 
+          console.log('Creating sidebar paths...');
           fs.writeFileSync(
             './library/jobs/auto/publicPaths.json',
             JSON.stringify(filePaths, null, 2)
           );
+          console.log('Done ✓');
         });
     },
   };

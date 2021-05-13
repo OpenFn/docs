@@ -1,4 +1,3 @@
-```js
 each(
   dataPath('someArray[*]'),
   post(
@@ -24,4 +23,3 @@ each(
     }
   )
 );
-```

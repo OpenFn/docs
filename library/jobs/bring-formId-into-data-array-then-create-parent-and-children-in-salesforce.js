@@ -1,4 +1,3 @@
-```js
 each(
   join('$.data.data[*]', '$.data.formId', 'formId'),
   create(
@@ -77,4 +76,3 @@ each(
       )
     )
   );
-```

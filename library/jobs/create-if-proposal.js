@@ -1,4 +1,3 @@
-```js
 // Lots of custom functions:
 function(state) {
     if(dataValue("salesq9")(state) !== undefined
@@ -70,4 +69,3 @@ createIf(
     relationship('Product__r', 'Name', dataValue('wat'))
   )
 );
-```

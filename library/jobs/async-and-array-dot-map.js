@@ -1,4 +1,3 @@
-```js
 alterState(state => {
   console.log('Here we will await the result of a LOT of async operations.');
 
@@ -62,4 +61,3 @@ alterState(state => {
   console.log('I show up AFTER those async functions are resolved.');
   return state;
 });
-```

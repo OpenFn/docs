@@ -1,12 +1,13 @@
 {
   "name": "@openfn/docs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
     "generate-library": "docusaurus generate-library",
     "start": "docusaurus generate-library && docusaurus start",
-    "build": "docusaurus generate-library && docusaurus build",
+    "start-offline": "docusaurus start",
+    "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
@@ -20,7 +21,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-particles-js": "^3.4.1",
-    "react-player": "^2.9.0"
+    "react-player": "^2.9.0",
+    "date-fns": "2.21.3"
   },
   "browserslist": {
     "production": [

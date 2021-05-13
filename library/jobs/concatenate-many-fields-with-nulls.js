@@ -1,4 +1,3 @@
-```js
 each(
   '$.data.data[*]',
   create(
@@ -645,4 +644,3 @@ each(
     )
   )
 );
-```

@@ -1,0 +1,87 @@
+[
+  {
+    "expressionPath": "jobs/alter-state-before-operations",
+    "adaptor": "salesforce",
+    "name": "Pre-processing data"
+  },
+  {
+    "expressionPath": "jobs/async-and-array-dot-map",
+    "adaptor": "http",
+    "name": "Using async and array.map"
+  },
+  {
+    "expressionPath": "jobs/bring-formId-into-data-array-then-create-parent-and-children-in-salesforce",
+    "adaptor": "salesforce",
+    "name": "Using merge and each"
+  },
+  {
+    "expressionPath": "jobs/CommCare-FHIR",
+    "adaptor": "openhim",
+    "name": "Create encounter in OpenHIM"
+  },
+  {
+    "expressionPath": "jobs/complex-http-request-chains",
+    "adaptor": "http",
+    "name": "Chaining HTTP Requests"
+  },
+  {
+    "expressionPath": "jobs/complex-state-control",
+    "adaptor": "salesforce",
+    "name": "Using promises"
+  },
+  {
+    "expressionPath": "jobs/concatenate-many-fields-with-nulls",
+    "adaptor": "salesforce",
+    "name": "Concat fields with nulls"
+  },
+  {
+    "expressionPath": "jobs/create-if-proposal",
+    "adaptor": "salesforce",
+    "name": "Create records if..."
+  },
+  {
+    "expressionPath": "jobs/Create-SMS-Linked-to-Contact-in-SF",
+    "adaptor": "salesforce",
+    "name": "Create SMS linked to contact"
+  },
+  {
+    "expressionPath": "jobs/DHIS2-DataValues-API",
+    "adaptor": "dhis2",
+    "name": "Add data values"
+  },
+  {
+    "expressionPath": "jobs/DHIS2-Events-API",
+    "adaptor": "dhis2",
+    "name": "Add events"
+  },
+  {
+    "expressionPath": "jobs/ODK-Create-Many-Records-Moving-In-And-Out-Of-Repeat-Blocks",
+    "adaptor": "salesforce",
+    "name": "Handling multiple ODK repeat groups"
+  },
+  {
+    "expressionPath": "jobs/promise-all-nested-requests",
+    "adaptor": "http",
+    "name": "Promises and nested requests"
+  },
+  {
+    "expressionPath": "jobs/send-mail-in-mailgun",
+    "adaptor": "mailgun",
+    "name": "send email"
+  },
+  {
+    "expressionPath": "jobs/send-sms-from-salesforce-workflow",
+    "adaptor": "telerivet",
+    "name": "Send sms from Salesforce workflow action"
+  },
+  {
+    "expressionPath": "jobs/timeout",
+    "adaptor": "http",
+    "name": "Timeout to create a delay"
+  },
+  {
+    "expressionPath": "jobs/upsert-many-items-in-array-with-value-outside-array",
+    "adaptor": "salesforce",
+    "name": "Merge data into child array then upsert"
+  }
+]

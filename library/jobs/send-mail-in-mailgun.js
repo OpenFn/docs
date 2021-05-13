@@ -1,4 +1,3 @@
-```js
 send(
   fields(
     field('from', 'you@domain.com'),
@@ -7,4 +6,3 @@ send(
     field('text', 'Your message goes here.')
   )
 );
-```

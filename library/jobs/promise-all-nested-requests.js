@@ -1,4 +1,3 @@
-```js
 each(
   '$.enrolledUsers[10]',
   alterState(state => {
@@ -59,4 +58,3 @@ each(
     )(state);
   })
 );
-```

@@ -5,7 +5,7 @@ sidebar_label: Introduction
 slug: /
 ---
 
-## The library is coming...
+## A growing knowledge base
 
 There have been **over 3,000 distinct jobs written** for the OpenFn platform,
 driving efficiency across the social sector. These jobs have run millions of
@@ -17,22 +17,31 @@ other organizations can learn from their implementations, yet we’re still
 constantly asked to find examples of jobs that “create DHIS2 entities from
 CommCare cases” or “initiate payments when Kobo submissions arrive”.
 
-The Job Library will **make this vast pool of real-world experience available**
-to everyone, automatically collecting and organizing non-sensitive job scripts
-from this diverse community of social sector integration experts to make data
-integration safer, faster, and more scalable than ever before.
+The Job Library is our attempt to make this vast pool of real-world experience
+available to everyone, automatically collecting and organizing non-sensitive job
+scripts from this diverse community of social sector integration experts to make
+data integration safer, faster, and more scalable than ever before.
 
-If you are willing to help out,
-**[please take 60 seconds to complete this survey](https://forms.gle/ijCvjrUGsh4HTfa89)**
-that seeks to gauge your interest in the program.
+## How can you contribute?
 
-## In the meantime
+In the **Project Settings** page for one of your OpenFn.org projects, select
+flip the **"Job library sharing"** switch and you're good to go! There will be a
+slight delay between the time you share your jobs and the time the appear on
+this site, but in about half an hour, at most, you'll be able to find your
+published jobs here.
 
-While we get this all together you'll be able to browse and search through a few
-jobs here. Please feel free to submit your own jobs by submitting a pull request
-to this docs site if you think they'd help others.
+N.B.: If you want to share a project, but **keep certain jobs private**, you can
+do that too. Navigate to the job in question and click the administrative
+settings cog in the top right corner (the same place you'd disable "console.log"
+statements) and select "Make this job private."
 
-We've just started our official "opt-in" program and are developing the code
-that will extract data from the library API on OpenFn and build corresponding
-entries here on the docs site, tagged by adaptor, adaptor version, and helper
-function.
+## What's next?
+
+We're planning to expand both the API and the library searching/browsing
+experience in the future. We'd like to include information on whether or not
+jobs have been running recently, with what frequency they're failing or
+succeeding, and we'd like to provide a way for users to "upvote" or "downvote"
+certain jobs (think StackOverflow!)
+
+All of these things need to be carefully planned out with the larger OpenFn
+community, as we aim to keep the privacy of our platform users sacrosanct.

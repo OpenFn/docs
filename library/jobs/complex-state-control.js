@@ -1,4 +1,3 @@
-```js
 // Example with language-salesforce
 alterState(state => {
   // return state => {
@@ -22,4 +21,3 @@ alterState(state => {
   console.log(state.references);
   return state;
 });
-```

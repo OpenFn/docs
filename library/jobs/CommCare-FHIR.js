@@ -1,4 +1,3 @@
-```js
 // CommCare form submission mapped to the FHIR patient encounter standard,
 // submitted by Simon Kelly @ Dimagi.
 encounter(
@@ -107,4 +106,3 @@ encounter(
     })
   )
 );
-```
