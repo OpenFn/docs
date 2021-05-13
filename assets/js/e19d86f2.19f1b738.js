@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[2297],{70862:function(e){"use strict";e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"primero","name":"primero","count":1,"permalink":"/blog/tags/primero"}')}}]);

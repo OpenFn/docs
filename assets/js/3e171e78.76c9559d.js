@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[4568],{43798:function(o){"use strict";o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"kopo-kopo","name":"kopo kopo","count":1,"permalink":"/blog/tags/kopo-kopo"}')}}]);

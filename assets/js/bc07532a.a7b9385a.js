@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[7865],{23880:function(a){"use strict";a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"i-kapa-data","name":"ikapadata","count":1,"permalink":"/blog/tags/i-kapa-data"}')}}]);

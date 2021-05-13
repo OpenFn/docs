@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[7747],{22194:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"dhis-2","name":"dhis2","count":1,"permalink":"/blog/tags/dhis-2"}')}}]);

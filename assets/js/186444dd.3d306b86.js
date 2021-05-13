@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[3699],{15811:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"redash","name":"redash","count":1,"permalink":"/blog/tags/redash"}')}}]);

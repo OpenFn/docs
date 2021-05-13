@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[91],{162:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"caris-foundation","name":"caris foundation","count":1,"permalink":"/blog/tags/caris-foundation"}')}}]);

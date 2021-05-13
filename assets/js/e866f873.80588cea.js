@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[1878],{55071:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"kgvk","name":"kgvk","count":1,"permalink":"/blog/tags/kgvk"}')}}]);

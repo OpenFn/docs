@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[7432],{25659:function(n){"use strict";n.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"data-monitoring","name":"data monitoring","count":4,"permalink":"/blog/tags/data-monitoring"}')}}]);
