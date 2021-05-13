@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[121],{192:function(e){e.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"telerivet","name":"telerivet","count":1,"permalink":"/blog/tags/telerivet"}')}}]);
