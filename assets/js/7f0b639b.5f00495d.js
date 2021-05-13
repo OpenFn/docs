@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[100],{171:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"automated-reporting","name":"automated reporting","count":4,"permalink":"/blog/tags/automated-reporting"}')}}]);
