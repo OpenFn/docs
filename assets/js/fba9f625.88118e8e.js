@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[245],{317:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"survey-cto","name":"surveycto","count":1,"permalink":"/blog/tags/survey-cto"}')}}]);
