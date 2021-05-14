@@ -251,8 +251,8 @@ this:
 
 We'd set it up from the trigger form like this:
 
-![img](../../static/img/exclusion.gif)
+![img](/img/exclusion.gif)
 
 And verify the result on the inbox:
 
-![img](../../static/img/demo-exclusion.gif)
+![img](/img/demo-exclusion.gif)

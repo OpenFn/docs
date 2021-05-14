@@ -277,12 +277,11 @@ These two methods are detailed below:
   - Note how the [test.js file][testfile] handles this verification with the
     [sample project.yaml][sampleyaml]
 
+<!-- prettier-ignore-start -->
 [openfn]: https://openfn.org/
 [instantopenhie]: https://wiki.ohie.org/display/resources/Instant+OpenHIE
-[openhiestack]:
-  https://openhim.readthedocs.io/en/latest/implementations/openhie.html
-[openhiearchitecture]:
-  https://wiki.ohie.org/pages/viewpage.action?pageId=8454157
+[openhiestack]: https://openhim.readthedocs.io/en/latest/implementations/openhie.html
+[openhiearchitecture]: https://wiki.ohie.org/pages/viewpage.action?pageId=8454157
 [openhim]: http://openhim.org/
 [jobs]: /documentation/build/jobs/
 [mediators]: http://openhim.org/mediator-library/
@@ -294,13 +293,10 @@ These two methods are detailed below:
 [commcare]: https://www.commcarehq.org/
 [kobo]: https://www.kobotoolbox.org/
 [projects]: /documentation/build/example-build/
-[projectyaml]:
-  https://github.com/OpenFn/microservice/blob/main/project.yaml.example
+[projectyaml]: https://github.com/OpenFn/microservice/blob/main/project.yaml.example
 [triggers]: /documentation/build/triggers/
-[commcaresample]:
-  https://github.com/OpenFn/instant-demo/blob/main/fixtures/commcare_sample.json
-[kobosample]:
-  https://github.com/OpenFn/instant-demo/blob/main/fixtures/koboCaseRegistration.json
+[commcaresample]: https://github.com/OpenFn/instant-demo/blob/main/fixtures/commcare_sample.json
+[kobosample]: https://github.com/OpenFn/instant-demo/blob/main/fixtures/koboCaseRegistration.json
 [patientspec]: https://www.hl7.org/fhir/patient-example.json.html
 [encouterspec]: https://www.hl7.org/fhir/encounter-example.json.html
 [openhiecomm]: https://ohie.org/tag/community/
@@ -310,13 +306,12 @@ These two methods are detailed below:
 [devtools]: https://github.com/OpenFn/devtools
 [testfile]: https://github.com/OpenFn/instant-demo/blob/main/test.js
 [instantdemo]: https://github.com/OpenFn/instant-demo
-[samplecred]:
-  https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml#L165-L167
+[samplecred]: https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml#L165-L167
 [openfncli]: /documentation/devtools/home/#configure-an-openfn-project
 [demoexpr]: https://github.com/OpenFn/instant-demo/tree/main/expressions
 [jobexpr]: /documentation/build/jobs/#a-basic-expression
-[sampleyaml]:
-  https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml
+[sampleyaml]: https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml
 [curl]: https://curl.se/
 [studio]: /documentation/jobs/job-studio/
 [examplejobs]: https://openfn.org/projects/p5pqx3/jobs
+<!-- prettier-ignore-end -->
