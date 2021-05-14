@@ -54,7 +54,7 @@ module.exports = {
         },
         {
           type: 'localeDropdown',
-          position: 'left',
+          position: 'right',
         },
         {
           href: 'https://github.com/openfn/docs',

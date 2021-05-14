@@ -56,6 +56,7 @@ jobs:
         env:
           USE_SSH: true
           GIT_USER: git
+          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
         run: |
           git config --global user.email "actions@gihub.com"
           git config --global user.name "gh-actions"
@@ -66,4 +67,6 @@ jobs:
           else
           npm i
           fi
+          npm run generate-library
+          npm run crowdin:sync
           npx docusaurus deploy

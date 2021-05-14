@@ -32,10 +32,16 @@ function getKeywords(expression) {
 }
 
 function generateBody(j, uniqueName, keywords, official) {
-  const title = official ? `⭐ ${j.name}` : j.name;
+  const title = official ? `📜 ${j.name}` : j.name;
+  const score = Math.round(j.score);
+  const githubLink = `https://www.github.com/openfn/language-${j.adaptor}`;
+  const versionLink = j.adaptor_version
+    ? `https://www.github.com/openfn/language-${j.adaptor}/releases/tag/${j.adaptor_version}`
+    : githubLink;
+
   return `---
 title: ${j.name} with ${j.adaptor}
-sidebar_label: ${title}
+sidebar_label: ${score > 75 ? '✨ ' : ''}${title}
 id: ${uniqueName}
 keywords:
   - library
@@ -44,19 +50,22 @@ keywords:
   - ${j.adaptor}
 ${keywords.map(kw => `  - ${kw}\n`).join('')}---
 
-<em>${
-    official
-      ? '⭐ This job is an official example from OpenFn.'
-      : 'This job was provided by an OpenFn.org user via the job library API.'
-  }</em>
+${
+  official
+    ? '📜 <em>This job is an official example from OpenFn.</em>'
+    : '<em>This job was provided by an OpenFn.org user via the job library API.</em>'
+}
 
 ## Metadata
 
 - Name: ${j.name}
-- Adaptor: \`@openfn/language-${j.adaptor}\`
-- Adaptor Version: \`${j.adaptor_version || 'latest'}\`
+- Adaptor: [\`@openfn/language-${j.adaptor}\`](${githubLink})
+- Adaptor Version: [\`${j.adaptor_version || 'latest'}\`](${versionLink})
 - Created ${relative(j.inserted_at)}
 - Updated ${relative(j.updated_at)}
+- Score: <b>${
+    isNaN(score) ? 100 : score
+  }</b> (an [indicator](/library/#library-scores) of how useful this job may be)
 
 ## Key Functions
 
@@ -111,7 +120,7 @@ module.exports = function (context, { apiUrl }) {
               pushToPaths(j, uniqueName);
               fs.writeFileSync(`./library/jobs/auto/${uniqueName}.md`, body);
             });
-          console.log('Done ✓'); 
+          console.log('Done ✓');
 
           console.log('Parsing public jobs API data...');
           jobs.map(j => {

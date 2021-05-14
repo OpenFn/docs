@@ -35,13 +35,46 @@ do that too. Navigate to the job in question and click the administrative
 settings cog in the top right corner (the same place you'd disable "console.log"
 statements) and select "Make this job private."
 
+## Library "scores"
+
+Jobs published to the library from OpenFn.org users may be well-written and
+clearly documented. They may serve as very useful templates for other users to
+write their own jobs, or copy and paste them entirely. Or... they may not!
+
+In order to help members of the community get a sense of whether or not a
+particular job in the library is a "good example", we provide a **score** that's
+calculated based on some job metadata from the OpenFn platform. It takes into
+account many factors, including things like how recently the job was written. In
+addition to the scores, we also provide two quick visual indicators:
+
+### Scrolls 📜 are from core contributors
+
+Jobs with scrolls next to them have been manually added or edited by a core
+contributor to this repo. Think of them as official examples. In _most cases_
+this means that the spells... errr, scripts you see in there are great places to
+start.
+
+### Sparkles ✨ are scoring over 75
+
+Jobs with sparkles next to them are currently scoring over 75. That's all. We
+can't vouch for them, but they might be more useful than jobs without sparkles.
+
+### How to interpret a score
+
+Everything you see here has been shared because _someone_ thought it might help
+the broader community. If a job has a high score it's because our model thinks
+it might be helpful, too! This might be a good time to review rule #1 and rule
+#2 about models/algorithms.
+
+1. All models are wrong.
+2. But some models are useful.
+
+We hope this one is useful. In conclusion, **the higher the score, the more
+useful the job _might_ be.**
+
 ## What's next?
 
 We're planning to expand both the API and the library searching/browsing
-experience in the future. We'd like to include information on whether or not
-jobs have been running recently, with what frequency they're failing or
-succeeding, and we'd like to provide a way for users to "upvote" or "downvote"
-certain jobs (think StackOverflow!)
-
-All of these things need to be carefully planned out with the larger OpenFn
-community, as we aim to keep the privacy of our platform users sacrosanct.
+experience in the future. We'd like to provide a way for users to "upvote" or
+"downvote" certain jobs (think: StackOverflow) which they found useful. Get in
+touch if you're interested in helping out!
