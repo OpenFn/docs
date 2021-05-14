@@ -67,7 +67,7 @@ over on Github.
 This template contains a default `create` operation that can be customized
 according to the objectives of the new adaptor.
 
-```javascript
+```js
 export function create(path, params, callback) {
   return state => {
     // expand references for the data argument with state
@@ -87,7 +87,7 @@ OpenFn inbox). Considering these types of situations, `language-common`
 implements and exports an `http` module. To use `http` in any job executed with
 a specific adaptor consider exporting it directly from `language-common`.
 
-```javascript
+```js
 ...
 export {
   alterState,
@@ -129,7 +129,7 @@ Building an adaptor is done by running the command `make` from the root folder.
 
 Tests can be written with nock under the path `test/index.js`.
 
-```javascript
+```js
 describe('createPatient', () => {
   before(() => {
     nock('https://fakepatient.server.com')
@@ -199,7 +199,7 @@ the available helper functions.
 When writing tests, bear in mind as well for scenarios that could trigger
 errors.
 
-```javascript
+```js
 describe('create', () => {
   before(() => {
     nock('https://fake.server.com')

@@ -58,7 +58,7 @@ operations in step 4 completed successfully (what do you count as a success with
 these various custom actions, by the way?) you should consider implementing a
 SAGA pattern, whereby after all this processing is complete you trigger another
 request back to the initial system reporting on the downstream tasks. This can
-be done in OpenFn with [Flow Triggers](../jobs/multiple-operations.md).
+be done in OpenFn with [Flow Triggers](/documentation/jobs/multiple-operations).
 
 ## Synchronous vs. Asynchronous Processing
 

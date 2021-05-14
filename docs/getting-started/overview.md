@@ -10,7 +10,7 @@ tools that's used by governments, NGOs, and social enterprises, primarily in the
 health and humanitarian sectors.
 
 It includes both the OpenFn platform and the free and open-source
-[OpenFn Integration Toolkit](./integration-toolkit.md).
+[OpenFn Integration Toolkit](/documentation/getting-started/integration-toolkit).
 
 :::tip
 
@@ -28,14 +28,15 @@ in the **getting started** section.
 Here you will learn how to use OpenFn to build automation workflows that can be
 as short and simple or as long and complex as you like. You also will learn
 about all of the ways you can choose to deploy the automation flows you create.
-Before you dive into the [quick start](./quick-start.md), let's start off with
+Before you dive into the
+[quick start](/documentation/getting-started/quick-start), let's start off with
 some key terminology before we get started.
 
 ## Key terms
 
 ### Jobs
 
-OpenFn automation centers around [jobs](../build/jobs.md), which define the
+OpenFn automation centers around [jobs](/documentation/build/jobs), which define the
 specific series of tasks or database actions OpenFn should perform. They can be
 set to be activated (triggered) at certain time intervals or when data matching
 specified criteria is received. You can think of jobs as a set of instructions
@@ -47,7 +48,7 @@ confirmation number when payment confirmation message is received etc.).
 :::note
 
 Jobs are fully configurable and reusable. They can also be chained together to
-create [multi-step automation](../jobs/multiple-operations) flows, two-way
+create [multi-step automation](/documentation/jobs/multiple-operations) flows, two-way
 syncs. and to keep data consistent between multiple applications (using
 multi-app Saga patterns). You can read more on two-way synching below.
 

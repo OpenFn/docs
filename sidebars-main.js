@@ -41,7 +41,7 @@ module.exports = {
             'jobs/state',
             'jobs/each',
             'jobs/job-studio',
-            { type: 'link', label: 'The Library 📖', href: '../../library' },
+            { type: 'link', label: 'The Library 📖', href: '/library' },
           ],
         },
         'build/triggers',
