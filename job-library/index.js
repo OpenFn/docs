@@ -40,7 +40,7 @@ function generateBody(j, uniqueName, keywords, official) {
     : githubLink;
 
   return `---
-title: ${j.name} with ${j.adaptor}
+title: ${j.name}
 sidebar_label: ${score > 75 ? '✨ ' : ''}${title}
 id: ${uniqueName}
 keywords:

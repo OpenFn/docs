@@ -55,6 +55,8 @@ const functions = adaptors
         ...ast.operations.map(o => o.name),
         ...ast.common.map(o => o.name),
         ...ast.exports.map(o => o.name),
+        'relationship',
+        'lookup',
       ];
     } catch (error) {}
   })
