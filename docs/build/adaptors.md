@@ -2,11 +2,11 @@
 title: Adaptors
 ---
 
-An adaptor is an open-source Javascript module that provides an OpenFn core
-users with a set of operations that help communicate with a specific external
-system. In the past, we often referred to them as "language packages". And the
-two terms are sometimes used interchangeably, but the preferred way of
-communicating about adaptors is as follows:
+An adaptor is an open-source Javascript module that provides OpenFn core users
+with a set of operations that help communicate with a specific external system.
+In the past, we often referred to them as "language packages". And the two terms
+are sometimes used interchangeably, but the preferred way of communicating about
+adaptors is as follows:
 
 - "What _**adaptor**_ is that job using?" ("That job is using
   `language-dhis2`.")
