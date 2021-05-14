@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[5830],{96181:function(e){"use strict";e.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"case-management","name":"case management","count":1,"permalink":"/fr/blog/tags/case-management"}')}}]);

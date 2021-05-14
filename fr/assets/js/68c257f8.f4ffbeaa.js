@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[1829],{65604:function(o){"use strict";o.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"global-goods","name":"global goods","count":1,"permalink":"/fr/blog/tags/global-goods"}')}}]);

@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[9501],{97513:function(a){"use strict";a.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"data-warehouse","name":"data warehouse","count":1,"permalink":"/fr/blog/tags/data-warehouse"}')}}]);

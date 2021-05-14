@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[892],{4900:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"my-sql","name":"mysql","count":1,"permalink":"/fr/blog/tags/my-sql"}')}}]);

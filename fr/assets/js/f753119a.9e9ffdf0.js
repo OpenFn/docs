@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[2634],{47869:function(a){"use strict";a.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"my-agro","name":"myagro","count":1,"permalink":"/fr/blog/tags/my-agro"}')}}]);

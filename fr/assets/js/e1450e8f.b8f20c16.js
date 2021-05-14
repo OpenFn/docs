@@ -1,0 +1,1 @@
+(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[8530],{50244:function(e){"use strict";e.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"african-school-of-excellence","name":"african school of excellence","count":1,"permalink":"/fr/blog/tags/african-school-of-excellence"}')}}]);
