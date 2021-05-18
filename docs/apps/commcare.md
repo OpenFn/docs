@@ -3,8 +3,7 @@ title: CommCare
 ---
 
 [CommCare](https://www.dimagi.com/commcare/) is a powerful data collection
-platform developed by Dimagi. It offers proprietary and open-source options, and
-is primarly best for mobile case management.
+platform developed by Dimagi. It is an open-source platform, and is primarily best for mobile case management.
 
 ## Integration Options
 
@@ -15,9 +14,8 @@ data to and from CommCare HQ.
 
 CommCare has different APIs for reading vs. updating data. Some helpful links:
 
-- Data APIs: https://confluence.dimagi.com/display/commcarepublic/Data+APIs
-- Bulk Case Upload API to mass update case records:
-  https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data
+- [Data APIs](https://confluence.dimagi.com/display/commcarepublic/Data+APIs)
+- [Bulk Case Upload API to mass update case records](https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data)
 
 ### Forward cases and/or forms from CommCare to OpenFn
 
@@ -39,15 +37,14 @@ Quick instructions:
    updates.
 
 We recommend updating the `Connection Settings` to list emails that should be
-alerted if there is a data forwarding error. See docs:
-https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications
+alerted if there is a data forwarding error. [See the CommCare docs for more on this.](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications)
 
 ### OpenFn Adaptors
 
-OpenFn implementations have leveraged both the `HTTP` and `CommCare` adaptors to
-connect with the CommCare API. https://github.com/OpenFn/language-commcare
-https://github.com/OpenFn/language-http
+OpenFn implementations have leveraged both the [`HTTP`](https://github.com/OpenFn/language-http) and [`CommCare`](https://github.com/OpenFn/language-commcare) adaptors to
+connect with the CommCare API. 
+
 
 ### Example Integrations
 
-https://github.com/OpenFn/miracle-feet https://github.com/OpenFn/lwala
+[Miracle Feet](https://github.com/OpenFn/miracle-feet) [Lwala](https://github.com/OpenFn/lwala)

@@ -31,7 +31,7 @@ can build her project using OpenFn's enterprise platform, or using components of
 the open source integration toolkit. A user may then choose to deploy the
 project initially on the platform and later migrate to her own servers when
 doing so makes sense. The good news is that OpenFn project
-[portability](./portability.md) will make these transitions easy. You will have
+[portability](/portability.md) will make these transitions easy. You will have
 full control and ownership of your integration project regardless of the
 deployment pathway you pursue.
 

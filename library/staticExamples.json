@@ -1,5 +1,11 @@
 [
   {
+    "expressionPath": "jobs/getKoboData",
+    "adaptor": "http",
+    "adaptor_version": "v3.1.7",
+    "name": "Extract Kobo data from API to send to OpenFn Inbox"
+  },
+  {
     "expressionPath": "jobs/alter-state-before-operations",
     "adaptor": "salesforce",
     "name": "Pre-processing data"
@@ -37,7 +43,8 @@
   {
     "expressionPath": "jobs/create-if-proposal",
     "adaptor": "salesforce",
-    "name": "Create records if..."
+    "name": "Create/update records if...",
+    "adaptor_version": "v2.1.0"
   },
   {
     "expressionPath": "jobs/Create-SMS-Linked-to-Contact-in-SF",
@@ -83,5 +90,15 @@
     "expressionPath": "jobs/upsert-many-items-in-array-with-value-outside-array",
     "adaptor": "salesforce",
     "name": "Merge data into child array then upsert"
+  },
+  {
+    "expressionPath": "jobs/synchronous-http-request",
+    "adaptor": "http",
+    "name": "Chaining synchronous http requests"
+  },
+  {
+    "expressionPath": "jobs/async-findValue",
+    "adaptor": "postgresql",
+    "name": "Using findValue with an array of data"
   }
 ]

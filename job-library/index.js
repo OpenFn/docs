@@ -27,8 +27,15 @@ function relative(str) {
   return 'date unknown';
 }
 
+const otherKeywords = ['async', 'await'];
+const jsGlobals = ['Math', 'Array', 'String', 'Promise', 'Number', 'JSON'];
+
 function getKeywords(expression) {
-  return masterKeywords.filter(word => expression.includes(`${word}(`));
+  return [
+    ...masterKeywords.filter(word => expression.includes(`${word}(`)),
+    ...otherKeywords.filter(word => expression.includes(`${word}`)),
+    ...jsGlobals.filter(word => expression.includes(`${word}.`)),
+  ];
 }
 
 function generateBody(j, uniqueName, keywords, official) {
@@ -82,6 +89,7 @@ function pushToPaths(j, uniqueName) {
   filePaths.push({
     adaptor: j.adaptor,
     id: `jobs/auto/${uniqueName}`,
+    name: j.name,
   });
 }
 
@@ -102,7 +110,10 @@ module.exports = function (context, { apiUrl }) {
           fs.existsSync('./library/jobs/auto') ||
             fs.mkdirSync('./library/jobs/auto');
 
-          const jobs = await loadPublicLibrary(apiUrl);
+          const jobs = (await loadPublicLibrary(apiUrl)).map(j => ({
+            ...j,
+            name: j.name.trim().replace(':', '/'),
+          }));
 
           console.log('Parsing static examples...');
           const staticExamples = JSON.parse(
@@ -124,10 +135,9 @@ module.exports = function (context, { apiUrl }) {
 
           console.log('Parsing public jobs API data...');
           jobs.map(j => {
-            const uniqueName = `${j.name}-${hDate(j.inserted_at)}`.replace(
-              /[()]/g,
-              ''
-            );
+            const uniqueName = `${j.name.trim()}-${hDate(j.inserted_at)}`
+              .replace(/[^a-z0-9_-]/gi, '-')
+              .replace(/-{2,}/g, '-');
 
             const keywords = getKeywords(j.expression);
             const body = generateBody(j, uniqueName, keywords);

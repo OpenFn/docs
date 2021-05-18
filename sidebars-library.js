@@ -19,18 +19,17 @@ const items = Object.keys(groupedJobs)
       type: 'category',
       label: a,
       items: groupedJobs[a]
-        .map(j => ({
-          type: 'doc',
-          id: j.id,
-        }))
+        .map(j => {
+          return {
+            type: 'doc',
+            id: j.id,
+            label: j.name,
+          };
+        })
         .sort((a, b) => {
-          if (a.id < b.id) {
-            return -1;
-          }
-          if (a.id > b.id) {
-            return 1;
-          }
-          return 0;
+          return a.label.localeCompare(b.label, 'en', {
+            sensitivity: 'base',
+          });
         }),
     };
   });

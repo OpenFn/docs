@@ -36,20 +36,21 @@ some key terminology before we get started.
 
 ### Jobs
 
-OpenFn automation centers around [jobs](/documentation/build/jobs), which define the
-specific series of tasks or database actions OpenFn should perform. They can be
-set to be activated (triggered) at certain time intervals or when data matching
-specified criteria is received. You can think of jobs as a set of instructions
-you might give a data entry staff member (e.g., create a new Patient record in
-OpenMRS when a form containing a newly registered client is received from
-CommCare, export data to DHIS2 every week on Friday 11pm, send SMS with payment
-confirmation number when payment confirmation message is received etc.).
+OpenFn automation centers around [jobs](/documentation/build/jobs), which define
+the specific series of tasks or database actions OpenFn should perform. They can
+be set to be activated (triggered) at certain time intervals or when data
+matching specified criteria is received. You can think of jobs as a set of
+instructions you might give a data entry staff member (e.g., create a new
+Patient record in OpenMRS when a form containing a newly registered client is
+received from CommCare, export data to DHIS2 every week on Friday 11pm, send SMS
+with payment confirmation number when payment confirmation message is received
+etc.).
 
 :::note
 
 Jobs are fully configurable and reusable. They can also be chained together to
-create [multi-step automation](/documentation/jobs/multiple-operations) flows, two-way
-syncs. and to keep data consistent between multiple applications (using
+create [multi-step automation](/documentation/jobs/multiple-operations) flows,
+two-way syncs. and to keep data consistent between multiple applications (using
 multi-app Saga patterns). You can read more on two-way synching below.
 
 :::note
@@ -86,6 +87,44 @@ weeks). Each run will have succeeded or failed, and each one might have
 processed thousands of events from DHIS2.
 
 :::note
+
+### Job-states
+
+Given the many-to-one relationship between `runs` and `messages` A
+"message-job-state" (or simply a "job-state") is a calculation that can be
+useful for organizations that need to understand if a given message has
+_eventually_ been handled successfully.
+
+:::info
+
+A job state is defined as the result ("success", "failure", or "in progress") of
+the _last_ run (ordered by the time it was finished, rather than when it was
+inserted into the runs table) for a given message-job combination.
+
+If two runs for the same message-job combination finished at the same time, it's
+ordered by their start time, and then finally by their primary key. In reality,
+since the same message-job combination can only be used to create a run once
+every 10 seconds, this will almost never occur.
+
+:::
+
+Consider a message which should trigger both a case referral job and a payment
+job. Two runs will get created when the message arrives, with the referral
+succeeding and the payment failing. Navigating to the inbox, you'd see two
+"job-states" for that single message:
+
+1. Referral (success - run 1)
+2. Payment (failure - run 2)
+
+If an administrator then made some sort of change, re-ran the failed payment job
+for that message, and this third run succeeded, you'd still only see 2
+"job-states" in the inbox, but they'd both be successful:
+
+1. Referral (success - run 1)
+2. Payment (success - run 3)
+
+Browsing to the receipt inspector would show all three runs for this single
+message.
 
 ### Triggers
 

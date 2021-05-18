@@ -45,7 +45,7 @@ There is a more detailed explanation of filter matching
 
 ### Cron Triggers (formerly timers)
 
-Cron triggers run jobs based on a cron scheuled. They can run as frequently as
+Cron triggers run jobs based on a cron schedule. They can run as frequently as
 once every minutes, or as infrequently as you desire and can be scheuled on very
 specific dates or times. Each time a timed job succeeds, its `final_state` will
 be saved and used as the `initial_state` for its next run. See "Managing state"
