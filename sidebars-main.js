@@ -74,6 +74,7 @@ module.exports = {
         'manage/platform-mgmt',
         'trouble-shooting',
         'jobs/errors',
+        'jobs/limits',
         'release-notes',
       ],
     },
