@@ -19,6 +19,7 @@ module.exports = {
     algolia: {
       apiKey: '9f286454b0688588aa96160ce8754bc0',
       indexName: 'openfn',
+      contextualSearch: true,
     },
     hideableSidebar: true,
     gtag: {
