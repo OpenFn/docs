@@ -27,8 +27,15 @@ function relative(str) {
   return 'date unknown';
 }
 
+const otherKeywords = ['async', 'await'];
+const jsGlobals = ['Math', 'Array', 'String', 'Promise', 'Number', 'JSON'];
+
 function getKeywords(expression) {
-  return masterKeywords.filter(word => expression.includes(`${word}(`));
+  return [
+    ...masterKeywords.filter(word => expression.includes(`${word}(`)),
+    ...otherKeywords.filter(word => expression.includes(`${word}`)),
+    ...jsGlobals.filter(word => expression.includes(`${word}.`)),
+  ];
 }
 
 function generateBody(j, uniqueName, keywords, official) {
