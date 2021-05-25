@@ -5,9 +5,11 @@ title: Devtools
 A set of tools for writing &amp; testing expressions, managing OpenFn projects,
 and developing new adaptors.
 
+```mdx-code-block
 import ReactPlayer from 'react-player';
 
 <ReactPlayer url='https://www.youtube.com/watch?v=fkGI5YLp18s' />
+```
 
 ## Up and running
 

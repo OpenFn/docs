@@ -23,9 +23,11 @@ If you're interested in contributing to the specification, reach out to OpenFn
 via the [community forum](https://community.openfn.org), write to us, or suggest
 changes by submitting a pull request here.
 
+```mdx-code-block
 import ReactPlayer from 'react-player';
 
 <ReactPlayer url='https://www.youtube.com/watch?v=9xXK5xoiMgA' />
+```
 
 ## Proposal v2 `@latest`
 

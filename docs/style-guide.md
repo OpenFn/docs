@@ -246,8 +246,10 @@ This is a warning
 
 ## Tabs
 
+```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+```
 
 Note how we import tabs first, then use them as below:
 
