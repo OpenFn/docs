@@ -29,7 +29,6 @@ jobs:
           npm i
           fi
           npm run generate-library
-          npm run crowdin:sync
           npm run build
   gh-release:
     if: github.event_name != 'pull_request'
@@ -68,5 +67,4 @@ jobs:
           npm i
           fi
           npm run generate-library
-          npm run crowdin:sync
           npx docusaurus deploy
