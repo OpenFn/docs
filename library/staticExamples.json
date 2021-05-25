@@ -83,5 +83,10 @@
     "expressionPath": "jobs/upsert-many-items-in-array-with-value-outside-array",
     "adaptor": "salesforce",
     "name": "Merge data into child array then upsert"
+  },
+  {
+    "expressionPath": "jobs/synchronous-http-request",
+    "adaptor": "http",
+    "name": "Chaining synchronous http requests"
   }
 ]
