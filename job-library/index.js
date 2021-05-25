@@ -132,8 +132,8 @@ module.exports = function (context, { apiUrl }) {
           console.log('Parsing public jobs API data...');
           jobs.map(j => {
             const uniqueName = `${j.name.trim()}-${hDate(j.inserted_at)}`
-              .replace(/[()]/g, '')
-              .replace(/\//g, '-');
+              .replace(/[^a-z0-9_-]/gi, '-')
+              .replace(/-{2,}/g, '-');
 
             const keywords = getKeywords(j.expression);
             const body = generateBody(j, uniqueName, keywords);
