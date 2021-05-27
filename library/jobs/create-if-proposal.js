@@ -29,15 +29,13 @@ function(state) {
 }
 
 
-//could be replaced with:
+//Example using upsertIf to conditionally run upsertIf only if a given condition is met
 
-createIf(
-   upsertIf(
-      dataValue('path.to.value.that.resolves.to.true.or.false'),
-      'sObject',
-      'externalId',
-      fields(
-      //   ...
-         )
-    );    
-);
+upsertIf(
+   dataValue('path.to.value.that.resolves.to.true.or.false'),
+   'sObject',
+   'externalId',
+   fields(
+   //   ...
+      )
+   );    
