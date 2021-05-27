@@ -89,6 +89,7 @@ function pushToPaths(j, uniqueName) {
   filePaths.push({
     adaptor: j.adaptor,
     id: `jobs/auto/${uniqueName}`,
+    name: j.name,
   });
 }
 
@@ -109,7 +110,10 @@ module.exports = function (context, { apiUrl }) {
           fs.existsSync('./library/jobs/auto') ||
             fs.mkdirSync('./library/jobs/auto');
 
-          const jobs = await loadPublicLibrary(apiUrl);
+          const jobs = (await loadPublicLibrary(apiUrl)).map(j => ({
+            ...j,
+            name: j.name.trim(),
+          }));
 
           console.log('Parsing static examples...');
           const staticExamples = JSON.parse(
