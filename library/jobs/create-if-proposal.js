@@ -1,41 +1,28 @@
-// Lots of custom functions:
-function(state) {
-    if(dataValue("salesq9")(state) !== undefined
-            && dataValue("salesq9")(state) !== null
-            && dataValue("salesq9")(state) !== 0
-    ) {
-        create("Line_Item__c",
-            fields(
-                relationship("RecordType", "name", "Sale Item"),
-                relationship("Outlet_Call__r", "Invoice_Number__c", dataValue("invoice_number")(state)),
-                relationship("Product_Price__r", "Product_Price_ID__c", function(state) {
-                    return (
-                        dataValue("wat")(state).concat(
-                        "_", dataValue("a_u9")(state), "_", dataValue("prj_code9")(state), "_", dataValue("channel")(state)
-                        )
-                    );
-                }),
-                field("Sales_Quantity__c", dataValue("salesq9")(state)),
-                field("Unit__c", dataValue("a_u9")(state)),
-                field("Project_Code__c", dataValue("prj_code9")(state)),
-                field("Channel__c", dataValue("channel")(state)),
-                field("Unit_Price_c__c", dataValue("unitp9")(state)),
-                field("Type__c", "Sale"),
-                relationship("Product__r", "Name", dataValue("wat")(state))
-            ),
-            state
-        );
-    }
-}
-
-
-//Example using upsertIf to conditionally run upsertIf only if a given condition is met
+// Using upsertIf and createIf we can conditionally create or update records if
+// some condition in the source data is met.
 
 upsertIf(
-   dataValue('path.to.value.that.resolves.to.true.or.false'),
-   'sObject',
-   'externalId',
-   fields(
-   //   ...
-      )
-   );    
+  // a path which resolves to true/false
+  dataValue('form.legal.allowedToSync'), 
+  'Patient__c',
+  'Patient_ID__c',
+  fields(
+    field('Name__c', dataValue('form.name')),
+    field('Patient_ID__c', dataValue('form.identification.govId'))
+  )
+);
+
+createIf(
+  // or a function which returns true/false
+  state => state.data.form.completedVisit === 'yes',
+  'Visit__c',
+  fields(
+    field('Date__c', dataValue('form.visit.visit_date')),
+    field('Type__c', 'checkup'),
+    relationship(
+      'Patient__r',
+      'Patient_ID__c',
+      dataValue('form.identification.govId')
+    )
+  )
+);

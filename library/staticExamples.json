@@ -37,7 +37,7 @@
   {
     "expressionPath": "jobs/create-if-proposal",
     "adaptor": "salesforce",
-    "name": "Create records if...",
+    "name": "Create/update records if...",
     "adaptor_version": "v2.1.0"
   },
   {
