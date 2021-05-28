@@ -105,7 +105,7 @@ create(
 
 That would create a new `Patient__c` in some other system. The patient's `Name`
 will be determined by the triggering message (the value inside `form.surname`,
-specifically) and the patient's `Age__c` will _always_ be 7. See how we hard
+specifically) and the patient's `Is_Enrolled__c` will _always_ be `true`. See how we hard
 coded it?
 
 What you see above is OpenFn's own syntax, and you've got access to dozens of
