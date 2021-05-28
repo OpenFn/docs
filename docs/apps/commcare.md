@@ -3,8 +3,7 @@ title: CommCare
 ---
 
 [CommCare](https://www.dimagi.com/commcare/) is a powerful data collection
-platform developed by Dimagi. It offers proprietary and open-source options, and
-is primarly best for mobile case management.
+platform developed by Dimagi. It is an open-source platform, and is primarily best for mobile case management.
 
 ## Integration Options
 
