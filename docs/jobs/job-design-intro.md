@@ -23,7 +23,26 @@ Step 2: Map your data elements 
     
 Step 3. Define your operations: insert, update, upsert...
 1. Find out or create the unique identifiers you will use to insert and update data (form ID, answer ID, or, case or patient ID etc.).
-2. 
+2. Determine operations: e.g. insert, update, upsert, upsertMany
+3. Check the adaptor for helper functions. 
+      a. Example from [language-postgresql](https://github.com/OpenFn/language-postgresql)
+    - `insert(...)`, `insertMany(...)` 
+    - `update(...)`, `updateMany(...)` 
+    - `upsert(...)`, `upsertMany(...)`  → update if record exists or insert if it doesn’t; references an external Id 
+      b. Example from [language-dhis2](https://github.com/OpenFn/language-dhis2) using Tracked Entity Instances (TEI)
+     - `updateTEI(...)`
+     - `upsertTEI(...)`
 
+Example upsert job:
+```
+upsert('mainDataTable', 'AnswerId', {
+  AnswerId: dataValue('\_id'), //external Id for upsert
+  column: dataValue('firstQuestion)'),
+  LastUpdate: new Date().toISOString(),
+  Participant: dataValue('participant'),
+  Surveyor: dataValue('surveyor'),
+  ...
+});
+```
 
 
