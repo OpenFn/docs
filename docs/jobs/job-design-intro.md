@@ -15,8 +15,15 @@ Step 2: Map your data elements 
 1. Export the metadata of your form (input) & destination DB (output).
 2. Paste the metadata into an Excel spreadsheet to create a mapping sheet:
 
-![Sample mapping shee](/img/data-element-mapping.png)
+![Sample mapping sheet](/img/data-element-mapping.png)
 
 3. Map data elements & define rules for data cleaning and transformation
     a. How should the data collected be translated into your destination system’s data model? 
     b. Does your destination system have data input & validation requirements? 
+    
+Step 3. Define your operations: insert, update, upsert...
+1. Find out or create the unique identifiers you will use to insert and update data (form ID, answer ID, or, case or patient ID etc.).
+2. 
+
+
+
