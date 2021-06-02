@@ -9,59 +9,59 @@
     <icon>https://docs.openfn.org/img/favicon.ico</icon>
     <rights>Copyright © 2021 Open Function Group, LLC.</rights>
     <entry>
-        <title type="html"><![CDATA[Forms and Cases: CommCare and event-based integration]]></title>
-        <id>Forms and Cases: CommCare and event-based integration</id>
+        <title type="html"><![CDATA[Formulaires et cas : CommCare et intégration basée sur les événements]]></title>
+        <id>Formulaires et cas : CommCare et intégration basée sur les événements</id>
         <link href="https://docs.openfn.org/fr/articles/2021/05/24/commcare-events"/>
         <updated>2021-05-24T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[This is a quick one, but I just got off an exciting call with an organization]]></summary>
+        <summary type="html"><![CDATA[C'est rapide, mais je viens de passer un appel passionnant avec une organisation qui va mettre en place des jobs pour déplacer des données dans Salesforce à partir de CommCare et j'ai réalisé que bien que cela soit l'une de nos exigences d'intégration les plus courantes, nous n'avons pas fait un article des «astuces» pour ce type de projet. Jusqu'à présent.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Sync Like You Mean It: Thinking Through System “Syncing” Protocols]]></title>
-        <id>Sync Like You Mean It: Thinking Through System “Syncing” Protocols</id>
+        <title type="html"><![CDATA[Synchroniser comme vous le voulez : Penser à travers le système de protocoles de « Synchronisation »]]></title>
+        <id>Synchroniser comme vous le voulez : Penser à travers le système de protocoles de « Synchronisation »</id>
         <link href="https://docs.openfn.org/fr/articles/2021/02/17/syncing-options"/>
         <updated>2021-02-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[“Syncing” is getting two systems to a state of harmony. This might mean keeping]]></summary>
+        <summary type="html"><![CDATA[La « synchronisation » permet à deux systèmes de se retrouver dans un état d'harmonie. Cela peut signifier de tenir une liste de patients à jour, bien que des modifications puissent être apportées dans l'un ou l'autre système. Cela peut signifier copier des transactions d'un système à un autre sur une base de nocturne. Cela peut signifier beaucoup de choses, mais le concept clé est que lorsque vous synchronisez les systèmes, vous leur demandez de travailler ensemble en même temps en respectant l’indépendance des deux systèmes logiciels.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Our Servers or Yours: Thinking through deployment options]]></title>
-        <id>Our Servers or Yours: Thinking through deployment options</id>
+        <title type="html"><![CDATA[Nos serveurs ou les vôtres : Penser à travers les options de déploiement]]></title>
+        <id>Nos serveurs ou les vôtres : Penser à travers les options de déploiement</id>
         <link href="https://docs.openfn.org/fr/articles/2021/02/03/hosted-or-local-deployment"/>
         <updated>2021-02-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Zandile is a program manager at an iNGO and she needs to use CommCare, DHIS2,]]></summary>
+        <summary type="html"><![CDATA[Zandile est gestionnaire de programme chez une iONG et elle a besoin d'utiliser CommCare, DHIS2, et OpenFn pour un prochain projet de santé publique. Elle comprend que les trois logiciels peuvent être déployés localement, ou accédés en tant que SaaS (logiciel en tant que service).]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Tracked entity instances in DHIS2]]></title>
-        <id>Tracked entity instances in DHIS2</id>
+        <title type="html"><![CDATA[Instances d'entités suivies dans DHIS2]]></title>
+        <id>Instances d'entités suivies dans DHIS2</id>
         <link href="https://docs.openfn.org/fr/articles/2020/12/09/upsert-in-dhis2"/>
         <updated>2020-12-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but]]></summary>
+        <summary type="html"><![CDATA[tl;dr il est composé d'API existantes et d'un peu de logique 🤔. Maintenant vous pouvez mettre à jour des instances d'entités suivies vers DHIS2 👍 ✅.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Product News: Enhanced Scheduled/Periodic Job Control]]></title>
-        <id>Product News: Enhanced Scheduled/Periodic Job Control</id>
+        <title type="html"><![CDATA[Actualités du produit : Contrôle amélioré des jobs planifiés/périodiques]]></title>
+        <id>Actualités du produit : Contrôle amélioré des jobs planifiés/périodiques</id>
         <link href="https://docs.openfn.org/fr/articles/2020/07/14/cron-is-better-than-a-timer"/>
         <updated>2020-07-14T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Hi all, this is a quick one from the product team at]]></summary>
+        <summary type="html"><![CDATA[Bonjour à tous, Voici une brève présentation de l'équipe chargée des produits à OpenFn — nous avons fait une mise à jour majeure de la façon dont les jobs en temps et en période fonctionnent.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Allow Yourself to Fail]]></title>
-        <id>Allow Yourself to Fail</id>
+        <title type="html"><![CDATA[Vous autoriser à échouer]]></title>
+        <id>Vous autoriser à échouer</id>
         <link href="https://docs.openfn.org/fr/articles/2020/07/02/allow-yourself-to-fail"/>
         <updated>2020-07-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Hi all, this is a very short post with a simple message: design for failure.]]></summary>
+        <summary type="html"><![CDATA[Bonjour à tous, c'est un message très court avec un message simple : conception pour l'échec. Même si vous n'avez jamais entendu parler de MSSQL (ou Azure, ou Microsoft ? , je veux parler pendant un instant de l'importance des upserts et d'un drôle terme de développeur appelé « idempotence ».]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[To Automate or Not to Automate? Ask Yourself These 3 Questions.]]></title>
-        <id>To Automate or Not to Automate? Ask Yourself These 3 Questions.</id>
+        <title type="html"><![CDATA[Automatiser ou ne pas automatiser ? Posez-vous ces 3 Questions.]]></title>
+        <id>Automatiser ou ne pas automatiser ? Posez-vous ces 3 Questions.</id>
         <link href="https://docs.openfn.org/fr/articles/2020/06/24/three-questions-to-ask"/>
         <updated>2020-06-24T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Automation can save time, unlock critical resources, and enable scale–but it]]></summary>
+        <summary type="html"><![CDATA[L'automatisation peut faire gagner du temps, débloquer des ressources essentielles et mettre à l'échelle–mais nécessite généralement un investissement. Vous vous demandez si vous devriez automatiser vos processus ? Posez-vous ces 3 Questions.]]></summary>
     </entry>
     <entry>
-        <title type="html"><![CDATA[How Information Is Organized... In Organizations]]></title>
-        <id>How Information Is Organized... In Organizations</id>
+        <title type="html"><![CDATA[Comment les informations sont organisées... Dans les entreprises]]></title>
+        <id>Comment les informations sont organisées... Dans les entreprises</id>
         <link href="https://docs.openfn.org/fr/articles/2020/06/16/how-information-is-organized"/>
         <updated>2020-06-16T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Does your organization's information have an underlying structure? Try this exercise using boxes and crow's feet.]]></summary>
+        <summary type="html"><![CDATA[Les informations de votre organisation ont-elles une structure sous-jacente ? Essayez cet exercice en utilisant des tables et des pattes de corbeau.]]></summary>
     </entry>
 </feed>
