@@ -28,14 +28,6 @@ module.exports = {
     // },
     {
       type: 'category',
-      label: 'Design',
-      items: [
-        'design/design-planning-scoping',
-        'design/design-setup-and-config'
-      ],
-    },
-    {
-      type: 'category',
       label: 'Build',
       items: [
         {
