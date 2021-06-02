@@ -169,7 +169,7 @@ module.exports = {
       {
         id: 'articles',
         routeBasePath: 'articles',
-        path: './articles',
+        path: 'articles',
         blogSidebarCount: 6,
         showReadingTime: true,
         editUrl: 'https://github.com/openfn/docs/edit/main',
