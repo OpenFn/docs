@@ -47,6 +47,13 @@ OpenFn implementations have leveraged both the `HTTP` and `CommCare` adaptors to
 connect with the CommCare API. https://github.com/OpenFn/language-commcare
 https://github.com/OpenFn/language-http
 
-### Example Integrations
+### Integration Setup Tips
 
-https://github.com/OpenFn/miracle-feet https://github.com/OpenFn/lwala
+## Common Errors
+
+## Example Integrations
+
+- MiracleFeet (CommCare-to-Salesforce sync): https://github.com/OpenFn/miracle-feet 
+- Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
+- Moodle-to-CommCare sync: ...
+
