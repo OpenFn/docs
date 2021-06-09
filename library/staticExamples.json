@@ -89,5 +89,10 @@
     "expressionPath": "jobs/synchronous-http-request",
     "adaptor": "http",
     "name": "Chaining synchronous http requests"
+  },
+  {
+    "expressionPath": "jobs/async-findValue",
+    "adaptor": "postgresql",
+    "name": "Using findValue with an array of data"
   }
 ]
