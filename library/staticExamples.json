@@ -1,5 +1,11 @@
 [
   {
+    "expressionPath": "jobs/getKoboData",
+    "adaptor": "http",
+    "adaptor_version": "v3.1.7",
+    "name": "Extract Kobo data from API to send to OpenFn Inbox"
+  },
+  {
     "expressionPath": "jobs/alter-state-before-operations",
     "adaptor": "salesforce",
     "name": "Pre-processing data"
