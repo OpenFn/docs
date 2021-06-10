@@ -112,7 +112,7 @@ module.exports = function (context, { apiUrl }) {
 
           const jobs = (await loadPublicLibrary(apiUrl)).map(j => ({
             ...j,
-            name: j.name.trim(),
+            name: j.name.trim().replace(':', '/'),
           }));
 
           console.log('Parsing static examples...');
