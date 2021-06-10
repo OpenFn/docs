@@ -48,12 +48,17 @@ connect with the CommCare API. https://github.com/OpenFn/language-commcare
 https://github.com/OpenFn/language-http
 
 ### Integration Setup Tips
+1. App Versioning: Ensure that you are always using the latest app version when testing, by updating your app and checking that the version matches the latest version in CommCare HQ
+2. Unique identifers and hidden fields in CC forms: Make sure that unique identifiers for forms and objects are always in the form. If the unique identifier isn't relevant for the user, it can be added to the form as a `hidden field`. 
+
 
 ## Common Errors
+
 
 ## Example Integrations
 
 - MiracleFeet (CommCare-to-Salesforce sync): https://github.com/OpenFn/miracle-feet 
 - Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
-- Moodle-to-CommCare sync: ...
+- Moodle-to-CommCare sync: https://github.com/OpenFn/moodle-commcare
+- GRS CommCare - Salesforce sync: https://github.com/OpenFn/grassroot-soccer
 
