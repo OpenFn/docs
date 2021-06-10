@@ -53,3 +53,22 @@ or below screenshot. Once reset, you will receive an email from Salesforce.
 Please save this `security token` in your OpenFn `Credential`.
 
 ![Token Reset](/img/security-token.png)
+
+### Integration Tips:
+1. How to find Salesforce API names:   
+   In the Salesforce Classic View, select `Setup` from the top naviagtion menu. Search for "Object" in the left-hand search box without hitting Enter. From the   quick results, select Create -> Objects. This takes you to all the custom objects. Select an object and you'll see all the fields and relationships on the object. 
+
+   You can also view Salesforce API names by downloading the Chrome [extention](https://chrome.google.com/webstore/detail/salesforce-show-api-name/dcfecmnffjopafbbbaepgopfcphnoham) `Salesforce Show API Name`. Follow the instructions for adding it to Chrome and use it to display API names without going to Setup. 
+2. Enabling external identifiers: 
+3. During the mapping phase, relationships: 
+4. During the mapping phase, make sure that option values for multi-select fields also match. If they do not match, specify the transformation required.
+
+### Common Errors:
+1. `INVALID_FIELD: Foreign key external id not found:` This error message usually means that the parent record for an object has not been synced. For example, if one tries uploading participants for an event that has not yet been synced.  
+2. `TypeError [Error]:`This error usually mean that the job receieved a part of the message that it wasn't expecting. It means that the job needs to be updated to know how to handle the message. 
+3. 
+
+### Example Integrations:
+MiracleFeet (CommCare-to-Salesforce sync): https://github.com/OpenFn/miracle-feet  
+Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala  
+GRS CommCare - Salesforce sync: https://github.com/OpenFn/grassroot-soccer  
