@@ -14,9 +14,8 @@ data to and from CommCare HQ.
 
 CommCare has different APIs for reading vs. updating data. Some helpful links:
 
-- Data APIs: https://confluence.dimagi.com/display/commcarepublic/Data+APIs
-- Bulk Case Upload API to mass update case records:
-  https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data
+- [Data APIs](https://confluence.dimagi.com/display/commcarepublic/Data+APIs)
+- [Bulk Case Upload API to mass update case records](https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data)
 
 ### Forward cases and/or forms from CommCare to OpenFn
 
@@ -38,8 +37,7 @@ Quick instructions:
    updates.
 
 We recommend updating the `Connection Settings` to list emails that should be
-alerted if there is a data forwarding error. See docs:
-https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications
+alerted if there is a data forwarding error. [See the CommCare docs for more on this.](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications)
 
 ### OpenFn Adaptors
 
@@ -49,4 +47,4 @@ connect with the CommCare API.
 
 ### Example Integrations
 
-https://github.com/OpenFn/miracle-feet https://github.com/OpenFn/lwala
+[Miracle Feet](https://github.com/OpenFn/miracle-feet) [Lwala](https://github.com/OpenFn/lwala)
