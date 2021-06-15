@@ -43,9 +43,9 @@ https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingData
 
 ### OpenFn Adaptors
 
-OpenFn implementations have leveraged both the `HTTP` and `CommCare` adaptors to
-connect with the CommCare API. https://github.com/OpenFn/language-commcare
-https://github.com/OpenFn/language-http
+OpenFn implementations have leveraged both the [`HTTP`](https://github.com/OpenFn/language-http) and [`CommCare`](https://github.com/OpenFn/language-commcare) adaptors to
+connect with the CommCare API. 
+
 
 ### Example Integrations
 
