@@ -51,13 +51,6 @@
             <description><![CDATA[OpenFn data integration has enabled the Caris Foundation to "work towards a]]></description>
         </item>
         <item>
-            <title><![CDATA[Enhanced Survey Monitoring and Quicker Analysis for Program Improvement in India]]></title>
-            <link>https://docs.openfn.org/blog/2020/07/01/KGVK-case-study</link>
-            <guid>Enhanced Survey Monitoring and Quicker Analysis for Program Improvement in India</guid>
-            <pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate>
-            <description><![CDATA[In the past, it took KGVK months to digitize and analyze survey data before]]></description>
-        </item>
-        <item>
             <title><![CDATA[Building an Integrated Data Warehouse to Track and Share Student Performance]]></title>
             <link>https://docs.openfn.org/blog/2020/07/01/african-school-of-excellence-case-study</link>
             <guid>Building an Integrated Data Warehouse to Track and Share Student Performance</guid>
@@ -70,6 +63,13 @@
             <guid>Helping an Airport Soar: Synchronizing Asset Data Between the Tarmac and HQ</guid>
             <pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[With real-time data syncs, OpenFn helps this airport ensure top-quality assets]]></description>
+        </item>
+        <item>
+            <title><![CDATA[Enhanced Survey Monitoring and Quicker Analysis for Program Improvement in India]]></title>
+            <link>https://docs.openfn.org/blog/2020/07/01/KGVK-case-study</link>
+            <guid>Enhanced Survey Monitoring and Quicker Analysis for Program Improvement in India</guid>
+            <pubDate>Wed, 01 Jul 2020 00:00:00 GMT</pubDate>
+            <description><![CDATA[In the past, it took KGVK months to digitize and analyze survey data before]]></description>
         </item>
         <item>
             <title><![CDATA[Real-Time Disease Monitoring for SwissTPH]]></title>
