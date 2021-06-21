@@ -58,15 +58,16 @@ Please save this `security token` in your OpenFn `Credential`.
 1. How to find Salesforce API names:   
    In the Salesforce Classic View, select `Setup` from the top naviagtion menu. Search for "Object" in the left-hand search box without hitting Enter. From the   quick results, select Create -> Objects. This takes you to all the custom objects. Select an object and you'll see all the fields and relationships on the object. 
 
-   You can also view Salesforce API names by downloading the Chrome [extention](https://chrome.google.com/webstore/detail/salesforce-show-api-name/dcfecmnffjopafbbbaepgopfcphnoham) `Salesforce Show API Name`. Follow the instructions for adding it to Chrome and use it to display API names without going to Setup. 
-2. Enabling external identifiers: 
-3. During the mapping phase, relationships: 
-4. During the mapping phase, make sure that option values for multi-select fields also match. If they do not match, specify the transformation required.
+   You can also view Salesforce API names by downloading the Chrome [extention](https://chrome.google.com/webstore/detail/salesforce-show-api-name/dcfecmnffjopafbbbaepgopfcphnoham) `Salesforce Show API Name`. Follow the instructions for adding it to Chrome and use it to display API names without going to Setup.   
+   API field names are used in the OpenFn jobs during an intergation, not field labels.
+2. Enabling external identifiers: This is important for integrations becasue it prevents duplicate records from being created in Salesforce. To enable, ensure 'External ID' is checked on the field settings. Learn more about external identifiers in Salesforce at https://www.infallibletechie.com/2014/11/what-is-external-id-in-salesforce.html
+3. Relationships: When mapping lookup fields in Salesforce, use [relationships](http://openfn.github.io/language-salesforce/module-Adaptor-relationship.html). Ex. Say there is a Person object in Salesforce with a field called "Parent" that looks up to another Person object. This would require the relationship class to use the externalID field to connect the two objects. 
+4. During the mapping phase, make sure that option values for multi-select fields also match. If they do not match, specify the transformation required. Ex. When mapping a field that specifies gender, one system could have the options "male", "female", "other" and the other system has the options "Male", "Female", "Other". The mappings would need to specify a transformation that makes the fist letter in each option lowercase. 
 
 ### Common Errors:
 1. `INVALID_FIELD: Foreign key external id not found:` This error message usually means that the parent record for an object has not been synced. For example, if one tries uploading participants for an event that has not yet been synced.  
 2. `TypeError [Error]:`This error usually mean that the job receieved a part of the message that it wasn't expecting. It means that the job needs to be updated to know how to handle the message. 
-3. 
+
 
 ### Example Integrations:
 MiracleFeet (CommCare-to-Salesforce sync): https://github.com/OpenFn/miracle-feet  
