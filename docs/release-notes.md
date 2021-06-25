@@ -4,6 +4,14 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
+## Version v1.94.79 (2021-05-25)
+
+New features:
+
+- **KeyboardDateTimePickers for Date Filters:** Users can now type a date
+  string, directly into the date field as a filter, or select it as before from
+  the date picker.
+
 ## Version 1.92.44 (2021-05-07)
 
 New features:
