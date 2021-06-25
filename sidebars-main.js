@@ -35,6 +35,7 @@ module.exports = {
           label: 'Jobs',
           items: [
             'build/jobs',
+            'jobs/job-design-intro',
             'jobs/understanding',
             'jobs/operations',
             'jobs/multiple-operations',
