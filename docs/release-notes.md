@@ -4,13 +4,22 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
-## Version v1.94.79 (2021-05-25)
+## Version v1.94.80 (2021-05-25)
 
 New features:
 
-- **KeyboardDateTimePickers for Date Filters:** Users can now type a date
-  string, directly into the date field as a filter, or select it as before from
-  the date picker.
+- **Enhanced date selection for inbox and activity history:** Users can now type
+  a date string `YYYY-MM-DD HH:mm:ss`, directly into the date field as a filter,
+  or select it as before from the date picker.
+- **Inbox and Activity History speed enhancements:** Via database structure
+  changes, the speed for loading lists of messages and runs has been improved
+  significantly.
+- **New Export and Reprocess Interfaces:** A unified
+  "what-you-see-is-what-you-get" interface has been implemented for exporting
+  and reprocessing messages and runs. Now, the bulk query is taken from the
+  current filters and a confirmation dialog which displays the query is
+  presented to the user. This allows users to have a strong understand of what
+  will be exported or reprocessed before executing the bulk request.
 
 ## Version 1.92.44 (2021-05-07)
 
