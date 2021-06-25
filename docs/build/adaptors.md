@@ -43,6 +43,29 @@ Most of our adaptors are also available on
 
 ![Adaptors list in npm](/img/adaptor_npm.png)
 
+---
+
+**NOTE**
+
+When using the [platform](https://openfn.org/), you can install an
+**unreleased** `adaptor version` from
+[npm](https://www.npmjs.com/search?q=%40openfn). To install an **unreleased
+adaptor version**, simply click on the _cloud download icon_ next to the adaptor
+version dropdown list. In the **Select Unreleased Adaptor** dialog box, enter
+the `adaptor name`(e.g. `dhis2` for `language-dhis2`) and the corresponding
+`version number`(e.g. `v2.3.4`), as listed on
+[npmjs](https://www.npmjs.com/search?q=%40openfn), for the adaptor of your
+choice. [OpenFn](https://openfn.org/) will then attempt to install the selected
+**unreleased adaptor version**, and the adaptor can then be used to run the
+specified job. Also note that, after this custom installation of the adaptor,
+[OpenFn](https://openfn.org/) will not add this **unreleased adaptor version**
+to the dropdown list of available adaptors in
+[JobStudio](https://docs.openfn.org/documentation/jobs/job-studio), but you are
+guaranteed that the adaptor will be available to use in any of your jobs as long
+as you specify it via the **Select Unreleased Adaptor** dialog.
+
+---
+
 ## Developing an adaptor
 
 You can develop a new adaptor from scratch or extend an existing one.
