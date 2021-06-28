@@ -103,6 +103,7 @@ module.exports = {
       type: 'category',
       label: 'Contributing',
       items: [
+        'roadmap',
         // 'writing-code',
         'for-devs',
         'gsoc',
