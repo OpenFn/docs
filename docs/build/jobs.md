@@ -22,9 +22,10 @@ Here, we'll focus on the expression.
 
 ### Adaptors
 
-We've got a whole section on creating new [Adaptors](./adaptors), but the
-critical thing to be aware of when writing a job is that you've got to choose an
-**adaptor**, and an **adaptor version**.
+We've got a whole section on creating new
+[Adaptors](/documentation/build/adaptors), but the critical thing to be aware of
+when writing a job is that you've got to choose an **adaptor**, and an **adaptor
+version**.
 
 All of the discussion below of helper functions like `create` or `findPatient`
 requires some understanding of adaptors. When you run a job, you're borrowing a
@@ -82,8 +83,12 @@ failing, but an upgrade from `3.y.z` to `4.y.z` may—in SEMVER _major_ upgrades
 (those that change the first number in the `x.y.z` version number) have
 "breaking" or "non-backwards compatible" changes.
 
-See [this section](./adaptors#on-npm) to learn how to install an adaptor from
-`npm`
+:::note
+
+See [the npm section](/documentation/build/adaptors#install-on-platform-via-npm) on the adaptors
+docs page to learn how to install an adaptor from `npm` while using `platform`.
+
+:::
 
 ## Composing job expressions
 
