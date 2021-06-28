@@ -82,28 +82,8 @@ failing, but an upgrade from `3.y.z` to `4.y.z` may—in SEMVER _major_ upgrades
 (those that change the first number in the `x.y.z` version number) have
 "breaking" or "non-backwards compatible" changes.
 
----
-
-**NOTE**
-
-When using the [platform](https://openfn.org/), you can install an
-**unreleased** `adaptor version` from
-[npm](https://www.npmjs.com/search?q=%40openfn). To install an **unreleased
-adaptor version**, simply click on the _cloud download icon_ next to the adaptor
-version dropdown list. In the **Select Unreleased Adaptor** dialog box, enter
-the `adaptor name`(e.g. `dhis2` for `language-dhis2`) and the corresponding
-`version number`(e.g. `v2.3.4`), as listed on
-[npmjs](https://www.npmjs.com/search?q=%40openfn), for the adaptor of your
-choice. [OpenFn](https://openfn.org/) will then attempt to install the selected
-**unreleased adaptor version**, and the adaptor can then be used to run the
-specified job. Also note that, after this custom installation of the adaptor,
-[OpenFn](https://openfn.org/) will not add this **unreleased adaptor version**
-to the dropdown list of available adaptors in
-[JobStudio](https://docs.openfn.org/documentation/jobs/job-studio), but you are
-guaranteed that the adaptor will be available to use in any of your jobs as long
-as you specify it via the **Select Unreleased Adaptor** dialog.
-
----
+See [this section](./adaptors#on-npm) to learn how to install an adaptor from
+`npm`
 
 ## Composing job expressions
 
