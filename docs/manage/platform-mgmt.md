@@ -41,32 +41,61 @@ You can filter the run logs in the Activity View by:
   hours/ days/ year – or a custom date range! Note that the default activity
   history view shows runs from the last 30 days.
 
-### Bulk retry runs
+### Bulk reprocess (retry) runs
 
 Need to re-process a series of runs? This could be helpful if you had multiple
 runs fail due to an error message.
 
-1. Simply click on the new **Retry** button via the Runs view.
-   ![Retry run button](/img/retrybutton.png)
+1. Generate a list of the runs that you want to reprocess by adjusting the
+   filters—be sure to specify an exact date range, job, status, etc.
 
-2. Specify the **ID range** for the runs that you want to re-process. Choose to
-   filter by Job and/or Status to only reprocess runs associated with a specific
-   job or runs that have failed/ succeeded.
-   ![Bulk retry runs](/img/runs_retry.png)
+2. Simply click the **Reprocess** button and review the dialog that appears.
+   This dialog contains important information about the query that will be used
+   for reprocessing and gives you an approximate number of runs that will be
+   reprocessed.
+
+![Retry run button](/img/retrybutton.png)
+
+3. Click "Reprocess" when you're happy with the query. You'll get feedback on
+   the number of runs enqueued within seconds, and you should see your project
+   queue fill up then empty over time as the batch is processed.
+
+![Retry run button](/img/reprocess-runs.png)
+
+:::info
+
+Note that a filtered list of runs will include runs triggered by message
+filters, cron, and flow or catch triggers. When you select to reprocess runs
+from a filtered list, the runs in that list which can only be triggered by the
+successful or failed exit of _another_ run will not be included in the initial
+batch. Those jobs will, however, still get run if they are turned on and
+successful or failed runs in the batch trigger them. In other words, flow/catch
+triggers will behave normally even during a bulk reprocess order.
+
+:::
+
+:::note
 
 Remember that OpenFn plans are run-based, and you can monitor usage in **Project
 Settings** to ensure that you don’t hit any run limits when bulk reprocessing!
 
+:::
+
 ### Export runs to CSV
 
-You can download your run logs by exporting to a CSV file.
+You can download and review OpenFn runs data by exporting to a CSV file.
 
-1. Via the Runs Activity History view, filter the runs you’d like to export.
+1. In your activity history view, filter the runs you’d like to export to CSV.
    Choose to filter by text, date, job, and status.
 
-2. Click the **Export as CSV** button to generate an export. The link to
-   download this file will be sent to your email address.
-   ![Export runs button](/img/exportruns.png)
+2. Click the **Export as CSV** button to review and confirm the desired export.
+
+![Export runs button](/img/exportruns.png)
+
+3. Click the "Export" button to submit the request. A link to download the file
+   will be sent to your email address shortly.
+
+![Retry run button](/img/export-runs.png)
 
 ## Inbox
 
@@ -103,12 +132,21 @@ Need to re-run a series of messages? If you had a job fail because of an error
 for multiple messages, or need to re-process the data in OpenFn to re-send to a
 destination application, then this feature will help you do so more quickly!
 
-1. Simply click on the new **Reprocess** button via the Inbox view.
-   ![Reprocess button](/img/reprocess_msgs.png)
+1. Generate a list of the messages that you want to reprocess by adjusting the
+   filters—be sure to specify an exact date range, the matching trigger, etc.
 
-2. Specify the **ID range** for messages that you want to re-run (e.g., messages
-   with IDs 4622741 through 4622749 → 9 messages to reprocess).
-   ![Bulk reprocess screen](/img/bulk_reprocess.png)
+2. Simply click the **Reprocess** button and review the dialog that appears.
+   This dialog contains important information about the query that will be used
+   for reprocessing and gives you an approximate number of messages that will be
+   reprocessed.
+
+![Reprocess button](/img/reprocess_msgs.png)
+
+3. Click "Reprocess" when you're happy with the query. You'll get feedback on
+   the number of messages enqueued within seconds, and you should see your
+   project queue fill up then empty over time as the batch is processed.
+
+![Retry run button](/img/reprocess-messages.png)
 
 #### Note when bulk reprocessing messages
 
@@ -129,10 +167,14 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 1. In your inbox, filter the messages you’d like to export to CSV. Choose to
    filter by text, date, trigger, and run state.
 
-2. Click the **Export as CSV** button to generate an export. The link to
-   download this file will be sent to your email address.
+2. Click the **Export as CSV** button to review and confirm the desired export.
 
 ![Export CSV button](/img/exportcsv.png)
+
+3. Click the "Export" button to submit the request. A link to download the file
+   will be sent to your email address shortly.
+
+![Retry run button](/img/export-messages.png)
 
 ## Account Management
 
@@ -146,7 +188,7 @@ tier. For comprehensive pricing information please visit our
 To enter your credit card information follow these steps:
 
 1. Login to your OpenFn account.
-2. Click on your profile icon on the top right corner of the page and select
+2. Click on your profile icon on the top right corner o f the page and select
    **Billing**.
 3. From the **Billing** page select **Add Card** and enter your credit card
    information.
@@ -279,7 +321,7 @@ Security" page of their OpenFn project, Administrators can choose from API Key
 and Basic Auth types, which will prompt administrators to either generate an API
 token or to setup a username:password credential. Once this inbox authentication
 is configured, any HTTP requests made to the OpenFn Inbox URL must include
-either this token or username:password in the request header.
+either this `x-api-key` token or username:password in the request header.
 ![inbox security](/img/inbox-security.png)
 
 #### Rotating auth methods

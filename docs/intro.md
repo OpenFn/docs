@@ -10,7 +10,8 @@ This documentation is for the suite of OpenFn data integration,
 interoperability, and automation tools. Note that some technical documentation
 and source code for OpenFn's FOSS integration tools and adaptors can also be
 found in their respective repositories at
-[Github.com/OpenFn](https://github.com/openfn).
+[Github.com/OpenFn](https://github.com/openfn) or see [Deploy](https://docs.openfn.org/documentation/deploy/options) 
+section for an overview of the FOSS options and additional docs.
 
 Check out the sections on the left. They'll show you how to get up and running,
 as well as how to design, build, deploy, and manage data integration and

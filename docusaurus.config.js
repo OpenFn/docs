@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = {
   title: 'OpenFn/docs',
   tagline:
@@ -9,10 +11,15 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'fr'],
+  },
   themeConfig: {
     algolia: {
       apiKey: '9f286454b0688588aa96160ce8754bc0',
       indexName: 'openfn',
+      contextualSearch: true,
     },
     hideableSidebar: true,
     gtag: {
@@ -45,6 +52,10 @@ module.exports = {
           to: 'blog',
           label: 'Blog',
           position: 'left',
+        },
+        {
+          type: 'localeDropdown',
+          position: 'right',
         },
         {
           href: 'https://github.com/openfn/docs',
@@ -117,7 +128,7 @@ module.exports = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: require.resolve('./sidebars.js'),
+          sidebarPath: require.resolve('./sidebars-main.js'),
           routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/main',
         },
@@ -139,6 +150,12 @@ module.exports = {
   ],
   plugins: [
     [
+      path.resolve(__dirname, 'job-library'),
+      {
+        apiUrl: 'https://www.openfn.org/api/public',
+      },
+    ],
+    [
       '@docusaurus/plugin-content-docs',
       {
         id: 'library',
@@ -152,7 +169,7 @@ module.exports = {
       {
         id: 'articles',
         routeBasePath: 'articles',
-        path: './articles',
+        path: 'articles',
         blogSidebarCount: 6,
         showReadingTime: true,
         editUrl: 'https://github.com/openfn/docs/edit/main',

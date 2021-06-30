@@ -5,20 +5,21 @@
 **_To view the documentation please visit
 [docs.openfn.org](https://docs.openfn.org)._**
 
-#### Other documentation
+### Other documentation
 
 Documentation for various OpenFn tools, such as
+[openfn/microservice](https://openfn.github.io/microservice/),
 [openfn/devtools](https://openfn.github.io/devtools/),
 [openfn/core](https://github.com/OpenFn/core), and all of our open-source
-language packages can be found in
+adaptors can be found in
 [OpenFn's Github organization](https://github.com/OpenFn).
 
 This repository is used to maintain the docs site, and for users to submit
 issues and feature requests.
 
-#### Contributing to this documentation site
+### Contributing to this documentation site
 
-Visit https://docs.openfn.org/docs/style-guide.
+Visit https://docs.openfn.org/documentation/writing-docs/.
 
 This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern
 static website generator.
@@ -44,20 +45,31 @@ Installation
 ```console
 yarn install
 ```
-(On Mac, I first had to run `npm install --global yarn` and then run this^ command in the `/docs` repo.)
 
-##### Local Development
+(On Mac, I first had to run `npm install --global yarn` and then run this^
+command in the `/docs` repo.)
+
+### Local Development
 
 ```console
 npm run start
 ```
 
-This command starts a local development server and open up a browser window.
-Most changes are reflected live without having to restart the server.
+This command builds the job library from OpenFn.org, starts a local development
+server, and opens up a browser window. Most changes are reflected live without
+having to restart the server.
 
-##### Build and serve for full-featured testing
+```
+npm run start-offline
+```
+
+This command skips the job library step, which requires an active internet
+connection.
+
+### Build and serve for full-featured testing
 
 ```console
+npm run generate-library
 npm run build
 npm run serve
 ```
@@ -65,6 +77,7 @@ npm run serve
 This command generates static content into the `build` directory and can be
 served using any static contents hosting service.
 
-##### Deployment
+### Deployment
 
-Builds to `main` will autodeploy.
+Builds to `main` will automatically be deployed to
+[docs.openfn.org](https://docs.openfn.org).

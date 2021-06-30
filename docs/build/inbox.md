@@ -58,13 +58,25 @@ operations in step 4 completed successfully (what do you count as a success with
 these various custom actions, by the way?) you should consider implementing a
 SAGA pattern, whereby after all this processing is complete you trigger another
 request back to the initial system reporting on the downstream tasks. This can
-be done in OpenFn with [Flow Triggers](../jobs/multiple-operations.md).
+be done in OpenFn with [Flow Triggers](/documentation/jobs/multiple-operations).
 
 ## Synchronous vs. Asynchronous Processing
 
-In **OpenFn/engine**, we've created a way to set up inbox endpoints as
+On **OpenFn/platform**, processing is asynchronous by default. Multiple complex workflows may be initiated, error handling and notifications all happen downstream. 
+1. If you send data to OpenFn Inbox, you'll receive a `202` if successful (and `502` if we didn't receive your data/bad request). 
+2. We'll then load it into the database and soon it will appear as a new "message"
+   record in your "Inbox" page.
+3. We'll check the triggers for all the active jobs in your project and if it
+   matches one of those triggers we'll send it to another queue for job running.
+4. We'll make sure your project is configured properly and that you haven't
+   exceeded your usage limits.
+5. We'll start executing a job run, which may itself may hundreds of unique HTTP
+   requests to other endpoints. 
+6. _If you want to then send an update back to the source system... you may configure another job to send requests and updates back to the triggering source system._ 
+
+In **OpenFn/microservice** or using open-source tools, you could create a synchronous system. We've created a way to set up inbox endpoints as
 "synchronous", meaning they'll actually hold a connection open _until_ all of
 the processing above is completed, and then respond with a `2XX`, `4xx`, or
 `5XX`. This is not recommended for high volume systems, but may be a requirement
-for some implementations; the sprit of **OpenFn/engine** is to give as much
+for some implementations; the sprit of **OpenFn/microservice** is to give as much
 control as possible to whoever is deploying it on their servers.

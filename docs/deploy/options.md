@@ -2,6 +2,8 @@
 title: Planning for Deployment
 ---
 
+## Introduction
+
 OpenFn/platform (the iPaaS), OpenFn/microservice, OpenFn/diy and more than 50
 open-source adaptors maintained by OpenFn can be used locally or on the cloud,
 and as stand-alone solutions or as modules in other applications. Together the
@@ -18,12 +20,26 @@ See below for a chart of the available implementation pathways.
 
 ![Implementation Pathways](/img/implementation_pathways.png)
 
+<!-- @taylor now that we have added in the new chart (see below), should we get rid of this chart? -->
+
 <!--@Taylor would you be willing to spend some time creating an update to this chart? Please note that the chart doesn't include anything re OpenFn/Core or OpenFn/Engine. Source for chart is: https://drive.google.com/file/d/1wRr7EH-PXT3gHgPnVWDA2kTZSSjigwqq/view?usp=sharing  -->
 
 When you configure projects (think `jobs`, `triggers`, and `credentials`) to run
-on OpenFn, you can deploy them in a number of different ways.
+on OpenFn, you can deploy them in a number of different ways. In fact, a key
+feature of OpenFn's offerings are the versatility they provide to users. A user
+can build her project using OpenFn's enterprise platform, or using components of
+the open source integration toolkit. A user may then choose to deploy the
+project initially on the platform and later migrate to her own servers when
+doing so makes sense. The good news is that OpenFn project
+[portability](/portability.md) will make these transitions easy. You will have
+full control and ownership of your integration project regardless of the
+deployment pathway you pursue.
+
+![Deployment Options](/img/deployment_options.png)
 
 ## Platform
+
+See: [platform](platform)
 
 The OpenFn integration platform provides a flexible, scalable, and secure
 infrastructure to connect your existing systems, streamline data sharing, and
@@ -43,6 +59,8 @@ can pick and choose exactly how and where OpenFn runs.
 
 ## Microservice
 
+See: [microservice](/documentation/microservice/home)
+
 Microservice is right for you if you are already managing high-availability
 software and don't need a web-front end. Microservice gives you lots of
 flexbility, and it's completely FOSS—meaning you use it for free and can even
@@ -61,6 +79,8 @@ iPaaS and used to create a Engine deployment using OpenFn's FOSS ETL tools. -->
 
 ## DIY
 
+See: [diy](diy)
+
 The OpenFn intgration toolkit is a collection of dozens of completely free and
 open source integration tools, applications, and modules. If the out-of-the-box
 functionality provided by `microservice` doesn't meet your needs, look to the
@@ -73,7 +93,7 @@ This is the FOSS ETL tool at the heart of the OpenFn platform. We are currently
 working on getting this into a state where it can be deployed as a completely
 free and open source Engine which automatically receives messages and executes
 OpenFn jobs, harnessing all the power of thousands of existing OpenFn jobs and
-language-packages. -->
+adaptors. -->
 
 <!-- You might use Core if... -->
 

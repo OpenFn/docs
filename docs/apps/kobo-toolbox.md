@@ -3,6 +3,7 @@ title: Kobo Toolbox
 ---
 
 ## Overview
+[Kobo Toolbox](https://www.kobotoolbox.org/) is a suite of open source tools for field data collection for use in challenging environments. If you've worked on ODK or ONA, the underlying tech is very similar. They offer free accounts and hosting for humanitarian projects, and the app provides a nice interface for managing (and cleaning!) form submissions.
 
 :::note
 
@@ -13,20 +14,22 @@ with common tools, and (2) to educate any OpenFn user/the wider sector.
 
 ## Integration Use Cases
 
-Example user stories...
-
-## Further Reading
-
-1. Links to external sites and OpenFn docs...
+Example user stories: 
+- As a M&E manager, I want to monitor Kobo Toolbox survey responses in real-time in a central database, so that I can better understand data collection activities and program performance across my partner sites.
+- ...
+.
 
 ## Integration Options
 
-### Data & Metadata integration via Kobo Web API
+### Kobo Web API
 
-Summary & links... Learning about Kobo API, what we can/cannot extract from
-different endpoints...
+Kobo APIs support both data and metadata integration. Check out: 
+- Kobo API docs: https://support.kobotoolbox.org/api.html
+- Kobo Community: https://support.kobotoolbox.org/rest_services.html
+- Kobo API v2 explorer: https://kf.kobotoolbox.org/api/v2/assets/
 
-### Webhook service to push submission data to OpenFn endpoint
+### Webhook service to forward submission data to OpenFn endpoint (or another app)
+See the official docs here: https://support.kobotoolbox.org/rest_services.html
 
 1. To push data from Kobo, users must click the projects icon on their left-side
    nav bar. It's in the shape of a globe.
@@ -75,8 +78,8 @@ ODK:
 ## OpenFn Adaptor
 
 Check out
-[OpenFn/language-kobotoolbox](https://www.github.com/openfn/language-kobotoolbox)
+[OpenFn/language-kobotoolbox](https://www.github.com/openfn/language-kobotoolbox) for some helper functions for extracting or "getting" data in bulk from Kobo Toolbox. 
 
 ## Integration Examples
 
-Links to sample jobs/ code snippets...
+See the `ConSoSci` Github repo for several example Kobo-to-database jobs: https://github.com/OpenFn/consosci

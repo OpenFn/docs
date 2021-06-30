@@ -2,7 +2,7 @@
 title: Generic Data Sources
 sidebar_label: Generic Sources
 ---
-(this is a test)
+
 ## Standard webhook configuration
 
 This section describes how to enable push notifications from selected source
@@ -23,7 +23,7 @@ the "Access & Security" page, no authentication is required.
 common sources that external contributors have added. Remember that anything
 with a REST api or a JSON-based notification service can be used with OpenFn.
 
- ## How webhooks enable real time integration
+## How webhooks enable real time integration
 
 Webhooks services (sometimes called “REST Services”) are services that your
 users can configure on your application which make posts to other REST
@@ -38,7 +38,7 @@ probably want a feature in your user-interface that allows them to turn on and
 off these various services. See the below example from Kobo Toolbox (left) and
 CommCare (right).
 
-![kobo_to_commcare](../static/img/webhooks1.png)
+![kobo_to_commcare](/img/webhooks1.png)
 
 ## When to send?
 
@@ -57,5 +57,3 @@ end-user will need to run the next step in their logic. Some interfaces allow
 the user to control which fields (and even which related resources) are sent in
 a given payload, but often the default is to send everything and let them pick
 and choose what they want to use.
-
-

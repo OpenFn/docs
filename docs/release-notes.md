@@ -4,6 +4,77 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
+## Version v1.94.80 (2021-05-25)
+
+New features:
+
+- **Enhanced date selection for inbox and activity history:** Users can now type
+  a date string `YYYY-MM-DD HH:mm:ss`, directly into the date field as a filter,
+  or select it as before from the date picker.
+- **Inbox and Activity History speed enhancements:** Via database structure
+  changes, the speed for loading lists of messages and runs has been improved
+  significantly.
+- **New Export and Reprocess Interfaces:** A unified
+  "what-you-see-is-what-you-get" interface has been implemented for exporting
+  and reprocessing messages and runs. Now, the bulk query is taken from the
+  current filters and a confirmation dialog which displays the query is
+  presented to the user. This allows users to have a strong understand of what
+  will be exported or reprocessed before executing the bulk request.
+
+## Version 1.92.44 (2021-05-07)
+
+New features:
+
+- **Exclusion filters:** Users can now specify message filter triggers to
+  _exclude_ messages matching a certain signature via the same matching rules as
+  the standard _inclusion_ filter. Read more in the
+  [docs](/documentation/build/triggers#message-filter-triggers)
+
+## Version 1.90.30 (2021-03-31)
+
+New features:
+
+- **Streaming logs:** Users can now view individual logs lines as they are
+  emitted by their NodeVM during the execution of a run.
+- **Click to find paths:** Users can now click on a node in a sample message in
+  the job studio to copy the path to that node. It can then be pasted into the
+  expression.
+- **Run directly from job studio:** While writing a job in the job studio, it's
+  now possible to start a run for that job given the sample message and the logs
+  will automatically be streamed back to the Job Studio.
+
+## Version 1.89.29 (2021-03-24)
+
+New features:
+
+- **Sample message explorer:** When writing a job, users can view a selection of
+  matching messages which would cause the job to run. Now, that sample
+  `state.json` view is more easily browseable as a tree, and by clicking
+  individual nodes in the tree users can determine the require `path` to
+  accessing source data. For example, clicking on a node at
+  `state.data.patient.lastVisitDate` will copy
+  `dataValue('patient.lastVisitDate')` to your clipboard for pasting into the
+  job expression in the adjacent panel.
+
+Bug Fixes:
+
+- Addressed an issue with the archive service which resulted in incomplete
+  archiving of expired data. This impacted users with 365 day retention plans
+  and Google Cloud Storage `.zip` archiving for data past its platform expiry.
+  _Data stored on the platform itself was unaffected_ but automatic archives for
+  data that expired from August 1st, 2019 to March 31st, 2020 only contains a
+  subset of the messages and runs from that period.
+
+## Version 1.89.0 (2021-03-15)
+
+New features:
+
+- **Export as yaml or microservice.zip:** Users can now export their project
+  configurations (triggers, jobs, credentials) as a `.yaml` file which can be
+  run with `OpenFn/microservice` or as a `.zip` file with a prepared
+  microservice implementation which can be extracted and started with
+  `docker-compose up`.
+
 ## Version 1.88.0 (2021-02-22)
 
 New features:

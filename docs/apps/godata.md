@@ -4,25 +4,26 @@ title: Go.Data
 
 ## Overview
 
-Go.Data is an outbreak investigation tool for field data collection during
+Go.Data ([https://www.who.int/godata](https://www.who.int/godata) is an outbreak investigation tool for field data collection during
 public health emergencies.
 
 ### Integration Use Cases
 
-Example user stories...
+Check out the Go.Data `Interoperability Toolkit` docs for example OpenFn integrations and related documentation: https://worldhealthorganization.github.io/godata/interoperability/
 
 ### Further Reading
 
-1. OpenFn Go.Data notes -
-   https://drive.google.com/file/d/12YDZXt9_-XUv8HcAiyzZsqRitBkedKqf/view?usp=sharing
-2. Go.Data User Guides –
-   https://drive.google.com/drive/u/8/folders/1cTcXZLEM4XRxht6VvsSrKq8QGMie-knj
+1. Go.Data API docs
+   https://worldhealthorganization.github.io/godata/api-docs/
+   
+2. Go.Data Community
+   https://community-godata.who.int/login
+   
 3. Go.Data GitHub Repository – https://github.com/WorldHealthOrganization/godata
-4. Go.Data API Explorer - http://who-stable.clarisoft.com/explorer/#/
 
 ## Integration Options
 
-Data integration via the Go.Data web API - link here: ...
+Data integration via the Go.Data web API. Two-way integration can be achieved, but see all options here: https://worldhealthorganization.github.io/godata/options/
 
 ## OpenFn Adaptor
 
@@ -37,4 +38,4 @@ supported by `language-godata`.
 
 ## Implementation Examples
 
-Links to jobs and code snippets...
+See Go.Data docs site: https://worldhealthorganization.github.io/godata/integration-scripts/

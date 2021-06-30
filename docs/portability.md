@@ -1,66 +1,35 @@
 ---
-title: Portability Proposal
+title: Portability
 ---
 
-OpenFn is currently designing a portable project configuration schema that can
-be used to import or export projects between OpenFn/platform and OpenFn/engine.
+## Intent
 
-## Proposal v3
+Beyond facilitating portability/transferability between OpenFn's
+[platform](deploy/platform) and [microservice](/documentation/microservice/home)
+deployment pathways, the portability proposal (needs a better name... and...)
+seeks to establish a simple, globally-applicable way of **specifying workflow
+automation** that might be applied across workflow-engines/integration platforms
+across the sector. Nothing about the spec _must_ be specific to OpenFn or any
+one of our individual products. We envision a future in which software built on
+[core](deploy/diy), [engine](deploy/diy), and entirely new and different
+integration/workflow tools can adopt this specification.
 
-v3 introduces
-[URI schemes](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier)
-`file://`, `https://`, `gcs://`
+It boils down to three key sets of artifacts: `jobs`, `triggers`, and
+`credentials`. Respectively, they determine (1) what actions must be performed,
+(2) when they must be performed, and (3) what, if any, authentication they'll
+need to perform them.
 
-```yaml
-jobs:
-  job-1:
-    expression: 'file://my-job.js' # URIs may be used (e.g., https://raw.githubusercontent.com/org/repo/my-job.js)
-    language_pack: '@openfn/language-common'
-    trigger: trigger-1
-    credential: my-secret-credential
-  recurring-job:
-    expression: >
-      alterState(state => {
-        console.log("Hi there!")
-        return state;
-      })
-    language_pack: '@openfn/language-common'
-    trigger: every-minute
-  flow-job:
-    expression: >
-      alterState(state => {
-        state.data.number = state.data.number * 3
-        return state;
-      })
-    language_pack: '@openfn/language-common'
-    trigger: after-j1
-  catch-job:
-    expression: >
-      alterState(state => {
-        state.message = "handled it."
-        return state;
-      })
-    language_pack: '@openfn/language-common'
-    trigger: j1-fails
+If you're interested in contributing to the specification, reach out to OpenFn
+via the [community forum](https://community.openfn.org), write to us, or suggest
+changes by submitting a pull request here.
 
-triggers:
-  trigger-1:
-    criteria: '{"number":2}'
-  every-minute:
-    cron: '* * * * *'
-  after-j1:
-    success: job-1
-  j1-fails:
-    failure: job-1
+```mdx-code-block
+import ReactPlayer from 'react-player';
 
-credentials:
-  my-secret-credential:
-    username: '******' # Credential keys get exported, but values must be manually reentered
-    password: '******'
-  my-other-credential: 'file://gcp_credential.json' # And URIs may be specified directly for the credential body
+<ReactPlayer url='https://www.youtube.com/watch?v=9xXK5xoiMgA' />
 ```
 
-## Proposal v2
+## Proposal v2 `@latest`
 
 ```yaml
 jobs:
@@ -70,7 +39,7 @@ jobs:
         patient-id: state.data.id,
         dob: state.data.birth
       })
-    language_pack: '@openfn/language-openmrs'
+    adaptor: '@openfn/language-openmrs'
     trigger: trigger-1
     credential: my-secret-credential
   recurring-job:
@@ -79,7 +48,7 @@ jobs:
         console.log("Hi there!")
         return state;
       })
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: every-minute
   flow-job:
     expression: >
@@ -87,7 +56,7 @@ jobs:
         state.data.number = state.data.number * 3
         return state;
       })
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: after-j1
   catch-job:
     expression: >
@@ -95,7 +64,7 @@ jobs:
         state.message = "handled it."
         return state;
       })
-    language_pack: '@openfn/language-common'
+    adaptor: '@openfn/language-common'
     trigger: j1-fails
 
 triggers:
@@ -116,35 +85,7 @@ credentials:
     password: '******'
 ```
 
-## Proposal v1
+## Other Versions
 
-```js
-const project = {
-  async: true,
-  triggers: {
-    uniqueTriggerId: {
-      // trigger properties
-    },
-    otherTrigger: {
-      // other trigger properties
-    },
-  },
-  credentials: {
-    // for now, credentials will not be synced //
-    // secret1: {
-    // username: 'mamadou',
-    // pass: 'shhh',
-  },
-  staticData: {
-    // static objects that can be accessed from any job
-  },
-  jobs: {
-    payHealthWorker: { trigger: 'otherTrigger' },
-    syncToSalesforce: {
-      expression: 'uri://github.com/jobs/expresion.js',
-      trigger: 'uniqueTriggerId',
-      credential: 'secret1',
-    },
-  },
-};
-```
+- [Portability Proposal v3](portability-versions#proposal-v3) `@next`
+- [Portability Proposal v1](portability-versions#proposal-v1)

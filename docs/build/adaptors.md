@@ -2,36 +2,68 @@
 title: Adaptors
 ---
 
-An adaptor is an open-source module that provides the necessary operations that
-help communicate with a specific external system. We often refer to them as
-`language-packages`. In the following, we might use the two terms
-interchangeably.
+An adaptor is an open-source Javascript module that provides OpenFn core users
+with a set of operations that help communicate with a specific external system.
+In the past, we often referred to them as "language packages". And the two terms
+are sometimes used interchangeably, but the preferred way of communicating about
+adaptors is as follows:
+
+- "What _**adaptor**_ is that job using?" ("That job is using
+  `language-dhis2`.")
+- "The DHIS2 _**adaptor**_ is called `language-dhis2`."
+- "I don't have the right _**adaptor**_ for this job, let me install it by
+  running `npm install @openfn/language-dhis2`.
+
+In short, _most_ _**adaptors**_ follow the naming convention
+`@openfn/language-xyz`, but not all do!
 
 ## Where to find them?
 
 ### On GitHub
 
 The developed adaptors can be found in GitHub under `https://github.com/openfn`,
-starting with the prefix `language-XXXX`. Some examples are:
-`language-http (https://github.com/OpenFn/language-http)`,
-`language-postgresql (https://github.com/OpenFn/language-postgresql)`.
+starting with the prefix `language-xyz`. Some examples are:
 
-### On openfn.org
+- [language-http](https://github.com/OpenFn/language-http)
+- [language-postgresql](https://github.com/OpenFn/language-postgresql)
+- [language-primero](https://github.com/OpenFn/language-primero)
 
-When creating or editing a job, you can choose the adaptor to run the job. This
-way you "import" the needed operations. Simply open the dropdown list of
-adaptors, and click on one.
+### On platform
+
+When creating or editing a job on platform, you can choose the adaptor to run
+the job. This way you "import" the needed operations. Simply open the dropdown
+list of adaptors, and click on one.
 
 <img src="/img/adaptor_choice_openfn.png" width="300" />
 
 ### On npm
 
-Some of our language-packages are also available in
+Most of our adaptors are also available on
 [npmjs](https://www.npmjs.com/search?q=%40openfn).
 
 ![Adaptors list in npm](/img/adaptor_npm.png)
 
-## Developing an adaptor
+#### Install on platform via npm
+
+When using `platform`, you can install adaptors that are not part of the
+recommended adaptors picklist directly from
+[npm](https://www.npmjs.com/search?q=%40openfn).
+
+To install from npm, click on the _cloud download icon_ next to the adaptor
+version picklist. In the **Select Unreleased Adaptor** dialog box, enter the
+`adaptor name`(e.g. `dhis2` for `language-dhis2`) and the corresponding
+`version number`(e.g. `v2.3.4`), as listed on
+[npmjs](https://www.npmjs.com/search?q=%40openfn), for the adaptor of your
+choice. The platform will attempt to install the selected adaptor version it can
+be used to run the specified job.
+
+Note that, after this custom installation of the adaptor, `platform` will not
+add this adaptor version to the picklist of recommended adaptors in
+[JobStudio](https://docs.openfn.org/documentation/jobs/job-studio), but you are
+guaranteed that the adaptor will be available to use in any of your jobs as long
+as you specify it via the **Select Unreleased Adaptor** dialog.
+
+## Developing adaptors
 
 You can develop a new adaptor from scratch or extend an existing one.
 
@@ -44,24 +76,64 @@ operations can be added inside the `src/Adaptor.js` file of the adaptor.
 
 ### Developing a new adaptor
 
-Developing a new Adaptor a a language package can be done by cloning the
-template available in this Url: `https://github.com/OpenFn/adaptor` via the
-`USE THIS TEMPLATE` button over on Github.
+Developing a new adaptor can be done by cloning the template available
+[here](https://github.com/OpenFn/adaptor) via the `USE THIS TEMPLATE` button
+over on Github.
 
 ![Use this template button](/img/usethistemplate.png)
 
-#### Default operation
+### Default operation
 
 This template contains a default `create` operation that can be customized
-according to the objectives of the new language-package.
+according to the objectives of the new adaptor.
 
-```javascript
+```js
 export function create(path, params, callback) {
   return state => {
     // expand references for the data argument with state
     // do the work
     // return state
   };
+}
+```
+
+### General considerations
+
+#### Using `@openfn/language-common.http`
+
+In many cases, it's useful to be able to execute regular HTTP requests inside a
+specialized adaptor (e.g. posting the output of a Primero case fetch to an
+OpenFn inbox). Considering these types of situations, `language-common`
+implements and exports an `http` module. To use `http` in any job executed with
+a specific adaptor consider exporting it directly from `language-common`.
+
+```js
+...
+export {
+  alterState,
+  ...
+  http,
+  ...
+  sourceValue,
+} from '@openfn/language-common';
+```
+
+#### Import language-common from npm
+
+To leverage the last tested available version of our language-common adaptor,
+consider importing the one published in `npm` through `@openfn/language-common`.
+
+Accordingly, your `package.json` should add a dependency to that version as this
+(snippet taken from `language-postgresql`):
+
+```json
+{
+  "dependencies": {
+    "@openfn/language-common": "1.2.6",
+    "pg": "^8.3.2",
+    "pg-format": "^1.0.4"
+  },
+  ...rest
 }
 ```
 
@@ -77,7 +149,7 @@ Building an adaptor is done by running the command `make` from the root folder.
 
 Tests can be written with nock under the path `test/index.js`.
 
-```javascript
+```js
 describe('createPatient', () => {
   before(() => {
     nock('https://fakepatient.server.com')
@@ -144,11 +216,10 @@ the available helper functions.
  ~/devtools/adaptors/adaptor >
 ```
 
-
 When writing tests, bear in mind as well for scenarios that could trigger
 errors.
 
-```javascript
+```js
 describe('create', () => {
   before(() => {
     nock('https://fake.server.com')

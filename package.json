@@ -1,24 +1,33 @@
 {
   "name": "@openfn/docs",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
-    "start": "docusaurus start",
+    "generate-library": "docusaurus generate-library",
+    "start": "docusaurus generate-library && docusaurus start",
+    "start-offline": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
-    "clear": "docusaurus clear"
+    "clear": "docusaurus clear",
+    "crowdin": "crowdin",
+    "write-translations": "docusaurus write-translations",
+    "write-heading-ids": "docusaurus write-heading-ids",
+    "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download"
   },
   "dependencies": {
-    "@docusaurus/core": "2.0.0-alpha.70",
-    "@docusaurus/preset-classic": "2.0.0-alpha.70",
+    "@crowdin/cli": "3",
+    "@docusaurus/core": "^2.0.0-beta.0",
+    "@docusaurus/preset-classic": "^2.0.0-beta.0",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
+    "date-fns": "2.21.3",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-particles-js": "^3.4.1"
+    "react-particles-js": "^3.4.1",
+    "react-player": "^2.9.0"
   },
   "browserslist": {
     "production": [
@@ -33,7 +42,7 @@
     ]
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-alpha.70",
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.0",
     "@tsconfig/docusaurus": "^1.0.2",
     "@types/node": "^14.14.22",
     "@types/react": "^17.0.0",

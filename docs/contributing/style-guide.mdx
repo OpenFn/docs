@@ -90,20 +90,21 @@ Inline-style:
 
 Reference-style: ![alt text][logo]
 
-[logo]:
-  https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png
+<!-- prettier-ignore-start -->
+[logo]: https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png
   'Logo Title Text 2'
+<!-- prettier-ignore-end -->
 
 Images from any folder can be used by providing path to file. Path should be
 relative to markdown file.
 
-![img](../static/img/undraw_Portfolio_update_re_jqnp.svg)
+![img](/img/undraw_Portfolio_update_re_jqnp.svg)
 
 ### Image sizing/styling
 
 Images can be sized using inline HTML.
 
-<img src="../static/img/undraw_Portfolio_update_re_jqnp.svg" width="200" />
+<img src="/img/undraw_Portfolio_update_re_jqnp.svg" width="200" />
 
 ---
 
@@ -111,7 +112,7 @@ Images can be sized using inline HTML.
 
 Gifs are helpful for demonstrating short sequences of user behaviour.
 
-![img](../static/img/how-to-gif.gif)
+![img](/img/how-to-gif.gif)
 
 There are many tools that will help you create GIFs:
 
@@ -245,8 +246,10 @@ This is a warning
 
 ## Tabs
 
+```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+```
 
 Note how we import tabs first, then use them as below:
 
@@ -265,9 +268,10 @@ import TabItem from '@theme/TabItem';
   <TabItem value="apple">This is an apple 🍎</TabItem>
   <TabItem value="orange">This is an orange 🍊</TabItem>
   <TabItem value="banana">This is a banana 🍌</TabItem>
-</Tabs>
+</Tabs>;
 ```
 
+```mdx-code-block
 <Tabs
   defaultValue="apple"
   values={[
@@ -280,3 +284,4 @@ import TabItem from '@theme/TabItem';
   <TabItem value="orange">This is an orange 🍊</TabItem>
   <TabItem value="banana">This is a banana 🍌</TabItem>
 </Tabs>
+```

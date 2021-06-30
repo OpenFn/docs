@@ -1,34 +1,51 @@
+const fs = require('fs');
+
+const publicFile = fs.readFileSync('./library/jobs/auto/publicPaths.json');
+const publicJobs = JSON.parse(publicFile);
+
+// Note: we can include out own examples here.
+const jobs = [...publicJobs];
+
+const groupedJobs = jobs.reduce((r, a) => {
+  r[a.adaptor] = r[a.adaptor] || [];
+  r[a.adaptor].push(a);
+  return r;
+}, Object.create(null));
+
+const items = Object.keys(groupedJobs)
+  .sort()
+  .map(a => {
+    return {
+      type: 'category',
+      label: a,
+      items: groupedJobs[a]
+        .map(j => {
+          return {
+            type: 'doc',
+            id: j.id,
+            label: j.name,
+          };
+        })
+        .sort((a, b) => {
+          return a.label.localeCompare(b.label, 'en', {
+            sensitivity: 'base',
+          });
+        }),
+    };
+  });
+
 module.exports = {
   library: [
     { type: 'doc', id: 'library-intro' },
-    {
-      type: 'category',
-      label: 'Jobs',
-      items: [
-        'jobs/alter-state-before-operations',
-        'jobs/async-and-array-dot-map',
-        'jobs/bring-formId-into-data-array-then-create-parent-and-children-in-salesforce',
-        'jobs/CommCare-FHIR',
-        'jobs/complex-http-request-chains',
-        'jobs/complex-state-control',
-        'jobs/concatenate-many-fields-with-nulls',
-        'jobs/create-if-proposal',
-        'jobs/Create-SMS-Linked-to-Contact-in-SF',
-        'jobs/DHIS2-DataValues-API',
-        'jobs/DHIS2-Events-API',
-        'jobs/ODK-Create-Many-Records-Moving-In-And-Out-Of-Repeat-Blocks',
-        'jobs/promise-all-nested-requests',
-        'jobs/send-mail-in-mailgun',
-        'jobs/send-sms-from-salesforce-workflow',
-        'jobs/timeout',
-        'jobs/upsert-many-items-in-array-with-value-outside-array',
-        'jobs/workWithIdAfterInsertOrUpsert',
-      ],
-    },
-    {
-      type: 'category',
-      label: 'Triggers',
-      items: ['triggers/xmlns'],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Jobs',
+    ...items,
+    // },
+    // {
+    //   type: 'category',
+    //   label: 'Triggers',
+    //   items: ['triggers/xmlns'],
+    // },
   ],
 };

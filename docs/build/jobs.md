@@ -2,8 +2,6 @@
 title: Introduction to Jobs
 ---
 
-<!-- TODO: @Jed -->
-
 A job defines the specific series of tasks or database actions to be performed
 when a triggering message is received (even-based) or a pre-scheduled (and
 recurring) time is reached.
@@ -24,9 +22,10 @@ Here, we'll focus on the expression.
 
 ### Adaptors
 
-We've got a whole section on creating new [Adaptors](./adaptors), but the
-critical thing to be aware of when writing a job is that you've got to choose an
-**adaptor**, and an **adaptor version**.
+We've got a whole section on creating new
+[Adaptors](/documentation/build/adaptors), but the critical thing to be aware of
+when writing a job is that you've got to choose an **adaptor**, and an **adaptor
+version**.
 
 All of the discussion below of helper functions like `create` or `findPatient`
 requires some understanding of adaptors. When you run a job, you're borrowing a
@@ -84,6 +83,13 @@ failing, but an upgrade from `3.y.z` to `4.y.z` may—in SEMVER _major_ upgrades
 (those that change the first number in the `x.y.z` version number) have
 "breaking" or "non-backwards compatible" changes.
 
+:::note
+
+See [the npm section](/documentation/build/adaptors#install-on-platform-via-npm) on the adaptors
+docs page to learn how to install an adaptor from `npm` while using `platform`.
+
+:::
+
 ## Composing job expressions
 
 In most cases, a job expression is a series of `create` or `upsert` actions that
@@ -107,8 +113,8 @@ create(
 
 That would create a new `Patient__c` in some other system. The patient's `Name`
 will be determined by the triggering message (the value inside `form.surname`,
-specifically) and the patient's `Age__c` will _always_ be 7. See how we hard
-coded it?
+specifically) and the patient's `Is_Enrolled__c` will _always_ be `true`. See
+how we hard coded it?
 
 What you see above is OpenFn's own syntax, and you've got access to dozens of
 common "helper functions" like `dataValue(path)` and destination specific
@@ -205,6 +211,8 @@ language-packs.
   the sfID of the nth item created
 
 #### each()
+
+Read more about each here: [The each(...) operation](/documentation/jobs/each)
 
 ```js
 each(
