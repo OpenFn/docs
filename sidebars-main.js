@@ -108,11 +108,12 @@ module.exports = {
       type: 'category',
       label: 'Contributing',
       items: [
+        'contributing/roadmap',
         // 'writing-code',
         'for-devs',
         'gsoc',
-        'writing-docs',
-        'style-guide',
+        'contributing/writing-docs',
+        'contributing/style-guide',
       ],
     },
     {
