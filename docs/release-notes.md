@@ -4,6 +4,15 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
+## Version 1.94.82 (2021-07-05)
+
+New features:
+
+- **Better text search with Search Console**: Users can now type the `string` of
+  concern in the **Search Box** of the **Search Console** page, and
+  [OpenFn](https://openfn.org) will search in `message bodies` and `run logs`,
+  by default, and/or in `message headers` if otherwise specified.
+
 ## Version v1.94.80 (2021-05-25)
 
 New features:

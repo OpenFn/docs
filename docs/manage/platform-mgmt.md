@@ -176,6 +176,45 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 
 ![Retry run button](/img/export-messages.png)
 
+## Search Console
+
+The **Search Console** allows you to search [OpenFn.org](https://openfn.org) for
+specific questions such as _Did patient 798123 get successfully referred or Did
+CommCare submission 123e4567-e89b-12d3-a456-426614174000 get loaded into DHIS2?_
+
+It is really hard to search for such information using the
+[Inbox](./platform-mgmt#inbox) or [Activity History](./platform-mgmt#activity)
+sections of the [OpenFn Platform](https://openfn.org), as you're not entirely
+sure where to search. It is also difficult for users to easily determine whether
+to use `JSONB matching` or `tsvectors`, or whether to search in
+[messages(Inbox)](./platform-mgmt#inbox) or in
+[run logs(Activity History)](./platform-mgmt#activity)!
+
+The **Search Console** solves this challenge and allows the user to type the
+`string` of concern in the **Search Box** of the **Search Console** page, and
+[OpenFn](https://openfn.org) will search in `message bodies` and `run logs`, by
+default, and/or in `message headers` if otherwise specified.
+
+To use the **Search Console**, follow the below steps:
+
+1. Login to your [OpenFn Account](https://openfn.org/login).
+2. Select the project, if your account is linked to multiple projects.
+3. On the left menu pane, click on **Search Console** link.
+4. While on the **Search Console** page, select the **Date Range** and enter the
+   **text** matching your search in the **Search Box**.
+5. Press the **Enter Key** on the _Keyboard_ or click the **Search** button to
+   search.
+
+:::note
+
+**OpenFn** will limit the results of your search to a maximum of `10` records
+per specified search type(i.e. **OpenFn** will return a maximun of `10` results
+for matches found in `bodies`, `logs`, or `headers`). It is therefore
+recommended to refine your search to a _specific text_ and _date range_ for
+which a matching result is expected.
+
+:::
+
 ## Account Management
 
 ### Add a credit card
