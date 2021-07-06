@@ -4,10 +4,17 @@
         <title>OpenFn Help Articles</title>
         <link>https://docs.openfn.org/articles</link>
         <description>OpenFn/docs Blog</description>
-        <lastBuildDate>Mon, 24 May 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 05 Jul 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>Copyright © 2021 Open Function Group, LLC.</copyright>
+        <item>
+            <title><![CDATA[Wrapping my head around jobs]]></title>
+            <link>https://docs.openfn.org/articles/2021/07/05/wrapping-my-head-around-jobs</link>
+            <guid>Wrapping my head around jobs</guid>
+            <pubDate>Mon, 05 Jul 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[Jobs are business processes turned into functional-style scripts. What does that]]></description>
+        </item>
         <item>
             <title><![CDATA[Forms and Cases: CommCare and event-based integration]]></title>
             <link>https://docs.openfn.org/articles/2021/05/24/commcare-events</link>
