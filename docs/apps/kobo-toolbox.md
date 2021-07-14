@@ -21,6 +21,22 @@ Example user stories:
 
 ## Integration Options
 
+1. Webhook or “REST Service” that will forward data to OpenFn.
+Note: for Kobo, this will not forward any cleaned data. 
+
+To set this up, follow the [Kobo REST service guide](https://support.kobotoolbox.org/rest_services.html) and add your OpenFn Inbox URL as the `Endpoint URL` in Kobo. 
+
+
+2. Timer OpenFn jobs that run on cron schedule and “GET” data from Kobo API. 
+If you are cleaning data in Kobo, we recommend this option as it will fetch cleaned submissions as well.
+
+In order to fetch data from a form, use the Kobo API endpoint of the form. The base URL is that of your Kobo server, in this example it's `https://kf.kobotoolbox.org`:  `https://kf.kobotoolbox.org/api/v2/assets/${survey.id}/data/?format=json`.
+
+With this OpenFn job snippet we fetch submission data from a list of surveys, indicated by their IDs. 
+
+![Kobo fetch job](/img/kobo-fetch-job.png)
+
+
 ### Kobo Web API
 
 Kobo APIs support both data and metadata integration. Check out: 
@@ -74,6 +90,22 @@ ODK:
   "_attachments": []
 }
 ```
+
+## Integration Help
+
+# Getting Started with Kobo  
+
+The [Kobo documentation](https://support.kobotoolbox.org/) offers detailed guidance on setting up forms and managing data collection. 
+
+A small useful trick we learned is if you want to add a hidden value to your forms (for example a tag to mark a form as "test"), you can add it to the form as a [calculated field](https://support.kobotoolbox.org/calculate_questions.html).
+
+# Kobo form and submission IDs
+
+Kobo-generated identifiers
+1. "formId": "adiNTJXFtpKEDGGZFMUtgQ". This is a unique form instance ID, it will be different for every copy/clone of the same form.
+2. "\_id": 85252496. This is the form submission, it's unique within the same Kobo server
+3. "\uuid" : bfcda81622a94de3a85f69aed29790af. This changes every time a submission is cleaned; if you'd still like to use it as unique ID, you can create a `calculate` question in your form with the calculation `once(uuid())`. This will prevent the `uuid` from updating with each submission edit.
+
 
 ## OpenFn Adaptor
 
