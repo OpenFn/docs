@@ -3,7 +3,12 @@ title: Kobo Toolbox
 ---
 
 ## Overview
-[Kobo Toolbox](https://www.kobotoolbox.org/) is a suite of open source tools for field data collection for use in challenging environments. If you've worked on ODK or ONA, the underlying tech is very similar. They offer free accounts and hosting for humanitarian projects, and the app provides a nice interface for managing (and cleaning!) form submissions.
+
+[Kobo Toolbox](https://www.kobotoolbox.org/) is a suite of open source tools for
+field data collection for use in challenging environments. If you've worked on
+ODK or ONA, the underlying tech is very similar. They offer free accounts and
+hosting for humanitarian projects, and the app provides a nice interface for
+managing (and cleaning!) form submissions.
 
 :::note
 
@@ -14,25 +19,33 @@ with common tools, and (2) to educate any OpenFn user/the wider sector.
 
 ## Integration Use Cases
 
-Example user stories: 
-- As a M&E manager, I want to monitor Kobo Toolbox survey responses in real-time in a central database, so that I can better understand data collection activities and program performance across my partner sites.
-- ...
-.
+Example user stories:
+
+- As a M&E manager, I want to monitor Kobo Toolbox survey responses in real-time
+  in a central database, so that I can better understand data collection
+  activities and program performance across my partner sites.
+- ... .
 
 ## Integration Options
 
-1. Webhook or “REST Service” that will forward data to OpenFn.
-Note: for Kobo, this will not forward any cleaned data. 
+1. Webhook or “REST Service” that will forward data to OpenFn. Note: for Kobo,
+   this will not forward any cleaned data.
 
-To set this up, follow the [Kobo REST service guide](https://support.kobotoolbox.org/rest_services.html) and add your OpenFn Inbox URL as the `Endpoint URL` in Kobo. 
+To set this up, follow the
+[Kobo REST service guide](https://support.kobotoolbox.org/rest_services.html)
+and add your OpenFn Inbox URL as the `Endpoint URL` in Kobo.
 
+2. Timer OpenFn jobs that run on cron schedule and “GET” data from Kobo API. If
+   you are cleaning data in Kobo, we recommend this option as it will fetch
+   cleaned submissions as well.
 
-2. Timer OpenFn jobs that run on cron schedule and “GET” data from Kobo API. 
-If you are cleaning data in Kobo, we recommend this option as it will fetch cleaned submissions as well.
+In order to fetch data from a form, use the Kobo API endpoint of the form. The
+base URL is that of your Kobo server, in this example it's
+`https://kf.kobotoolbox.org`:
+`https://kf.kobotoolbox.org/api/v2/assets/${survey.id}/data/?format=json`.
 
-In order to fetch data from a form, use the Kobo API endpoint of the form. The base URL is that of your Kobo server, in this example it's `https://kf.kobotoolbox.org`:  `https://kf.kobotoolbox.org/api/v2/assets/${survey.id}/data/?format=json`.
-
-With this OpenFn job snippet we fetch submission data from a list of surveys, indicated by their IDs. 
+With this OpenFn job snippet we fetch submission data from a list of surveys,
+indicated by their IDs.
 
 ```javascript
 alterState(state => {
@@ -42,7 +55,7 @@ alterState(state => {
   state.data = {
     surveys: [
       //** Specify new forms to fetch here **//
-       {
+      {
         id: 'aVdh90L9979L945lb02',
         name: 'Initial Data Collection',
       },
@@ -69,18 +82,21 @@ each(dataPath('surveys[*]'), state => {
         // Here we append the names defined above to the Kobo form submission data
         formName: name,
       };
-    });},
-)})
+    });
+  });
+});
 ```
 
 ### Kobo Web API
 
-Kobo APIs support both data and metadata integration. Check out: 
+Kobo APIs support both data and metadata integration. Check out:
+
 - Kobo API docs: https://support.kobotoolbox.org/api.html
 - Kobo Community: https://support.kobotoolbox.org/rest_services.html
 - Kobo API v2 explorer: https://kf.kobotoolbox.org/api/v2/assets/
 
 ### Webhook service to forward submission data to OpenFn endpoint (or another app)
+
 See the official docs here: https://support.kobotoolbox.org/rest_services.html
 
 1. To push data from Kobo, users must click the projects icon on their left-side
@@ -127,23 +143,37 @@ ODK:
 }
 ```
 
-## Getting Started with Kobo  
+## Getting Started with Kobo
 
-The [Kobo documentation](https://support.kobotoolbox.org/) offers detailed guidance on setting up forms and managing data collection. 
+The [Kobo documentation](https://support.kobotoolbox.org/) offers detailed
+guidance on setting up forms and managing data collection.
 
-A small useful trick we learned is if you want to add a hidden value to your forms (for example a tag to mark a form as "test"), you can add it to the form as a [calculated field](https://support.kobotoolbox.org/calculate_questions.html).
+A small useful trick we learned is if you want to add a hidden value to your
+forms (for example a tag to mark a form as "test"), you can add it to the form
+as a
+[calculated field](https://support.kobotoolbox.org/calculate_questions.html).
 
-You can use the following Kobo-generated unique identifiers for forms and submissions:
+You can use the following Kobo-generated unique identifiers for forms and
+submissions:
 
-1. "formId": "adiNTJXFtpKEDGGZFMUtgQ". This is a unique form instance ID, it will be different for every copy/clone of the same form.
-2. "\_id": 85252496. This is the form submission, it's unique within the same Kobo server
-3. "\uuid" : bfcda81622a94de3a85f69aed29790af. This changes every time a submission is cleaned; if you'd still like to use it as unique ID, you can create a `calculate` question in your form with the calculation `once(uuid())`. This will prevent the `uuid` from updating with each submission edit.
+1. "formId": "adiNTJXFtpKEDGGZFMUtgQ". This is a unique form instance ID, it
+   will be different for every copy/clone of the same form.
+2. "\_id": 85252496. This is the form submission, it's unique within the same
+   Kobo server
+3. "\uuid" : bfcda81622a94de3a85f69aed29790af. This changes every time a
+   submission is cleaned; if you'd still like to use it as unique ID, you can
+   create a `calculate` question in your form with the calculation
+   `once(uuid())`. This will prevent the `uuid` from updating with each
+   submission edit.
 
 ## OpenFn Adaptor
 
 Check out
-[OpenFn/language-kobotoolbox](https://www.github.com/openfn/language-kobotoolbox) for some helper functions for extracting or "getting" data in bulk from Kobo Toolbox. 
+[OpenFn/language-kobotoolbox](https://www.github.com/openfn/language-kobotoolbox)
+for some helper functions for extracting or "getting" data in bulk from Kobo
+Toolbox.
 
 ## Integration Examples
 
-See the `ConSoSci` Github repo for several example Kobo-to-database jobs: https://github.com/OpenFn/consosci
+See the `ConSoSci` Github repo for several example Kobo-to-database jobs:
+https://github.com/OpenFn/consosci
