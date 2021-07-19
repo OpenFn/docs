@@ -1,0 +1,66 @@
+---
+title: What is an Integration, Really?
+---
+
+import Graph_CommCaretoSF from './../components/ccsf_graph';
+import Graph_Master_View from './../components/master_view_graph';
+import Graph_Data_Viz_Flow from './../components/data_viz_react_flow';
+import ReactFlowProvider from 'react-flow-renderer';
+
+OpenFn is an integration platform. And if you found us, you likely came to the conclusion at some moment prior that you want to integrate technology X with technology Y (and maybe W and Z while you're at it). But not all of our users come to OpenFn with a wealth of previous integrations under their belt. So if this is your first go (or second or third), this page can help you think through all the different ways integrations can take shape so that you have a strong understanding of what it is you really want *before* you start writing [(or borrowing)](https://docs.openfn.org/library) a single line of code.
+
+There are plenty of different reasons to integrate your data systems. Maybe you want one "master" view that you or your clients can trust as a source of truth. 
+
+ <div><Graph_Master_View /></div>
+
+
+Maybe you want to automate some data viz that you currently have to do manually. 
+
+<div><Graph_Data_Viz_Flow /></div>
+
+Or maybe you just want to expose a small slice of data from one user group to a different app used exclusively by some other part of your company.
+
+Regardless of the reason, what every integration boils down to is connecting two or more disconnected applications. But as you can see, not all integrations look alike. This basic structure comes in many shapes and sizes. There's plenty of variety to be found:
+
+1. Perhaps the most important variation is **why** you move the data. 
+
+This part boils down to end goals. Integration for integration's sake is a waste of time. What's your reason for wanting X data in Y system?
+
+It's important to keep that ultimate business requirement in mind when designing any integration, weighing potential outcomes of design decisions against that ultimate goal, lest you take a wrong turn and end up not accomplishing the motivation behind all this work. 
+
+2. **when** you move the data. 
+
+Usually, you can articulate the best case scenario here in plain English pretty easily. 
+
+>I want Salesforce to ____  **when** one of our field workers submits a new CommCare form. 
+
+
+ <div>
+      <Graph_CommCaretoSF />
+</div>
+
+
+or
+
+>I want Postgres to ___ **every two weeks.**
+
+
+A crucial difference between these two **whens** is that the first turns on an action, whereas the second is based on a set period of time, regardless of what happens in that window. 
+
+3. **how** you move the data, namely whether the destination system is pulling or the source system is pushing (or some other pattern), what format the data is being transferred in, and what protocol(s) that system is using to do it. 
+
+
+1 and 2 are really about real world considerations. Sometimes technical constraints from our source and destination systems can get in the way of our ideals, but answering the questions in an ideal way doesn't require any serious thought about the tech behind it. Now that we're at **how**, we have to think more seriously about the underlying technology.
+
+There's not space here to explore all the different ways that a platform can choose to set up to send or receive data, but it's important now to take note that there are many options, and knowing which ones are available is an important part of designing a strong integration. For a more in-depth look at how to answer these questions based on the specifics of your project, check out ___.
+
+
+4. A final variation to consider here is **how to move the data safely** (sorry to break the pattern we had going).
+
+At OpenFn, data security is a first priority. That's also true of many of the other systems our customers use. What that means is that we often can't just grab data from one system and put it into another without first assuring each system that we are someone who's allowed to be there. In general, we talk about this slice of the world as **authentication**.
+
+
+
+
+
+
