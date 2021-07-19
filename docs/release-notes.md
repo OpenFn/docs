@@ -4,6 +4,13 @@ title: Release Notes
 
 Release notes for **OpenFn/plaform**
 
+## Version 1.94.87 (2021-07-05)
+
+New features:
+
+- **Full text search with Search Console**: Users can now search across message
+  bodies, message headers, and run logs via full-text string search.
+
 ## Version v1.94.80 (2021-05-25)
 
 New features:

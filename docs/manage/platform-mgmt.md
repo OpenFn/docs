@@ -176,6 +176,41 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 
 ![Retry run button](/img/export-messages.png)
 
+## Search Console
+
+The **Search Console** allows users to answer questions such as _Did patient
+798123 get successfully referred or Did CommCare submission
+123e4567-e89b-12d3-a456-426614174000 get loaded into DHIS2?_ via direct string
+search.
+
+Searches via [Inbox](./platform-mgmt#inbox) and
+[Activity History](./platform-mgmt#activity) rely on `JSONB matching` and
+`tsvectors`, which are more powerful for traversing very large date ranges of
+messages or run logs but are less intuitive than string searches.
+
+The **Search Console** solves this challenge and allows the user to type the
+`string` of concern in a **Search Box** and press enter. OpenFn will search in
+`message bodies` and `run logs`, by default, and/or in `message headers` if
+otherwise specified.
+
+To use the **Search Console**, follow the below steps:
+
+1. On the left menu pane, click on **Search Console** link.
+2. While on the **Search Console** page, select the **Date Range** and enter the
+   **text** matching your search in the **Search Box**.
+3. Press the **Enter Key** on the _Keyboard_ or click the **Search** button to
+   search.
+
+:::note
+
+OpenFn will limit the results of your search to a maximum of `10` records per
+specified search type (i.e. OpenFn will return a maximum of `10` results for
+matches found in `bodies`, `logs`, or `headers`). It is therefore recommended to
+refine your search to a very _specific string_ and _date range_ for which a matching
+result is expected.
+
+:::
+
 ## Account Management
 
 ### Add a credit card
