@@ -24,7 +24,6 @@ Example user stories:
 - As a M&E manager, I want to monitor Kobo Toolbox survey responses in real-time
   in a central database, so that I can better understand data collection
   activities and program performance across my partner sites.
-- ... .
 
 ## Integration Options
 
@@ -47,7 +46,7 @@ base URL is that of your Kobo server, in this example it's
 With this OpenFn job snippet we fetch submission data from a list of surveys,
 indicated by their IDs.
 
-```javascript
+```js
 alterState(state => {
   console.log('Current cursor value:', state.lastEnd);
   // Set a manual cursor if you'd like to only fetch data after this date.
