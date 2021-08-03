@@ -175,6 +175,6 @@ If your organization is thinking about interoperability and would like to learn
 more about OpenFn’s platform or open-source offerings please contact
 services@openfn.org for a free consultation.
 
-Also, be sure to stay tuned to our [blog](https://docs.openfn.org/blog), or
+Also, be sure to stay tuned to our [blog](/blog), or
 subscribe to our [newsletter](http://eepurl.com/hcOw8H) to stay up to date with
 all ICT4D integration related news.
