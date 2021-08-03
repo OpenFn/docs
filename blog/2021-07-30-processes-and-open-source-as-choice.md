@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Working with ministries in Cambodia and Thailand
+title:
+  Platforms, Processes and Legitimate Freedom at the National Government Level
 author: Taylor Downs
 author_url: https://github.com/taylordowns2000
 author_image_url: https://avatars.githubusercontent.com/taylordowns2000
