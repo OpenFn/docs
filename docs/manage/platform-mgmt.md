@@ -206,8 +206,8 @@ To use the **Search Console**, follow the below steps:
 OpenFn will limit the results of your search to a maximum of `10` records per
 specified search type (i.e. OpenFn will return a maximum of `10` results for
 matches found in `bodies`, `logs`, or `headers`). It is therefore recommended to
-refine your search to a very _specific string_ and _date range_ for which a matching
-result is expected.
+refine your search to a very _specific string_ and _date range_ for which a
+matching result is expected.
 
 :::
 
@@ -392,33 +392,61 @@ Managing large numbers of jobs with multiple contributors is complicated. We
 developed the GitHub integration so that OpenFn projects can be linked to GitHub
 repositories. You can work collaboratively on your jobs. When commits are made
 to a particular branch OpenFn will automatically update the linked job with the
-new job file from GitHub.
+new job file from GitHub. Likewise, all changes made on the OpenFn platform will
+automatically create commits to the linked repo on Github.
 
 ### Setup Steps
 
-1. Github: Settings -> Personal Access Tokens ->
-   [Generate New Token](https://github.com/settings/tokens/new): This token
-   should have full control of private repositories.
-2. OpenFn: [User Settings](https://www.openfn.org/account): Once the token is
-   generated, copy and paste it into the "GitHub Access Token" field on your
-   user settings page.
-3. OpenFn: Project -> Version Control: Specify the repository owner, repository
-   name and branch for automatic deploys. You'd also select to turn on or off
-   automatic deploys.
-4. GitHub: Repoistory -> Settings -> Webhooks -> Add webhook
-5. Copy Payload URL from OpenFn Version Control page and paste into GitHub.
-6. Select `application/json` as the Content Type.
-7. Copy Secret from OpenFn Version Control page into GitHub.
-8. Leave "Just the push event" and "Active" selected, then click "Add Webook".
-9. OpenFn: Project -> Jobs -> Job Edit: To link an individual job to a file in a
+#### Linking your OpenFn account to your Github account
+
+1. OpenFn: [User Settings](https://www.openfn.org/account): Click the
+   three-button "action menu" (top right corner of the account card) and select
+   "Connect to GitHub".
+2. GitHub: When prompted by GitHub, grant OpenFn read and write access to
+   your/your organizations repositories as needed.
+3. OpenFn: Once redirected to OpenFn you may be asked to re-authenticate
+   depending on the domain you originally used to connect to OpenFn.
+4. OpenFn: Ensure all changes you've made to your account are saved, and verify
+   that you see a bright blue check next to "Github OAuth".
+
+#### Linking projects and jobs to Github repos and files
+
+1. OpenFn: Project -> Version Control: Specify the repository owner, repository
+   name and branch for automatic deploys. You can also select to turn on or off
+   automatic deploys: when _on_ commits to the branch specified will
+   automatically be written to your jobs on OpenFn.
+2. OpenFn: Project -> Jobs -> Job Edit: To link an individual job to a file in a
    GitHub repo, edit that job and paste in the path to the job from the root of
    your GitHub repo. If your repo looks like this, you'd type `sample_job_1.js`
    or `some_folder/some_other_job.js` to link your OpenFn job to the select file
    in your repo.
 
+:::warning
+
+The sync between OpenFn and Github is bi-directional. As soon as you enter a
+valid filepath for a job in a project with a connected Github repo, all
+modifications made to that job on OpenFn will appear as Github commits for that
+repo.
+
+Likewise, as soon as you make a commit on Github with a change to a file that is
+linked to a job on OpenFn, the contents of that file will overwrite the existing
+job on OpenFn.
+
+**It is important to note** that _before_ you connect Github, there is no
+version history for your OpenFn jobs. If you commit an empty file to Github,
+it's possible to entirely overwrite your existing OpenFn job.
+
+Both for this reason, and because
+[OpenFn/devtools](/documentation/devtools/home) provide a free, open-source,
+offline testing environment, it's recommended to create your jobs using a Github
+repo and [OpenFn/devtools](/documentation/devtools/home) _before_ linking them
+to a project on OpenFn.
+
+:::
+
 ### Advanced Version Control
 
-Using this GitHub integration, you can revert to previous version of jobs
-quickly by resending old GitHub Webhook Events. Access the "Manage Webhook"
-interface on GitHub to see a list of all past events and send whichever version
-of the job you'd like deployed to your OpenFn project.
+Using this GitHub integration, you can revert to previous versions of a job by
+selecting that version (by its commit date and SHA) on the job view page. A new
+commit will be made, updating the job to the state it was in at the time of the
+old commit.
