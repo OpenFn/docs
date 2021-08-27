@@ -97,7 +97,7 @@ module.exports = {
         'apps/salesforce',
         'apps/survey-cto',
         'apps/tableau',
-        // 'apps/bamboohr',
+        'apps/ckan',
       ],
     },
     {
