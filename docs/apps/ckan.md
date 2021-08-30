@@ -36,28 +36,11 @@ Using the API you can do things like:
 
  
  ### Example user stories:
- 
-> As a Developer I want to Search via CKAN API on a data set. so that dataset is machine reable by other software tools and also allowing the development of new tools for using data.
-Tags: webstore
+> As a data collector, I want to create a data portal to easily publish and share datasets with my community/peers/hub, so that they can leverage my data for further research. 
 
-> As a Publisher I want to Associate a dataset with a place on a map so that A polygon or location point can be viewed on a map.
-> Tags: geospatial
+> As a researcher, I want a way to search for datasets related to my research domain, so that I can run analyses and incorporate other datasets into my studies. 
 
-> As a User I want to Be able to generate visualizations/graphs from the data that I can then save or download so that I can use a graph representing the data for my work
-quickly
-> Tags: vis
-
-> As a User I want to See that a resource was derived from another resource (or resources) and see reference to code/sql/etc that underlay this transformation so that I know that this resource was built from something else
-> Tags: storage-and-processing
-
->As a Data Wrangler I want to Write some javascript to convert my csv file to another structure and preview a sample of running this in my browser and then save this to run on the whole file with the result saved in a new dataset (resource) so that ...
-> Tags: webstore
-
-> As a Data wrangler I want to Having created a data file derived from an existing file I want to upload it to a new, named location and document both the relation and the steps performed to create the change. so that I (and others) can easily find my material and see what steps when into creating it.
-> Tags: webstore
-
-> As a Publisher I want to create relationships between datasets (e.g. dataset X is derived from dataset Y, inherits from dataset Z) so that I can see how datasets relate to each other
-> Tags: publish-and-find
+> As a data hub, I want to create a web portal where researchers can easily browse, share, download, and discuss datasets and research activites, so that I can enhance communication, collaboration, and exchange across partners. 
 
 See https://docs.ckan.org/en/ckan-1.8/user-stories-list.html for more user stories
 
@@ -108,24 +91,26 @@ To call the CKAN API, post a JSON dictionary in an HTTP POST request to one of C
 
 One way to post a JSON dictionary to a URL is using the command-line client Curl. For example, to get a list of the names of all the datasets in the data-explorer group on demo.ckan.org, install curl and then call the group_list API function by running this command in a terminal:
 
-    `curl https://demo.ckan.org/api/3/action/group_list`
+```
+curl https://demo.ckan.org/api/3/action/group_list
+```
 
 The response from CKAN will look like this:
 
-   ```
-   {
-     "help": "...",
-     "result": [
-         "data-explorer",
-         "department-of-ricky",
-         "geo-examples",
-         "geothermal-data",
-         "reykjavik",
-         "skeenawild-conservation-trust"
-     ],
-     "success": true
-    }
-   ``` 
+```
+{
+    "help": "...",
+    "result": [
+        "data-explorer",
+        "department-of-ricky",
+        "geo-examples",
+        "geothermal-data",
+        "reykjavik",
+        "skeenawild-conservation-trust"
+    ],
+    "success": true
+}
+``` 
 #### JSONP support
 To cater for scripts from other sites that wish to access the API, the data can be returned in JSONP format, where the JSON data is ‘padded’ with a function call. The function is named in the ‘callback’ parameter. For example:
 
@@ -135,13 +120,16 @@ CKAN's source code can be found at github.
 
 Example normal request:
 
-    `GET /api/rest/dataset/pollution_stats`
-    `returns: {"name": "pollution_stats", ... }`
+```
+GET /api/rest/dataset/pollution_stats
+```
 
 but now with the callback parameter:
 
-    `GET /api/rest/dataset/pollution_stats?callback=name-of-callback-function`
-    `returns: jsoncallback({"name": "pollution_stats", ... });`
+```
+GET /api/rest/dataset/pollution_stats?callback=name-of-callback-function
+returns: jsoncallback({"name": "pollution_stats", ... });
+```
     
 This parameter can apply to all POST requests to the Action API and GET requests to the Search API and v1/v2/v3 APIs.
     
@@ -151,7 +139,7 @@ See the [System Admin guide](https://docs.ckan.org/en/2.9/sysadmin-guide.html).
 - To install CKAN see: https://docs.ckan.org/en/2.9/maintaining/installing/index.html?highlight=install%20CKAN
 - To upgrade CKAN see: https://docs.ckan.org/en/2.9/maintaining/upgrading/index.html?highlight=configure%20CKAN
 
-    To provide your API token in an HTTP request, include it in either an Authorization or X-CKAN-API-Key header. (The name of the HTTP header can be configured with the apikey_header_name option in your CKAN configuration file.)
+To provide your API token in an HTTP request, include it in either an Authorization or `X-CKAN-API-Key` header. (The name of the HTTP header can be configured with the `apikey_header_name` option in your CKAN configuration file.)
 
 
 ## OpenFn Adaptor
@@ -159,6 +147,5 @@ Currently no CKAN-specific adaptor exists, but [language-http](https://www.githu
 
 
 ## Implementation Examples
-
 CKAN has been implemented in [catalog.data.gov](https://catalog.data.gov), [open.canada.ca/data](https://open.canada.ca/data), and [data.humdata.org](https://data.humdata.org). 
 
