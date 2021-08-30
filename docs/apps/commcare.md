@@ -3,18 +3,10 @@ title: CommCare
 ---
 
 ## App Overview
-~~~ 
-# Functional overview - What is this app and how it is typically used? 
-# Links to available documentation
-~~~ 
 [CommCare](https://www.dimagi.com/commcare/) is a powerful data collection
 platform developed by Dimagi. It is an open-source platform, and is primarily best for mobile case management.
 
 ### Data Model
-~~~ 
-# How is this app's data structured? Are there key resources/tables/data elements this app is built around? 
-# Links to any other online docs or resources? 
-~~~ 
 CommCare data is primarily stored in **forms** and **cases**. Forms are the building blocks of applications and cases are used to track data on objects, usually people. 
 Learn more about CommCare forms and cases at the links below.   
 - Case management:  
@@ -23,17 +15,11 @@ https://confluence.dimagi.com/display/commcarepublic/CommCare+Fundamentals+-+Cas
 
 
 ## Integration Use Cases
-~~~ 
-# Why might someone want to integrate with this app? 
-# What are some business use cases for using the APIs? 
-~~~ 
-
 Example user stories:
 - As a community health worker I want to store patient data that was collected in rural areas with no internet access in Salesforce so I can better analyze the data being collected and make more informed recommendations.
 - As a teacher I want to set up automatic message alerts to my students in order to increase participation. 
 
 ## APIs & Integration Options
-
 CommCare offers a number of integration options for extracting and/or loading
 data to and from CommCare HQ.
 
@@ -67,12 +53,6 @@ We recommend updating the `Connection Settings` to list emails that should be
 alerted if there is a data forwarding error. [See the CommCare docs for more on this.](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications).
 
 ## App Setup & Integration Tips
-~~~ 
-# How does one secure access to the app? What type of access do they need to start integrating? 
-# Any API-specific features or settings that should be enabled? Any other setup steps?  
-# Add links to this app's documentation on how the app can be installed, configured, etc. 
-# Mapping or design considerations specific to this app?
-~~~
 ### 1. App installation and configuration
 - CommCare docs on installing the mobile app: https://confluence.dimagi.com/display/commcarepublic/Install+CommCare+for+Android+Smartphones
 - **App Versioning**: Ensure that you are always using the latest app version when testing, by updating your app and checking that the version matches the latest version in CommCare HQ
@@ -87,7 +67,9 @@ alerted if there is a data forwarding error. [See the CommCare docs for more on 
 - `case_id` is the unique identifier for the case being updated by the form. For example, the `case_id` can be the UID for a person.
 ![image](https://user-images.githubusercontent.com/80456839/128649509-098a5418-4b72-4cec-a4d2-47c8bedaac25.png)
 
-- N.B. Unique identifiers and `hidden fields` in CommCare forms: Make sure that unique identifiers for forms and objects are always in the form. If the unique identifier isn't relevant for the user, it can be added to the form as a `hidden field`. Learn more about `hidden fields` here: https://confluence.dimagi.com/display/commcarepublic/Hidden+Value+Calculations+Tutorial
+~~~
+N.B. Unique identifiers and `hidden fields` in CommCare forms: Make sure that unique identifiers for forms and objects are always in the form. If the unique identifier isn't relevant for the user, it can be added to the form as a `hidden field`. Learn more about `hidden fields` here: https://confluence.dimagi.com/display/commcarepublic/Hidden+Value+Calculations+Tutorial
+~~~
 
 
 ### 3. Other Mapping and design considerations: 
@@ -96,19 +78,14 @@ alerted if there is a data forwarding error. [See the CommCare docs for more on 
 - When mapping multiple choice questions, make sure to consider how the answer choices should map to the source/destination system.
 
 ### Common Errors
-~~~ 
-# What ares some common error messages OpenFn users might encounter? Any guidance on how to troubleshoot?
+~~~
+Docs in progress! 
 ~~~
 
-
 ### OpenFn Adaptors
-
 OpenFn implementations can leverage both the [`HTTP`](https://github.com/OpenFn/language-http) and [`CommCare`](https://github.com/OpenFn/language-commcare) adaptors to connect with the CommCare API. 
 
-
 ### Implementation Examples
-
 - MiracleFeet (CommCare-to-Salesforce sync): https://github.com/OpenFn/miracle-feet
 - Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
-- Moodle-to-CommCare sync: https://github.com/OpenFn/moodle-commcare
-- Grassroot Soccer CommCare-to-Salesforce sync: https://github.com/OpenFn/grassroot-soccer
+- Grassroot Soccer (CommCare-to-Salesforce sync): https://github.com/OpenFn/grassroot-soccer
