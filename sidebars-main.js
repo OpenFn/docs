@@ -85,6 +85,7 @@ module.exports = {
       items: [
         'apps/anything',
         'apps/cht',
+        'apps/ckan',
         'apps/commcare',
         'apps/godata',
         'apps/google-sheets',
@@ -97,7 +98,6 @@ module.exports = {
         'apps/salesforce',
         'apps/survey-cto',
         'apps/tableau',
-        'apps/ckan',
       ],
     },
     {
