@@ -85,6 +85,7 @@ module.exports = {
       items: [
         'apps/anything',
         'apps/cht',
+        'apps/ckan',
         'apps/commcare',
         'apps/godata',
         'apps/google-sheets',
