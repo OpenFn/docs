@@ -8,6 +8,16 @@ slug: /style-guide
 You can write content using
 [GitHub-flavored Markdown syntax](https://github.github.com/gfm/).
 
+:::tip
+
+We use a `.prettierrc` file to enforce standard styles via the "Prettier" code
+formatter. If you are using VsCode, you can install prettier via
+https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
+
+Make sure to format you work before opening a PR.
+
+:::
+
 ## Markdown Syntax
 
 To serve as an example page when styling markdown based Docusaurus sites.
