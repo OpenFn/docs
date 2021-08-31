@@ -109,10 +109,10 @@ https://www.infallibletechie.com/2014/11/what-is-external-id-in-salesforce.html
 ![image](https://user-images.githubusercontent.com/80456839/128650680-e10fa395-bddb-45bd-bd6c-3a9dda8998f8.png)
 
 **Relationships**: When mapping `lookup` fields (which are similar to database
-"foreign keys") in Salesforce, use the . Ex. Say there is a `Person` object in
-Salesforce with a field called `Parent` that looks up to another `Person`
-object. This would require the relationship class to use the `externalID` field
-to connect the two objects.
+"foreign keys") in Salesforce, use the external identifier of the related record. Examples: 
+- Say there is a `Survey__c` object in Salesforce with a lookup field called `Respondent__c` that looks up to the `Person__c`object with external ID `PersonID__c`. To populate the `Survey__c.Respondent__c` lookup field, our mapping will look as follows: `Respondent__r.PersonID__c: {personExtIdFromSourceData}`. 
+- If the metadata are standard objects or fields, then you do not need the `__r` to indicate there is a relationship. Example mapping: `Account.CustomAccountID__c: {AcctIdFromSourceData}`
+- If using the OpenFn adaptor, you may also choose to leverage the `relationship(...)` helper function in your job. Example mapping: `relationship('Respondent__r', 'PersonID__c', dataValue('sourceField'))`
 
 **Picklist fields**: As you design your integration and map data elements
 between systems, make sure that option values for **picklistt** fields also
