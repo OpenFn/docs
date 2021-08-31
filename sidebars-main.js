@@ -95,6 +95,7 @@ module.exports = {
         'apps/odk',
         'apps/ona',
         'apps/powerbi',
+        'apps/primero',
         'apps/salesforce',
         'apps/survey-cto',
         'apps/tableau',
