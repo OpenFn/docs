@@ -2,7 +2,7 @@
 title: Kobo Toolbox
 ---
 
-### App Overview
+## App Overview
 
 [Kobo Toolbox](https://www.kobotoolbox.org/) is a suite of open source tools for
 field data collection for use in challenging environments. If you've worked on
@@ -17,7 +17,7 @@ with common tools, and (2) to educate any OpenFn user/the wider sector.
 
 :::
 
-### Data Model
+## Data Model
 
 Kobo data is collected using `projects` or `forms` which are the actual surveys/
 questions being adminsitered. Form responses are collected as individual
