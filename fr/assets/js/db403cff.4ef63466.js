@@ -1,1 +1,0 @@
-(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[8281],{95301:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"postgre-sql","name":"postgresql","count":1,"permalink":"/fr/blog/tags/postgre-sql"}')}}]);

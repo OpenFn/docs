@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[3133],{42985:function(s){s.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"/fr/blog/tags/os-ca-r","name":"OSCaR","count":1,"permalink":"/fr/blog/tags/os-ca-r"}')}}]);

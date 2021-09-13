@@ -1,1 +1,0 @@
-(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[3133],{62279:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"os-ca-r","name":"oscar","count":1,"permalink":"/fr/blog/tags/os-ca-r"}')}}]);

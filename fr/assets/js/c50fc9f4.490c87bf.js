@@ -1,1 +1,0 @@
-(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[5119],{65775:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"salesforce","name":"salesforce","count":5,"permalink":"/fr/blog/tags/salesforce"}')}}]);

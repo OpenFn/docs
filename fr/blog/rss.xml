@@ -2,7 +2,7 @@
 <rss version="2.0">
     <channel>
         <title>The OpenFn Blog</title>
-        <link>https://docs.openfn.org/blog</link>
+        <link>https://docs.openfn.org/fr/blog</link>
         <description>OpenFn/docs Blog</description>
         <lastBuildDate>Fri, 30 Jul 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>

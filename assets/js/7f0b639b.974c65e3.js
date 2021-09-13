@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[5358],{47910:function(t){t.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/automated-reporting","name":"automated reporting","count":4,"permalink":"/blog/tags/automated-reporting"}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[1111],{45715:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/survey-cto","name":"SurveyCTO","count":1,"permalink":"/blog/tags/survey-cto"}')}}]);

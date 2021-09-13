@@ -1,1 +1,0 @@
-(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[1917],{27679:function(s){"use strict";s.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"m-pesa","name":"m-pesa","count":1,"permalink":"/fr/blog/tags/m-pesa"}')}}]);

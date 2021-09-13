@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[3673],{60915:function(n){n.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/x-runner","name":"x-runner","count":1,"permalink":"/blog/tags/x-runner"}')}}]);
