@@ -100,27 +100,41 @@ etc.
 
 ### Mapping and Design Considerations
 
-**External Identifiers**: Individual fields can be configured as
-`external identifiers` to search for a record via a the API/an external app and
-to help prevent duplicate records from being created in Salesforce. To enable
-this setting on an individual field, ensure `External ID` is checked on the
-field settings. Learn more about external identifiers in Salesforce at
+#### External Identifiers
+
+Individual fields can be configured as `external identifiers` to search for a
+record via a the API/an external app and to help prevent duplicate records from
+being created in Salesforce. To enable this setting on an individual field,
+ensure `External ID` is checked on the field settings. Learn more about external
+identifiers in Salesforce at
 https://www.infallibletechie.com/2014/11/what-is-external-id-in-salesforce.html
 ![image](https://user-images.githubusercontent.com/80456839/128650680-e10fa395-bddb-45bd-bd6c-3a9dda8998f8.png)
 
-**Relationships**: When mapping `lookup` fields (which are similar to database
-"foreign keys") in Salesforce, use the . Ex. Say there is a `Person` object in
-Salesforce with a field called `Parent` that looks up to another `Person`
-object. This would require the relationship class to use the `externalID` field
-to connect the two objects.
+#### Relationships and Lookup Fields
 
-**Picklist fields**: As you design your integration and map data elements
-between systems, make sure that option values for **picklistt** fields also
-match the data from your connected application. If your other app's field value
-options do not match Salesforce picklist values, you should consider (1)
-transforming or re-labeling the values received from the source system before
-sending to Salesforce, or (2) add new `picklist values` to Salesforce to align
-the metadata between systems.
+When mapping `lookup` fields (which are similar to database "foreign keys") in
+Salesforce, use the external identifier of the related record. Examples:
+
+- Say there is a `Survey__c` object in Salesforce with a lookup field called
+  `Respondent__c` that looks up to the `Person__c`object with external ID
+  `PersonID__c`. To populate the `Survey__c.Respondent__c` lookup field, our
+  mapping will look as follows:
+  `Respondent__r.PersonID__c: {personExtIdFromSourceData}`.
+- If the metadata are standard objects or fields, then you do not need the `__r`
+  to indicate there is a relationship. Example mapping:
+  `Account.CustomAccountID__c: {AcctIdFromSourceData}`
+- If using the OpenFn adaptor, you may also choose to leverage the
+  `relationship(...)` helper function in your job. Example mapping:
+  `relationship('Respondent__r', 'PersonID__c', dataValue('sourceField'))`
+
+#### Picklist fields
+
+As you design your integration and map data elements between systems, make sure
+that option values for **picklistt** fields also match the data from your
+connected application. If your other app's field value options do not match
+Salesforce picklist values, you should consider (1) transforming or re-labeling
+the values received from the source system before sending to Salesforce, or (2)
+add new `picklist values` to Salesforce to align the metadata between systems.
 
 _Example:_ When mapping a field that specifies `sex`, the source system could
 have the options `"male", "female", "other"` and the destination system has the
