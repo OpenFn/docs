@@ -86,7 +86,9 @@ each(dataPath('surveys[*]'), state => {
 });
 ```
 
-Check out some of our [training slides](https://docs.google.com/presentation/d/1Q9YKKiaTg3ty4BC6f7PMsnXcrT6WaF0w_Eo4yOh8fQw/edit#slide=id.gcf42eece58_0_1080) for an overview of Kobo integration options.
+Check out some of our
+[training slides](https://docs.google.com/presentation/d/1Q9YKKiaTg3ty4BC6f7PMsnXcrT6WaF0w_Eo4yOh8fQw/edit#slide=id.gcf42eece58_0_1080)
+for an overview of Kobo integration options.
 
 ### Kobo Web API
 
@@ -149,7 +151,8 @@ ODK:
 The [Kobo documentation](https://support.kobotoolbox.org/) offers detailed
 guidance on setting up forms and managing data collection.
 
-You can find some of our training materials on Kobo form management [here](https://docs.google.com/presentation/d/16ZenDRq3zmX6LgrH4_g3O9lISTve42ZDJgjm7RThbTY/edit#slide=id.gc90ebee775_0_242).
+You can find some of our training materials on Kobo form management
+[here](https://docs.google.com/presentation/d/16ZenDRq3zmX6LgrH4_g3O9lISTve42ZDJgjm7RThbTY/edit#slide=id.gc90ebee775_0_242).
 
 A small useful trick we learned is if you want to add a hidden value to your
 forms (for example a tag to mark a form as "test"), you can add it to the form
@@ -169,16 +172,25 @@ submissions:
    `once(uuid())`. This will prevent the `uuid` from updating with each
    submission edit.
 
-To uniquely identify the questions, you can use the `Data Column Name` under question options. This is unique within a form and it's different from what is displayed in the survey as the question itself. You can find more info on it in the [Kobo docs](https://support.kobotoolbox.org/question_options.html).
+To uniquely identify the questions, you can use the `Data Column Name` under
+question options. This is unique within a form and it's different from what is
+displayed in the survey as the question itself. You can find more info on it in
+the [Kobo docs](https://support.kobotoolbox.org/question_options.html).
 
-Similarly, if you have multiple choice question (called `Select Many` question type in Kobo),you can specify the underlying identifier (called `XML value`) for each option. This is the value that you'll see when you export the collected data.
+Similarly, if you have multiple choice question (called `Select Many` question
+type in Kobo),you can specify the underlying identifier (called `XML value`) for
+each option. This is the value that you'll see when you export the collected
+data.
 
 ### Exporting form metadata and submission data
 
-You can manually download your form metadata, such as question names and labels, question types, in XLS or XML format from the project's Form section on the web interface, see more detail [here](https://support.kobotoolbox.org/new_form.html).
+You can manually download your form metadata, such as question names and labels,
+question types, in XLS or XML format from the project's Form section on the web
+interface, see more detail
+[here](https://support.kobotoolbox.org/new_form.html).
 
-To export submission data in XLS or CSV format, follow [these steps](https://support.kobotoolbox.org/export_download.html).
-
+To export submission data in XLS or CSV format, follow
+[these steps](https://support.kobotoolbox.org/export_download.html).
 
 ## OpenFn Adaptor
 
