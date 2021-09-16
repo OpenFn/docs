@@ -28,9 +28,10 @@ _Note: If you get a "permission denied" message when running `./install.sh`, try
 To install specific adaptors, run
 `./install.sh ${ssh || https} language-${name}`
 
-When you install a new adaptor, the latest version will be enabled by default. To switch the adaptor version when running jobs locally, in the root of the adaptor directory, run
-`git checkout tags/v2.4.15` (substitute `2.4.15` with the adaptor version you want)
-
+When you install a new adaptor, the latest version will be enabled by default.
+To switch the adaptor version when running jobs locally, in the root of the
+adaptor directory, run `git checkout tags/v2.4.15` (substitute `2.4.15` with the
+adaptor version you want)
 
 You can run core from anywhere by using `npm install -g @openfn/core` for a
 global install.
