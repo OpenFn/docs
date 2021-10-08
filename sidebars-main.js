@@ -8,6 +8,8 @@ module.exports = {
       type: 'category',
       label: 'Getting Started',
       items: [
+        'getting-started/so-you-want-to-integrate',
+        'getting-started/foundation',
         'getting-started/overview',
         // 'getting-started/use-cases',
         // 'getting-started/deployment-options',

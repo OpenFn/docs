@@ -1,5 +1,6 @@
 ---
-title: A Data Integration Glossary
+sidebar_label: Glossary for Data Integration
+title: A glossary for data integration
 ---
 
 
