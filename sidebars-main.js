@@ -31,6 +31,7 @@ module.exports = {
           items: [
             'build/jobs',
             'jobs/job-design-intro',
+            'jobs/job-writing-standard',
             'jobs/understanding',
             'jobs/operations',
             'jobs/multiple-operations',
