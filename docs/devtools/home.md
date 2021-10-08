@@ -30,10 +30,10 @@ To install specific adaptors, run
 
 When you install a new adaptor, the latest version will be enabled by default.
 To switch the adaptor version when running jobs locally, in the root of the
-adaptor directory, run: 
+adaptor directory, run:
 
-`git checkout tags/v2.4.15` 
-(substitute `2.4.15` with the adaptor version you want)
+`git checkout tags/v2.4.15` (substitute `2.4.15` with the adaptor version you
+want)
 
 You can run core from anywhere by using `npm install -g @openfn/core` for a
 global install.
@@ -90,7 +90,7 @@ to the execute command to intercept all HTTP requests and return a `200`.
 ## Configure an OpenFn project
 
 You can use YAML project configuration files to define projects both on the
-[OpenFn platform](https://docs.openfn.org/documentation/deploy/platform) and in
+[OpenFn platform](/documentation/deploy/platform) and in
 [OpenFn microservice](https://openfn.github.io/microservice/readme.html#content).
 Running `./scripts/generate-project.js` helps you build a project config YAML
 interactively, adding your triggers, credentials and jobs to the config. You can

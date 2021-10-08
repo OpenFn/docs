@@ -16,7 +16,7 @@ come to OpenFn with a wealth of previous integrations under their belt. So if
 this is your first go (or second or third), this page can help you think through
 all the different ways integrations can take shape so that you have a strong
 understanding of what it is you really want _before_ you start writing
-[(or borrowing)](https://docs.openfn.org/library) a single line of code.
+[(or borrowing)](https://docs.openfn.org/library) a job.
 
 There are plenty of different reasons to integrate your data systems. Maybe you
 want one "master" view that you or your clients can trust as a source of truth.
