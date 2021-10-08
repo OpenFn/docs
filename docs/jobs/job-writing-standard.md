@@ -15,9 +15,9 @@ specific output.
 
 ![Sample BPMN diagram](/img/bpmn_example.png)
 
-Taking this example above, we can see different block with different concerns.
+Taking this example above, we can see different blocks with different concerns.
 
-One way of writing a job that satifies this workflow would be something like
+One way of writing a job that satisfies this workflow would be something like
 below:
 
 ```js
@@ -48,10 +48,17 @@ fn(state => {
 Easy right? Imagine this needs to be done for 10 patients? 100 ? 1000? The
 runtime is going to be huge.
 
-For this purpose, we try to keep how block as simple and elementary as possible.
-Going back to the diagram above, we can have a clear distinction of what each
-block might be doing. In case we deal we a large dataset, the code above could
-be written as follow:
+For this purpose, we try to keep our blocks as simple and elementary as
+possible. Going back to the diagram above, we can have a clear distinction of
+what each block might be doing. In case we deal we a large dataset, the code
+above could be separated as follow:
+
+1. One block to transform data, build a common mapping base.
+2. Query database to find matching Ids.
+3. Process the matches to build patient mapping we should update and those we
+   should create record for.
+4. Bulk update records.
+5. Bulk create records.
 
 ```js
 fn(state => {
@@ -72,7 +79,7 @@ fn(state => {
   return { ...state, ids, baseMapping };
 });
 
-// bulk query the db to fetch all patient that match
+// bulk query the db to fetch all patients that match
 query(
   state =>
     `SELECT Id, firstname, lastname, modified_date FROM patient_c WHERE Id in ('${state.ids.join(
@@ -110,7 +117,7 @@ fn(state => {
   return { ...state, toUpdate, toCreate };
 });
 
-// finals blocks to upsert and creates
+// final blocks to upsert and create
 bulk(
   'patient_c',
   'update',
@@ -151,3 +158,6 @@ Steps to remember:
 
 **Step 2.** Any query made to an external system should, if possible, be it's
 own block.
+
+The final example presented previously implement also our data binding mechanism
+from task to task (read block here). When passing data from one operation to another, it always goes through state.
