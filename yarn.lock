@@ -1952,10 +1952,10 @@
     lodash "^4.17.19"
     to-fast-properties "^2.0.0"
 
-"@crowdin/cli@3.6":
-  version "3.6.4"
-  resolved "https://registry.yarnpkg.com/@crowdin/cli/-/cli-3.6.4.tgz#37e872fbbc85fdfb55e8deba4e35d4393a802aad"
-  integrity sha512-kFqTf1dFhtSMfF4YWyJ6EAKjjtBEVtHhX2f9cBYc8I51KMTFIOzqeArKFL2qhhq/1Ition2wuE1z7ySwA341+w==
+"@crowdin/cli@3.7":
+  version "3.7.0"
+  resolved "https://registry.yarnpkg.com/@crowdin/cli/-/cli-3.7.0.tgz#d35b69e90b6a737a9de017423ac34c02291cdebb"
+  integrity sha512-7eje7V6BGMeW23ywbrYdvpdIIxG5O1WP2wit4MVP9EtuZMOfr1M0l9BnObbkSYK86UiZuoJFHs1Q1KoCWg1rlA==
   dependencies:
     shelljs "^0.8.4"
 
