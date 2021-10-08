@@ -3,9 +3,9 @@ title: So, what is an integration? 🤔
 ---
 
 ```mdx-code-block
-import Graph_CommCaretoSF from './../components/ccsf_graph';
-import Graph_Master_View from './../components/master_view_graph';
-import Graph_Data_Viz_Flow from './../components/data_viz_react_flow';
+import Graph_CommCaretoSF from '/static/js/components/ccsf_graph';
+import Graph_Master_View from '/static/js/components/master_view_graph';
+import Graph_Data_Viz_Flow from '/static/js/components/data_viz_react_flow';
 import ReactFlowProvider from 'react-flow-renderer';
 ```
 
