@@ -99,6 +99,13 @@ const masterKeywords = JSON.parse(
 
 const filePaths = [];
 
+const cleanUp = string => {
+  return string
+    .trim()
+    .replace(':', '/')
+    .replace(/^[-,\[]/, '');
+};
+
 module.exports = function (context, { apiUrl }) {
   return {
     name: 'library',
@@ -110,10 +117,14 @@ module.exports = function (context, { apiUrl }) {
           fs.existsSync('./library/jobs/auto') ||
             fs.mkdirSync('./library/jobs/auto');
 
-          const jobs = (await loadPublicLibrary(apiUrl)).map(j => ({
-            ...j,
-            name: j.name.trim().replace(':', '/'),
-          }));
+          const jobs = (await loadPublicLibrary(apiUrl)).map(j => {
+            const name = cleanUp(j.name);
+
+            return {
+              ...j,
+              name,
+            };
+          });
 
           console.log('Parsing static examples...');
           const staticExamples = JSON.parse(
@@ -137,7 +148,8 @@ module.exports = function (context, { apiUrl }) {
           jobs.map(j => {
             const uniqueName = `${j.name.trim()}-${hDate(j.inserted_at)}`
               .replace(/[^a-z0-9_-]/gi, '-')
-              .replace(/-{2,}/g, '-');
+              .replace(/-{2,}/g, '-')
+              .replace(/^[-,\[]/, '');
 
             const keywords = getKeywords(j.expression);
             const body = generateBody(j, uniqueName, keywords);
