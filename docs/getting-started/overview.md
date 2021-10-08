@@ -1,6 +1,6 @@
 ---
-title: Overview
-sidebar_label: Overview
+title: OpenFn Overview
+sidebar_label: OpenFn Overview
 ---
 
 ## What's OpenFn?
