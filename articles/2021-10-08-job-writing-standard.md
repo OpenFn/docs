@@ -1,5 +1,11 @@
 ---
+layout: post
 title: Standardizing our way of writing a job
+author: Mamadou Cisse
+author_url: https://github.com/lakhassane
+author_image_url: https://avatars.githubusercontent.com/lakhassane
+tags: [how-to, tips, jobs, standard]
+featured: true
 ---
 
 A [job](https://docs.openfn.org/documentation/jobs/job-design-intro) defines
@@ -9,9 +15,11 @@ purposes: **execute a function from an adaptor (upsert, post)** or **clean and
 map data**.
 
 Depending on the type of job you are writing, it's always good to make a clear
-separation of concerns between your tasks. See it as a diagram where you have
+separation of concerns between your tasks (operations). See it as a diagram where you have
 different activities, each activity taking one specific input and producing one
 specific output.
+
+## An example to go with
 
 ![Sample BPMN diagram](/img/bpmn_example.png)
 
@@ -37,26 +45,30 @@ fn(state => {
   )(state).then(state => {
     const { records } = state.references[0];
     if (records.length > 0) {
-      // upsert
+      // mapping then upsert
     } else {
-      // create
+      // mapping then create
     }
   });
 });
 ```
 
 Easy right? Imagine this needs to be done for 10 patients? 100 ? 1000? The
-runtime is going to be huge.
+runtime is going to be huge when querying the database thousands of time.
 
-For this purpose, we try to keep our blocks as simple and elementary as
-possible. Going back to the diagram above, we can have a clear distinction of
-what each block might be doing. In case we deal we a large dataset, the code
-above could be separated as follow:
+For this purpose, we try to keep our operations as simple and elementary as
+possible.
+
+## Standardizing
+
+Going back to the diagram above, we can have a clear distinction of what each
+block might be doing. In case we deal we a large dataset, the code above could
+be separated as follow:
 
 1. One block to transform data, build a common mapping base.
 2. Query database to find matching Ids.
 3. Process the matches to build patient mapping we should update and those we
-   should create record for.
+   should create records for.
 4. Bulk update records.
 5. Bulk create records.
 
@@ -145,19 +157,50 @@ bulk(
   }
 );
 ```
-
-To sum this up, when faced with large data, it's better to optimize execution
-and runtime by allowing different blocks in your job to have different roles.
-This also allows for easier maintenance and evolution. If we wanted to add more
-mapping we know exactly the only place where we could go instead of multiple
+This allows us not only to reduce the amount of requests to your system but also allows for easier maintenance and evolution. If we wanted to update our mapping, we know exactly the only place where we could go instead of multiple
 places.
+## Data Binding
+
+The final example presented previously implement also our data binding mechanism
+from task to task (read operation here). When passing data from one operation to
+another, it always goes through state. Remember, every operation
+[takes state and returns state](https://docs.openfn.org/articles/2021/07/05/wrapping-my-head-around-jobs).
+In case you want to store the result of one operation and use it in subsequent
+ones, consider wrapping it inside state, which is the common object passed
+between operations.
+
+```js
+get('www.example.com/patients', { query: { nid: '123' } }, state => ({
+  ...state,
+  patient: state.data,
+}));
+
+get('www.example.com/clinics/7', {}, state => ({
+  ...state,
+  clinic: state.data,
+}));
+
+fn(state => {
+  console.log(state.patient); // here they are!
+  console.log(state.clinic); // here it is!
+  return state;
+});
+```
+
+## Final thought
+
+To sum this up, when faced with a large dataset, it's better to optimize execution
+and runtime by allowing different operations in your job to have different roles.
+
 
 Steps to remember:
 
 **Step 1.** Process your data, clean and transform using a **fn()** block.
 
-**Step 2.** Any query made to an external system should, if possible, be it's
+**Step 2.** Any query made to an external system should, *whenever possible*, be it's
 own block.
 
-The final example presented previously implement also our data binding mechanism
-from task to task (read block here). When passing data from one operation to another, it always goes through state.
+One final thought is how this pattern (fn, query, fn, bulk) keeps your
+operations clean and very flexible. Everything in here is either
+**language-common** or **javascript**. Our fn blocks (among other functions from
+language-common) can be used in ANY job, regardless of the language package!
