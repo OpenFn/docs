@@ -2,10 +2,12 @@
 title: So, what is an integration? 🤔
 ---
 
+```mdx-code-block
 import Graph_CommCaretoSF from './../components/ccsf_graph';
 import Graph_Master_View from './../components/master_view_graph';
 import Graph_Data_Viz_Flow from './../components/data_viz_react_flow';
 import ReactFlowProvider from 'react-flow-renderer';
+```
 
 OpenFn is an integration platform. And if you found us, you likely came to the conclusion at some moment prior that you want to integrate technology X with technology Y (and maybe W and Z while you're at it). But not all of our users come to OpenFn with a wealth of previous integrations under their belt. So if this is your first go (or second or third), this page can help you think through all the different ways integrations can take shape so that you have a strong understanding of what it is you really want *before* you start writing [(or borrowing)](https://docs.openfn.org/library) a single line of code.
 
