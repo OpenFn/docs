@@ -65,3 +65,53 @@ meaning of the OpenFN specific tools we use in this blog.
   They allow to do all the job writing and execution locally without using the
   OpenFN Cloud Platform.
   [Learn more](https://docs.openfn.org/documentation/devtools/home)
+
+## Anatomy of a Job
+
+Jobs are usually simple programs written using the OpenFN DSL, that takes data
+as input, process it and returns an output. The input data is defined in a json
+file usually called `state.json`.
+
+### Let's meet state.json
+
+Here is a sample state.json file:
+
+```json
+{
+  "configuration": {
+    "host": "some nice url",
+    "username": "a fancy username",
+    "password": "a super secret password"
+  },
+  "data": {
+    "persons": [
+      {
+        "name": "Elias W. BA",
+        "country": "Senegal"
+      },
+      {
+        "name": "Taylor Downs",
+        "country": "London"
+      }
+    ],
+    "countries": [
+      {
+        "name": "England",
+        "capital": "London"
+      },
+      {
+        "name": "Senegal",
+        "capital": "Dakar"
+      }
+    ]
+  }
+}
+```
+
+The most important thing to notice in a state file is that it's composed of two
+main parts, the `configuration` part and the `data` part.
+
+- configuration is the part where the credentials of the destination system have
+  to be written.
+- data is a json object containing the data that needs to be processed and sent
+  to the destination system.
