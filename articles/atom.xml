@@ -2,12 +2,23 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.openfn.org/articles</id>
     <title>OpenFn Help Articles</title>
-    <updated>2021-07-05T00:00:00.000Z</updated>
+    <updated>2021-10-08T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.openfn.org/articles"/>
     <subtitle>OpenFn/docs Blog</subtitle>
     <icon>https://docs.openfn.org/img/favicon.ico</icon>
     <rights>Copyright © 2021 Open Function Group, LLC.</rights>
+    <entry>
+        <title type="html"><![CDATA[Improving Multistage Docker Builds using Buildx]]></title>
+        <id>Improving Multistage Docker Builds using Buildx</id>
+        <link href="https://docs.openfn.org/articles/2021/10/08/improving-multistage-docker-builds-using-buildx"/>
+        <updated>2021-10-08T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[So you're using docker's multi-stage builds and noticed that your build times]]></summary>
+        <author>
+            <name>Stuart Corbishley</name>
+            <uri>https://github.com/stuartc</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Wrapping my head around jobs]]></title>
         <id>Wrapping my head around jobs</id>

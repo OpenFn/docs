@@ -4,10 +4,17 @@
         <title>OpenFn Help Articles</title>
         <link>https://docs.openfn.org/articles</link>
         <description>OpenFn/docs Blog</description>
-        <lastBuildDate>Mon, 05 Jul 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 08 Oct 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <copyright>Copyright © 2021 Open Function Group, LLC.</copyright>
+        <item>
+            <title><![CDATA[Improving Multistage Docker Builds using Buildx]]></title>
+            <link>https://docs.openfn.org/articles/2021/10/08/improving-multistage-docker-builds-using-buildx</link>
+            <guid>Improving Multistage Docker Builds using Buildx</guid>
+            <pubDate>Fri, 08 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[So you're using docker's multi-stage builds and noticed that your build times]]></description>
+        </item>
         <item>
             <title><![CDATA[Wrapping my head around jobs]]></title>
             <link>https://docs.openfn.org/articles/2021/07/05/wrapping-my-head-around-jobs</link>

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[7233],{15196:function(e){e.exports=JSON.parse('{"allTagsPath":"/articles/tags","slug":"/articles/tags/docker","name":"docker","count":1,"permalink":"/articles/tags/docker"}')}}]);
