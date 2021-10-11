@@ -8,25 +8,26 @@ tags: [how-to, tips, jobs, standard]
 featured: true
 ---
 
-A [job](https://docs.openfn.org/documentation/jobs/job-design-intro) defines
-different series of tasks performed to process data from one source system to
-another destination system. Those different tasks might serve different
-purposes: **execute a function from an adaptor (upsert, post)** or **clean and
-map data**.
+A [job](documentation/jobs/job-design-intro) defines a series of different tasks
+(they're called "operations") for processing data within or between systems.
+Those different tasks often serve different purposes, most commonly:
+**interacting with an API** (e.g., using the `createTEI` function from the
+`dhis2` adaptor) or **cleaning and mapping data** (e.g., taking an array of
+names and creating a single `fullName` attribute).
 
-Depending on the type of job you are writing, it's always good to make a clear
-separation of concerns between your tasks (operations). See it as a diagram
-where you have different activities, each activity taking one specific input and
-producing one specific output.
+Depending on the type of job you are writing, you might want make a clear
+separation of concerns between your operations. See it as a diagram where you
+have different activities, each activity taking one specific input and producing
+one specific output.
+
+<!--truncate-->
 
 ## An example to go with
 
 ![Sample BPMN diagram](/img/bpmn_example.png)
 
-Taking this example above, we can see different blocks with different concerns.
-
-One way of writing a job that satisfies this workflow would be something like
-below:
+In the example above, we can see different blocks with different concerns. One
+way of writing a job that satisfies the workflow would be the following:
 
 ```js
 fn(state => {
@@ -53,6 +54,8 @@ fn(state => {
 });
 ```
 
+<!-- TODO: Discuss the meaning of this block here. -->
+
 Easy right? Imagine this needs to be done for 10 patients? 100 ? 1000? The
 runtime is going to be huge when querying the database thousands of time.
 
@@ -61,11 +64,11 @@ possible.
 
 ## Standardizing
 
-Going back to the diagram above, we can have a clear distinction of what each
-block might be doing. In case we deal we a large dataset, the code above could
-be separated as follow:
+Going back to the diagram above, we can create distinctions between what each
+block does. In case we're dealing with a large dataset, the code above could be
+separated as follows:
 
-1. One block to transform data, build a common mapping base.
+1. Transform data, build a common mapping base.
 2. Query database to find matching Ids.
 3. Process the matches to build patient mapping we should update and those we
    should create records for.
@@ -73,12 +76,12 @@ be separated as follow:
 5. Bulk create records.
 
 ```js
+// 1. we build a base for our mapping
 fn(state => {
   const { patients } = state.data;
 
   const ids = patients.map(d => d.uuid);
 
-  // we build a base for our mapping
   const baseMapping = data => {
     return {
       id: data.uuid,
@@ -91,15 +94,13 @@ fn(state => {
   return { ...state, ids, baseMapping };
 });
 
-// bulk query the db to fetch all patients that match
-query(
-  state =>
-    `SELECT Id, firstname, lastname, modified_date FROM patient_c WHERE Id in ('${state.ids.join(
-      "','"
-    )}')`
-);
+// 2. bulk query the db to fetch all patients that match
+query(state => {
+  const ids = state.ids.join("','");
+  return `SELECT Id, firstname, lastname, modified_date FROM patient__c WHERE Id in ('${ids}')`;
+});
 
-// intermediary block to process fetched data from the query
+// 3. intermediary block to process fetched data from the query
 fn(state => {
   const { records } = state.references[0];
 
@@ -115,6 +116,7 @@ fn(state => {
         },
       };
     });
+
   const toCreate = state.data.patients
     .filter(patient => !recordsIds.includes(patient.uuid))
     .map(patient => {
@@ -126,48 +128,44 @@ fn(state => {
         },
       };
     });
+
   return { ...state, toUpdate, toCreate };
 });
 
-// final blocks to upsert and create
+// 4. Then upsert
 bulk(
-  'patient_c',
+  'patient___c',
   'update',
   {
     extIdField: 'Id',
     failOnError: true,
     allowNoOp: true,
   },
-  state => {
-    console.log('Bulk upserting patients.');
-    return state.toUpdate;
-  }
+  state => state.toUpdate
 );
 
+// 5. And finally create
 bulk(
-  'patient_c',
+  'patient__c',
   'insert',
   {
     failOnError: true,
     allowNoOp: true,
   },
-  state => {
-    console.log('Bulk creating patients.');
-    return state.toCreate;
-  }
+  state => state.toCreate
 );
 ```
 
-This allows us not only to reduce the amount of requests to your system but also
-allows for easier maintenance and evolution. If we wanted to update our mapping,
-we know exactly the only place where we could go instead of multiple places.
+This allows us not only to reduce the amount of requests to an external system
+but also allows for easier maintenance and evolution. If we wanted to update our
+mapping, we only need to make changes in one place.
 
 ## Data Binding
 
 The final example presented previously implement also our data binding mechanism
 from task to task (read operation here). When passing data from one operation to
 another, it always goes through state. Remember, every operation
-[takes state and returns state](https://docs.openfn.org/articles/2021/07/05/wrapping-my-head-around-jobs).
+[takes state and returns state](articles/2021/07/05/wrapping-my-head-around-jobs).
 In case you want to store the result of one operation and use it in subsequent
 ones, consider wrapping it inside state, which is the common object passed
 between operations.
@@ -190,7 +188,7 @@ fn(state => {
 });
 ```
 
-## Final thought
+## A final thought
 
 To sum this up, when faced with a large dataset, it's better to optimize
 execution and runtime by allowing different operations in your job to have
@@ -203,7 +201,7 @@ Steps to remember:
 **Step 2.** Any query made to an external system should, _whenever possible_, be
 it's own block.
 
-One final thought is how this pattern (fn, query, fn, bulk) keeps your
-operations clean and very flexible. Everything in here is either
-**language-common** or **javascript**. Our fn blocks (among other functions from
-language-common) can be used in ANY job, regardless of the language package!
+One final thought is how this pattern (`fn`, `apiCall`, `fn`, `apiCall`) keeps
+your operations clean and very flexible. Everything in the `fn` blocks uses
+either **language-common** or raw Javascript so, for the most part, they can be
+used in ANY job, regardless of the adaptor!
