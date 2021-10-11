@@ -15,9 +15,9 @@ purposes: **execute a function from an adaptor (upsert, post)** or **clean and
 map data**.
 
 Depending on the type of job you are writing, it's always good to make a clear
-separation of concerns between your tasks (operations). See it as a diagram where you have
-different activities, each activity taking one specific input and producing one
-specific output.
+separation of concerns between your tasks (operations). See it as a diagram
+where you have different activities, each activity taking one specific input and
+producing one specific output.
 
 ## An example to go with
 
@@ -157,8 +157,11 @@ bulk(
   }
 );
 ```
-This allows us not only to reduce the amount of requests to your system but also allows for easier maintenance and evolution. If we wanted to update our mapping, we know exactly the only place where we could go instead of multiple
-places.
+
+This allows us not only to reduce the amount of requests to your system but also
+allows for easier maintenance and evolution. If we wanted to update our mapping,
+we know exactly the only place where we could go instead of multiple places.
+
 ## Data Binding
 
 The final example presented previously implement also our data binding mechanism
@@ -189,16 +192,16 @@ fn(state => {
 
 ## Final thought
 
-To sum this up, when faced with a large dataset, it's better to optimize execution
-and runtime by allowing different operations in your job to have different roles.
-
+To sum this up, when faced with a large dataset, it's better to optimize
+execution and runtime by allowing different operations in your job to have
+different roles.
 
 Steps to remember:
 
 **Step 1.** Process your data, clean and transform using a **fn()** block.
 
-**Step 2.** Any query made to an external system should, *whenever possible*, be it's
-own block.
+**Step 2.** Any query made to an external system should, _whenever possible_, be
+it's own block.
 
 One final thought is how this pattern (fn, query, fn, bulk) keeps your
 operations clean and very flexible. Everything in here is either
