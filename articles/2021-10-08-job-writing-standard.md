@@ -171,7 +171,7 @@ function.
 ## Data Binding
 
 The final example presented previously implements also our data binding
-mechanism from task to task (read operation here). When passing data from one
+mechanism from operation to operation. When passing data from one
 operation to another, it always goes through state. Remember, every operation
 [takes state and returns state](articles/2021/07/05/wrapping-my-head-around-jobs).
 In case you want to store the result of one operation and use it in subsequent
