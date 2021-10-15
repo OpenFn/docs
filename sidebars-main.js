@@ -21,13 +21,13 @@ module.exports = {
         'getting-started/integration-toolkit',
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: 'Design',
-    //   items: [
-    //     'design/design-integration',
-    //   ],
-    // },
+    {
+      type: 'category',
+      label: 'Design',
+      items: [
+        'design/design-quickstart',
+      ],
+    },
     {
       type: 'category',
       label: 'Build',
