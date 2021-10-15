@@ -4,11 +4,11 @@ title: Quickstart
 
 # Getting Started on Integration Design
 
-**Integration design begins with the functional or business requirements (not the
-technical bits).** Therefore, you do not need to be an IT consultant or software
-engineer to start designing an integration a solution! (Although having those
-resources certainly helps when we get to the technical specifications... but
-more on that later).
+**Integration design begins with the functional or business requirements (not
+the technical bits).** Therefore, you do not need to be an IT consultant or
+software engineer to start designing an integration a solution! (Although having
+those resources certainly helps when we get to the technical specifications...
+but more on that later).
 
 A clear understanding and _documentation_ of the business processes, functional
 requirements, and people interacting with your desired integration are first
@@ -69,11 +69,10 @@ information will be exchanged? With _whom_ (between which systems or users)?
 _When_ will the information be exchanged? And what are the human or automation
 steps that should facilitate and trigger this exchange?
 
-:::tip Capture the current & desired process
-Document _current and desired_ business processes in order to determine
-how information should be exchanged between your organization/system/users and
-others, and to ensure alignment of expectations and assumptions across partners.
-:::
+:::tip Capture the current & desired process Document _current and desired_
+business processes in order to determine how information should be exchanged
+between your organization/system/users and others, and to ensure alignment of
+expectations and assumptions across partners. :::
 
 ### Use BPMN for standardized documentation
 
@@ -98,51 +97,70 @@ to use it: https://www.youtube.com/watch?v=BwkNceoybvA
 
 See the below example BPMN diagram for the user story:
 
-> As a program manager, I want to extract beneficiary details ("tracked entity instances") from my country's DHIS2 system, so that I can enroll them as contacts in my SMS campaign configured on RapidPro to send them automated alerts and program updates.
+> As a program manager, I want to extract beneficiary details ("tracked entity
+> instances") from my country's DHIS2 system, so that I can enroll them as
+> contacts in my SMS campaign configured on RapidPro to send them automated
+> alerts and program updates.
 
 <img src="/img/sample-bpmn.png" url />
 
 ## 3. Map data elements to be exchanged
-Once the business processes are documented, start to document the specific data elements to be exchanged. This exercise requires a lot of specificity to detail the individual "fields" or "attributes" to be exchanged.  
 
-The output of this exerice is a `Data Element Mapping Specification`, which will serve as (1) documentation of the specific data elements agreed to be exchanges, as well as (2) a guide for how to translate meaning between partners and systems (e.g., `client` in one system might mean `patient` in another). 
+Once the business processes are documented, start to document the specific data
+elements to be exchanged. This exercise requires a lot of specificity to detail
+the individual "fields" or "attributes" to be exchanged.
 
-If your organization already has a data management or sharing agreement, this might be the perfect starting point for identifying the specific data points to be exchanged. 
+The output of this exerice is a `Data Element Mapping Specification`, which will
+serve as (1) documentation of the specific data elements agreed to be exchanges,
+as well as (2) a guide for how to translate meaning between partners and systems
+(e.g., `client` in one system might mean `patient` in another).
+
+If your organization already has a data management or sharing agreement, this
+might be the perfect starting point for identifying the specific data points to
+be exchanged.
 
 ### Mapping Specification Template
-Collaborating on mapping specifications with implementing partners is an important exercise for documenting very specific requirements and building consensus on what data exactly will be exchanged, and how. 
+
+Collaborating on mapping specifications with implementing partners is an
+important exercise for documenting very specific requirements and building
+consensus on what data exactly will be exchanged, and how.
 
 :::tip Template for getting started
-[Use this template](https://docs.google.com/spreadsheets/d/1IqTIgOzyOztEevXbgY_4uE8Y8tiHXufZXx-IyJZase0/edit?usp=sharing) for drafting your own data element mapping specification. 
-:::
+[Use this template](https://docs.google.com/spreadsheets/d/1IqTIgOzyOztEevXbgY_4uE8Y8tiHXufZXx-IyJZase0/edit?usp=sharing)
+for drafting your own data element mapping specification. :::
 
 This template includes:
 
-1. Details on the source metadata such as field API name, data type, sample data values and comments:
+1. Details on the source metadata such as field API name, data type, sample data
+   values and comments:
    ![image](https://user-images.githubusercontent.com/80456839/130796010-fe900c03-1bff-40c0-9263-c29e22d9191f.png)
 2. Similar details on the destination metadata:
    ![image](https://user-images.githubusercontent.com/80456839/130796087-67b0359d-207a-4169-aa88-6609572b2561.png)
-3. Notes on data transformations & cleaning required and comments for tracking changes & questions for technical input:
+3. Notes on data transformations & cleaning required and comments for tracking
+   changes & questions for technical input:
 
    ![image](https://user-images.githubusercontent.com/80456839/130796170-2e29a997-9b41-44f7-ac60-79375d096cc9.png)
 
 ### To build a complete mapping specification, you’ll need to...
 
-1. Define the data elements to be exchanged by connected systems (you may need to export target system metadata to identify exact names)
-2. Determine which data elements belong to the data source, and which belong to the destination system
+1. Define the data elements to be exchanged by connected systems (you may need
+   to export target system metadata to identify exact names)
+2. Determine which data elements belong to the data source, and which belong to
+   the destination system
 3. Agree on how the data elements should map between target systems
-4. Analyze the structure and quality of the data to consider if data values will need to be transformed, cleaned, or re-labeled in order to map
+4. Analyze the structure and quality of the data to consider if data values will
+   need to be transformed, cleaned, or re-labeled in order to map
 
-This mapping will serve as a blueprint for the technical integration setup, and will be an important artefact of the data sharing agreement between partners. 
-
+This mapping will serve as a blueprint for the technical integration setup, and
+will be an important artefact of the data sharing agreement between partners.
 
 ### Tips for drafting mapping specifications
 
 - **Version mappings** to keep track of mapping change requests over time
 - **Color coding:** Highlight any fields that require further discussion one
   color and any newly added fields another color
-- Use Google Sheets or shared document comments and email to notify appropriate users when changes
-  have been made to the mappings
+- Use Google Sheets or shared document comments and email to notify appropriate
+  users when changes have been made to the mappings
 - Include a **legend/README** that explains how to use the mappings template
 - **Unique identifiers:** spend time evaluating available unique identifier
   schemes and what options may already be implemented by related information
@@ -153,7 +171,13 @@ This mapping will serve as a blueprint for the technical integration setup, and 
   Docs site (see sidebar).
 
 ## Next Steps
-Once you have your (1) `user stories`, (2) `business process diagrams`, and (3) `data element specifications` defined, you have produced a suite of functional design documentation that will drive the technical design of your integration solution, as well as memorialize the business decisions and agreements made by implementing partners. 
 
-Share this documentation with any technical implementation team, or check out the `Build` documentation section to learn how to implement these design specifications using OpenFn. 
+Once you have your (1) `user stories`, (2) `business process diagrams`, and (3)
+`data element specifications` defined, you have produced a suite of functional
+design documentation that will drive the technical design of your integration
+solution, as well as memorialize the business decisions and agreements made by
+implementing partners.
 
+Share this documentation with any technical implementation team, or check out
+the `Build` documentation section to learn how to implement these design
+specifications using OpenFn.
