@@ -31,33 +31,40 @@ way of writing a job that satisfies the workflow would be the following:
 
 ```js
 fn(state => {
-  const { data } = state;
-  const { uuid, firstname, lastname, address, phone_number } = data;
+  const { patients } = state.data;
 
-  const patient = {
-    id: uuid,
-    name: `${firstname} ${lastname}`,
-    address,
-    phone_number,
-  };
-
-  return query(
-    `SELECT firstname, lastname FROM patient_c WHERE id = '${patient.id}'`
-  )(state).then(state => {
-    const { records } = state.references[0];
-    if (records.length > 0) {
-      // mapping then upsert
-    } else {
-      // mapping then create
-    }
-  });
-});
+  return each(
+    patients,
+    fn((state) => {
+      return query(
+        `SELECT firstname, lastname FROM patient_c WHERE id = '${state.data.uuid}'`
+      )(state).then((state) => {
+        const { records } = state.references[0];
+        if (records.length > 0) {
+          return update("patient___c", {
+            Id: state.data.uuid,
+            name: `${state.data.firstname} ${state.data.lastname}`,
+            address: state.data.address,
+            phone_number: state.data.phone_number,
+            updated_at: new Date(),
+          });
+        }
+        return create("patient___c", {
+          name: `${state.data.firstname} ${state.data.lastname}`,
+          address: state.data.address,
+          phone_number: state.data.phone_number,
+          created_at: new Date(),
+          status: 'inactive',
+        });
+      });
+    })
+  )(state);
 ```
 
 <!-- TODO: Discuss the meaning of this block here. -->
 
-Easy right? Imagine this needs to be done for 10 patients? 100 ? 1000? The
-runtime is going to be huge when querying the database thousands of time.
+Easy right? Imagine this needs to be done for 100 patients? 1000 ? 5000? The
+runtime is going to be huge when querying the database five thousands of time.
 
 For this purpose, we try to keep our operations as simple and elementary as
 possible.
@@ -84,7 +91,6 @@ fn(state => {
 
   const baseMapping = data => {
     return {
-      id: data.uuid,
       name: `${data.firstname} ${data.lastname}`,
       address: data.address,
       phone_number: data.phone_number,
@@ -112,6 +118,7 @@ fn(state => {
       return {
         ...state.baseMapping(patient),
         ...{
+          Id: patient.uuid,
           updated_at: new Date(),
         },
       };
@@ -158,13 +165,14 @@ bulk(
 
 This allows us not only to reduce the amount of requests to an external system
 but also allows for easier maintenance and evolution. If we wanted to update our
-mapping, we only need to make changes in one place.
+mapping, we only need to make the changes in one place which is the `baseMapping` 
+function.
 
 ## Data Binding
 
-The final example presented previously implement also our data binding mechanism
-from task to task (read operation here). When passing data from one operation to
-another, it always goes through state. Remember, every operation
+The final example presented previously implements also our data binding
+mechanism from task to task (read operation here). When passing data from one
+operation to another, it always goes through state. Remember, every operation
 [takes state and returns state](articles/2021/07/05/wrapping-my-head-around-jobs).
 In case you want to store the result of one operation and use it in subsequent
 ones, consider wrapping it inside state, which is the common object passed
