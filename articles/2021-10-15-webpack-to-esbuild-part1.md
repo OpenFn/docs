@@ -61,7 +61,7 @@ through our `webpack.config.js` file I can see that it:
 - Conditionally provide sourcemaps depending on the environment.
 - Uses babel to parse js/jsx files  
   At the same time cherry picks lodash imports
-  <a href="#lodash"><sup>\*</sup></a>.
+  <a href="#lodash"><sup>*</sup></a>.
 - Parse `import`s for `.css` files through `style-loader` and `css-loader`  
   Injecting the styles onto the dom.
 - Detect `require` statements to images, copy them to an assets folder  
@@ -80,10 +80,12 @@ here.
 - The splitting doesn't know about `app.js`, it puts everything that resolves to
   `node_modules` in `vendor.js`. Subtle but worth pointing out.
 
-<a name="lodash"><sup>\*</sup></a> Could probably ignore this and refactor some
+<a name="lodash"><sup>*</sup></a>
+Could probably ignore this and refactor some
 files and check that tree-shaking is working properly.
 
-**What we need esbuild to provide**
+
+## What we need esbuild to provide
 
 Like I mentioned before, webpack is super versatile and it would be
 short-sighted to get esbuild to do everything it does.
