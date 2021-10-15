@@ -72,11 +72,18 @@ Jobs are usually simple programs written using the OpenFN DSL, that takes data
 as input, process it and returns an output. The input data is defined in a json
 file usually called `state.json`.
 
-### Let's meet state.json
+**NB**: The naming of the files are just a convention that we strongly recommend
+to follow as far as possible but not an obligation. One can name the files
+however they want.
+
+Below we'll see the different files needed to write a job and their contents.
+
+### The `state.json` file
 
 Here is a sample state.json file:
 
 ```json
+// state.json
 {
   "configuration": {
     "host": "some nice url",
@@ -94,14 +101,12 @@ Here is a sample state.json file:
         "country": "London"
       }
     ],
-    "countries": [
+    "capitals": [
       {
-        "name": "England",
-        "capital": "London"
+        "name": "Dakar"
       },
       {
-        "name": "Senegal",
-        "capital": "Dakar"
+        "name": "London"
       }
     ]
   }
@@ -112,6 +117,192 @@ The most important thing to notice in a state file is that it's composed of two
 main parts, the `configuration` part and the `data` part.
 
 - configuration is the part where the credentials of the destination system have
-  to be written.
+  to be written. If no credentials are required, then it should just be an empty
+  object (`configuration: {}`). Something important to notice is that the
+  credentials depend on the destination system and the adaptor used to query
+  that system. It's important to read the documentation of the adaptor to have
+  informations about the names of the credentials and their values.
 - data is a json object containing the data that needs to be processed and sent
   to the destination system.
+
+### expression.js
+
+This the main file of a job and where all processing happens. It contains
+"simple" programs written using the OpenFN DSL for writing jobs. The principle
+of this DSL is to have a small function which takes a state as input (remember
+the `state.json` file in the previous section) does data transformations /
+manipulations and returns a new state. Find an example below:
+
+```javascript
+fn(state => {
+  ...
+  return newState;
+});
+
+```
+
+Our above example uses a `fn` block that takes a `state` and returns another
+state that we named `newState` wich the result of the transformations /
+manipulations brought to the initial state.
+
+These blocks depend on two of things:
+
+- the API exposed by the adapter we are using, for example, we can use the `sql`
+  block exposed by the
+  [`language-postgresql`](https://github.com/OpenFn/language-postgresql) adapter
+  to extract data directly from the state and insert it into a database sql
+  postgres data.
+
+  ```javascript
+  sql(
+    state =>
+      `INSERT INTO untitled_table (name, the_geom) VALUES ('` +
+      dataValue('form.first_name')(state) +
+      `', ST_SetSRID(ST_Point(` +
+      dataValue('lat')(state) +
+      `, ` +
+      dataValue('long')(state) +
+      `),4326))`,
+    { writeSql: true, execute: true }
+  );
+  ```
+
+  Note the presence of the datavalue keywords which are other functions
+  available in the DSL of OpenFN and which allow you to access a data in the
+  state by giving the json path. In the second part of this tutorial you will
+  see how we can use all of this in practice, but the most important thing for
+  now is to get to know it.
+
+  - the functions exposed by the DSL itself. Actually, every job expression can
+    access some functions like `fn`, `alterState`, etc. Most of the time `fn` is
+    the main function we use to start a block.
+
+Now let's see an example of simple `expression.js` file that contains a `fn`
+block. We'll be using our previous `state.json` file and retrieve all countries
+from persons and all capitals from capitals and put these arrays inside state
+and return it. A simple and not relevant job but it allows us to see how it can
+look like.
+
+```javascript
+// expression.js
+fn(state => {
+  const countries = state.data.persons.map(person => person.country);
+  const capitals = state.data.capitals.map(capital => capital.name);
+  return { countries, capitals };
+});
+```
+
+### output.json
+
+The `output.json` file is the file that is generated after compiling and
+executing our job. It contains the job execution result and that result depends
+on what the job was doing. We do not create that file, it's generated after
+executing the job using `core` and sometimes it's very important. In big
+workflows where we have a job that executes and passes its results to another
+jobs and so on, the `output.json` of one job can be the `state.json` of another
+and so on.
+
+See below the corresponding `output.json` of our previous job expression after
+execution.
+
+```json
+{
+  "countries": ["Senegal", "London"],
+  "capitals": ["Dakar", "London"]
+}
+```
+
+## Run a job using `core`
+
+Now that we know how jobs work and the main components, let's try to run one
+using `core`.
+
+- First of all, we need to install `core` and chose an adaptor. For this example
+  we'll be using `language-common` adaptor wich the most basic adaptor. For that
+  we'll create a working directory and clone the adaptor inside of it. To do
+  that, open a terminal session and copy and paste the below code without the
+  `$` sign:
+
+```bash
+$ cd ~
+$ mkdir example-job
+$ npm install -g @openfn/core
+$ git clone https://github.com/OpenFn/language-common.git .
+```
+
+NB: Make sure you have [`npm`](https://nodejs.org/en/) and
+[`git`](https://git-scm.com/) installed.
+
+Now we have everything we need to create our sample job and run it. Open your
+preferred editor (we recommend Visual Studio Code) inside the `example-job`
+folder and create 2 files named respectively: `state.json` and `expression.js`.
+
+- Inside `state.json` paste the below code:
+
+```json
+{
+  "configuration": {},
+  "data": {
+    "persons": [
+      {
+        "name": "Elias W. BA",
+        "country": "Senegal"
+      },
+      {
+        "name": "Taylor Downs",
+        "country": "London"
+      }
+    ],
+    "capitals": [
+      {
+        "name": "Dakar"
+      },
+      {
+        "name": "London"
+      }
+    ]
+  }
+}
+```
+
+- Inside `expression.js` paste the below code:
+
+```javascript
+fn(state => {
+  const countries = state.data.persons.map(person => person.country);
+  const capitals = state.data.capitals.map(capital => capital.name);
+  return { countries, capitals };
+});
+```
+
+Now open your terminal again and make sure you're still in the `example-job`
+folder (`$ cd ~/example-job`). Copy and paste the below code to execute our job
+using `core`.
+
+```bash
+$ core execute -l ./language-common -e expression.js -s state.json -o output.json
+```
+
+Now, if you can see in your terminal something like this
+
+```
+╭─────────────────────────────────────────────╮
+│ ◲ ◱  @openfn/core#v1.4.3 (Node.js v14.17.6) │
+│ ◳ ◰           @openfn/language-common@1.6.1 │
+╰─────────────────────────────────────────────╯
+Finished.
+```
+
+that means you successfully wrote and execute your very first OpenFN Job using
+`core` and `language-common` 🎉🥳👏. In the part 2 of this tutorial, we'll dig
+deeper in job writing using more interesting adaptors like `language-postgresql`
+or `language-salesforce`.
+
+## Conclusion
+
+We come to the end of the first part of our tutorial on how to write OpenFN
+jobs. In this part the most important part has been to understand how jobs work
+and what constitutes them. In the second part we will now take a concrete use
+case and try to write jobs that correspond to these situations. We will also see
+how to do all this on the [OpenFN platform](www.openfn.org). See you next time
+🤞✌️👋
