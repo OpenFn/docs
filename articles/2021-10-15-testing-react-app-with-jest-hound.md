@@ -1,29 +1,30 @@
 ---
 layout: post
-title:
-  Testing a React App, the blur line between Unit, integration and E2E Tests
+title: Testing a React app, the blurred line between Unit, integration and E2E
 author: Chaiwa Berian
 author_url: https://github.com/chaiwa-berian
 author_image_url: https://avatars.githubusercontent.com/u/7937584?v=4
-tags: [how-to, tips, jobs]
+tags: [how-to, tips, testing, browser-testing, react, elixir]
 
 featured: true
 ---
 
-Did you ever struggle to layout the strategy for testing your React App? Well,
-you are not alone! But here a few hints from the lessons I learned during my
-experience testing a React/Redux App with a Phoenix/Elixir backend.
+Have you ever struggled to layout the strategy for testing your React App? Well,
+you are not alone! Here a few hints from the lessons I learned during my
+experience testing a React/Redux app with a Phoenix/Elixir backend.
 
-## The Blur Line
+<!--truncate-->
 
-Because a React App is built on components, as basic UI units, it is natural to
-think and organise your tests around testing components! And so unit testing, in
-this case, would refer to "component testing", which may be confusing at times,
+## The Blurred Line
+
+Because a React app is built on components, the basic UI units, it is natural to
+think and organise your tests around components! And so unit testing, in this
+case, would refer to "component testing", which may be confusing at times,
 especially when the concept of unit testing is again applied to testing
 functions such as React/Redux reducers and action creators or any other
 javascript function in your application.
 
-The other challenge that I oftenly faced was whether to write tests for each
+The other challenge that I often faced was whether to write tests for each
 component in isolation or write a test for a feature that encapsulates a set of
 related components. The later would be equivalent to writing what I would call
 "integration tests".
@@ -39,14 +40,14 @@ and/or if not End-to-End tests.
 Given a React/Redux application, here is how I would organise my testing
 strategy:
 
-1. Unit Tests
+### Unit Tests
 
-- In a React App, Unit Tests will largely apply to testing `helper functions` and not to
-  testing `components`, as justified in the next section. Helper functions, in this
-  case, would refer to functions that live outside the components and are
-  neither `Redux Action Creators` nor `Reducers`. These functions can be used
-  inside components, action creators, reducers or other parts of your
-  application.
+- In a React app, Unit Tests will largely apply to testing `helper functions`
+  and not to testing `components`, as justified in the next section. Helper
+  functions, in this case, would refer to functions that live outside the
+  components and are neither `Redux Action Creators` nor `Reducers`. These
+  functions can be used inside components, action creators, reducers or other
+  parts of your application.
 
 - Writing unit tests for `helper functions` would ensure their signatures and
   expected outputs are protected against regressions. This would also ensure
@@ -64,11 +65,11 @@ strategy:
   });
   ```
 
-- Write a thousand of these.
+- Write a _thousand_ of these.
 
-2. Integration Tests
+### Integration Tests
 
-- In the context of a React/Redux App, `component tests` can be equivalent to
+- In the context of a React/Redux app, `component tests` can be equivalent to
   what is known as `integration tests`. This is because React components are
   built around features such as `Signup`, `search`, etc. So one React component
   can be a mix of other components to achieve a UI feature set.
@@ -107,7 +108,8 @@ strategy:
 - The value of writing integration tests for components in this way ensures that
   a given component renders the UI consistently, given all possible combinations
   of contexts and interactions. This will also allow you to ensure redux actions
-  invoked by the component are called as expected and with the correct arguments.
+  invoked by the component are called as expected and with the correct
+  arguments.
 
 - An example component integration test would look like:
 
@@ -149,7 +151,7 @@ strategy:
 
 - Write a good couple of these.
 
-3. End-to-End(e2e) Tests
+### End-to-End (e2e) Tests
 
 - In a React/Redux this would mean testing a `full flow` of a given feature.
   End-to-End tests would require launching the entire application, including the
@@ -175,45 +177,44 @@ strategy:
 - An example `e2e` test for a React/Redux App with a Phoenix/Elixir Backend,
   using `Hound` as test runner, would look like:
 
-  ````elixir
-    defmodule OpenFn.UsersTest do
-    setup do
-      user = insert(:user, confirmed_at: DateTime.utc_now())
-      {:ok, user: user, }
+```elixir
+defmodule OpenFn.UsersTest do
+  setup do
+    user = insert(:user, confirmed_at: DateTime.utc_now())
+    {:ok, user: user, }
+  end
+
+  @tag :integration
+  test "Sign-up.", %{user: user} do
+    navigate_to("/sign-up")
+    form = find_element(:id, "sign_up_form")
+
+    form
+    |> find_within_element(:id, "first-name")
+    |> fill-filed("John")
+
+    form
+    |> find_within_element(:id, "last-name")
+    |> fill-filed("Doe")
+
+    form
+    |> find_within_element(:id, "email")
+    |> fill-filed("doe@gmail.com")
+
+    form
+    |> find_within_element(:id, "save-button")
+    |> click
+
+    assert page_title() === ~s/Welcome to my page/
     end
+end
+```
 
-    @tag :integration
-    test "Sign-up.", %{user: user} do
-      navigate_to("/sign-up")
-      form = find_element(:id, "sign_up_form")
-
-      form
-      |> find_within_element(:id, "first-name")
-      |> fill-filed("John")
-
-      form
-      |> find_within_element(:id, "last-name")
-      |> fill-filed("Doe")
-
-      form
-      |> find_within_element(:id, "email")
-      |> fill-filed("doe@gmail.com")
-
-      form
-      |> find_within_element(:id, "save-button")
-      |> click
-
-      assert page_title() === ~s/Welcome to my page/
-     end
-  end```
-
-  ````
-
-- Write a few of these.
+- Write only a few of these.
 
 ## Choosing Testing Tools
 
-There are many testing tools out there, but for a typical React/Redux App the
+There are many testing tools out there, but for a typical React/Redux app the
 following tools should help you accomplish the above taks:
 
 1. [Jest](https://jestjs.io/docs/getting-started) as `test runner` for `Unit`
@@ -223,12 +224,12 @@ following tools should help you accomplish the above taks:
 3. [MSW](https://mswjs.io/docs/getting-started/install) used along with `Jest`
    as a `REST API Mocking libray`.
 4. [Hound](https://hexdocs.pm/hound/readme.html) as a `test runner` for `e2e`
-   for a `React/Redux -> Phoenix/Elixir` for easier setup or
-   [Puppeteer](https://developers.google.com/web/tools/puppeteer) used along
-   with `Jest`.
+   tests in Elixir/Phoenix apps.
+   [Puppeteer](https://developers.google.com/web/tools/puppeteer) can also be
+   used along with `Jest`.
    - If `Puppeteer` is used, it will work seamlessly with `jest` but only in
-     headless browser mode. It also reduces on tech stack since you will only need
-     `jest`.
+     headless browser mode. It also reduces on tech stack since you will only
+     need `jest`.
    - `Hound` gives you the ability to run your `e2e` tests both in `headless`
      and `browser` mode.
 
