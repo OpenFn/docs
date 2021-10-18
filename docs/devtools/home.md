@@ -194,29 +194,12 @@ Arguments `./scripts/upload-release -i <file> [-u]`
 
 ## Releasing a new adaptor version for production use
 
-1. **Bump the version in `package.json`**
-2. **Run `npm install`** to update `package-lock.json`
-3. **Commit** and tag your version with `git tag`. _N.B., this is handled with a
-   git hook provided by `bootstrap`_
-4. **Push the commits and tag to GitHub** with `git push && git push --tags`
-5. **Create a release** on the the associated repo on Github, selecting the
-   version tag that was pushed in the last step. Write a title and release notes
-   as needed then click 'Publish release'.
-6. **Return to the devtools directory** with `cd ../../`
-7. **Bundle the module** with
-   `./scripts/bundle-node ./adaptors/<language-pack> -o builds`
-8. **Verify that the tarball was created** in `builds` with the naming
-   convention of: `<language-pack>-<version>.tgz`
-9. **Upload the build** using the `upload-release` script:
-   `./scripts/upload-release -i builds/<file>`
+As of now, all new adaptor releases are done through `docker container`.
 
-If the wrong file was uploaded or you want to replace the build on Github then
-use the `-u` flag which deletes the build from Github if the filesize is
-different.
-
-Note that this script expects a `GH_TOKEN` env variable, which is an OAuth2
-token you must get from Github (via the account page)
-
+1. **Reopen package in dev-container**
+2. **Rebuild** if needed.
+3. **Run `openfn-devtools release .`**. This creates the tag and push to npm.
+4. **Run `openfn-devtools package-release .`** to package everything with production dependencies.
 ## Using a new adaptor in an OpenFn/platform instance
 
 1. Add your release to the `scripts/install-lp` script.
