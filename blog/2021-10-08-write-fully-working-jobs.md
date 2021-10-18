@@ -271,7 +271,7 @@ folder and create 2 files named respectively: `state.json` and `expression.js`.
 fn(state => {
   const countries = state.data.persons.map(person => person.country);
   const capitals = state.data.capitals.map(capital => capital.name);
-  return { countries, capitals };
+  return { ...state, data: { countries, capitals } };
 });
 ```
 
