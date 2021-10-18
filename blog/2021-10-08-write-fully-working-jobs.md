@@ -31,8 +31,8 @@ very important in integration workflows.
 
 There are two way of writing Jobs:
 
-1. Using the [OpenFN Platform](www.openfn.org/how)
-2. Using [DevTools](https://docs.openfn.org/documentation/devtools/home) locally
+1. Using the [OpenFN Platform](https://www.openfn.org/how)
+2. Using [DevTools](/documentation/devtools/home) locally
 
 In this article we'll be covering both of them.
 
@@ -44,27 +44,26 @@ meaning of the OpenFN specific tools we use in this blog.
 - Job: a job defines the specific series of tasks or database actions to be
   performed when a triggering message is received (even-based) or a
   pre-scheduled (and recurring) time is reached.
-  [Learn more](https://docs.openfn.org/documentation/build/jobs)
+  [Learn more](/documentation/build/jobs)
 - Trigger: Triggers are responsible for starting job runs automatically. They
   come in 4 types. The most common are "message filter" triggers, but there are
   also "cron" triggers, "flow" triggers, and "fail" triggers.
-  [Learn more](https://docs.openfn.org/documentation/build/triggers)
+  [Learn more](/documentation/build/triggers)
 - Credentials: Credentials are used to authorize connections to destination
   systems. In the future, our adaptors will use credentials to fetch meta-data
   from source and destination applications and make the job writing process
-  easier. [Learn more](https://docs.openfn.org/documentation/build/credentials)
+  easier. [Learn more](/documentation/build/credentials)
 - Adaptors: An adaptor is an open-source Javascript module that provides OpenFn
   core users with a set of operations that help communicate with a specific
   external system. In the past, we often referred to them as "language
-  packages". [Learn more](https://docs.openfn.org/documentation/build/adaptors)
+  packages". [Learn more](/documentation/build/adaptors)
 - Core: Core is the central job processing program used in the OpenFn platform.
   It creates an isolated Node VM, passes in state and an expression, then runs
   the expression in this limited access Node VM.
   [Learn more](https://github.com/OpenFn/core)
 - DevTools is a set of developpers tools. (Adaptors and Core) built by OpenFN.
   They allow to do all the job writing and execution locally without using the
-  OpenFN Cloud Platform.
-  [Learn more](https://docs.openfn.org/documentation/devtools/home)
+  OpenFN Cloud Platform. [Learn more](/documentation/devtools/home)
 
 ## Anatomy of a Job
 
@@ -188,7 +187,7 @@ look like.
 fn(state => {
   const countries = state.data.persons.map(person => person.country);
   const capitals = state.data.capitals.map(capital => capital.name);
-  return { countries, capitals };
+  return { ...state, data: { countries, capitals } };
 });
 ```
 
@@ -304,5 +303,5 @@ We come to the end of the first part of our tutorial on how to write OpenFN
 jobs. In this part the most important part has been to understand how jobs work
 and what constitutes them. In the second part we will now take a concrete use
 case and try to write jobs that correspond to these situations. We will also see
-how to do all this on the [OpenFN platform](www.openfn.org). See you next time
-🤞✌️👋
+how to do all this on the [OpenFN platform](https://www.openfn.org). See you
+next time 🤞✌️👋
