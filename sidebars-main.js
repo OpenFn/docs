@@ -9,7 +9,7 @@ module.exports = {
       label: 'Getting Started',
       items: [
         'getting-started/so-you-want-to-integrate',
-        'getting-started/foundation',
+
         'getting-started/overview',
         // 'getting-started/use-cases',
         // 'getting-started/deployment-options',
@@ -21,13 +21,11 @@ module.exports = {
         'getting-started/integration-toolkit',
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: 'Design',
-    //   items: [
-    //     'design/design-integration',
-    //   ],
-    // },
+    {
+      type: 'category',
+      label: 'Design',
+      items: ['design/design-quickstart', 'getting-started/glossary'],
+    },
     {
       type: 'category',
       label: 'Build',

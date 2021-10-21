@@ -1,6 +1,6 @@
 ---
-title: Quick-start
-sidebar_label: Quick-start
+title: iPaaS Quick-start
+sidebar_label: iPaaS Quick-start
 ---
 
 ## 1. Create your account
