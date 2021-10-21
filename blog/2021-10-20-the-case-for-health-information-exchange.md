@@ -1,21 +1,23 @@
 ---
-title: 'The Case for Health Information Exchange'
+title: Making the Case for Health Information Exchanges
 author: Aicha Diallo
 author_url: https://github.com/daissatou2
 author_image_url: https://avatars.githubusercontent.com/daissatou2
-image: /img/team-no-td.jpg
 featured: true
 ---
 
 I attended the OpenHIE Academy Live Event last week and learned about the
 function and application of the OpenHIE Architecture framework and its
-components.
+components. What's a health information exchange, and what does it mean for
+people in everyday terms?
+
+<!--truncate-->
 
 A health information exchange allows for health data to be entered once and
 reused across different systems by defining standards and communication
 protocols that enable many systems to work with the same data.
 
-![alt text](https://wiki.ohie.org/download/attachments/41943663/openimis%20hie%20arch.png?version=1&modificationDate=1573566637897&api=v2 'OpenHIE Framework')
+![OpenHIE Framework](https://wiki.ohie.org/download/attachments/41943663/openimis%20hie%20arch.png?version=1&modificationDate=1573566637897&api=v2 'OpenHIE Framework')
 
 We can imagine various real world use cases for implementing a health
 information exchange architecture. My cousin Mariam’s experience with healthcare
@@ -30,11 +32,11 @@ pharmacies, and in labs. Imagine how much faster she could have been diagnosed
 and treated if her healthcare workers had access to a comprehensive view of her
 medical history.
 
-A health information exchange would mitigate these issues and store data in a
-single database. All authorized stakeholders would be able to access and update
-this single health record and Mariam wouldn’t need to stress about her paper
-prescription she lost from years ago. **Patient data is only one piece of the
-puzzle and other important health data such as information on facilities,
+A health information exchange would mitigate these issues and allow data to be
+stored in a single database. All authorized stakeholders would be able to access
+and update this single health record and Mariam wouldn’t need to stress about
+her paper prescription she lost from years ago. **Patient data is only one piece
+of the puzzle and other important health data such as information on facilities,
 providers, and supplies can also be managed in the health information exchange
 system.**
 
