@@ -1,5 +1,5 @@
 ---
-title: Quickstart
+title: Integration Design
 ---
 
 # Getting Started on Integration Design
@@ -179,5 +179,5 @@ solution, as well as memorialize the business decisions and agreements made by
 implementing partners.
 
 Share this documentation with any technical implementation team, or check out
-the `Build` documentation section to learn how to implement these design
+the [Build](/documentation/build/jobs) documentation section to learn how to implement these design
 specifications using OpenFn.
