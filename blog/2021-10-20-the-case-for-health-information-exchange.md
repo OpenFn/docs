@@ -23,8 +23,8 @@ We can imagine various real world use cases for implementing a health
 information exchange architecture. My cousin Mariam’s experience with healthcare
 in Conakry serves as an example. After visiting three clinics and hospitals in
 Conakry, Mariam was diagnosed with kidney stones at the fourth one. All of the
-data that was collected in the first three clinics were not accessible to Dr.
-Kaba at the fourth one. At each clinic the same data was collected and doctors
+data that was collected in the first three clinics were not accessible to her
+doctor at the fourth one. At each clinic the same data was collected and doctors
 relied on Mariam to provide her medical history. They asked about past visits,
 previous diagnoses, prescriptions, lab results, etc. Her medical history was
 spread across paper and electronic systems, in her home, at different
