@@ -196,10 +196,79 @@ Arguments `./scripts/upload-release -i <file> [-u]`
 
 As of now, all new adaptor releases are done through `docker container`.
 
-1. **Reopen package in dev-container**
-2. **Rebuild** if needed.
-3. **Run `openfn-devtools release .`**. This creates the tag and push to npm.
-4. **Run `openfn-devtools package-release .`** to package everything with production dependencies.
+1. **Reopen package in dev-container** by typing `ctrl+shift+p (cmd+shift+p for mac)`
+   and choosing **Remote-Container: Rebuild and Reopen in Container**.
+2. After the build is finished, open a terminal and run **`openfn-devtools release .`**. This creates the tag and pushes to npm.
+3. Run **`openfn-devtools package-release .`** to package everything with
+   production dependencies.
+
+For each of those steps (2 and 3), you might encounter issues preventing the
+command to run correctly.
+
+### Issue with git config
+
+An issue can pop up about git config not set, To solve this, you should set your
+email and name globally using the commands below:
+
+      git config --global user.email "youremail@something.com"
+      git config --global user.name "Your Name"
+
+### Issue on ssh public key
+
+Another issue you can face is accessing your local ssh public key inside the
+container.
+
+:::warning Error: permission denied (publickey)
+:::warning
+
+To solve this, first make sure the `ssh agent` is [up and running](https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container). In MacOS, it is running by default.
+:::tip Linux
+Start the agent using the command
+
+      eval "$(ssh-agent -s)".
+Then you can add these line your `~/.bash_profile` or `~/.zprofile` (for Zsh) to make it running by default.
+
+      if [ -z "$SSH_AUTH_SOCK" ]; then
+         RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+         if [ "$RUNNING_AGENT" = "0" ]; then
+            # Launch a new instance of the agent
+            ssh-agent -s &> $HOME/.ssh/ssh-agent
+         fi
+         eval `cat $HOME/.ssh/ssh-agent`
+      fi
+:::tip
+
+Second step to this, would be to configure your `vscode`, in such a way that it is
+accessing your local env variables.
+
+In VSCode, go to `Settings`, and in the search bar, type
+`terminal.integrated.inherit`. You should see the option in the image below and
+check it if it's unchecked.
+
+![vscode settings](/img/vscode-settings.png)
+
+Last step in this process, is to run the command below to add your identity to the ssh
+agent:
+
+:::tip MacOs
+      $ ssh-add -A
+:::tip
+
+:::tip Linux
+      $ ssh-add <path-to-your-ssh-file>
+:::tip
+
+
+### Issue with Github Token (GH_TOKEN)
+Make sure you set up an [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in Github.
+
+In your `~/.bash_profile` or `~/.zshrc` file, export the newly created token by adding this line
+
+      #GITHUB TOKEN
+      export GH_TOKEN=<TOKEN>
+
+Following those steps, feel free to re-running the `release` and `package-release` commands to finally release your new adaptor.
+
 ## Using a new adaptor in an OpenFn/platform instance
 
 1. Add your release to the `scripts/install-lp` script.
