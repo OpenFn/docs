@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'Automate Data Pipelines With Jobs Using Core And Adaptors'
+title: 'Learn to write jobs - part 1'
 author: Elias W. BA
 author_url: https://github.com/elias-ba
 author_image_url: https://avatars.githubusercontent.com/elias-ba
@@ -18,7 +18,7 @@ jobs to solve your problem very efficiently and very easily.
 
 ![automate](/img/automate.jpg)
 
-## So, what the heck are jobs ?
+## Introduction
 
 Jobs are very easy to write and very powerful integration scripts that allow you
 to automate the integration of almost any system that exchanges data using the
@@ -73,16 +73,16 @@ file usually called `state.json`.
 
 **NB**: The naming of the files are just a convention that we strongly recommend
 to follow as far as possible but not an obligation. One can name the files
-however they want.
+however they want. Just be sure to remember the names when executing the job
+using `core`.
 
 Below we'll see the different files needed to write a job and their contents.
 
-### The `state.json` file
+### The state.json file
 
 Here is a sample state.json file:
 
 ```json
-// state.json
 {
   "configuration": {
     "host": "some nice url",
@@ -124,13 +124,13 @@ main parts, the `configuration` part and the `data` part.
 - data is a json object containing the data that needs to be processed and sent
   to the destination system.
 
-### expression.js
+### The expression.js file
 
-This the main file of a job and where all processing happens. It contains
-"simple" programs written using the OpenFN DSL for writing jobs. The principle
-of this DSL is to have a small function which takes a state as input (remember
-the `state.json` file in the previous section) does data transformations /
-manipulations and returns a new state. Find an example below:
+This the main file of a job and where all processing happens. It can be named It
+contains "simple" programs written using the OpenFN DSL for writing jobs. The
+principle of this DSL is to have a small function which takes a state as input
+(remember the `state.json` file in the previous section) does data
+transformations / manipulations and returns a new state. Find an example below:
 
 ```javascript
 fn(state => {
@@ -183,7 +183,6 @@ and return it. A simple and not relevant job but it allows us to see how it can
 look like.
 
 ```javascript
-// expression.js
 fn(state => {
   const countries = state.data.persons.map(person => person.country);
   const capitals = state.data.capitals.map(capital => capital.name);
@@ -191,52 +190,42 @@ fn(state => {
 });
 ```
 
-### output.json
+NB: See how we're adding `...state` inside our new state to return ? This is
+very recommended as most adaptors use some parts in state like `configuration`,
+`data`, `references`, ... so it's very important to make sure we're still
+keeping the same structure of state as we're manipulating it trough job
+expressions.
 
-The `output.json` file is the file that is generated after compiling and
-executing our job. It contains the job execution result and that result depends
-on what the job was doing. We do not create that file, it's generated after
-executing the job using `core` and sometimes it's very important. In big
-workflows where we have a job that executes and passes its results to another
-jobs and so on, the `output.json` of one job can be the `state.json` of another
-and so on.
-
-See below the corresponding `output.json` of our previous job expression after
-execution.
-
-```json
-{
-  "countries": ["Senegal", "London"],
-  "capitals": ["Dakar", "London"]
-}
-```
-
-## Run a job using `core`
+## Job execution
 
 Now that we know how jobs work and the main components, let's try to run one
 using `core`.
 
-- First of all, we need to install `core` and chose an adaptor. For this example
-  we'll be using `language-common` adaptor wich the most basic adaptor. For that
-  we'll create a working directory and clone the adaptor inside of it. To do
-  that, open a terminal session and copy and paste the below code without the
-  `$` sign:
+### Install tools
+
+First of all, we need to install `core` and chose an adaptor. For this example
+we'll be using `language-common` adaptor wich the most basic adaptor. For that
+we'll create a working directory and clone the adaptor inside of it. To do that,
+open a terminal session and copy and paste the below code:
 
 ```bash
-$ cd ~
-$ mkdir example-job
-$ npm install -g @openfn/core
-$ git clone https://github.com/OpenFn/language-common.git .
+cd ~
+mkdir example-job
+cd example-job
+npm install -g @openfn/core
+git clone https://github.com/OpenFn/language-common.git
 ```
 
 NB: Make sure you have [`npm`](https://nodejs.org/en/) and
 [`git`](https://git-scm.com/) installed.
 
+### Write the job
+
 Now we have everything we need to create our sample job and run it. Open your
 preferred editor (we recommend Visual Studio Code) inside the `example-job`
 folder and create 2 files named respectively: `state.json` and `expression.js`.
 
-- Inside `state.json` paste the below code:
+Inside `state.json` paste the below code:
 
 ```json
 {
@@ -264,7 +253,7 @@ folder and create 2 files named respectively: `state.json` and `expression.js`.
 }
 ```
 
-- Inside `expression.js` paste the below code:
+Inside `expression.js` paste the below code:
 
 ```javascript
 fn(state => {
@@ -278,8 +267,23 @@ Now open your terminal again and make sure you're still in the `example-job`
 folder (`$ cd ~/example-job`). Copy and paste the below code to execute our job
 using `core`.
 
+NB: The adaptors are usually written in JavaScript as npm package, as far as we
+cloned it from Github, it's very important to build it using `npm` before
+proceeding. If that's not done yet, please execute the following commands in
+your terminal session:
+
 ```bash
-$ core execute -l ./language-common -e expression.js -s state.json -o output.json
+cd ~/example-job/language-common
+npm install
+npm run build
+cd .. # important to go back to the root folder of the project for the rest to work.
+```
+
+Now that we have built our adaptor as a npm package, we can use it in core to
+execute our job using the following command:
+
+```bash
+core execute -l ./language-common -e expression.js -s state.json -o output.json
 ```
 
 Now, if you can see in your terminal something like this
@@ -293,9 +297,39 @@ Finished.
 ```
 
 that means you successfully wrote and execute your very first OpenFN Job using
-`core` and `language-common` 🎉🥳👏. In the part 2 of this tutorial, we'll dig
-deeper in job writing using more interesting adaptors like `language-postgresql`
-or `language-salesforce`.
+`core` and `language-common` 🎉🥳👏.
+
+### The output.json file
+
+The `output.json` file is the file that is generated after compiling and
+executing our job. It contains the job execution result and that result depends
+on what the job was doing. We do not create that file, it's generated after
+executing the job using `core` and sometimes it's very important. In big
+workflows where we have a job that executes and passes its results to another
+jobs and so on, the `output.json` of one job can be the `state.json` of another
+and so on.
+
+Something very important is that after executing your job using `core execute`,
+you may wanna see the final state of the job. For that, please note that you can
+add a `-o <output_filename>.json` option to `core execute` to save the state.
+Example:
+`$ core execute -l ./language-common -e expression.js -s state.json -o output.json`
+will store the final state inside `output.json`. You can display it by running
+`cat output.json` and you should see something similar to the following:
+
+```json
+{
+  "configuration": {},
+  "data": {
+    "countries": ["Senegal", "London"],
+    "capitals": ["Dakar", "London"]
+  }
+}
+```
+
+In the part 2 of this tutorial, we'll dig deeper in job writing using more
+interesting adaptors like `language-postgresql`, `language-salesforce` or
+`language-dhis2`.
 
 ## Conclusion
 
