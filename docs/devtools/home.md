@@ -4,8 +4,8 @@ import TabItem from '@theme/TabItem';
 ```
 
 ---
-title: Devtools
----
+
+## title: Devtools
 
 A set of tools for writing &amp; testing expressions, managing OpenFn projects,
 and developing new adaptors.
@@ -163,66 +163,79 @@ doclet structure using [jsdoc-query](https://github.com/OpenFn/jsdoc-query).
 
 ## Building adaptors for platform
 
-As of now, all new adaptor releases are done through `docker container`. The importance of running the release process through container is to have a similar environment accross the team for deploying. Inside the container, openfn dev team, have the same setup and dependencies are pre-installed. Whether you build using a laptop under Windows, MacOS or Linux you are committed to the same characteristics as the others.
+All adaptor releases are built inside a `docker container`. The importance of
+running the build and release process through a container is to standardize the
+build environment across the team. While adaptors can be built and run on lots
+of different operating systems and architectures, when we run the platform on
+Kubernetes it expects linux boxes running x86... so that's where we build these
+official releases.
 
-Below is the process:
+Here's how to build and release adaptors:
 
-1. Reopen your package in **dev-container** by typing `ctrl+shift+p (cmd+shift+p for mac)`
-   and choosing **Remote-Container: Rebuild and Reopen in Container**.
-2. After the build is finished, open a terminal in vscode and run **`openfn-devtools release .`**. This creates the tag and pushes to npm.
-3. Run **`openfn-devtools package-release .`** to package everything with
-   production dependencies.
+1. Reopen your package in **dev-container** by typing `ctrl+shift+p` (or
+   `cmd+shift+p` on mac) and choosing **Remote-Container: Rebuild and Reopen in
+   Container**.
+2. After the build is finished, open a terminal in vscode and run
+   `openfn-devtools release .` to build, tag, and push to
+   [npm](https://www.npmjs.com/).
+3. Run `openfn-devtools package-release .` to package everything with production
+   dependencies and push to [Github](https://github.com/openfn).
 
-For each of those steps (2 and 3), you might encounter issues preventing the
-command to run correctly.
+Depending on how you've configured your local environment and your VSCode
+installation, you might encounter access issues preventing connections to NPM
+and GitHub.
 
-## Troubleshooting VSCode containerized development
-Following are the potential issues to encounter. Those issues are mostly present when your local environment differs from the default setup. The containerized vscode environment might not have
-default access to your local setup variables and then need customization.
-### Issue with git config
+### Troubleshooting
 
-An issue can pop up about git config not set, To solve this, you should set your
-email and name globally using the commands below:
+There are a number of issues that you may encounter related to sharing settings
+that are responsible for passing ssh keys and local configurations from your
+host machine into the VSCode container.
 
-      git config --global user.email "youremail@something.com"
-      git config --global user.name "Your Name"
+### Git config issues
 
-### Issue on ssh public key
+An issue can pop up about git config not set, To solve this, you should probably
+set your email and name globally using the commands below:
 
-Another issue you can face is accessing your local ssh public key inside the
+```sh
+git config --global user.email "youremail@something.com"
+git config --global user.name "Your Name"
+```
+
+### SSH key issues
+
+You may find that you are unable to access your `ssh` keys from inside the
 container.
 
-:::warning Error: permission denied (publickey)
-:::warning
+:::warning Error
 
-To solve this, first make sure the `ssh agent` is [up and running](https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container). In MacOS, it is running by default.
-:::tip Linux
-Start the agent using the command
+permission denied (publickey)
 
-      eval "$(ssh-agent -s)".
-Then you can add these line your `~/.bash_profile` or `~/.zprofile` (for Zsh) to make it running by default.
+:::
 
-      if [ -z "$SSH_AUTH_SOCK" ]; then
-         RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
-         if [ "$RUNNING_AGENT" = "0" ]; then
-            # Launch a new instance of the agent
-            ssh-agent -s &> $HOME/.ssh/ssh-agent
-         fi
-         eval `cat $HOME/.ssh/ssh-agent`
-      fi
-:::tip
+To solve this, first make sure the `ssh agent` is
+[up and running](https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container).
+In MacOS, it is running by default. On Linux you can start the agent using the
+command
 
-Second step to this, would be to configure your `vscode`, in such a way that it is
-accessing your local env variables.
+```sh
+eval $(ssh-agent -s)
+```
 
-In VSCode, go to `Settings`, and in the search bar, type
-`terminal.integrated.inherit`. You should see the option in the image below and
-check it if it's unchecked.
+Then you can add these line your `~/.bash_profile` or `~/.zprofile` (for Zsh) to
+make it run by default.
 
-![vscode settings](/img/vscode-settings.png)
+```sh
+if [ -z "$SSH_AUTH_SOCK" ]; then
+   RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+   if [ "$RUNNING_AGENT" = "0" ]; then
+      # Launch a new instance of the agent
+      ssh-agent -s &> $HOME/.ssh/ssh-agent
+   fi
+   eval `cat $HOME/.ssh/ssh-agent`
+fi
+```
 
-Last step in this process, is to run the command below to add your identity to the ssh
-agent:
+Next, run the command below to add your identity to the ssh agent:
 
 ```mdx-code-block
 <Tabs
@@ -245,15 +258,25 @@ agent:
 </Tabs>
 ```
 
-### Issue with Github Token (GH_TOKEN)
-Make sure you set up an [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in Github.
+Finally, configure VSCode to share your local ssh keys with the dev container.
+In VSCode, go to `Settings`, and in the search bar, type
+`terminal.integrated.inherit`. You should see the option in the image below and
+check it if it's unchecked.
 
-In your `~/.bash_profile` or `~/.zshrc` file, export the newly created token by adding this line
+![vscode settings](/img/vscode-settings.png)
 
-      #GITHUB TOKEN
-      export GH_TOKEN=<TOKEN>
+### Github token sharing
 
-Following those steps, feel free to re-running the `release` and `package-release` commands to finally release your new adaptor.
+Our release process relies on a `GH_TOKEN` variable. Set up an
+[access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+in Github.
+
+In your `~/.bash_profile` or `~/.zshrc` file, export the newly created token by
+adding this line:
+
+```sh
+export GH_TOKEN=<TOKEN>
+```
 
 ## Using a new adaptor in an OpenFn/platform instance
 
