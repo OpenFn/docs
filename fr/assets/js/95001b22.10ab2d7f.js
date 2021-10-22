@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[5800],{76583:function(s){s.exports=JSON.parse('{"allTagsPath":"/fr/articles/tags","slug":"/fr/articles/tags/testing","name":"testing","count":1,"permalink":"/fr/articles/tags/testing"}')}}]);

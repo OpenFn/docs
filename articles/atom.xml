@@ -2,12 +2,179 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.openfn.org/articles</id>
     <title>OpenFn Help Articles</title>
-    <updated>2021-10-08T00:00:00.000Z</updated>
+    <updated>2021-10-22T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.openfn.org/articles"/>
     <subtitle>OpenFn/docs Blog</subtitle>
     <icon>https://docs.openfn.org/img/favicon.ico</icon>
     <rights>Copyright © 2021 Open Function Group, LLC.</rights>
+    <entry>
+        <title type="html"><![CDATA[Testing a React app, the blurred line between Unit, integration and E2E]]></title>
+        <id>Testing a React app, the blurred line between Unit, integration and E2E</id>
+        <link href="https://docs.openfn.org/articles/2021/10/22/testing-react-app-with-jest-hound"/>
+        <updated>2021-10-22T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Have you ever struggled to layout the strategy for testing your React App? Well,]]></summary>
+        <content type="html"><![CDATA[<p>Have you ever struggled to layout the strategy for testing your React App? Well,
+you are not alone! Here a few hints from the lessons I learned during my
+experience testing a
+<a href="https://reactjs.org/">React</a>/<a href="https://redux.js.org/">Redux</a> app with a
+<a href="https://www.phoenixframework.org/">Phoenix</a>/<a href="https://elixir-lang.org/">Elixir</a>
+backend.</p><h2>The Blurred Line</h2><p>Because a React app is built on
+<a href="https://reactjs.org/docs/react-component.html">components</a>, the basic UI units,
+it is natural to think and organise your tests around components! And so unit
+testing, in this case, would refer to &quot;component testing&quot;, which may be
+confusing at times, especially when the concept of unit testing is again applied
+to testing functions such as Redux <code>reducers</code> and <code>action creators</code> or any other
+JavaScript function in your application.</p><p>The other challenge that I often faced was whether to write tests for each
+component in isolation or write a test for a feature that encapsulates a set of
+related components. The later would be equivalent to writing what I would call
+&quot;integration tests&quot;.</p><p>Finally, one would say &quot;well then you could have just written the tests in a way
+that resemble the way the application is used&quot;! This approach is commonly
+recommended in the React community, but it quickly becomes really complex to
+maintain the layers of separation between <strong><em>unit tests</em></strong>, <strong><em>integration
+tests</em></strong> and <strong><em>end-to-end tests</em></strong>.</p><h2>What did I learn?</h2><p>Given a React/Redux application, here is how I would organise my testing
+strategy:</p><h3>Unit Tests</h3><ul><li><p>In a React app, <strong>unit tests</strong> will largely apply to testing &quot;helper
+functions&quot; and not to testing components, as justified in the next section.
+Helper functions, in this case, would refer to functions that live outside the
+components and are neither Redux action creators nor reducers. These functions
+can be used inside components, action creators, reducers or other parts of
+your application.</p></li><li><p>Writing unit tests for &quot;helper functions&quot; would ensure their signatures and
+expected outputs are protected against regressions. This would also ensure
+their use across components or other functions is consistent and as expected.</p></li><li><p>Where possible, each &quot;helper function&quot; must have its own <code>unit test</code>.</p></li><li><p>An example of a unit test would like:</p><pre><code class="language-javascript">const sum = require(&#x27;../../js/sum&#x27;);
+
+test(&#x27;adds 1 + 2 to equal 3&#x27;, () =&gt; {
+  expect(sum(1, 2)).toBe(3);
+});
+</code></pre></li><li><p>Write a <em>thousand</em> of these.</p></li></ul><h3>Integration Tests</h3><ul><li><p>In the context of a React/Redux app, component tests can be thought of as
+<strong>integration tests</strong>. This is because React components are built around
+features such as <code>&lt;Signup /&gt;</code>, <code>&lt;Search /&gt;</code>, etc. So one React component can
+be a mix of other components to achieve a UI feature set.</p></li><li><p>To test a component, write an <strong>integration test</strong> that covers the use of a
+given component for a given UI feature.</p></li><li><p>If a component being tested dispatches a Redux <code>action</code>, this is the right
+place to test those actions and their effect on the UI.</p></li><li><p>Pay attention to the concept of <em>feature isolation</em> vs <em>component isolation</em>
+as it will help you write better integration tests and also easily mock
+component contexts.</p></li><li><p>A classic example of <strong>feature isolation</strong> is when you have a <code>&lt;UserList /&gt;</code>
+component which displays a list of users and has a <code>&lt;button /&gt;</code> to add a new
+user. Writing a test for <code>&lt;UserList /&gt;</code> would be equivalent to testing a
+feature.</p></li><li><p>In this example, one would be tempted to test the action of clicking on the
+<code>&lt;AddUserButton /&gt;</code> and further test the <code>&lt;NewUser /&gt;</code> form... nope! This is
+where we draw the line! Only test that the <code>&lt;UserList /&gt;</code> renders the mock
+<code>users</code> in the list and that the <code>&lt;AddUserButton /&gt;</code> is present/enabled. The
+<code>&lt;UserList /&gt;</code> feature ends there, otherwise you will be sliding into
+<strong>End-to-End</strong> testing :)! The <code>&lt;User /&gt;</code> component, although it is invoked by
+<code>&lt;UserList /&gt;</code> component, it is isolated enough to be tested in its own
+integration test.</p></li><li><p>Testing components this way would make &quot;context mocking&quot; easier for
+components.</p></li><li><p>Another important benefit for isolating testing context, as in the example
+above, is that it will be easier to mock the <code>redux actions</code> and/or api calls
+using tools such as <a href="https://jestjs.io/">Jest</a> and
+<a href="https://mswjs.io/">Mock Service Worker</a> (or &quot;msw&quot;) as explained in the
+<a href="#choosing-testing-tools">Choosing Tools</a> section.</p></li><li><p>The value of writing integration tests for components, in this way, ensures
+that a given component renders the UI consistently, given all possible
+combinations of contexts and interactions. This will also allow you to ensure
+redux actions invoked by the component are called as expected and with the
+correct arguments.</p></li><li><p>An example component integration test would look like:</p><pre><code class="language-javascript">// ....other imports
+import { setupServer } from &#x27;msw/node&#x27;;
+// Tell jest to mock the module
+jest.mock(&#x27;../js/actions/UserActions&#x27;, () =&gt; ({
+  ...jest.requireActual(&#x27;../js/actions/UserActions&#x27;),
+  saveUser: jest.fn(),
+}));
+
+import { saveUser as mockSaveUser } from &#x27;../js/actions/UserActions&#x27;;
+const server = setupServer(...handlers);
+  // Enable API mocking before tests
+  beforeAll(() =&gt; server.listen());
+  // Reset any runtime handlers we may add during the tests
+  afterEach(() =&gt; server.resetHandlers());
+  // Disable API mocking after the tests are done.
+  afterAll(() =&gt; server.close());
+  beforeEach(() =&gt; {
+    jest.clearAllMocks();
+  });
+describe(&#x27;&lt;AddUser/&gt;&#x27;, () =&gt; {
+
+test(&#x27;create new user&#x27;, async () =&gt; {
+    const {getByPlaceholderText,getByText} = render(&lt;User {...defaultProps} /&gt;);
+    userEvent.type(getByPlaceholderText(&#x27;First Name&#x27;), &#x27;John&#x27;);
+    userEvent.type(getByPlaceholderText(&#x27;Last Name&#x27;), &#x27;Doe&#x27;);
+    userEvent.click(getByText(&#x27;Save&#x27;));
+    expect(mockSaveUser).toHaveBeenCalledTimes(1);
+    expect(mockSaveUser).toHaveBeenCalledWith({
+      firstName: &#x27;John&#x27;,
+      lastName: &#x27;Doe&#x27;,
+    });
+}
+
+</code></pre></li><li><p>Write a <em>good couple</em> of these.</p></li></ul><h3>End-to-End (e2e) Tests</h3><ul><li><p>In a React/Redux App, this would mean testing a <em>full flow</em> of a given
+feature. <strong>end-to-end tests</strong> would require launching the entire application,
+including the backend, to run a given test.</p></li><li><p>Note that <strong>end-to-end tests</strong> are different from <strong>integration tests</strong> as
+they require the entire App to run and render the full flow to your component
+under test.</p></li><li><p>With this understanding, consider writing <strong>e2e</strong> tests <em>per workflow</em>.</p></li><li><p>An example <strong>e2e workflow</strong> is the &quot;Viewing and adding users&quot; workflow.</p></li><li><p>The e2e test for this workflow would require a test runner to launch the app,
+log-in, navigate to the users list page, verify existing users are in the
+list, click on the Add New User button and confirm that the new user has been
+added to the list.</p></li><li><p>As you can see, e2e tests have more dependencies and require that you setup
+your testing environment in way that closely simulates your real application
+usage.</p></li><li><p>An example e2e test for a React/Redux App with a Phoenix/Elixir backend, using
+<code>Hound</code> as a test runner looks like this:</p></li></ul><pre><code class="language-elixir">defmodule OpenFn.UsersTest do
+  setup do
+    user = insert(:user, confirmed_at: DateTime.utc_now())
+    {:ok, user: user }
+  end
+
+  @tag :integration
+  test &quot;Sign-up.&quot;, %{user: user} do
+    navigate_to(&quot;/sign-up&quot;)
+    form = find_element(:id, &quot;sign_up_form&quot;)
+
+    form
+    |&gt; find_within_element(:id, &quot;first-name&quot;)
+    |&gt; fill_field(&quot;John&quot;)
+
+    form
+    |&gt; find_within_element(:id, &quot;last-name&quot;)
+    |&gt; fill_field(&quot;Doe&quot;)
+
+    form
+    |&gt; find_within_element(:id, &quot;email&quot;)
+    |&gt; fill_field(&quot;doe@gmail.com&quot;)
+
+    form
+    |&gt; find_within_element(:id, &quot;save-button&quot;)
+    |&gt; click
+
+    assert page_title() === ~s/Welcome to my page/
+    end
+end
+</code></pre><ul><li>Write <em>only a few</em> of these.</li></ul><h2>Choosing Testing Tools</h2><p>There are many testing tools out there, but for a typical <em>React/Redux</em> app the
+following tools should help you accomplish the above tasks:</p><ol><li><a href="https://jestjs.io/docs/getting-started">Jest</a> as test runner for <strong>unit</strong>
+and <strong>integration</strong> tests.</li><li><a href="https://testing-library.com/docs/">React Testing Library</a> used along with
+Jest as an &quot;assertion library&quot; for integration tests.</li><li><a href="https://mswjs.io/docs/getting-started/install">MSW</a> used along with Jest as
+a REST API mocking library.</li><li><a href="https://hexdocs.pm/hound/readme.html">Hound</a> as a test runner for <strong>e2e</strong>
+tests in Elixir/Phoenix apps.
+<a href="https://developers.google.com/web/tools/puppeteer">Puppeteer</a> can also be
+used along with Jest.<ul><li>If Puppeteer is used, it will work seamlessly with Jest but only in
+headless browser mode. It also reduces on tech stack since you will only
+need Jest.</li><li>Hound gives you the ability to run your <strong>e2e</strong> tests both in <code>headless</code>
+and <code>browser</code> mode.</li></ul></li></ol><h2>Final thoughts and next steps</h2><p>Testing a React App can be really hard, but worth it! By building
+<code>Aria-accessible</code> components ahead of time, you save yourself 💰 and good
+health! A few more hints would be:</p><ul><li>Build clean, isolated and plugable components for your better testing
+experience. &quot;God components&quot; can be a <em>pain</em> to test!</li><li>Using test runners such as Jest, that use <em>emulated</em> web browsers (e.g.,
+<code>jsdom</code>) rather than a real browser come with their own challenges in
+rendering and traversing complex DOM trees, especially if you are using UI
+libraries such as <a href="https://mui.com/">MUI</a>.</li><li>If using Jest for <strong>integration tests</strong>, I would recommend the components
+under test have as few dependencies as possible to avoid the complexity
+involved in mocking http requests and waiting for asynchronous DOM rendering.</li></ul><p>What would I do differently? Here are my few thoughts:</p><ul><li>Organise and document detailed test cases for manual &quot;click testing&quot;.</li><li>Identify and clearly isolate components for <strong>integration tests</strong>.</li><li>Do not <em>delete</em> slow tests, instead re-write your component to be faster.
+Respect the linter&#x27;s advice, always!</li><li>Use a commonly supported frontend testing stack such as Jest, Msw, or
+Puppeteer for easier setup and community support.</li><li>Setup your test runner to use a test database. It helps, especially during
+<strong>e2e</strong> testing.</li><li>Always write <strong><em>all the three types</em></strong> of tests, whenever applicable.</li></ul><p>All this stuff for what?</p><ul><li>Well because regressions can be much more expensive to your organisation!
+Writing high quality and thoroughly tested software will save you 💰 and help
+guarantee a maintainable codebase and a progressive software application.</li></ul><p>:::tip Still looking for the legend&#x27;s advice?</p><p>Gotcha, here you go...</p><ol><li>Swallow your pride and be humble: <em>always</em> do <strong>manual testing!</strong></li><li>Click test your way through the <strong>manual test cases</strong> for every new
+deployment, catching regressions.</li><li><em>Lock in</em> your fixes and new features as <strong>unit tests</strong>, <strong>integration
+tests</strong>, and <strong>end-to-end tests</strong>.</li></ol><p>:::</p><p>Happy testing,</p><p>Chaiwa</p>]]></content>
+        <author>
+            <name>Chaiwa Berian</name>
+            <uri>https://github.com/chaiwa-berian</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Improving Multistage Docker Builds using Buildx]]></title>
         <id>Improving Multistage Docker Builds using Buildx</id>
