@@ -1,6 +1,5 @@
 ---
-title: iPaaS Quick-start
-sidebar_label: iPaaS Quick-start
+title: Platform Quick-start
 ---
 
 ## 1. Create your account
@@ -16,57 +15,15 @@ projects and the job runs associated with that project. This is called the outer
 
 ## 3. Review the navigation bar
 
-You should now be looking at the OpenFn User dashboard for a particular project.
-Review the following navigation tabs: `Jobs` | `Triggers` | `Credentials` |
-`Inbox` | `Run History` | `Version Control` | `Access & Security` |
-`Project Settings`
+You should now be looking at the OpenFn User dashboard for a particular project;
+review the navigation tabs.
 
-### Jobs
+:::info Key Concepts
 
-A job defines the specific series of tasks or database actions to be performed
-when a triggering message is received or a scheduled/recurring time is reached.
-Jobs are like the “instructions” you might give a data entry staff member (e.g.,
-create new Patient record in the database, send SMS with payment confirmation
-number, etc.).
+You should be familiar with most of the key concepts in these tabs from the
+[OpenFn Concepts](/documentation/getting-started/terminology) page.
 
-### Triggers
-
-A trigger runs jobs based on events, including incoming messages (this is known
-as a `filter` trigger), on a cron schedule (a `cron` trigger) or based on the
-success or failure of _another_ job(a `flow` or `catch` trigger).
-
-### Credentials
-
-A credential is used to authorize connection to a destination system (e.g.,
-Salesforce username, password & login URL).
-
-### Inbox
-
-Your inbox contains the history of all messages that have passed in to your
-project, which may or may not have triggered a specific job. Messages are stored
-payloads or data (e.g., an incoming SMS, a submitted CommCare form) that were
-sent via HTTP post to your inbox.
-
-### Run History
-
-Runs are OpenFn attempts made on a destination system by running a message
-through a job. Runs can be viewed here and re-processed if there were any errors
-flagged when running a job.
-
-### Version Control
-
-Sync your project with a GitHub repository so that every change is tracked using
-git and jobs can be 'rolled back' to previous commits at the touch of a button.
-
-### Access & Security
-
-Invite other OpenFn users to collaborate with you on your project and create
-authentication methods for your project to restrict which applications can send
-data to your inbox.
-
-### Project Settings
-
-Monitor your usage and update your project settings here.
+:::
 
 ## 4. Check your inbox
 
