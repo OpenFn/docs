@@ -1,6 +1,11 @@
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 ---
-title: Devtools
----
+
+## title: Devtools
 
 A set of tools for writing &amp; testing expressions, managing OpenFn projects,
 and developing new adaptors.
@@ -156,66 +161,122 @@ creates a doclet json file in the `doclets` directory.
 Iterates overs all doclets found in `doclets` and gives a tree view of the
 doclet structure using [jsdoc-query](https://github.com/OpenFn/jsdoc-query).
 
-### bundle
+## Building adaptors for platform
 
-Creates a tarball with all production dependencies install for a given module.
+All adaptor releases are built inside a `docker container`. The importance of
+running the build and release process through a container is to standardize the
+build environment across the team. While adaptors can be built and run on lots
+of different operating systems and architectures, when we run the platform on
+Kubernetes it expects linux boxes running x86... so that's where we build these
+official releases.
 
-Example: `./scripts/bundle-node language-common -o builds` creates a
-`language-common-v1.0.0.tgz` file in the 'builds' directory.
+Here's how to build and release adaptors:
 
-Arguments `./scripts/bundle-node <language> -o <output folder> -d`
+1. Reopen your package in **dev-container** by typing `ctrl+shift+p` (or
+   `cmd+shift+p` on mac) and choosing **Remote-Container: Rebuild and Reopen in
+   Container**.
+2. After the build is finished, open a terminal in vscode and run
+   `openfn-devtools release .` to build, tag, and push to
+   [npm](https://www.npmjs.com/).
+3. Run `openfn-devtools package-release .` to package everything with production
+   dependencies and push to [Github](https://github.com/openfn).
 
-- `-o` - Output folder
-- `-d` - Debug
-- `--no-ast` - Don't build an include an AST for OpenFn.org to parse
+Depending on how you've configured your local environment and your VSCode
+installation, you might encounter access issues preventing connections to NPM
+and GitHub.
 
-### bundle-all
+### Troubleshooting
 
-Runs `bundle` for all repos found in the list, and outputs them to the `builds`
-folder.
+There are a number of issues that you may encounter related to sharing settings
+that are responsible for passing ssh keys and local configurations from your
+host machine into the VSCode container.
 
-### upload-release
+### Git config issues
 
-Uploads a tarball to a Github release.
+An issue can pop up about git config not set, To solve this, you should probably
+set your email and name globally using the commands below:
 
-Example:
-
+```sh
+git config --global user.email "youremail@something.com"
+git config --global user.name "Your Name"
 ```
-GH_TOKEN=<oauth-token> \
-  ./scripts/upload-release -i ./builds/language-common-v0.0.0.tgz
+
+### SSH key issues
+
+You may find that you are unable to access your `ssh` keys from inside the
+container.
+
+:::warning Error
+
+permission denied (publickey)
+
+:::
+
+To solve this, first make sure the `ssh agent` is
+[up and running](https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container).
+In MacOS, it is running by default. On Linux you can start the agent using the
+command
+
+```sh
+eval $(ssh-agent -s)
 ```
 
-Infers the repo name and version number from the file.
+Then you can add these line your `~/.bash_profile` or `~/.zprofile` (for Zsh) to
+make it run by default.
 
-Arguments `./scripts/upload-release -i <file> [-u]`
+```sh
+if [ -z "$SSH_AUTH_SOCK" ]; then
+   RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
+   if [ "$RUNNING_AGENT" = "0" ]; then
+      # Launch a new instance of the agent
+      ssh-agent -s &> $HOME/.ssh/ssh-agent
+   fi
+   eval `cat $HOME/.ssh/ssh-agent`
+fi
+```
 
-- `i` - Path to build file to upload
-- `u` - Update a file if already exists (and is a different size)
+Next, run the command below to add your identity to the ssh agent:
 
-## Releasing a new adaptor version for production use
+```mdx-code-block
+<Tabs
+  defaultValue="linux"
+  values={[
+    { label: 'Linux', value: 'linux' },
+    { label: 'MacOS', value: 'macos' },
+  ]}
+>
+   <TabItem value="linux">
 
-1. **Bump the version in `package.json`**
-2. **Run `npm install`** to update `package-lock.json`
-3. **Commit** and tag your version with `git tag`. _N.B., this is handled with a
-   git hook provided by `bootstrap`_
-4. **Push the commits and tag to GitHub** with `git push && git push --tags`
-5. **Create a release** on the the associated repo on Github, selecting the
-   version tag that was pushed in the last step. Write a title and release notes
-   as needed then click 'Publish release'.
-6. **Return to the devtools directory** with `cd ../../`
-7. **Bundle the module** with
-   `./scripts/bundle-node ./adaptors/<language-pack> -o builds`
-8. **Verify that the tarball was created** in `builds` with the naming
-   convention of: `<language-pack>-<version>.tgz`
-9. **Upload the build** using the `upload-release` script:
-   `./scripts/upload-release -i builds/<file>`
+      ssh-add <path-to-your-ssh-file>
 
-If the wrong file was uploaded or you want to replace the build on Github then
-use the `-u` flag which deletes the build from Github if the filesize is
-different.
+   </TabItem>
+   <TabItem value="macos">
 
-Note that this script expects a `GH_TOKEN` env variable, which is an OAuth2
-token you must get from Github (via the account page)
+      ssh-add -A
+
+   </TabItem>
+</Tabs>
+```
+
+Finally, configure VSCode to share your local ssh keys with the dev container.
+In VSCode, go to `Settings`, and in the search bar, type
+`terminal.integrated.inherit`. You should see the option in the image below and
+check it if it's unchecked.
+
+![vscode settings](/img/vscode-settings.png)
+
+### Github token sharing
+
+Our release process relies on a `GH_TOKEN` variable. Set up an
+[access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+in Github.
+
+In your `~/.bash_profile` or `~/.zshrc` file, export the newly created token by
+adding this line:
+
+```sh
+export GH_TOKEN=<TOKEN>
+```
 
 ## Using a new adaptor in an OpenFn/platform instance
 
