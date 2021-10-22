@@ -1,3 +1,8 @@
+```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+```
+
 ---
 title: Devtools
 ---
@@ -156,55 +161,24 @@ creates a doclet json file in the `doclets` directory.
 Iterates overs all doclets found in `doclets` and gives a tree view of the
 doclet structure using [jsdoc-query](https://github.com/OpenFn/jsdoc-query).
 
-### bundle
+## Building adaptors for platform
 
-Creates a tarball with all production dependencies install for a given module.
+As of now, all new adaptor releases are done through `docker container`. The importance of running the release process through container is to have a similar environment accross the team for deploying. Inside the container, openfn dev team, have the same setup and dependencies are pre-installed. Whether you build using a laptop under Windows, MacOS or Linux you are committed to the same characteristics as the others.
 
-Example: `./scripts/bundle-node language-common -o builds` creates a
-`language-common-v1.0.0.tgz` file in the 'builds' directory.
+Below is the process:
 
-Arguments `./scripts/bundle-node <language> -o <output folder> -d`
-
-- `-o` - Output folder
-- `-d` - Debug
-- `--no-ast` - Don't build an include an AST for OpenFn.org to parse
-
-### bundle-all
-
-Runs `bundle` for all repos found in the list, and outputs them to the `builds`
-folder.
-
-### upload-release
-
-Uploads a tarball to a Github release.
-
-Example:
-
-```
-GH_TOKEN=<oauth-token> \
-  ./scripts/upload-release -i ./builds/language-common-v0.0.0.tgz
-```
-
-Infers the repo name and version number from the file.
-
-Arguments `./scripts/upload-release -i <file> [-u]`
-
-- `i` - Path to build file to upload
-- `u` - Update a file if already exists (and is a different size)
-
-## Releasing a new adaptor version for production use
-
-As of now, all new adaptor releases are done through `docker container`.
-
-1. **Reopen package in dev-container** by typing `ctrl+shift+p (cmd+shift+p for mac)`
+1. Reopen your package in **dev-container** by typing `ctrl+shift+p (cmd+shift+p for mac)`
    and choosing **Remote-Container: Rebuild and Reopen in Container**.
-2. After the build is finished, open a terminal and run **`openfn-devtools release .`**. This creates the tag and pushes to npm.
+2. After the build is finished, open a terminal in vscode and run **`openfn-devtools release .`**. This creates the tag and pushes to npm.
 3. Run **`openfn-devtools package-release .`** to package everything with
    production dependencies.
 
 For each of those steps (2 and 3), you might encounter issues preventing the
 command to run correctly.
 
+## Troubleshooting VSCode containerized development
+Following are the potential issues to encounter. Those issues are mostly present when your local environment differs from the default setup. The containerized vscode environment might not have
+default access to your local setup variables and then need customization.
 ### Issue with git config
 
 An issue can pop up about git config not set, To solve this, you should set your
@@ -250,14 +224,26 @@ check it if it's unchecked.
 Last step in this process, is to run the command below to add your identity to the ssh
 agent:
 
-:::tip MacOs
-      $ ssh-add -A
-:::tip
+```mdx-code-block
+<Tabs
+  defaultValue="linux"
+  values={[
+    { label: 'Linux', value: 'linux' },
+    { label: 'MacOS', value: 'macos' },
+  ]}
+>
+   <TabItem value="linux">
 
-:::tip Linux
-      $ ssh-add <path-to-your-ssh-file>
-:::tip
+      ssh-add <path-to-your-ssh-file>
 
+   </TabItem>
+   <TabItem value="macos">
+
+      ssh-add -A
+
+   </TabItem>
+</Tabs>
+```
 
 ### Issue with Github Token (GH_TOKEN)
 Make sure you set up an [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) in Github.
