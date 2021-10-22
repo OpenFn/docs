@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Standardizing our way of writing a job
+title: Standardizing our way of writing jobs
 author: Mamadou Cisse
 author_url: https://github.com/lakhassane
 author_image_url: https://avatars.githubusercontent.com/lakhassane
@@ -8,12 +8,12 @@ tags: [how-to, tips, jobs, standard]
 featured: true
 ---
 
-A [job](documentation/jobs/job-design-intro) defines a series of different tasks
-(they're called "operations") for processing data within or between systems.
-Those different tasks often serve different purposes, most commonly:
-**interacting with an API** (e.g., using the `createTEI` function from the
-`dhis2` adaptor) or **cleaning and mapping data** (e.g., taking an array of
-names and creating a single `fullName` attribute).
+An OpenFn [job](/documentation/jobs/job-design-intro) defines a series of
+different tasks (they're called ["operations"](/documentation/jobs/operations))
+for processing data within or between systems. Those different tasks often serve
+different purposes, most commonly: **interacting with an API** (e.g., using the
+`createTEI` function from the `dhis2` adaptor) or **cleaning and mapping data**
+(e.g., taking an array of names and creating a single `fullName` attribute).
 
 Depending on the type of job you are writing, you might want make a clear
 separation of concerns between your operations. See it as a diagram where you
@@ -165,14 +165,14 @@ bulk(
 
 This allows us not only to reduce the amount of requests to an external system
 but also allows for easier maintenance and evolution. If we wanted to update our
-mapping, we only need to make the changes in one place which is the `baseMapping` 
-function.
+mapping, we only need to make the changes in one place which is the
+`baseMapping` function.
 
 ## Data Binding
 
 The final example presented previously implements also our data binding
-mechanism from operation to operation. When passing data from one
-operation to another, it always goes through state. Remember, every operation
+mechanism from operation to operation. When passing data from one operation to
+another, it always goes through state. Remember, every operation
 [takes state and returns state](articles/2021/07/05/wrapping-my-head-around-jobs).
 In case you want to store the result of one operation and use it in subsequent
 ones, consider wrapping it inside state, which is the common object passed
