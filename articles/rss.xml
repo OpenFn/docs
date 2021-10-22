@@ -543,8 +543,10 @@ Salesforce—that&#x27;s a quick way to lose adoption.</p><p>So, ideally, you&#x
 your users happy and get them the information they need to do their jobs well
 and <em>then</em> you come back to OpenFn and spell out our data entry instructions
 like we&#x27;ve done above.</p><h2>A final thought</h2><p>The two most important resources you&#x27;ve got at your disposal if you&#x27;re setting
-this all up on your own are:</p><ol><li>this site (docs.openfn.org), and</li><li>the <a href="https://community.openfn.org">forum</a> (community.openfn.org)</li></ol><p>Read through the <a href="/documentation/getting-started/overview">&quot;Getting Started&quot;</a>
-and <a href="/documentation/build/jobs">&quot;Build&quot;</a> sections if you&#x27;re a thorough,
+this all up on your own are:</p><ol><li>this site (docs.openfn.org), and</li><li>the <a href="https://community.openfn.org">forum</a> (community.openfn.org)</li></ol><p>Read through the
+<a href="/documentation/getting-started/so-you-want-to-integrate">&quot;What is an integration&quot;</a>,
+<a href="/documentation/getting-started/terminology">&quot;OpenFn Concepts&quot;</a>, and
+<a href="/documentation/build/jobs">&quot;Build&quot;</a> sections if you&#x27;re a thorough,
 background-first kind of learner. If you crave snippets and sample job code,
 head directly to the <a href="/library">Job Library</a> to see how other OpenFn users are
 creating their jobs.</p><p>Either way, keep the community posted on your progress in the forum—you&#x27;ll find
