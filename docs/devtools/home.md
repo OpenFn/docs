@@ -1,11 +1,6 @@
-```mdx-code-block
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
 ---
-
-## title: Devtools
+title: Devtools
+---
 
 A set of tools for writing &amp; testing expressions, managing OpenFn projects,
 and developing new adaptors.
@@ -238,6 +233,9 @@ fi
 Next, run the command below to add your identity to the ssh agent:
 
 ```mdx-code-block
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 <Tabs
   defaultValue="linux"
   values={[
