@@ -11,10 +11,10 @@ OpenFn is an integration platform. And if you found us, you likely came to the
 conclusion at some moment prior that you want to integrate technology X with
 technology Y (and maybe W and Z while you're at it). But not all of our users
 come to OpenFn with a wealth of previous integrations under their belt. So if
-this is your first go (or second or third), this page can help you think through
+this is your first go, this page can help you think through
 all the different ways integrations can take shape so that you have a strong
 understanding of what it is you really want _before_ you start writing
-[(or borrowing)](https://docs.openfn.org/library) a job.
+[(or borrowing)](https://docs.openfn.org/library) a [job](https://docs.openfn.org/documentation/jobs/job-design-intro/).
 
 There are plenty of different reasons to integrate your data systems. Maybe you
 want one "master" view that you or your clients can trust as a source of truth.
@@ -43,11 +43,10 @@ This part boils down to end goals. Integration for integration's sake is a waste
 of time. What's your reason for wanting X data in Y system?
 
 It's important to keep that ultimate business requirement in mind when designing
-any integration, weighing potential outcomes of design decisions against that
-ultimate goal, lest you take a wrong turn and end up not accomplishing the
-motivation behind all this work.
+any integration and weigh potential outcomes of design decisions against that
+ultimate goal.
 
-2. **when** you move the data.
+2. **When** you move the data.
 
 Usually, you can articulate the best case scenario here in plain English pretty
 easily.
@@ -67,7 +66,7 @@ A crucial difference between these two **whens** is that the first turns on an
 action, whereas the second is based on a set period of time, regardless of what
 happens in that window.
 
-3. **how** you move the data, namely whether the destination system is pulling
+3. **How** you move the data, namely whether the destination system is pulling
    or the source system is pushing (or some other pattern), what format the data
    is being transferred in, and what protocol(s) that system is using to do it.
 
@@ -92,3 +91,8 @@ other systems our customers use. What that means is that we often can't just
 grab data from one system and put it into another without first assuring each
 system that we are someone who's allowed to be there. In general, we talk about
 this slice of the world as **authentication**.
+
+These are all very important questions to consider when designing an integration. 
+Check out our docs on integration design to learn more about how we begin to answer these questions and more:
+- **Integration design:** https://docs.openfn.org/documentation/design/design-quickstart/  
+- **Glossary for integration:** https://docs.openfn.org/documentation/getting-started/glossary/  
