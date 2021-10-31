@@ -533,17 +533,16 @@ fn(state => {
     const lastName = user.name.split(' ').slice(-1).join(' ');
     const currentDate = Date.now();
     return {
-      orgUnit: 'DiszpKrYNg8',
+      orgUnit: 'g8upMTyEZGZ',
       trackedEntityType: 'nEenWmSyUEp',
       attributes: [
-        { attribute: 'firstName', value: firstName },
-        { attribute: 'lastName', value: lastName },
+        { attribute: 'w75KJ2mc4zz', value: firstName },
+        { attribute: 'zDhUuAYrxNC', value: lastName },
       ],
       enrollments: [
         {
-          orgUnit: 'DiszpKrYNg8',
-          program: 'uy2gU8kT1jF',
-          programState: 'oRySG82BKE6', // active
+          orgUnit: 'g8upMTyEZGZ',
+          program: 'IpHINAT79UW',
           enrollmentDate: currentDate,
           incidentDate: currentDate,
         },
@@ -554,6 +553,53 @@ fn(state => {
 });
 ```
 
+In the code above we constructed a TEI object using some attributes like the
+`first name` and the `last name` of the users we previously got from JSON
+Placeholder. This is a very common pattern that we usually do in jobs. We
+already talked about it, it's called the mapping and it's the key components of
+an integration workflow.
+
 ### Create the TEIs in DHIS2
 
+Now that we've prepared TEIs object, let's persist them in DHIS 2 using the
+`createTEI` helper function coming from the `language-dhis2` adaptor. That
+function takes as input a TEI object and creates it in DHIS 2 using the
+configuration we specified in the `state` file.
+
+To do that, add the following code in the `createTEIs.js` expression file.
+
+```javascript
+fn(state => {
+  for (let tei of state.teis) {
+    createTEI(tei);
+  }
+  return state;
+});
+```
+
+What we're doing is that we looping over all the TEIs we prepared and stored in
+the state and pass each one of them to the `createTEI` helper function to create
+it.
+
+And, yes, that's all for our second expression file (`createTEIs.js`). Now we're
+able to create all the TEIs in our DHIS 2 playground.
+
 ## Conclusion
+
+In this part 2 we've seen a fully working real world example of a job that uses
+two adaptors (`language-http` and `language-dhis2`). Our job that has 2
+expression files simulates a real world example where we get some data from a
+source A, transform them and send them to a source B. In complex job scenarios
+(we usually use BPMN diagrams to represent them) the transformations can be
+longer than what we showed here, but the idea is the same.
+
+I hope that this tutorial we'll help you now, know a little bit more about jobs
+and how to create them using devtools. It's very important to mention that even
+though it's very usefull to build and run jobs locally, sometimes it can be much
+more handy to run jobs directly in [OpenFN Platform](https://www.openfn.org/how)
+too. If you want to know how to achieve that,
+[this wonderful video](https://www.youtube.com/watch?v=e2V88NoLQco) of
+[Aleksa](https://twitter.com/aleksa_krolls) will be very helpful.
+
+You can find all the code of part 1 and part 2 of this tutorial in this
+[Github repository](https://github.com/elias-ba/write-openfn-jobs).
