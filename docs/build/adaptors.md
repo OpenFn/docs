@@ -141,9 +141,7 @@ Accordingly, your `package.json` should add a dependency to that version as this
 
 ### Build
 
-Building an adaptor is done by running the command `make` from the root folder.
-
-![Build an adaptor](/img/make.png)
+Building an adaptor for release is done by running the command `npm run build` from the root folder.
 
 ### Tests
 
