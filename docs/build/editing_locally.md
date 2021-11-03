@@ -25,5 +25,8 @@ To edit your jobs, use a code editor such as [Visual Studio Code](https://code.v
 
 (/img/edit_job_vscode.png)
 
+Make sure you install the [Prettier VSCode Extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) and set is as default formatter in Settings as seen below. This will apply the correct code formatting to the files you change.
 
 (/img/prettier.png)
+
+Once you're done, you can check which files you changed with `git status`. Then use `git add {filepath}` [followed])(https://github.com/git-guides/git-commit) by `git commit -m {change notes}` to prepare the changes to be merged into the repo. Then run `git push` to upload files to the repo (see more on [git docs](https://github.com/git-guides/git-push)).
