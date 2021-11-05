@@ -8,6 +8,188 @@ Currently, this section is specific to **OpenFn/plaform**.
 
 :::
 
+## Jobs
+
+This section of the portal allows you to create and manage your jobs.
+
+### Searching jobs
+
+For a project with a number of jobs, finding a job can be easily achieved via
+the search feature.
+
+To search for a given job:
+
+- From the application **menu**, click on **Jobs**.
+- Find the **Search jobs** box and type the name of the job in the search box.
+- The application will filter and show all jobs matching the portion of text
+  entered into the search box.
+
+### Switching on/off a job
+
+In OpenFn, a job is **off** by default. To **switch on** a given job, follow the
+steps below:
+
+- From the application **menu**, click on **Jobs**.
+- Find the job you would like to turn on.
+- On the top-right corner of the job card, click on the **switch** button to
+  turn on/off the job.
+- Once switched on, the job's **switch** button will change the color to
+  **blue**.
+
+:::info
+
+Note that once a job is **switched on**, OpenFn will run it automatically, as
+[configured](/documentation/build/jobs). If you do not want a job to be run
+automatically, by OpenFn, then turn it **off**.
+
+:::
+
+### Making a job private
+
+OpenFn allows you to share jobs to an **open source job library** that other
+users can learn from or reuse. All jobs are available for sharing and inherit
+project sharing settings, by default. If you do not want a given job to be
+available for sharing to [OpenFn's Job Library](/library/introduction/), then
+you can mark that job as **private**. To mark a job as private, follow the below
+steps:
+
+- From the application **menu**, click on **Jobs**.
+- Find the job you would like to mark as **private**.
+- On the bottom-left corner of the job card, click on the **View**.
+- While on the details page for the selected job, click on the **eye** icon.
+
+:::info
+
+Note that once a job is marked as **private**, sharing will be blocked even if
+its project is enrolled in the [OpenFn's Job Libary](/library/introduction/).
+You can toggle this setting back by clicking on the **eye** icon.
+
+:::
+
+### Archiving a job
+
+OpenFn allows you to **archive** a job if it is no longer needed or used. To
+archive a job, follow the steps below:
+
+- From the application **menu**, click on **Jobs**.
+- Find the job you would like to **archive**.
+- On the bottom-left corner of the job card, click on the **View**.
+- While on the details page for the selected job, click on the **archive** icon.
+- Confirm archiving in the dialog that pops up after clicking the archive icon.
+
+:::info
+
+Note that once **archived**, the job won't appear in your jobs list. Also
+messages will not appear to match against it until you restore the job. Also
+note that a job **cannot be deleted**, it can only be archived.
+
+:::
+
+### Restore archived job
+
+To restore an archived job, follow the steps below:
+
+- From the application **menu**, click on **Jobs**.
+- While on the jobs list page, click on the **Show archived jobs** button.
+- All archived jobs will be shown in the jobs list.
+- Find the job you would like to **restore**.
+- On the bottom-left corner of the job card, click on the **View**.
+- While on the details page for the selected job, click on the **restore** icon.
+- The job will now be shown in the list of available jobs.
+
+### Disabling console logs for a job
+
+OpenFn allows you to disable `console.log` statements for your job. Disabling
+`console.log` ensures that sloppy or malicious code written in the job
+expression does not expose sensitive data from the jobs.
+
+To disable `console.log` for a given job, follow the steps below:
+
+- From the application **menu**, click on **Jobs**.
+- Find the job you would like to **disable console log** for.
+- On the bottom-left corner of the job card, click on the **View**.
+- While on the details page for the selected job, click on the **lock** icon.
+
+### Editing a job
+
+OpenFn allows you to edit or make changes to existing jobs. To edit a given job,
+follow the steps below:
+
+- From the application **menu**, click on **Jobs**.
+- Find the job you would like to **edit**.
+- On the bottom-left corner of the job card, click on the **View**.
+- While on the details page for the selected job, click on the **pencil** icon.
+- See details about job editing in [Job Studio here](platform-mgmt#job-studio).
+
+### Job change history and reverting changes
+
+If your job is linked to a Github repo, changes made to a job expression can be
+reverted to a given git commit. To revert changes made to a job expression,
+follow the steps below:
+
+- From the application **menu**, click on **Jobs**.
+- Find the job whose changes you would like to **revert**.
+- On the bottom-left corner of the job card, click on the **View**.
+- While on the details page for the selected job, scroll down to the bottom of
+  the job card and click on **View Change History**.
+- Select a corresponding change history row.
+- Accept the prompts to revert to a previous commit, in the revert dialog.
+
+:::info
+
+Note that after the revert dialog confirmation, the job expression will
+instantly be reverted to a selected commit. No other jobs will be reverted. To
+instantly revert all jobs in for a given project to a previous commit,
+[resend the webhook from GitHub](./platform-mgmt#github-version-control).
+
+:::
+
+### Creating a new job
+
+To create a new job, follow the steps below:
+
+- From the application **menu**, click on **Jobs**.
+- Find a **blue** flating button with **+** icon, and click on it.
+- Clicking the **+** button will open **Job Studio** for you to enter details
+  for your new job.
+- See details on how to use [Job Studio here](platform-mgmt#job-studio).
+
+## Triggers
+
+_coming soon..._
+
+### Searching triggers
+
+_coming soon..._
+
+### Editing a trigger
+
+_coming soon..._
+
+### Creating a trigger
+
+_coming soon..._
+
+## Credentials
+
+_coming soon..._
+
+### Credential ownership and access
+
+_coming soon..._
+
+### Transferring credential ownership
+
+_coming soon..._
+
+### Editing a credential
+
+_coming soon..._
+
+### Creating a new credential
+
+_coming soon..._
+
 ## Activity
 
 In this section of the portal, you can view a list of all "runs" - i.e.
