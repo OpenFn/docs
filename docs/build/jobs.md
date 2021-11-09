@@ -2,25 +2,24 @@
 title: Introduction to Jobs
 ---
 
-A job defines the specific series of tasks or database actions to be performed
-when a triggering message is received (even-based) or a pre-scheduled (and
-recurring) time is reached.
+A job defines the specific series of "operations" (think: tasks or database
+actions) to be performed when a triggering message is received (even-based),
+another run finishes (flow- or catch-based) or a pre-scheduled (and recurring)
+time is reached.
 
 ## The properties of a job
 
-- `Name` - a human-readable name
+- `Name` - a human-readable name describing the series of operations
 - `Project` - the project the job belongs to
-- `Trigger` - the trigger that is used to control initiation of the job
+- `Trigger` - the trigger that is used to automatically initiate a run of the
+  job
 - `Adaptor` - the adaptor that is used to provide tool-specific functionality
-  for this job (e.g., `language-dhis2` or `language-commcare`.)
-- `Auto-process?` - a true/false switch which sets the job to automatically run
-  on matching messages when they arrive.
-- `Expression` - the job "script" itself, a sequence of operations which tell
-  the job what to do.
+  for this job (e.g., `language-dhis2` or `language-commcare`)
+- `Auto-process?` - a true/false switch which controls whether the trigger
+  should be used to automatically run this job when its criteria are met
+- `Expression` - the job "script" itself; a sequence of operations
 
-Here, we'll focus on the expression.
-
-### Adaptors
+## Adaptors
 
 We've got a whole section on creating new
 [Adaptors](/documentation/build/adaptors), but the critical thing to be aware of
@@ -29,46 +28,41 @@ version**.
 
 All of the discussion below of helper functions like `create` or `findPatient`
 requires some understanding of adaptors. When you run a job, you're borrowing a
-bunch of functionality that's been built to connect with some particular type of
-API.
+layer of functionality that's been built to connect with some specific API, type
+of API, or database.
 
 For example, `create` means one thing in `language-salesforce` and another thing
 entirely in `language-dhis2`. For this reason, before you can begin writing a
-job you have to know what `adaptor` you're working with.
+job you have to decide which `adaptor` to work with.
 
-Look at the following logs:
+### Adaptor Versions
 
-```sh
-╭──────────────────────────────────────────────╮
-│ ◲ ◱  @openfn/core#v1.3.12 (Node.js v12.20.1) │
-│ ◳ ◰             @openfn/language-http#v3.1.5 │
-╰──────────────────────────────────────────────╯
-... the rest of the logs
+Adaptors change over time. They're open source, and we encourage as much
+contribution as possible—releasing new versions for use on OpenFn.org as soon as
+they pass our security reviews. New features may be added and bugs may be fixed,
+but in order to make sure that an existing integration is not broken, we
+recommend that you select a specific version (rather than using the
+"auto-upgrade" feature) when you choose an adaptor. The highest released version
+is the default choice here.
 
-Finished.
-```
+:::tip
 
-Note how the _first 4 lines_ in the log of any run on OpenFn will tell you what
-adaptor you're running. (As well as the version of core and NodeJs) This is
-incredibly important, particularly if you're trying to troubleshoot jobs in
-various environments (like your own shell, OpenFn.org, OpenFn/microservice,
-etc.).
+The _first 4 lines_ in the log of any run on OpenFn will tell you what adaptor
+you're running. (As well as the version of core and NodeJs) This is incredibly
+important, particularly if you're trying to troubleshoot jobs in various
+environments (like your own shell, OpenFn.org, OpenFn/microservice, etc.).
 
-#### Adaptor Versions
-
-Note that adaptors can change over time. They're open source, and we encourage
-as much contribution as possible—releasing new versions for use on OpenFn.org as
-soon as they pass our security reviews.
+:::
 
 Pay careful attention to which `version` you're using to write a job. Consider
-the following logs:
+the following run logs:
 
 ```sh
 ╭───────────────────────────────────────────────╮
 │ ◲ ◱  @openfn/core#v1.3.12 (Node.js v12.20.1)  │
 │ ◳ ◰             @openfn/language-http#v2.4.15 │
 ╰───────────────────────────────────────────────╯
-... the rest of the logs
+...more logs here...
 
 Finished.
 ```
@@ -77,18 +71,30 @@ Note that here, OpenFn/core version `1.3.12` is running on Node.js `12.20.1` and
 using `@openfn/language-http#v2.4.15` which might have very different helper
 functions from `@openfn/language-http#v3.1.5`
 
+:::info
+
+See [the npm section](/documentation/build/adaptors#install-on-platform-via-npm)
+on the adaptors docs page to learn how to install an adaptor from `npm` while
+using `platform`.
+
+:::
+
+### Upgrading to newer adaptor versions
+
+While it may be beneficial to upgrade as part of your routine maintenance, these
+upgrades should be carefully tested. Most often, customers upgrade to a new
+adaptor version for an existing job when they are making business-drives changes
+to that job. Some business-driven changes may actually _require_ upgrading the
+version in order to use a new feature from the adaptor. Even if those changes
+don't require and upgrade, if the technical team must spend time testing
+job-specific changes anyway, it may be an ideal opportunity to test also test an
+upgrade.
+
 Adaptors follow [SEMVER](https://semver.org/) so you can be reasonably assured
 that upgrading from `x.1.z` to `x.2.z` will not lead to existing job code
 failing, but an upgrade from `3.y.z` to `4.y.z` may—in SEMVER _major_ upgrades
 (those that change the first number in the `x.y.z` version number) have
 "breaking" or "non-backwards compatible" changes.
-
-:::note
-
-See [the npm section](/documentation/build/adaptors#install-on-platform-via-npm) on the adaptors
-docs page to learn how to install an adaptor from `npm` while using `platform`.
-
-:::
 
 ## Composing job expressions
 
@@ -167,23 +173,12 @@ values in the `patient_names` array from our source message.
 For security reasons, users start with access to the following standard
 Javascript globals, and can request more by opening an issue on Github:
 
-- Array
-- console
-- JSON
-- Number
-- Promise
-- String
-
-\*N.B. The runtime environment on the server is Node v6.17.0.
-
-Other than the expression tree, Jobs have certain attributes that must be set:
-
-1. **Filter** - The message filter that will triggers the job.
-2. **Adaptor** - The adaptor for the destination system you're connecting to.
-3. **Credential** - The credential that will be used to gain access to that
-   destination system.
-4. **Active?** - A boolean which determines whether the job runs in real-time
-   when matching messages arrive.
+- [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+- [`console`](https://nodejs.org/api/console.html)
+- [`JSON`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON)
+- [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+- [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 ## Examples of adaptor-specific functions
 
