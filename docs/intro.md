@@ -15,8 +15,8 @@ enterprises, primarily in the health and humanitarian sectors. It includes both
 - the free and open-source
   [**OpenFn Integration Toolkit**](/documentation/getting-started/integration-toolkit),
 
-with the latter being a **digital public good** (a "DPG") recognized in Digital
-Square's
+with the latter being a **digital public good** (a "DPG") recognized in the
+[DPG Registry](https://digitalpublicgoods.net/registry/) and Digital Square's
 [Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook).
 
 :::tip
