@@ -2,8 +2,10 @@
 title: Working with branches
 ---
 
-In the Editing jobs locally section we walked through the process of creating
-and adding your changes to the `main` branch of a project.
+In the
+[Editing jobs locally](https://docs.openfn.org/documentation/jobs/editing_locally)
+section we walked through the process of creating and adding your changes to the
+`main` branch of a project.
 
 However, most code change workflows involve sharing and reviewing changes before
 deployment. You can do this by creating, testing and sharing your changes on a
@@ -26,10 +28,14 @@ repo to your local folder.
    prepare the changes to be merged into the repo.
 
 5. The following command will push your changes to the remote repository as a
-   separate, new branch: `git push --set-upstream origin {branch_name}`
+   separate, new branch: `git push --set-upstream origin {branch_name}`.
 
 6. On GitHub, you can create a Pull Request to get your changes reviewed and
    approved.
+
+   ![PR-1](/img/pull-request.png)
+
+   ![PR-2](/img/pull-request-2.png)
 
 7. As you keep working with branches, make sure you check which branch you're on
    with `git status`.
