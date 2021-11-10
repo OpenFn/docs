@@ -2,14 +2,23 @@
 title: Working with branches
 ---
 
-In the
-[Editing jobs locally](https://docs.openfn.org/documentation/jobs/editing_locally)
-section we walked through the process of creating and adding your changes to the
-`main` branch of a project.
+In the [Editing jobs locally](/documentation/jobs/editing_locally) section we
+walked through the process of creating and adding your changes to the `main`
+branch of a project.
 
 However, most code change workflows involve sharing and reviewing changes before
 deployment. You can do this by creating, testing and sharing your changes on a
 new branch, then, once final, merging them into `main` for deployment.
+
+:::tip
+
+There are LOTS of different strategies for branching and reviewing code on Git.
+(Like [GitHub Flow](https://guides.github.com/introduction/flow/) or
+["That Famous @nvie Post"](https://nvie.com/posts/a-successful-git-branching-model/)
+for example!) This guide is meant to give you a very brief introduction to
+branches in Git, but it is not meant to dictate the "right way".
+
+:::
 
 Let's pick up the workflow when you `git pull` -ed the latest changes of the
 repo to your local folder.
@@ -19,7 +28,7 @@ repo to your local folder.
    branch, managed separately from `main`.
 
 2. To test the changes locally, check out the
-   [Devtools](https://docs.openfn.org/documentation/devtools/home) docs.
+   [Devtools](/documentation/devtools/home) docs.
 
 3. Just as you've seen when working on `main`, when you're done check which
    files you changed with `git status`.
