@@ -154,7 +154,8 @@ To create a new job, follow the steps below:
   for your new job.
 - See details on how to use [Job Studio here](platform-mgmt#job-studio).
 
-## Triggers
+<!-- TODO: @chaiwa, can you finish this up on Friday? -->
+<!-- ## Triggers
 
 _coming soon..._
 
@@ -188,7 +189,7 @@ _coming soon..._
 
 ### Creating a new credential
 
-_coming soon..._
+_coming soon..._ -->
 
 ## Activity
 
@@ -560,22 +561,56 @@ internal security protocols.
 
 ## GitHub version control
 
-You're ready to manage your jobs via GitHub, the leading hosted version control
-software on the web? Great, this section describes the steps necessary to get
-going.
-
-**_N.B.: GitHub integration is currently only available for enterprise users.
-Contact [enterprise@openfn.org](mailto:enterprise@openfn.org) to build a custom
-plan for your needs._**
-
-### Motivation
-
 Managing large numbers of jobs with multiple contributors is complicated. We
 developed the GitHub integration so that OpenFn projects can be linked to GitHub
-repositories. You can work collaboratively on your jobs. When commits are made
-to a particular branch OpenFn will automatically update the linked job with the
-new job file from GitHub. Likewise, all changes made on the OpenFn platform will
-automatically create commits to the linked repo on Github.
+repositories and you can work collaboratively on your jobs, incorporating git
+flows for management.
+
+OK, you're ready to manage your jobs via GitHub, the leading hosted version
+control software on the web? Great, this section describes the steps necessary
+to get going.
+
+:::info tl:dr;
+
+1. If a **commit** is made to a designated branch on GitHub,
+
+   ✅ OpenFn will automatically update the associated job's **expression** to
+   match the file on GitHub.
+
+2. If a job's **expression** or **GitHub filepath** is modified on the platform,
+
+   ✅ OpenFn platform will automatically push a **commit** to your Github repo,
+   updating the linked file to match the expression.
+
+:::
+
+Note that if you change a file on GitHub that's _not_ related to any OpenFn
+jobs, no update will be made on OpenFn. Likewise, if you edit a job on OpenFn
+but _don't_ make any changes to the **expression** or **Github filepath**, no
+commit will be made on GitHub.
+
+:::warning
+
+As soon as you enter a valid filepath for a job in a project with a connected
+Github repo, all modifications made to that job on OpenFn will appear as Github
+commits on that branch in that repo.
+
+Likewise, as soon as you make a commit on Github with a change to a file that is
+linked to a job on OpenFn, the contents of that file will overwrite the existing
+job on OpenFn.
+
+⚠️ **PLEASE note** that _before_ you connect Github, there is no version history
+for OpenFn jobs on the platform. If you commit something you don't want (like an
+empty file) to Github, `autodeploy` is on, and that file is linked to an OpenFn
+job, you will **erase your existing job** and you may not be able to retrieve
+it. ⚠️
+
+For this reason, and because [**OpenFn/devtools**](/documentation/devtools/home)
+provides a free, open-source, offline testing environment, it's recommended to
+create your jobs using a Github repo and test them on your own machine _before_
+linking them to a project on OpenFn.
+
+:::
 
 ### Setup Steps
 
@@ -603,26 +638,11 @@ automatically create commits to the linked repo on Github.
    or `some_folder/some_other_job.js` to link your OpenFn job to the select file
    in your repo.
 
-:::warning
+:::info
 
-The sync between OpenFn and Github is bi-directional. As soon as you enter a
-valid filepath for a job in a project with a connected Github repo, all
-modifications made to that job on OpenFn will appear as Github commits for that
-repo.
-
-Likewise, as soon as you make a commit on Github with a change to a file that is
-linked to a job on OpenFn, the contents of that file will overwrite the existing
-job on OpenFn.
-
-**It is important to note** that _before_ you connect Github, there is no
-version history for your OpenFn jobs. If you commit an empty file to Github,
-it's possible to entirely overwrite your existing OpenFn job.
-
-Both for this reason, and because
-[OpenFn/devtools](/documentation/devtools/home) provide a free, open-source,
-offline testing environment, it's recommended to create your jobs using a Github
-repo and [OpenFn/devtools](/documentation/devtools/home) _before_ linking them
-to a project on OpenFn.
+Automated GitHub version control is currently only available for enterprise
+users. Contact [enterprise@openfn.org](mailto:enterprise@openfn.org) to build a
+custom plan for your needs.
 
 :::
 
