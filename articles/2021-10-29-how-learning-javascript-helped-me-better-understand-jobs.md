@@ -139,7 +139,8 @@ upload the empty string to Salesforce. **This distinction is especially
 important in cases where we are overwriting existing data.** For instance, if a
 student previously lived in Ratoma and then moved to an unknown district marked
 as "Other", "undefined" _would not_ update the student's district in Salesforce
-but the empty string would.
+but the empty string would. Both of these are falsy values but have different
+meanings in Salesforce.
 
 How about if the message includes a value for a district that _is not_ in the
 mapping? Such as "New York". Should the job default to undefined? Null?
@@ -178,16 +179,77 @@ const sign = '$';
 console.log(`The ${sign} isn't so confusing!`);
 ```
 
+## Higher-order functions & iterators
+
+The most challenging module in the course covered **higher-order functions**.
+These are defined as **functions that accept other functions as arguments
+and/or return functions as output.** But why are these important and how are
+they used in OpenFn jobs? It turns out we use them quite alot! The code below is
+an example from an existing integration with the field names replaced.
+
+```js
+const participantsToUpdate = state.data.json.filter(data =>
+  state.idList.includes(data.id)
+);
+const participantsToCreate = state.data.json.filter(
+  data => !state.idList.includes(data.id)
+);
+```
+
+This code is using a built-in JavaScript method that **helps us iterate on
+arrays to manipulate elements and return values.** The `.filter()` method is
+being used to return a new array after filtering out certain elements from the
+original array. We have declared two variables to store the new arrays:
+`participantsToUpdate` and `participantsToCreate`. Participants whose ids are
+existing in the destination system (or who are in the `idList` array) are added
+to `participantsToUpdate`, and any remaining participants are added to
+`participantsToCreate`. This filtering helped us perform the correct operations
+on each participant type. For instance, later in the job, we use the filtered
+arrays to only overwrite a participant's `reportNumber` field if it is a new
+participant. `.filter()` is just one of many higher-order functions that power
+OpenFn jobs.
+
+## Objects & job mappings
+
+The final lesson was on objects and key-value pairs--something used in almost
+every OpenFn job! The result of the design and mapping phase of requirements
+gathering is almost always a mapping document which includes key-value pairs in
+plain English. These specifications are then translated to JavaScript via
+**_objects_**. The code below is a snippet of an object which captures the
+key-value pairs for states in the US.
+
+```js
+const stateMapping = {
+   AK: 'ALASKA',
+   AZ: 'ARIZONA',
+   AR: 'ARKANSAS',
+   CA: 'CALIFORNIA',
+   ....
+```
+
+The value left of the colon is how the state is represented in the source
+system, and the value right of the colon represents how OpenFn will send the
+data to the destination system. This mapping process is key to integration
+design. Learn more about
+mappings [here](/documentation/apps/salesforce/#mapping-and-design-considerations).
+
+:::tip
+
+MDN has more details on objects
+[here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object).
+Tl;dr: "The Object class represents one of JavaScript's data types. It is used
+to store various keyed collections and more complex entities."
+
+:::
+
 ## Next steps
 
 I'm well on my way to becoming a better job reader and writer. Here are some
 next steps:
 
-1. Complete the 4 remaining Codecademy modules on **Intro to JavaScript.**
+1.  Understand `fn(state)` and how `state` can be manipulated in OpenFn jobs.
 
-2. Understand `fn(state)` and how `state` can be manipulated in OpenFn jobs.
+2.  Explore what's available on the JavaScript docs
+    [site](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 
-3. Explore what's available on the JavaScript docs
-   [site](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
-
-4. Sign up for the next level JavaScript course.
+3.  Sign up for the next level JavaScript course.
