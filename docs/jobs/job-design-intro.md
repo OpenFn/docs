@@ -10,7 +10,7 @@ other words, mapping data elements from one system to the other.
 
 Designing a job really just means clearly defining the “rules” for data element
 mapping. We'll walk through the main steps using Kobo Toolbox as an example
-source system and a Postgres database as destination but check out the [Integration design](https://docs.openfn.org/documentation/design/design-quickstart/) page for more details on data flow diagrams and mappings.
+source system and a Postgres database as destination but check out the [integration design](/documentation/design/design-quickstart/) page for more details on data flow diagrams and mappings.
 
 Step 1: Map your data flows
 

@@ -67,7 +67,7 @@ For example, if you want to exchange information between your organization and
 another... how might this exchange work from a functional point of view? _What_
 information will be exchanged? With _whom_ (between which systems or users)?
 _When_ will the information be exchanged? And what are the human or automation
-steps that should facilitate and trigger this exchange? These business process questions are discussed in more detail on the [So, what is an integration?](https://docs.openfn.org/documentation/getting-started/so-you-want-to-integrate/) page. 
+steps that should facilitate and trigger this exchange? These business process questions are discussed in more detail on the [So, what is an integration?](/documentation/getting-started/so-you-want-to-integrate/) page. 
 
 :::tip Capture the current & desired process Document _current and desired_
 business processes in order to determine how information should be exchanged
