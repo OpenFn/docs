@@ -6,19 +6,19 @@ title: Integration Design
 
 **Integration design begins with the functional or business requirements (not
 the technical bits).** Therefore, you do not need to be an IT consultant or
-software engineer to start designing an integration a solution! (Although having
+software engineer to start designing an integration solution! (Although having
 those resources certainly helps when we get to the technical specifications...
 but more on that later).
 
 A clear understanding and _documentation_ of the business processes, functional
-requirements, and people interacting with your desired integration are first
+requirements, and people interacting with your desired integration are the first
 critical step in integration design. As you're planning for your next
 integration project, start developing the following documentation to get started
 with solution.
 
 ## 1. Capture requirements as user stories
 
-Documenting _why_ the integration needed and the driving requirements is
+Documenting _why_ the integration is needed and the driving requirements is
 important to making sure the priority needs are identified and that everyone is
 aligned on project expectations.
 
@@ -67,7 +67,7 @@ For example, if you want to exchange information between your organization and
 another... how might this exchange work from a functional point of view? _What_
 information will be exchanged? With _whom_ (between which systems or users)?
 _When_ will the information be exchanged? And what are the human or automation
-steps that should facilitate and trigger this exchange?
+steps that should facilitate and trigger this exchange? These business process questions are discussed in more detail on the [So, what is an integration?](/documentation/getting-started/so-you-want-to-integrate/) page. 
 
 :::tip Capture the current & desired process Document _current and desired_
 business processes in order to determine how information should be exchanged

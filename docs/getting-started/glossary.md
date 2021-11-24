@@ -8,8 +8,8 @@ important to establish some of the foundational concepts we need to press
 forward. This doesn't mean you can't use OpenFn if you don't know what any of
 these words mean prior to reading our documentation, but it does mean that some
 of the most important tasks along the OpenFn journey will assume at least a
-basic understanding of each of these terms, which is why this page is here. In
-some cases, we also link to further reading if you really want a better
+basic understanding of each of these terms. In
+some cases, we also link to further reading if you want a better
 understanding of some part of your data integration picture.
 
 Note: This glossary is meant to be OpenFn-agnostic. The rest of the docs help
