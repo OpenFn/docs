@@ -148,47 +148,220 @@ instantly revert all jobs in for a given project to a previous commit,
 To create a new job, follow the steps below:
 
 - From the application **menu**, click on **Jobs**.
-- Find a **blue** flating button with **+** icon, and click on it.
+- Find a **blue** floating button with **+** icon, and click on it.
 - Clicking the **+** button will open **Job Studio** for you to enter details
   for your new job.
 - See details on how to use [Job Studio here](platform-mgmt#job-studio).
 
-<!-- TODO: @chaiwa, can you finish this up on Friday? -->
-<!-- ## Triggers
+## Triggers
 
-_coming soon..._
+This section of the portal allows you to create and manage your Triggers.
 
 ### Searching triggers
 
-_coming soon..._
+For a project with a number of jobs and a range of trigger criteria, finding a
+given trigger can be easily achieved via the search feature.
+
+Triggers can be filtered/searched by **name** or **criteria**. To search for a
+given trigger:
+
+- From the application **menu**, click on **Triggers**.
+- Find the **Search triggers** box and type, in the search box, the **trigger
+  criteria** for a **message trigger** (e.g, `{"test": "data"}`) or **name** of
+  the trigger for any other type of trigger.
+- The application will filter and show all triggers matching the portion of text
+  entered into the search box.
 
 ### Editing a trigger
 
-_coming soon..._
+OpenFn allows you to edit or make changes to existing triggers. To edit a given
+trigger, follow the steps below:
+
+- From the application **menu**, click on **Triggers**.
+- Find the trigger you would like to **edit**.
+- On the bottom-left corner of the trigger card, click on **Edit**.
+- See details about types of triggers and other editing options
+  [here](/documentation/build/triggers).
+
+### Deleting a trigger
+
+OpenFn allows you to delete an existing trigger. To delete a given trigger,
+follow the steps below:
+
+- From the application **menu**, click on **Triggers**.
+- Find the trigger you would like to **delete**.
+- On the bottom-left corner of the trigger card, click on **Edit**.
+- While on the edit page for the selected trigger, click the **trash** icon.
+- The application will prompt you to confirm whether you would want to proceed
+  with deleting the given trigger.
+
+:::info
+
+Note that OpenFn will mark this trigger for deletion. You will not be able to
+access or edit the trigger once this is done. If there are any jobs linked to
+this trigger, they will not run succesfully until you assign them new or other
+existing triggers.
+
+:::
 
 ### Creating a trigger
 
-_coming soon..._
+To create a new trigger, follow the steps below:
+
+- From the application **menu**, click on **Triggers**.
+- Find a **blue** floating button with **+** icon, and click on it.
+- Clicking the **+** button will open **New Trigger Form** for you to enter the
+  details for your new trigger.
+- See details about types of triggers and other editing options
+  [here](/documentation/build/triggers).
 
 ## Credentials
 
-_coming soon..._
+This section of the portal allows you to create and manage your Credentials.
+
+### Searching Credentials
+
+For a project with a number of jobs and a range of credentials, finding a given
+credential can be easily achieved via the search feature.
+
+Credentials can be filtered/searched by **name**. To search for a given
+credential:
+
+- From the application **menu**, click on
+  [**Credentials** or **My Credentials**](./platform-mgmt#credential-ownership-and-access).
+- Find the **Search credentials** box and type, in the search box, **name** of
+  the credential.
+- The application will filter and show all credentials matching the portion of
+  text entered into the search box.
+
+:::info
+
+Note that if you are searching for all credentials you own, then find them via
+the **My Credentials** menu item otherwise you can find all credentials assigned
+to a given project via the **Credentials** menu item. Also note that not every
+credential you own is available to all the projects you are member of. See
+details about credential ownership and access
+[here](./platform-mgmt#credential-ownership-and-access).
+
+:::
 
 ### Credential ownership and access
 
-_coming soon..._
+A credential is owned, by default, by the user who created it. To view all the
+credentials you own, follow the steps below:
 
-### Transferring credential ownership
+- From the application **menu**, click on **My Credentials**.
+- A list of all credentials you own will be displayed.
 
-_coming soon..._
+You can assign a credential to a project, and all users with access to that
+project will be able to use it. However, note that a credential can be available
+to all users in a given project for use, but only the owner can edit it.
+
+To view credentials available to a given project, follow the steps below:
+
+- From the application **menu**, click on **Project Dashboard**.
+- Select the **project** for which you would like to see the credentials.
+- After the project loads, from the application **menu**, click on
+  **Credentials**.
+- A list of all credentials available to a selected project, will be displayed.
 
 ### Editing a credential
 
-_coming soon..._
+OpenFn allows you to edit or make changes to existing credentials. To edit a
+given credential, follow the steps below:
+
+- From the application **menu**, click on **Credentials** or **My Credentials**.
+- Find the credential you would like to **edit**.
+- On the bottom-left corner of the credential card, click on **Edit**.
+- See details about types of credentials and other editing options
+  [here](/documentation/build/credentials).
+
+### Transferring credential ownership
+
+In OpenFn, a credential is owned, by default, by the user who created it.
+However, OpenFn allows you to change ownership of a credential to another user
+of the portal. To transfer credential ownership to another user of the OpenFn
+portal, follow the steps below:
+
+- From the application **menu**, click on **Credentials** or **My Credentials**.
+- Find the credential you would like to **transfer ownership**.
+- On the bottom-left corner of the credential card, click on **Edit**.
+- While on the credential detail page, scroll down to the bottom left corner of
+  the page and click on **Ownership Transfer**.
+- Enter the **email address** and **user number** for the new credential owner.
+  This information can be found on the recipient's account settings page
+- After entering **email address** and **user number**, click on the **Transfer
+  Ownership** button.
+- OpenFn will prompt you to confirm wether to proceed with the transfer or not.
+
+:::info
+
+Note that once you proceed with credential ownership transfer, you will lose
+access to the credential immediately. The new owner may be able to view or
+modify personal or sensitive information stored on this credential.You will not
+be able to regain access to this credential without the new owner.
+
+However, you will still be able to use this credential for jobs in the projects
+to which it has been shared until and unless the new owner revokes that
+project's access to the credential.
+
+:::
+
+### Granting/revoking credential access to a project
+
+Note that, by default, a credential is available to the project the user had
+loaded at the time the user was creating the credential. However, OpenFn allows
+you to **grant** or **revoke** access to a credential for one or more projects.
+To grant or revoke access to a credential for a project, follow the below steps:
+
+- From the application **menu**, click on **Credentials** or **My Credentials**.
+- Find the credential you would like to **edit project access**.
+- On the bottom-left corner of the credential card, click on **Edit**.
+- While on the credential detail page, find the **Manage Access** section on the
+  right side of the page.
+- You will see a list of projects that you are a member of. **Mark** the
+  `checkbox` to **grant** access or **un-mark** the `checkbox` to **revoke**
+  access for a given project.
+
+### Deleting a credential
+
+OpenFn allows you to delete an existing credential if you own it. To delete a
+given credential, follow the steps below:
+
+- From the application **menu**, click on **Credentials**.
+- Find the credential you would like to **delete**.
+- On the bottom-left corner of the credential card, click on **Edit**.
+- While on the edit page for the selected credential, click the **trash** icon
+  on the top right corner of the page.
+- The application will prompt you to confirm whether you would want to proceed
+  with deleting the given credential.
+
+:::info
+
+Note that if you proceed with deleting a given credential, OpenFn will delete
+this credential immediately for security reasons. You will not be able to
+restore the credential once this is done, but you may create a new credential
+with the same login information. If jobs are currently using this credential,
+they may not run successfully until you add a new credential and assign it to
+those jobs.
+
+:::
 
 ### Creating a new credential
 
-_coming soon..._ -->
+To create a new credential, follow the steps below:
+
+- From the application **menu**, click on **Credentials** or **My Credentials**.
+- Find a **blue** floating button with **+** icon, and click on it.
+- Clicking the **+** button will prompt you to choose the **type of credential**
+  you would like to create.
+- Note that **credentials** are meant to be used to connect to other systems. So
+  choose the type of credential that corresponds to the system you will be
+  integrating with via OpenFn.
+- After choosing the type of credential, OpenFn will open the **New Credential
+  Form** for you to enter the details.
+- See details about types of credentials and other editing options
+  [here](/documentation/build/credentials).
 
 ## Activity
 
