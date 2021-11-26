@@ -15,7 +15,7 @@ adaptors is as follows:
   running `npm install @openfn/language-dhis2`.
 
 In short, _most_ _**adaptors**_ follow the naming convention
-`@openfn/language-xyz`, but not all do!
+`@openfn/language-xyz`.
 
 ## Where to find them?
 
@@ -137,17 +137,178 @@ Accordingly, your `package.json` should add a dependency to that version as this
 }
 ```
 
+#### Generic helper functions with specific examples
+
+We think that helper functions should be generic enough to be able to handle
+many actions depending on arguments they're given. For example an adaptor that
+allows to do CRUD operations on a API doesn't need to provide a helper function
+for every endpoint. Instead it can only have a helper function for every action
+(create, delete, update, ...) and that helper function be generic enough to be
+able to handle all endpoints (`action('resourceType', payload, options)`). We
+encourage adding more working examples of how to use the helper function
+depending on the different actions it can do. This is a design we've built in
+the [`language-dhis2`](https://github.com/OpenFn/language-dhis2) adaptor and
+that we encourage to use for building adaptors. It allows to have less code to
+maintain in the adaptor and also makes adaptors easier to learn and to use.
+
+Below is an example of documentation of the `create` function in the
+`language-dhis2` helper function.
+
+```javascript
+/**
+ * A generic helper method to create a record of any kind in DHIS2
+ * @public
+ * @function
+ * @param {string} resourceType - Type of resource to create. E.g. `trackedEntityInstances`, `programs`, `events`, ...
+ * @param {Object} data - Data that will be used to create a given instance of resource. To create a single instance of a resource, `data` must be a javascript object, and to create multiple instances of a resources, `data` must be an array of javascript objects.
+ * @param {Object} [options] - Optional `options` to control the behavior of the `create` operation.` Defaults to `{operationName: 'create', apiVersion: null, responseType: 'json'}`
+ * @param {Object} [params] - Optional `import parameters` for a given a resource. E.g. `{dryRun: true, importStrategy: CREATE}` See {@link https://docs.dhis2.org/2.34/en/dhis2_developer_manual/web-api.html DHIS2 API documentation} or {@link discover}. Defauls to `DHIS2 default params` for a given resource type.
+ * @param {function} [callback] - Optional callback to handle the response
+ * @returns {Operation}
+ *
+ * @example <caption>-a single `program`</caption>
+ * create('programs', {
+ *   name: 'name 20',
+ *   shortName: 'n20',
+ *   programType: 'WITHOUT_REGISTRATION',
+ * });
+ *
+ * @example <caption>-a single `event`</caption>
+ * create('events', {
+ *   program: 'eBAyeGv0exc',
+ *   orgUnit: 'DiszpKrYNg8',
+ *   status: 'COMPLETED',
+ * });
+ *
+ * @example <caption>-a single `trackedEntityInstance`</caption>
+ * create('trackedEntityInstances', {
+ *   orgUnit: 'TSyzvBiovKh',
+ *   trackedEntityType: 'nEenWmSyUEp',
+ *   attributes: [
+ *     {
+ *       attribute: 'w75KJ2mc4zz',
+ *       value: 'Gigiwe',
+ *     },
+ *   ]
+ * });
+ *
+ * @example <caption>-a single `dataValueSet`</caption>
+ * create('dataValueSets', {
+ *   dataElement: 'f7n9E0hX8qk',
+ *   period: '201401',
+ *   orgUnit: 'DiszpKrYNg8',
+ *   value: '12',
+ * });
+ *
+ * @example <caption>-a single `dataValueSet` with `dataValues`</caption>
+ * create('dataValueSets', {
+ *   dataSet: 'pBOMPrpg1QX',
+ *   completeDate: '2014-02-03',
+ *   period: '201401',
+ *   orgUnit: 'DiszpKrYNg8',
+ *   dataValues: [
+ *     {
+ *       dataElement: 'f7n9E0hX8qk',
+ *       value: '1',
+ *     },
+ *     {
+ *       dataElement: 'Ix2HsbDMLea',
+ *       value: '2',
+ *     },
+ *     {
+ *       dataElement: 'eY5ehpbEsB7',
+ *       value: '3',
+ *     },
+ *   ],
+ * });
+ *
+ * @example <caption>-a single `enrollment`</caption>
+ * create('enrollments', {
+ *   trackedEntityInstance: 'bmshzEacgxa',
+ *   orgUnit: 'TSyzvBiovKh',
+ *   program: 'gZBxv9Ujxg0',
+ *   enrollmentDate: '2013-09-17',
+ *   incidentDate: '2013-09-17',
+ * });
+ */
+export function create(resourceType, data, options, params, callback) {
+  return state => {
+    if (isArray(data) && resourceType === 'programs') {
+      Log.warn("DHIS2 doesn't allow creation of multiple programs at once.");
+      return state;
+    }
+
+    const expandedData = expandReferences(data)(state);
+    const body = nestArray(expandedData, resourceType);
+
+    const expandedResourceType = expandReferences(resourceType)(state);
+    const expandedOptions = expandReferences(options)(state);
+    const expandedParams = expandReferences(params)(state);
+
+    const operationName = expandedOptions?.operationName ?? 'create';
+    const { username, password, hostUrl } = state.configuration;
+    const responseType = expandedOptions?.responseType ?? 'json';
+    delete expandedParams?.filters;
+    const queryParams = new URLSearchParams(expandedParams);
+    const apiVersion =
+      expandedOptions?.apiVersion ?? state.configuration.apiVersion;
+    const url = buildUrl('/' + expandedResourceType, hostUrl, apiVersion);
+    const headers = {
+      Accept: CONTENT_TYPES[responseType] ?? 'application/json',
+      'Content-Type': 'application/json',
+    };
+
+    logOperation(operationName);
+    logApiVersion(apiVersion);
+    logWaitingForServer(url, queryParams);
+    warnExpectLargeResult(expandedResourceType, url);
+
+    console.log('hello?');
+
+    return axios
+      .request({
+        method: 'POST',
+        url,
+        auth: {
+          username,
+          password,
+        },
+        params: queryParams,
+        data: body,
+        headers,
+      })
+      .then(result => {
+        Log.info(
+          `${operationName} succeeded. Created ${expandedResourceType}: ${
+            result.data.response?.importSummaries
+              ? result.data.response.importSummaries[0].href
+              : result.data.response?.reference
+          }.\nSummary:\n${prettyJson(result.data)}`
+        );
+        if (callback) return callback(composeNextState(state, result.data));
+        return composeNextState(state, result.data);
+      });
+  };
+}
+```
+
 ## Build and tests
 
 ### Build
 
-Building an adaptor is done by running the command `make` from the root folder.
+All adaptor releases are built inside a docker container. The importance of
+running the build and release process through a container is to standardize the
+build environment across the team.
 
-![Build an adaptor](/img/make.png)
+To learn more about building adaptors using docker, read
+[this document](devtools/home/#building-adaptors-for-platform).
 
 ### Tests
 
-Tests can be written with nock under the path `test/index.js`.
+#### Unit tests
+
+Unit tests can be written with [nock](https://github.com/nock/nock) under the
+path `test/index.js`.
 
 ```js
 describe('createPatient', () => {
@@ -245,4 +406,70 @@ describe('create', () => {
   });
 
 });
+```
+
+#### Integration tests
+
+We use integration testing to make sure helper functions are performed. As we
+said above, for each helper function we have different usage examples. For each
+example, we write an automated test that validates it (integration test).
+
+For this we have a file named `tests/integration.js` in which we write all the
+adaptor's integration tests.
+
+We use [mocha](https://mochajs.org/) and its hooks like the before hook to write
+integration tests. The hooks are used to prepare the elements necessary to run
+the tests, for example (in the case of the `language-dhis2` adapter) choosing
+the organizational unit to work with or the program.
+
+Below is an example of an integration test.
+
+```javascript
+const { expect } = require('chai');
+const { create, execute } = require('../src/Adaptor');
+const crypto = require('crypto');
+
+const getRandomProgramPayload = () => {
+  const name = crypto.randomBytes(16).toString('hex');
+  const shortName = name.substring(0, 5);
+  const programType = 'WITHOUT_REGISTRATION';
+  return { name, shortName, programType };
+};
+
+const globalState = {
+  configuration: {
+    username: 'admin',
+    password: 'district',
+    hostUrl: 'https://play.dhis2.org/2.36.4',
+  },
+  program: 'IpHINAT79UW',
+  organisationUnit: 'DiszpKrYNg8',
+  dataSet: 'pBOMPrpg1QX',
+  trackedEntityInstance: 'bmshzEacgxa',
+  programStage: 'A03MvHHogjR',
+  dataElement: 'Ix2HsbDMLea',
+  enrollment: 'CmsHzercTBa',
+};
+
+describe('create', () => {
+  it('should create an event program', async () => {
+    const state = {
+      ...globalState,
+      data: { program: getRandomProgramPayload() },
+    };
+
+    const response = await execute(
+      create('programs', state => state.data.program)
+    )(state);
+    expect({
+      httpStatus: response.data.httpStatus,
+      httpStatusCode: response.data.httpStatusCode,
+      status: response.data.status,
+    }).to.eql({
+      httpStatus: 'Created',
+      httpStatusCode: 201,
+      status: 'OK',
+    });
+  });
+}
 ```
