@@ -12,6 +12,7 @@ module.exports = {
         'getting-started/terminology',
         'getting-started/quick-start',
         'build/example-build',
+        'getting-started/implementation-checklist',
         'getting-started/integration-toolkit',
       ],
     },
