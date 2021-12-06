@@ -14,11 +14,14 @@ While this checklist should be tailored for each implementation, the tasks
 outlined here provide a template workplan that can help any organization prepare
 for their upcoming implementation.
 
-:::tip Check out a real-world example See the UNICEF Cambodia repository for
-documented outputs from this checklist from an interoperability project
-implemented for the Cambodia Ministry of Social Affairs, Veterans, and Youth
-Rehabilitation and partner NGOs:
+:::tip
+
+Check out a real-world example See the UNICEF Cambodia repository for documented
+outputs from this checklist from an interoperability project implemented for the
+Cambodia Ministry of Social Affairs, Veterans, and Youth Rehabilitation and
+partner NGOs:
 [openfn.github.io/unicef-cambodia/](https://openfn.github.io/unicef-cambodia/)
+
 :::
 
 ## (1) Preparing for the Technical Implementation

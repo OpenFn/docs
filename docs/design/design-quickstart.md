@@ -72,10 +72,14 @@ questions are discussed in more detail on the
 [So, what is an integration?](/documentation/getting-started/so-you-want-to-integrate/)
 page.
 
-:::tip Capture the current & desired process Document _current and desired_
-business processes in order to determine how information should be exchanged
-between your organization/system/users and others, and to ensure alignment of
-expectations and assumptions across partners. :::
+:::tip
+
+Capture the current & desired process Document _current and desired_ business
+processes in order to determine how information should be exchanged between your
+organization/system/users and others, and to ensure alignment of expectations
+and assumptions across partners.
+
+:::
 
 ### Use BPMN for standardized documentation
 
@@ -129,8 +133,11 @@ important exercise for documenting very specific requirements and building
 consensus on what data exactly will be exchanged, and how.
 
 :::tip Template for getting started
+
 [Use this template](https://docs.google.com/spreadsheets/d/1IqTIgOzyOztEevXbgY_4uE8Y8tiHXufZXx-IyJZase0/edit?usp=sharing)
-for drafting your own data element mapping specification. :::
+for drafting your own data element mapping specification.
+
+:::
 
 This template includes:
 
