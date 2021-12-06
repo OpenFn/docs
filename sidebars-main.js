@@ -13,6 +13,7 @@ module.exports = {
         'getting-started/quick-start',
         'build/example-build',
         'getting-started/integration-toolkit',
+        'getting-started/implementation-checklist',
       ],
     },
     {
