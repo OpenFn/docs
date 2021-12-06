@@ -53,7 +53,7 @@ about which requirements are priority.
   better understand data collection activities and program performance across my
   research partner sites.
 
-## 2. Map the business process
+## 2. Diagram the business process
 
 Once the user stories have been identified, start to document the functional
 processes that are in place (or will need to be implemented) in order to achieve
