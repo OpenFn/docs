@@ -13,10 +13,10 @@ files: [
       translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-docs/current/**/%original_file_name%',
     },
     # Articles Markdown files
-    {
-      source: '/articles/**/*',
-      translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-blog-articles/**/%original_file_name%',
-    },
+    # {
+    #   source: '/articles/**/*',
+    #   translation: '/i18n/%two_letters_code%/docusaurus-plugin-content-blog-articles/**/%original_file_name%',
+    # },
     # Blog Markdown files
     # {
     #   source: '/blog/**/*',
