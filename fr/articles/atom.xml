@@ -13,13 +13,65 @@
         <id>Testing a React app, the blurred line between Unit, integration and E2E</id>
         <link href="https://docs.openfn.org/fr/articles/2021/10/22/testing-react-app-with-jest-hound"/>
         <updated>2021-10-22T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Have you ever struggled to layout the strategy for testing your React App? Well, you are not alone! Here a few hints from the lessons I learned during my experience testing a React/Redux app with a Phoenix/Elixir backend.]]></summary>
-        <content type="html"><![CDATA[<p>Have you ever struggled to layout the strategy for testing your React App? Well, you are not alone! Here a few hints from the lessons I learned during my experience testing a <a href="https://reactjs.org/">React</a>/<a href="https://redux.js.org/">Redux</a> app with a <a href="https://www.phoenixframework.org/">Phoenix</a>/<a href="https://elixir-lang.org/">Elixir</a> backend.</p><h2>The Blurred Line</h2><p>Because a React app is built on <a href="https://reactjs.org/docs/react-component.html">components</a>, the basic UI units, it is natural to think and organise your tests around components! And so unit testing, in this case, would refer to &quot;component testing&quot;, which may be confusing at times, especially when the concept of unit testing is again applied to testing functions such as Redux <code>reducers</code> and <code>action creators</code> or any other JavaScript function in your application.</p><p>The other challenge that I often faced was whether to write tests for each component in isolation or write a test for a feature that encapsulates a set of related components. The later would be equivalent to writing what I would call &quot;integration tests&quot;.</p><p>Finally, one would say &quot;well then you could have just written the tests in a way that resemble the way the application is used&quot;! This approach is commonly recommended in the React community, but it quickly becomes really complex to maintain the layers of separation between <strong><em>unit tests</em></strong>, <strong><em>integration tests</em></strong> and <strong><em>end-to-end tests</em></strong>.</p><h2>What did I learn?</h2><p>Given a React/Redux application, here is how I would organise my testing strategy:</p><h3>Unit Tests</h3><ul><li><p>In a React app, <strong>unit tests</strong> will largely apply to testing &quot;helper functions&quot; and not to testing components, as justified in the next section. Helper functions, in this case, would refer to functions that live outside the components and are neither Redux action creators nor reducers. These functions can be used inside components, action creators, reducers or other parts of your application.</p></li><li><p>Writing unit tests for &quot;helper functions&quot; would ensure their signatures and expected outputs are protected against regressions. This would also ensure their use across components or other functions is consistent and as expected.</p></li><li><p>Where possible, each &quot;helper function&quot; must have its own <code>unit test</code>.</p></li><li><p>An example of a unit test would like:</p><pre><code class="language-javascript">const sum = require(&#x27;../../js/sum&#x27;);
+        <summary type="html"><![CDATA[Have you ever struggled to layout the strategy for testing your React App? Well,]]></summary>
+        <content type="html"><![CDATA[<p>Have you ever struggled to layout the strategy for testing your React App? Well,
+you are not alone! Here a few hints from the lessons I learned during my
+experience testing a
+<a href="https://reactjs.org/">React</a>/<a href="https://redux.js.org/">Redux</a> app with a
+<a href="https://www.phoenixframework.org/">Phoenix</a>/<a href="https://elixir-lang.org/">Elixir</a>
+backend.</p><h2>The Blurred Line</h2><p>Because a React app is built on
+<a href="https://reactjs.org/docs/react-component.html">components</a>, the basic UI units,
+it is natural to think and organise your tests around components! And so unit
+testing, in this case, would refer to &quot;component testing&quot;, which may be
+confusing at times, especially when the concept of unit testing is again applied
+to testing functions such as Redux <code>reducers</code> and <code>action creators</code> or any other
+JavaScript function in your application.</p><p>The other challenge that I often faced was whether to write tests for each
+component in isolation or write a test for a feature that encapsulates a set of
+related components. The later would be equivalent to writing what I would call
+&quot;integration tests&quot;.</p><p>Finally, one would say &quot;well then you could have just written the tests in a way
+that resemble the way the application is used&quot;! This approach is commonly
+recommended in the React community, but it quickly becomes really complex to
+maintain the layers of separation between <strong><em>unit tests</em></strong>, <strong><em>integration
+tests</em></strong> and <strong><em>end-to-end tests</em></strong>.</p><h2>What did I learn?</h2><p>Given a React/Redux application, here is how I would organise my testing
+strategy:</p><h3>Unit Tests</h3><ul><li><p>In a React app, <strong>unit tests</strong> will largely apply to testing &quot;helper
+functions&quot; and not to testing components, as justified in the next section.
+Helper functions, in this case, would refer to functions that live outside the
+components and are neither Redux action creators nor reducers. These functions
+can be used inside components, action creators, reducers or other parts of
+your application.</p></li><li><p>Writing unit tests for &quot;helper functions&quot; would ensure their signatures and
+expected outputs are protected against regressions. This would also ensure
+their use across components or other functions is consistent and as expected.</p></li><li><p>Where possible, each &quot;helper function&quot; must have its own <code>unit test</code>.</p></li><li><p>An example of a unit test would like:</p><pre><code class="language-javascript">const sum = require(&#x27;../../js/sum&#x27;);
 
 test(&#x27;adds 1 + 2 to equal 3&#x27;, () =&gt; {
   expect(sum(1, 2)).toBe(3);
 });
-</code></pre></li><li><p>Write a <em>thousand</em> of these.</p></li></ul><h3>Integration Tests</h3><ul><li><p>In the context of a React/Redux app, component tests can be thought of as <strong>integration tests</strong>. This is because React components are built around features such as <code>&lt;Signup /&gt;</code>, <code>&lt;Search /&gt;</code>, etc. So one React component can be a mix of other components to achieve a UI feature set.</p></li><li><p>To test a component, write an <strong>integration test</strong> that covers the use of a given component for a given UI feature.</p></li><li><p>If a component being tested dispatches a Redux <code>action</code>, this is the right place to test those actions and their effect on the UI.</p></li><li><p>Pay attention to the concept of <em>feature isolation</em> vs <em>component isolation</em> as it will help you write better integration tests and also easily mock component contexts.</p></li><li><p>A classic example of <strong>feature isolation</strong> is when you have a <code>&lt;UserList /&gt;</code> component which displays a list of users and has a <code>&lt;button /&gt;</code> to add a new user. Writing a test for <code>&lt;UserList /&gt;</code> would be equivalent to testing a feature.</p></li><li><p>In this example, one would be tempted to test the action of clicking on the <code>&lt;AddUserButton /&gt;</code> and further test the <code>&lt;NewUser /&gt;</code> form... nope! This is where we draw the line! Only test that the <code>&lt;UserList /&gt;</code> renders the mock <code>users</code> in the list and that the <code>&lt;AddUserButton /&gt;</code> is present/enabled. The <code>&lt;UserList /&gt;</code> feature ends there, otherwise you will be sliding into <strong>End-to-End</strong> testing :)! The <code>&lt;User /&gt;</code> component, although it is invoked by <code>&lt;UserList /&gt;</code> component, it is isolated enough to be tested in its own integration test.</p></li><li><p>Testing components this way would make &quot;context mocking&quot; easier for components.</p></li><li><p>Another important benefit for isolating testing context, as in the example above, is that it will be easier to mock the <code>redux actions</code> and/or api calls using tools such as <a href="https://jestjs.io/">Jest</a> and <a href="https://mswjs.io/">Mock Service Worker</a> (or &quot;msw&quot;) as explained in the <a href="#choosing-testing-tools">Choosing Tools</a> section.</p></li><li><p>The value of writing integration tests for components, in this way, ensures that a given component renders the UI consistently, given all possible combinations of contexts and interactions. This will also allow you to ensure redux actions invoked by the component are called as expected and with the correct arguments.</p></li><li><p>An example component integration test would look like:</p><pre><code class="language-javascript">// ....other imports
+</code></pre></li><li><p>Write a <em>thousand</em> of these.</p></li></ul><h3>Integration Tests</h3><ul><li><p>In the context of a React/Redux app, component tests can be thought of as
+<strong>integration tests</strong>. This is because React components are built around
+features such as <code>&lt;Signup /&gt;</code>, <code>&lt;Search /&gt;</code>, etc. So one React component can
+be a mix of other components to achieve a UI feature set.</p></li><li><p>To test a component, write an <strong>integration test</strong> that covers the use of a
+given component for a given UI feature.</p></li><li><p>If a component being tested dispatches a Redux <code>action</code>, this is the right
+place to test those actions and their effect on the UI.</p></li><li><p>Pay attention to the concept of <em>feature isolation</em> vs <em>component isolation</em>
+as it will help you write better integration tests and also easily mock
+component contexts.</p></li><li><p>A classic example of <strong>feature isolation</strong> is when you have a <code>&lt;UserList /&gt;</code>
+component which displays a list of users and has a <code>&lt;button /&gt;</code> to add a new
+user. Writing a test for <code>&lt;UserList /&gt;</code> would be equivalent to testing a
+feature.</p></li><li><p>In this example, one would be tempted to test the action of clicking on the
+<code>&lt;AddUserButton /&gt;</code> and further test the <code>&lt;NewUser /&gt;</code> form... nope! This is
+where we draw the line! Only test that the <code>&lt;UserList /&gt;</code> renders the mock
+<code>users</code> in the list and that the <code>&lt;AddUserButton /&gt;</code> is present/enabled. The
+<code>&lt;UserList /&gt;</code> feature ends there, otherwise you will be sliding into
+<strong>End-to-End</strong> testing :)! The <code>&lt;User /&gt;</code> component, although it is invoked by
+<code>&lt;UserList /&gt;</code> component, it is isolated enough to be tested in its own
+integration test.</p></li><li><p>Testing components this way would make &quot;context mocking&quot; easier for
+components.</p></li><li><p>Another important benefit for isolating testing context, as in the example
+above, is that it will be easier to mock the <code>redux actions</code> and/or api calls
+using tools such as <a href="https://jestjs.io/">Jest</a> and
+<a href="https://mswjs.io/">Mock Service Worker</a> (or &quot;msw&quot;) as explained in the
+<a href="#choosing-testing-tools">Choosing Tools</a> section.</p></li><li><p>The value of writing integration tests for components, in this way, ensures
+that a given component renders the UI consistently, given all possible
+combinations of contexts and interactions. This will also allow you to ensure
+redux actions invoked by the component are called as expected and with the
+correct arguments.</p></li><li><p>An example component integration test would look like:</p><pre><code class="language-javascript">// ....other imports
 import { setupServer } from &#x27;msw/node&#x27;;
 // Tell jest to mock the module
 jest.mock(&#x27;../js/actions/UserActions&#x27;, () =&gt; ({
@@ -52,7 +104,17 @@ test(&#x27;create new user&#x27;, async () =&gt; {
     });
 }
 
-</code></pre></li><li><p>Write a <em>good couple</em> of these.</p></li></ul><h3>End-to-End (e2e) Tests</h3><ul><li><p>In a React/Redux App, this would mean testing a <em>full flow</em> of a given feature. <strong>end-to-end tests</strong> would require launching the entire application, including the backend, to run a given test.</p></li><li><p>Note that <strong>end-to-end tests</strong> are different from <strong>integration tests</strong> as they require the entire App to run and render the full flow to your component under test.</p></li><li><p>With this understanding, consider writing <strong>e2e</strong> tests <em>per workflow</em>.</p></li><li><p>An example <strong>e2e workflow</strong> is the &quot;Viewing and adding users&quot; workflow.</p></li><li><p>The e2e test for this workflow would require a test runner to launch the app, log-in, navigate to the users list page, verify existing users are in the list, click on the Add New User button and confirm that the new user has been added to the list.</p></li><li><p>As you can see, e2e tests have more dependencies and require that you setup your testing environment in way that closely simulates your real application usage.</p></li><li><p>An example e2e test for a React/Redux App with a Phoenix/Elixir backend, using <code>Hound</code> as a test runner looks like this:</p></li></ul><pre><code class="language-elixir">defmodule OpenFn.UsersTest do
+</code></pre></li><li><p>Write a <em>good couple</em> of these.</p></li></ul><h3>End-to-End (e2e) Tests</h3><ul><li><p>In a React/Redux App, this would mean testing a <em>full flow</em> of a given
+feature. <strong>end-to-end tests</strong> would require launching the entire application,
+including the backend, to run a given test.</p></li><li><p>Note that <strong>end-to-end tests</strong> are different from <strong>integration tests</strong> as
+they require the entire App to run and render the full flow to your component
+under test.</p></li><li><p>With this understanding, consider writing <strong>e2e</strong> tests <em>per workflow</em>.</p></li><li><p>An example <strong>e2e workflow</strong> is the &quot;Viewing and adding users&quot; workflow.</p></li><li><p>The e2e test for this workflow would require a test runner to launch the app,
+log-in, navigate to the users list page, verify existing users are in the
+list, click on the Add New User button and confirm that the new user has been
+added to the list.</p></li><li><p>As you can see, e2e tests have more dependencies and require that you setup
+your testing environment in way that closely simulates your real application
+usage.</p></li><li><p>An example e2e test for a React/Redux App with a Phoenix/Elixir backend, using
+<code>Hound</code> as a test runner looks like this:</p></li></ul><pre><code class="language-elixir">defmodule OpenFn.UsersTest do
   setup do
     user = insert(:user, confirmed_at: DateTime.utc_now())
     {:ok, user: user }
@@ -82,7 +144,32 @@ test(&#x27;create new user&#x27;, async () =&gt; {
     assert page_title() === ~s/Welcome to my page/
     end
 end
-</code></pre><ul><li>Write <em>only a few</em> of these.</li></ul><h2>Choosing Testing Tools</h2><p>There are many testing tools out there, but for a typical <em>React/Redux</em> app the following tools should help you accomplish the above tasks:</p><ol><li><a href="https://jestjs.io/docs/getting-started">Jest</a> as test runner for <strong>unit</strong> and <strong>integration</strong> tests.</li><li><a href="https://testing-library.com/docs/">React Testing Library</a> used along with Jest as an &quot;assertion library&quot; for integration tests.</li><li><a href="https://mswjs.io/docs/getting-started/install">MSW</a> used along with Jest as a REST API mocking library.</li><li><a href="https://hexdocs.pm/hound/readme.html">Hound</a> as a test runner for <strong>e2e</strong> tests in Elixir/Phoenix apps. <a href="https://developers.google.com/web/tools/puppeteer">Puppeteer</a> can also be used along with Jest.<ul><li>If Puppeteer is used, it will work seamlessly with Jest but only in headless browser mode. It also reduces on tech stack since you will only need Jest.</li><li>Hound gives you the ability to run your <strong>e2e</strong> tests both in <code>headless</code> and <code>browser</code> mode.</li></ul></li></ol><h2>Final thoughts and next steps</h2><p>Testing a React App can be really hard, but worth it! By building <code>Aria-accessible</code> components ahead of time, you save yourself 💰 and good health! A few more hints would be:</p><ul><li>Build clean, isolated and plugable components for your better testing experience. &quot;God components&quot; can be a <em>pain</em> to test!</li><li>Using test runners such as Jest, that use <em>emulated</em> web browsers (e.g., <code>jsdom</code>) rather than a real browser come with their own challenges in rendering and traversing complex DOM trees, especially if you are using UI libraries such as <a href="https://mui.com/">MUI</a>.</li><li>If using Jest for <strong>integration tests</strong>, I would recommend the components under test have as few dependencies as possible to avoid the complexity involved in mocking http requests and waiting for asynchronous DOM rendering.</li></ul><p>What would I do differently? Here are my few thoughts:</p><ul><li>Organise and document detailed test cases for manual &quot;click testing&quot;.</li><li>Identify and clearly isolate components for <strong>integration tests</strong>.</li><li>Do not <em>delete</em> slow tests, instead re-write your component to be faster. Respect the linter&#x27;s advice, always!</li><li>Use a commonly supported frontend testing stack such as Jest, Msw, or Puppeteer for easier setup and community support.</li><li>Setup your test runner to use a test database. It helps, especially during <strong>e2e</strong> testing.</li><li>Always write <strong><em>all the three types</em></strong> of tests, whenever applicable.</li></ul><p>All this stuff for what?</p><ul><li>Well because regressions can be much more expensive to your organisation! Writing high quality and thoroughly tested software will save you 💰 and help guarantee a maintainable codebase and a progressive software application.</li></ul><p>:::tip Still looking for the legend&#x27;s advice?</p><p>Gotcha, here you go...</p><ol><li>Swallow your pride and be humble: <em>always</em> do <strong>manual testing!</strong></li><li>Click test your way through the <strong>manual test cases</strong> for every new deployment, catching regressions.</li><li><em>Lock in</em> your fixes and new features as <strong>unit tests</strong>, <strong>integration tests</strong>, and <strong>end-to-end tests</strong>.</li></ol><p>:::</p><p>Happy testing,</p><p>Chaiwa</p>]]></content>
+</code></pre><ul><li>Write <em>only a few</em> of these.</li></ul><h2>Choosing Testing Tools</h2><p>There are many testing tools out there, but for a typical <em>React/Redux</em> app the
+following tools should help you accomplish the above tasks:</p><ol><li><a href="https://jestjs.io/docs/getting-started">Jest</a> as test runner for <strong>unit</strong>
+and <strong>integration</strong> tests.</li><li><a href="https://testing-library.com/docs/">React Testing Library</a> used along with
+Jest as an &quot;assertion library&quot; for integration tests.</li><li><a href="https://mswjs.io/docs/getting-started/install">MSW</a> used along with Jest as
+a REST API mocking library.</li><li><a href="https://hexdocs.pm/hound/readme.html">Hound</a> as a test runner for <strong>e2e</strong>
+tests in Elixir/Phoenix apps.
+<a href="https://developers.google.com/web/tools/puppeteer">Puppeteer</a> can also be
+used along with Jest.<ul><li>If Puppeteer is used, it will work seamlessly with Jest but only in
+headless browser mode. It also reduces on tech stack since you will only
+need Jest.</li><li>Hound gives you the ability to run your <strong>e2e</strong> tests both in <code>headless</code>
+and <code>browser</code> mode.</li></ul></li></ol><h2>Final thoughts and next steps</h2><p>Testing a React App can be really hard, but worth it! By building
+<code>Aria-accessible</code> components ahead of time, you save yourself 💰 and good
+health! A few more hints would be:</p><ul><li>Build clean, isolated and plugable components for your better testing
+experience. &quot;God components&quot; can be a <em>pain</em> to test!</li><li>Using test runners such as Jest, that use <em>emulated</em> web browsers (e.g.,
+<code>jsdom</code>) rather than a real browser come with their own challenges in
+rendering and traversing complex DOM trees, especially if you are using UI
+libraries such as <a href="https://mui.com/">MUI</a>.</li><li>If using Jest for <strong>integration tests</strong>, I would recommend the components
+under test have as few dependencies as possible to avoid the complexity
+involved in mocking http requests and waiting for asynchronous DOM rendering.</li></ul><p>What would I do differently? Here are my few thoughts:</p><ul><li>Organise and document detailed test cases for manual &quot;click testing&quot;.</li><li>Identify and clearly isolate components for <strong>integration tests</strong>.</li><li>Do not <em>delete</em> slow tests, instead re-write your component to be faster.
+Respect the linter&#x27;s advice, always!</li><li>Use a commonly supported frontend testing stack such as Jest, Msw, or
+Puppeteer for easier setup and community support.</li><li>Setup your test runner to use a test database. It helps, especially during
+<strong>e2e</strong> testing.</li><li>Always write <strong><em>all the three types</em></strong> of tests, whenever applicable.</li></ul><p>All this stuff for what?</p><ul><li>Well because regressions can be much more expensive to your organisation!
+Writing high quality and thoroughly tested software will save you 💰 and help
+guarantee a maintainable codebase and a progressive software application.</li></ul><p>:::tip Still looking for the legend&#x27;s advice?</p><p>Gotcha, here you go...</p><ol><li>Swallow your pride and be humble: <em>always</em> do <strong>manual testing!</strong></li><li>Click test your way through the <strong>manual test cases</strong> for every new
+deployment, catching regressions.</li><li><em>Lock in</em> your fixes and new features as <strong>unit tests</strong>, <strong>integration
+tests</strong>, and <strong>end-to-end tests</strong>.</li></ol><p>:::</p><p>Happy testing,</p><p>Chaiwa</p>]]></content>
         <author>
             <name>Chaiwa Berian</name>
             <uri>https://github.com/chaiwa-berian</uri>
@@ -93,22 +180,73 @@ end
         <id>Improving Multistage Docker Builds using Buildx</id>
         <link href="https://docs.openfn.org/fr/articles/2021/10/08/improving-multistage-docker-builds-using-buildx"/>
         <updated>2021-10-08T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[So you're using docker's multi-stage builds and noticed that your build times aren't nearly as quick as you expected?]]></summary>
-        <content type="html"><![CDATA[<p>So you&#x27;re using docker&#x27;s multi-stage builds and noticed that your build times aren&#x27;t nearly as quick as you expected?</p><p>As many teams who spend more and more time using docker, it&#x27;s quite common to get into multi-stage builds; usually resulting in significantly smaller images.</p><p>However this comes with a pretty significant dilemma with caching. Even when using the <code>--cache-from</code> flag when building, docker only caches the last image.</p><p>One proposed solution<sup><a href="#ref1">1</a></sup>, is to pull, build and push each individual stage. Coming with tight coupling between the shape of your Dockerfile and your build process/scripts.</p><p>The other solution uses Docker Buildx which the document describes as:</p><blockquote><p>Docker Buildx is a CLI plugin that extends the docker command with the full support of the features provided by Moby BuildKit builder toolkit. It provides the same user experience as docker build with many new features like creating scoped builder instances and building against multiple nodes concurrently.</p></blockquote><p>While that sounds pretty cool, it doesn&#x27;t really touch on caching. This actually took me a while to find out that it would in fact do caching very differently. In fact it&#x27;s a very different experience using it, and has lots of really cool features that further detach you from the local docker state allowing you to build in environments that are stateless - such as Google CloudBuild without having to wire up some kind of persistence or file caching scheme.</p><h2>Buildx</h2><p>We&#x27;re only going to scratch the surface of Buildx, and with that let&#x27;s get the absolute minimum working; build our image locally.</p><h3>Local Cache</h3><p>First things first we need to create a builder, and select it for use. This is important as without creating a buildx builder (and setting it as the default), buildx will use the <code>docker</code> driver instead of the <code>docker-container</code> driver which we want in order to take advantage of cache exporting.</p><pre><code>docker buildx create --name mybuilder --use
-</code></pre><blockquote><p>You only need to run this once, except in the case of CloudBuild where each invocation is a new node.</p></blockquote><pre><code>docker buildx build \
+        <summary type="html"><![CDATA[So you're using docker's multi-stage builds and noticed that your build times]]></summary>
+        <content type="html"><![CDATA[<p>So you&#x27;re using docker&#x27;s multi-stage builds and noticed that your build times
+aren&#x27;t nearly as quick as you expected?</p><p>As many teams who spend more and more time using docker, it&#x27;s quite common to
+get into multi-stage builds; usually resulting in significantly smaller images.</p><p>However this comes with a pretty significant dilemma with caching. Even when
+using the <code>--cache-from</code> flag when building, docker only caches the last image.</p><p>One proposed solution<sup><a href="#ref1">1</a></sup>, is to pull, build and push each
+individual stage. Coming with tight coupling between the shape of your
+Dockerfile and your build process/scripts.</p><p>The other solution uses Docker Buildx which the document describes as:</p><blockquote><p>Docker Buildx is a CLI plugin that extends the docker command with the full
+support of the features provided by Moby BuildKit builder toolkit. It provides
+the same user experience as docker build with many new features like creating
+scoped builder instances and building against multiple nodes concurrently.</p></blockquote><p>While that sounds pretty cool, it doesn&#x27;t really touch on caching. This actually
+took me a while to find out that it would in fact do caching very differently.
+In fact it&#x27;s a very different experience using it, and has lots of really cool
+features that further detach you from the local docker state allowing you to
+build in environments that are stateless - such as Google CloudBuild without
+having to wire up some kind of persistence or file caching scheme.</p><h2>Buildx</h2><p>We&#x27;re only going to scratch the surface of Buildx, and with that let&#x27;s get the
+absolute minimum working; build our image locally.</p><h3>Local Cache</h3><p>First things first we need to create a builder, and select it for use. This is
+important as without creating a buildx builder (and setting it as the default),
+buildx will use the <code>docker</code> driver instead of the <code>docker-container</code> driver
+which we want in order to take advantage of cache exporting.</p><pre><code>docker buildx create --name mybuilder --use
+</code></pre><blockquote><p>You only need to run this once, except in the case of CloudBuild where each
+invocation is a new node.</p></blockquote><pre><code>docker buildx build \
   --cache-from=type=local,src=/tmp/buildx-cache \
   --cache-to=type=local,dest=/tmp/buildx-cache \
   --load \
   .
-</code></pre><p>While the <code>--cache-*</code> options aren&#x27;t specifically required when running <code>build</code>, as <code>buildx</code> does manage its own local cache (distinct from the regular docker cache), it&#x27;s there to emphasise the options that cache can be provided via the CLI options.</p><p>This is about as close as you get to a regular docker build, with the significant difference being that you have to specify where to cache from and to.</p><p>The <code>--load</code> flag is to tell buildx to set the output to the local docker daemon. Without that you won&#x27;t actually get a resulting image to run. However, depending on your use case, this could be seen as a convenience - if you&#x27;re wanting to run your tests inside your build; a resulting image isn&#x27;t particularly useful.</p><h3>Remote Cache</h3><p>Now comes to the part I&#x27;m most interested in, caching in a stateless/remote environment. Multipart builds for us at OpenFn are essential, since we use Elixir and like other compiled languages there is a lot to be gained by only shipping the stuff you&#x27;re going to run; and no language is safe from requiring several times more &#x27;stuff&#x27; in order to build our apps.</p><p>Buildx supports a <a href="https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#-export-build-cache-to-an-external-cache-destination---cache-to">handful of different types</a> of caching sources and destinations. We&#x27;re going to be using the <code>registry</code> type, where you point the cache at a repository reference (repo/image:tag style).</p><blockquote><p>One thing to note is that Google Container Registry does not support the metadata/manifest format that buildx uses, so if you&#x27;re using Google Cloud you will need to start using Artifact Registry.</p></blockquote><p><strong>Inline</strong></p><p>Push the image and the cache together:</p><pre><code>...
+</code></pre><p>While the <code>--cache-*</code> options aren&#x27;t specifically required when running <code>build</code>,
+as <code>buildx</code> does manage its own local cache (distinct from the regular docker
+cache), it&#x27;s there to emphasise the options that cache can be provided via the
+CLI options.</p><p>This is about as close as you get to a regular docker build, with the
+significant difference being that you have to specify where to cache from and
+to.</p><p>The <code>--load</code> flag is to tell buildx to set the output to the local docker
+daemon. Without that you won&#x27;t actually get a resulting image to run. However,
+depending on your use case, this could be seen as a convenience - if you&#x27;re
+wanting to run your tests inside your build; a resulting image isn&#x27;t
+particularly useful.</p><h3>Remote Cache</h3><p>Now comes to the part I&#x27;m most interested in, caching in a stateless/remote
+environment. Multipart builds for us at OpenFn are essential, since we use
+Elixir and like other compiled languages there is a lot to be gained by only
+shipping the stuff you&#x27;re going to run; and no language is safe from requiring
+several times more &#x27;stuff&#x27; in order to build our apps.</p><p>Buildx supports a
+<a href="https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#-export-build-cache-to-an-external-cache-destination---cache-to">handful of different types</a>
+of caching sources and destinations. We&#x27;re going to be using the <code>registry</code>
+type, where you point the cache at a repository reference (repo/image:tag
+style).</p><blockquote><p>One thing to note is that Google Container Registry does not support the
+metadata/manifest format that buildx uses, so if you&#x27;re using Google Cloud you
+will need to start using Artifact Registry.</p></blockquote><p><strong>Inline</strong></p><p>Push the image and the cache together:</p><pre><code>...
 --cache-from=type=registry,ref=$IMAGE_NAME \
 --cache-to=type=inline \
 ...
-</code></pre><p>This comes with the constraint that cache mode is always <code>min</code>, which only exports/caches the resulting layers; which is still better than the plain docker build caching but I think having the intermediary layers is generally a win. We want to avoid a single line change invalidating an entire build step.</p><p><strong>Registry</strong></p><p>Resulting image and cache are separated:</p><pre><code>...
+</code></pre><p>This comes with the constraint that cache mode is always <code>min</code>, which only
+exports/caches the resulting layers; which is still better than the plain docker
+build caching but I think having the intermediary layers is generally a win. We
+want to avoid a single line change invalidating an entire build step.</p><p><strong>Registry</strong></p><p>Resulting image and cache are separated:</p><pre><code>...
 --cache-from=type=registry,ref=$IMAGE_NAME-build-cache \
 --cache-to=type=registry,ref=$IMAGE_NAME-build-cache,mode=max \
 ...
-</code></pre><p>Again coming back to the cache mode, here being <code>max</code>; all intermediary laters are exported to the cache image as well.</p><p>I have opted to create <em>two</em> images, one for caching and another for the resulting image used to deploy. This gains us a much more granular cache and the ability to more easily manage the cache image - like deleting the whole thing when wanting to invalidate the cache. Not to mention I&#x27;m fairly sure the size of our images that get pulled on kubernetes would get significantly larger with many more layers.</p><p>It feels like a safer bet to have lean images for kubernetes to pull, and chunky cache images specifically for speeding up build.</p><p>Depending on your setup, pulling large images can get <em>seriously</em> expensive in a reasonably active deployment environment - like on AWS ECS without using PrivateLink.</p><blockquote><p>It appears the <code>moby/buildkit</code> documentation also demonstrates <a href="https://github.com/moby/buildkit#registry-push-image-and-cache-separately">this</a> approach.</p></blockquote><pre><code>IMAGE_NAME=us-east4-docker.pkg.dev/&lt;project-name&gt;/platform/app \
+</code></pre><p>Again coming back to the cache mode, here being <code>max</code>; all intermediary laters
+are exported to the cache image as well.</p><p>I have opted to create <em>two</em> images, one for caching and another for the
+resulting image used to deploy. This gains us a much more granular cache and the
+ability to more easily manage the cache image - like deleting the whole thing
+when wanting to invalidate the cache. Not to mention I&#x27;m fairly sure the size of
+our images that get pulled on kubernetes would get significantly larger with
+many more layers.</p><p>It feels like a safer bet to have lean images for kubernetes to pull, and chunky
+cache images specifically for speeding up build.</p><p>Depending on your setup, pulling large images can get <em>seriously</em> expensive in a
+reasonably active deployment environment - like on AWS ECS without using
+PrivateLink.</p><blockquote><p>It appears the <code>moby/buildkit</code> documentation also demonstrates
+<a href="https://github.com/moby/buildkit#registry-push-image-and-cache-separately">this</a>
+approach.</p></blockquote><pre><code>IMAGE_NAME=us-east4-docker.pkg.dev/&lt;project-name&gt;/platform/app \
 docker buildx build \
   -t $IMAGE_NAME:latest \
   --cache-from=type=registry,ref=$IMAGE_NAME-build-cache \
@@ -117,7 +255,24 @@ docker buildx build \
   --progress=plain \
   .
 </code></pre><p>This implies that the cache image is named with the suffix <code>-build-cache</code>:<br/>
-<code>us-east4-docker.pkg.dev/&lt;project-name&gt;/platform/app[-build-cache]</code>.</p><p>The <code>--push</code> argument tells buildx to push the resulting image to the registry.</p><h2>Tips</h2><p><strong>Clearing the local cache</strong></p><p>As mentioned before, buildx has its own cache and in order to clear the cache while debugging and readying a Dockerfile for remote building you&#x27;ll probably need to reach for <code>docker buildx prune</code>.</p><h2>Closing thoughts</h2><p>Using buildx has been a really pleasant experience, having personally attempted using it a few times over the last 3 years; the most recent one being the first time I felt confident getting it into production. As with any sufficiently flexible build tooling, the errors and issues you can run into range from complete gibberish, genuinely concerning inconsistencies to architectural choices that you haven&#x27;t fully caught up on; requiring an ever growing list of changes you need to make to your own build process.</p><p>Our initial observations have been great, reasonable changes on our build have gone from 28 minutes to around 9 minutes.</p><p>While I have encountered a few confusing cache invalidations, especially when building locally, exporting the cache to a repository and then having CloudBuild use the image cache. And occasionally locally having what feels like <em>really</em> aggressive caching on intermediate steps, leading me to pruning the local cache.</p><p>But overall, these issues aren&#x27;t necessarily buildx issues and more likely a combination of building docker images in general except with many more steps accounted for by the cache.</p><p>It&#x27;s kinda hard to see now what the exact issues I had with it in the past, but hey!</p><p>Buildx has given me what I &#x27;expected&#x27; with docker multi-stage builds, and having the cache in a repository completely side-steps having to attach a shared volume or copying from a storage bucket.</p><h2>Resources</h2><ul><li><a href="https://pythonspeed.com/articles/faster-multi-stage-builds/">Multi-stage builds #3: Speeding up your builds</a> <a name="ref1"><sup>1</sup></a></li><li><a href="https://docs.docker.com/buildx/working-with-buildx/">Docker Buildx</a></li><li><a href="https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#buildx-build">buildx build reference</a></li><li><a href="https://github.com/moby/buildkit#registry-push-image-and-cache-separately">mody/buildkey Registry cache exporter</a></li></ul>]]></content>
+<code>us-east4-docker.pkg.dev/&lt;project-name&gt;/platform/app[-build-cache]</code>.</p><p>The <code>--push</code> argument tells buildx to push the resulting image to the registry.</p><h2>Tips</h2><p><strong>Clearing the local cache</strong></p><p>As mentioned before, buildx has its own cache and in order to clear the cache
+while debugging and readying a Dockerfile for remote building you&#x27;ll probably
+need to reach for <code>docker buildx prune</code>.</p><h2>Closing thoughts</h2><p>Using buildx has been a really pleasant experience, having personally attempted
+using it a few times over the last 3 years; the most recent one being the first
+time I felt confident getting it into production. As with any sufficiently
+flexible build tooling, the errors and issues you can run into range from
+complete gibberish, genuinely concerning inconsistencies to architectural
+choices that you haven&#x27;t fully caught up on; requiring an ever growing list of
+changes you need to make to your own build process.</p><p>Our initial observations have been great, reasonable changes on our build have
+gone from 28 minutes to around 9 minutes.</p><p>While I have encountered a few confusing cache invalidations, especially when
+building locally, exporting the cache to a repository and then having CloudBuild
+use the image cache. And occasionally locally having what feels like <em>really</em>
+aggressive caching on intermediate steps, leading me to pruning the local cache.</p><p>But overall, these issues aren&#x27;t necessarily buildx issues and more likely a
+combination of building docker images in general except with many more steps
+accounted for by the cache.</p><p>It&#x27;s kinda hard to see now what the exact issues I had with it in the past, but
+hey!</p><p>Buildx has given me what I &#x27;expected&#x27; with docker multi-stage builds, and having
+the cache in a repository completely side-steps having to attach a shared volume
+or copying from a storage bucket.</p><h2>Resources</h2><ul><li><a href="https://pythonspeed.com/articles/faster-multi-stage-builds/">Multi-stage builds #3: Speeding up your builds</a><a name="ref1"><sup>1</sup></a></li><li><a href="https://docs.docker.com/buildx/working-with-buildx/">Docker Buildx</a></li><li><a href="https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#buildx-build">buildx build reference</a></li><li><a href="https://github.com/moby/buildkit#registry-push-image-and-cache-separately">mody/buildkey Registry cache exporter</a></li></ul>]]></content>
         <author>
             <name>Stuart Corbishley</name>
             <uri>https://github.com/stuartc</uri>
@@ -128,8 +283,13 @@ docker buildx build \
         <id>Wrapping my head around jobs</id>
         <link href="https://docs.openfn.org/fr/articles/2021/07/05/wrapping-my-head-around-jobs"/>
         <updated>2021-07-05T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Jobs are business processes turned into functional-style scripts. What does that mean, how should you approach writing jobs?]]></summary>
-        <content type="html"><![CDATA[<p>Jobs are business processes turned into functional-style scripts. What does that mean, how should you approach writing jobs?</p><p>First, this is how <em>I</em> think about jobs and what we do at Open Function Group to try to make our job code as readable, future-proof, and concise as possible. There are a million different ways to approach writing jobs. This is one.</p><h2>It all starts with <code>state</code></h2><p>If a job is a set of instructions for a chef (a recipe?) then the initial <code>state</code> is all of the ingredients they need tied up in a perfect little bundle. It usually looks something like this:</p><pre><code class="language-json">{
+        <summary type="html"><![CDATA[Jobs are business processes turned into functional-style scripts. What does that]]></summary>
+        <content type="html"><![CDATA[<p>Jobs are business processes turned into functional-style scripts. What does that
+mean, how should you approach writing jobs?</p><p>First, this is how <em>I</em> think about jobs and what we do at Open Function Group to
+try to make our job code as readable, future-proof, and concise as possible.
+There are a million different ways to approach writing jobs. This is one.</p><h2>It all starts with <code>state</code></h2><p>If a job is a set of instructions for a chef (a recipe?) then the initial
+<code>state</code> is all of the ingredients they need tied up in a perfect little bundle.
+It usually looks something like this:</p><pre><code class="language-json">{
   &quot;configuration&quot;: {
     &quot;hostUrl&quot;: &quot;https://moh.kenya.gov.ke/dhis2&quot;,
     &quot;username&quot;: &quot;taylor&quot;,
@@ -144,7 +304,18 @@ docker buildx build \
     }
   }
 }
-</code></pre><p>This might be the initial <code>state</code> for a real-time, message-triggered job. Some source system generated a new patient payload and sent that payload to OpenFn. The data from our source system will wind up in <code>state.data</code>. Now if my job is meant to take this new patient registration information and use it to create a new record in the national health record system, I&#x27;ll also need to provide my robot-chef here with a credential so they can access that system. The credential I&#x27;ve specified will get put into <code>state.configuration</code> and now our &quot;raw ingredients&quot; are all ready for our robot chef.</p><p>Note that even if this job was initiated by a cron trigger (e.g., &quot;Hey chef, prepare this recipe every Tuesday at 7pm&quot;) or by a flow/catch trigger (e.g., &quot;Hey chef, prepare this recipe only when you <em>fail</em> to make banana pancakes&quot;) it will have an initial state.</p><p><strong>Every job, and every operation inside that job (think &quot;step&quot; in a recipe) is called with <code>state</code> and returns <code>state</code> when it&#x27;s done.</strong></p><p>Initial state for a cron triggered job might look like this:</p><pre><code class="language-json">{
+</code></pre><p>This might be the initial <code>state</code> for a real-time, message-triggered job. Some
+source system generated a new patient payload and sent that payload to OpenFn.
+The data from our source system will wind up in <code>state.data</code>. Now if my job is
+meant to take this new patient registration information and use it to create a
+new record in the national health record system, I&#x27;ll also need to provide my
+robot-chef here with a credential so they can access that system. The credential
+I&#x27;ve specified will get put into <code>state.configuration</code> and now our &quot;raw
+ingredients&quot; are all ready for our robot chef.</p><p>Note that even if this job was initiated by a cron trigger (e.g., &quot;Hey chef,
+prepare this recipe every Tuesday at 7pm&quot;) or by a flow/catch trigger (e.g.,
+&quot;Hey chef, prepare this recipe only when you <em>fail</em> to make banana pancakes&quot;) it
+will have an initial state.</p><p><strong>Every job, and every operation inside that job (think &quot;step&quot; in a recipe) is
+called with <code>state</code> and returns <code>state</code> when it&#x27;s done.</strong></p><p>Initial state for a cron triggered job might look like this:</p><pre><code class="language-json">{
   &quot;configuration&quot;: {
     &quot;hostUrl&quot;: &quot;https://moh.kenya.gov.ke&quot;,
     &quot;apiKey&quot;: &quot;abc123&quot;
@@ -161,13 +332,40 @@ docker buildx build \
   &quot;lastProcessedId&quot;: 321,
   &quot;error&quot;: [&quot;Required field missing&quot;, &quot;Patient Surname&quot;, &quot;Line 43&quot;]
 }
-</code></pre><p>No matter what, jobs start with state. See <a href="/documentation/jobs/state/">&quot;Initial and final state for runs&quot;</a> for a detailed breakdown.</p><h2>It ends with <code>state</code> too</h2><p>Now that we&#x27;ve got it in our heads that <code>state</code> is the raw ingredients you hand to your chef when you ask them to prepare a recipe, let&#x27;s look at the recipe. Boiled down (excuse the pun) a job for loading those patients into the national health record system might look like this:</p><pre><code class="language-js">get(&#x27;/api/insuranceRegistrations&#x27;);
+</code></pre><p>No matter what, jobs start with state. See
+<a href="/documentation/jobs/state/">&quot;Initial and final state for runs&quot;</a> for a detailed
+breakdown.</p><h2>It ends with <code>state</code> too</h2><p>Now that we&#x27;ve got it in our heads that <code>state</code> is the raw ingredients you hand
+to your chef when you ask them to prepare a recipe, let&#x27;s look at the recipe.
+Boiled down (excuse the pun) a job for loading those patients into the national
+health record system might look like this:</p><pre><code class="language-js">get(&#x27;/api/insuranceRegistrations&#x27;);
 post(&#x27;/api/patients&#x27;, { ...someData });
 post(&#x27;/api/visits&#x27;, { ...someData });
-</code></pre><p>We&#x27;re telling our chef to take those raw ingredients (login info for our national health system and a chunk of information about a newly registered patient) and do the following:</p><ol><li>Find out whether this person already has a national health insurance number</li><li>Add this person to the patient registry (making use of some insurance data from step 1)</li><li>Add a visit record with information about this initial visit (making use of patient registry data from step 2)</li></ol><p>When all of this is done, we&#x27;ll not only have a new patient and visit logged in the national health registry, but we&#x27;ll also return a final <code>state</code> object with information about what we&#x27;ve done that can be used in subsequent jobs. Imagine that we want to make a cash transfer to this patient so that they can take a cab to the next visit—we might create a job with the Mpesa adaptor that takes the final state of this first job as its <em>initial state</em>. In this way, jobs are composable.</p><p>But what about the complexity inside our job—in order to complete step 2, we need some data from the insurance registry and we only get that data in step 1. Crucially, each operation (again, think &quot;step&quot; in a recipe) takes state and returns state. In effect, the OpenFn execution pipeline simply calls all of your action methods <em>with state</em>, passing it along from one operation to the next, waiting for each to finish and using the output from the first as the input for the second.</p><p>While you may write your <code>get</code>, <code>post</code>, <code>post</code> job as it&#x27;s show above, the way it&#x27;s handled by OpenFn is actually more like:</p><pre><code class="language-js">return get(&#x27;/api/insurance&#x27;, { ...useDataFromState })(state)
+</code></pre><p>We&#x27;re telling our chef to take those raw ingredients (login info for our
+national health system and a chunk of information about a newly registered
+patient) and do the following:</p><ol><li>Find out whether this person already has a national health insurance number</li><li>Add this person to the patient registry (making use of some insurance data
+from step 1)</li><li>Add a visit record with information about this initial visit (making use of
+patient registry data from step 2)</li></ol><p>When all of this is done, we&#x27;ll not only have a new patient and visit logged in
+the national health registry, but we&#x27;ll also return a final <code>state</code> object with
+information about what we&#x27;ve done that can be used in subsequent jobs. Imagine
+that we want to make a cash transfer to this patient so that they can take a cab
+to the next visit—we might create a job with the Mpesa adaptor that takes the
+final state of this first job as its <em>initial state</em>. In this way, jobs are
+composable.</p><p>But what about the complexity inside our job—in order to complete step 2, we
+need some data from the insurance registry and we only get that data in step 1.
+Crucially, each operation (again, think &quot;step&quot; in a recipe) takes state and
+returns state. In effect, the OpenFn execution pipeline simply calls all of your
+action methods <em>with state</em>, passing it along from one operation to the next,
+waiting for each to finish and using the output from the first as the input for
+the second.</p><p>While you may write your <code>get</code>, <code>post</code>, <code>post</code> job as it&#x27;s show above, the way
+it&#x27;s handled by OpenFn is actually more like:</p><pre><code class="language-js">return get(&#x27;/api/insurance&#x27;, { ...useDataFromState })(state)
   .then(state2 =&gt; post(&#x27;/api/&#x27;, { ...useDataFromState2 })(state2))
   .then(state3 =&gt; post(&#x27;/api/visits&#x27;, { ...useDataFromState3 })(state3));
-</code></pre><p>Each of these operations returns a function which <em>takes state</em> and returns state. This means that <em>within</em> a job, you are essentially modifying <code>state</code>, creating/manipulating records in external systems, and returning <code>state</code>.</p><p>It opens up a really interesting world of possibility for data manipulation, cleaning, or transformation. Consider what we might do <em>after</em> we get data from the insurance registry but <em>before</em> we create that patient in the national patient registry:</p><pre><code class="language-js">get(&#x27;/api/insuranceRegistrations&#x27;);
+</code></pre><p>Each of these operations returns a function which <em>takes state</em> and returns
+state. This means that <em>within</em> a job, you are essentially modifying <code>state</code>,
+creating/manipulating records in external systems, and returning <code>state</code>.</p><p>It opens up a really interesting world of possibility for data manipulation,
+cleaning, or transformation. Consider what we might do <em>after</em> we get data from
+the insurance registry but <em>before</em> we create that patient in the national
+patient registry:</p><pre><code class="language-js">get(&#x27;/api/insuranceRegistrations&#x27;);
 fn(state =&gt; {
   console.log(state.data); // let&#x27;s look at the response from the insurance API.
   state.data.people.filter(p =&gt; p.HasActiveInsurance); // and modify the payload to only retain those with active insurance
@@ -175,7 +373,8 @@ fn(state =&gt; {
 });
 post(&#x27;/api/patients&#x27;, { ...someData });
 post(&#x27;/api/visits&#x27;, { ...someData });
-</code></pre><p>We might even need to do some manipulation <em>before</em> we send a <code>get</code> request to the insurance registry. That&#x27;s no problem:</p><pre><code class="language-js">fn(state =&gt; {
+</code></pre><p>We might even need to do some manipulation <em>before</em> we send a <code>get</code> request to
+the insurance registry. That&#x27;s no problem:</p><pre><code class="language-js">fn(state =&gt; {
   state.data.registrationType = state.data.age &gt; 18 ? &#x27;Adult&#x27; : &#x27;Minor&#x27;;
   return state; // before returning state for our create patients operation.
 });
@@ -188,7 +387,15 @@ fn(state =&gt; {
 });
 post(&#x27;/api/patients&#x27;, { ...someData });
 post(&#x27;/api/visits&#x27;, { ...someData });
-</code></pre><p>Here, we&#x27;ve added a step to modify the initial <code>state</code> before we send that first <code>get</code> request to the insurance API. We determine if the new patient is a minor, and then use that newly calculated data to apply a query to the insurance API request.</p><p>Using <code>fn(state =&gt; state)</code> or <code>alterState(state =&gt; state})</code> is incredibly useful, because it allows us to separate our data manipulation, calculation, and raw Javascript (which will be harder for low-tech users to understand) from our external actions. Let&#x27;s explore that some more.</p><h2>Keeping external actions clean</h2><p>Inside each operation we could do some data manipulation... all of these operations, across the many different language packages, allow for inline data manipulation like this:</p><pre><code class="language-js">get(&#x27;/api/insuranceRegistrations&#x27;, {
+</code></pre><p>Here, we&#x27;ve added a step to modify the initial <code>state</code> before we send that first
+<code>get</code> request to the insurance API. We determine if the new patient is a minor,
+and then use that newly calculated data to apply a query to the insurance API
+request.</p><p>Using <code>fn(state =&gt; state)</code> or <code>alterState(state =&gt; state})</code> is incredibly
+useful, because it allows us to separate our data manipulation, calculation, and
+raw Javascript (which will be harder for low-tech users to understand) from our
+external actions. Let&#x27;s explore that some more.</p><h2>Keeping external actions clean</h2><p>Inside each operation we could do some data manipulation... all of these
+operations, across the many different language packages, allow for inline data
+manipulation like this:</p><pre><code class="language-js">get(&#x27;/api/insuranceRegistrations&#x27;, {
   query: state =&gt; {
     console.log(&quot;I&#x27;m doing some fancy stuff here.&quot;);
     return { type: state.data.age &gt; 18 ? &#x27;Adult&#x27; : &#x27;Minor&#x27; };
@@ -201,7 +408,8 @@ post(&#x27;/api/patients&#x27;, {
     },
   },
 });
-</code></pre><p>But if you&#x27;re interacting with both technical and non-technical users, it makes for harder to read jobs. Consider the following instead:</p><pre><code class="language-js">// Perform calculations...
+</code></pre><p>But if you&#x27;re interacting with both technical and non-technical users, it makes
+for harder to read jobs. Consider the following instead:</p><pre><code class="language-js">// Perform calculations...
 fn(state =&gt; {
   // Create several new calculated attributes...
   state.data = {
@@ -218,7 +426,26 @@ get(&#x27;/api/insuranceRegistrations&#x27;, { query: { type: dataValue(&#x27;ty
 
 // Create new patient...
 post(&#x27;/api/patients&#x27;, { body: { name: dataValue(&#x27;fullName&#x27;) } });
-</code></pre><p>Since we often have non-developers creating the external operations like <code>get</code> and <code>post</code> above, this pattern makes our handoff easier. The business analyst can say &quot;I need to have a registration <code>type</code> field available for use when querying the insurance registry.&quot; A developer might respond, &quot;Great! How do you want to calculate it... I&#x27;ve got all of Javascript at my fingertips.&quot; That dev can then make as many API calls as they&#x27;d like, perform as many <code>map.reduce(...)</code> calls as their heart desires to complete that calculation... so long as they make sure the hand off <code>state</code> to the business analyst&#x27;s operation with a valid <code>state.data.type</code> attribute.</p><p>A final benefit of this approach is that it becomes much easier to generate job scripts from Google Sheets. Our implementation team frequently works with non-technical clients to generate field maps that look like this:</p><table><thead><tr><th>Path to Source Data</th><th>Destination Field</th><th align="right">Auto-generated syntax (using concat)</th></tr></thead><tbody><tr><td>patient.fullName</td><td>name</td><td align="right">field(&#x27;name&#x27;, dataValue(&#x27;patient.fullName&#x27;)),</td></tr><tr><td>patient.age</td><td>age</td><td align="right">field(&#x27;age&#x27;, dataValue(&#x27;patient.age&#x27;)),</td></tr><tr><td>???</td><td>type</td><td align="right">plz help us calculate &#x27;type&#x27; based on x, y, z</td></tr><tr><td>patient.sex</td><td>gender</td><td align="right">field(&#x27;gender&#x27;, dataValue(&#x27;patient.sex&#x27;)),</td></tr></tbody></table><p>We can then copy and paste the syntax generated in that final column directly into OpenFn and update the bits that need some sort of custom code, writing an <code>fn(state)</code> block or an <code>alterState(state)</code> block before the external action.</p><h2>Wrapping up</h2><p>Some key takeaways here:</p><ol><li><p>Jobs start and end with <code>state</code> — some raw ingredients that will be used in a recipe.</p></li><li><p>Jobs are lists of <code>operations</code> — steps in a recipe that <em>each</em> take <code>state</code>, <em>do some stuff</em>, and then return <code>state</code>.</p></li><li><p>As you move through the steps in a job, you are modifying <code>state</code>. Each subsequent step begins with the final state from the previous step.</p></li><li><p>It may be useful to keep all your custom Javascript data cleaning, manipulation, etc., in a separate operation (e.g., <code>fn(state)</code> or <code>alterState(state)</code>) so that your external actions are clean and easy to follow.</p></li></ol><p>Finally, taking a close look at how developers write those <code>fn(state)</code> steps tells us a lot about what the job execution pipeline is really doing:</p><pre><code class="language-js">// here, &quot;fn&quot; is a function that takes state and returns state
+</code></pre><p>Since we often have non-developers creating the external operations like <code>get</code>
+and <code>post</code> above, this pattern makes our handoff easier. The business analyst
+can say &quot;I need to have a registration <code>type</code> field available for use when
+querying the insurance registry.&quot; A developer might respond, &quot;Great! How do you
+want to calculate it... I&#x27;ve got all of Javascript at my fingertips.&quot; That dev
+can then make as many API calls as they&#x27;d like, perform as many
+<code>map.reduce(...)</code> calls as their heart desires to complete that calculation...
+so long as they make sure the hand off <code>state</code> to the business analyst&#x27;s
+operation with a valid <code>state.data.type</code> attribute.</p><p>A final benefit of this approach is that it becomes much easier to generate job
+scripts from Google Sheets. Our implementation team frequently works with
+non-technical clients to generate field maps that look like this:</p><table><thead><tr><th>Path to Source Data</th><th>Destination Field</th><th align="right">Auto-generated syntax (using concat)</th></tr></thead><tbody><tr><td>patient.fullName</td><td>name</td><td align="right">field(&#x27;name&#x27;, dataValue(&#x27;patient.fullName&#x27;)),</td></tr><tr><td>patient.age</td><td>age</td><td align="right">field(&#x27;age&#x27;, dataValue(&#x27;patient.age&#x27;)),</td></tr><tr><td>???</td><td>type</td><td align="right">plz help us calculate &#x27;type&#x27; based on x, y, z</td></tr><tr><td>patient.sex</td><td>gender</td><td align="right">field(&#x27;gender&#x27;, dataValue(&#x27;patient.sex&#x27;)),</td></tr></tbody></table><p>We can then copy and paste the syntax generated in that final column directly
+into OpenFn and update the bits that need some sort of custom code, writing an
+<code>fn(state)</code> block or an <code>alterState(state)</code> block before the external action.</p><h2>Wrapping up</h2><p>Some key takeaways here:</p><ol><li><p>Jobs start and end with <code>state</code> — some raw ingredients that will be used in a
+recipe.</p></li><li><p>Jobs are lists of <code>operations</code> — steps in a recipe that <em>each</em> take <code>state</code>,
+<em>do some stuff</em>, and then return <code>state</code>.</p></li><li><p>As you move through the steps in a job, you are modifying <code>state</code>. Each
+subsequent step begins with the final state from the previous step.</p></li><li><p>It may be useful to keep all your custom Javascript data cleaning,
+manipulation, etc., in a separate operation (e.g., <code>fn(state)</code> or
+<code>alterState(state)</code>) so that your external actions are clean and easy to
+follow.</p></li></ol><p>Finally, taking a close look at how developers write those <code>fn(state)</code> steps
+tells us a lot about what the job execution pipeline is really doing:</p><pre><code class="language-js">// here, &quot;fn&quot; is a function that takes state and returns state
 fn(state =&gt; {
   console.log(&quot;I&#x27;m doing some cool stuff.&quot;);
   //  I might create some new attribute...
@@ -227,19 +454,44 @@ fn(state =&gt; {
   // And ALWAYS return state for the next operation to use...
   return state;
 });
-</code></pre><p>I hope this gives you sense of how I think about structuring jobs and building data pipelines or automation flows on OpenFn. We recognize that this stuff is complex, and are pushing our new documentation regularly, so please do get in touch if you think there are ways we could improve this type of walk-through/helper article.</p><p>Happy integrating,</p><p>Taylor</p>]]></content>
+</code></pre><p>I hope this gives you sense of how I think about structuring jobs and building
+data pipelines or automation flows on OpenFn. We recognize that this stuff is
+complex, and are pushing our new documentation regularly, so please do get in
+touch if you think there are ways we could improve this type of
+walk-through/helper article.</p><p>Happy integrating,</p><p>Taylor</p>]]></content>
         <author>
             <name>Taylor Downs</name>
             <uri>https://github.com/taylordowns2000</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Formulaires et cas : CommCare et intégration basée sur les événements]]></title>
-        <id>Formulaires et cas : CommCare et intégration basée sur les événements</id>
+        <title type="html"><![CDATA[Forms and Cases: CommCare and event-based integration]]></title>
+        <id>Forms and Cases: CommCare and event-based integration</id>
         <link href="https://docs.openfn.org/fr/articles/2021/05/24/commcare-events"/>
         <updated>2021-05-24T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[C'est rapide, mais je viens de passer un appel passionnant avec une organisation qui va mettre en place des jobs pour déplacer des données dans Salesforce à partir de CommCare et j'ai réalisé que bien que cela soit l'une de nos exigences d'intégration les plus courantes, nous n'avons pas fait un article des «astuces» pour ce type de projet. Jusqu'à présent.]]></summary>
-        <content type="html"><![CDATA[<p>C&#x27;est rapide, mais je viens de passer un appel passionnant avec une organisation qui va mettre en place des jobs pour déplacer des données dans Salesforce à partir de CommCare et j&#x27;ai réalisé que bien que cela soit l&#x27;une de nos exigences d&#x27;intégration les plus courantes, nous n&#x27;avons pas fait un article des «astuces» pour ce type de projet. Jusqu&#x27;à présent.</p><p>Alors voilà. Bien qu&#x27;il ne s&#x27;agisse en aucun cas d&#x27;un modèle de planification de projet exhaustif, voici quelques éléments à garder à l&#x27;esprit si vous envisagez de mettre en œuvre vous-même une intégration CommCare à Salesforce.</p><h2>La plupart des gens utilisent le &quot;Transfert de données&quot; dans CommCare</h2><p>Tout d&#x27;abord, la plupart des gens utilisent la fonction « Transmission de données » de CommCare pour envoyer des soumissions de formulaires et des changements de cas (création, mise à jour, fermeture, etc.) à OpenFn en temps réel. Vous pouvez en savoir plus à ce sujet <a href="/documentation/apps/commcare#forward-cases-andor-forms-from-commcare-to-openfn">ici</a> mais la principale considération à ce stade de planification est <em>quand</em> vous effectuerez les opérations —<code>créer(...)</code>, <code>update(...)</code>, <code>upsert(...)</code>, <code>query(...)</code>, <code>(massif(...)</code>, etc.—dans Salesforce et à quelles données vous aurez accès.</p><p>Chaque fois qu&#x27;une soumission de formulaire arrive dans CommCare, nous obtenons une copie de cette soumission chez OpenFn et pouvons utiliser ces données pour créer ou modifier certains enregistrements dans Salesforce.</p><p>De même, chaque fois qu&#x27;un cas est mis à jour (ou créé ou fermé), nous obtiendrons une copie du cas avec toutes les &quot;propriétés&quot; du cas et nous pouvons utiliser ces données pour <em>faire quelque chose</em> dans Salesforce.</p><p>Si vous utilisez &quot;Transfert de formulaire&quot;, le <code>trigger</code> que vous créez dans OpenFn pourrait ressembler à ceci <code>{&quot;form&quot;:{&quot;@name&quot;:&quot;ART Adherence Self-Reporting Tool&quot;}}</code> et il déclencherait votre <code>job</code> à chaque fois qu&#x27;une soumission &quot;ART Adherence Self-Reporting Tool&quot; est arrivée de CommCare, en donnant accès à toutes les données à l&#x27;intérieur de cette soumission.</p><h2>Travailler avec les données en provenance de CommCare</h2><p>En supposant que vous utilisez la gestion de cas, les données qui arrivent de CommCare ressembleront à ceci :</p><pre><code class="language-json">{
+        <summary type="html"><![CDATA[This is a quick one, but I just got off an exciting call with an organization]]></summary>
+        <content type="html"><![CDATA[<p>This is a quick one, but I just got off an exciting call with an organization
+that&#x27;s going to set up some jobs to move data into Salesforce from CommCare and
+realized that despite this being one of our more common integration
+requirements, we haven&#x27;t done a &#x27;tips&#x27; article for this type of project. Until
+now.</p><p>So here goes. While this is by no means an exhaustive project planning template,
+here are a few things to keep in mind if you&#x27;re planning to implement a CommCare
+to Salesforce integration on your own.</p><h2>Most people use &quot;Data Forwarding&quot; in CommCare</h2><p>First, most people make use of CommCare&#x27;s &quot;Data Forwarding&quot; feature to send form
+submissions and changes in cases (creation, update, closure, etc.) to OpenFn in
+real-time. You can read about that
+<a href="/documentation/apps/commcare#forward-cases-andor-forms-from-commcare-to-openfn">here</a>
+but the key consideration at this planning stage is <em>when</em> you&#x27;ll be performing
+operations—<code>create(...)</code>, <code>update(...)</code>, <code>upsert(...)</code>, <code>query(...)</code>,
+<code>(bulk(...)</code>, etc.—in Salesforce and what data you&#x27;ll have access to.</p><p>Each time a form submission comes into CommCare, we&#x27;ll get a copy of that
+submission at OpenFn and can use that data to create or modify some records in
+Salesforce.</p><p>Likewise, each time a case gets updated (or created or closed) we&#x27;ll get a copy
+of the case with all the case &quot;properties&quot; and we can use that data to <em>do some
+stuff</em> in Salesforce.</p><p>If you are using &quot;Form Forwarding&quot;, the <code>trigger</code> you&#x27;d create in OpenFn might
+look like this <code>{&quot;form&quot;:{&quot;@name&quot;:&quot;ART Adherence Self-Reporting Tool&quot;}}</code> and it
+would trigger your <code>job</code> any time an &quot;ART Adherence Self-Reporting Tool&quot;
+submission arrived from CommCare, giving that job access to all of the data
+inside that submission.</p><h2>Working with the data that comes from CommCare</h2><p>Assuming you&#x27;re using making use of case management, the data that arrives from
+CommCare will look something like this:</p><pre><code class="language-json">{
   &quot;__query_params&quot;: {
     &quot;app_id&quot;: &quot;some-long-id&quot;
   },
@@ -268,7 +520,7 @@ fn(state =&gt; {
     &quot;@version&quot;: &quot;2783&quot;,
     &quot;@xmlns&quot;: &quot;http://openrosa.org/formdesigner/59E1207B-969F-402D-9EEE-675504036F78&quot;,
     &quot;administrative&quot;: {
-      &quot;coach_verification&quot;: &quot;vérifier_ici&quot;,
+      &quot;coach_verification&quot;: &quot;check_here&quot;,
       &quot;visit_notes&quot;: &quot;&quot;,
       &quot;vist_notes_to_save&quot;: &quot;&quot;
     },
@@ -278,7 +530,7 @@ fn(state =&gt; {
       &quot;@user_id&quot;: &quot;332e893dcd1b413686621bd80aae0cd3&quot;,
       &quot;@xmlns&quot;: &quot;http://commcarehq.org/case/transaction/v2&quot;,
       &quot;update&quot;: {
-        &quot;consent_received&quot;: &quot;oui&quot;,
+        &quot;consent_received&quot;: &quot;yes&quot;,
         &quot;home_visit_notes&quot;: &quot;&quot;
       }
     },
@@ -299,7 +551,7 @@ fn(state =&gt; {
     &quot;participant_information&quot;: {
       &quot;participant_id&quot;: &quot;007&quot;,
       &quot;name&quot;: &quot;taylor downs&quot;,
-      &quot;gender&quot;: &quot;masculin&quot;,
+      &quot;gender&quot;: &quot;male&quot;,
       &quot;guardian_information&quot;: {
         &quot;guardians_name&quot;: &quot;Fake Data&quot;,
         &quot;guardians_phone_number&quot;: &quot;8675309&quot;,
@@ -307,25 +559,26 @@ fn(state =&gt; {
         &quot;relationship_to_participant&quot;: &quot;father&quot;
       },
       &quot;current_medications&quot;: [
-        { &quot;name&quot;: &quot;generic-1&quot;, &quot;actif&quot;: vrai },
-        { &quot;name&quot;: &quot;fakelyn-notrealiol&quot;, &quot;actif&quot;: faux },
-        { &quot;name&quot;: &quot;sasstra-zenica&quot;, &quot;actif&quot;: faux},
-        { &quot;name&quot;: &quot;ibuprofen&quot;, &quot;active&quot;: vrai }
+        { &quot;name&quot;: &quot;generic-1&quot;, &quot;active&quot;: true },
+        { &quot;name&quot;: &quot;fakelyn-notrealiol&quot;, &quot;active&quot;: false },
+        { &quot;name&quot;: &quot;sasstra-zenica&quot;, &quot;active&quot;: false },
+        { &quot;name&quot;: &quot;ibuprofen&quot;, &quot;active&quot;: true }
       ]
     },
     &quot;tested_for_hiv_status_tested_for_hiv&quot;: &quot;OK&quot;,
     &quot;visit_information&quot;: {
-      &quot;consent_given&quot;: &quot;oui&quot;,
+      &quot;consent_given&quot;: &quot;yes&quot;,
       &quot;date_consent_given&quot;: &quot;2021-05-23&quot;,
       &quot;visit_date&quot;: &quot;2021-05-23&quot;
     }
   },
   &quot;id&quot;: &quot;130c68c5-7d17-4086-8a85-27d7d7da2216&quot;,
   &quot;indexed_on&quot;: &quot;2021-05-24T14:20:39.045971&quot;,
-  &quot;initial_processing_complete&quot;: vrai,
-  &quot;is_phone_submission&quot;: vrai,
+  &quot;initial_processing_complete&quot;: true,
+  &quot;is_phone_submission&quot;: true,
   &quot;metadata&quot;: {
-    &quot;appVersion&quot;: &quot;CommCare Android, version \&quot;2.51.2\&quot;(463994). App v2798. CommCare Version 2.51.2. &quot;app_build_version&quot;: 2798,
+    &quot;appVersion&quot;: &quot;CommCare Android, version \&quot;2.51.2\&quot;(463994). App v2798. CommCare Version 2.51.2. Build 463994, built on: 2021-03-17&quot;,
+    &quot;app_build_version&quot;: 2798,
     &quot;commcare_version&quot;: &quot;2.51.2&quot;,
     &quot;deviceID&quot;: &quot;commcare_a39f55a5-c744-4e33-8e01-d17e7698894f&quot;,
     &quot;drift&quot;: &quot;0&quot;,
@@ -345,7 +598,51 @@ fn(state =&gt; {
   &quot;uiversion&quot;: &quot;1&quot;,
   &quot;version&quot;: &quot;2783&quot;
 }
-</code></pre><p>Il s&#x27;agit d&#x27;un gros bloc de <code>JSON</code>- le corps du message qui est reçu à OpenFn lorsque ce formulaire particulier (&quot;ART Adherence Self-Reporting Tool&quot;) est soumis dans CommCare - sera remis à la tâche pour commencer le traitement. La question est : que devons-nous faire ?</p><p>Lors de la configuration d&#x27;une implémentation en libre-service sur OpenFn, la chose la plus importante que vous puissiez faire en ce moment est d&#x27;énumérer soigneusement le processus de saisie de données que vous aimeriez qu&#x27;un vrai humain suive. Vous pouvez le traduire ultérieurement en script de travail.</p><p>Vous devrez écrire ceci pour votre propre cas, mais dans cet exemple fictif, voici le processus de saisie des données.</p><h2>Les instructions pour notre employé</h2><p>:::astuce</p><p>Dès le début, remarquez que nous sommes incroyablement explicites avec ces instructions ! Nous utilisons le &quot;API Name&quot; (au lieu de simplement le &quot;libellé&quot;, qui peut être ambigu) de chaque champ que nous voulons remplir dans Salesforce et nous utilisons le &quot;chemin&quot; spécifique aux données que nous voulons que cette personne entre depuis CommCare.</p><p><strong>Pourquoi sommes-nous si spécifiques ?</strong> Parce que, finalement, un ordinateur devra interpréter cela — et sont d&#x27;une ambiguïté <em>incroyable</em> !</p><p>:::</p><ol><li>Chaque fois qu&#x27;un message est reçu avec <code>{&quot;form&quot;:{&quot;@name&quot;:&quot;ART Adherence Self-Reporting Tool&quot;}}</code> dans le corps (c&#x27;est notre trigger)</li><li>Connectez-vous à Salesforce et créez un nouveau participant avec le <code>participant_id</code> que vous trouvez dans la section<code>form. articipant_information</code> comme leur <code>Participant_Code__c</code>. (Si quelqu&#x27;un existe déjà dans Salesforce avec ce code, puis mettre à jour l&#x27;enregistrement existant.)</li><li>Remplissez les champs suivants dans Salesforce en fonction des données de CommCare dans ce message :<ul><li><code>Nom__c</code> avec les données de <code>form.participant_information.name</code></li><li><code>Sex__c</code> avec les données de <code>form.participant_information.gender</code></li><li><code>CommCare_Case_ID__c</code> avec les données de <code>form.case.@case_id</code></li></ul></li><li>Après avoir créé (ou mis à jour) ce participant dans Salesforce, créer un enregistrement de la visite avec l&#x27; <code>instanceID</code> à partir de la section <code>métadonnées</code> en tant que identifiant unique <code>Visit_Code__c</code>. (Une fois encore, s&#x27;il y a déjà une visite avec cet ID, veuillez mettre à jour l&#x27;enregistrement existant.)</li><li>Remplissez les champs suivants pour la visite avec les données de CommCare&quot;<ul><li><code>Date__c</code> avec <code>form.visit_information.visit_date</code>.</li><li><code>Consented__c</code> avec <code>form.visit_information.consent_given</code>.</li><li>Toujours définir <code>Test_Status__c</code> à <code>vrai</code>, indépendamment de ce qui se trouve dans le message de CommCare.</li><li>Et connectez cet enregistrement avec la <code>Community_Health_Worker</code> par son nom d&#x27;utilisateur dans <code>form.metadata.username</code>.</li></ul></li><li>Enfin, ajoutez un dossier pour chaque médicament listé dans le formulaire <code>form.participant_information.current_medications</code> — correspondant à un ID unique formé par une combinaison du <code>nom</code> du médicament et du <code>participant_id</code> afin que nous puissions mettre à jour les dossiers de médicaments existants s&#x27;ils sont présents.</li><li>Remplissez les champs suivants pour le médicament :<ul><li><code>Generic_Name__c</code> avec <code>nom</code></li><li><code>Status__c</code> avec <code>actif</code></li><li>Et associez cet enregistrement avec le participant que vous avez créé ou mis à jour à l&#x27;étape 2 via le champ <code>participant_id</code>.</li></ul></li></ol><p>Ouf... c&#x27;est ça la tâche. C&#x27;est juste un exemple fictif et les choses pourraient être plus simples, ou beaucoup plus compliquées que cela, mais il est important de se rappeler que si vous pouvez atteindre ce niveau de <strong>précision et granularité</strong> dans votre processus de saisie de données, un outil comme OpenFn peut automatiser cela pour vous dans un éclat.</p><h2>Traduire ceci dans un projet OpenFn</h2><p>Si vous diffusez des données depuis CommCare et que vous avez votre système Salesforce tous mis en place pour que cette personne de saisie de données puisse compléter les étapes ci-dessus (tous les objets et champs sont-ils créés ? les bons champs sont-ils marqués comme &quot;uniques&quot; et définis à être utiliser comme &quot;external id&quot; dans la section administration de Salesforce ? avez-vous activé le transfert de données dans CommCare ?) alors il est temps de les transformer en un projet OpenFn !</p><p>:::astuce</p><p>Un plugin rapide : <strong>Saviez-vous qu&#x27;il y a un <a href="https://community.openfn.org">forum de la communauté OpenFn</a></strong> où vous pouvez poster des trucs comme les &quot;étapes&quot; ci-dessus et obtenir de l&#x27;aide des autres utilisateurs et du personnel d&#x27;OpenFn pour convertir convertir ces étapes en un vrai travail OpenFn ?</p><p>Eh bien, vous savez ! Allez voir sur <a href="https://community.openfn.org">community.openfn.org</a></p><p>:::</p><h3>Créer un identifiant Salesforce</h3><p>Nous n&#x27;avons pas besoin d&#x27;un mot de passe CommCare, car il nous enverra des données. Créez un identifiant Salesforce qui permettra au travailleur OpenFn de se connecter à votre système Salesforce.</p><p>En savoir plus sur les credentials<a href="/documentation/build/credentials">ici</a>.</p><h3>Créer un trigger filtre de message</h3><ul><li>Sélectionnez <code>Message Filter</code> pour le type ``</li><li>Entrez <code>{&quot;form&quot;:{&quot;@name&quot;:&quot;ART Adherence Self-Reporting Tool&quot;}}</code> pour les critères d&#x27;inclusion ``</li></ul><p>En savoir plus sur les triggers<a href="/documentation/build/triggers">ici</a>.</p><h3>Créer un job</h3><ul><li>Donnez-en un nom</li><li>Sélectionnez le trigger que vous venez de créer</li><li>Sélectionnez l&#x27;adaptateur <code>salesforce</code></li><li>Sélectionnez le credential que vous venez de créer</li></ul><p>Et convertissez les instructions ci-dessus en &quot;opérations&quot; en utilisant l&#x27;aide en ligne fournie par l&#x27;adaptateur Salesforce :</p><pre><code class="language-js">// Utilisez upsert pour créer ou mettre à jour un participant en fonction de son code de participant.
+</code></pre><p>This is a big blob of <code>JSON</code>—the body of the message that&#x27;s received at OpenFn
+when this particular form (&quot;ART Adherence Self-Reporting Tool&quot;) is submitted in
+CommCare—will be handed off to the job to start processing. The question is,
+what should we do?</p><p>When setting up for a self-service implementation on OpenFn, the most important
+thing you can do at this moment is carefully enumerate the data entry process
+that you&#x27;d like a real human to follow. You can translate it to a job script
+later.</p><p>You&#x27;ll need to write this up for your own case, but in this fictional example,
+here&#x27;s the data entry process.</p><h2>The instructions for our worker</h2><p>:::tip</p><p>Right from the start, notice that we&#x27;re being incredibly explicit with these
+instructions! We&#x27;re using the &quot;API Name&quot; (instead of just the &quot;label&quot;, which
+might be ambiguous) of every field we want filled out in Salesforce and we&#x27;re
+using the specific &quot;path&quot; to the data we want this person to enter from
+CommCare.</p><p><strong>Why are we being so specific?</strong> Because eventually, a computer will need to
+interpret this—and they&#x27;re <em>terrible</em> with ambiguity!</p><p>:::</p><ol><li>Every time a messaged is received with
+<code>{&quot;form&quot;:{&quot;@name&quot;:&quot;ART Adherence Self-Reporting Tool&quot;}}</code> in the body (this is
+our trigger)</li><li>Log into Salesforce and create a new participant with the <code>participant_id</code>
+you find in the <code>form.participant_information</code> section as their
+<code>Participant_Code__c</code>. (If one already exists in Salesforce with that code,
+then update the existing record instead.)</li><li>Fill out the following fields in Salesforce based on the CommCare data in
+this message:<ul><li><code>Name__c</code> with the data from <code>form.participant_information.name</code></li><li><code>Sex__c</code> with the data from <code>form.participant_information.gender</code></li><li><code>CommCare_Case_ID__c</code> with the data from <code>form.case.@case_id</code></li></ul></li><li>After you&#x27;ve created (or updated) this participant in Salesforce, create a
+record of the visit with the <code>instanceID</code> from the <code>metadata</code> section as the
+unique identifier <code>Visit_Code__c</code>. (Again, if there&#x27;s already a visit with
+that ID please update the existing record.)</li><li>Fill out the following fields for the visit with data from CommCare&quot;<ul><li><code>Date__c</code> with <code>form.visit_information.visit_date</code>.</li><li><code>Consented__c</code> with <code>form.visit_information.consent_given</code>.</li><li>Always set <code>Test_Status__c</code> to <code>true</code>, regardless of what&#x27;s in the message
+from CommCare.</li><li>And relate this record with the <code>Community_Health_Worker</code> by their username
+in <code>form.metadata.username</code>.</li></ul></li><li>Finally, add a record for each medication listed in the
+<code>form.participant_information.current_medications</code> array—matching on a unique
+ID formed by a combination of the medication <code>name</code> and the <code>participant_id</code>
+so that we can update existing medication records if they&#x27;re present.</li><li>Fill out the following fields for the medication:<ul><li><code>Generic_Name__c</code> with <code>name</code></li><li><code>Status__c</code> with <code>active</code></li><li>And relate this record with the participant you created or updated in step
+2 via the <code>participant_id</code> field.</li></ul></li></ol><p>Phew... that&#x27;s the task. It&#x27;s just a fictional example and things could be much
+more straightforward, or much more complicated than this, but it&#x27;s important to
+remember that if you can get to this level of <strong>precision and granularity</strong> in
+your data entry process, a tool like OpenFn can automate this for you in a
+flash.</p><h2>Translating this into an OpenFn project</h2><p>If you&#x27;re streaming data in from CommCare and you&#x27;ve got your Salesforce system
+all set up so that this data entry person can complete the above steps (are all
+the objects and fields created? are the right fields marked as &quot;unique&quot; and set
+to be used as an &quot;external id&quot; in the Salesforce administration section? have
+you turned on data forwarding in CommCare?) then it&#x27;s time to turn them into an
+OpenFn project!</p><p>:::tip</p><p>A quick plug: <strong>Did you know that there&#x27;s an
+<a href="https://community.openfn.org">OpenFn community forum</a></strong> where you can post
+stuff like the &quot;steps&quot; above and get help from other OpenFn users and staff
+converting these steps into a real, working, OpenFn job?</p><p>Well, you do know! Check it out at
+<a href="https://community.openfn.org">community.openfn.org</a></p><p>:::</p><h3>Create a Salesforce credential</h3><p>We don&#x27;t need a CommCare credential, since they&#x27;ll send data to us. Create a
+Salesforce credential that will allow the OpenFn worker to log into your
+Salesforce system.</p><p>Read more about credentials <a href="/documentation/build/credentials">here</a>.</p><h3>Create a message-filter trigger</h3><ul><li>Select <code>Message Filter</code> for the <code>type</code></li><li>Enter <code>{&quot;form&quot;:{&quot;@name&quot;:&quot;ART Adherence Self-Reporting Tool&quot;}}</code> for the
+<code>inclusion criteria</code></li></ul><p>Read more about triggers <a href="/documentation/build/triggers">here</a>.</p><h3>Create the job</h3><ul><li>Give it a name</li><li>Select the trigger you just created</li><li>Select the <code>salesforce</code> adaptor</li><li>Select the credential you just created</li></ul><p>And convert the instructions above to &quot;operations&quot; by using the inline help
+provided by the Salesforce adaptor:</p><pre><code class="language-js">// Use upsert to create or update a participant based on their participant code.
 upsert(
   &#x27;Participant__c&#x27;,
   &#x27;Participant_Code__c&#x27;,
@@ -360,7 +657,7 @@ upsert(
   )
 );
 
-// Ensuite, insérez une visite en utilisant le code de visite.
+// Then upsert a visit using the visit code.
 upsert(
   &#x27;Visit__c&#x27;,
   &#x27;Visit_Code__c&#x27;,
@@ -370,7 +667,7 @@ upsert(
     field(&#x27;Consented__c&#x27;, dataValue(&#x27;form.visit_information.consent_given&#x27;)),
     // Always set status to true
     field(&#x27;Test_Status__c&#x27;, true),
-    //Et lié cette visite au participant que nous venons de créer par son &quot;code&quot;
+    // And related this visit to the participant we just created by their &quot;code&quot;
     relationship(
       &#x27;Participant__r&#x27;,
       &#x27;Participant_Code__c&#x27;,
@@ -379,7 +676,7 @@ upsert(
   )
 );
 
-// Et enfin pour CHAQUE médiation répertoriée, créez un dossier de médicament avec un statut
+// And finally for EACH mediation listed, create a medication record with a status
 each(
   merge(
     dataPath(&#x27;form.participant_information.current_medications[*]&#x27;),
@@ -392,11 +689,11 @@ each(
     &#x27;Medication_Tx_ID__c&#x27;,
     fields(
       field(Medication_Tx_ID__c, state =&gt; {
-        // Ici, à l&#x27;intérieur du tableau des médicaments, nous avons &quot;scoped&quot; l&#x27;état de sorte que
-        // state.data, pour chaque élément du tableau, ressemble à ceci : 
+        // Here, inside the medications array we&#x27;ve &quot;scoped&quot; state so that
+        // state.data, for each item in the array, looks like this:
         // { pID: 007, name: &quot;sasstra-zenica&quot;, active: false }
 
-        // Nous concaténerons l&#x27;identifiant du participant avec le nom du médicament.
+        // We will concatenate the participant ID with the medication name.
         return state.data.pID + state.data.name;
       }),
       field(&#x27;Generic_Name__c&#x27;, dataValue(&#x27;name&#x27;)),
@@ -405,104 +702,411 @@ each(
     )
   )
 );
-</code></pre><p>Maintenant, chaque fois que cette tâche est exécutée (ce qui est à chaque fois qu&#x27;un formulaire CommCare est soumis) votre travailleur OpenFn mettra à jour un <code>Participant</code>, upsert une <code>Visite</code>et exploite une liste complète de <code>Médicaments</code> en Salesforce.</p><h2>Et ensuite</h2><p>Eh bien, dans notre petit exemple, vous allumeriez la tâche &quot;allumée&quot; (en la mettant sur les messages entrants de CommCare) et laissez-la fonctionner. Chaque fois qu&#x27;il y avait un échec (peut-être votre administrateur Salesforce a ajouté un nouveau champ requis sur l&#x27;objet personnalisé<code>Médication</code>) vous recevrez un e-mail et vous devrez revenir à OpenFn pour mettre à jour votre job, y compris ce nouveau champ.</p><p>Si vous êtes en train de concevoir vos systèmes CommCare et Salesforce en ce moment, ce va-et-vient sera assez courant. Gardez à l&#x27;esprit que vous voulez autant de simplicité que possible dans ces systèmes utilisateurs finaux... eh bien parce que les <em>humains</em> interagissent avec eux tous les jours !</p><p>Tant que vos processus sont bien définis, OpenFn peut gérer un peu de complexité (nettoyage de données, transformation, flux logiques complexes, etc.). mais vous ne devriez jamais faire de sacrifices à l&#x27;expérience utilisateur dans CommCare et Salesforce—c&#x27;est un moyen rapide de perdre l&#x27;adoption.</p><p>Donc, idéalement, vous avez conçu vos flux de travail dans CommCare et Salesforce pour rendre vos utilisateurs heureux et obtenir les informations dont ils ont besoin pour bien faire leur travail et <em>puis</em> vous revenez sur OpenFn et énoncez nos instructions de saisie de données comme nous l&#x27;avons fait ci-dessus.</p><h2>Une dernière idée</h2><p>Les deux ressources les plus importantes que vous avez à votre disposition si vous définissez tout cela seul sont :</p><ol><li>ce site (docs.openfn.org), et</li><li>le <a href="https://community.openfn.org">forum </a> (community.openfn.org)</li></ol><p>Read through the <a href="/documentation/getting-started/so-you-want-to-integrate">&quot;What is an integration&quot;</a>, <a href="/documentation/getting-started/terminology">&quot;OpenFn Concepts&quot;</a>, and <a href="/documentation/build/jobs">&quot;Build&quot;</a> sections if you&#x27;re a thorough, background-first kind of learner. Si vous avez envie d&#x27;extraits et d&#x27;exemples de code de travail, accédez directement à la<a href="/library">Job Library</a> pour voir comment les autres utilisateurs d&#x27;OpenFn créent leurs jobs.</p><p>Dans tous les cas, tenez la communauté au courant de vos progrès dans le forum. Vous trouverez beaucoup de gens serviables prêts à vous aider dans votre parcours d&#x27;intégration.</p>]]></content>
+</code></pre><p>Now, every time this job runs (which is every time a CommCare form is submitted)
+your OpenFn worker will upsert a <code>Participant</code>, upsert a <code>Visit</code>, and upsert a
+whole list of <code>Medications</code> in Salesforce.</p><h2>What&#x27;s next</h2><p>Well, in our little example you&#x27;d turn the job &quot;on&quot; (setting it to on the
+inbound messages from CommCare) and let it run. Whenever there was a failure
+(maybe your Salesforce admin added a new required field on the
+custom<code>Medication</code> object) you&#x27;d get an email and you&#x27;d have to come back to
+OpenFn to update your job, including that new field.</p><p>If you&#x27;re in the process of designing your CommCare and Salesforce systems at
+the moment, this back-and-forth will be pretty common. Keep in mind that you
+want as much simplicity as possible in those end-user systems because... well
+because <em>humans</em> have the interact with them every day!</p><p>So long as your processes are well defined, OpenFn can handle a bit of
+complexity (data cleaning, transformation, complex logical flows, etc.) but you
+should never make sacrifices to the user experience in CommCare and
+Salesforce—that&#x27;s a quick way to lose adoption.</p><p>So, ideally, you&#x27;ve designed your workflows in CommCare and Salesforce to make
+your users happy and get them the information they need to do their jobs well
+and <em>then</em> you come back to OpenFn and spell out our data entry instructions
+like we&#x27;ve done above.</p><h2>A final thought</h2><p>The two most important resources you&#x27;ve got at your disposal if you&#x27;re setting
+this all up on your own are:</p><ol><li>this site (docs.openfn.org), and</li><li>the <a href="https://community.openfn.org">forum</a> (community.openfn.org)</li></ol><p>Read through the
+<a href="/documentation/getting-started/so-you-want-to-integrate">&quot;What is an integration&quot;</a>,
+<a href="/documentation/getting-started/terminology">&quot;OpenFn Concepts&quot;</a>, and
+<a href="/documentation/build/jobs">&quot;Build&quot;</a> sections if you&#x27;re a thorough,
+background-first kind of learner. If you crave snippets and sample job code,
+head directly to the <a href="/library">Job Library</a> to see how other OpenFn users are
+creating their jobs.</p><p>Either way, keep the community posted on your progress in the forum—you&#x27;ll find
+lots of helpful folks willing to lend you a hand in your integration journey.</p>]]></content>
         <author>
             <name>Taylor Downs</name>
             <uri>https://github.com/taylordowns2000</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Synchroniser comme vous le voulez : Penser à travers le système de protocoles de « Synchronisation »]]></title>
-        <id>Synchroniser comme vous le voulez : Penser à travers le système de protocoles de « Synchronisation »</id>
+        <title type="html"><![CDATA[Sync Like You Mean It: Thinking Through System “Syncing” Protocols]]></title>
+        <id>Sync Like You Mean It: Thinking Through System “Syncing” Protocols</id>
         <link href="https://docs.openfn.org/fr/articles/2021/02/17/syncing-options"/>
         <updated>2021-02-17T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[La « synchronisation » permet à deux systèmes de se retrouver dans un état d'harmonie. Cela peut signifier de tenir une liste de patients à jour, bien que des modifications puissent être apportées dans l'un ou l'autre système. Cela peut signifier copier des transactions d'un système à un autre sur une base de nocturne. Cela peut signifier beaucoup de choses, mais le concept clé est que lorsque vous synchronisez les systèmes, vous leur demandez de travailler ensemble en même temps en respectant l’indépendance des deux systèmes logiciels.]]></summary>
-        <content type="html"><![CDATA[<p>La « synchronisation » permet à deux systèmes de se retrouver dans un état d&#x27;harmonie. Cela peut signifier de tenir une liste de patients à jour, bien que des modifications puissent être apportées dans l&#x27;un ou l&#x27;autre système. Cela peut signifier copier des transactions d&#x27;un système à un autre sur une base de nocturne. Cela peut signifier beaucoup de choses, mais le concept clé est que lorsque vous synchronisez les systèmes, vous leur demandez de travailler ensemble en même temps en respectant l’indépendance des deux systèmes logiciels.</p><p>Dans ce message, nous discuterons de deux protocoles de synchronisation différents à considérer lors de la conception de votre intégration de données. Cela inclus :</p><ol><li><strong>Synchronisations en temps réel ou basées sur des événements</strong></li><li><strong>Synchronisations planifiées</strong></li></ol><p>Pour un projet récent au <a href="https://docs.openfn.org/blog/2021/02/09/interoperability_for_case_referrals">au Cambodge</a>, OpenFn est utilisé par les travailleurs sociaux pour automatiser les renvois de cas entre les systèmes de logiciels Primero et OSCaR. Dans la phase de conception, nous avons évalué ces deux options de synchronisation. Ci-dessous, nous allons expliquer ce que chacun est, les différences et quelle option nous avons choisi à la fin.</p><h3>Synchronisations en temps réel/événement</h3><p>La première option envisagée pour cette intégration était la synchronisation en temps réel/événement. Ce type de synchronisation est déclenché chaque fois qu&#x27;un événement spécifique a lieu dans un système. Avec cette approche, chaque fois qu&#x27;un cas est référencé en Primero (via l&#x27;interface de l&#x27;utilisateur, c&#x27;est à dire lorsqu&#x27;un vrai travailleur de cas clique sur le bouton « référer ») OpenFn reçoit un petit chargement avec les données de cas et la transmet à OSCaR et vice versa.</p><p><img src="/img/syncs1.png" alt="Synchronisation en temps réel"/></p><p>En raison de leur nature instantanée, les synchronisations en temps réel/événement sont idéales pour les intégrations qui impliquent des paiements mobiles ou des SMS aux destinataires. Vraiment, tout ce qui doit être fait « maintenant » ! En outre, en fonction de vos volumes de données les synchronisations en temps réel peuvent vous faire économiser de l&#x27;argent parce que vous utilisez uniquement des ressources lorsque des événements spécifiques ont lieu. Par exemple, dans l&#x27;exemple ci-dessus, une exécution est déclenchée par une recommandation, donc s&#x27;il n&#x27;y a que 10 références/mois de cas, vous ne traiterez que 10 exécutions par mois.</p><p>Ce type de synchronisation est génial car il est instantané, généralement simple à configurer, ne nécessite pas de « gestion de l&#x27;état » sur OpenFn, et permet le retraitement des événements individuels. Il y a cependant des inconvénients.</p><p>Par exemple, que se passe-t-il si l&#x27;application qui envoie des notifications à OpenFn ne parvient pas à envoyer ? Que se passe-t-il si AWS ou GCP ne marche plus, prenant la moitié de l&#x27;internet avec ? Si Primero « pense » qu&#x27;il a envoyé la référence, OpenFn ne la reçoit jamais, que le cas pourrait ne pas être référencé à Oscar !</p><h3>Planifier une synchronisation</h3><p><img src="/img/syncs2.png" alt="Synchronisation planifiée_dépendante"/></p><p>La deuxième option considérée, une synchronisation bidirectionnelle dépendante de la planification , résout le problème discuté ci-dessus. Sur une base planifiée (toutes les 5 minutes, par exemple) OpenFn vérifie avec Primero et Oscar pour voir si les recommandations de cas doivent être transmises entre les deux systèmes, puis renvoie le cas si nécessaire. Dans le cas improbable où l&#x27;un des systèmes logiciels impliqués planterait, la stabilité fournie par la synchronisation bidirectionnelle signifie que toutes les données sont préservées et éventuellement le rendent à sa destination en toute sécurité.</p><p>Le principal inconvénient ici est la complexité. Nous avons dû utiliser 4 jobs au lieu de 2, et le job qui est responsable de « tirer » les données qui ont été mises à jour depuis le moment de la dernière synchronisation réussie doit garder « l&#x27;état » — ou une sorte de mémoire fonctionnelle de ce qu&#x27;il fait dans le passé. En tirant des cas modifiés de Primero, OpenFn ne tire maintenant que les cas modifiés sur ou après <code>AAAA-MM-JJ HH:MM:SS</code> où <code>AAAA-MM-JJ HH:SS</code> est l&#x27;heure du dernier succès, synchronisation aller-retour. OpenFn a des fonctionnalités intégrées pour gérer exactement cette exigence, mais tous les systèmes ETL ne le font pas et c’est une implication de conception qui doit être prise en considération.</p><p>En fin de compte, pour le projet au Cambodge, nous avons décidé que cette option de synchronisation est le bon choix car l&#x27;intégrité des données est plus importante que la vitesse de ce flux de données. C&#x27;est un point crucial à comprendre : les organisations opérant au Cambodge ont décidé que pour ce cas d&#x27;utilisation particulier, être en mesure de garantir éventuellement la synchronisation était plus importante que d&#x27;avoir une synchronisation en temps réel.</p><h3>Les deux options de synchronisation ont leurs Avantages et Inconvénients</h3><p>Les deux options ont définitivement leur cas d&#x27;utilisation et la polyvalence de la plateforme OpenFn permet à votre équipe de décider quel type de synchronisation convient à votre projet.</p><p>Comme toujours, nous sommes là pour vous aider à répondre à toutes les questions que vous avez en ce qui concerne l&#x27;option de synchronisation qui a le plus de sens pour votre projet.</p>]]></content>
+        <summary type="html"><![CDATA[“Syncing” is getting two systems to a state of harmony. This might mean keeping]]></summary>
+        <content type="html"><![CDATA[<p>“Syncing” is getting two systems to a state of harmony. This might mean keeping
+a list of patients up to date, though modifications can be made in either
+system. It might mean copying transactions from one system to another on a
+nightly basis. It might mean a lot of things, but the key concept is that when
+you sync systems, you’re asking them to work together while simultaneously
+respecting both software systems’ independence.</p><p>In this post we’ll discuss two different syncing protocols to consider when
+designing your data integration. These include:</p><ol><li><strong>Real-time, or event-based, syncs</strong></li><li><strong>Scheduled syncs</strong></li></ol><p>For a
+<a href="https://docs.openfn.org/blog/2021/02/09/interoperability_for_case_referrals">recent project in Cambodia</a>,
+OpenFn is being used by social workers to automate case referrals between the
+software systems Primero and OSCaR. In the design phase, we evaluated these two
+syncing options. Below, we&#x27;ll explain what each one is, the differences between
+them and which option we chose in the end.</p><h3>Real Time/Event Based Syncs</h3><p>The first option considered for this integration was the real-time/event based
+sync. This type of sync is triggered whenever a specified event takes place in a
+system. With this approach, whenever a case is referred in Primero (via the user
+interface, i.e., when a real case-worker clicks the “refer” button) OpenFn
+receives a small payload with case data and transmits it to OSCaR and vice
+versa.</p><p><img src="/img/syncs1.png" alt="Real_Time_Sync"/></p><p>Because of their instantaneous nature, real time/event based syncs are great for
+integrations that involve mobile payments or sms messages to recipients. Really,
+anything that needs to be done “now”! Additionally, depending on your data
+volumes real time syncs might save you money because you’re only using resources
+when specific events take place. For instance, in the above example, a run is
+triggered by a referral, so if there are only 10 case referrals/month, you&#x27;d
+only process 10 runs each month.</p><p>This type of sync is great because it’s instantaneous, typically quite
+straightforward to set up, doesn’t require any “state mangagement” on OpenFn,
+and allows for the reprocessing of individual events. There are, however,
+drawbacks.</p><p>For instance, what happens if the app that’s sending notifications to OpenFn
+fails to send? What if AWS or GCP goes down, taking half of the internet with
+it? If Primero “thinks” it sent the referral, OpenFn never receives it, that
+case might not get referred to Oscar!</p><h3>Scheduled Syncs</h3><p><img src="/img/syncs2.png" alt="Schedule_Dependent_Sync"/></p><p>The second option considered, a bi-directional schedule dependent sync, solves
+for the issue discussed above. On a scheduled basis (every 5 minutes, for
+example) OpenFn checks with Primero and Oscar to see if case referrals need to
+be transmitted between the two systems and then refers the case if required. In
+the unlikely event that any of the software systems involved crash, the
+stability provided by the bi-directional sync means that all data is preserved
+and eventually makes it to its destination safely.</p><p>The major drawback here is complexity. We had to use 4 jobs instead of 2, and
+the job that is responsible for “pulling” data that’s been updated since the
+time of the last successful sync has to keep “state”—or some sort of working
+memory of what it’s done in the past. When pulling modified cases from Primero,
+OpenFn now only pulls cases modified on or after <code>YYYY-MM-DD HH:MM:SS</code> where
+<code>YYYY-MM-DD HH:MM:SS</code> is the time of the last successful, round-trip
+synchronization. OpenFn has built-in functionality to handle exactly this
+requirement, but not all ETL systems do and it’s a design implication that must
+be considered.</p><p>Ultimately, for the project in Cambodia, we decided that this sync option is the
+right choice because data integrity is more important than the speed of this
+data flow. That’s a crucial point to understand—the organizations operating in
+Cambodia decided that for this particular use case, being able to guarantee
+eventual syncing was more important than having real-time syncing.</p><h3>Both Sync Options Have Their Pros and Cons</h3><p>Both options definitely have their use-cases and OpenFn&#x27;s platform versatility
+enables your team to decide which type of sync is right for your project.</p><p>As always, we are here to help with any questions as you think through which
+sync option makes the most sense for your project.</p>]]></content>
         <author>
             <name>Jed Goldstein</name>
             <uri>https://github.com/jedbgold</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Nos serveurs ou les vôtres : Penser à travers les options de déploiement]]></title>
-        <id>Nos serveurs ou les vôtres : Penser à travers les options de déploiement</id>
+        <title type="html"><![CDATA[Our Servers or Yours: Thinking through deployment options]]></title>
+        <id>Our Servers or Yours: Thinking through deployment options</id>
         <link href="https://docs.openfn.org/fr/articles/2021/02/03/hosted-or-local-deployment"/>
         <updated>2021-02-03T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Zandile est gestionnaire de programme chez une iONG et elle a besoin d'utiliser CommCare, DHIS2, et OpenFn pour un prochain projet de santé publique. Elle comprend que les trois logiciels peuvent être déployés localement, ou accédés en tant que SaaS (logiciel en tant que service).]]></summary>
-        <content type="html"><![CDATA[<p>Zandile est gestionnaire de programme chez une iONG et elle a besoin d&#x27;utiliser CommCare, DHIS2, et OpenFn pour un prochain projet de santé publique. Elle comprend que les trois logiciels peuvent être déployés localement, ou accédés en tant que SaaS (logiciel en tant que service).</p><p>Essentiellement, Zandile doit décider si elle souhaite exécuter le logiciel sur les serveurs de quelqu&#x27;un d&#x27;autre (SaaS), ou sur les propres serveurs de son organisation (déployés localement). Avant de prendre une décision, elle décrit les considérations de base et non techniques pour les deux options.</p><h2>Qu&#x27;est-ce que le SaaS ?</h2><p>SaaS est un logiciel qui est installé et <em>fonctionne</em> sur des ordinateurs gérés par des professionnels du logiciel plutôt que sur votre propre ordinateur. Bien que ces ordinateurs puissent être n&#x27;importe où dans le monde, vous y accédez généralement et <em>utilisez</em> ce logiciel via Internet.</p><h3>Quelques avantages de SaaS</h3><p>Avec SaaS, le fournisseur de logiciels est responsable des dépenses de gestion et de surveillance de tous les composants techniques et problèmes associés au logiciel. Cela signifie que l&#x27;iONG de Zandile ne sera pas responsable de la mise à jour du logiciel pour assurer la conformité avec les nouvelles réglementations de sécurité, maintien des serveurs, sauvegarde des données, la gestion des approvisionnements de puissance ininterrompue, et de fournir une équipe de gardes de sécurité physiques pour protéger les ordinateurs et données qui s&#x27;y trouvent contre le vol physique.</p><p>Parcourir la route SaaS est souvent plus rapide et plus sécurisé, parce que vous n&#x27;avez pas besoin de développer une expertise dans « DevOps » ou d&#x27;engager des spécialistes de l&#x27;informatique et de la sécurité physique. Cette option fournit également la plus grande flexibilité &amp; évolutivité- car le fournisseur de SaaS est en mesure de fournir plus ou moins de puissance informatique, de stockage et de bande passante, juste quand cela est nécessaire.</p><p>Les coûts d&#x27;installation étant moins élevés (vous n&#x27;avez pas à créer votre propre entreprise de fourniture de logiciels), ce choix est souvent plus économique pour beaucoup, même si le SaaS s&#x27;accompagne toujours d&#x27;une sorte de frais permanents - un prix mensuel ou annuel versé au fournisseur pour compenser le temps et l&#x27;argent qu&#x27;il consacre à assurer le bon fonctionnement de votre logiciel.</p><h2>Qu&#x27;est-ce que le déploiement local ?</h2><p>Contrairement à l&#x27;option SaaS, le déploiement local signifie installer et exécuter un logiciel sur vos propres ordinateurs, généralement sur les serveurs de votre organisation.</p><h3>Quelques avantages du déploiement local</h3><p>Si un fournisseur SaaS n&#x27;offre pas d&#x27;hébergement dans votre pays et que votre gouvernement ne permet pas que vos données soient hébergées sur des serveurs étrangers (c.-à-d. vous n&#x27;êtes pas autorisé à utiliser Gmail, WhatsApp ou Facebook pour communiquer des informations sensibles) puis le déploiement local vous permet d&#x27;utiliser des outils tels que CommCare, DHIS2, et OpenFn tout en adhérant aux règles de souveraineté des données gouvernementales.</p><p>Le déploiement local fournit également à votre organisation la propriété complète du système de bout en bout. Votre équipe informatique sera personnellement responsable de s&#x27;assurer que le logiciel fonctionne, est maintenu, est sécurisé, etc. Si votre organisation n&#x27;a pas déjà une équipe informatique en place, alors cela peut devenir un casse-tête onéreux, mais pour une grande organisation avec une expérience informatique intégrée, le déploiement local a souvent un sens.</p><p>En fin de compte, être en mesure d&#x27;embaucher et de licencier directement les personnes qui sont responsables du bon fonctionnement de votre logiciel peut être très utile. Cela signifie que vous avez l&#x27;entière responsabilité de la réussite ou non de la solution.</p><p>Si vous avez déjà mis en place les équipes (sécurité, DevOps, etc.) alors cette option peut être plus économique à long terme. Avec une très bonne équipe DevOps maintenir un logiciel supplémentaire pourrait seulement correspondre à 20 % du salaire d&#x27;un employé à temps plein. Pour vos gardes de sécurité, si le logiciel est installé dans le même emplacement physique, il est possible que vos coûts n&#x27;augmentent pas du tout. Tant qu&#x27;il y aura des coûts d&#x27;installation très élevés, au fil du temps, vous pouvez réaliser des économies de coûts en lançant une unité de livraison efficace de logiciels au sein de votre organisation qui se concentre sur un certain nombre de projets.</p><h2>Décision de Zandile</h2><p>Dans ce cas fictif, la résidence des données est une préoccupation - ses données sont sensibles ou contiennent des PII - et CommCare, DHIS2 et OpenFn ne fournissent pas d&#x27;hébergement dans le pays où elle est située. L&#x27;organisation de Zandile a une grande équipe informatique expérimentée qui gère des projets logiciels à haute disponibilité depuis de nombreuses années... ce sont des professionnels. Bien qu&#x27;ils anticipent que les coûts d&#x27;installation seront assez élevés (autour de 60 000 $ et plusieurs mois pour cet ensemble de déploiements), ils prévoient d&#x27;utiliser ce logiciel pour les 5 prochaines années et ont déterminé qu&#x27;ils récupéreront une part significative de ce coût d&#x27;installation en n&#x27;ayant pas à payer de frais de licence pour SaaS. Ils vont avec le déploiement local.</p><h2>Quelle option de déploiement est la meilleure pour votre organisation ?</h2><p>La réponse est : « cela dépend », mais si votre organisation n&#x27;a jamais géré les déploiements de logiciels locaux, nous vous recommandons de suivre l&#x27;approche SaaS. Les systèmes SaaS, comme l&#x27;offre OpenFn et CommCare seront simplement plus sûrs, plus stables et plus évolutives pour un coût raisonnable.</p><p>Avant tout, vous pouvez toujours commencer avec SaaS (la plupart des outils offrent même un niveau gratuit) et ensuite décider d&#x27;investir plus tard dans les gros coûts de démarrage d&#x27;un déploiement local si les frais de licence pour le SaaS sont assez élevés afin de rendre le déploiement local plus économique à long terme. Après quelques mois ou années avec le SaaS, vous serez probablement mieux placé pour savoir si vous voulez continuer à utiliser le logiciel pendant 5 à 10 ans.</p><p>Si vous avez besoin d&#x27;aide pour votre décision, n&#x27;hésitez pas à contacter OpenFn.</p>]]></content>
+        <summary type="html"><![CDATA[Zandile is a program manager at an iNGO and she needs to use CommCare, DHIS2,]]></summary>
+        <content type="html"><![CDATA[<p>Zandile is a program manager at an iNGO and she needs to use CommCare, DHIS2,
+and OpenFn for an upcoming public health project. She understands that all three
+pieces of software can be deployed locally, or accessed as SaaS (Software as a
+Service).</p><p>Essentially, Zandile needs to decide if she would like to run the software on
+someone else’s servers (SaaS), or on her organization’s own servers (deployed
+locally). Before making a decision she outlines the basic, non-technical
+considerations for both options.</p><h2>What is SaaS?</h2><p>SaaS is software that is installed and <em>runs</em> on computers maintained by
+software professionals, rather than on your own computer. While those computers
+might be anywhere in the world, typically you&#x27;ll access and <em>use</em> this software via
+the Internet.</p><h3>Some benefits of SaaS</h3><p>With SaaS, the software vendor is responsible for the expenses of managing and
+monitoring all of the technical components and issues associated with the
+software. This means that Zandile’s iNGO will not be responsible for updating
+the software to ensure compliance with new security regulations, maintaining the
+servers, backing up the data, purchasing and managing uninterrupted power
+supplies, and providing a team of physical security guards to protect the
+computers and data therein against physical theft.</p><p>Going the SaaS route is often faster and more secure, because you do not need to
+develop expertise in &quot;DevOps&quot; or hire IT and physical security specialists. This
+option also provides the greatest amount of flexibility &amp; scalability– because
+the SaaS provider is able to deliver more or less computing power, storage, and
+bandwidth—right when it’s needed.</p><p>Having smaller setup costs (you don&#x27;t have to grow a software delivery company
+of your own) often makes this a more economical choice for many, though SaaS
+will always come with some sort of ongoing fee—a price per month or year that
+goes to the vendor to compensate for the time and money they&#x27;ll spend to ensure
+your software works properly.</p><h2>What is Local Deployment?</h2><p>Unlike the SaaS option, local deployment means installing and running software
+on your own computers—typically on your organization’s servers.</p><h3>Some benefits of Local Deployment</h3><p>If a SaaS provider doesn&#x27;t offer hosting in your country and your government
+doesn&#x27;t allow your data to reside on foreign servers (i.e., you&#x27;re not allowed
+to use things like Gmail, WhatsApp or Facebook for communicating sensitive
+information) then local deployment allows you to use tools like CommCare, DHIS2,
+and OpenFn while adhering to government data sovereignty regulations.</p><p>Local deployment also provides your organization with complete ownership of the
+end-to-end system. Your IT team will be personally responsible for ensuring that
+the software works, is maintained, is secure, etc. If your organization does not
+already have an IT team in place, then this can become a costly headache, but
+for a large organization with embedded IT experience, local deployment often
+makes sense.</p><p>Ultimately, being able to directly hire and fire the people who are responsible
+for your software&#x27;s proper functioning can be very useful. It means you have
+complete responsibility for whether or not the solution succeeds.</p><p>If you&#x27;ve already got the teams in place (security, DevOps, etc.) then this
+option can be more economical in the long run. With a very good DevOps team,
+maintaining an extra piece of software might only occupy 20% of a
+full-time-employee&#x27;s salary. For your security guards, if the software is
+installed in the same physical location it&#x27;s possible that your costs won&#x27;t
+increase at all. While there will be very high setup costs, over time you may
+realize cost savings by running an efficient software delivery unit within your
+organization that spreads its focus around a number of projects.</p><h2>Zandile&#x27;s Decision</h2><p>In this fictional case, data residency is a concern—her data is sensitive or
+contains PII—and CommCare, DHIS2 and OpenFn do not provide hosting in the
+country she&#x27;s located. Zandile&#x27;s organization has a large, experienced IT team
+that has managed high-availability software projects for many years... they&#x27;re
+pros. While they anticipate that the setup costs will be quite high (around
+$60000 and several months for this set of deployments) they plan on using this
+software for the next 5 years and have determined that they&#x27;ll recoup a
+significant portion of that setup cost by not having to pay license fees for
+SaaS. They go with local deployment.</p><h2>Which Deployment Option is Best for your organization?</h2><p>The answer is: &quot;it depends&quot;, but if your organization has never managed local
+software deployments, then we recommend going the SaaS approach. SaaS systems,
+like the one OpenFn and CommCare offer, are simply going to be more secure, more
+stable, and more scalable for the money.</p><p>Crucially, you can always start with SaaS (most tools even offer a free tier)
+and then decide later to invest in the big startup costs of a local deployment
+if the license fees for the SaaS feel high enough to make local deployment more
+economical over the long term. After a few months or years on the SaaS, you&#x27;ll
+likely be in a better position to know if you want to continue using the
+software for 5-10 years.</p><p>Should you need any help with your decision though please do not hesitate to
+contact OpenFn.</p>]]></content>
         <author>
             <name>Jed Goldstein</name>
             <uri>https://github.com/jedbgold</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Instances d'entités suivies dans DHIS2]]></title>
-        <id>Instances d'entités suivies dans DHIS2</id>
+        <title type="html"><![CDATA[Tracked entity instances in DHIS2]]></title>
+        <id>Tracked entity instances in DHIS2</id>
         <link href="https://docs.openfn.org/fr/articles/2020/12/09/upsert-in-dhis2"/>
         <updated>2020-12-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[tl;dr il est composé d'API existantes et d'un peu de logique 🤔. Maintenant vous pouvez mettre à jour des instances d'entités suivies vers DHIS2 👍 ✅.]]></summary>
-        <content type="html"><![CDATA[<p>tl;dr: Beaucoup de nos utilisateurs veulent mettre à jour les instances d&#x27;entités suivies dans dhis2, mais les upserts ne sont pas pris en charge par un point de terminaison standard de l&#x27;API DHIS2. Nous en avons construit un dans notre adaptateur dhis2 : il est composé d&#x27;API existantes et d&#x27;un peu de logique 🤔. Maintenant vous pouvez <code>mettre à jour</code> des instances d&#x27;entités suivies vers DHIS2 👍 ✅.</p><h2>Un peu plus...</h2><p>Un « UPSERT » est un mot-valise des fonctions de base de données MISE À JOUR et INSÉRER. Il est essentiel de manipuler correctement les upserts lors de l&#x27;intégration des systèmes. Depuis la version 35 de l&#x27;API, DHIS2 ne permet pas à un administrateur de mettre à jour des instances d&#x27;entités suivies (« TEI »). <a href="https://github.com/chaiwa-berian">Chaiwa Berian</a> d&#x27;OpenFn a trouvé une solution qui met en évidence l&#x27;utilité des fonctions d&#x27;aide dans notre adaptateur dhis2. En combinant différentes API DHIS2 via une fonction upsertTEI en OpenFn, les utilisateurs de DHIS2 peuvent maintenant effectuer des upserts à des TEI.</p><p>Si vous êtes curieux, consultez son implémentation <a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L347">ici</a>.</p><h2>Et bien plus encore !</h2><p>Une instance d&#x27;entité suivie dans DHIS2 est un type d&#x27;entité qui peut être suivi à travers le système. Il peut s&#x27;agir d&#x27;une personne à un produit comme un médicament. Si je suis un administrateur de base de données qui gère deux systèmes différents connectés l&#x27;un à l&#x27;autre, appelons-les « Système A » et « Système B », j&#x27;aimerais que toutes les mises à jour apportées à la TEI d&#x27;un utilisateur nommé « Jim Smith » dans le Système A apparaissent également dans l&#x27;enregistrement de Jim dans le Système B. Avant l&#x27;apparition des upserts, il était difficile de le faire en raison de la possibilité de créer des enregistrements en double. Comme un upsert fait en simultanément les MISES À JOUR et les INSERTIONS, cela évite les doublons.</p><p>Les upserts sont importants et utiles car ils réduisent le risque de dupliquer la saisie de données et permettent également que les transactions soient réessayées à plusieurs reprises pour garantir l&#x27;intégrité des données. Cette dernière partie est appelée « idempotency » et vous pouvez en lire plus à ce sujet <a href="https://blog.openfn.org/allow-yourself-to-fail/">ici</a>.</p><p>N’hésitez pas à contacter l’un des spécialistes en implémentation d’OpenFn si vous souhaitez en savoir plus.</p><p>— Taylor</p><p><a href="https://openfn.org/signup">Inscrivez-vous</a>{: .btn} pour mettre en place un projet aujourd&#x27;hui, absolument gratuit.</p><p><a href="mailto:admin@openfn.org">Contactez-nous</a>{: .btn} pour plus d&#x27;informations.</p>]]></content>
+        <summary type="html"><![CDATA[tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but]]></summary>
+        <content type="html"><![CDATA[<p>tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but
+upserts aren’t supported by a standard DHIS2 API endpoint. We built one in our
+dhis2 adaptor: it’s composed of existing APIs and a bit of logic 🤔. Now you can
+<code>upsert</code> tracked entity instances to DHIS2 👍 ✅.</p><h2>A bit more...</h2><p>An “UPSERT” is a portmanteau of the database functions UPDATE and INSERT. It’s
+critical to handle upserts properly when integrating systems. As of version 35
+of the API, DHIS2 does not allow for an administrator to upsert tracked entity
+instances (“TEIs”). OpenFn’s own
+<a href="https://github.com/chaiwa-berian">Chaiwa Berian</a> has come up with a solution
+that highlights the utility of helper functions in our dhis2 adaptor. By
+combining various DHIS2 APIs through an upsertTEI function in OpenFn, DHIS2
+users can now perform upserts to TEIs.</p><p>If you’re curious, check out his implementation
+<a href="https://github.com/OpenFn/language-dhis2/blob/master/src/Adaptor.js#L347">here</a>.</p><h2>Even more!</h2><p>A tracked entity instance in DHIS2 is a type of entity that can be tracked
+through the system. It can be anything from a person to a commodity like a
+medicine. If I am a database administrator presiding over two different systems
+that are connected to one another, let’s call them “System A” and “System B,” I
+would like for any updates made to the TEI of a user named “Jim Smith” in System
+A to also appear in Jim’s record in System B. Before upserts came about, doing
+so was difficult because of the possibility of duplicate record creation.
+Because an upsert simultaneously UPDATES and INSERTS, it prevents duplicates.</p><p>Upserts are important and good because they cut down on the risk of duplicate
+data entry and they also allow for transactions to be retried over and over to
+ensure data integrity. That last bit is called “idempotency” and you can read
+about it <a href="https://blog.openfn.org/allow-yourself-to-fail/">over here</a>.</p><p>Please don’t hesitate to reach out to one of OpenFn’s implementation specialists
+if you’d like to learn more.</p><p>— Taylor</p><p><a href="https://openfn.org/signup">Sign up</a>{: .btn} to set up a project today,
+absolutely free.</p><p><a href="mailto:admin@openfn.org">Reach out</a>{: .btn} for more information.</p>]]></content>
         <author>
             <name>Taylor Downs</name>
             <uri>https://github.com/taylordowns2000</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Actualités du produit : Contrôle amélioré des jobs planifiés/périodiques]]></title>
-        <id>Actualités du produit : Contrôle amélioré des jobs planifiés/périodiques</id>
+        <title type="html"><![CDATA[Product News: Enhanced Scheduled/Periodic Job Control]]></title>
+        <id>Product News: Enhanced Scheduled/Periodic Job Control</id>
         <link href="https://docs.openfn.org/fr/articles/2020/07/14/cron-is-better-than-a-timer"/>
         <updated>2020-07-14T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Bonjour à tous, Voici une brève présentation de l'équipe chargée des produits à OpenFn — nous avons fait une mise à jour majeure de la façon dont les jobs en temps et en période fonctionnent.]]></summary>
-        <content type="html"><![CDATA[<p>Bonjour à tous, Voici une brève présentation de l&#x27;équipe chargée des produits à <a href="https://openfn.org/">OpenFn</a> — nous avons fait une mise à jour majeure de la façon dont les jobs en temps et en période fonctionnent.</p><p>Dans le passé, si vous n&#x27;utilisiez pas OpenFn pour générer une automatisation en temps réel (ou « basé sur des événements»), vous devrez configurer un « déclencheur d&#x27;intervalle ». Comme la photo ci-dessus, il s&#x27;agissait essentiellement d&#x27;un sablier. Définissez votre déclencheur à <code>10</code> secondes et votre job récupère les données de DHIS2, un ensemble de données régionales sur la santé publique, ou quoi que ce soit, nettoie, transforme et charge ensuite ces données dans un autre système.</p><p>Dans l&#x27;ensemble, cela a permis de faire le travail au cours des cinq dernières années, mais comme notre ONG et nos clients gouvernementaux ont rencontré des exigences de plus en plus spécifiques sur non seulement à quelle fréquence mais <em>quand</em> un job important est exécuté, nous avons commencé à trouver nous-mêmes en créant de petites personnalisations pour eux sur une base unique. Nous sommes ravis d&#x27;annoncer cela à partir de <code>v1.75</code> (publié aujourd&#x27;hui), vous pouvez maintenant planifier les jobs à exécuter en fonction des expressions <code>cron</code> , vous donnant un contrôle incroyable sur le moment où vos tâches sont exécutées.</p><h3>La planification est meilleure que le minutage.</h3><p>En utilisant <code>cron</code>, vous pouvez choisir d&#x27;exécuter un job chaque minute en tapant <code>* * * * * * *</code>.</p><p>Ou peut-être avez-vous une synchronisation par lots que vous voulez effectuer pendant que vos utilisateurs dorment — pourquoi ne pas la lancer tous les soirs à 23 h avec <code>23 * * *</code>.</p><p>Que se passe-t-il si vous devez soumettre des demandes pour l&#x27;inventaire médical seulement pendant l&#x27;apparition de la saison de la grippe ? Tapez simplement <code>0 0 1 2-4 *</code> et votre job sera exécuté à minuit le 1er du mois, de février à avril.</p><p>Vous pouvez toujours exécuter des jobs en un clic et créer des minuteurs avec des expressions comme <code>*/10 * * * *</code> pour « toutes les 10 minutes », mais la planification avec cron offre aux utilisateurs OpenFn.org utilisateurs beaucoup plus de contrôle sur la manière dont ils gèrent leurs organisations. (Et c&#x27;est une bonne chose.)</p><p>Si vous souhaitez apprendre en le faisant mais que vous n&#x27;avez pas encore de compte OpenFn, <a href="https://www.openfn.org/signup">inscrivez vous gratuitement</a> ou amusez-vous avec les expressions cron à <a href="https://crontab.guru" target="_blank">crontab. uru</a>, un site brillant pour construire rapidement des expressions cron complexes.</p><p>C&#x27;est tout ce qui concerne le produit pour aujourd&#x27;hui. À bientôt.</p><p>Taylor</p>]]></content>
+        <summary type="html"><![CDATA[Hi all, this is a quick one from the product team at]]></summary>
+        <content type="html"><![CDATA[<p>Hi all, this is a quick one from the product team at
+<a href="https://openfn.org/">OpenFn</a> — we&#x27;ve made a major upgrade to how timed/period
+jobs work.</p><p>In the past, if you weren&#x27;t using OpenFn to drive some real-time (or
+&quot;event-based&quot;) automation, you&#x27;d need to set up an &quot;interval trigger.&quot; Like the
+photo above, this was essentially a sand timer. Set your trigger to <code>10</code> seconds
+and your job fetches data from DHIS2, some regional public health data set, or
+whatever, then cleans, transforms, and loads it into some other system.</p><p>For the most part, this has got the job done for the last 5 years, but as our
+NGO and government clients came up with increasingly specific requirements on
+not only how often but <em>when</em> a crucial job gets executed, we began finding
+ourselves creating little customizations for them on a once-off basis. We&#x27;re
+happy to annouce that as of <code>v1.75</code> (released today), you can now schedule jobs
+to run based on <code>cron</code> expressions, giving you incredible control over when your
+tasks get executed.</p><h3>Scheduling is better than timing.</h3><p>Using <code>cron</code>, you can choose to run a job every minute by typing <code>* * * * *</code>.</p><p>Or maybe you&#x27;ve got a batch sync that you want to take place while your users
+are asleep—why not run it every night at 11pm with <code>23 * * * *</code>.</p><p>What if you&#x27;ve got to submit reuqests for medical inventory only during the
+onset of flu season? Simply type <code>0 0 1 2-4 *</code> and your job will run at midnight
+the 1st of the month, from February through April.</p><p>You can still run jobs at the click of a button and create timers with
+expressions like <code>*/10 * * * *</code> for &quot;every 10 minutes&quot;, but scheduling with cron
+gives OpenFn.org users so much more control over how they run their
+organizations. (And that&#x27;s a good thing.)</p><p>If you&#x27;re keen on learning by doing but don&#x27;t have an OpenFn account yet,
+<a href="https://www.openfn.org/signup">sign up for free</a> or mess around with cron
+expressions at <a href="https://crontab.guru" target="_blank">crontab.guru</a>,
+a brilliant site to quickly build complex cron expressions.</p><p>That&#x27;s all from product for today. Speak soon.</p><p>Taylor</p>]]></content>
         <author>
             <name>Taylor Downs</name>
             <uri>https://github.com/taylordowns2000</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Vous autoriser à échouer]]></title>
-        <id>Vous autoriser à échouer</id>
+        <title type="html"><![CDATA[Allow Yourself to Fail]]></title>
+        <id>Allow Yourself to Fail</id>
         <link href="https://docs.openfn.org/fr/articles/2020/07/02/allow-yourself-to-fail"/>
         <updated>2020-07-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Bonjour à tous, c'est un message très court avec un message simple : conception pour l'échec. Même si vous n'avez jamais entendu parler de MSSQL (ou Azure, ou Microsoft ? , je veux parler pendant un instant de l'importance des upserts et d'un drôle terme de développeur appelé « idempotence ».]]></summary>
-        <content type="html"><![CDATA[<p>Bonjour à tous, c&#x27;est un message très court avec un message simple : conception pour l&#x27;échec. Même si vous n&#x27;avez jamais entendu parler de <a href="https://www.microsoft.com/en-us/sql-server">MSSQL</a> (ou <a href="https://azure.microsoft.com/en-us/">Azure</a>, ou Microsoft ? , je veux parler pendant un instant de l&#x27;importance des upserts et d&#x27;un drôle terme de développeur appelé « idempotence ».</p><p>Nous venons d&#x27;élargir notre <a href="https://github.com/OpenFn/language-mssql">adaptateur langue-mssql</a> avec une fonction personnalisée qui permet les upserts (un<code>upsert</code> consiste à insérer un nouvel enregistrement ou mettre à jour un enregistrement existant en fonction d&#x27;un identifiant). Auparavant, vous deviez écrire quelque chose de fastidieux comme :</p><pre><code class="language-js">sql({
-  demande: `MERGE my_table AS [Target]
-          UTILISANT (SELECT &#x27;8675309&#x27; AS some_unique_id, &#x27;writing_blog_posts&#x27; AS skill) COMME [Source]
-          SUR [Target].some_unique_id = [Source].some_unique_id
-          SI VRAI
-            MISE À JOUR [Target].some_unique_id=8675309, [Target].skill=&#x27;writing_blog_posts&#x27;
-          SI FAUX
-            AJOUT (some_unique_id, skill) VALEURS ([Source].some_unique_id, [Source].skill);`,
+        <summary type="html"><![CDATA[Hi all, this is a very short post with a simple message: design for failure.]]></summary>
+        <content type="html"><![CDATA[<p>Hi all, this is a very short post with a simple message: design for failure.
+Even if you&#x27;ve never heard of
+<a href="https://www.microsoft.com/en-us/sql-server">MSSQL</a> (or
+<a href="https://azure.microsoft.com/en-us/">Azure</a>, or Microsoft?), I want to talk for
+one moment about the importance of upserts and a funny developer term called
+&quot;idempotence.&quot;</p><p>We just extended our
+<a href="https://github.com/OpenFn/language-mssql">language-mssql adaptor</a> with a custom
+function that allows upserts (an <code>upsert</code> is when you either insert a new record
+or update an existing record based on some identifier). Before, you&#x27;d need to
+write something tedious like:</p><pre><code class="language-js">sql({
+  query: `MERGE my_table AS [Target]
+          USING (SELECT &#x27;8675309&#x27; AS some_unique_id, &#x27;writing_blog_posts&#x27; AS skill) AS [Source]
+          ON [Target].some_unique_id = [Source].some_unique_id
+          WHEN MATCHED THEN
+            UPDATE SET [Target].some_unique_id=8675309, [Target].skill=&#x27;writing_blog_posts&#x27;
+          WHEN NOT MATCHED THEN
+            INSERT (some_unique_id, skill) VALUES ([Source].some_unique_id, [Source].skill);`,
 });
-</code></pre><p>alors que maintenant, vous pouvez simplement écrire :</p><pre><code class="language-js">upsert(&#x27;my_table&#x27;, &#x27;some_unique_id&#x27;, {
+</code></pre><p>whereas now you can simply write:</p><pre><code class="language-js">upsert(&#x27;my_table&#x27;, &#x27;some_unique_id&#x27;, {
   some_unique_id: 8675309,
-  skill: &#x27;écrire des articles de blogs&#x27;,
+  skill: &#x27;writing blog posts&#x27;,
 });
-</code></pre><p>Pour qu&#x27;une opération soit idémpotente, cela signifie qu&#x27;elle peut être répétée encore et encore sans produire un résultat involontaire. Ceci est SUPER important pour créer des intégrations (<strong>S</strong>écurisé, <strong>S</strong>table et <strong>S</strong>calque — plus sur ceci <a href="https://openfn.org/trust">ici</a>) S3 car ceci vous offre deux cartes « sortir de prison ».</p><ol><li><p>Si une application de destination échoue, si une connexion expire, ou si (pour une raison quelconque) vous n&#x27;êtes pas sûr que le <code>job</code> a été terminé (par exemple... effectuer un paiement à CHW) alors une opération idémpotente peut être ESSAYÉE DE NOUVEAU sans craindre de faire un double paiement.</p></li><li><p>Si vous apportez des changements à la façon dont votre <code>job</code> fonctionne, apportez quelques modifications à l&#x27;un de vos systèmes de destination, ou simplement parce que vous voulez être <em>extrêmement sûr</em> que toutes les données d&#x27;un sondage de 9 mois ont été intégrées dans le système national de rapport sanitaire, vous pouvez <em>REFAIRE LE PROCESSUS</em> de chaque message qui arrive via OpenFn en un clic, sans avoir à se soucier de doublons.</p></li></ol><p>Alors, quand les clients me laissent m&#x27;occuper de leurs jobs, je <em>recommande</em> toujours de concevoir en fonction de l&#x27;idempotence. C&#x27;est logique lorsque vous passez des messages entre deux systèmes différents qui sont voués à évoluer, se déconnecter, passer une mauvaise journée, etc</p><p>— Taylor</p><p><a href="https://openfn.org/signup">Inscrivez-vous</a>{: .btn} pour mettre en place un projet aujourd&#x27;hui, absolument gratuit.</p><p><a href="mailto:admin@openfn.org">Contactez-nous</a>{: .btn} pour plus d&#x27;informations.</p>]]></content>
+</code></pre><p>For an operation to be idempotent means that it can be repeated time and time
+again without producing an unintended result. This is SUPER important for
+creating S3 (<strong>S</strong>ecure, <strong>S</strong>table and <strong>S</strong>calable—more on that
+<a href="https://openfn.org/trust">here</a>) integrations because it provides you with two
+&quot;get-out-of-jail-free&quot; cards.</p><ol><li><p>If a destination application fails, if a connection times out, or if (for
+whatever reason) you&#x27;re not sure if the <code>job</code> was completed (say... making a
+payment to CHW) then an idempotent operation can be RETRIED without fear of
+making a double-payment.</p></li><li><p>If you make some change to how your <code>job</code> works, make some modification to
+one of your destination systems, or just because you want to be <em>extra extra
+sure</em> that all the data in a 9 month survey made it to the national public
+health reporting system, you can <em>REPROCESS</em> every single message that&#x27;s come
+through OpenFn at the click of a button, without having to worry about
+duplicates.</p></li></ol><p>So... when clients let me mess around with their jobs, I <em>always</em> recommend we
+design for idempotence. It&#x27;s common sense when you&#x27;re passing messages between
+two different systems that are bound to evolve, go offline, have a bad day, etc</p><p>— Taylor</p><p><a href="https://openfn.org/signup">Sign up</a>{: .btn} to set up a project today,
+absolutely free.</p><p><a href="mailto:admin@openfn.org">Reach out</a>{: .btn} for more information.</p>]]></content>
         <author>
             <name>Taylor Downs</name>
             <uri>https://github.com/taylordowns2000</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Automatiser ou ne pas automatiser ? Posez-vous ces 3 Questions.]]></title>
-        <id>Automatiser ou ne pas automatiser ? Posez-vous ces 3 Questions.</id>
+        <title type="html"><![CDATA[To Automate or Not to Automate? Ask Yourself These 3 Questions.]]></title>
+        <id>To Automate or Not to Automate? Ask Yourself These 3 Questions.</id>
         <link href="https://docs.openfn.org/fr/articles/2020/06/24/three-questions-to-ask"/>
         <updated>2020-06-24T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[L'automatisation peut faire gagner du temps, débloquer des ressources essentielles et mettre à l'échelle–mais nécessite généralement un investissement. Vous vous demandez si vous devriez automatiser vos processus ? Posez-vous ces 3 Questions.]]></summary>
-        <content type="html"><![CDATA[<p>L&#x27;automatisation peut faire gagner du temps, débloquer des ressources essentielles et mettre à l&#x27;échelle–mais nécessite généralement un investissement. Vous vous demandez si vous devriez automatiser vos processus ? Posez-vous ces 3 Questions.</p><h3>Nos partenaires utilisent des solutions d&#x27;automatisation <a href="https://openfn.org">OpenFn</a> pour optimiser l&#x27;efficacité et mettre à l&#x27;échelle leurs processus, en fournissant des systèmes numériques intégrés qui fonctionnent mieux, plus rapidement et ensemble.</h3><p>À ce jour, nous avons travaillé avec 43 organisations du secteur social qui opèrent dans des secteurs : santé, éducation, agriculture, moyens de subsistance et interventions d&#x27;urgence. Au cours des 6 dernières années, OpenFn a été implémenté dans le monde entier pour une large gamme de cas d&#x27;utilisation, y compris la construction de systèmes de surveillance de données en temps réel, rationalisation des pipelines de nettoyage de données, échanger en toute sécurité des informations sensibles, et automatiser les processus de routine comme le chargement des résultats de l&#x27;indicateur, l&#x27;envoi des alertes SMS/e-mail, effectuer des paiements mobiles, <a href="https://openfn.org/solutions">et plus</a>.</p><p>En connectant n&#x27;importe quelle application, OpenFn peut intégrer et automatiser toutes les applications dans un écosystème numérique. Cependant, une question que nous posons fréquemment à nos partenaires est la suivante :</p><h4>Juste parce que vous <em>pouvez</em> automatiser —<em>devriez-vous vous</em> ?</h4><p>Alors que l&#x27;intégration et l&#x27;automatisation ont le potentiel d&#x27;activer l&#x27;échelle et d&#x27;économiser du temps et de l&#x27;argent (nous l&#x27;avons appris de nos <a href="https:openfn.org/clients">partenaires</a>), les solutions nécessitent des investissements pour les mettre en place et les maintenir. Ces coûts l&#x27;emportent parfois sur les gains d&#x27;efficacité attendus et les résultats du service. Par conséquent, lorsqu&#x27;on évalue le rapport coût-bénéfice d&#x27;un investissement dans des solutions d&#x27;automatisation et d&#x27;intégration, Open Function Group pose généralement trois questions clés.</p><h4>1. Sécurité — L’automatisation limitera-t-elle l’exposition des données sensibles ?</h4><p>L&#x27;exposition de données sensibles peut-elle être limitée en intégrant des points de terminaison de l&#x27;API sécurisée (plutôt que de compter sur des êtres humains pour interagir avec ces données, par exemple) ? Ou en automatisant un processus de nettoyage des données ?</p><h4>2. Précision — L&#x27;automatisation augmentera-t-elle la précision des données et réduira-t-elle les erreurs de saisie de données ?</h4><p>Le processus peut-il se dérouler de manière plus fiable en limitant l&#x27;opportunité d&#x27;une erreur humaine (dans l&#x27;automatisation de la manipulation des données ou simple travail algorithmique, par exemple) ?</p><h4>3. Vitesse — L&#x27;automatisation augmente-t-elle la vitesse de l&#x27;impact ?</h4><p>Est-ce que le processus peut être fait plus rapidement via l&#x27;automatisation et est-il utile de le faire plus rapidement ? (La réponse à la première partie est presque toujours oui, mais parfois il n&#x27;y a pas beaucoup de valeur générée en faisant quelque chose plus rapidement.)</p><h4>Si vous répondez « oui » à ces questions, il peut être temps d&#x27;envisager d&#x27;automatiser les processus essentielles au sein de votre organisation.</h4><p>Les tâches qui satisfont à ces 3 critères, prennent beaucoup de temps pour compléter ou sont très répétitives, et/ou impliquent le déplacement de données entre les applications sont généralement d&#x27;excellents candidats à l&#x27;automatisation.</p><p>Si vous répondez « non », il ne vaut peut-être pas la peine d&#x27;investir dans l&#x27;automatisation ... du moins pas encore. Ceci est particulièrement vrai si ces processus sont encore en flux ou nécessitent une grande implication humaine pour achevés. Ceci dit, c&#x27;est peut-être le moment d&#x27;affiner vos flux de travail existants de réfléchir à la manière dont vos processus pourraient changer à l&#x27;échelle et d&#x27;envisager quels <em>nouveaux</em> processus, services ou résultats pourraient être débloqués par l&#x27;automatisation.</p><h3>Déléguez votre travail à OpenFn, et essayez dès aujourd&#x27;hui !</h3><p>Si vous voulez essayer l&#x27;automatisation pour votre organisation, <a href="https://www.openfn.org/signup">inscrivez-vous</a> à OpenFn, gratuitement. Consultez <a href="https://docs.openfn.org/">notre documentation</a> et <a href="http://www.openfn.org">site Web</a> pour savoir comment commencer.</p><p>Vous avez des difficultés à configurer votre premier « travail » d&#x27;automatisation ? Envoyez-nous un e-mail à <a href="mailto:admin@openfn.org">admin@openfn.org</a> pour obtenir de l&#x27;aide. Notre équipe est toujours ravie de vous assister et de vous aider à évaluer le coût total de possession des solutions d&#x27;automatisation.</p>]]></content>
+        <summary type="html"><![CDATA[Automation can save time, unlock critical resources, and enable scale–but it]]></summary>
+        <content type="html"><![CDATA[<p>Automation can save time, unlock critical resources, and enable scale–but it
+typically requires investment to set up. Wondering whether you should automate
+your processes? Ask yourself these 3 questions.</p><h3>Our partners use <a href="https://openfn.org">OpenFn</a> automation solutions to drive efficiency and scale their processes, delivering integrated digital systems that work better, faster, and together.</h3><p>To date, we have worked with 43 social sector organizations that operate across
+sectors–from health, education, and agriculture, to livelihoods and emergency
+response. Over the last 6 years, OpenFn has been implemented worldwide for a
+wide range of use cases, including building real-time data monitoring systems,
+streamlining data cleaning pipelines, securely exchanging sensitive information,
+and automating routine processes like uploading indicator results, sending
+SMS/email alerts, making mobile payments,
+<a href="https://openfn.org/solutions">and more</a>.</p><p>By connecting any app, OpenFn can integrate and automate all apps within a
+digital ecosystem. However, a question that we frequently ask our partners is:</p><h4>Just because you <em>can</em> automate—<em>should</em> you?</h4><p>While integration and automation have the potential to enable scale and save
+time and money (we’ve learned this from our
+<a href="https:openfn.org/clients">partners</a>), solutions require investment to set up
+and maintain. These costs sometimes outweigh expected efficiency gains and
+service outcomes. Therefore, when evaluating the cost-benefit of investing in
+automation and integration solutions, we at Open Function Group typically ask 3
+key questions.</p><h4>1. Security — Will automation limit the exposure of sensitive data?</h4><p>Can the exposure of sensitive data be limited by integrating with secure API
+endpoints (rather than relying on human beings to interact with those data, for
+example)? Or by automating a data cleaning process?</p><h4>2. Accuracy — Will automation increase data accuracy and reduce data entry errors?</h4><p>Can the process take place more reliably by limiting the opportunity for human
+error (in automating data manipulation or simple algorithmic work, for example)?</p><h4>3. Speed — Will automation increase the speed of impact?</h4><p>Can the process be done more quickly via automation and is there value in having
+it done faster? (The answer to the first part is almost always yes, but
+sometimes there&#x27;s not actually lots of value generated by doing something
+faster.)</p><h4>If you find yourself answering “yes” to these questions, it may be time to consider automating critical processes at your organization.</h4><p>Tasks that meet these 3 criteria, take a lot of time to complete or are very
+repetitive, and/or involve moving data between apps are typically great
+candidates for automation.</p><p>If you find yourself answering “no”, then it may not be worth the investment in
+automation... at least not yet. This is especially true if these processes are
+still in flux or require a lot of human involvement to complete. That said, now
+may be a good time to refine your existing workflows, think about how your
+processes might change at scale, and consider what <em>new</em> processes, services, or
+outcomes could be unlocked by automation.</p><h3>Delegate your busywork to OpenFn, and try it today!</h3><p>If you want to try out automation for your organization,
+<a href="https://www.openfn.org/signup">sign up</a> for OpenFn, free of charge. Check out
+<a href="https://docs.openfn.org/">our documentation</a> and
+<a href="http://www.openfn.org">website</a> to learn how to get started.</p><p>Having trouble setting up your first automation &quot;job&quot;? Email us at
+<a href="mailto:admin@openfn.org">admin@openfn.org</a> for support. Our team is always
+happy to assist and help you evaluate the total cost of ownership of automation
+solutions.</p>]]></content>
         <author>
             <name>Aleksa Krolls</name>
             <uri>https://github.com/aleksa-krolls</uri>
         </author>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Comment les informations sont organisées... Dans les entreprises]]></title>
-        <id>Comment les informations sont organisées... Dans les entreprises</id>
+        <title type="html"><![CDATA[How Information Is Organized... In Organizations]]></title>
+        <id>How Information Is Organized... In Organizations</id>
         <link href="https://docs.openfn.org/fr/articles/2020/06/16/how-information-is-organized"/>
         <updated>2020-06-16T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Les informations de votre organisation ont-elles une structure sous-jacente ? Essayez cet exercice en utilisant des tables et des pattes de corbeau.]]></summary>
-        <content type="html"><![CDATA[<h4>Les informations de votre organisation ont-elles une structure sous-jacente ? Essayez cet exercice en utilisant des tables et des pattes de corbeau.</h4><p>Cet article a été publié à l&#x27;origine par Taylor Downs, Responsable du produit, sur <a href="https://medium.com/@taylordowns2000">Le blog du Fondateur OpenFn</a> comme « Le pouvoir des pattes de corbeau ».</p><p>On est samedi matin au Cap et je viens de passer une heure à parler de la manière dont une organisation à but non lucratif est organisée. Je pensais que j&#x27;entrais dans une discussion technique — je mène des discussions sur l&#x27;architecture du système depuis des années — mais ce dont nous avons fini par parler c&#x27;est de ce que pense cette ONG.</p><p>Cet engagement concerne principalement la cartographie d&#x27;un système existant basé sur la technologie &quot;people &amp; paper&quot; déjà existante. Vera Solutions va construire un système pour ce client en utilisant Open Data Kit pour la collecte de données sur le terrain et Salesforce.com pour la gestion du « back-end ». Étant donné qu&#x27;on ne nous demande pas explicitement de contribuer à la reconception des processus au sein de cette organisation, le client « nous dit comment les choses sont », puis attend de nous la création d&#x27;un modèle base de données relationnelle pour faciliter les activités habituelles, mais d&#x27;une manière plus efficace et numérique. Cela semble raisonnable.</p><p>Cette organisation exécute plusieurs programmes axés sur une multitude d&#x27;objectifs stratégiques. Ils coordonnent diverses activités dans leurs communautés cibles et produisent des rapports sur ces activités en fonction de nombreux indicateurs (qui parfois se chevauchent). Ça vous semble familier ? Alors que nous arrivons à la 3ème explication de ces programmes, et à la 11ème itération du schéma du système, il me vient à l&#x27;esprit…</p><h3>Dessiner un « modèle d&#x27;objet relationnel » semble technique, mais c&#x27;est en fait un exercice de communication claire... et tout le monde peut en bénéficier.</h3><p>Lorsque nous, les êtres humains, sommes confrontés à des problèmes complexes (comme la gestion d&#x27;un grand nombre de programmes, d&#x27;autres humains, des parties prenantes de la communauté, etc.), nous avons la capacité de nous tromper nous-mêmes en pensant que nous avons maîtrisé un système (pour l&#x27;inscription à une clinique, pour l&#x27;éducation parascolaire, etc.) alors qu&#x27;en fait, nous nous livrons à des manipulations mentales et ne faisons que « masquer » des sections qui sont secrètement non seulement compliquées, mais totalement incongrues avec d&#x27;autres parties du système. Nous pouvons nous faire croire que notre logique est sensée parce que nous voulons qu&#x27;elle le soit, alors qu&#x27;en réalité, l&#x27;organisation pourrait être maintenue en place par de bonnes personnes, et non par de bons processus clairs et définis. En apprenant quelques concepts clés, il est possible pour des personnes non spécialisées techniquement d&#x27;articuler clairement leurs pensées en utilisant des « boîtes » et des « pattes de corbeau » et de voir s&#x27;il existe ou non une structure sous-jacente aux informations de leur organisation.</p><h3>En vous forçant à réduire des systèmes complexes à des croquis ne contenant que deux éléments, vous serez en mesure de détecter des conflits et des ambiguïtés importants dans votre façon de penser votre organisation, qui pourraient sinon vous échapper.</h3><p>Si vous ne pouvez pas schématiser la structure des informations dans votre organisation en utilisant des boîtes et des pattes de corbeau, c’est un signe que quelque chose na va pas (ou au moins que quelque chose n’est pas facilement évolutif… nous y reviendrons plus tard !). Laissez-moi vous montrer les outils dans la boîte à outils et ensuite je conclurai en parlant avec poésie des personnes, des processus et de la technologie.</p><h3>Boîtes et pattes de corbeau</h3><p>![]({{ site.baseurl }}/assets/images/box5.png)</p><p>La boîte est ma préférée. Elle représente une entité dans votre système de données. Les entités (comme <code>enseignants</code>) ont des attributs (comme <code>name</code>, <code>numéro de téléphone</code>, <code>date de naissance</code>, <code>sexe</code>, etc.) Certaines personnes aiment considérer les entités comme des formes simples. Le « Formulaire d&#x27;inscription des enseignants » demandera le nom de l&#x27;enseignant, le numéro de téléphone, le sexe, etc. Ce sont les champs de votre entité d&#x27;enseignant. En soumettant un de ces formulaires, vous ajouterez un nouvel enseignant à votre base de données. Si vous êtes une personne Excel, les attributs sont des colonnes dans votre table <code>enseignants</code>.</p><p>![]({{ site.baseurl }}/assets/images/crowsfeet2.png)</p><p>La patte du corbeau est ma deuxième préférée. Elle est utilisée pour afficher les relations entre les entités. Nous savons que les enseignants sont liés aux sessions qu&#x27;ils mènent. (Et <code>session</code> pourrait être une autre entité, avec des champs comme <code>date</code>, <code>sujet enseigné</code>, et <code>salle</code>, pour n&#x27;en nommer que quelques-uns.) La patte du corbeau nous permet de spécifier exactement comment ils sont liés. Sur cette entité de session, nous devrons spécifier le nom (ou l&#x27;identifiant) de l&#x27;enseignant qui l&#x27;a dirigé. Sur l&#x27;entité de l&#x27;enseignant, cependant, il n&#x27;y aura pas de champ pour spécifier le nom ou l&#x27;identifiant de la session… parce qu&#x27;un seul enseignant peut diriger de MULTIPLES sessions. Il s&#x27;agit d&#x27;une relation à plusieurs. La patte du corbeau (ce petit truc à trois branches) désigne les plusieurs. Un enseignant peut avoir beaucoup de sessions. Une session, cependant, ne peut avoir qu&#x27;un enseignant. Voir le diagramme ci-dessous.</p><p>![]({{ site.baseurl }}/assets/images/objectmodel3.png)</p><p>Si nous nous concentrons uniquement sur <code>enseignant</code> et <code>session</code> et que nous pensons à MS Excel, nous pouvons prévoir une table <code>enseignants</code> et une table <code>sessions</code>. Mettons-les sur des feuilles différentes dans le même fichier. Sur la table <code>enseignants</code> , il n&#x27;y a pas de colonne pour la <code>session</code>, mais sur la table <code>sessions</code> , il y a __ une colonne pour <code>Identifiant enseignant</code>. Nous venons d&#x27;établir une relation à plusieurs.</p><p>La prochaine fois, nous parlerons de ce qui se passe avec l&#x27;entité <code>présence</code> ci-dessus. On l&#x27;appelle parfois un « objet de jonction » ou une « table de jointure », et c&#x27;est ce que permet à de NOMBREUX étudiants d&#x27;être liés à de NOMBREUSES sessions. Je reviendrai sur ce sujet la prochaine fois, mais il n&#x27;y a pas de magie ni de détails techniques. La manière dont de nombreux étudiants sont liés à de nombreuses sessions est à travers ce concept du monde réel que nous appelons <code>présence</code>. La présence est ce qui se passe lorsqu&#x27;un étudiant se présente à une session. Il est si important de bien maîtriser la langue dans ces discussions, et assurez-vous que vous parlez de concepts du monde réel.</p><h3>Les modèles d&#x27;objets relationnels avec beaucoup de termes ambigus ne sont pas « techniques ». Ils sont « mauvais ».</h3><p>Rappelez-vous que lorsque vous commencez à écrire sur du papier. Et vous prenez le temps (et de multiples brouillons) pour que les boîtes et la terminologie soient correctes. Comprendre la modélisation d&#x27;objet relationnel est un moyen incroyablement puissant d&#x27;organiser une entreprise. Comme je l’ai dit précédemment, si vous ne pouvez pas le modéliser avec des boîtes et des flèches, c&#x27;est un signe que quelque chose pourrait ne pas être conceptuellement sensé.</p><h3>Une clause de non-responsabilité et quelques réflexions sur la mise à l&#x27;échelle :</h3><p>Certaines organisations font un travail étonnant sans de bons systèmes conceptuels. Ils s&#x27;appuient sur les humains, l&#x27;instinct, l&#x27;improvisation, le flair, et d&#x27;autres choses qui ne sont pas clairement définies. Ils pourraient vraiment faire du bon travail. Ils pourraient accomplir leur job. Mais ils doivent être bien conscients de leur état et l&#x27;affronter de face. Si vous ne pouvez pas systématiser les processus d&#x27;implémentation de votre programme, vous devez concentrer vos efforts énormes sur la recherche et le maintien des bonnes personnes.</p><p>Un ami m’a un jour dit que « les gens ne sont pas évolutifs ». Je ne pourrais pas être plus d&#x27;accord, et défendre ma position antérieure selon laquelle si la structure des informations de votre organisation ne peut être définie avec des boîtes et des pattes de corbeau, il peut être très difficile pour vous d&#x27;évoluer de manière responsable. Cependant, si vous pouvez créer un système « d&#x27;opérations de personnes » (recrutement, formation, gestion, rémunération, RH, etc.) extrêmement efficace et de classe mondiale, qui s&#x27;assure que vous avez toujours les bonnes personnes pour résoudre les problèmes, vous serez peut-être mieux loti que ceux qui exploitent une chaîne de montage bien définie avec des pièces interchangeables. Hélas, la solution intermédiaire est probablement la meilleure.</p><p>C&#x27;est tout pour l&#x27;instant. Bien plus bientôt.</p><p><em>Besoin d&#x27;aide pour organiser ou mettre à l&#x27;échelle les informations ou les flux de processus de votre organisation ? Contactez notre équipe de spécialistes ICT4D à <a href="mailto:support@openfn.org">support@openfn.org</a>.</em></p>]]></content>
+        <summary type="html"><![CDATA[Does your organization's information have an underlying structure? Try this exercise using boxes and crow's feet.]]></summary>
+        <content type="html"><![CDATA[<h4>Does your organization&#x27;s information have an underlying structure? Try this exercise using boxes and crow&#x27;s feet.</h4><p>This article was originally posted by Taylor Downs, Head of Product, on
+<a href="https://medium.com/@taylordowns2000">The OpenFn Founder&#x27;s blog</a> as &quot;The power
+of crow&#x27;s feet.&quot;</p><p>It’s Saturday Morning in Cape Town and I’ve just spent an hour talking about how
+a non-profit is organized. I thought I was getting into a technical
+discussion—I’ve been doing system architecture discussions for years—but what we
+ended up talking about was how this NGO thinks.</p><p>This engagement is largely about mapping an already existing “people &amp; paper”
+based system to technology. Vera Solutions will build a system for this client
+using Open Data Kit for field data collection and Salesforce.com for the
+management “back-end”. Because we’re not explicitly being asked to help redesign
+processes at this organization, the client is “telling us how things are”, then
+expecting us to create a relational database model that facilitates
+business-as-usual, only in a more efficient, digital way. Seems reasonable.</p><p>This organization runs multiple programs focusing on a handful of strategic
+objectives. They coordinate various activities in their target communities and
+report on those activities against numerous (sometimes overlapping) indicators.
+Sound familiar? As we get to the 3rd explanation of these programs, and the 11th
+iteration of the system schema, it hits me…</p><h3>Drawing a &quot;relational object model&quot; sounds technical, but it&#x27;s actually an exercise in clear communication... and everyone can benefit from it.</h3><p>When we—human beings—wrestle with complex problems (like managing lots of
+programs, other humans, community stakeholders, etc.) we have the capacity to
+trick ourselves into thinking that we have wrapped our heads around a system
+(for clinic registration, for after-school education, etc.) when, in fact, we’re
+engaging in mental hand-waving and are simply ‘papering-over’ sections which are
+secretly not just complicated, but totally incongruous with other parts of the
+system. We can make ourselves believe that our logic is sound because we want it
+to be sound, when in reality the organization might be held together by good
+people, not good, clear, defined processes. By learning a couple of key
+concepts, it’s possible for non-technical people to articulate their thoughts
+clearly using “boxes” and “crow’s feet” and see whether or not there is an
+underlying structure to their organization’s information.</p><h3>By forcing yourself to reduce complex systems to sketches containing only two elements, you’ll be able to detect important conflicts and confusions in how you think about your organization that you might otherwise miss.</h3><p>If you can’t diagram the information structure in your organization using boxes
+and crow’s feet, it’s a smell that something isn’t quite right (or at least that
+something isn’t easily scalable… more on this later!). Let me show you the tools
+in the toolbox and then wrap up by waxing poetic on people, processes, and
+technology.</p><h3>Boxes and crow&#x27;s feet</h3><p>![]({{ site.baseurl }}/assets/images/box5.png)</p><p>The box is my favorite. It represents an entity in your data system. Entities
+(like <code>teachers</code>) have attributes (like <code>name</code>, <code>phone number</code>, <code>date of birth</code>,
+<code>gender</code>, etc.) Some people like thinking of entities as simple forms. The
+“Teacher Registration Form” will ask for the teacher’s name, phone number,
+gender, etc. These are the fields on your teacher entity. By submitting one of
+these forms, you’ll add a new teacher to your database. If you’re an Excel
+person, the attributes are columns in your <code>teachers</code> table.</p><p>![]({{ site.baseurl }}/assets/images/crowsfeet2.png)</p><p>The crow’s foot is my second favorite. It’s used to show relationships between
+entities. We know that teachers are related to the sessions that they conduct.
+(And <code>session</code> might be another entity, with fields like <code>date</code>,
+<code>subject taught</code>, and <code>venue</code>, to name just a few.) The crow’s foot allows us to
+specify exactly how they are related. On that session entity, we’ll need to
+specify the name (or ID) of the teacher who led it. On the teacher entity,
+however, there won’t be a field to specify the name or ID of the session…
+because a single teacher can lead MANY sessions. This is a one-to-many
+relationship. The crow’s foot (that little three-pronged fella) denotes the
+many. One teacher can have many sessions. One session, however, can only have
+one teacher. See the diagram below.</p><p>![]({{ site.baseurl }}/assets/images/objectmodel3.png)</p><p>If we focus just on <code>teacher</code> and <code>session</code> and think back to MS Excel, we can
+envision a <code>teachers</code> table and a <code>sessions</code> table. Let’s put them on different
+sheets in the same workbook. On the <code>teachers</code> table, there is no column for
+<code>session</code>, but on the <code>sessions</code> table, there <em>is</em> a column for <code>teacher ID</code>.
+We’ve just established a one-to-many relationship.</p><p>Next time, we’ll talk about what’s going with the <code>attendance</code> entity above.
+It’s sometimes called a “junction object” or a “join table”, and it’s what
+allows MANY students to be related to MANY sessions. I’ll write more on this
+next time, but there is no magic going on, no technicalities here. The way that
+many students are related to many sessions is through this Real World Concept
+that we call <code>attendance</code>. Attendance is what happens when a student shows up at
+a session. It’s so important to get the language right in these discussions, and
+make sure that you’re talking about real-world concepts.</p><h3>Relational object models with lots of confusing terms are not &quot;technical&quot;. They are &quot;bad.&quot;</h3><p>Remember that as you start to put pen to paper. And allow yourselves time (and
+multiple drafts) to get the boxes and terminology right. Understanding
+relational object modelling is an incredibly powerful way to organize a company.
+As I said before, if you can’t model it with boxes and arrows, it’s a smell that
+something might not be conceptually sound.</p><h3>A disclaimer and some thoughts on scaling:</h3><p>Some organizations do amazing work without good conceptual systems. They rely on
+humans, instinct, improvisation, nouse, and other not-so-clearly-defined things.
+They might do really great work. They might get the job done. But they need to
+be well aware of their condition and face it head on. If you can’t systematize
+your program implementation processes, then you need to focus tremendous effort
+on finding and retaining the right people.</p><p>A friend once told me that “people are not scalable.” I couldn’t agree more, and
+defend my earlier stance that if your organization’s information structure can’t
+be defined with boxes and crow’s feet, it may be very hard for you to scale
+responsibly. However, if you can create a ruthlessly efficient, world-class
+“people operations” system (recruitment, training, management, compensation, HR,
+etc.) that ensures you’ve always got the right people to figure things out you
+might be better off than those operating a well defined assembly-line with
+interchangeable parts. Alas, the middle way is probably the best.</p><p>That’s all for now. More soon.</p><p><em>Need help organizing or scaling your organization&#x27;s information or process
+flows? Contact our team of ICT4D specialists at <a href="mailto:support@openfn.org">support@openfn.org</a>.</em></p>]]></content>
         <author>
             <name>Taylor Downs</name>
             <uri>https://github.com/taylordowns2000</uri>
