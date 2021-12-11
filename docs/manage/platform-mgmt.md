@@ -153,6 +153,114 @@ To create a new job, follow the steps below:
   for your new job.
 - See details on how to use [Job Studio here](platform-mgmt#job-studio).
 
+### Job Studio
+
+**Job Studio** is OpenFn's **Job Editor**. It allows you to create a new job or
+edit an exisiting one. It can be accessed by following the steps for
+[editing an existing job](platform-mgmt#editing-a-job) or
+[creating a new job](platform-mgmt#creating-a-new-job). The instructions below
+assume you already know how to open Job Studio by either methods.
+
+#### Changing Job Studio mode
+
+Job Studio comes in two editing modes, namely **Wizard mode** and **Fullscreen
+mode**. By default, OpenFn JobStudio runs in **wizard mode**. Wizard mode allows
+you to configure a job via a step-by-step configuration wizard. On the other
+hand, **Fullscreen mode** allows you to quickly configure or edit the job
+without the help of the wizard.
+
+To change from one **Job Studio mode** to another, follow the steps below:
+
+- While in Job Studio, in the top-right corner, click on the **fullscreen**
+  icon.
+- Depending on the current Job Studio mode, clicking on the **fullscreen** icon
+  will toggle the editing mode to either **Wizard** or **Fullscreen**.
+
+:::info
+
+Note that once you toggle the editing mode, OpenFn updates your user settings
+and saves this editing preference as your default Job Studio mode for subsequent
+editing sessions. Note, however, that when creating **new jobs**, Job Studio
+will always open in **Wizard mode**, regardless of your saved editing mode
+preference.
+
+:::
+
+#### Configuring a job
+
+While in Job Studio, if in **Wizard mode**, you will see **four configuration
+steps** and an **expression editor**. In **Fullscreen mode**, the **four
+configuration steps** appear as regular fields, without a wizard.
+
+The **four configuration steps** include giving the job a name, defining what
+[triggers](/documentation/build/triggers) its execution, selecting an
+[adaptor](/documentation/build/adaptors), and providing
+[authentication](/documentation/build/credentials) details.
+
+The **expression editor** is the area where you write your
+[job expression](/documentation/build/jobs/#composing-job-expressions). Fill-in
+all the details, and click on the **Save** icon in the top-right corner to save
+your job's configuration changes.
+
+#### Inspecting job's initial state
+
+This feature allows you to view the
+[initial state](/documentation/jobs/state/#initial-state) of a selected job.
+Note that this feature is currently only available for
+[message-triggered jobs](/documentation/build/triggers#message-filter-triggers).
+
+To view or inspect a job's initial state, click the expression pane splitter and
+drag to the right. After dragging, you will see a `json tree` representation of
+the matching initial state. To copy a path to a given node in the state, click
+on the **_Copy to clipboard_** icon overlaid on the node. The path to that node
+will be saved to clipboard, and can then be pasted inside the expression editor
+as data path for the job's expression.
+
+#### Accessing inline adaptor documentation
+
+For a selected adaptor, OpenFn allows you to view documentation and code
+examples for each [adaptor operation](/documentation/jobs/operations).
+
+To view adaptor documentation, click on the `documentation icon`(first icon) on
+the top-right corner of the `Expression Pane`.
+
+Each adaptor operation has a short description and an example. You can click on
+the example expression to copy and use it in your job's expression editor.
+
+Also note that expression examples or code snippets for adaptor operations can
+be auto-generated through the expression editor's autocompletion feature. To
+generate a code snippet for a given operation, type the first few letters of the
+operation and press the `tab` key.
+
+#### Changing JobStudio theme
+
+OpenFn allows you to customize the feel and look of Job Studio. To change Job
+Studio's theme from the default one, click the `color palette` icon, and select
+a theme of your choice.
+
+#### Installing a unreleased adaptor version
+
+In Job Studio, you can install adaptors that are not part of the recommended
+adaptors picklist directly from npm. See details
+[here](/documentation/build/adaptors#install-on-platform-via-npm) on how to
+install the unreleased adaptor version.
+
+#### Testing a job
+
+You can test your job without exiting Job Studio, by clicking on the **Save and
+Run** button. You can find the **Save and Run** button in the bottom pane of the
+Job Studio.
+
+After clicking on **Save and Run**, the job will be run and its logs will be
+streamed to the `Run logs` console.
+
+:::info
+
+Note that this feature is currently only available to **message-triggered
+jobs**.
+
+:::
+
 ## Triggers
 
 This section of the portal allows you to create and manage your Triggers.
