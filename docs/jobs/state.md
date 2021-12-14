@@ -37,6 +37,6 @@ for details.
 | Triggering Event | Initial State                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------ |
 | http request     | `{ data: httpRequest.body, configuration: job.credential.body }`                                       |
-| cron             | `{ ...finalStateOfLastSuccessfulRun: {}, configuration: job.credential.body }`                         |
+| cron             | `{ ...finalStateOfLastSuccessfulRun, configuration: job.credential.body }`                         |
 | flow: success    | `{ ...finalStateOfTriggeringRun, configuration: job.credential.body }`                                 |
 | flow: failure    | `{ ...initialStateOfTriggeringRun, error: logsFromTriggeringRun, configuration: job.credential.body }` |
