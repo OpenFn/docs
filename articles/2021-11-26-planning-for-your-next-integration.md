@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Planning for your next integration
+title: Design steps for your upcoming integration project
 author: Aicha Diallo
 author_url: https://github.com/daissatou2
 author_image_url: https://avatars.githubusercontent.com/u/80456839?v=4
@@ -96,7 +96,7 @@ made easier with a sample state of the fields you'll get from the source system
 and a sample output file of what is expected by the destination system.
 
 See
-[here](https://docs.google.com/spreadsheets/d/1c9UZwy6ohaftJREb83WYrTORKJ35xzwO01TJq4YHLCQ/edit#gid=281221207)
+[here](https://docs.google.com/spreadsheets/d/1f8ZdPnxliHjvpynkuK0XXX_dASacWIfHuh8GOl_bkCM/edit?usp=sharing)
 for a mapping template that you can get started with! This template includes a
 README which features a **change log and instructions for use.** The change log
 can be especially useful if many users are expected to make changes to the
@@ -114,6 +114,8 @@ example.
 - Version mappings to keep track of changes
 - Use the README to highlight rows which require further discussion
 
+Visit this docs [page](/documentation/design/design-quickstart#2-map-the-business-process) to learn more about how OpenFn uses BPMN data flow diagrams and mapping specifications. 
+
 ## The test suite
 
 Another important piece of documentation that comes out of design and testing is
@@ -121,7 +123,7 @@ the test suite. Test suites capture **_what success looks like_** and often use 
 stories as input for individual test cases. The test suite organizes testing
 steps and provides a dedicated space for detailed results which capture links,
 screenshots and comments. Check out
-[this](https://docs.google.com/spreadsheets/d/1XuCUg5uw40Z1SE42cJooJFicMtFzHsagHr5SXqQjpw0/edit#gid=1652048905)
+[this](https://docs.google.com/spreadsheets/d/1a1G_bw1rcR_C8hkB7VtIWBxK7FlE-MVEh0iw25mIkUg/edit#gid=1652048905)
 example test suite from an existing OpenFn integration!
 
 ## Technical specifications document
