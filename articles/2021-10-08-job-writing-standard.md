@@ -8,21 +8,28 @@ tags: [how-to, tips, jobs, standard]
 featured: true
 ---
 
-An OpenFn [job](/documentation/jobs/job-design-intro) defines a series of
-different tasks (they're called ["operations"](/documentation/jobs/operations))
-for processing data within or between systems. Those different tasks often serve
-different purposes, most commonly: **interacting with an API** (e.g., using the
-`createTEI` function from the `dhis2` adaptor) or **cleaning and mapping data**
-(e.g., taking an array of names and creating a single `fullName` attribute).
+In the OpenFn Integration Toolkit, a [job](/documentation/jobs/job-design-intro)
+defines a series of different tasks (technically, they're called
+["operations"](/documentation/jobs/operations)) for processing data within or
+between systems. Those different operations often do obviously different things,
+for example:
 
-Depending on the type of job you are writing, you might want make a clear
-separation of concerns between your operations. See it as a diagram where you
-have different activities, each activity taking one specific input and producing
-one specific output.
+- `createTEI` creates a new tracked entity instance via the DHIS2 API;
+- `delete` removes a record from a Postgres database;
+- `sendSMS`, well, _send an SMS_ using Twillio or some other messaging service.
+
+But what about the custom data cleaning and transformation scripts that sit at
+the heart of so many OpenFn implementations? What about everything you do inside
+an operation like `fn` which merely takes some arbitrary input data, _does some
+stuff_, and returns some arbitrary output data?
+
+Since jobs can be as complex as your real world business processes, it's helpful
+to make clear distinctions between each operation based on its central
+objective.
 
 <!--truncate-->
 
-## An example to go with
+## An example job
 
 ![Sample BPMN diagram](/img/bpmn_example.png)
 
