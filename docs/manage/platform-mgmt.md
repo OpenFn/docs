@@ -623,11 +623,36 @@ steps to reset it:
 
 ## Project settings
 
-(work in progress)
+This section of OpenFn platform allows you to view and update the project
+configuration and plan settings.
 
-### Change concurrency
+### Project Configuration
 
-**Concurrency** is the number of jobs that will be run at the same time.
+To view or update the following project configuration details, follow the steps
+below:
+
+- From the application **menu**, click on **Project Settings** and then find the
+  **Project Configuration** section.
+
+#### Changing Project Name
+
+- Changing your project name will update the URL and, after a 60-day deprecation
+  period, will break bookmarks or old links to the project. This won't affect
+  your project's inbox URL, but may impact users with lots of old run or message
+  links saved offline.
+
+#### Viewing Project Inbox URL
+
+- To view the `Inbox URL` for your project, click on the **eye** icon against
+  the `Unique Inbox URL` label.
+
+#### Changing Project Description
+
+- Project description is optional but can be updated under this section.
+
+#### Changing Concurrency
+
+- **Concurrency** is the number of jobs that will be run at the same time.
 
 :::note
 
@@ -641,24 +666,136 @@ finished working on the first.
 
 :::
 
-Projects are set to a concurrency of "1" by default. This means that runs will
-be processed one-at-a-time and that each subsequent run will be blocked until
-the previous run is completed.
+- Projects are set to a concurrency of "1" by default. This means that runs will
+  be processed one-at-a-time and that each subsequent run will be blocked until
+  the previous run is completed.
 
-If your project is subscribed to a paid plan, you have the option of toggling
-concurrency from the default "1" all the way up to a concurrency of "10".
+- If your project is subscribed to a paid plan, you have the option of toggling
+  concurrency from the default "1" all the way up to a concurrency of "10".
 
-To change the concurrency level for your project follow these steps:
+- To change the concurrency level for your project follow these steps:
 
 1. Login to your OpenFn account.
 2. Click on the **Project Settings** link on the left-hand menu of the project
-   you'd like to modify.
+   - you'd like to modify.
 3. This will take you to the **Project Settings** menu.
 4. On the **Project Settings** page change concurrency to the appropriate level
    using the slider.
 5. Once you have selected the desired concurrency, click **Update Project**.
 
 ![Change Concurrency](/img/change_concurrency.gif)
+
+#### Changing Notification Threshold
+
+- By default, OpenFn sends a notification to all project collaborators when
+  **85%** of the project's allowed runs have been used in a given billing cycle.
+  You can change this setting by adjusting the **Notification Threshold Slider**
+  to your desired level.
+- Once you have selected the desired notification threshold, click **Update
+  Project**.
+
+#### Exporting Project Config
+
+- OpenFn allows you to run your project as a
+  [Microservice](/documentation/microservice/home/) .
+- There are two options for exporting the project config used in OpenFn
+  Microservice. Exporting as `project.yaml` will provide you with a `YAML` file
+  that can be used to run this project with
+  [OpenFn/engine](/documentation/microservice/home/),
+  [OpenFn/microservice](/documentation/microservice/home/), or for use in
+  another OpenFn/platform space.
+- Exporting as `microservice.zip` will prepare a `ZIP` file with
+  `openfn/microservice:latest` (from hub.docker.com) and a your `YAML` file
+  inside a pre-configured directory structure so that you can run this project
+  as a microservice via `docker run`. In both cases, your project configuration
+  will be built asynchronously and you'll receive an email with download link
+  when it's done.
+
+### Project Plan
+
+- In this section, you can view and change your project's pricing plan.
+
+#### Usage and Subscription
+
+- This section provides you with a graph that shows your project's current plan
+  usage limit and current usage pace.
+- To view detailed report of the project's usage, find and click on the
+  **Historical Project Usage** button.
+
+#### Change Plan
+
+- By deafult, OpenFn sets your project's plan to **Free**.
+- Before changing your project's subscription plan, you must add a valid credit
+  card.
+- To change the project's plan, find the project plans slider and click on the
+  plan of your choice.
+- After selecting the project plan, click on the **Add Card** button and enter
+  card details in the form and save.
+
+### Job Library Sharing
+
+- The **OpenFn Job Library** is a project supported by the **OpenFn community**.
+  It's a collection of open-source job code from projects across **ICT4D**.
+- You will always able to browse the library so that writing jobs is faster and
+  easier, but by enabling library contributions for this project, jobs not
+  marked as "private" will also be published to the library.
+- Contribute to the job library, on the top-right corner, find the **library**
+  icon and click on it.
+- Click on the **Yes, contribute to the job library** button of the dialog box
+  that appears.
+
+:::note
+
+Data from **messages** or **runs** are **NEVER** shared. Your job expressions
+(which most OpenFn users already keep in public repositories on GitHub) and
+other non-sensitive metadata (e.g., adaptor and version, created/updated dates)
+will be made searchable to help other organizations and governments write jobs
+more quickly and easily if you enable this setting.
+
+:::
+
+## User Account Menu
+
+- You can view and modify your account settings by clicking on the **person**
+  icon on the top right corner of the **App bar**.
+
+### Changing User Account Settings
+
+- To change your user account settings, such as _name_, _IDE Style_, and
+  _theme_, click on the **Account Settings** of the **User Account Menu**. This
+  action will take you to the **Account Settings** page.
+- While on the **Account Settings** page, make the necessary changes and click
+  on the **Save** button to save the changes.
+
+:::note
+
+- Note also that, while on the **Account Settings** page, you can access
+  additional features such as _Changing Email_, _Chaning Password_, _connecting
+  and disconnecting to Github_, _Billing Management_, and _Deleting Account_.
+- To access these additional features, open the sub-menu by clicking on the
+  **three dots** on the top-right corner of the **Account Settings** page.
+
+:::
+
+### Viewing Billing
+
+- The **User Account Menu** also allows you to view details of all projects
+  billed to your account.
+- To view a list of all projects billed to your account, click on the
+  **Billing** menu item.
+
+### Logging-out
+
+- You can logout of OpenFn by clicking on the **Logout** menu item of the **User
+  Account Menu**.
+
+  :::note
+
+  Also note that OpenFn will log you out of your current session after 24
+  hours(without waning!). It also ensures that you are logged-out of all browser
+  tabs, once your current login session expires.
+
+  :::
 
 ## Access & Security
 
