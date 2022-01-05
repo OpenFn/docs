@@ -4,7 +4,7 @@ title: Project Management
 
 :::important
 
-Currently, this section is specific to **OpenFn/plaform**.
+Currently, this section is specific to **OpenFn/platform**.
 
 :::
 
@@ -60,7 +60,7 @@ that job as **private**. To mark a job as private, follow the below steps:
 :::info
 
 Note that once a job is marked as **private**, sharing will be blocked even if
-its project is enrolled in the [OpenFn's Job Libary](/library). You can toggle
+its project is enrolled in the [OpenFn's Job Library](/library). You can toggle
 this setting back by clicking on the **eye** icon.
 
 :::
@@ -199,7 +199,7 @@ follow the steps below:
 
 Note that OpenFn will mark this trigger for deletion. You will not be able to
 access or edit the trigger once this is done. If there are any jobs linked to
-this trigger, they will not run succesfully until you assign them new or other
+this trigger, they will not run successfully until you assign them new or other
 existing triggers.
 
 :::
@@ -374,7 +374,7 @@ destination system(s).
 
 Runs are attempts made on a destination system by running a receipt through a
 Job Description. Runs can be viewed and re-processed. Each submission has a
-`success`, `started_at`, `finsihed_at`, `job_description_id`, and `receipt_id`
+`success`, `started_at`, `finished_at`, `job_description_id`, and `receipt_id`
 attribute. `Started_at` and `finished_at` are the timestamps when the submission
 began and ended.
 
@@ -540,7 +540,7 @@ search.
 
 Searches via [Inbox](./platform-mgmt#inbox) and
 [Activity History](./platform-mgmt#activity) rely on `JSONB matching` and
-`tsvectors`, which are more powerful for traversing very large date ranges of
+`tsvector`, which are more powerful for traversing very large date ranges of
 messages or run logs but are less intuitive than string searches.
 
 The **Search Console** solves this challenge and allows the user to type the
@@ -724,7 +724,7 @@ finished working on the first.
 
 #### Change Plan
 
-- By deafult, OpenFn sets your project's plan to **Free**.
+- By default, OpenFn sets your project's plan to **Free**.
 - Before changing your project's subscription plan, you must add a valid credit
   card.
 - To change the project's plan, find the project plans slider and click on the
@@ -770,7 +770,7 @@ more quickly and easily if you enable this setting.
 :::note
 
 - Note also that, while on the **Account Settings** page, you can access
-  additional features such as _Changing Email_, _Chaning Password_, _connecting
+  additional features such as _Changing Email_, _Changing Password_, _connecting
   and disconnecting to Github_, _Billing Management_, and _Deleting Account_.
 - To access these additional features, open the sub-menu by clicking on the
   **three dots** on the top-right corner of the **Account Settings** page.
@@ -791,9 +791,9 @@ more quickly and easily if you enable this setting.
 
   :::note
 
-  Also note that OpenFn will log you out of your current session after 24
-  hours(without waning!). It also ensures that you are logged-out of all browser
-  tabs, once your current login session expires.
+  Also note that OpenFn will log you out of your current session after 24 hours
+  without warning! It also ensures that you are logged-out of all browser tabs,
+  once your current login session expires.
 
   :::
 
