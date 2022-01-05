@@ -7,7 +7,7 @@
         <lastBuildDate>Fri, 22 Oct 2021 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
-        <copyright>Copyright © 2021 Open Function Group, LLC.</copyright>
+        <copyright>Copyright © 2022 Open Function Group, LLC.</copyright>
         <item>
             <title><![CDATA[Testing a React app, the blurred line between Unit, integration and E2E]]></title>
             <link>https://docs.openfn.org/articles/2021/10/22/testing-react-app-with-jest-hound</link>

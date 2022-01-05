@@ -7,7 +7,7 @@
     <link rel="alternate" href="https://docs.openfn.org/articles"/>
     <subtitle>OpenFn/docs Blog</subtitle>
     <icon>https://docs.openfn.org/img/favicon.ico</icon>
-    <rights>Copyright © 2021 Open Function Group, LLC.</rights>
+    <rights>Copyright © 2022 Open Function Group, LLC.</rights>
     <entry>
         <title type="html"><![CDATA[Testing a React app, the blurred line between Unit, integration and E2E]]></title>
         <id>Testing a React app, the blurred line between Unit, integration and E2E</id>
