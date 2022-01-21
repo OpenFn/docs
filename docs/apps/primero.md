@@ -77,7 +77,7 @@ NOTE: That the Primero Adaptor has versions to support both Primero API V2 and P
 
 ## Implementation Examples
 
-1. Cambodia: MoSVY Primero <> OSCaR NGOs: https://github.com/OpenFn/unicef-cambodia/issues
-2. Cambodia: UNICEF Primero <> ONA Dashboard sync: https://github.com/OpenFn/primero-ona-dashboard/
-3. Gambella: UNICEF Primero <> UNHCR Progres - https://github.com/OpenFn/primero-progres
-4. Thailand: UNICEF Primero <> MoPH HIS https://github.com/OpenFn/primero-thailand
+1. Cambodia: MoSVY Primero < > OSCaR NGOs: https://github.com/OpenFn/unicef-cambodia/issues
+2. Cambodia: UNICEF Primero < > ONA Dashboard sync: https://github.com/OpenFn/primero-ona-dashboard/
+3. Gambella: UNICEF Primero < > UNHCR Progres: https://github.com/OpenFn/primero-progres
+4. Thailand: UNICEF Primero < > MoPH HIS: https://github.com/OpenFn/primero-thailand
