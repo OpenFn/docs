@@ -53,7 +53,7 @@ https://github.com/primeroIMS/primero/tree/development_v2/app/controllers/api
 
 ### Integration tips
 
-- There is no data forwarding option. Primero cases must be fetched using the API.
+- Data forwarding can be enabled in Primero. There is a webhook that can forward case information to a designated URL endpoint (e.g., OpenFn Inbox). This data forwarding can happen automatically on insert of a new case, as well as on-demand when a user clicks the `Sync` button (which may be added to the page layout if this feature is in use).
 - Each Primero `case` has a `case_id` which can be used as an external identifier in the destination system. 
 - Each Primero case also has a `record_id` which is the id in the URL for each case
 
