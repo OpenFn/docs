@@ -2,8 +2,6 @@
 title: Primero
 ---
 
-(Work in progress)
-
 ## Overview
 
 [Primero](https://www.primero.org/) is an open source software platform that helps social services, humanitarian and development workers manage protection-related data.
@@ -43,12 +41,15 @@ https://github.com/primeroIMS/primero/tree/development_v2/app/controllers/api
     }
 }
 ```
+(This authentication step is handled in the OpenFn Primero adaptor.)
 
 **Show a paginated list of all cases that are accessible to this user:**   
 `GET /api/v2/cases`
 
 **List all referrals that took place for a record:**  
 `GET /api/v2/cases/:id/referrals`
+
+See the [Job Library](/library) for sample Primero jobs.
 
 
 ### Integration tips
@@ -69,11 +70,14 @@ Docs in progress!
 
 OpenFn implementations can leverage both the [`HTTP`](https://github.com/OpenFn/language-http) and
 [`Primero`](https://github.com/OpenFn/language-primero) adaptors to connect
-with the CommCare API.
+with the Primero API.
+
+NOTE: That the Primero Adaptor has versions to support both Primero API V2 and Primero API V1 (to be deprecated). 
 
 
 ## Implementation Examples
 
-1. UNICEF Primero < > OSCaR  - https://github.com/OpenFn/unicef-cambodia/issues
-2. UNICEF Primero < > UNHCR Progres - https://github.com/OpenFn/primero-progres
-3. UNICEF Primero < > ONA Dashboard - https://github.com/OpenFn/primero-ona-dashboard/
+1. Cambodia: MoSVY Primero <> OSCaR NGOs: https://github.com/OpenFn/unicef-cambodia/issues
+2. Cambodia: UNICEF Primero <> ONA Dashboard sync: https://github.com/OpenFn/primero-ona-dashboard/
+3. Gambella: UNICEF Primero <> UNHCR Progres - https://github.com/OpenFn/primero-progres
+4. Thailand: UNICEF Primero <> MoPH HIS https://github.com/OpenFn/primero-thailand
