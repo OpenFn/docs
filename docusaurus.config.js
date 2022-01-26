@@ -181,5 +181,12 @@ module.exports = {
       },
     ],
   ],
-  scripts: [{ src: '/js/freshChat.js', async: true }],
+  scripts: [
+    {
+      'data-jsd-embedded data-key': '8583229a-a951-405e-b269-25a100d04641',
+      'data-base-url': 'https://jsd-widget.atlassian.com',
+      src: 'https://jsd-widget.atlassian.com/assets/embed.js',
+      async: true,
+    },
+  ],
 };
