@@ -10,7 +10,7 @@
     <rights>Copyright © 2022 Open Function Group, LLC.</rights>
     <entry>
         <title type="html"><![CDATA[Testing a React app, the blurred line between Unit, integration and E2E]]></title>
-        <id>Testing a React app, the blurred line between Unit, integration and E2E</id>
+        <id>/2021/10/22/testing-react-app-with-jest-hound</id>
         <link href="https://docs.openfn.org/articles/2021/10/22/testing-react-app-with-jest-hound"/>
         <updated>2021-10-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Have you ever struggled to layout the strategy for testing your React App? Well,]]></summary>
@@ -177,7 +177,7 @@ tests</strong>, and <strong>end-to-end tests</strong>.</li></ol><p>:::</p><p>Hap
     </entry>
     <entry>
         <title type="html"><![CDATA[Improving Multistage Docker Builds using Buildx]]></title>
-        <id>Improving Multistage Docker Builds using Buildx</id>
+        <id>/2021/10/08/improving-multistage-docker-builds-using-buildx</id>
         <link href="https://docs.openfn.org/articles/2021/10/08/improving-multistage-docker-builds-using-buildx"/>
         <updated>2021-10-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[So you're using docker's multi-stage builds and noticed that your build times]]></summary>
@@ -280,7 +280,7 @@ or copying from a storage bucket.</p><h2>Resources</h2><ul><li><a href="https://
     </entry>
     <entry>
         <title type="html"><![CDATA[Wrapping my head around jobs]]></title>
-        <id>Wrapping my head around jobs</id>
+        <id>/2021/07/05/wrapping-my-head-around-jobs</id>
         <link href="https://docs.openfn.org/articles/2021/07/05/wrapping-my-head-around-jobs"/>
         <updated>2021-07-05T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Jobs are business processes turned into functional-style scripts. What does that]]></summary>
@@ -466,7 +466,7 @@ walk-through/helper article.</p><p>Happy integrating,</p><p>Taylor</p>]]></conte
     </entry>
     <entry>
         <title type="html"><![CDATA[Forms and Cases: CommCare and event-based integration]]></title>
-        <id>Forms and Cases: CommCare and event-based integration</id>
+        <id>/2021/05/24/commcare-events</id>
         <link href="https://docs.openfn.org/articles/2021/05/24/commcare-events"/>
         <updated>2021-05-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[This is a quick one, but I just got off an exciting call with an organization]]></summary>
@@ -733,7 +733,7 @@ lots of helpful folks willing to lend you a hand in your integration journey.</p
     </entry>
     <entry>
         <title type="html"><![CDATA[Sync Like You Mean It: Thinking Through System “Syncing” Protocols]]></title>
-        <id>Sync Like You Mean It: Thinking Through System “Syncing” Protocols</id>
+        <id>/2021/02/17/syncing-options</id>
         <link href="https://docs.openfn.org/articles/2021/02/17/syncing-options"/>
         <updated>2021-02-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[“Syncing” is getting two systems to a state of harmony. This might mean keeping]]></summary>
@@ -793,7 +793,7 @@ sync option makes the most sense for your project.</p>]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Our Servers or Yours: Thinking through deployment options]]></title>
-        <id>Our Servers or Yours: Thinking through deployment options</id>
+        <id>/2021/02/03/hosted-or-local-deployment</id>
         <link href="https://docs.openfn.org/articles/2021/02/03/hosted-or-local-deployment"/>
         <updated>2021-02-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Zandile is a program manager at an iNGO and she needs to use CommCare, DHIS2,]]></summary>
@@ -864,7 +864,7 @@ contact OpenFn.</p>]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[Tracked entity instances in DHIS2]]></title>
-        <id>Tracked entity instances in DHIS2</id>
+        <id>/2020/12/09/upsert-in-dhis2</id>
         <link href="https://docs.openfn.org/articles/2020/12/09/upsert-in-dhis2"/>
         <updated>2020-12-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but]]></summary>
@@ -899,7 +899,7 @@ absolutely free.</p><p><a href="mailto:admin@openfn.org">Reach out</a>{: .btn} f
     </entry>
     <entry>
         <title type="html"><![CDATA[Product News: Enhanced Scheduled/Periodic Job Control]]></title>
-        <id>Product News: Enhanced Scheduled/Periodic Job Control</id>
+        <id>/2020/07/14/cron-is-better-than-a-timer</id>
         <link href="https://docs.openfn.org/articles/2020/07/14/cron-is-better-than-a-timer"/>
         <updated>2020-07-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Hi all, this is a quick one from the product team at]]></summary>
@@ -932,7 +932,7 @@ a brilliant site to quickly build complex cron expressions.</p><p>That&#x27;s al
     </entry>
     <entry>
         <title type="html"><![CDATA[Allow Yourself to Fail]]></title>
-        <id>Allow Yourself to Fail</id>
+        <id>/2020/07/02/allow-yourself-to-fail</id>
         <link href="https://docs.openfn.org/articles/2020/07/02/allow-yourself-to-fail"/>
         <updated>2020-07-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Hi all, this is a very short post with a simple message: design for failure.]]></summary>
@@ -981,7 +981,7 @@ absolutely free.</p><p><a href="mailto:admin@openfn.org">Reach out</a>{: .btn} f
     </entry>
     <entry>
         <title type="html"><![CDATA[To Automate or Not to Automate? Ask Yourself These 3 Questions.]]></title>
-        <id>To Automate or Not to Automate? Ask Yourself These 3 Questions.</id>
+        <id>/2020/06/24/three-questions-to-ask</id>
         <link href="https://docs.openfn.org/articles/2020/06/24/three-questions-to-ask"/>
         <updated>2020-06-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Automation can save time, unlock critical resources, and enable scale–but it]]></summary>
@@ -1028,7 +1028,7 @@ solutions.</p>]]></content>
     </entry>
     <entry>
         <title type="html"><![CDATA[How Information Is Organized... In Organizations]]></title>
-        <id>How Information Is Organized... In Organizations</id>
+        <id>/2020/06/16/how-information-is-organized</id>
         <link href="https://docs.openfn.org/articles/2020/06/16/how-information-is-organized"/>
         <updated>2020-06-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Does your organization's information have an underlying structure? Try this exercise using boxes and crow's feet.]]></summary>

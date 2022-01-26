@@ -11,7 +11,7 @@
         <item>
             <title><![CDATA[Testing a React app, the blurred line between Unit, integration and E2E]]></title>
             <link>https://docs.openfn.org/fr/articles/2021/10/22/testing-react-app-with-jest-hound</link>
-            <guid>Testing a React app, the blurred line between Unit, integration and E2E</guid>
+            <guid>/2021/10/22/testing-react-app-with-jest-hound</guid>
             <pubDate>Fri, 22 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Have you ever struggled to layout the strategy for testing your React App? Well,]]></description>
             <content:encoded><![CDATA[<p>Have you ever struggled to layout the strategy for testing your React App? Well,
@@ -174,7 +174,7 @@ tests</strong>, and <strong>end-to-end tests</strong>.</li></ol><p>:::</p><p>Hap
         <item>
             <title><![CDATA[Improving Multistage Docker Builds using Buildx]]></title>
             <link>https://docs.openfn.org/fr/articles/2021/10/08/improving-multistage-docker-builds-using-buildx</link>
-            <guid>Improving Multistage Docker Builds using Buildx</guid>
+            <guid>/2021/10/08/improving-multistage-docker-builds-using-buildx</guid>
             <pubDate>Fri, 08 Oct 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[So you're using docker's multi-stage builds and noticed that your build times]]></description>
             <content:encoded><![CDATA[<p>So you&#x27;re using docker&#x27;s multi-stage builds and noticed that your build times
@@ -273,7 +273,7 @@ or copying from a storage bucket.</p><h2>Resources</h2><ul><li><a href="https://
         <item>
             <title><![CDATA[Wrapping my head around jobs]]></title>
             <link>https://docs.openfn.org/fr/articles/2021/07/05/wrapping-my-head-around-jobs</link>
-            <guid>Wrapping my head around jobs</guid>
+            <guid>/2021/07/05/wrapping-my-head-around-jobs</guid>
             <pubDate>Mon, 05 Jul 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Jobs are business processes turned into functional-style scripts. What does that]]></description>
             <content:encoded><![CDATA[<p>Jobs are business processes turned into functional-style scripts. What does that
@@ -455,7 +455,7 @@ walk-through/helper article.</p><p>Happy integrating,</p><p>Taylor</p>]]></conte
         <item>
             <title><![CDATA[Forms and Cases: CommCare and event-based integration]]></title>
             <link>https://docs.openfn.org/fr/articles/2021/05/24/commcare-events</link>
-            <guid>Forms and Cases: CommCare and event-based integration</guid>
+            <guid>/2021/05/24/commcare-events</guid>
             <pubDate>Mon, 24 May 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[This is a quick one, but I just got off an exciting call with an organization]]></description>
             <content:encoded><![CDATA[<p>This is a quick one, but I just got off an exciting call with an organization
@@ -718,7 +718,7 @@ lots of helpful folks willing to lend you a hand in your integration journey.</p
         <item>
             <title><![CDATA[Sync Like You Mean It: Thinking Through System “Syncing” Protocols]]></title>
             <link>https://docs.openfn.org/fr/articles/2021/02/17/syncing-options</link>
-            <guid>Sync Like You Mean It: Thinking Through System “Syncing” Protocols</guid>
+            <guid>/2021/02/17/syncing-options</guid>
             <pubDate>Wed, 17 Feb 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[“Syncing” is getting two systems to a state of harmony. This might mean keeping]]></description>
             <content:encoded><![CDATA[<p>“Syncing” is getting two systems to a state of harmony. This might mean keeping
@@ -774,7 +774,7 @@ sync option makes the most sense for your project.</p>]]></content:encoded>
         <item>
             <title><![CDATA[Our Servers or Yours: Thinking through deployment options]]></title>
             <link>https://docs.openfn.org/fr/articles/2021/02/03/hosted-or-local-deployment</link>
-            <guid>Our Servers or Yours: Thinking through deployment options</guid>
+            <guid>/2021/02/03/hosted-or-local-deployment</guid>
             <pubDate>Wed, 03 Feb 2021 00:00:00 GMT</pubDate>
             <description><![CDATA[Zandile is a program manager at an iNGO and she needs to use CommCare, DHIS2,]]></description>
             <content:encoded><![CDATA[<p>Zandile is a program manager at an iNGO and she needs to use CommCare, DHIS2,
@@ -841,7 +841,7 @@ contact OpenFn.</p>]]></content:encoded>
         <item>
             <title><![CDATA[Tracked entity instances in DHIS2]]></title>
             <link>https://docs.openfn.org/fr/articles/2020/12/09/upsert-in-dhis2</link>
-            <guid>Tracked entity instances in DHIS2</guid>
+            <guid>/2020/12/09/upsert-in-dhis2</guid>
             <pubDate>Wed, 09 Dec 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but]]></description>
             <content:encoded><![CDATA[<p>tl;dr: Lots of our users want to upsert tracked entity instances in dhis2, but
@@ -872,7 +872,7 @@ absolutely free.</p><p><a href="mailto:admin@openfn.org">Reach out</a>{: .btn} f
         <item>
             <title><![CDATA[Product News: Enhanced Scheduled/Periodic Job Control]]></title>
             <link>https://docs.openfn.org/fr/articles/2020/07/14/cron-is-better-than-a-timer</link>
-            <guid>Product News: Enhanced Scheduled/Periodic Job Control</guid>
+            <guid>/2020/07/14/cron-is-better-than-a-timer</guid>
             <pubDate>Tue, 14 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[Hi all, this is a quick one from the product team at]]></description>
             <content:encoded><![CDATA[<p>Hi all, this is a quick one from the product team at
@@ -901,7 +901,7 @@ a brilliant site to quickly build complex cron expressions.</p><p>That&#x27;s al
         <item>
             <title><![CDATA[Allow Yourself to Fail]]></title>
             <link>https://docs.openfn.org/fr/articles/2020/07/02/allow-yourself-to-fail</link>
-            <guid>Allow Yourself to Fail</guid>
+            <guid>/2020/07/02/allow-yourself-to-fail</guid>
             <pubDate>Thu, 02 Jul 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[Hi all, this is a very short post with a simple message: design for failure.]]></description>
             <content:encoded><![CDATA[<p>Hi all, this is a very short post with a simple message: design for failure.
@@ -946,7 +946,7 @@ absolutely free.</p><p><a href="mailto:admin@openfn.org">Reach out</a>{: .btn} f
         <item>
             <title><![CDATA[To Automate or Not to Automate? Ask Yourself These 3 Questions.]]></title>
             <link>https://docs.openfn.org/fr/articles/2020/06/24/three-questions-to-ask</link>
-            <guid>To Automate or Not to Automate? Ask Yourself These 3 Questions.</guid>
+            <guid>/2020/06/24/three-questions-to-ask</guid>
             <pubDate>Wed, 24 Jun 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[Automation can save time, unlock critical resources, and enable scale–but it]]></description>
             <content:encoded><![CDATA[<p>Automation can save time, unlock critical resources, and enable scale–but it
@@ -989,7 +989,7 @@ solutions.</p>]]></content:encoded>
         <item>
             <title><![CDATA[How Information Is Organized... In Organizations]]></title>
             <link>https://docs.openfn.org/fr/articles/2020/06/16/how-information-is-organized</link>
-            <guid>How Information Is Organized... In Organizations</guid>
+            <guid>/2020/06/16/how-information-is-organized</guid>
             <pubDate>Tue, 16 Jun 2020 00:00:00 GMT</pubDate>
             <description><![CDATA[Does your organization's information have an underlying structure? Try this exercise using boxes and crow's feet.]]></description>
             <content:encoded><![CDATA[<h4>Does your organization&#x27;s information have an underlying structure? Try this exercise using boxes and crow&#x27;s feet.</h4><p>This article was originally posted by Taylor Downs, Head of Product, on
