@@ -17,15 +17,21 @@ Example user stories:
 
 
 ## Integration Options
-OpenFn adaptors (see [language-postgres](https://github.com/OpenFn/language-postgresql)) provide direct database connections for accessing data and executing SQL and standard database operations. 
+OpenFn adaptors (see [language-postgresql](https://github.com/OpenFn/language-postgresql)) provide direct database connections for accessing data and executing SQL and standard database operations.
 
 
 ### Authentication: 
 To create the direct DB connection, you'll need to specify the following credential inputs. 
-```js
+```json
 {
   "configuration": {
-      ....
+      "host": "some-host-url.compute-1.amazonaws.com",
+      "port": "5432",
+      "database": "testdatabase",
+      "user": "myusername",
+      "password": "testing123",
+      "ssl": true,
+      "allowSelfSignedCert": true
     }
 }
 ```
@@ -33,7 +39,7 @@ To create the direct DB connection, you'll need to specify the following credent
 
 ### Sample Job Expressions: 
 
-This function creates a table in a database from a given array of columns. 
+This function creates a table `users` in a database from a given array of columns.
 ```js 
 insertTable('users', state =>
   state.data.map(column => ({
