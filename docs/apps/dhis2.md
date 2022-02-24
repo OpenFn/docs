@@ -31,7 +31,7 @@ exposed data and service methods for applications such as third-party software
 clients, web portals and internal DHIS 2 modules.
 
 ### Data Model
-Desribe the DHIS2 data model and key resources/tables...
+See DHIS2 documentation for more about the data model and specific entities: https://docs.dhis2.org/archive/en/2.30/developer/html/techarch_data_model.html
 
 ## Integration Use Cases
 
@@ -73,7 +73,7 @@ useful. In the following sections, special systems will be described.
 
 ### Further Reading:
 
-1 [DHIS2 Web API](https://docs.dhis2.org/2.22/en/developer/html/ch01.html)
+1 [DHIS2 Web API](https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-235/web-api.html)
 
 2
 [DHIS2 Integration Concepts](https://docs.dhis2.org/2.28/en/implementer/html/integration.html#:~:text=DHIS2%20is%20often%20used%20as,on%20stocks%20and%20human%20resources.)
@@ -89,9 +89,9 @@ useful. In the following sections, special systems will be described.
 
 ## Integration Options
 
-1. Data integration via DHIS2 Web API. Add links to API docs...
+1. Data integration via DHIS2 Web API: https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-235/web-api.html
 
-2. Metadata integration via DHIS2 Web API. OpenFn implementations can leverage the [`PostgreSQL`](https://github.com/OpenFn/language-postgresql) adaptor. 
+2. Metadata integration via DHIS2 Web API. OpenFn implementations can leverage the [`DHIS2`](https://github.com/OpenFn/language-dhis2) adaptor. 
 
 ## OpenFn Adaptor
 
@@ -99,4 +99,5 @@ To connect with the DHIS2 Web API, OpenFn implementations can leverage the [`dhi
 
 ## Integration Examples
 
-Links to sample jobs/ Github repositories
+1. DHIS2 Demo Implementations: https://github.com/OpenFn/dhis2-demo
+2. Lesotho Integration connecting two DHIS2 instances: https://github.com/OpenFn/lesotho-dhis2
