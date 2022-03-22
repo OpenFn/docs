@@ -779,6 +779,7 @@ field('Payment_Date__c', function (state) {
 array.map(item => {
   return {
     Patient_Name__c: item.fullName,
+    'Account.Account_External_ID__c': item.account
     'Clinic__r.Unique_Clinic_Identifier__c': item.clinicId,
     'RecordType.Name': item.type,
   };
