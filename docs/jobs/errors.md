@@ -68,6 +68,11 @@ Exit code `5` means we encountered an unexpected error during the execution of
 your job which could only be caught by the controlling ErlangVM. Errors like
 this are very rare and trigger an internal audit by the OpenFN engineering team.
 
+### 6: Aborted by project administrator
+
+Exit code `6` means that a run created and queued for execution but then
+subsequently aborted by request of an administrator or owner of that project.
+
 ### 11: Node.js Error
 
 Exit code `11` means that there was an error in the NodeVM execution but the
