@@ -130,7 +130,7 @@ Salesforce, use the external identifier of the related record. Examples:
 #### Picklist fields
 
 As you design your integration and map data elements between systems, make sure
-that option values for **picklistt** fields also match the data from your
+that option values for **picklist** fields also match the data from your
 connected application. If your other app's field value options do not match
 Salesforce picklist values, you should consider (1) transforming or re-labeling
 the values received from the source system before sending to Salesforce, or (2)
