@@ -133,7 +133,7 @@ it's handled by OpenFn is actually more like:
 
 ```js
 return get('/api/insurance', { ...useDataFromState })(state)
-  .then(state2 => post('/api/', { ...useDataFromState2 })(state2))
+  .then(state2 => post('/api/patients', { ...useDataFromState2 })(state2))
   .then(state3 => post('/api/visits', { ...useDataFromState3 })(state3));
 ```
 
