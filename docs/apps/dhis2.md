@@ -2,7 +2,7 @@
 
 <!---Tool docs are (1) to ensure all OpenFn can more quickly and easily integrate with common tools, and (2) to educate any OpenFn user/the wider sector.--->
 
-## Overview
+## App Overview
 
 The District Health Information Software 2
 ([DHIS2](https://www.dhis2.org/about))] is an open source, web-based health
@@ -30,7 +30,10 @@ DHIS 2. More precisely, it provides a programmatic interface to a wide range of
 exposed data and service methods for applications such as third-party software
 clients, web portals and internal DHIS 2 modules.
 
-### Integration Use Cases
+### Data Model
+See DHIS2 documentation for more about the data model and specific entities: https://docs.dhis2.org/archive/en/2.30/developer/html/techarch_data_model.html
+
+## Integration Use Cases
 
 DHIS2 has been expanding its reach into many health systems. Starting from its
 familiar grounds of aggregate data sets for routine data it has included patient
@@ -70,7 +73,7 @@ useful. In the following sections, special systems will be described.
 
 ### Further Reading:
 
-1 [DHIS2 Web API](https://docs.dhis2.org/2.22/en/developer/html/ch01.html)
+1 [DHIS2 Web API](https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-235/web-api.html)
 
 2
 [DHIS2 Integration Concepts](https://docs.dhis2.org/2.28/en/implementer/html/integration.html#:~:text=DHIS2%20is%20often%20used%20as,on%20stocks%20and%20human%20resources.)
@@ -86,14 +89,15 @@ useful. In the following sections, special systems will be described.
 
 ## Integration Options
 
-1. Data integration via DHIS2 Web API..
+1. Data integration via DHIS2 Web API: https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-235/web-api.html
 
-2. Metadata integration via DHIS2 Web API...
+2. Metadata integration via DHIS2 Web API. OpenFn implementations can leverage the [`DHIS2`](https://github.com/OpenFn/language-dhis2) adaptor. 
 
 ## OpenFn Adaptor
 
-About & link to `language-dhis2`
+To connect with the DHIS2 Web API, OpenFn implementations can leverage the [`dhis2`](https://github.com/OpenFn/language-dhis2) adaptor. 
 
 ## Integration Examples
 
-Links to sample jobs/ code snippets
+1. DHIS2 Demo Implementations: https://github.com/OpenFn/dhis2-demo
+2. Lesotho Integration connecting two DHIS2 instances: https://github.com/OpenFn/lesotho-dhis2

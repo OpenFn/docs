@@ -57,13 +57,12 @@ See the [Job Library](/library) for sample Primero jobs.
 - Data forwarding can be enabled in Primero. There is a webhook that can forward case information to a designated URL endpoint (e.g., OpenFn Inbox). This data forwarding can happen automatically on insert of a new case, as well as on-demand when a user clicks the `Sync` button (which may be added to the page layout if this feature is in use).
 - Each Primero `case` has a `case_id` which can be used as an external identifier in the destination system. 
 - Each Primero case also has a `record_id` which is the id in the URL for each case
+- It is helpful to set up a job that only fetches a case from Primero like the one [here](https://docs.openfn.org/library/jobs/auto/Get-cases-from-Primero-2021-09-23/#expression). This job can come in handy when it's time to test and troubleshoot your solution and validate any test data that was setup in Primero. 
 
 
 ## Common Errors
-
-```
-Docs in progress!
-```
+`Invalid Record JSON`: This error message means that the request is either missing fields or sending fields differently from how Primero expects them. Revisit your mapping specifications document to ensure all fields are being sent properly.   
+`500 Server errors`: This message signals that the server failed to fulfill your request. Contact the system administrator for assistance. 
 
 
 ## OpenFn Adaptors
@@ -77,7 +76,7 @@ NOTE: That the Primero Adaptor has versions to support both Primero API V2 and P
 
 ## Implementation Examples
 
-1. Cambodia: MoSVY Primero < > OSCaR NGOs: https://github.com/OpenFn/unicef-cambodia/issues
+1. Cambodia: MoSVY Primero < > OSCaR NGOs: https://github.com/OpenFn/unicef-cambodia
 2. Cambodia: UNICEF Primero < > ONA Dashboard sync: https://github.com/OpenFn/primero-ona-dashboard/
 3. Gambella: UNICEF Primero < > UNHCR Progres: https://github.com/OpenFn/primero-progres
 4. Thailand: UNICEF Primero < > MoPH HIS: https://github.com/OpenFn/primero-thailand

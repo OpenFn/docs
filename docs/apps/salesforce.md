@@ -206,6 +206,13 @@ Please save this `security token` in your OpenFn `Credential`.
 5. `REQUIRED_FIELD_MISSING: Required fields are missing`: This error usually
    means that a field which is required on the object being updated has not been
    set.
+6. `JSON_PARSER_ERROR`: This error usually means there is an error with how you 
+   are mappings and assigning fields. For example, this error would be thrown 
+   if an empty string ' ' was being mapped to a date value. 
+7. `RangeError [Error]: Invalid time value`: This error is telling us that the 
+   datetime in the source data is in an unexpected format and not handled by 
+   the job. You may need to either manually clean the source data, or update 
+   the cleaning rules in the job to automate this cleaning step.    
 
 ## OpenFn Adaptors
 
