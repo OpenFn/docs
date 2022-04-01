@@ -358,7 +358,7 @@ action methods <em>with state</em>, passing it along from one operation to the n
 waiting for each to finish and using the output from the first as the input for
 the second.</p><p>While you may write your <code>get</code>, <code>post</code>, <code>post</code> job as it&#x27;s show above, the way
 it&#x27;s handled by OpenFn is actually more like:</p><pre><code class="language-js">return get(&#x27;/api/insurance&#x27;, { ...useDataFromState })(state)
-  .then(state2 =&gt; post(&#x27;/api/&#x27;, { ...useDataFromState2 })(state2))
+  .then(state2 =&gt; post(&#x27;/api/patients&#x27;, { ...useDataFromState2 })(state2))
   .then(state3 =&gt; post(&#x27;/api/visits&#x27;, { ...useDataFromState3 })(state3));
 </code></pre><p>Each of these operations returns a function which <em>takes state</em> and returns
 state. This means that <em>within</em> a job, you are essentially modifying <code>state</code>,
