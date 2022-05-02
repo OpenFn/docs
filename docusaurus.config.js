@@ -17,14 +17,12 @@ module.exports = {
   },
   themeConfig: {
     algolia: {
-      apiKey: '9f286454b0688588aa96160ce8754bc0',
+      appId: 'O729P2PJGT',
+      apiKey: '48a4a6832439f7e5b2f4e44c3c3aa51e',
       indexName: 'openfn',
       contextualSearch: true,
     },
     hideableSidebar: true,
-    gtag: {
-      trackingID: 'G-TFLLYHHM0C',
-    },
     navbar: {
       title: 'OpenFn',
       logo: {
@@ -144,6 +142,9 @@ module.exports = {
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
+        },
+        gtag: {
+          trackingID: 'G-TFLLYHHM0C',
         },
       },
     ],
