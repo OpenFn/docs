@@ -206,3 +206,14 @@ the data entries between the square brackets [ ] have been added to your google
 sheet.
 
 ![add image here](/img/4.6_save_and_run.png)
+
+## 5. Set autoprocess to true
+
+You have now written and tested your job. In order to run your job automatically
+every time a message matches the trigger inclusion criteria, turn on
+auto-process.
+
+![add image here](/img/5_autoprocess.png)
+
+You're all set ! Try out your job by submitting anther form response to see the
+data automatically populate your google sheet.
