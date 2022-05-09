@@ -2,182 +2,207 @@
 title: Project Walk-through
 ---
 
-On this page, we will demonstrate how to build a real world integration using
-the OpenFn platform.
+Welcome ! If you’re new to the OpenFn platform, this is the right place to
+start.
 
-In this sample integration project, a KoboToolBox form submission will trigger
-OpenFn jobs which do the following in real-time:
+This tutorial will teach you how to set up a simple data integration using the
+OpenFn platform. If you get stuck along the way, post a question to our
+[community forum](https://community.openfn.org/) so we can give you a hand.
 
-1. Create a new contact in [Salesforce](https://www.salesforce.com)
-2. Add a new tracked entity instance to [dhis2](https://www.dhis2.org)
-3. A new row created in [Google Sheets](https://sheets.google.com)
+In this walkthrough, we’ll connect a **KoboToolbox** form to **Google Sheets**.
+If you don’t have a KoboToolbox account, we'll provide you with a demo account
+you can use for the tutorial or you can create one for free.
 
-### Step 1 - Login to your project dashboard
+We’ll be completing the following steps:
 
-Create an account on OpenFn and login to your project dashboard.
+1. Identify your source and destination system
+2. Create a project and send data from your source system to your OpenFn inbox
+3. Create credentials to connect your destination system
+4. Create a your job
 
-If this is the first time you are logging into OpenFn, you will notice that a
-sample project has already been created for you.
+## 1. Identify your source and destination system
 
-![Project Dashboard on 1st Login](/img/1.1_new_account_dashboard.png)
+The best way to figure out what an integration flow should look like is to
+phrase it in the following way: When A happens **[in system 1]**, I want B to
+happen **[in system 2]**.
 
-### Step 2 - Add a new project
+_When a ‘Case registration’ form is submitted [in KoboToolbox], I want the
+response to be inserted into my ‘Kobo case registrations’ sheet [in Google
+Sheets]._
 
-Add a new project that will contain your desired automations/workflow.
+This tells us that system 1 (KoboToolbox) is our source application, and system
+2 (Google sheets) is our destination system.
 
-![Add new project](/img/2.1_add_new_project.gif)
+## 2. Create a project and send data from your source system to your OpenFn inbox
 
-### Step 3 - Enter your new project space
+First, create an OpenFn [account](https://www.openfn.org/signup) or
+[login](https://www.openfn.org/login). Navigate to your **Project dashboard** -
+you'll see that a sample project has been created for you.
 
-Click `view` on your new project to get started.
+Create a new project called ‘Kobo case registrations’ by clicking on the blue +
+icon at the bottom right hand corner of your dashboard.
 
-![Click view](/img/3.1_click_view.gif)
+![new account dashboard](/img/1.1_new_account_dashboard.png)
 
-### Step 4 - Connect your source application(s)
+When you click 'View' to enter your project space, you'll be taken to your
+**inbox**. This is where you will receive **messages** - the data that gets sent
+from your source system to OpenFn. Copy your **inbox url** to configure
+KoboToolbox to send data to it.
 
-Connect KoboToolbox to your OpenFn inbox, so that every time a survey form is
-submitted, OpenFn receives a copy of it.
+![copy inbox url](/img/1.2_inbox_url.png)
 
-Copy your OpenFn inbox url and then register a new REST service in KoboToolbox.
+[Log into](https://kf.kobotoolbox.org/accounts/login/#/) our KoboToolbox demo
+account with _username: openfn_demo and password: openfn_demo_. Select the form
+you’d like to connect (if using our demo account this will be 'COVID 19 case
+registration') and go to Settings -> REST services -> Register a new service.
 
-![inbox url](/img/4.1_inbox_url_copy_paste.gif)
+![register a REST service with Kobo](/img/2.1_kobo_rest.png)
 
-For our example, the REST Service information we entered looks like this:
+Set the service name to OpenFn and the URL to your project inbox url.
 
-![kobo rest service](/img/4.2_rest_service_kobo.png)
+![register a REST service with Kobo](/img/2.2_kobo_rest.png)
 
-### Step 5 - Connect your destination application(s)
+Your form should now be configured to send data to your OpenFn project inbox
+whenever a response is submitted. We can test this out by submitting some form
+responses at Form -> Open.
 
-Add your credentials for the destination services that you would like the
-KoboToolbox data to flow to. Navigate to the `credentials` section in your
-project space and click the `+` on the bottom right of the screen.
+![open your kobo form](/img/2.3_open_kobo_form.png)
 
-![add credential](/img/5.1_add_credential.gif)
+Return to your project inbox. You should see a new message there, which contains
+the data submitted in the KoboToolbox form response.
 
-#### Add SalesForce credentials
+![inbox with message](/img/2.4_inbox.png)
 
-![Salesforce Credentials](/img/5.2_salesforce_credentials.png)
+If you click on the message, and open up the **message body** you’ll see the
+data that you submitted to the form. To view the entire message, open it in full
+screen.
 
-#### Add dhis2 credentials
+![message body](/img/2.5_message.png)
 
-![dhis2 Credentials](/img/5.3_dhis2_credentials.png)
+Once you can see the entire message, you need to identify a data point that will
+be the same for every submission. In this case, we know that all of our messages
+will have the same form ID. Save the snippet you have identified
+(`"\_xform_id_string": "aDReHdA7UuNBYsiCXQBr43"`), you'll need it later to
+create your trigger.
 
-#### Add Google Sheets credentials
+![message body](/img/2.6_common_data_point.png)
 
-![google sheets credentials](/img/5.4_google_sheets_credential.gif)
+## 3. Create credentials to connect your destination system
 
-### Step 6 - Create your job trigger(s)
+In order to connect to your destination system, you need to sign in through
+OpenFn to create credentials. These will allow you to send data to your google
+sheet.
 
-Create your trigger for the automation.
+Head to the credentials section of your dashboard, and once again click the
+blue + sign to create new credentials.
 
-Navigate to the `trigger` section in your project.
+![create credentials](/img/4.1_create_credentials.png)
 
-![navigate to trigger](/img/6.1_navigate_to_trigger.gif)
+You’ll see various apps you recognise - these are all of the systems that we can
+handle credentials for. Select the `Sheets` one, and log into your google
+account when you get the pop up window. You’ll get a confirmation message. Close
+the window and give your new project access to these credentials.
 
-Enter your desired trigger's configuration. :::important Note, that your project
-space can have several different triggers that govern when/if your jobs are
-performed. ::: In this example, we would like for our jobs to trigger whenever a
-new Kobo form is submitted.
+![select credential type](/img/4.2_select_credential_type.png)
 
-![trigger example](/img/6.2_trigger_example.png)
+You’ve now created credentials that will allow you to perform operations in
+google sheets from within your job.
 
-### Step 7 - Create your job(s)
+## 4. Create a new job
 
-Create your project's jobs.
+A job is a series of operations that formats and transfers data at a given time.
+It needs a trigger, which determines when these operations should happen, and an
+expression, which determines what should be done with the incoming data and
+where it should go.
 
-#### Salesforce
+Navigate to the jobs section in your dashboard, then click the + icon to create
+a new job.
 
-![salesforce job](/img/7.1_salesforce_job.png)
+![new job](/img/3.1_new_job.png)
 
-<!-- I think the font is too big in these job images. i'll change this weekend -->
+Give the job a name (we’ll make ours “Kobo to sheets”).
 
-```js
-create('Contact', {
-  FirstName: dataValue('body.Patient_name'),
-  LastName: dataValue('body.Last_Name_of_Patient'),
-  Age__c: dataValue('body.Age'),
-  Sex__c: dataValue('body.Sex'),
-  Case_ID__c: dataValue('body.National_ID'),
-  Comments__c: dataValue('body.Comments'),
-});
+### 4.1 Create a new trigger
+
+Every job needs a trigger, which determines when it should be run. A **message
+filter** is a type of trigger which allows you to trigger a job when a specific
+message comes into your inbox.
+
+In this example, you want your job to be triggered by any message that has come
+from the COVID 19 registration KoboToolbox form. Therefore the inclusion
+criteria is the id string of the form which we saved earlier on:
+`{"\_xform_id_string": "aDReHdA7UuNBYsiCXQBr43"}`. _(Don’t forget to add curly
+brackets "{}" around your inclusion criteria snippet.)_ This is found in the
+message body sent by each submitted form response to your inbox.
+
+This message filter will trigger your job whenever a message which includes the
+snippet comes into your inbox.
+
+![new trigger](/img/3.2_new_trigger.png)
+
+Save your trigger. You should see a confirmation message “Found x matching
+messages”. To see the data from your last message inside the
+[initial state](https://docs.openfn.org/documentation/jobs/state/#initial-state),
+drag the **Expression** panel to the right.
+
+![trigger message in initial state](/img/3.3_trigger_message.png)
+
+### 4.2 Select an API adaptor
+
+Adaptors are preconfigured pieces of code that allow communication with
+destination systems.
+
+In this example, you will send data collected from individual responses to your
+kobo form (append values) to google sheets.
+
+Your API adpator is therefore google sheets.
+
+### 4.3 Choose your adaptor operation
+
+Every adaptor allows you to perform different operations in your destination
+system. These operations are functions specific to every API adpator.
+
+Open up the inline documentation for the adaptor to see the available functions.
+Copy the appendValues function, then paste it into your Expression editor. It
+should look something like this.
+
+![add image here](/img/3.4_adaptor_operation.png)
+
+### 4.4 Edit the function in your expression editor
+
+The function you copy pasted into your expression editor is a template that
+shows you what your function should look like. This means the text in quotation
+marks are just placeholders - they need to be replaced with the data entries you
+want to send.
+
+First, get your spreadsheet ID from the URL of your google sheet (between `d/`
+and `/edit`).
+
+![add image here](/img/4.4_sheets_id.png)
+
+Copy and paste the ID into your `appendValues` operation to replace the
+placeholder value for `spreadsheetId`. This ensures your values get appended to
+the correct spreadsheet.
+
+Next, open up the initial state to select each form value you want to send.
+Let’s start with the ‘National ID’, as this is the first column in your google
+sheet. Select the desired input from the dropdown menu located in the initial
+state window and paste it to replace the placeholder text ('From expression')
+inside `values: []`. Repeat this for the following values, and remove line 7 as
+this would add a second row to your sheet.
+
+![add image here](/img/4.5_select_values.png)
+
+Your operation should now look like this:
+
+```
+appendValues({ spreadsheetId: '1zFcE05jGLYouXDpevdYQO81ejBWz7hn0ahEOg2gs9fw',
+range: 'Sheet1!A1:E1', values: [ [dataValue('National_ID'),
+dataValue('First_Name_of_Patient'), dataValue('Last_Name_of_Patient')], ], })
 ```
 
-#### dhis2
+Click `Save and run` to get a ‘Success!’ response in the `run logs` and see that
+the data entries between the square brackets [ ] have been added to your google
+sheet.
 
-![dhis2 job](/img/7.2_dhis2_job.png)
-
-```js
-createTEI({
-  orgUnit: 'GD7TowwI46c',
-  trackedEntityType: 'MCPQUTHX1Ze',
-  attributes: [
-    {
-      attribute: 'he05i8FUwu3', // case id
-      value: dataValue('body._id'),
-    },
-    {
-      attribute: 'sB1IHYu2xQT', // first name
-      value: dataValue('body.Patient_name'),
-    },
-    {
-      attribute: 'ENRjVGxVL6l', // last name
-      value: dataValue('body.Last_Name_of_Patient'),
-    },
-    {
-      attribute: 'Rv8WM2mTuS5', // age
-      value: dataValue('body.Age'),
-    },
-  ],
-  enrollments: [
-    {
-      orgUnit: 'GD7TowwI46c',
-      program: 'DM9n1bUw8W8',
-      programState: 'sAV9jAajr8x',
-      enrollmentDate: dataValue('body.Date'),
-      incidentDate: dataValue(
-        'body.Covid_19_suspected_criteria/Speciman_Collection_date'
-      ),
-    },
-  ],
-});
-```
-
-#### Google Sheets
-
-![google sheets job](/img/7.3_google_sheet_job.png)
-
-```js
-appendValues({
-  spreadsheetId: '1EFkY4zD4qqxnJdH-QaeasKd1zXC-1sNKpEg08W-3sT0',
-  range: 'COVID-19 Cases!A2',
-  values: state => {
-    const kobo = state.data.body;
-
-    console.log('Submission data: ' + JSON.stringify(kobo, null, 2));
-
-    return [
-      [
-        kobo['National_ID'],
-        kobo['Patient_name'],
-        kobo['Last_Name_of_Patient'],
-        kobo['Sex'],
-        kobo['Age'],
-        kobo['Comments'],
-        kobo['Date'],
-      ],
-    ];
-  },
-});
-```
-
-### Step 8 - Activate "Auto-Process"
-
-Turn on auto-process for all of this automation's jobs, so that they
-automatically run each time a new kobo form is submitted.
-![dhis2 job](/img/8.1_autoprocess_on.gif)
-
-### Step 9 - Testing your automation
-
-Now it's time to test your integration. (Work in progress...)
-
-<!--@Taylor I will add step 9 tomorrow/this weekend  -->
+![add image here](/img/4.6_save_and_run.png)
