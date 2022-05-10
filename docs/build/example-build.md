@@ -2,8 +2,7 @@
 title: Project Walk-through
 ---
 
-Welcome ! If you’re new to the OpenFn platform, this is the right place to
-start.
+Welcome! If you’re new to the OpenFn platform, this is the right place to start.
 
 This tutorial will teach you how to set up a simple data integration using the
 OpenFn platform. If you get stuck along the way, post a question to our
@@ -195,10 +194,18 @@ this would add a second row to your sheet.
 
 Your operation should now look like this:
 
-```
-appendValues({ spreadsheetId: '1zFcE05jGLYouXDpevdYQO81ejBWz7hn0ahEOg2gs9fw',
-range: 'Sheet1!A1:E1', values: [ [dataValue('National_ID'),
-dataValue('First_Name_of_Patient'), dataValue('Last_Name_of_Patient')], ], })
+```js
+appendValues({
+  spreadsheetId: '1zFcE05jGLYouXDpevdYQO81ejBWz7hn0ahEOg2gs9fw',
+  range: 'Sheet1!A1:E1',
+  values: [
+    [
+      dataValue('National_ID'),
+      dataValue('First_Name_of_Patient'),
+      dataValue('Last_Name_of_Patient'),
+    ],
+  ],
+});
 ```
 
 Click `Save and run` to get a ‘Success!’ response in the `run logs` and see that
@@ -215,5 +222,5 @@ auto-process.
 
 ![add image here](/img/5.1_autoprocess.png)
 
-You're all set ! Try out your job by submitting anther form response to see the
+You're all set! Try out your job by submitting anther form response to see the
 data automatically populate your google sheet.
