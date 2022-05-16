@@ -18,10 +18,11 @@
     "crowdin:sync": "docusaurus write-translations && crowdin upload && crowdin download"
   },
   "dependencies": {
-    "@crowdin/cli": "3.7",
-    "@docusaurus/core": "^2.0.0-beta.14",
-    "@docusaurus/plugin-google-gtag": "^2.0.0-beta.18",
-    "@docusaurus/preset-classic": "^2.0.0-beta.14",
+    "@babel/helper-module-transforms": "^7.17.7",
+    "@crowdin/cli": "3.7.8",
+    "@docusaurus/core": "^2.0.0-beta.20",
+    "@docusaurus/plugin-google-gtag": "^2.0.0-beta.20",
+    "@docusaurus/preset-classic": "^2.0.0-beta.20",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
     "date-fns": "2.21.3",

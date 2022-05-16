@@ -22,7 +22,6 @@ module.exports = {
       indexName: 'openfn',
       contextualSearch: true,
     },
-    hideableSidebar: true,
     navbar: {
       title: 'OpenFn',
       logo: {
@@ -62,6 +61,11 @@ module.exports = {
           'aria-label': 'GitHub repository',
         },
       ],
+    },
+    docs: {
+      sidebar: {
+        hideable: true,
+      },
     },
     footer: {
       style: 'dark',
