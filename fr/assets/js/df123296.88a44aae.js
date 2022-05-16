@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[3628],{17397:function(e){e.exports=JSON.parse('{"label":"CommCare","permalink":"/fr/blog/tags/comm-care","allTagsPath":"/fr/blog/tags","count":4}')}}]);

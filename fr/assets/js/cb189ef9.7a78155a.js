@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[9501],{92278:function(a){a.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"/fr/blog/tags/data-warehouse","name":"data warehouse","count":1,"permalink":"/fr/blog/tags/data-warehouse"}')}}]);

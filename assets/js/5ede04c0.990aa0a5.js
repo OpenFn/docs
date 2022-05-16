@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[6450],{23276:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/caris-foundation","name":"Caris Foundation","count":1,"permalink":"/blog/tags/caris-foundation"}')}}]);

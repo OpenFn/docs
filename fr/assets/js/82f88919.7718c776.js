@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[9589],{42017:function(a){a.exports=JSON.parse('{"allTagsPath":"/fr/blog/tags","slug":"/fr/blog/tags/healthcare","name":"healthcare","count":4,"permalink":"/fr/blog/tags/healthcare"}')}}]);

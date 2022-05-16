@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[3105],{75510:function(s){s.exports=JSON.parse('{"allTagsPath":"/fr/articles/tags","slug":"/fr/articles/tags/how-to","name":"how-to","count":9,"permalink":"/fr/articles/tags/how-to"}')}}]);

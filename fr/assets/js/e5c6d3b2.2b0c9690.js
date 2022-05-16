@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[5454],{84408:function(e){e.exports=JSON.parse('{"label":"agriculture","permalink":"/fr/blog/tags/agriculture","allTagsPath":"/fr/blog/tags","count":1}')}}]);

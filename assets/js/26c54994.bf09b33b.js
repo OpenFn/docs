@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[4697],{51883:function(e){e.exports=JSON.parse('{"label":"react","permalink":"/articles/tags/react","allTagsPath":"/articles/tags","count":1}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[6600],{63471:function(s){s.exports=JSON.parse('{"allTagsPath":"/fr/articles/tags","slug":"/fr/articles/tags/ci-cd","name":"ci/cd","count":1,"permalink":"/fr/articles/tags/ci-cd"}')}}]);

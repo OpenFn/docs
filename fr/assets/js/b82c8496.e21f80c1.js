@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[6608],{95285:function(a){a.exports=JSON.parse('{"label":"airport","permalink":"/fr/blog/tags/airport","allTagsPath":"/fr/blog/tags","count":1}')}}]);

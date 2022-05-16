@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[8230],{3666:function(e){e.exports=JSON.parse('{"label":"Telerivet","permalink":"/fr/blog/tags/telerivet","allTagsPath":"/fr/blog/tags","count":1}')}}]);

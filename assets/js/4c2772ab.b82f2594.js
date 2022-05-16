@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[9276],{49841:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/swiss-tph","name":"SwissTPH","count":1,"permalink":"/blog/tags/swiss-tph"}')}}]);

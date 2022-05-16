@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[1685],{30512:function(e){e.exports=JSON.parse('{"allTagsPath":"/articles/tags","slug":"/articles/tags/elixir","name":"elixir","count":1,"permalink":"/articles/tags/elixir"}')}}]);
