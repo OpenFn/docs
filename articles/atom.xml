@@ -26,6 +26,23 @@
         <category label="elixir" term="elixir"/>
     </entry>
     <entry>
+        <title type="html"><![CDATA[Moving from Webpack to esbuild on Phoenix]]></title>
+        <id>/2021/10/15/webpack-to-esbuild-part1</id>
+        <link href="https://docs.openfn.org/articles/2021/10/15/webpack-to-esbuild-part1"/>
+        <updated>2021-10-15T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We're very happy users of Elixir and Phoenix at OpenFn, given that we've been]]></summary>
+        <author>
+            <name>Stuart Corbishley</name>
+            <uri>https://github.com/stuartc</uri>
+        </author>
+        <category label="how-to" term="how-to"/>
+        <category label="js" term="js"/>
+        <category label="webpack" term="webpack"/>
+        <category label="build" term="build"/>
+        <category label="phoenix" term="phoenix"/>
+        <category label="ci/cd" term="ci/cd"/>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[Improving Multistage Docker Builds using Buildx]]></title>
         <id>/2021/10/08/improving-multistage-docker-builds-using-buildx</id>
         <link href="https://docs.openfn.org/articles/2021/10/08/improving-multistage-docker-builds-using-buildx"/>

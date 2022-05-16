@@ -23,6 +23,19 @@
             <category>elixir</category>
         </item>
         <item>
+            <title><![CDATA[Moving from Webpack to esbuild on Phoenix]]></title>
+            <link>https://docs.openfn.org/fr/articles/2021/10/15/webpack-to-esbuild-part1</link>
+            <guid>/2021/10/15/webpack-to-esbuild-part1</guid>
+            <pubDate>Fri, 15 Oct 2021 00:00:00 GMT</pubDate>
+            <description><![CDATA[We're very happy users of Elixir and Phoenix at OpenFn, given that we've been]]></description>
+            <category>how-to</category>
+            <category>js</category>
+            <category>webpack</category>
+            <category>build</category>
+            <category>phoenix</category>
+            <category>ci/cd</category>
+        </item>
+        <item>
             <title><![CDATA[Improving Multistage Docker Builds using Buildx]]></title>
             <link>https://docs.openfn.org/fr/articles/2021/10/08/improving-multistage-docker-builds-using-buildx</link>
             <guid>/2021/10/08/improving-multistage-docker-builds-using-buildx</guid>

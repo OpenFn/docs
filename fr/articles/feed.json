@@ -25,6 +25,26 @@
             ]
         },
         {
+            "id": "/2021/10/15/webpack-to-esbuild-part1",
+            "content_html": null,
+            "url": "https://docs.openfn.org/fr/articles/2021/10/15/webpack-to-esbuild-part1",
+            "title": "Moving from Webpack to esbuild on Phoenix",
+            "summary": "We're very happy users of Elixir and Phoenix at OpenFn, given that we've been",
+            "date_modified": "2021-10-15T00:00:00.000Z",
+            "author": {
+                "name": "Stuart Corbishley",
+                "url": "https://github.com/stuartc"
+            },
+            "tags": [
+                "how-to",
+                "js",
+                "webpack",
+                "build",
+                "phoenix",
+                "ci/cd"
+            ]
+        },
+        {
             "id": "/2021/10/08/improving-multistage-docker-builds-using-buildx",
             "content_html": null,
             "url": "https://docs.openfn.org/fr/articles/2021/10/08/improving-multistage-docker-builds-using-buildx",
