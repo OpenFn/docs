@@ -97,7 +97,7 @@ integration and mapping data elements.
   ![image](https://user-images.githubusercontent.com/80456839/128649444-04f371ea-80b1-4c28-8d42-1591c0a96758.png)
 
 - In the OpenFn
-  [message](https://docs.openfn.org/documentation/getting-started/overview#messages):
+  [message](https://docs.openfn.org/documentation/getting-started/terminology#message):
   `id` is the unique identifier for the form submission
   ![image](https://user-images.githubusercontent.com/80456839/128649481-83b3f7ee-c6a6-42f8-8752-2f4e96b7fa1f.png)
 
