@@ -35,7 +35,7 @@ specification—will actually produce the desired outcomes.)
 
 ### 4. Does the expression implement what you're asking for?
 
-So we're _certain_ the the spec will produce the effect we want? OK, great...
+So we're _certain_ that the spec will produce the effect we want? OK, great...
 now let's look at the job expression. Does the job expression implement the
 spec? How can you prove (with logs, assertions, etc.) that it does? Don't move
 on until you're certain of this, or certain that it _can't_, given the adaptor
