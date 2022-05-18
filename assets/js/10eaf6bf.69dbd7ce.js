@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[4498],{66905:function(e){e.exports=JSON.parse('{"permalink":"/articles/tags/tips/page/2","page":2,"postsPerPage":10,"totalPages":2,"totalCount":11,"previousPage":"/articles/tags/tips","blogDescription":"Blog","blogTitle":"Blog"}')}}]);

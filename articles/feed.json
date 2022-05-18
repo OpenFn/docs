@@ -5,6 +5,24 @@
     "description": "OpenFn/docs Blog",
     "items": [
         {
+            "id": "/2021/10/29/how-learning-javascript-helped-me-better-understand-jobs",
+            "content_html": null,
+            "url": "https://docs.openfn.org/articles/2021/10/29/how-learning-javascript-helped-me-better-understand-jobs",
+            "title": "How learning JavaScript helps me better understand OpenFn jobs",
+            "summary": "OpenFn automation happens via jobs which define",
+            "date_modified": "2021-10-29T00:00:00.000Z",
+            "author": {
+                "name": "Aicha Diallo",
+                "url": "https://github.com/daissatou2"
+            },
+            "tags": [
+                "javascript",
+                "tips",
+                "jobs",
+                "learning"
+            ]
+        },
+        {
             "id": "/2021/10/22/testing-react-app-with-jest-hound",
             "content_html": null,
             "url": "https://docs.openfn.org/articles/2021/10/22/testing-react-app-with-jest-hound",

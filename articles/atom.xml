@@ -2,12 +2,27 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.openfn.org/articles</id>
     <title>OpenFn Help Articles</title>
-    <updated>2021-10-22T00:00:00.000Z</updated>
+    <updated>2021-10-29T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.openfn.org/articles"/>
     <subtitle>OpenFn/docs Blog</subtitle>
     <icon>https://docs.openfn.org/img/favicon.ico</icon>
     <rights>Copyright © 2022 Open Function Group, LLC.</rights>
+    <entry>
+        <title type="html"><![CDATA[How learning JavaScript helps me better understand OpenFn jobs]]></title>
+        <id>/2021/10/29/how-learning-javascript-helped-me-better-understand-jobs</id>
+        <link href="https://docs.openfn.org/articles/2021/10/29/how-learning-javascript-helped-me-better-understand-jobs"/>
+        <updated>2021-10-29T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[OpenFn automation happens via jobs which define]]></summary>
+        <author>
+            <name>Aicha Diallo</name>
+            <uri>https://github.com/daissatou2</uri>
+        </author>
+        <category label="javascript" term="javascript"/>
+        <category label="tips" term="tips"/>
+        <category label="jobs" term="jobs"/>
+        <category label="learning" term="learning"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Testing a React app, the blurred line between Unit, integration and E2E]]></title>
         <id>/2021/10/22/testing-react-app-with-jest-hound</id>
