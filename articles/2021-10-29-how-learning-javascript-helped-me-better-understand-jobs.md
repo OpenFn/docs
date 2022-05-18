@@ -138,12 +138,12 @@ to Salesforce. However if "Other" mapped to an empty string instead, this would
 upload the empty string to Salesforce. **This distinction is especially
 important in cases where we are overwriting existing data.** For instance, if a
 student previously lived in Ratoma and then moved to an unknown district marked
-as "Other", "undefined" _would not_ update the student's district in Salesforce
+as "Other", `undefined` _would not_ update the student's district in Salesforce
 but the empty string would. Both of these are falsy values but have different
 meanings in Salesforce.
 
 How about if the message includes a value for a district that _is not_ in the
-mapping? Such as "New York". Should the job default to undefined? Null?
+mapping? Such as "New York". Should the job default to `undefined`? Or `null`?
 
 These questions are just a few examples of how understanding `falsy` values in
 Javascript can make it easier to implement the best mapping for the real-world
@@ -182,10 +182,10 @@ console.log(`The ${sign} isn't so confusing!`);
 ## Higher-order functions & iterators
 
 The most challenging module in the course covered **higher-order functions**.
-These are defined as **functions that accept other functions as arguments
-and/or return functions as output.** But why are these important and how are
-they used in OpenFn jobs? It turns out we use them quite alot! The code below is
-an example from an existing integration with the field names replaced.
+These are defined as **functions that accept other functions as arguments and/or
+return functions as output.** But why are these important and how are they used
+in OpenFn jobs? It turns out we use them quite alot! The code below is an
+example from an existing integration with the field names replaced.
 
 ```js
 const participantsToUpdate = state.data.json.filter(data =>
@@ -230,8 +230,8 @@ const stateMapping = {
 The value left of the colon is how the state is represented in the source
 system, and the value right of the colon represents how OpenFn will send the
 data to the destination system. This mapping process is key to integration
-design. Learn more about
-mappings [here](/documentation/apps/salesforce/#mapping-and-design-considerations).
+design. Learn more about mappings
+[here](/documentation/apps/salesforce/#mapping-and-design-considerations).
 
 :::tip
 
