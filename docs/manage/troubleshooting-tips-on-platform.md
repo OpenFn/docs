@@ -1,5 +1,6 @@
 ---
-title: Troubleshooting
+title: Troubleshooting Platform
+sidebar_label: Troubleshooting
 ---
 
 :::important

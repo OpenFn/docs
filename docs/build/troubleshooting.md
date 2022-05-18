@@ -1,5 +1,6 @@
 ---
-title: It doesn't work!
+title: Troubleshooting integrations
+sidebar_label: Troubleshooting
 ---
 
 Or, a penny for your thoughts during the debugging process.

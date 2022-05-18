@@ -51,6 +51,7 @@ module.exports = {
         },
         'devtools/home',
         'build/adaptors',
+        'build/troubleshooting',
       ],
     },
     {
