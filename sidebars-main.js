@@ -70,7 +70,7 @@ module.exports = {
       label: 'Manage',
       items: [
         'manage/platform-mgmt',
-        'trouble-shooting',
+        'manage/troubleshooting-tips-on-platform',
         'jobs/errors',
         'jobs/limits',
         'release-notes',
