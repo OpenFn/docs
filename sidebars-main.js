@@ -51,6 +51,7 @@ module.exports = {
         },
         'devtools/home',
         'build/adaptors',
+        'build/troubleshooting',
       ],
     },
     {
@@ -70,7 +71,7 @@ module.exports = {
       label: 'Manage',
       items: [
         'manage/platform-mgmt',
-        'trouble-shooting',
+        'manage/troubleshooting-tips-on-platform',
         'jobs/errors',
         'jobs/limits',
         'release-notes',

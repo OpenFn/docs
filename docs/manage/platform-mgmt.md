@@ -490,7 +490,8 @@ began and ended.
 > performing multiple actions in a destination system or if they are fetching
 > lots of data from a REST api at the start of a migration. They will appear as
 > red if they have failed. In the case of failure, refer to our
-> [Troubleshooting](trouble-shooting.md) section below.
+> [Troubleshooting](/documentation/manage/troubleshooting-tips-on-platform)
+> section below.
 
 ### Filter runs in the Activity view
 
