@@ -4,7 +4,28 @@ title: The Integration Toolkit
 
 OpenFn's free and open-source Integration Toolkit gives governments and NGOs
 around the world more flexibility and freedom to chose how they achieve success
-in interoperability projects.
+in integration and interoperability projects. The Toolkit is both a recognized
+[Digital Public Good](https://digitalpublicgoods.net/) ("DPG") and a
+[Digital Square Global Good](https://digitalsquare.org/digital-health-global-goods).
+
+![DPG](/img/openfn_dpg.png)
+
+The Toolkit provides a suite of software tools and documentation to help users
+design, build, and automate integrations. Read on for more information.
+
+## Lightning Coming Soon!
+
+The OpenFn team is currently working on `Lightning`, the newest extension to the
+OpenFn DPG, scheduled to be released in _Q4 2022_. Lightning is a fully
+open-source, user-friendly integration web app, that will help users get
+integrations up and running even more quickly.
+
+![Lightning](/img/lightning_preview.png)
+
+Stay tuned for updates! Follow the [OpenFn Blog](https://docs.openfn.org/blog)
+and [Community](https://community.openfn.org) for updates or to post a question.
+
+## More about the Toolkit
 
 At the heart of the toolkit is the `project`—a set of jobs, triggers, and
 credentials which allow organizations to flexibly define workflows and
@@ -64,6 +85,7 @@ jobs, triggers, and credentials. The key components of the toolkit are:
 4. OpenFn/microservice
 5. OpenFn/devtools
 6. the OpenFn adaptors
+7. *OpenFn/lightning (coming soon...)*
 
 ## Open Source Steering Committee (OSSC)
 
