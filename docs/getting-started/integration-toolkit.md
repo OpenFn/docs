@@ -20,7 +20,7 @@ OpenFn DPG, scheduled to be released in _Q4 2022_. Lightning is a fully
 open-source, user-friendly integration web app, that will help users get
 integrations up and running even more quickly.
 
-![Lightning](/img/lightning-preview.png)
+![Lightning](/img/lightning_preview.png)
 
 Stay tuned for updates! Follow the [OpenFn Blog](https://docs.openfn.org/blog)
 and [Community](https://community.openfn.org) for updates or to post a question.
