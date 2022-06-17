@@ -22,6 +22,14 @@ transfers between platforms.
 
 <!--truncate-->
 
+:::note
+
+This article
+[originally appeared](https://www.linkedin.com/pulse/workflow-automation-why-do-yourself-when-program-can-you-openfn/?trackingId=TnWiYNtf5QP4GfAj6R4meQ%3D%3D)
+as a LinkedIn article from Open Function Group.
+
+:::
+
 ## What is workflow automation?
 
 Workflow automation is an approach to making the flow of tasks across platforms
