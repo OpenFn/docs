@@ -20,6 +20,8 @@ supply chain systems, tracking clinical visits, and helping plan vaccine
 rollouts. We support our partners’ work by lifting the burden of manual data
 transfers between platforms.
 
+<!--truncate-->
+
 ## What is workflow automation?
 
 Workflow automation is an approach to making the flow of tasks across platforms
@@ -49,7 +51,9 @@ balance, a confirmation notification is sent to the farmer. MyAgro works with
 the farmers to reach their savings goal, which they then use to pay for seeds,
 fertilisers, and training courses. OpenFn:
 
-![image](https://user-images.githubusercontent.com/105651463/172341045-62a3eebd-98fb-4189-987f-06bbdb03ac30.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/105651463/172341045-62a3eebd-98fb-4189-987f-06bbdb03ac30.png" />
+</p>
 
 1. Syncs voucher codes from CommCare to Salesforce so the relevant offices can
    track who purchased the saving vouchers.
@@ -73,7 +77,9 @@ time a client’s new
 [M-Pesa](https://www.vodafone.com/about-vodafone/what-we-do/consumer-products-and-services/m-pesa/globalmerchants)
 payment is registered in [Kopo Kopo](https://kopokopo.co.ke/), OpenFn:
 
-![image](https://user-images.githubusercontent.com/105651463/172341175-5505b647-93dc-44af-9143-00ebdd0b5bae.png)
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/105651463/172341175-5505b647-93dc-44af-9143-00ebdd0b5bae.png" />
+</p>
 
 1. Automatically matches incoming payments with existing Sinapis accounts.
 2. Logs new payments and updated payment status in Salesforce to track
@@ -97,7 +103,10 @@ project. They configured an HR workflow solution that connects mobile data
 collection apps, databases, and payment apps using OpenFn. Every time an
 organisation registers new workers via
 [ODK Collect](https://docs.opendatakit.org/collect-intro/), OpenFn:
-![image](https://user-images.githubusercontent.com/105651463/172341214-06a1e74b-c1e3-45e4-83c8-4a60af5a9d2d.png)
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/105651463/172341214-06a1e74b-c1e3-45e4-83c8-4a60af5a9d2d.png" />
+</p>
 
 1. Automatically registers new employees in an [iHRIS](https://www.ihris.org/)
    database to oversee all new hires.
