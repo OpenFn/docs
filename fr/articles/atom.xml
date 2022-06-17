@@ -2,12 +2,25 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.openfn.org/fr/articles</id>
     <title>OpenFn Help Articles</title>
-    <updated>2021-10-29T00:00:00.000Z</updated>
+    <updated>2022-06-07T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.openfn.org/fr/articles"/>
     <subtitle>OpenFn/docs Blog</subtitle>
     <icon>https://docs.openfn.org/fr/img/favicon.ico</icon>
     <rights>Copyright © 2022 Open Function Group, LLC.</rights>
+    <entry>
+        <title type="html"><![CDATA[Workflow Automation; Why do it yourself when a program can do it for you?]]></title>
+        <id>/2022/06/07/workflow-automation</id>
+        <link href="https://docs.openfn.org/fr/articles/2022/06/07/workflow-automation"/>
+        <updated>2022-06-07T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Do you think twice when you get an automatic SMS notification because your]]></summary>
+        <author>
+            <name>Alexa de Vegvar</name>
+            <uri>https://github.com/alexadevegvar</uri>
+        </author>
+        <category label="automation" term="automation"/>
+        <category label="solution" term="solution"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[How learning JavaScript helps me better understand OpenFn jobs]]></title>
         <id>/2021/10/29/how-learning-javascript-helped-me-better-understand-jobs</id>

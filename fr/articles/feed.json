@@ -5,6 +5,22 @@
     "description": "OpenFn/docs Blog",
     "items": [
         {
+            "id": "/2022/06/07/workflow-automation",
+            "content_html": null,
+            "url": "https://docs.openfn.org/fr/articles/2022/06/07/workflow-automation",
+            "title": "Workflow Automation; Why do it yourself when a program can do it for you?",
+            "summary": "Do you think twice when you get an automatic SMS notification because your",
+            "date_modified": "2022-06-07T00:00:00.000Z",
+            "author": {
+                "name": "Alexa de Vegvar",
+                "url": "https://github.com/alexadevegvar"
+            },
+            "tags": [
+                "automation",
+                "solution"
+            ]
+        },
+        {
             "id": "/2021/10/29/how-learning-javascript-helped-me-better-understand-jobs",
             "content_html": null,
             "url": "https://docs.openfn.org/fr/articles/2021/10/29/how-learning-javascript-helped-me-better-understand-jobs",
