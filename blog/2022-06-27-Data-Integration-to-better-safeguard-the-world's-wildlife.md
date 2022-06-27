@@ -28,6 +28,8 @@ Since then, WCS has implemented OpenFn to support its partners from Conservation
 1. Build PostgreSQL and MSSQL databases and
 2. Integrate the databases, making the field data quickly available for analysis and eliminating multiple manual configurations and data integration steps typically handled by a software engineer.
 
+[https://user-images.githubusercontent.com/105651463/175885044-f39db6df-7f89-4332-a965-bf239ebef7bc.png]
+
 OpenFn’s solution saves ConSoSci partners time and money, enabling researchers to access reliable data from multiple sources more quickly and effectively. They can then analyse this information to help address critical gaps in social science capacity, implementation, and accessibility in conservation. 
 
 Thanks to the OpenFn Integration Toolkit, WCS has the digital infrastructure to efficiently scale its data collection, analysis, and sharing solutions to enhance interoperability across its programs and partners. OpenFn automatically syncs hundreds of records across dozens of WCS sites daily, enabling the WCS Conservation Technology Team to redirect its focus to its core work–empowering researchers working to mitigate continued environmental damage. WCS believes that “by discovering how to save nature, we can inspire the world to protect it”, and OpenFn is committed to helping conservation stakeholders automate this discovery process worldwide.
