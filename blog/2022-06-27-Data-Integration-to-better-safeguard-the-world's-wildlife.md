@@ -37,5 +37,5 @@ To explore WCS and ConSoSci OpenFn solutions, check out the open-source code on 
 ### Call to Action
 If you have questions about our WCS partnership or integration toolkit, head to community.openfn.org to connect and talk to like-minded social-sector integrators and OpenFn staff. We hope to see you soon!
 
-The photo above was originally posted on the
+_The photo above was originally posted on the
 [ConoSci About Page](https://consosci.org)
