@@ -154,12 +154,12 @@ destination systems.
 In this example, you will send data collected from individual responses to your
 kobo form (append values) to google sheets.
 
-Your API adpator is therefore google sheets.
+Your API adaptor is therefore google sheets.
 
 ### 4.3 Choose your adaptor operation
 
 Every adaptor allows you to perform different operations in your destination
-system. These operations are functions specific to every API adpator.
+system. These operations are functions specific to every API adaptor.
 
 Open up the inline documentation for the adaptor to see the available functions.
 Copy the appendValues function, then paste it into your Expression editor. It
@@ -222,5 +222,5 @@ auto-process.
 
 ![autoprocess](/img/5.1_autoprocess.png "Enabling 'autoprocess' for a job")
 
-You're all set! Try out your job by submitting anther form response to see the
+You're all set! Try out your job by submitting another form response to see the
 data automatically populate your google sheet.
