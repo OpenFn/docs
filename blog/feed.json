@@ -5,6 +5,26 @@
     "description": "OpenFn/docs Blog",
     "items": [
         {
+            "id": "/2022/06/28/Data-Integration-to-better-safeguard-the-world’s-wildlife",
+            "content_html": null,
+            "url": "https://docs.openfn.org/blog/2022/06/28/Data-Integration-to-better-safeguard-the-world’s-wildlife",
+            "title": "Data Integration to better safeguard the world’s wildlife",
+            "summary": "Since 2020, the Wildlife Conservation Society (“WCS”) has leveraged the OpenFn Integration Toolkit to collect, clean, and integrate critical data for critical conservation programs targeting the world's largest wild places. WCS and its partners work at the frontline of conservation, and with support from OpenFn, they can automatically and seamlessly integrate and quickly analyse the masses of data collected across dozens of countries.",
+            "date_modified": "2022-06-28T00:00:00.000Z",
+            "author": {
+                "name": "Alexa de Vegvar",
+                "url": "https://github.com/alexadevegvar"
+            },
+            "tags": [
+                "case study",
+                "WCS",
+                "wildlife",
+                "Kobo Toolbox",
+                "PostgreSQL",
+                "MSSQL"
+            ]
+        },
+        {
             "id": "/2021/10/20/the-case-for-health-information-exchange",
             "content_html": null,
             "url": "https://docs.openfn.org/blog/2021/10/20/the-case-for-health-information-exchange",

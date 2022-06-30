@@ -4,11 +4,24 @@
         <title>The OpenFn Blog</title>
         <link>https://docs.openfn.org/blog</link>
         <description>OpenFn/docs Blog</description>
-        <lastBuildDate>Wed, 20 Oct 2021 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 28 Jun 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2022 Open Function Group, LLC.</copyright>
+        <item>
+            <title><![CDATA[Data Integration to better safeguard the world’s wildlife]]></title>
+            <link>https://docs.openfn.org/blog/2022/06/28/Data-Integration-to-better-safeguard-the-world’s-wildlife</link>
+            <guid>/2022/06/28/Data-Integration-to-better-safeguard-the-world’s-wildlife</guid>
+            <pubDate>Tue, 28 Jun 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[Since 2020, the Wildlife Conservation Society (“WCS”) has leveraged the OpenFn Integration Toolkit to collect, clean, and integrate critical data for critical conservation programs targeting the world's largest wild places. WCS and its partners work at the frontline of conservation, and with support from OpenFn, they can automatically and seamlessly integrate and quickly analyse the masses of data collected across dozens of countries.]]></description>
+            <category>case study</category>
+            <category>WCS</category>
+            <category>wildlife</category>
+            <category>Kobo Toolbox</category>
+            <category>PostgreSQL</category>
+            <category>MSSQL</category>
+        </item>
         <item>
             <title><![CDATA[Making the Case for Health Information Exchanges]]></title>
             <link>https://docs.openfn.org/blog/2021/10/20/the-case-for-health-information-exchange</link>

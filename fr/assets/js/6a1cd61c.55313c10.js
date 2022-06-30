@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[507],{89228:function(e){e.exports=JSON.parse('{"permalink":"/fr/blog/tags/case-study","page":1,"postsPerPage":10,"totalPages":2,"totalCount":11,"nextPage":"/fr/blog/tags/case-study/page/2","blogDescription":"Blog","blogTitle":"Blog"}')}}]);
