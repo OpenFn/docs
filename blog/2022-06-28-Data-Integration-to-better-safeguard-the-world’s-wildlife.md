@@ -12,7 +12,7 @@ tags:
     PostgreSQL,
     MSSQL,
   ]
-  image: https://consosci.org/Portals/0/OpenContent/Files/1839/ci_98723211_Medium.jpg
+image: https://consosci.org/Portals/0/OpenContent/Files/1839/ci_98723211_Medium.jpg
 featured: true
 ---
 
