@@ -45,4 +45,4 @@ Thanks to the OpenFn Integration Toolkit, WCS has the digital infrastructure to 
 To explore WCS and ConSoSci OpenFn solutions, check out the open-source code on Github (github.com/OpenFn/consosci). Next up for WCS are integrations between Kobo ToolBox and Asana. Stay tuned for more!
 
 ### Call to Action
-If you have questions about our WCS partnership or integration toolkit, head to [community.openfn.org](community.openfn.org) to connect and talk to like-minded social-sector integrators and OpenFn staff. We hope to see you soon!
+If you have questions about our WCS partnership or integration toolkit, head to [community.openfn.org](https://community.openfn.org) to connect and talk to like-minded social-sector integrators and OpenFn staff. We hope to see you soon!
