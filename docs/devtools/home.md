@@ -105,13 +105,9 @@ In `URI` mode, you’ll get a config file with URI-s to your defined jobs.
 ## Pre-Requisites
 
 1. [Node](https://nodejs.org/en/download/) is required to run jobs and use many
-   of the scripts in Devtools.
-
-2. [Make](http://www.gnu.org/software/make/) is used so that our modern (es9)
-   JavaScript can be run on older Node runtimes. To install it and other build
-   tools, you might run `sudo apt-get install build-essential`.
-
-3. A basic working knowledge of NodeJs, promises and asynchronous functions is
+   of the scripts in Devtools (e.g., `npm run build` is required after changes to adaptors).
+  
+2. A basic working knowledge of NodeJs, promises and asynchronous functions is
    essential for writing adaptors.
 
 ## Scripts
