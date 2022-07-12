@@ -15,15 +15,55 @@ design, build, and automate integrations. Read on for more information.
 
 ## Lightning Coming Soon!
 
-The OpenFn team is currently working on `Lightning`, the newest extension to the
-OpenFn DPG, scheduled to be released in _Q4 2022_. Lightning is a fully
-open-source, user-friendly integration web app, that will help users get
-integrations up and running even more quickly.
+Lightning extends the existing OpenFn Integration Toolkit DPG. It is a fully
+open source, low-code integration web app that will enable governments and NGOs
+to get their integrations up and running even faster and deploy them locally in
+a matter of minutes.
 
-![Lightning](/img/lightning_preview.png)
+##### Leveraging the tech powering the field-tested enterprise OpenFn platform...
 
-Stay tuned for updates! Follow the [OpenFn Blog](https://docs.openfn.org/blog)
-and [Community](https://community.openfn.org) for updates or to post a question.
+Lightning brings together the tried and tested technology we have been using
+since 2015 (OpenFn core, engine, adaptors and code from the OpenFn SaaS
+platform) to manage the orchestration and execution of integrations in a stable,
+scalable and secure way.
+
+##### ...but providing a fully open source web app with a user-friendly web interface.
+
+A fully open source web app, it can be deployed anywhere through Docker and
+comes with a user-friendly, low-code interface with the full functionality
+needed for organizations to build, run and audit their workflows all in one
+place. ![Lightning](/img/lightning_build_run_audit.png)
+
+##### Build
+
+Empower more users in your organization to have a say in what gets automated and
+how. Lightning’s visual interface makes workflows more intelligible to
+non-technical users, bridging the gap between the IT specialists that build out
+automations and program managers that are the real business/ program experts on
+the processes that need automating.
+
+##### Audit
+
+Treat every workflow run with the care and attention it deserves. In OpenFn,
+each incoming request or transaction that gets processed is more than a piece of
+data - it represents a vulnerable child in need of critical support, a farmer
+managing their savings to make sure they can afford the next harvest. Lightning
+provides users with a dashboard that allows them to monitor the health of their
+integrations to make sure no request goes unprocessed.
+
+##### Follow our progress and give us a hand:
+
+We are building out in the open, you can follow our progress on the
+[Lightning repository](https://github.com/OpenFn/lightning) by clicking ‘Watch’
+to track updates and new releases. Ongoing discussions about the development of
+Lightning with our Open Source Steering Committee are documented on our
+[community forum](https://community.openfn.org/c/ossc/15), all feedback and
+comments on Lightning are welcome there. If you would like to become a beta user
+or just want to learn more about Lightning and where we’re heading, book in a
+call with our product manager here:
+https://calendly.com/amber-openfn/short-call.
+
+![Lightning preview](/img/lightning_preview.png)
 
 ## More about the Toolkit
 
@@ -85,7 +125,7 @@ jobs, triggers, and credentials. The key components of the toolkit are:
 4. OpenFn/microservice
 5. OpenFn/devtools
 6. the OpenFn adaptors
-7. *OpenFn/lightning (coming soon...)*
+7. _OpenFn/lightning (coming soon...)_
 
 ## Open Source Steering Committee (OSSC)
 
