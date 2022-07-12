@@ -2,41 +2,61 @@
 title: Devtools
 ---
 
-A set of tools for writing &amp; testing expressions, managing OpenFn projects,
-and developing new adaptors.
+OpenFn/Devtools is a set of tools for writing &amp; testing job expressions,
+managing OpenFn projects, and developing new adaptors. It's how most people work
+with OpenFn from their own command lines, outside of OpenFn.org, Microservice,
+or Lightning.
 
-```mdx-code-block
-import ReactPlayer from 'react-player';
+:::info If you're a dev...
 
-<ReactPlayer url='https://www.youtube.com/watch?v=fkGI5YLp18s' />
-```
+The [Devtools](https://github.com/OpenFn/devtools) repo is a collection of bash
+and Node scripts, as well as a _suggested_ (but not necessary) directory
+structure for working with OpenFn jobs and adaptors.
+
+To run OpenFn jobs locally, you only need [Core](https://github.com/OpenFn/core)
+and at least one adaptor, e.g.
+[language-http](https://github.com/OpenFn/language-http) and you may prefer to
+install core globally via `npm install -g @openfn/core`
+
+:::
 
 ## Up and running
 
-1. Make sure you've got [git](https://git-scm.com/downloads) (maybe GitBash for
-   Windows?)
-2. And [Node.js](https://nodejs.org/en/download/) (version 12 or greater)
-3. Run `git clone git@github.com:OpenFn/devtools.git` for SSH or
-   `git clone https://github.com/OpenFn/devtools.git`
-4. Run `cd devtools`
-5. Run `./install.sh ssh` or `./install.sh https` to install core,
-   language-common, and language-http
+1. Install [git](https://git-scm.com/downloads) and
+   [Node.js](https://nodejs.org/en/download/) (version 14 or greater)
+
+2. Clone and install devtools to setup core, language-common, and language-http
+   using either SSH or HTTPS:
+
+```mdx-code-block
+import CodeBlock from '@theme/CodeBlock';
+
+<Tabs
+  defaultValue="ssh"
+  values={[
+    { label: 'SSH', value: 'ssh' },
+    { label: 'HTTPS', value: 'https' },
+  ]}
+>
+  <TabItem value="ssh">
+    <CodeBlock>
+      git clone git@github.com:OpenFn/devtools.git{'\n'}
+      cd devtools{'\n'}
+      ./install.sh ssh
+    </CodeBlock>
+  </TabItem>
+  <TabItem value="https">
+    <CodeBlock>
+      git clone https://github.com/OpenFn/devtools.git{'\n'}
+      cd devtools{'\n'}
+      ./install.sh https
+    </CodeBlock>
+  </TabItem>
+</Tabs>
+```
 
 _Note: If you get a "permission denied" message when running `./install.sh`, try
 `run chmod +x ./install.sh ` then retry the install command._
-
-To install specific adaptors, run
-`./install.sh ${ssh || https} language-${name}`
-
-When you install a new adaptor, the latest version will be enabled by default.
-To switch the adaptor version when running jobs locally, in the root of the
-adaptor directory, run:
-
-`git checkout tags/v2.4.15` (substitute `2.4.15` with the adaptor version you
-want)
-
-You can run core from anywhere by using `npm install -g @openfn/core` for a
-global install.
 
 ## Usage
 
@@ -48,7 +68,7 @@ Execute takes:
    `configuration: {...}`
 4. `-o [output.json]`: The file to which the output will be written
 
-### Bash usage
+### Run a job using bash
 
 ```sh
 ~/devtools/core/bin/core execute \
@@ -57,6 +77,26 @@ Execute takes:
   -o ./tmp/output.json \
   -e ./tmp/expression.js
 ```
+
+### More on Devtools
+
+```mdx-code-block
+import ReactPlayer from 'react-player';
+
+<ReactPlayer url='https://www.youtube.com/watch?v=fkGI5YLp18s' />
+```
+
+### Install a specific adaptor version
+
+To install specific adaptors, run
+`./install.sh ${ssh || https} language-${name}`
+
+When you install a new adaptor, the latest version will be enabled by default.
+To switch the adaptor version when running jobs locally, in the root of the
+adaptor directory, run:
+
+`git checkout tags/v2.4.15` (substitute `2.4.15` with the adaptor version you
+want)
 
 ### The `--test` option
 
@@ -105,8 +145,9 @@ In `URI` mode, you’ll get a config file with URI-s to your defined jobs.
 ## Pre-Requisites
 
 1. [Node](https://nodejs.org/en/download/) is required to run jobs and use many
-   of the scripts in Devtools (e.g., `npm run build` is required after changes to adaptors).
-  
+   of the scripts in Devtools (e.g., `npm run build` is required after changes
+   to adaptors).
+
 2. A basic working knowledge of NodeJs, promises and asynchronous functions is
    essential for writing adaptors.
 
