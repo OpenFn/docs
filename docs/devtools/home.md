@@ -7,7 +7,7 @@ managing OpenFn projects, and developing new adaptors. It's how most people work
 with OpenFn from their own command lines, outside of OpenFn.org, Microservice,
 or Lightning.
 
-:::info If you're a dev...
+:::info Are you a developer?
 
 The [Devtools](https://github.com/OpenFn/devtools) repo is a collection of bash
 and Node scripts, as well as a _suggested_ (but not necessary) directory
