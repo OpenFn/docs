@@ -36,7 +36,7 @@ import ReactPlayer from 'react-player';
 <ReactPlayer url='https://www.youtube.com/watch?v=9xXK5xoiMgA' />
 ```
 
-## Proposal v4 `@latest`
+## Proposal v4 `@next`
 
 The portability specification v4 defines how entire projects (groups of
 workflows with their associated triggers, credentials and jobs) can be
@@ -178,5 +178,6 @@ The full specification can be viewed
 
 - [Portability Proposal v4](https://github.com/OpenFn/projects-as-code)
 - [Portability Proposal v3](portability-versions#proposal-v3)
-- [Portability Proposal v2](portability-versions#proposal-v2)
+- [Portability Proposal v2](portability-versions#proposal-v2) (`@latest` for
+  platform-app/microservice compatibility.)
 - [Portability Proposal v1](portability-versions#proposal-v1)
