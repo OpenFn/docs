@@ -127,6 +127,40 @@ Instead of using `-l ./language-salesforce.Adaptor`, use
 For most standard adaptors which make use of HTTP requests, you can add `--test`
 to the execute command to intercept all HTTP requests and return a `200`.
 
+## Hands-on with devtools and the command line
+
+:::tip
+
+Check out this example workflow for using devtools in your day-to-day.
+
+:::
+
+1. `cd` in the folder containing the repo you're working on.
+2. You can keep your job scripts anywhere, but store `state.json` and
+   `output.json` in a `tmp` folder. In our repos we always add the `tmp`
+   directory in our `.gitignore` file that tells Github to ignore the specified
+   paths. Make sure you have your `.gitignore` file and you know what's tracked
+   by Github and what's not. `state` and `config` may contain sensitive
+   configuration information and project data so never upload them to Github!
+3. The devtools command is a mouthful. You can search your command line history
+   with `Ctl-r` and typing core to pull it up the devtools command. Notice that
+   it’s got line breaks and a flag for all the important bits… `-l` for
+   language-package (adaptor), `-s` for state, `-o` for output, and `-e` for
+   expression. You can also save your frequently used devtools commands in a
+   document and just copy-paste.
+4. It's quick the change job names or the adaptor in the command. If you put all
+   your adaptors in the same folder `~/devtools/adaptors/language-_________` you
+   can quickly swap them in the command, as you can see in the video below. The
+   Backspace key deletes characters behind your cursor, Delete deletes them in
+   front.
+5. You can use the TAB key to auto-complete the file path as you search for a
+   job.
+6. Once you've changed a couple of characters for the adaptor and expression (in
+   the video `state` and `output` stayed the same because we're using the `tmp`
+   convention) press enter and see the results.
+
+![devtools](/img/devtools.gif)
+
 ## Configure an OpenFn project
 
 You can use YAML project configuration files to define projects both on the
