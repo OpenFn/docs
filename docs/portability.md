@@ -5,21 +5,26 @@ title: Portability
 ## Intent
 
 Beyond facilitating portability/transferability between OpenFn's
-[platform](deploy/platform), [microservice](/documentation/microservice/home)
+[platform](deploy/platform), [microservice](/documentation/microservice/home),
 and
 [lightning](https://docs.openfn.org/documentation/getting-started/integration-toolkit/#lightning-coming-soon)
-deployment pathways, the portability proposal esablished a simple,
-globally-applicable way of **specifying workflow automation** that might be
-applied across workflow-engines/integration platforms across the sector. Nothing
-about the spec _must_ be specific to OpenFn or any one of our individual
-products. We envision a future in which software built on [core](deploy/diy),
-[engine](deploy/diy), and entirely new and different integration/workflow tools
-can adopt this specification.
+deployment pathways, the portability proposal establishes a simple,
+globally-applicable way of **_specifying workflow automation_** and **_systems
+integration_** that might be applied across workflow-engines/integration
+platforms across the sector. Nothing about the spec _must_ be specific to OpenFn
+or any one of our individual products. We envision a future in which software
+built with Lightning, the OpenFn Integration Toolkit, and entirely new and
+different integration/workflow tools can adopt this specification.
 
-It boils down to three key sets of artifacts: `jobs`, `triggers`, and
-`credentials`. Respectively, they determine (1) what actions must be performed,
-(2) when they must be performed, and (3) what, if any, authentication they'll
-need to perform them.
+It boils down to several key top-level artifacts: `workflows` (containing jobs
+and triggers), `globals`, and `credentials`.
+
+- **Jobs** dictate what tasks or actions must be performed;
+- **Triggers** when they must be performed;
+- **Globals** are reusable constants, or datasets (like mapping tables) shared
+  across jobs;
+- and **Credentials** are what, if any, authentication they'll need to perform
+  them.
 
 If you're interested in contributing to the specification, reach out to OpenFn
 via the [community forum](https://community.openfn.org), write to us, or suggest
@@ -33,49 +38,59 @@ import ReactPlayer from 'react-player';
 
 ## Proposal v4 `@latest`
 
-The portability specification v4 defines how entire projects can be ported
-(groups of workflows with their associated triggers, credentials and jobs). This
-specification has been written for
+The portability specification v4 defines how entire projects (groups of
+workflows with their associated triggers, credentials and jobs) can be
+represented as code. This specification has been written for
 [Lightning](https://docs.openfn.org/documentation/getting-started/integration-toolkit/#lightning-coming-soon),
 the fully open source webb app which extends the OpenFn DPG. It aims to (a)
-improve developer experience, allowing them to build and test workflows locally
-(b) Enable version control and an audit trail of project changes (c) Enable
-users to port existing workflows from the OpenFn platform to Lightning
+improve developer experience, allowing them to build and test workflows locally;
+(b) enable version control and an audit trail of project changes; and (c) enable
+users to port existing workflows from the OpenFn platform to Lightning.
 
-Work for writing the specification has been funded by the Digital Square Global
-Goods grant.
+This new specification has been designed and documented thanks to support from a
+Digital Square Global Goods grant.
 
-     The `project.zip` structure and files:
+The `project.zip` structure and files:
 
-     ```
-     /globals
-     /workflow-a
-        job-1.js
-        job-2.js
-        job-3.js
-     /workflow-b
-        job-4.js
-     project.yaml
-     project.state.yaml
-     ```
+```
+/globals
+   sample-clinic-map.json
+   sample-translations.json
+/workflow-a
+   job-1.js
+   job-2.js
+   job-3.js
+/workflow-b
+   job-4.js
+project.yaml
+project.state.yaml
+```
 
-     The `project.state.yaml`:
+The `project.yaml`:
 
-     ```yaml
-     workflows:
-     - id: "32hjkd1"
-     key: "workflow-a"
-     - id: "d712js1"
-     key: "workflow-b"
-     jobs:
-     - id: "jk232hj"
-     key: job-1
-     - id: "l6s1n3"
-     key: "job-2"
-     credentials:
-     - id: "cae14s"
-     key: "credential-1"
-     ```
+```yaml
+TODO
+```
+
+The `project.state.yaml`:
+
+```yaml
+workflows:
+  - id: '32hjkd1'
+    key: 'workflow-a'
+  - id: 'd712js1'
+    key: 'workflow-b'
+
+jobs:
+  - id: 'jk232hj'
+    key: job-1
+- id: 'l6s1n3'
+    key: 'job-2'
+
+credentials:
+  - id: 'cae14s'
+    key: 'credential-1'
+```
 
 The full specification can be viewed
 [here](https://github.com/OpenFn/projects-as-code).
