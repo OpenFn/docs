@@ -98,8 +98,8 @@ Check out this example workflow for using devtools in your day-to-day.
 1. `cd` in the folder containing the repo you're working on.
 2. You can keep your job scripts anywhere, but store `state.json` and
    `output.json` in a `tmp` folder. In our repos we always add the `tmp`
-   directory in our `gitignore` file that tells Github to ignore the specified
-   paths. Make sure you have your `gitignore` file and you know what's tracked
+   directory in our `.gitignore` file that tells Github to ignore the specified
+   paths. Make sure you have your `.gitignore` file and you know what's tracked
    by Github and what's not. `state` and `config` may contain sensitive
    configuration information and project data so never upload them to Github!
 3. The devtools command is a mouthful. You can search your command line history
