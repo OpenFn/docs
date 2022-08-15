@@ -1,59 +1,108 @@
 ---
-title: OpenFn Documentation
-sidebar_label: Introduction
+title: OpenFn
+sidebar_label: What is OpenFn
 slug: /
 ---
 
-## What's OpenFn?
-
-OpenFn is a suite of data integration, interoperability, and business process
-automation (i.e., workflow) tools that's used by governments, NGOs, and social
-enterprises, primarily in the health and humanitarian sectors. It includes both
-
-- the [**OpenFn platform**](https://www.openfn.org) (an
-  _integration-platform-as-a-service_ or "iPaaS") and
-- the free and open-source
-  [**OpenFn Integration Toolkit**](/documentation/getting-started/integration-toolkit),
-
-with the latter being a **digital public good** (a "DPG") recognized in the
-[DPG Registry](https://digitalpublicgoods.net/registry/) and Digital Square's
-[Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook).
+## What is OpenFn?
 
 :::tip
 
-In essence, OpenFn is software that makes it easier for governments and NGOs to
-_connect_ the different technologies they use, share data securely, drive
-critical business processes, and scale their interventions via automated
+OpenFn is software that makes it easier for governments and NGOs to _connect_
+the different technologies they use, share data securely, drive critical
+business processes, and scale their interventions via automated
 interoperability.
 
 :::
 
-## We ❤️ documentation.
+OpenFn is a suite of data integration, interoperability, and business process
+automation (i.e., workflow) tools that's used by governments, NGOs, and social
+enterprises in the health and humanitarian sectors. It enables users to connect
+any system, and comes with adaptors (i.e. connectors) for
+[over 70 apps](https://www.openfn.org/apps).
 
-This site is the one-stop-shop documentation site for the whole suite of OpenFn
-data integration, interoperability, and automation tools. Here you will learn
-how to use OpenFn to build automation workflows that can be as short and simple
-or as long and complex as you like. You also will learn about all of the ways
-you can choose to deploy the automation flows you create.
+Some OpenFn use cases are:
+[Business process and workflow automations](https://www.dropbox.com/s/nb246sav7ozlmo1/OpenFn%20Business%20Process%20%26%20Workflow%20Automation%20Solutions.pdf?dl=0)
+|
+[Data Integration and Interoperability](https://www.dropbox.com/s/ij7n0fa2wosreod/OpenFn%20Data%20Integration%20%26%20Interoperability%20Solutions.pdf?dl=0)
+|
+[Data Clearning Pipelines](https://www.dropbox.com/s/ffchww1niw46nlu/OpenFn%20Data%20Cleaning%20Pipeline%20Solutions.pdf?dl=0)
+|
+[Data Sharing and Reporting](https://www.dropbox.com/s/5oj5wqo84q29p5j/OpenFn%20Data%20Sharing%20%26%20Reporting%20Solutions.pdf?dl=0)
+|
+[Data Warehouse and Analytics](https://www.dropbox.com/s/e48z6a9x1kgmlbd/OpenFn%20Data%20Warehouse%20%26%20Analytics%20Solutions.pdf?dl=0)
+|
+[Legacy Systems Integration](https://www.dropbox.com/s/dqhgvjkqjrs9vzi/OpenFn%20Legacy%20Systems%20Integration%20%26%20Sync%20Solutions.pdf?dl=0)
 
-Check out the sections on the left. They'll show you how to get up and running,
-as well as how to design, build, deploy, and manage data integration and
-interoperability projects using OpenFn technologies and beyond.
+## Who is it built by ?
 
-Please feel free to point out [issues](https://github.com/openfn/docs/issues)
-with this documentation or, if you can't find the right repo, issues with the
-tools themselves. (The more feedback the better!). If you want to propose some
-new language for the documentation, you can make those changes by clicking the
-**"Edit this page"** link at the bottom of any page and submit a pull request!
+OpenFn products are built by the
+[Open Function Group](https://docs.openfn.org/documentation/about).
 
-If you have any questions, please don't hesitate to email
-[admin@openfn.org](mailto:admin@openfn.org).
+## Our products
+
+OpenFn has several products, which are all fully interoperable. This gives our
+users the freedom to switch between any and all of the OpenFn products.
+
+All OpenFn products, other than the OpenFn iPaaS are part of the free and
+open-source
+[**OpenFn Integration Toolkit**](/documentation/getting-started/integration-toolkit).
+This Toolkit is a **Digital Public Good** (a "DPG") recognized in the
+[DPG Registry](https://digitalpublicgoods.net/registry/) and Digital Square's
+[Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook).
+
+### The OpenFn iPaaS
+
+The [**OpenFn iPaaS**](https://www.openfn.org/signup) is an
+_integration-platform-as-a-service_ or "iPaaS". It is enterprise-grade software,
+hosted by OpenFn. We recommend starting out there - you can
+[create an account for free](https://www.openfn.org/signup), or view our pricing
+[here](https://openfn.org/pricing).
+
+### OpenFn/Lightning (Alpha)
+
+OpenFn/Lightning is a _fully open source_ web application which can be deployed
+and run anywhere. It is designed for governments or NGOs who want to deploy and
+manage their _own_ integration platform, and need fully-fledged user management
+and auditing capabilities. Lightning relies on the same core technology as the
+OpenFn iPaaS and comes with an improved, visual interface for building
+integrations.
+
+It is currently in Alpha, but will be released in Q4 2022.
 
 :::note
 
-Note that some technical documentation and source code for OpenFn's FOSS
-integration tools and adaptors can also be found in their respective
-repositories at [Github.com/OpenFn](https://github.com/openfn) or see
+If you have any questions about our products, please don't hesitate to email
+[admin@openfn.org](mailto:admin@openfn.org).
+
+:::
+
+### OpenFn developer tooling
+
+#### OpenFn/devtools
+
+A set of tools for writing & testing expressions, managing OpenFn projects, and
+developing language-packages.
+
+#### OpenFn/core
+
+The central job processing program used in the OpenFn platform.
+
+#### OpenFn/engine
+
+An Elixir package that handles OpenFn job running with core.
+
+### OpenFn/microservice
+
+OpenFn/microservice is open source software which makes use of OpenFn's core
+technology to create standalone microservices which can be deployed on any
+hardware.
+
+:::note
+
+You can view the technical documentation and source code for OpenFn's FOSS
+integration tools and adaptors in their respective repositories at
+[Github.com/OpenFn](https://github.com/openfn) or see
 [Deploy](https://docs.openfn.org/documentation/deploy/options) section for an
 overview of the FOSS options and additional docs.
 

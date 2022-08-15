@@ -1,19 +1,21 @@
 module.exports = {
   docs: [
     {
-      type: 'doc',
-      id: 'intro',
+      type: 'category',
+      label: 'Introduction',
+      items: [
+        'intro',
+        'getting-started/integration-toolkit',
+        'getting-started/so-you-want-to-integrate',
+      ],
     },
     {
       type: 'category',
       label: 'Getting Started',
       items: [
-        'getting-started/so-you-want-to-integrate',
-        'getting-started/terminology',
-        'getting-started/quick-start',
         'build/example-build',
+        'getting-started/terminology',
         'getting-started/implementation-checklist',
-        'getting-started/integration-toolkit',
       ],
     },
     {
