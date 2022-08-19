@@ -11,7 +11,7 @@ in integration and interoperability projects. The Toolkit is both a recognized
 ![DPG](/img/openfn_dpg.png)
 
 The Toolkit provides a suite of software tools and documentation to help users
-design, build, and automate integrations. Read on for more information.
+design, build, and automate integrations.
 
 ## Lightning Coming Soon!
 

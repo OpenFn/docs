@@ -1,11 +1,9 @@
 ---
-title: Project Walk-through
+title: Platform Quick-Start
 ---
 
-Welcome! If you’re new to the OpenFn platform, this is the right place to start.
-
-This tutorial will teach you how to set up a simple data integration using the
-OpenFn platform. If you get stuck along the way, post a question to our
+Learn how to set up a simple data integration using the OpenFn platform. If you
+get stuck along the way, post a question to our
 [community forum](https://community.openfn.org/) so we can give you a hand.
 
 In this walkthrough, we’ll connect a **KoboToolbox** form to **Google Sheets**.
@@ -141,8 +139,8 @@ snippet comes into your inbox.
 
 Save your trigger. You should see a confirmation message “Found x matching
 messages”. To see the data from your last message inside the
-[initial state](https://docs.openfn.org/documentation/jobs/state/#initial-state),
-drag the **Expression** panel to the right.
+[initial state](/documentation/jobs/state/#initial-state), drag the
+**Expression** panel to the right.
 
 ![trigger message](/img/4.3_trigger_message.png 'View a matching trigger message in initial state')
 
