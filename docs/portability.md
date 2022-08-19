@@ -7,7 +7,7 @@ title: Portability
 Beyond facilitating portability/transferability between OpenFn's
 [platform](deploy/platform), [microservice](/documentation/microservice/home),
 and
-[lightning](https://docs.openfn.org/documentation/getting-started/integration-toolkit/#lightning-coming-soon)
+[lightning](/documentation/getting-started/integration-toolkit/#lightning-coming-soon)
 deployment pathways, the portability proposal establishes a simple,
 globally-applicable way of **_specifying workflow automation_** and **_systems
 integration_** that might be applied across workflow-engines/integration
@@ -41,7 +41,7 @@ import ReactPlayer from 'react-player';
 The portability specification v4 defines how entire projects (groups of
 workflows with their associated triggers, credentials and jobs) can be
 represented as code. This specification has been written for
-[Lightning](https://docs.openfn.org/documentation/getting-started/integration-toolkit/#lightning-coming-soon),
+[Lightning](/documentation/getting-started/integration-toolkit/#lightning-coming-soon),
 the fully open source webb app which extends the OpenFn DPG. It aims to (a)
 improve developer experience, allowing them to build and test workflows locally;
 (b) enable version control and an audit trail of project changes; and (c) enable

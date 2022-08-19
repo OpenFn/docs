@@ -12,7 +12,7 @@ and a huge number of open-source integration and "ETL" tools which you can find
 on our [Github](https://www.github.com/openfn).
 
 The platform is trusted by some of the leading development organizations in the
-world, including UNCIEF, the IRC, and Population Council.
+world, including UNICEF, the WHO, the IRC, and Population Council.
 
-You can learn more about OpenFn's leadership
+You can learn more about the people at Open Function Group
 [here](https://www.openfn.org/leadership).

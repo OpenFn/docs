@@ -59,9 +59,9 @@ be used to run the specified job.
 
 Note that, after this custom installation of the adaptor, `platform` will not
 add this adaptor version to the picklist of recommended adaptors in
-[JobStudio](https://docs.openfn.org/documentation/jobs/job-studio), but you are
-guaranteed that the adaptor will be available to use in any of your jobs as long
-as you specify it via the **Select Unreleased Adaptor** dialog.
+[JobStudio](/documentation/jobs/job-studio), but you are guaranteed that the
+adaptor will be available to use in any of your jobs as long as you specify it
+via the **Select Unreleased Adaptor** dialog.
 
 ## Developing adaptors
 
@@ -141,7 +141,8 @@ Accordingly, your `package.json` should add a dependency to that version as this
 
 ### Build
 
-Building an adaptor for release is done by running the command `npm run build` from the root folder.
+Building an adaptor for release is done by running the command `npm run build`
+from the root folder.
 
 ### Tests
 
