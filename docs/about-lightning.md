@@ -186,8 +186,8 @@ we’re still in alpha).
 Later: nothing - if a feature has proven important to our platform users, it
 will be available in Lightning. If there is any feature you require in Lightning
 to be able to switch over to it, speak up ! You can reach out to our product
-manager Amber via [email](amber@openfn.org) or even better book some time with
-her through her [calendar](https://koalendar.com/e/amber-rignell-openfn).
+manager Amber via [email](mailto:amber@openfn.org) or even better book some time
+with her through her [calendar](https://koalendar.com/e/amber-rignell-openfn).
 
 #### When will Lightning Beta be ready ?
 
