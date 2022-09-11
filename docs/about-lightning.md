@@ -6,44 +6,161 @@ sidebar_label: Lightning
 ## What is Lightning ?
 
 [OpenFn/Lightning](https://github.com/OpenFn/lightning/) is a _fully open
-source_ workflow automation platform which can be deployed and run anywhere. It
-is designed for governments or NGOs who want to deploy and manage their _own_
-integration platform, and need fully-fledged user management and auditing
-capabilities. Lightning relies on the same tried-and-trusted core technology as
-the OpenFn iPaaS and comes with an improved, visual interface for building
-integrations.
+source_ workflow automation platform. It is designed for governments or NGOs who
+need a flexible solution which enables them to integrate and connect _any
+system_ and comes with fully-fledged user management and auditing capabilities.
+Lightning relies on the same tried-and-trusted core technology as the OpenFn
+iPaaS and comes with an improved, visual interface for building integrations.
 
-## Features list
+:::note
 
-Coming soon - this will be updated when Lightning Beta is released by end of
-Q4 2022.
+Any integration built on the OpenFn iPaaS is can be run on Lightning.
 
-## Roadmap
+:::
 
-Here's an overview of what we're working on now, what we'll be doing next and
-what's coming later.
+##### Leveraging the tech powering the field-tested enterprise OpenFn platform...
 
-#### Now
+Lightning brings together the tried and tested technology we have been using
+since 2015 (OpenFn core, engine, adaptors and code from the OpenFn SaaS
+platform) to manage the orchestration and execution of integrations in a stable,
+scalable and secure way.
 
-- Build an entire workflow through a single visual interface
-- Save inputs from a workflow run for testing and debugging
-- View, sort, filter and search workflow runs
+##### ...but providing a fully open source web app with a user-friendly web interface.
 
-#### Soon
+A fully open source web app, it can be deployed anywhere through Docker and
+comes with a user-friendly, low-code interface with the full functionality
+needed for organizations to build, run and audit their workflows all in one
+place. ![Lightning](/img/lightning_build_run_audit.png)
 
-- Add authentication rules to webhooks
-- Allow users to create accounts on a hosted demo of Lightning
-- Export projects as code
+##### Build
 
-#### Later
+Empower more users in your organization to have a say in what gets automated and
+how. Lightning’s visual interface makes workflows more intelligible to
+non-technical users, bridging the gap between the IT specialists that build out
+automations and program managers that are the real business/ program experts on
+the processes that need automating.
 
-- Bulk reprocess workflows
-- Automated version control
-- Hosted options for Lightning
-- ATNA-compliant audit events
-- Zero-persistance pipelines
+##### Audit
 
-## Your questions about Lightning, answered
+Treat every workflow run with the care and attention it deserves. In OpenFn,
+each incoming request or transaction that gets processed is more than a piece of
+data - it represents a vulnerable child in need of critical support, a farmer
+managing their savings to make sure they can afford the next harvest. Lightning
+provides users with a dashboard that allows them to monitor the health of their
+integrations to make sure no request goes unprocessed.
+
+## Guiding principles
+
+Lightning is developed in line with the
+[principles for digital development](https://digitalprinciples.org/principles/)
+and under the guidance of it's Open Source Steering Committee which you can read
+about here:
+
+<!-- add link -->
+
+On top of this, Lightning follows 4 key principles which determine how it should
+be developed:
+
+### Integrations break
+
+Anyone that has worked on integration projects in the past is well aware that
+integrations do break. No matter how well designed they are, the fact is that
+**they connect multiple systems that all change over time**: new API versions
+get released, data models change, IDs, codes and mappings change, data standards
+are updated and the processes themselves evolve. This is why Lightning includes:
+
+Enhanced testing and debugging:
+
+- Save inputs as edge cases for robust workflow testing
+- View the input and output for each step in a workflow to easily identify where
+  an error occurred
+- Throw custom errors to improve API messages (adaptors)
+- Add custom logic to handle a step failure (fail triggers)
+
+First of class monitoring:
+
+- Get notified on run failures
+- View the status of every run
+- Search workflow runs by input/output data and logs
+- Filter workflow runs by status, workflow name and date
+
+Re-processing functionality:
+
+- Bulk reprocess requests to address any issues or process requests with updated
+  logic
+
+### Collaboration is key
+
+On one hand, the users that understand what processes need automating are (more
+often than not) business analysts, not developers. They’re the experts on what
+needs to happen when and where, and they’re very capable of planning out
+integrations and putting together mapping specifications and bpmn flows.
+
+On the other hand, integrations often require custom logic that cannot be
+simplified through low-code and therefore must be implemented by software
+engineers.
+
+That’s why **the best integrations are built when non-technical users and
+developers collaborate**. Lightning is being developed to bridge the gap between
+non-technical and technical users through:
+
+Intuitive, user-friendly user interface for non-technical users:
+
+- Understand a workflow in a visual, human-readable format (abstract away from
+  code to make workflows understandable to non-technical users)
+- Build credentials through a form (remove the need to read through confusing
+  API documentation)
+- Build requests through a form
+- Save mappings used in workflows as constants so they can be easily viewed and
+  edited without needing to read code
+- Clear documentation for users to learn how to plan and build integrations
+
+Projects-as-code and CLI for a developer interface:
+
+- Export, import and configure projects as code in the code editor of your
+  choice
+- Run, test and deploy projects through a command line interface
+- Review and track changes through github version control
+
+Collaboration functionality:
+
+- Track changes through version control
+- Rollback to a previous version
+- Get notified when a workflow is changed
+- Share a link to a specific workflow error on the runs history page
+- Share a link to a specific workflow step within the builder
+- Add collaborators as view-only user or editor to a project
+- Audit all changes made to credentials
+
+### It’s not ‘just’ a request or a piece of data, it’s a person
+
+OpenFn specialises in integration tooling for the health and humanitarian
+sector. This means that behind every piece of data which comes in through a
+request lies a person in need of critical services.
+
+Accountability:
+
+- Credential audit trail
+- Version control
+
+Security:
+
+- Secure credential management (encrypted at REST, credential secrets are
+  scrubbed from logs, secure credential sharing
+- Zero-persistence pipelines
+- Role-based project access
+- Additional authentication rules for webhooks
+
+### Standards and compliance matter
+
+Lightning is part of the OpenFn Integration Toolkit which is a certified Digital
+Public Good. It is fully open source and even has an Open Source Steering
+Committee to make sure our users can influence the roadmap.
+
+Lightning makes sure to stay in line with sector standards, and will be GovStack
+compliant and OpenHIE compliant.
+
+## Lightning FAQ
 
 #### I can see that Lightning was built recently, is it new? And if so, how can I trust it ?
 
@@ -65,108 +182,6 @@ made up of the same building blocks of triggers, adaptors and job expressions;
 requests are executed, retried and reprocessed in exactly the same way.
 
 What changes in Lightning is how users _build and monitor_ their integrations.
-
-#### How do you decide what to build and how ?
-
-// I don't know how to define this section, plus it might need a bit of
-reworking -- let me know what you think
-
-##### Integrations break
-
-Anyone that has worked on integration projects in the past is well aware that
-integrations do break. No matter how well designed they are, the fact is that
-they connect multiple systems that all change over time: new API versions get
-released, data models change, codes/mappings change, data standards are updated
-and the processes themselves evolve. This is why Lightning includes:
-
-Enhanced testing and debugging:
-
-- Save inputs as edge cases for robust workflow testing
-- View the input and output for each step in a workflow to easily identify where
-  an error occurred
-- Throw custom errors to improve API messages (adaptors)
-- Add custom logic to handle a step failure (fail triggers)
-
-First of class monitoring:
-
-- Get notified on run failures
-- View the status of every run
-- Search workflow runs by input/output data and logs
-- Filter workflow runs by status, workflow name and date
-
-Re-processing functionality:
-
-- Bulk reprocess requests to address any issues
-
-##### Collaboration is key
-
-On one hand, the users that understand what processes need automating are (more
-often than not) business analysts, not developers. They’re the experts on what
-needs to happen when and where, and they’re very capable of planning out
-integrations and putting together mapping specifications and bpmn flows.
-
-On the other hand, integrations will always require custom logic that cannot be
-simplified through low-code, require knowledge of javascript and thus cannot be
-implemented by non-technical users.
-
-That’s why the best integrations are built when non-technical users and
-developers collaborate. Lightning is being developed to bridge the gap between
-non-technical and technical users through:
-
-Intuitive, user-friendly user interface for non-technical users:
-
-- Understand a workflow in a visual, human-readable format (abstract away from
-  code to make it more non-technical user friendly)
-- Build credentials through a form (no need to look at confusing API docs)
-- Build requests through a form
-- Save mappings used in workflows as constants so they can be easily viewed and
-  edited without having to look at code
-- Clear documentation for user to learn how to plan and build integrations
-
-Projects-as-code and CLI for a developer interface:
-
-- Export, import and configure projects as code in the code editor of your
-  choice
-- Run, test and deploy projects through a command line interface
-- Review and track changes through github version control
-
-Collaboration functionality:
-
-- Track changes through version control
-- Rollback to a previous version
-- Get notified when a workflow is changed
-- Share a link to a specific workflow error on the runs history page
-- Share a link to a specific workflow step within the builder
-- Add collaborators as view-only user or editor to a project
-- Audit all changes made to credentials
-
-##### It’s not ‘just’ a request or a piece of data, it’s a person
-
-OpenFn specialises in integration tooling for the health and humanitarian
-sector. This means that behind every piece of data which comes in through a
-request lies a person in need of critical services.
-
-Accountability:
-
-- Credential audit trail
-- Version control
-
-Security:
-
-- Secure credential management (encrypted at REST, credential secrets are
-  scrubbed from logs, secure credential sharing
-- Zero-persistence pipelines
-- Role-based project access
-- Additional authentication rules for webhooks
-
-##### Standards and compliance matter
-
-Lightning is part of the OpenFn Integration Toolkit which is a certified Digital
-Public Good. It is fully open source and even has an Open Source Steering
-Committee to make sure our users can influence the roadmap.
-
-Lightning makes sure to stay in line with sector standards, and will be GovStack
-compliant and OpenHIE compliant.
 
 #### Can I run anything from the OpenFn platform in Lightning ?
 
@@ -191,6 +206,7 @@ with her through her [calendar](https://koalendar.com/e/amber-rignell-openfn).
 
 #### When will Lightning Beta be ready ?
 
-Lightning will be released in Beta by the end of Q4. You can view our roadmap
-above, or read through our
+Lightning will be released in Beta by the end of Q4. We will be adding our
+roadmap to this page shortly but in the meantime you can follow our progress
+through our
 [changelog](https://github.com/OpenFn/Lightning/blob/main/CHANGELOG.md).

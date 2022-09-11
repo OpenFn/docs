@@ -93,6 +93,6 @@ partner NGOs:
 
 ## Questions or feedback?
 
-If you have any inputs, comments, or questions–please contribute! Submite a pull
+If you have any inputs, comments, or questions–please contribute! Submit a pull
 request to this documentation page or leave a comment in
 [OpenFn Community](https://community.openfn.org/).
