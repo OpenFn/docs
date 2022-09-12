@@ -1,22 +1,9 @@
 ---
-title: Lightning
+title: Lightning (Coming soon)
 sidebar_label: Lightning
 ---
 
-## What is Lightning ?
-
-[OpenFn/Lightning](https://github.com/OpenFn/lightning/) is a _fully open
-source_ workflow automation platform. It is designed for governments or NGOs who
-need a flexible solution which enables them to integrate and connect _any
-system_ and comes with fully-fledged user management and auditing capabilities.
-Lightning relies on the same tried-and-trusted core technology as the OpenFn
-iPaaS and comes with an improved, visual interface for building integrations.
-
-:::note
-
-Any integration built on the OpenFn iPaaS is can be run on Lightning.
-
-:::
+## The Lightning pitch
 
 ##### Leveraging the tech powering the field-tested enterprise OpenFn platform...
 
@@ -49,14 +36,27 @@ managing their savings to make sure they can afford the next harvest. Lightning
 provides users with a dashboard that allows them to monitor the health of their
 integrations to make sure no request goes unprocessed.
 
+## What is Lightning ?
+
+[OpenFn/Lightning](https://github.com/OpenFn/lightning/) is a _fully open
+source_ workflow automation platform. It is designed for governments or NGOs who
+need a flexible solution which enables them to integrate and connect _any
+system_ and comes with fully-fledged user management and auditing capabilities.
+Lightning relies on the same tried-and-trusted core technology as the OpenFn
+iPaaS and comes with an improved, visual interface for building integrations.
+
+:::note
+
+Any integration built on the OpenFn iPaaS is can be run on Lightning.
+
+:::
+
 ## Guiding principles
 
 Lightning is developed in line with the
 [principles for digital development](https://digitalprinciples.org/principles/)
 and under the guidance of it's Open Source Steering Committee which you can read
-about here:
-
-<!-- add link -->
+about [here](https://openfn.github.io/governance/OSSC.html).
 
 On top of this, Lightning follows 4 key principles which determine how it should
 be developed:
@@ -67,7 +67,8 @@ Anyone that has worked on integration projects in the past is well aware that
 integrations do break. No matter how well designed they are, the fact is that
 **they connect multiple systems that all change over time**: new API versions
 get released, data models change, IDs, codes and mappings change, data standards
-are updated and the processes themselves evolve. This is why Lightning includes:
+are updated and the processes themselves evolve. This is why Lightning will
+include:
 
 Enhanced testing and debugging:
 
@@ -136,7 +137,8 @@ Collaboration functionality:
 
 OpenFn specialises in integration tooling for the health and humanitarian
 sector. This means that behind every piece of data which comes in through a
-request lies a person in need of critical services.
+request lies a person in need of critical services. This is why Lightning
+focusses on:
 
 Accountability:
 
@@ -159,6 +161,20 @@ Committee to make sure our users can influence the roadmap.
 
 Lightning makes sure to stay in line with sector standards, and will be GovStack
 compliant and OpenHIE compliant.
+
+## Get involved:
+
+We are building out in the open, you can follow our progress on the
+[Lightning repository](https://github.com/OpenFn/lightning) by clicking ‘Watch’
+to track updates and new releases. Ongoing discussions about the development of
+Lightning with our Open Source Steering Committee are documented on our
+[community forum](https://community.openfn.org/c/ossc/15), all feedback and
+comments on Lightning are welcome there. If you would like to become a beta user
+or just want to learn more about Lightning and where we’re heading, book in a
+call with our product manager here:
+https://calendly.com/amber-openfn/short-call.
+
+![Lightning preview](/img/lightning_preview.png)
 
 ## Lightning FAQ
 
