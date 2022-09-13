@@ -1,5 +1,5 @@
 ---
-title: OpenFn
+title: About
 sidebar_label: What is OpenFn
 slug: /
 ---

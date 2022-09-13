@@ -6,6 +6,7 @@ module.exports = {
       items: [
         'intro',
         'getting-started/integration-toolkit',
+        'about-lightning',
         'getting-started/so-you-want-to-integrate',
       ],
     },
