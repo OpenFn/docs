@@ -3,7 +3,7 @@ title: Lightning (Coming soon)
 sidebar_label: Lightning
 ---
 
-## The Lightning pitch
+## Introducing Lightning
 
 ##### Leveraging the tech powering the field-tested enterprise OpenFn platform...
 
@@ -61,7 +61,16 @@ about [here](https://openfn.github.io/governance/OSSC.html).
 On top of this, Lightning follows 4 key principles which determine how it should
 be developed:
 
-### Integrations break
+### Standards and compliance matter
+
+Lightning is part of the OpenFn Integration Toolkit which is a certified Digital
+Public Good. It is fully open source and even has an Open Source Steering
+Committee to make sure our users can influence the roadmap.
+
+Lightning makes sure to stay in line with sector standards, and will be GovStack
+compliant and OpenHIE compliant.
+
+### Interoperability is an ongoing process
 
 Anyone that has worked on integration projects in the past is well aware that
 integrations do break. No matter how well designed they are, the fact is that
@@ -72,11 +81,12 @@ include:
 
 Enhanced testing and debugging:
 
-- Save inputs as edge cases for robust workflow testing
+- Save data from workflow runs as test data for robust workflow testing of edge
+  cases
 - View the input and output for each step in a workflow to easily identify where
   an error occurred
 - Throw custom errors to improve API messages (adaptors)
-- Add custom logic to handle a step failure (fail triggers)
+- Add custom logic to handle a workflow step failure (fail triggers)
 
 First of class monitoring:
 
@@ -87,8 +97,8 @@ First of class monitoring:
 
 Re-processing functionality:
 
-- Bulk reprocess requests to address any issues or process requests with updated
-  logic
+- Bulk reprocess workflow runs after updating workflow steps to course-correct
+  if a workflow has been running with flawed logic
 
 ### Collaboration is key
 
@@ -109,9 +119,9 @@ Intuitive, user-friendly user interface for non-technical users:
 
 - Understand a workflow in a visual, human-readable format (abstract away from
   code to make workflows understandable to non-technical users)
-- Build credentials through a form (remove the need to read through confusing
-  API documentation)
-- Build requests through a form
+- Build credentials through a form interface (remove the need to read through
+  confusing API documentation)
+- Build API requests through a form interface
 - Save mappings used in workflows as constants so they can be easily viewed and
   edited without needing to read code
 - Clear documentation for users to learn how to plan and build integrations
@@ -152,15 +162,6 @@ Security:
 - Zero-persistence pipelines
 - Role-based project access
 - Additional authentication rules for webhooks
-
-### Standards and compliance matter
-
-Lightning is part of the OpenFn Integration Toolkit which is a certified Digital
-Public Good. It is fully open source and even has an Open Source Steering
-Committee to make sure our users can influence the roadmap.
-
-Lightning makes sure to stay in line with sector standards, and will be GovStack
-compliant and OpenHIE compliant.
 
 ## Get involved:
 
