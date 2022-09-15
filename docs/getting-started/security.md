@@ -1,23 +1,26 @@
 ---
-sidebar_label: Integration Security
-title: Security considerations for integration projects
+sidebar_label: Security
+title: Security considerations for data integration projects
 ---
 
-# Integration Security
+# Security Guidelines for Data Integration Implementations
 
-Even if the products and applications you're using as part of your integration project can be considered secure, there are still many data security risks in data integration solutions, especially during the implementation process.
+Even if the technologies leveraged in your integration solution can be considered secure, there are still many security risks in data integration, especially during implementation. With support from Digital Square, we have therefore developed a **Security Guidebook for Data Integration Implementations**.
 
-We've developed the OpenFn Security Guidebook  to help digital implementers better understand key security best practices, risks and considerations for data integration implementations. 
+Since 2014, we at Open Function Group (the primary custodians of OpenFn) have helped implement nearly 100 data integration solutions for over 45 NGO and government partners around the world. Through our engagements with security teams at different partners, our own research and development, consultations with security experts internal and external, and partnerships with other communities of practice, we have developed a strong understanding of security best practices and considerations for data integration projects that we would like to share with the wider digital development community. 
 
-Through our engagements with security teams at different partners, our own research and development, consultations with security experts internal and external, and consultations with other communities of practice, we have developed 23 security considerations, best practices and supporting resources and combined them into a Guidebook to guide you through the project cycle.  
 
-You can also find the list of all the considerations below.
+**This Guidebook aims to help digital implementers in the Digital Public Good and Global Goods communities better understand security risks and presents 23 best practices for the various implementation phases of data integration projects.** It also links to some open-sourced OFG resources our team uses in our own implementation process for OpenFn projects. 
+
+You can  find a complete list of the 23 best practices on this page below.
+
+**To access the Guidebook, check out the below slides or click the link to share & download:** [https://bit.ly/security_guidebook](https://bit.ly/security_guidebook) 
+
 
 <p><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSflwoTK6G7JnilqTqh7ntlzXARU2ITREXDV6hJCVpvN5gwVRn97sLVrG7pYV54UP2GhX7YPO_JSHn5/embed?start=false&loop=false&delayms=30000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>  
 
-You can download the slides [here](https://drive.google.com/uc?export=download&id=1wqzEbu7eICJ-qOW-2372mYCFRqay-4Amj0STn8ZAYvg).
 
-
+<h3>Secure Data Integration: 23 Implementation Best Practices</h3>
 <h4>Core Tenets</h4>
 <ol> 
  <li>Understand relevant policies specific to data sharing, storage, and protection</li>
@@ -49,20 +52,19 @@ You can download the slides [here](https://drive.google.com/uc?export=download&i
 </ol>
 <h4>Deploy</h4>
 <ol start="17"> 
-<li>Test, test, and test again</li>
-<li>Train the solution users and relevant system administrators</li>
+<li>Test again, especially credentials, before deployment</li>
+<li>Train users and system administrators on integration security</li>
 <li>Review your security requirements again before go-live</li>
 <li>Determine point of contacts for reporting security issues</li> 
 </ol>
 <h4>Ongoing Monitoring & Management</h4>
 <ol start="21"> 
-<li>Consider Governance structures for ongoing management & changing requirements</li>
+<li>Consider Governance models for ongoing management & changing requirements</li>
 <li>Train partners on change management</li>
 <li>Have a strategy for access management</li>
 </ol>
 
-
-Here are some resources and implementer communities to check out:
+Read on for other resources and implementer communities to check out.
 
 ### Resources referenced in the guidebook
 
@@ -78,15 +80,15 @@ Here are some resources and implementer communities to check out:
 
 ### OpenFn Resources
 
-More information can be found at [docs.openfn.org](http://docs.openfn.org). 
+More implementation guidance can be found across this Docs site. For OpenFn users, learn more about OpenFn security & compliance at [openfn.org/trust](http://openfn.org/trust) and [openfn.org/compliance](http://openfn.org/compliance). 
 
-Here are the OpenFn templates and resources referenced in this document: 
-[Mapping Specification Template](https://docs.google.com/spreadsheets/d/1IqTIgOzyOztEevXbgY_4uE8Y8tiHXufZXx-IyJZase0/edit#gid=1822444315)
-[Solution Architecture Diagram](https://lucid.app/lucidchart/1e997197-2d67-4393-8394-a532d83561b2/edit#?templateid=fb96ae05-e288-4d1f-b3fc-2cbf7641a7cc)
-[BPMN Diagram resources](https://docs.openfn.org/documentation/design/design-quickstart/#use-bpmn-for-standardized-documentation)
-[Project Security Configuration & Go-Live Checklist](https://docs.google.com/document/d/1CbQkN7SqNmXeqt3nMTYP4ioQlTuwF2LbDkkFqhp0zsU/edit?usp=sharing)
+Here are the key OpenFn templates and resources referenced in the Guidebook: 
++ [Mapping Specification Template](https://docs.google.com/spreadsheets/d/1IqTIgOzyOztEevXbgY_4uE8Y8tiHXufZXx-IyJZase0/edit#gid=1822444315)
++ [Solution Architecture Diagram](https://lucid.app/lucidchart/1e997197-2d67-4393-8394-a532d83561b2/edit#?templateid=fb96ae05-e288-4d1f-b3fc-2cbf7641a7cc)
++ [BPMN Diagram resources](https://docs.openfn.org/documentation/design/design-quickstart/#use-bpmn-for-standardized-documentation)
++ [Project Security Configuration & Go-Live Checklist](https://docs.google.com/document/d/1CbQkN7SqNmXeqt3nMTYP4ioQlTuwF2LbDkkFqhp0zsU/edit?usp=sharing)
 
-For OpenFn users, learn more about OpenFn security & compliance at [openfn.org/trust](http://openfn.org/trust) and [openfn.org/compliance](http://openfn.org/compliance). 
+
 
 ### Communities of practice & other experts
 
