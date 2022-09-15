@@ -11,6 +11,10 @@ We've developed the OpenFn Security Guidebook  to help digital implementers bett
 
 Through our engagements with security teams at different partners, our own research and development, consultations with security experts internal and external, and consultations with other communities of practice, we have developed 23 security considerations, best practices and supporting resources and combined them into a Guidebook to guide you through the project cycle.  
 
+You can also find the list of all the considerations below.
+
+<p><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSflwoTK6G7JnilqTqh7ntlzXARU2ITREXDV6hJCVpvN5gwVRn97sLVrG7pYV54UP2GhX7YPO_JSHn5/embed?start=false&loop=false&delayms=30000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>  
+
 <h4>Core Tenets</h4>
 <ol> 
  <li>Understand relevant policies specific to data sharing, storage, and protection</li>
@@ -55,7 +59,7 @@ Through our engagements with security teams at different partners, our own resea
 </ol>
 
 
-<p><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSflwoTK6G7JnilqTqh7ntlzXARU2ITREXDV6hJCVpvN5gwVRn97sLVrG7pYV54UP2GhX7YPO_JSHn5/embed?start=false&loop=false&delayms=30000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>      
+    
 
 You can download the slides [here](https://drive.google.com/uc?export=download&id=1wqzEbu7eICJ-qOW-2372mYCFRqay-4Amj0STn8ZAYvg).
 
