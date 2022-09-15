@@ -15,6 +15,9 @@ You can also find the list of all the considerations below.
 
 <p><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSflwoTK6G7JnilqTqh7ntlzXARU2ITREXDV6hJCVpvN5gwVRn97sLVrG7pYV54UP2GhX7YPO_JSHn5/embed?start=false&loop=false&delayms=30000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>  
 
+You can download the slides [here](https://drive.google.com/uc?export=download&id=1wqzEbu7eICJ-qOW-2372mYCFRqay-4Amj0STn8ZAYvg).
+
+
 <h4>Core Tenets</h4>
 <ol> 
  <li>Understand relevant policies specific to data sharing, storage, and protection</li>
@@ -58,10 +61,6 @@ You can also find the list of all the considerations below.
 <li>Have a strategy for access management</li>
 </ol>
 
-
-    
-
-You can download the slides [here](https://drive.google.com/uc?export=download&id=1wqzEbu7eICJ-qOW-2372mYCFRqay-4Amj0STn8ZAYvg).
 
 Here are some resources and implementer communities to check out:
 
