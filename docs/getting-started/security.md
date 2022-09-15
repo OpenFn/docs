@@ -15,7 +15,7 @@ You can also find the list of all the considerations below.
 
 <p><iframe src="https://docs.google.com/presentation/d/e/2PACX-1vSflwoTK6G7JnilqTqh7ntlzXARU2ITREXDV6hJCVpvN5gwVRn97sLVrG7pYV54UP2GhX7YPO_JSHn5/embed?start=false&loop=false&delayms=30000" frameborder="0" width="960" height="569" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe></p>  
 
-You can download the slides [here](https://drive.google.com/uc?export=download&id=1wqzEbu7eICJ-qOW-2372mYCFRqay-4Amj0STn8ZAYvg).
+You can download the slides [here](https://drive.google.com/uc?export=download&id=1jCGLG6pp0v1BDHEmgwUYPHxb1oOapxri).
 
 
 <h4>Core Tenets</h4>
