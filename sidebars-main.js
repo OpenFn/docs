@@ -17,6 +17,8 @@ module.exports = {
         'build/example-build',
         'getting-started/terminology',
         'getting-started/implementation-checklist',
+        'getting-started/security',
+
       ],
     },
     {
