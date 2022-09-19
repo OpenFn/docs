@@ -4,7 +4,7 @@ title: 'Secure by design: a roadmap to secure authentication and authorization'
 author: Amber Rignell
 author_url: https://github.com/amberrignell
 author_image_url: https://avatars.githubusercontent.com/amberrignell
-# tags: [automation, solution]
+tags: [security, authentication, authorization]
 image: https://user-images.githubusercontent.com/105651463/172341536-ebde5ca0-12b8-4a8a-bb40-da9442701df3.png
 featured: false
 ---
@@ -115,113 +115,123 @@ If you are building out your own authentication and authorization system, the
 following are some of the key features that need to be put in place from the
 outset and before other product features can be implemented.
 
-### 1. Local authentication
+### A. Local authentication
 
-    **Select a digital identity system**
+**Select a digital identity system**
 
-    The first decision to make when setting up authentication is which type of
-    identity to use. There are several types of identity systems: we’ll
-    introduce foundational, functional and open market identity systems but you
-    can find more types
-    [here](https://digitalid.design/core-concepts-processes.html).
+The first decision to make when setting up authentication is which type of
+identity to use. There are several types of identity systems: we’ll introduce
+foundational, functional and open market identity systems but you can find more
+types [here](https://digitalid.design/core-concepts-processes.html).
 
 1.  **A foundational identity system** is an identification system primarily
-    created to manage identity information _for the general population. \_You
-    would typically use a foundational identity system if your application was
+    created to manage identity information for the general population. You would
+    typically use a foundational identity system if your application was
     providing a service on behalf of a country.
     [OpenCRVS](https://www.opencrvs.org/) is one example of a DPG which uses
-    foundational identity: their users are \_citizens_ who need to carry out
-    civil registration.
+    foundational identity: their users are citizens who need to carry out civil
+    registration.
 1.  **A functional identity system** is where identity is used for a particular
-    sector, for example Voter Registration or driver’s licenses. )
+    sector, for example Voter Registration or driver’s licenses.
 
-        Foundational and functional identity systems are typically used for government services.
+    Foundational and functional identity systems are typically used for
+    government services.
 
 <!-- <p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
 ![alt_text](images/image2.png 'image_tooltip') -->
 
-    	World Bank ID4D Practitioner’s Guide: [https://id4d.worldbank.org/guide/types-id-systems](https://id4d.worldbank.org/guide/types-id-systems)
+    World Bank ID4D Practitioner’s Guide: [https://id4d.worldbank.org/guide/types-id-systems](https://id4d.worldbank.org/guide/types-id-systems)
 
 3. **An Open Market Identity System** is when an application creates and manages
    their own digital identities**.**
 
-   Tip: If you are implementing foundational identity, you can use the
-   [MOSIP](https://mosip.io/) identity platform. Implementing a foundational
-   identity system is currently out of scope for this resource. However, we
-   would encourage anyone with more relevant experience to complement this
-   resource with a section on implementing it.
+:::tip
 
-   **Choose a user identifier**
+If you are implementing foundational identity, you can use the
+[MOSIP](https://mosip.io/) identity platform. Implementing a foundational
+identity system is currently out of scope for this resource. However, we would
+encourage anyone with more relevant experience to complement this resource with
+a section on implementing it.
 
-   Digital identity can be created several different ways, but the most common
-   is through a username or email. Other forms include voice verification,
-   retina and iris however most DPGs are used through the web rather than mobile
-   phones and therefore simply use email or username.
+:::
 
-   If your application requires users to interact with each other then you will
-   need to have usernames so that they can post whilst maintaining anonymity if
-   this is required. In either case, it is worth focussing the login process
-   around the user’s _email_ not their username, since they are more likely to
-   forget a username they may have made up. Make sure your user IDs
+**Choose a user identifier**
 
-   **Implement single-factor authentication**
+Digital identity can be created several different ways, but the most common is
+through a username or email. Other forms include voice verification, retina and
+iris however most DPGs are used through the web rather than mobile phones and
+therefore simply use email or username.
 
-   In order to prevent attacks such as brute force attacks or dictionary attacks
-   it is important to set password validation rules to ensure users create
-   secure passwords. Some common rules include setting a minimum character
-   limit, restricting sequential or repetitive characters, restricting
-   context-specific passwords such as . Good resources to view more complete
-   lists are the
-   [OpenHIE guidelines](https://davintechgroup.com/toolkit/password-requirements-gdpr-iso-27001-27002-pci-dss-nist-800-53/)
-   and
-   [NIST password requirements](https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c6-implement-digital-identity.html#password-requirements).
+If your application requires users to interact with each other then you will
+need to have usernames so that they can post whilst maintaining anonymity if
+this is required. In either case, it is worth focussing the login process around
+the user’s _email_ not their username, since they are more likely to forget a
+username they may have made up. Make sure your user IDs
 
-   Tip: Encourage the use of long passwords, however do not add complexity
-   requirements as these are actually not very effective.
+**Implement single-factor authentication**
 
-   **Store users in a database**
+In order to prevent attacks such as brute force attacks or dictionary attacks it
+is important to set password validation rules to ensure users create secure
+passwords. Some common rules include setting a minimum character limit,
+restricting sequential or repetitive characters, restricting context-specific
+passwords such as . Good resources to view more complete lists are the
+[OpenHIE guidelines](https://davintechgroup.com/toolkit/password-requirements-gdpr-iso-27001-27002-pci-dss-nist-800-53/)
+and
+[NIST password requirements](https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c6-implement-digital-identity.html#password-requirements).
 
-   Once a user registers, you’ll want to create a universally unique identifier
-   (UUID) for each user. Whilst it may be tempting to use a serial integer and
-   solid application design would prevent potential hackers from guessing IDs to
-   target, using a UUID both prevents the serial guessing hack where a hacker
-   could try passing in a different ID into a URL (i’m user 7, so try typing
-   users/8/credentials into the URL) and may prevent issues that stem from
-   collisions across multiple databases.
+:::tip
 
-   Tip: Creating UUIDs for each user also ensures that you can maintain
-   accountability.
+Encourage the use of long passwords, however do not add complexity requirements
+as these are actually not very effective.
 
-   Passwords should never be stored as strings in the database. Rather, when a
-   user creates a password an encrypted hash should be saved to avoid them being
-   exposed if an external party gets hold of the database. Make sure to use a
-   hash specifically built for this purpose and designed to be slow to make
-   brute-force attacks more difficult, for example bcrypt rather than SHA256 .
-   For further information, OWASP has a dedicated password storage
-   [cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
+:::tip
 
-   **Session management **
+**Store users in a database**
 
-   Session management is when a server maintains the state of a user’s
-   authentication to avoid them having to authenticate for every request. Some
-   things to look out for here are _how_ the token is being generated, _what_ it
-   will store, _where_ it will be stored and _when_ it will expire. See the NIST
-   guidelines on session management
-   [here](https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c6-implement-digital-identity.html#session-generation-and-expiration)
-   and cheatsheet
-   [here](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
+Once a user registers, you’ll want to create a universally unique identifier
+(UUID) for each user. Whilst it may be tempting to use a serial integer and
+solid application design would prevent potential hackers from guessing IDs to
+target, using a UUID both prevents the serial guessing hack where a hacker could
+try passing in a different ID into a URL (i’m user 7, so try typing
+users/8/credentials into the URL) and may prevent issues that stem from
+collisions across multiple databases.
 
-4. Authorization
+:::tip
 
-   **Choose your authorization model**
+Creating UUIDs for each user also ensures that you can maintain accountability.
 
-   Choosing the correct authorization model from the outset is incredibly
-   important. As mentioned in
-   [OWASP’s top 10 proactive controls](https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c7-enforce-access-controls.html#design-access-control-thoroughly-up-front),
-   it is crucial to design your authorization thoroughly up front to avoid
-   having to reengineer it later on. There are different ways of managing a
-   user’s access to resources: ACL, RBAC and ABAC.
+:::
+
+Passwords should never be stored as strings in the database. Rather, when a user
+creates a password an encrypted hash should be saved to avoid them being exposed
+if an external party gets hold of the database. Make sure to use a hash
+specifically built for this purpose and designed to be slow to make brute-force
+attacks more difficult, for example bcrypt rather than SHA256 . For further
+information, OWASP has a dedicated password storage
+[cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
+
+**Session management **
+
+Session management is when a server maintains the state of a user’s
+authentication to avoid them having to authenticate for every request. Some
+things to look out for here are _how_ the token is being generated, _what_ it
+will store, _where_ it will be stored and _when_ it will expire. See the NIST
+guidelines on session management
+[here](https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c6-implement-digital-identity.html#session-generation-and-expiration)
+and cheatsheet
+[here](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html).
+
+### B. Authorization
+
+**Choose your authorization model**
+
+Choosing the correct authorization model from the outset is incredibly
+important. As mentioned in
+[OWASP’s top 10 proactive controls](https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c7-enforce-access-controls.html#design-access-control-thoroughly-up-front),
+it is crucial to design your authorization thoroughly up front to avoid having
+to reengineer it later on. There are different ways of managing a user’s access
+to resources: ACL, RBAC and ABAC.
 
 - An **access-control list (ACL)** is a table listing the permissions attached
   to computing resources. It involves having an entry for each user with the
@@ -237,58 +247,74 @@ outset and before other product features can be implemented.
   _combination_ of several attributes (for example subject role, resource type
   and action).
 
-  Whilst it is a bit more complicated to implement, ABAC provides the most
-  flexibility and granularity, thus more security and control over who can
-  access which resources.
+Whilst it is a bit more complicated to implement, ABAC provides the most
+flexibility and granularity, thus more security and control over who can access
+which resources.
 
-  Tip: It’s worth taking the extra time to think long and hard about which of
-  these to go for, since switching from one to another down the line is quite
-  complicated.
+:::tip
 
-  Tip: At OpenFn, we are implementing ABAC - a user’s access is dependent on the
-  resource type (project, credential) and action (read or write).
+It’s worth taking the extra time to think long and hard about which of these to
+go for, since switching from one to another down the line is quite complicated.
 
-  **Define user roles**
+:::
 
-  Once you have figured out how to create user accounts and enable users to log
-  in and out, you should be thinking about how to manage their access to
-  resources. It’s worth figuring out basic roles or sets of permissions from the
-  beginning, in order to ensure you think about access for different roles as
-  and when you add resources - and make sure that when a new user is created
-  they do have _some_ permissions.
+:::tip
 
-  In order to define user roles, think about the different user types that might
-  be using your application and what actions each user type would need to carry
-  out. Depending on how far along you are in app development, it helps to take a
-  look at your database or simply map out all of your resources. Then, think
-  about what CRUD (create, read, update, delete) permissions each user might
-  need. Some typical user roles are ‘administrator’, ‘owner’, ‘editor’,
-  ‘viewer’.
+At OpenFn, we are implementing ABAC - a user’s access is dependent on the
+resource type (project, credential) and action (read or write).
 
-  Tip: When defining users and roles, think about where these will be scoped.
-  For example, your application might have users and project_users, where the
-  roles should be set on the project_user since that is where the access is
-  scoped. One user might need ‘Editor’ permissions on one project but only
-  ‘viewer’ permissions on another. - OpenFn
+:::
 
-  Tip: “Start simple, the more complexity you add the more likely you are to
-  make implementation errors” - DHIS2
+**Define user roles**
 
-  **Implement access control**
+Once you have figured out how to create user accounts and enable users to log in
+and out, you should be thinking about how to manage their access to resources.
+It’s worth figuring out basic roles or sets of permissions from the beginning,
+in order to ensure you think about access for different roles as and when you
+add resources - and make sure that when a new user is created they do have
+_some_ permissions.
 
-  Once you’ve figured out your authorization model and user roles, you are all
-  set to implement access controls. Choose an authorization library, making sure
-  it’s a widely used, well maintained and well documented one. Ensure that all
-  access requests go through some kind of verification, and follow the concept
-  of _deny by default_ - make sure that if a request is not specifically
-  allowed, it should be denied.
+In order to define user roles, think about the different user types that might
+be using your application and what actions each user type would need to carry
+out. Depending on how far along you are in app development, it helps to take a
+look at your database or simply map out all of your resources. Then, think about
+what CRUD (create, read, update, delete) permissions each user might need. Some
+typical user roles are ‘administrator’, ‘owner’, ‘editor’, ‘viewer’.
 
-  Tip: Don’t hardcode roles - for example instead of using code like
-  user.hasRole("ADMIN"), user.hasAccess("DELETE_ACCOUNT"). -
-  [ OWASP proactive controls ](https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c7-enforce-access-controls.html#don-t-hardcode-roles)
+:::tip
 
-  Tip: “Make sure your access control is all centralized so that they are easier
-  to audit” - DHIS2
+When defining users and roles, think about where these will be scoped. For
+example, your application might have users and project_users, where the roles
+should be set on the project_user since that is where the access is scoped. One
+user might need ‘Editor’ permissions on one project but only ‘viewer’
+permissions on another. - OpenFn
+
+:::
+
+:::tip
+
+“Start simple, the more complexity you add the more likely you are to make
+implementation errors” - DHIS2
+
+:::
+
+**Implement access control**
+
+Once you’ve figured out your authorization model and user roles, you are all set
+to implement access controls. Choose an authorization library, making sure it’s
+a widely used, well maintained and well documented one. Ensure that all access
+requests go through some kind of verification, and follow the concept of _deny
+by default_ - make sure that if a request is not specifically allowed, it should
+be denied. Make sure to avoid hardcoding role - for example instead of using
+code like user.hasRole("ADMIN"), user.hasAccess("DELETE_ACCOUNT"). -
+[ OWASP proactive controls ](https://owasp-top-10-proactive-controls-2018.readthedocs.io/en/latest/c7-enforce-access-controls.html#don-t-hardcode-roles)
+
+:::tip
+
+“Make sure your access control is all centralized so that they are easier to
+audit” - DHIS2
+
+:::
 
 These first few features allow you to have the basic structures set up within
 your application to focus on the rest of your product development and start
@@ -298,9 +324,13 @@ necessary for engineers to include authorization as they work on other product
 areas and avoid them having to later come back and retro-fit it onto the whole
 product.
 
-Tip: If you are starting to ask users to play around with your product at this
-point, make sure to indicate it is still in Alpha stage, or add a notice in the
-app reminding them it is not yet fully secure.
+:::tip
+
+If you are starting to ask users to play around with your product at this point,
+make sure to indicate it is still in Alpha stage, or add a notice in the app
+reminding them it is not yet fully secure.
+
+:::
 
 ## III. Securing your authentication and authorization
 
@@ -313,69 +343,73 @@ way apply to security.
 This next section covers some key security features that _should_ be implemented
 before your application is released.
 
-1. Password management
+### A. Password management
 
-   In their latest
-   [Application Verification Security Standards](https://owasp.org/www-pdf-archive/OWASP_Application_Security_Verification_Standard_4.0-en.pdf),
-   NIST included Multi-Factor Authentication (MFA) as part of their AAL1
-   (Authenticator Assurance Level), flagging the fact that the number of
-   passwords and usernames that are publicly known or attainable by malicious
-   individuals can no longer be ignored given the number of data breaches.
-   That’s why implementing multi-factor authentication must come as soon as
-   possible in the roadmap. Read more about MFA vulnerabilities
-   [here](https://portswigger.net/web-security/authentication/multi-factor).
+In their latest
+[Application Verification Security Standards](https://owasp.org/www-pdf-archive/OWASP_Application_Security_Verification_Standard_4.0-en.pdf),
+NIST included Multi-Factor Authentication (MFA) as part of their AAL1
+(Authenticator Assurance Level), flagging the fact that the number of passwords
+and usernames that are publicly known or attainable by malicious individuals can
+no longer be ignored given the number of data breaches. That’s why implementing
+multi-factor authentication must come as soon as possible in the roadmap. Read
+more about MFA vulnerabilities
+[here](https://portswigger.net/web-security/authentication/multi-factor).
 
-   Ensure you implement password change and recovery mechanisms, keeping in mind
-   the following
-   [cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html).
-   Lock users out after too many password attempts to prevent brute force
-   attacks and set up periodic password resets.
+Ensure you implement password change and recovery mechanisms, keeping in mind
+the following
+[cheatsheet](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html).
+Lock users out after too many password attempts to prevent brute force attacks
+and set up periodic password resets.
 
-2. Moving towards a federated identity
+### B. Moving towards a federated identity
 
-   When users have a different (and long/complex) password for every application
-   they use, they struggle to remember them. Whilst it is recommended to use a
-   password manager, very few do and instead store these in insecure ways such
-   as in a file on their computer (which could be hacked) or reuse the same
-   password across several applications. Providing users with a way to use a
-   single set of credentials for several applications thus improves application
-   security by reducing the likelihood of unsafe password storage, with the nice
-   benefit of also improving user experience. In addition to this, by providing
-   administrators with a single IdP (defined below) to manage identities and
-   access within an organization improves security.
+When users have a different (and long/complex) password for every application
+they use, they struggle to remember them. Whilst it is recommended to use a
+password manager, very few do and instead store these in insecure ways such as
+in a file on their computer (which could be hacked) or reuse the same password
+across several applications. Providing users with a way to use a single set of
+credentials for several applications thus improves application security by
+reducing the likelihood of unsafe password storage, with the nice benefit of
+also improving user experience. In addition to this, by providing administrators
+with a single IdP (defined below) to manage identities and access within an
+organization improves security.
 
-   There are two ways of achieving this: Single Sign-On (SSO) and Federated
-   Identity Management (FIM). The difference between both lies in their scope.
-   Whereas SSO allows users to access multiple _applications_ _within the same
-   domain_ using the same set of credentials, FIM allows them to do this across
-   _applications in different domains_. FIM is a way of sharing user identities
-   across applications run by different organizations, and _includes_ SSO.
+There are two ways of achieving this: Single Sign-On (SSO) and Federated
+Identity Management (FIM). The difference between both lies in their scope.
+Whereas SSO allows users to access multiple _applications_ _within the same
+domain_ using the same set of credentials, FIM allows them to do this across
+_applications in different domains_. FIM is a way of sharing user identities
+across applications run by different organizations, and _includes_ SSO.
 
-   There are two components to federated identity: an Identity Provider (IdP)
-   which manages a user’s identity and a Service Provider (SP) - the web
-   application which needs to verify that user’s identity. These interact with
-   each other through an **authentication protocol **which relays authentication
-   data between the IdP and SP.
+There are two components to federated identity: an Identity Provider (IdP) which
+manages a user’s identity and a Service Provider (SP) - the web application
+which needs to verify that user’s identity. These interact with each other
+through an **authentication protocol **which relays authentication data between
+the IdP and SP.
 
-   Implementing federated identity for your application therefore requires you
-   to support an authentication protocol, of which the most known are SAML,
-   OpenID Connect and LDAP. These differ in terms of _what_ they pass on to the
-   service provider and how (json or XML).
+Implementing federated identity for your application therefore requires you to
+support an authentication protocol, of which the most known are SAML, OpenID
+Connect and LDAP. These differ in terms of _what_ they pass on to the service
+provider and how (json or XML).
 
-3. **SAML **(security assertion markup language) is an XML-based protocol for
+1. **SAML **(security assertion markup language) is an XML-based protocol for
    authentication AND authorization. It allows an IdP to pass _authentication,
    attribute and authorization statements_ to your application.
-4. **OpenID Connect, **built on top of Oauth to complement its authorization
+2. **OpenID Connect, **built on top of Oauth to complement its authorization
    functionality with authentication, passes JWT (json web tokens) which contain
    claims about a user to your application.
-5. **LDAP **(Lightweight Directory Access Protocol) is a directory services
+3. **LDAP **(Lightweight Directory Access Protocol) is a directory services
    protocol which allows you to connect with an active directory which can
    handle authentication and returns an access token.
 
-   Tip: OpenID connect is easiest to implement across organizations. OpenID
-   Connect and SAML would both work with most identity providers - the
-   difference is that some identity providers would have a preference or work
-   better with one over the other.
+   :::tip
+
+   OpenID connect is easiest to implement across organizations. OpenID Connect
+   and SAML would both work with most identity providers - the difference is
+   that some identity providers would have a preference or work better with one
+   over the other.
+
+   :::
 
    Having these protocols set up will enable anyone running your application to
    configure federated identity with the identity provider of their choice:
@@ -384,20 +418,20 @@ before your application is released.
    Comment: “would there be a way for the DPG community to have a common
    approach to authentication and authorization?”
 
-6. Identity and Access Management
+### C. Identity and Access Management
 
-   User’s identities and their access changes over time (a user may leave an
-   organization and need to have their account deleted, or they may start
-   working on a new project which requires them to acquire new permissions).
-   Implementing easy ways to track/audit, grant and revoke access is key to
-   ensuring that administrators properly manage user access over time.
+User’s identities and their access changes over time (a user may leave an
+organization and need to have their account deleted, or they may start working
+on a new project which requires them to acquire new permissions). Implementing
+easy ways to track/audit, grant and revoke access is key to ensuring that
+administrators properly manage user access over time.
 
-   Administrators should have visibility over users and their permissions to
-   quickly identify if any user has access to resources that are not required
-   for their role and stay in line with the principle of least privilege. Simple
-   access requests are also key - if the flow for granting a user new
-   permissions takes too long, there is a risk that administrators might grant
-   more access than required to avoid having to come back for future requests.
+Administrators should have visibility over users and their permissions to
+quickly identify if any user has access to resources that are not required for
+their role and stay in line with the principle of least privilege. Simple access
+requests are also key - if the flow for granting a user new permissions takes
+too long, there is a risk that administrators might grant more access than
+required to avoid having to come back for future requests.
 
 <!-- <p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
 
@@ -418,36 +452,37 @@ access to view and edit resources, it also requires strong authentication and
 authorization. The following are some key authentication and authorization
 recommendations for developing a secure API.
 
-1. API authentication methods
+### A. API authentication methods
 
-   This section introduces common API authentication methods (Oauth, Basic, API
-   keys and access tokens) whilst discussing the pros and cons of each of these.
-   Your API may support one or more methods of authentication.
+This section introduces common API authentication methods (Oauth, Basic, API
+keys and access tokens) whilst discussing the pros and cons of each of these.
+Your API may support one or more methods of authentication.
 
 1. **[Basic auth](https://www.twilio.com/docs/glossary/what-is-basic-authentication)
    **involves asking requests to provide a username and password in their
    request. These are usually a base64 encoded string sent in the Authorization
    header. It is only secure if used with HTTPS/SSL.
-1. **API key **authorization requires requests to include a token sent in the
+2. **API key **authorization requires requests to include a token sent in the
    query parameters or the request header. It is also only secure if used with
    HTTPS/SSL.
-1. **Oauth 2.0 **authorization gives limited access to data through an access
+3. **Oauth 2.0 **authorization gives limited access to data through an access
    token. It is much safer than API keys and Basic auth, since access tokens
    expire, meaning that even if someone were able to gain access to them these
    would only be valid for a limited amount of time. Oauth also has the benefit
    of allowing you to add authorization scopes to limit what a user has access
    to.
-1. API protection features
 
-   Additional features can help further protest your API. API gateways provide a
-   single entrypoint across internal APIs allowing you to handle authentication,
-   authorization and other security measures like rate limiting all in one
-   place. IP whitelisting allows you to limit where you accept requests from
-   based on an IP.
-   [CORS](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html#cors)
-   prevent cross-site scripting. Rate limiting prevents distributed denial of
-   service attacks (DDoS). It is helpful to go through the GovStack
-   [Security BB requirements](https://docs.egovstack.net/v1.1.0/Security_Requirements_v1.1.0.pdf).
+### B. API protection features
+
+Additional features can help further protest your API. API gateways provide a
+single entrypoint across internal APIs allowing you to handle authentication,
+authorization and other security measures like rate limiting all in one place.
+IP whitelisting allows you to limit where you accept requests from based on an
+IP.
+[CORS](https://cheatsheetseries.owasp.org/cheatsheets/REST_Security_Cheat_Sheet.html#cors)
+prevent cross-site scripting. Rate limiting prevents distributed denial of
+service attacks (DDoS). It is helpful to go through the GovStack
+[Security BB requirements](https://docs.egovstack.net/v1.1.0/Security_Requirements_v1.1.0.pdf).
 
 ## V. Periodic audits, compliance, strengthening and communicating your approach to security
 
@@ -456,12 +491,16 @@ to stay up to date with the evolving threat landscape and related security
 recommendations. Application developers should carry out periodic audits to
 ensure all security measures are implemented correctly.
 
-Tip: “For OpenFn who are not security experts, the easiest thing was to work
-through the
+:::tip
+
+“For OpenFn who are not security experts, the easiest thing was to work through
+the
 [OWASP ASVS checklist ](https://owasp.org/www-project-application-security-verification-standard/)and
 make sure that we adhered to all of their recommendations. It takes a long time,
 but there is a section specifically for authentication and authorization and
 it’s definitely worth the effort!” - OpenFn
+
+:::
 
 Beyond periodic audits, application developers should provide administrators
 with ways of monitoring their authentication and authorization systems. For
@@ -483,9 +522,13 @@ and .
 Certifications are another way of proving compliance, although these tend to be
 rather expensive.
 
-Tip: If you \_do \_want to stay in line with best practices but cannot afford
+:::tip
+
+If you _do_ want to stay in line with best practices but cannot afford
 certifications like SOC2, the NIST framework is quite close to the SOC2
 requirements. - Dimagi
+
+:::
 
 You should also think about a strategy for pushing security patches. One
 difficulty of being open source is that your codebase is all available online.
@@ -497,19 +540,27 @@ downloaded your application, but it is worth keeping a list of security contacts
 for big implementations, to ensure you can notify them of the vulnerability and
 give them a strategy to patch it _before_ it gets published online.
 
-Tip: “Think about having a strategy for releasing patches” - DHIS2
+:::tip
+
+“Think about having a strategy for releasing patches” - DHIS2
+
+:::
 
 It is our role and responsibility to ensure the DPG community as a whole puts
 security first, so if you find a vulnerability in your own application, please
 communicate it to everyone else.
 
-Tip: Set up a system within your team for managing dependencies, otherwise it’s
-easy to fall behind and then your application will be many versions behind. At
-Dimagi they have a rotating task for dealing with dependencies.
+:::tip
 
-Tip:”It’s easy as a product manager to underestimate how long
+Set up a system within your team for managing dependencies, otherwise it’s easy
+to fall behind and then your application will be many versions behind. At Dimagi
+they have a rotating task for dealing with dependencies.
+
+:::
+
+It’s easy as a product manager to underestimate how long
 authentication/authorization will take to implement - make time for it within
-your product development roadmap.” - Amber
+your product development roadmap.
 
 ## Conclusion
 
