@@ -16,8 +16,8 @@ authorization systems are secure from the outset. _
 We’ve put together a resource to help other Digital Public Goods and Global
 Goods achieve just this.
 
-You can view the resource
-[here](https://docs.google.com/document/d/1QvOcOdk2iZCWnAVNiBbmhh-6Q2gapUhsMCUzJQNWqEU/edit?usp=sharing),
+**You can view and comment on the resource
+[here](https://docs.google.com/document/d/1QvOcOdk2iZCWnAVNiBbmhh-6Q2gapUhsMCUzJQNWqEU/edit?usp=sharing)**,
 or read on to learn why.
 
 ---
@@ -56,7 +56,7 @@ recommendations to pick out and prioritize their implementation, increasing the
 likelihood of an oversight or early-made product decisions which make it harder
 to implement such security features down the line.
 
-As product manager at Open Function Group I myself have recently been reviewing
+As product manager at Open Function Group, I myself have recently been reviewing
 and analyzing numerous resources to identify and prioritize features required to
 get to fully-secure authentication and authorization for our newest product
 [Lightning](/documentation/about-lightning/)–and make sure that nothing falls
@@ -77,5 +77,5 @@ learnings from the wider DPG community, as well as recommendations from other
 security experts and international standards, including GovStack, OpenHIE,
 OWASP, NIST, and more.
 
-The resource can be found
-[here](https://docs.google.com/document/d/1QvOcOdk2iZCWnAVNiBbmhh-6Q2gapUhsMCUzJQNWqEU/edit?usp=sharing).
+**The resource can be found
+[here](https://docs.google.com/document/d/1QvOcOdk2iZCWnAVNiBbmhh-6Q2gapUhsMCUzJQNWqEU/edit?usp=sharing).**
