@@ -85,10 +85,10 @@ authorization since these terms often get confused:
 - **Authorization **is the process of verifying what resources a user can
   access.
 
-<!-- <p id="gdcalert1" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image1.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert2">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p> -->
+  ![alt_text](/img/authentication-vs-athorization.png 'image_tooltip')
 
-<!-- ![alt_text](images/image1.png 'image_tooltip') \
-_Source: [Heimdal Security](https://heimdalsecurity.com/blog/authentication-vs-authorization/)_ -->
+  _Source:
+  [Heimdal Security](https://heimdalsecurity.com/blog/authentication-vs-authorization/)_
 
 Authentication and authorization both work _together_ to secure who can access
 which resources within an application.
@@ -135,20 +135,19 @@ types [here](https://digitalid.design/core-concepts-processes.html).
     [OpenCRVS](https://www.opencrvs.org/) is one example of a DPG which uses
     foundational identity: their users are citizens who need to carry out civil
     registration.
-1.  **A functional identity system** is where identity is used for a particular
+2.  **A functional identity system** is where identity is used for a particular
     sector, for example Voter Registration or driver’s licenses.
 
     Foundational and functional identity systems are typically used for
     government services.
 
-<!-- <p id="gdcalert2" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image2.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert3">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
+![alt_text](/img/foundational-functional-identity.png 'image_tooltip')
 
-![alt_text](images/image2.png 'image_tooltip') -->
+_World Bank ID4D Practitioner’s Guide:
+[https://id4d.worldbank.org/guide/types-id-systems](https://id4d.worldbank.org/guide/types-id-systems)_
 
-    World Bank ID4D Practitioner’s Guide: [https://id4d.worldbank.org/guide/types-id-systems](https://id4d.worldbank.org/guide/types-id-systems)
-
-3. **An Open Market Identity System** is when an application creates and manages
-   their own digital identities**.**
+3.  **An Open Market Identity System** is when an application creates and
+    manages their own digital identities**.**
 
 :::tip
 
@@ -437,9 +436,7 @@ requests are also key - if the flow for granting a user new permissions takes
 too long, there is a risk that administrators might grant more access than
 required to avoid having to come back for future requests.
 
-<!-- <p id="gdcalert3" ><span style="color: red; font-weight: bold">>>>>>  gd2md-html alert: inline image link here (to images/image3.png). Store image on your image server and adjust path/filename/extension if necessary. </span><br>(<a href="#">Back to top</a>)(<a href="#gdcalert4">Next alert</a>)<br><span style="color: red; font-weight: bold">>>>>> </span></p>
-
-![alt_text](images/image3.png 'image_tooltip') -->
+![alt_text](/img/identity-lifecycle.png 'identity lifecycle')
 
 As mentioned, this section is not an exhaustive list. Once you have implemented
 the above, take the time to carry out an audit and run through security
