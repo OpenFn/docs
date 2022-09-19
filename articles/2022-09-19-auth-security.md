@@ -16,7 +16,9 @@ authorization systems are secure from the outset. _
 We’ve put together a resource to help other Digital Public Goods and Global
 Goods achieve just this.
 
-You can view the resource here, or read on to learn why.
+You can view the resource
+[here](https://docs.google.com/document/d/1QvOcOdk2iZCWnAVNiBbmhh-6Q2gapUhsMCUzJQNWqEU/edit?usp=sharing),
+or read on to learn why.
 
 ---
 
@@ -74,3 +76,6 @@ following a ‘secure by design’ approach. To inform our analysis, we analyzed
 learnings from the wider DPG community, as well as recommendations from other
 security experts and international standards, including GovStack, OpenHIE,
 OWASP, NIST, and more.
+
+The resource can be found
+[here](https://docs.google.com/document/d/1QvOcOdk2iZCWnAVNiBbmhh-6Q2gapUhsMCUzJQNWqEU/edit?usp=sharing).
