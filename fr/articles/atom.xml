@@ -2,12 +2,26 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.openfn.org/fr/articles</id>
     <title>OpenFn Help Articles</title>
-    <updated>2022-06-07T00:00:00.000Z</updated>
+    <updated>2022-09-19T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.openfn.org/fr/articles"/>
     <subtitle>OpenFn/docs Blog</subtitle>
     <icon>https://docs.openfn.org/fr/img/favicon.ico</icon>
     <rights>Copyright © 2022 Open Function Group, LLC.</rights>
+    <entry>
+        <title type="html"><![CDATA[Secure by design: a roadmap to secure authentication and authorization]]></title>
+        <id>/2022/09/19/auth-security</id>
+        <link href="https://docs.openfn.org/fr/articles/2022/09/19/auth-security"/>
+        <updated>2022-09-19T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[_In order to ensure that Global Goods and Digital Public Goods can enable impact]]></summary>
+        <author>
+            <name>Amber Rignell</name>
+            <uri>https://github.com/amberrignell</uri>
+        </author>
+        <category label="security" term="security"/>
+        <category label="authentication" term="authentication"/>
+        <category label="authorization" term="authorization"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Workflow Automation; Why do it yourself when a program can do it for you?]]></title>
         <id>/2022/06/07/workflow-automation</id>

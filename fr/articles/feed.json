@@ -5,6 +5,23 @@
     "description": "OpenFn/docs Blog",
     "items": [
         {
+            "id": "/2022/09/19/auth-security",
+            "content_html": null,
+            "url": "https://docs.openfn.org/fr/articles/2022/09/19/auth-security",
+            "title": "Secure by design: a roadmap to secure authentication and authorization",
+            "summary": "_In order to ensure that Global Goods and Digital Public Goods can enable impact",
+            "date_modified": "2022-09-19T00:00:00.000Z",
+            "author": {
+                "name": "Amber Rignell",
+                "url": "https://github.com/amberrignell"
+            },
+            "tags": [
+                "security",
+                "authentication",
+                "authorization"
+            ]
+        },
+        {
             "id": "/2022/06/07/workflow-automation",
             "content_html": null,
             "url": "https://docs.openfn.org/fr/articles/2022/06/07/workflow-automation",

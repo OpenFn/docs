@@ -4,11 +4,21 @@
         <title>OpenFn Help Articles</title>
         <link>https://docs.openfn.org/articles</link>
         <description>OpenFn/docs Blog</description>
-        <lastBuildDate>Tue, 07 Jun 2022 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 19 Sep 2022 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2022 Open Function Group, LLC.</copyright>
+        <item>
+            <title><![CDATA[Secure by design: a roadmap to secure authentication and authorization]]></title>
+            <link>https://docs.openfn.org/articles/2022/09/19/auth-security</link>
+            <guid>/2022/09/19/auth-security</guid>
+            <pubDate>Mon, 19 Sep 2022 00:00:00 GMT</pubDate>
+            <description><![CDATA[_In order to ensure that Global Goods and Digital Public Goods can enable impact]]></description>
+            <category>security</category>
+            <category>authentication</category>
+            <category>authorization</category>
+        </item>
         <item>
             <title><![CDATA[Workflow Automation; Why do it yourself when a program can do it for you?]]></title>
             <link>https://docs.openfn.org/articles/2022/06/07/workflow-automation</link>
