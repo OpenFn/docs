@@ -56,20 +56,24 @@ development \_specifically with regards to authentication and authorization.
 \_Our hope is that this will make it easier for other PMs in the GG/DPG
 community to get these features into their backlog/roadmap from the outset and
 make sure they are following a ‘secure by design’ approach. It ties in learnings
-from the wider DPG community, as well as recommendations from GovStack, OpenHIE,
-OWASP and NIST.
+from the wider DPG community, as well as recommendations from
+[GovStack](https://www.govstack.global/), [OpenHIE](https://ohie.org/),
+[OWASP](https://owasp.org/) and [NIST](https://www.nist.gov/cyberframework).
 
 ## I. Context and definitions
 
 Whilst security should be a priority for any feature development, this resource
-focuses on authentication and authorization for two reasons. Firstly,
-authentication and authorization are critical, foundational elements to keeping
-resources secure and are common culprits for application vulnerabilities:
-‘broken access control’ and ‘identification and authentication failures’ ranked
-1st and 7th in the OWASP 2021 top 10 most critical security risks to web
-applications. Secondly, almost all DPG/GG software applications require
-authentication and authorization which makes this document relevant to the whole
-sector.
+focuses on authentication and authorization for two reasons.
+
+Firstly, authentication and authorization are critical, foundational elements to
+keeping resources secure and are common culprits for application
+vulnerabilities: ‘broken access control’ and ‘identification and authentication
+failures’ ranked 1st and 7th in the
+[OWASP 2021 top 10](https://owasp.org/Top10/#welcome-to-the-owasp-top-10-2021)
+most critical security risks to web applications.
+
+Secondly, almost all DPG/GG software applications require authentication and
+authorization which makes this document relevant to the whole sector.
 
 Before we delve any deeper, it is important to define both authentication and
 authorization since these terms often get confused:
@@ -97,11 +101,11 @@ is eager to get _something_ in front of users as soon as possible to start
 seeing how people interact with it and testing out your assumptions, it's
 tempting to skim over authentication and authorization as a product area that
 has less unknowns and de-prioritise it. However, authentication and
-authorization touches all areas of a product and does require a lot of planning
-and decision making, so it's crucial to get the correct foundations set up
-before you start fleshing out other features. In addition, the earlier
-authentication and authorization is set up, the more likely it is that any bugs
-related to them can be detected and addressed.
+authorization touches all areas of a product and requires a lot of planning and
+decision making, so it's crucial to get the correct foundations set up before
+you start fleshing out other features. In addition, the earlier authentication
+and authorization is set up, the more likely it is that any bugs related to them
+can be detected and addressed.
 
 When it comes to security, it is always better to go with tried and tested
 libraries, frameworks or systems where possible rather than building out new
