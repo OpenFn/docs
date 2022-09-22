@@ -5,21 +5,28 @@ sidebar_label: Lightning
 
 ## Introducing Lightning
 
+[OpenFn/Lightning](https://github.com/OpenFn/lightning/) is a _fully open
+source_ workflow automation platform designed for governments and NGOs who need
+a flexible solution to integrate and connect _any system_.
+
 ##### Leveraging the tech powering the field-tested enterprise OpenFn platform...
 
-Lightning brings together the tried and tested technology we have been using
-since 2015 (OpenFn core, engine, adaptors and code from the OpenFn SaaS
-platform) to manage the orchestration and execution of integrations in a stable,
-scalable and secure way.
+Lightning brings together the tried and tested technology which we have been
+using since 2015 (the OpenFn
+[Integration Toolkit](/documentation/getting-started/integration-toolkit)) to
+manage the orchestration and execution of integrations in a stable, scalable and
+secure way.
 
-##### ...but providing a fully open source web app with a user-friendly web interface.
+##### ...and providing a fully open source web app with a user-friendly web interface.
 
 A fully open source web app, it can be deployed anywhere through Docker and
 comes with a user-friendly, low-code interface with the full functionality
 needed for organizations to build, run and audit their workflows all in one
-place. ![Lightning](/img/lightning_build_run_audit.png)
+place.
 
-##### Build
+![Lightning](/img/lightning_build_run_audit.png)
+
+### Build
 
 Empower more users in your organization to have a say in what gets automated and
 how. Lightning’s visual interface makes workflows more intelligible to
@@ -27,7 +34,9 @@ non-technical users, bridging the gap between the IT specialists that build out
 automations and program managers that are the real business/ program experts on
 the processes that need automating.
 
-##### Audit
+![Lightning build interface](/img/lightning_build.png)
+
+### Audit
 
 Treat every workflow run with the care and attention it deserves. In OpenFn,
 each incoming request or transaction that gets processed is more than a piece of
@@ -36,20 +45,7 @@ managing their savings to make sure they can afford the next harvest. Lightning
 provides users with a dashboard that allows them to monitor the health of their
 integrations to make sure no request goes unprocessed.
 
-## What is Lightning ?
-
-[OpenFn/Lightning](https://github.com/OpenFn/lightning/) is a _fully open
-source_ workflow automation platform. It is designed for governments or NGOs who
-need a flexible solution which enables them to integrate and connect _any
-system_ and comes with fully-fledged user management and auditing capabilities.
-Lightning relies on the same tried-and-trusted core technology as the OpenFn
-iPaaS and comes with an improved, visual interface for building integrations.
-
-:::note
-
-Any integration built on the OpenFn iPaaS is can be run on Lightning.
-
-:::
+![Lightning audit interface](/img/lightning_audit.png)
 
 ## Guiding principles
 
@@ -131,7 +127,7 @@ Projects-as-code and CLI for a developer interface:
 - Export, import and configure projects as code in the code editor of your
   choice
 - Run, test and deploy projects through a command line interface
-- Review and track changes through github version control
+- Review and track changes through version control
 
 Collaboration functionality:
 
