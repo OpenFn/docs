@@ -75,6 +75,14 @@ jobs, triggers, and credentials. The key components of the toolkit are:
 6. the OpenFn adaptors
 7. _OpenFn/lightning (coming soon...)_
 
+### Lightning, coming soon!
+
+Lightning is an upcoming addition to the Integration Toolkit. It is a _fully
+open source_ workflow automation platform designed for governments and NGOs who
+need a flexible solution to integrate and connect _any system_.
+
+You can read all about it [here](/documentation/about-lightning)!
+
 ## Open Source Steering Committee (OSSC)
 
 We've also initiated an Open Source Steering Committee (OSSC) to represent the
