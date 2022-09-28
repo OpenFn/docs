@@ -16,6 +16,8 @@ The final state of a job run is determined by _you_. Job expressions are a
 series of `operations`—they each take `state` and return `state`, after creating
 any number of side effects.
 
+Note that, if you have a cron job that returns `null` state, we will replace it by the empty state (`{}`) to build the state for the next job call.
+
 ### Final state after an error
 
 If a job run fails, it will not produce a final state. The run itself will have
