@@ -16,7 +16,9 @@ The final state of a job run is determined by _you_. Job expressions are a
 series of `operations`—they each take `state` and return `state`, after creating
 any number of side effects.
 
-Note that, if you have a cron job that returns `null` state, we will replace it by the empty state (`{}`) to build the state for the next job call.
+Note that if your job returns `null` in its last operation and its state is
+saved for use in a subsequent job, we will use an empty object (`{}`) as the
+base for building the next state.
 
 ### Final state after an error
 
@@ -39,6 +41,6 @@ for details.
 | Triggering Event | Initial State                                                                                          |
 | ---------------- | ------------------------------------------------------------------------------------------------------ |
 | http request     | `{ data: httpRequest.body, configuration: job.credential.body }`                                       |
-| cron             | `{ ...finalStateOfLastSuccessfulRun, configuration: job.credential.body }`                         |
+| cron             | `{ ...finalStateOfLastSuccessfulRun, configuration: job.credential.body }`                             |
 | flow: success    | `{ ...finalStateOfTriggeringRun, configuration: job.credential.body }`                                 |
 | flow: failure    | `{ ...initialStateOfTriggeringRun, error: logsFromTriggeringRun, configuration: job.credential.body }` |

@@ -417,7 +417,7 @@ project's access to the credential.
 
 ### Granting/revoking credential access to a project
 
-Note that, by default, a credential is available to the project the user had
+Note that by default, a credential is available to the project the user had
 loaded at the time the user was creating the credential. However, OpenFn allows
 you to **grant** or **revoke** access to a credential for one or more projects.
 To grant or revoke access to a credential for a project, follow the below steps:
