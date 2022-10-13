@@ -186,7 +186,7 @@ To ensure a positive security posture at OpenFn, we:
 To ensure best practices in our code we:
 
 - Monitor dependency vulnerabilities via Github’s
-  [dependabot](https://www.google.com/url?q=https://github.com/features/security&sa=D&source=docs&ust=1665668274448690&usg=AOvVaw2BgXRqH4vefJpxeAv4xtvF)
+  [dependabot](https://github.com/features/security)
 - Perform static code analysis on each commit with
   [Sobelow](https://sobelow.io/)
 - Ensure code is clean and standardised through preflight checks
