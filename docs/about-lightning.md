@@ -163,7 +163,62 @@ Security:
 - Role-based project access
 - Additional authentication rules for webhooks
 
-## Get involved:
+## Security
+
+OpenFn treats security as a top priority, and is trusted to handle information
+of the most sensitive nature (for example UNICEF’s child case data).
+
+To increase transparency and accountability around security, as well to help
+other digital public goods think through key aspects of their own organizations’
+security postures, below is a list of the **key aspects of our own security
+program**.
+
+### Organizational security practices
+
+To ensure a positive security posture at OpenFn, we:
+
+- Conduct Employee IT security onboarding training & policy
+- Run monthly security standups with the whole team
+- Conduct an annual security review informed by the OWASP ASVS
+
+### DevSecOps
+
+To ensure best practices in our code we:
+
+- Monitor dependency vulnerabilities via Github’s
+  [dependabot](https://www.google.com/url?q=https://github.com/features/security&sa=D&source=docs&ust=1665668274448690&usg=AOvVaw2BgXRqH4vefJpxeAv4xtvF)
+- Perform static code analysis on each commit with
+  [Sobelow](https://sobelow.io/)
+- Ensure code is clean and standardised through preflight checks
+- Monitor code coverage of unit tests and integration tests with Codecov
+
+### Application security
+
+Lightning is designed to:
+
+- Scrub credential data from run logs
+- Encrypt credentials at REST
+- Track credential changes through an audit trail
+- Encrypt passwords
+- Enforce access controls with deny by default
+- Allow users to differentiate between staging and production credentials
+- Enable secure credential transfer across users
+- Purge credentials and user data on account deletion
+- Allow administrators to configure SSO through an identity provider
+
+### Data residency
+
+OpenFn Lightning is fully open source and can be deployed in any country. We
+offer high-availability managed deployments that are localized to any GCP or AWS
+location—guaranteeing that no data ever leaves the selected country.
+
+### Implementation guidance and recommendations
+
+To help our users adopt best practices when it comes to the design of their
+integrations, we’ve published a
+[Security Guidebook for data integration implementations](/documentation/getting-started/security).
+
+## Get involved
 
 We are building out in the open, you can follow our progress on the
 [Lightning repository](https://github.com/OpenFn/lightning) by clicking ‘Watch’
