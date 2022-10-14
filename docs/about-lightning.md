@@ -159,38 +159,6 @@ Security:
 - Role-based project access
 - Additional authentication rules for webhooks
 
-## Roadmap
-
-### Now (end of Q4)
-
-- Deploy Lightning via docker
-- Create and delete user accounts
-- Create new projects and assign users with different access levels to these
-  projects
-- Transfer credential ownership to another user
-- Track all credential changes as a Lightning superuser
-
-- Create a new workflow with a webhook or cron trigger
-- Create and configure jobs for a workflow with any OpenFn adaptor and operation
-- Create credentials through a form
-- View and select available operations for a given adaptor
-- View the input and output from the last run of each job in a workflow
-- Run a job manually
-
-- View all runs grouped by workflow
-- Search and filter runs by status, workflow and run logs
-
-### Soon
-
-- Retry a workflow run from the start or from failure
-- Get notified via email on run failure
-- Import and export projects
-- Automatic github version control
-
-### Later
-
-- Add authentication to webhook triggers
-
 ## Security
 
 OpenFn treats security as a top priority, and is trusted to handle information
