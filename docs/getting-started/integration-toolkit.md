@@ -83,6 +83,10 @@ need a flexible solution to integrate and connect _any system_.
 
 You can read all about it [here](/documentation/about-lightning)!
 
+## Architecture for implementation
+
+![Lightning architecture](/img/lightning_architecture.png)
+
 ## Open Source Steering Committee (OSSC)
 
 We've also initiated an Open Source Steering Committee (OSSC) to represent the
