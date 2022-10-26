@@ -36,6 +36,11 @@ module.exports = {
           position: 'left',
         },
         {
+          to: 'adaptors',
+          label: 'Adaptors',
+          position: 'left',
+        },
+        {
           to: 'library',
           label: 'Library',
           position: 'left',
@@ -155,7 +160,7 @@ module.exports = {
   ],
   plugins: [
     [
-      path.resolve(__dirname, 'job-library'),
+      path.resolve(__dirname, 'generate-library'),
       {
         apiUrl: 'https://www.openfn.org/api/public',
       },
@@ -167,6 +172,21 @@ module.exports = {
         path: 'library',
         routeBasePath: 'library',
         sidebarPath: require.resolve('./sidebars-library.js'),
+      },
+    ],
+    [
+      path.resolve(__dirname, 'generate-adaptors'),
+      {
+        apiUrl: 'https://www.github.com/openfn/adaptors',
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-docs',
+      {
+        id: 'adaptors',
+        path: 'adaptors',
+        routeBasePath: 'adaptors',
+        sidebarPath: require.resolve('./sidebars-adaptors.js'),
       },
     ],
     [

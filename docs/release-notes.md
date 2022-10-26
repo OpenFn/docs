@@ -420,7 +420,7 @@ trying to log in or sign up.
   function.
 
 **alterState:**
-[documentation](https://github.com/OpenFn/docs/blob/master/job-library/alter-state-before-operations.js)
+[documentation](https://github.com/OpenFn/docs/blob/main/library/jobs/alter-state-before-operations.js)
 
 ## Version 1.2.0 (2016-09-15)
 

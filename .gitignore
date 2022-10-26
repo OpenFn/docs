@@ -5,9 +5,12 @@
 /build
 /site
 
-# this directory is built automatically and overwritten by the job library
+# this directory is built automatically and overwritten by the job library gen
 /library/jobs/auto/
 /library/publicPaths.json
+
+# this directory is built automatically and overwritten by the adaptor doc gen
+/adaptors/packages/
 
 # Generated files
 .docusaurus
@@ -28,3 +31,5 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+.yarn/*
