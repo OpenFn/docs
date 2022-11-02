@@ -6,7 +6,8 @@
     "docusaurus": "docusaurus",
     "generate-library": "docusaurus generate-library",
     "generate-adaptors": "docusaurus generate-adaptors",
-    "start": "docusaurus generate-adaptors && docusaurus start",
+    "start": "docusaurus generate-library && docusaurus start",
+    "next-gen-start-when-its-working": "docusaurus generate-library && docusaurus generate-adaptors && docusaurus start",
     "start-offline": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -30,7 +31,7 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-flow-renderer": "^9.6.8",
-    "react-particles-js": "^3.4.1",
+    "react-particles": "^2.4.0",
     "react-player": "^2.9.0"
   },
   "browserslist": {

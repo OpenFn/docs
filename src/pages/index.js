@@ -4,7 +4,7 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Particles from 'react-particles-js';
+import Particles from 'react-particles';
 import styles from './styles.module.css';
 
 const features = [
