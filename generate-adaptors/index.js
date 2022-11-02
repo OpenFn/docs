@@ -1,4 +1,21 @@
+// TODO: Mtuchi to build
+// TODO: test this with: `yarn run generate-adaptors && yarn run start-offline`
+// Understand and implement these key components:
+// --------------
+// [ ] - index.js (1) copies files from github to this local directory and (2) creates a list of paths for the sidebar file.
+// [ ] - pathsToAdaptors.json is an array of the filepaths and names of the new markdown files we got from github
+// [ ] - sidebars-adaptors.js gerenates a "sidebar" based on the pathsToAdaptors.json file
+const axios = require('axios');
 const fs = require('fs');
+
+async function loadAdaptorsDocs(apiUrl) {
+  console.log('Loading adaptors docst from OpenFn/adaptors');
+  return await axios.get(apiUrl).then(function (response) {
+    console.log('Done ✓');
+    const docs = response.data;
+    return docs;
+  });
+}
 
 const filePaths = [];
 
@@ -18,9 +35,7 @@ keywords:
   - ${a.name}
 ---
 
-## Test
-
-hello world`;
+${JSON.parse(a.docs)}`;
 }
 
 module.exports = function (context, { apiUrl }) {
@@ -34,8 +49,8 @@ module.exports = function (context, { apiUrl }) {
           fs.existsSync('./adaptors/packages') ||
             fs.mkdirSync('./adaptors/packages');
 
-          const adaptors = [{ name: 'http' }, { name: 'primero' }];
-
+          // const adaptors = [{ name: 'http' }, { name: 'primero' }];
+          const adaptors = await loadAdaptorsDocs(apiUrl);
           console.log('Generating adaptors docs via JSDoc...');
 
           adaptors.map(a => {
