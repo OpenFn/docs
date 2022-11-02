@@ -43,16 +43,19 @@ static website generator.
 Installation
 
 ```console
+asdf install
+```
+
+```console
 yarn install
 ```
 
-(On Mac, I first had to run `npm install --global yarn` and then run this^
-command in the `/docs` repo.)
+(On Mac, I first had to run `corepack enable` to get yarn.)
 
 ### Local Development
 
 ```console
-npm run start
+yarn run start
 ```
 
 This command builds the job library from OpenFn.org, starts a local development
@@ -60,7 +63,7 @@ server, and opens up a browser window. Most changes are reflected live without
 having to restart the server.
 
 ```
-npm run start-offline
+yarn run start-offline
 ```
 
 This command skips the job library step, which requires an active internet
@@ -69,9 +72,9 @@ connection.
 ### Build and serve for full-featured testing
 
 ```console
-npm run generate-library
-npm run build
-npm run serve
+yarn run generate-library
+yarn run build
+yarn run serve
 ```
 
 This command generates static content into the `build` directory and can be
