@@ -22,20 +22,30 @@ const filePaths = [];
 function pushToPaths(name) {
   filePaths.push({
     name: name,
-    id: `adaptors/packages/${name}`,
+    docsId: `packages/${name}-docs`,
+    readmeId: `packages/${name}-readme`,
+    changelogId: `packages/${name}-changelog`,
   });
 }
 
-function generateBody(a) {
+function generateBody(a, docType) {
+  const docId = `${a.name}-${docType}`;
   return `---
 title: ${a.name}
-id: ${a.name}
+id: ${docId}
 keywords:
   - adaptor
+  - ${docType}
   - ${a.name}
 ---
 
-${JSON.parse(a.docs)}`;
+## Metadata
+
+- Name: ${a.name}
+- Adaptor: ${a.adaptor}
+- Adaptor Version: ${a.version}
+
+${JSON.parse(a[docType])}`;
 }
 
 module.exports = function (context, { apiUrl }) {
@@ -54,9 +64,21 @@ module.exports = function (context, { apiUrl }) {
           console.log('Generating adaptors docs via JSDoc...');
 
           adaptors.map(a => {
-            const body = generateBody(a);
+            const docsBody = generateBody(a, 'docs');
+            const readmeBody = generateBody(a, 'readme');
+            const changelogBody = generateBody(a, 'changelog');
+
             pushToPaths(a.name);
-            fs.writeFileSync(`./adaptors/packages/${a.name}.md`, body);
+
+            fs.writeFileSync(`./adaptors/packages/${a.name}-docs.md`, docsBody);
+            fs.writeFileSync(
+              `./adaptors/packages/${a.name}-readme.md`,
+              readmeBody
+            );
+            fs.writeFileSync(
+              `./adaptors/packages/${a.name}-changelog.md`,
+              changelogBody
+            );
           });
           console.log('Done ✓');
 

@@ -5,9 +5,25 @@ const adaptors = JSON.parse(adaptorsFile);
 
 const items = adaptors.sort().map(a => {
   return {
-    type: 'doc',
+    type: 'category',
     label: a.name,
-    id: `packages/${a.name}`,
+    items: [
+      {
+        type: 'doc',
+        label: 'Docs',
+        id: a.docsId,
+      },
+      {
+        type: 'doc',
+        label: 'Readme',
+        id: a.readmeId
+      },
+      {
+        type: 'doc',
+        label: 'Changelog',
+        id: a.changelogId,
+      },
+    ],
   };
 });
 
