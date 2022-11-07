@@ -14,13 +14,11 @@ without doing any harm, it is crucial that their authentication and
 authorization systems are secure from the outset. _
 
 We’ve put together a resource to help other Digital Public Goods and Global
-Goods achieve just this.
-
-**You can view and comment on the resource
-[here](https://docs.google.com/document/d/1QvOcOdk2iZCWnAVNiBbmhh-6Q2gapUhsMCUzJQNWqEU/edit?usp=sharing)**,
+Goods achieve just this. You can view and comment on the resource
+[here](https://docs.google.com/document/d/1QvOcOdk2iZCWnAVNiBbmhh-6Q2gapUhsMCUzJQNWqEU/edit?usp=sharing),
 or read on to learn why.
 
----
+<!--truncate-->
 
 Digital health technologies have a critical role to play in both improving the
 delivery of health services _and_ making health systems more robust and
