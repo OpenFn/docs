@@ -4494,8 +4494,8 @@ __metadata:
     react: ^16.8.4
     react-dom: ^16.8.4
     react-flow-renderer: ^9.6.8
-    react-particles-js: ^3.4.1
     react-player: ^2.9.0
+    react-tsparticles: ^2.5.3
     typescript: ^4.1.3
   languageName: unknown
   linkType: soft
@@ -9999,7 +9999,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash@npm:^4.17.11, lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
+"lodash@npm:^4.17.19, lodash@npm:^4.17.20, lodash@npm:^4.17.21":
   version: 4.17.21
   resolution: "lodash@npm:4.17.21"
   checksum: eb835a2e51d381e561e508ce932ea50a8e5a68f4ebdd771ea240d3048244a8d13658acbd502cd4829768c56f2e16bdd4340b9ea141297d472517b83868e677f7
@@ -11090,13 +11090,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pathseg@npm:^1.2.0":
-  version: 1.2.0
-  resolution: "pathseg@npm:1.2.0"
-  checksum: 31875c86664130b02845e86c9508518fd7e46cc706830d35a96479f0d2a61667e8cbf2b76846784e6d74065f164cfb806ca3403d7a71419aa434586f531b0965
-  languageName: node
-  linkType: hard
-
 "pend@npm:~1.2.0":
   version: 1.2.0
   resolution: "pend@npm:1.2.0"
@@ -12018,18 +12011,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-particles-js@npm:^3.4.1":
-  version: 3.4.1
-  resolution: "react-particles-js@npm:3.4.1"
-  dependencies:
-    lodash: ^4.17.11
-    tsparticles: ^1.18.10
-  peerDependencies:
-    react: ^16.0.0
-  checksum: a041ffffcb9d1ffa6c856a4bc31ba686ca0e0ff3786220e1f0cb2aef8c1d9bb0fa4ae85be9b2f2cf0cb6eb8367c372caf1becb6bd59fc431c7948e3238a7a8ef
-  languageName: node
-  linkType: hard
-
 "react-player@npm:^2.9.0":
   version: 2.9.0
   resolution: "react-player@npm:2.9.0"
@@ -12124,6 +12105,18 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0
   checksum: c474e955ff20bb14c6a1d4b8b24e0d4b0247850eb6222c4f8722e59bf1bd4c545624334e2ef808e98c8297831e75e348067d37e1354c535112599b9aea1c4c74
+  languageName: node
+  linkType: hard
+
+"react-tsparticles@npm:^2.5.3":
+  version: 2.5.3
+  resolution: "react-tsparticles@npm:2.5.3"
+  dependencies:
+    fast-deep-equal: ^3.1.3
+    tsparticles-engine: ^2.5.2
+  peerDependencies:
+    react: ">=16"
+  checksum: 26abd1894cbd4d5e6537cdae3e5055f87adc821d59f7e9109c30764ae4bedaf6f0d310d7437be57957b3f61f91d8589644027eba0b00c763d4035e37b1df21f7
   languageName: node
   linkType: hard
 
@@ -13658,15 +13651,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsparticles@npm:^1.18.10":
-  version: 1.18.11
-  resolution: "tsparticles@npm:1.18.11"
-  dependencies:
-    pathseg: ^1.2.0
-  dependenciesMeta:
-    pathseg:
-      optional: true
-  checksum: d285137812ce99954d722ba7340d8d4154917ff9a3a6e3bf1f00b39b2e612830198cde8b3cb0149c5ab42420d4dd264bcd2fd33ac1105d1c4a85f53e9e7fc54a
+"tsparticles-engine@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "tsparticles-engine@npm:2.5.2"
+  checksum: f55842fd1cc7b6b02dfff098f390fa553ea742b29bb54249845280078a442aeb44a0fcdb5423ebe8e4145302e2af9e80137efe29788f907bfc76d59d7b6dce26
   languageName: node
   linkType: hard
 
