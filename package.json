@@ -5,6 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "generate-library": "docusaurus generate-library",
+    "generate-adaptors": "docusaurus generate-adaptors",
     "start": "docusaurus generate-library && docusaurus generate-adaptors && docusaurus start",
     "start-offline": "docusaurus start",
     "build": "docusaurus build",
