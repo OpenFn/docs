@@ -1,5 +1,8 @@
 ---
+id: adaptors-intro
 title: Adaptors
+sidebar_label: Introduction
+slug: /
 ---
 
 An adaptor is an open-source Javascript module that provides OpenFn core users
@@ -24,9 +27,9 @@ In short, _most_ _**adaptors**_ follow the naming convention
 The developed adaptors can be found in GitHub under `https://github.com/openfn`,
 starting with the prefix `language-xyz`. Some examples are:
 
-- [language-http](https://github.com/OpenFn/language-http)
-- [language-postgresql](https://github.com/OpenFn/language-postgresql)
-- [language-primero](https://github.com/OpenFn/language-primero)
+- [language-http](https://github.com/OpenFn/adaptors/packages/http)
+- [language-postgresql](https://github.com/OpenFn/adaptors/packages/postgresql)
+- [language-primero](https://github.com/OpenFn/adaptors/packages/primero)
 
 ### On platform
 

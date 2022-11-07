@@ -94,7 +94,7 @@ function pushToPaths(j, uniqueName) {
 }
 
 const masterKeywords = JSON.parse(
-  fs.readFileSync('./job-library/master.temp.json')
+  fs.readFileSync('./generate-library/master.temp.json')
 );
 
 const filePaths = [];

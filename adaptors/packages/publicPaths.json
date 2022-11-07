@@ -1,0 +1,98 @@
+[
+  {
+    "name": "asana",
+    "docsId": "packages/asana-docs",
+    "readmeId": "packages/asana-readme",
+    "changelogId": "packages/asana-changelog"
+  },
+  {
+    "name": "beyonic",
+    "docsId": "packages/beyonic-docs",
+    "readmeId": "packages/beyonic-readme",
+    "changelogId": "packages/beyonic-changelog"
+  },
+  {
+    "name": "commcare",
+    "docsId": "packages/commcare-docs",
+    "readmeId": "packages/commcare-readme",
+    "changelogId": "packages/commcare-changelog"
+  },
+  {
+    "name": "common",
+    "docsId": "packages/common-docs",
+    "readmeId": "packages/common-readme",
+    "changelogId": "packages/common-changelog"
+  },
+  {
+    "name": "dhis2",
+    "docsId": "packages/dhis2-docs",
+    "readmeId": "packages/dhis2-readme",
+    "changelogId": "packages/dhis2-changelog"
+  },
+  {
+    "name": "fhir",
+    "docsId": "packages/fhir-docs",
+    "readmeId": "packages/fhir-readme",
+    "changelogId": "packages/fhir-changelog"
+  },
+  {
+    "name": "googlesheets",
+    "docsId": "packages/googlesheets-docs",
+    "readmeId": "packages/googlesheets-readme",
+    "changelogId": "packages/googlesheets-changelog"
+  },
+  {
+    "name": "http",
+    "docsId": "packages/http-docs",
+    "readmeId": "packages/http-readme",
+    "changelogId": "packages/http-changelog"
+  },
+  {
+    "name": "kobotoolbox",
+    "docsId": "packages/kobotoolbox-docs",
+    "readmeId": "packages/kobotoolbox-readme",
+    "changelogId": "packages/kobotoolbox-changelog"
+  },
+  {
+    "name": "mssql",
+    "docsId": "packages/mssql-docs",
+    "readmeId": "packages/mssql-readme",
+    "changelogId": "packages/mssql-changelog"
+  },
+  {
+    "name": "ocl",
+    "docsId": "packages/ocl-docs",
+    "readmeId": "packages/ocl-readme",
+    "changelogId": "packages/ocl-changelog"
+  },
+  {
+    "name": "postgresql",
+    "docsId": "packages/postgresql-docs",
+    "readmeId": "packages/postgresql-readme",
+    "changelogId": "packages/postgresql-changelog"
+  },
+  {
+    "name": "primero",
+    "docsId": "packages/primero-docs",
+    "readmeId": "packages/primero-readme",
+    "changelogId": "packages/primero-changelog"
+  },
+  {
+    "name": "salesforce",
+    "docsId": "packages/salesforce-docs",
+    "readmeId": "packages/salesforce-readme",
+    "changelogId": "packages/salesforce-changelog"
+  },
+  {
+    "name": "sftp",
+    "docsId": "packages/sftp-docs",
+    "readmeId": "packages/sftp-readme",
+    "changelogId": "packages/sftp-changelog"
+  },
+  {
+    "name": "template",
+    "docsId": "packages/template-docs",
+    "readmeId": "packages/template-readme",
+    "changelogId": "packages/template-changelog"
+  }
+]

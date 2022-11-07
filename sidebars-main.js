@@ -55,7 +55,8 @@ module.exports = {
           items: ['build/inbox', 'source-apps'],
         },
         'devtools/home',
-        'build/adaptors',
+        { type: 'link', label: 'Adaptors 📖', href: '/adaptors' },
+
         'build/troubleshooting',
       ],
     },
