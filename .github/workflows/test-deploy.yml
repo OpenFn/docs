@@ -1,4 +1,4 @@
-name: Test deployment
+name: Test build for deployment
 
 on:
   pull_request:
@@ -17,12 +17,7 @@ jobs:
         with:
           node-version: 16
           cache: yarn
-      # - name: Ensure latest yarn
-      #   run: |
-      #     node -v
-      #     corepack enable
-      #     corepack prepare yarn@stable --activate
-      #     yarn -v
+
       - name: Install dependencies
         run: yarn install
       - name: Test build website

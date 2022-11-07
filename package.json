@@ -29,8 +29,8 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-flow-renderer": "^9.6.8",
-    "react-particles-js": "^3.4.1",
-    "react-player": "^2.9.0"
+    "react-player": "^2.9.0",
+    "react-tsparticles": "^2.5.3"
   },
   "browserslist": {
     "production": [
