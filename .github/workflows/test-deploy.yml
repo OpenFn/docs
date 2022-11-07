@@ -17,7 +17,12 @@ jobs:
         with:
           node-version: 16
           cache: yarn
-
+      - name: Ensure latest yarn
+        run: |
+          node -v
+          corepack enable
+          corepack prepare yarn@stable --activate
+          yarn -v
       - name: Install dependencies
         run: yarn install --frozen-lockfile
       - name: Test build website
