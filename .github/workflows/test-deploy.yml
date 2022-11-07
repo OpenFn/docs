@@ -17,14 +17,14 @@ jobs:
         with:
           node-version: 16
           cache: yarn
-      - name: Ensure latest yarn
-        run: |
-          node -v
-          corepack enable
-          corepack prepare yarn@stable --activate
-          yarn -v
+      # - name: Ensure latest yarn
+      #   run: |
+      #     node -v
+      #     corepack enable
+      #     corepack prepare yarn@stable --activate
+      #     yarn -v
       - name: Install dependencies
-        run: yarn install --immutable
+        run: yarn install
       - name: Test build website
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
