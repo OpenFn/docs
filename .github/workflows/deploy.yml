@@ -21,7 +21,10 @@ jobs:
         env:
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
         run: |
+          node -v
           corepack enable
+          yarn -v
+          corepack prepare yarn@stable --activate
           yarn -v
           if [ -e yarn.lock ]; then
           yarn install --frozen-lockfile
