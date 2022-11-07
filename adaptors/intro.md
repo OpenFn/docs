@@ -24,12 +24,13 @@ In short, _most_ _**adaptors**_ follow the naming convention
 
 ### On GitHub
 
-The developed adaptors can be found in GitHub under `https://github.com/openfn`,
-starting with the prefix `language-xyz`. Some examples are:
+The developed adaptors can be found in GitHub under
+[github.com/OpenFn/adaptors](https://github.com/OpenFn/adaptors), inside the
+`packages` directory. Some examples are:
 
-- [language-http](https://github.com/OpenFn/adaptors/packages/http)
-- [language-postgresql](https://github.com/OpenFn/adaptors/packages/postgresql)
-- [language-primero](https://github.com/OpenFn/adaptors/packages/primero)
+- [http](https://github.com/OpenFn/adaptors/tree/main/packages/http)
+- [postgresql](https://github.com/OpenFn/adaptors/tree/main/packages/postgresql)
+- [primero](https://github.com/OpenFn/adaptors/tree/main/packages/primero)
 
 ### On platform
 
@@ -79,11 +80,16 @@ operations can be added inside the `src/Adaptor.js` file of the adaptor.
 
 ### Developing a new adaptor
 
-Developing a new adaptor can be done by cloning the template available
-[here](https://github.com/OpenFn/adaptor) via the `USE THIS TEMPLATE` button
-over on Github.
+Clone the [adaptors monorepo](https://github.com/OpenFn/adaptors). Follow the
+`Getting Started` guide inside to get set up.
 
-![Use this template button](/img/usethistemplate.png)
+Run tests using `pnpm run test` or `pnpm run test:watch`
+
+Copy a template `cp packeges/template packages/{adaptor-name}`
+
+Build the project using `pnpm build`.
+
+To just build the docs run `pnpm build docs`
 
 ### Default operation
 
