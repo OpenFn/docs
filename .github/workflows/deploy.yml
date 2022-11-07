@@ -18,21 +18,30 @@ jobs:
           node-version: 16
           cache: yarn
 
-      - name: Install dependencies
-        run: yarn install
-      - name: Build website
+      - name: Add key to allow access to repository
         env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          echo "${{ secrets.GH_PAGES_DEPLOY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          cat <<EOT >> ~/.ssh/config
+          Host github.com
+          HostName github.com
+          IdentityFile ~/.ssh/id_rsa
+          EOT
+
+      - name: Release to GitHub Pages
+        env:
+          USE_SSH: true
+          GIT_USER: git
           CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
         run: |
+          git config --global user.email "actions@gihub.com"
+          git config --global user.name "gh-actions"
+          yarn install
           yarn generate-library
           yarn crowdin:sync
           yarn build
-
-      # Popular action to deploy to GitHub Pages:
-      # Docs: https://github.com/peaceiris/actions-gh-pages#%EF%B8%8F-docusaurus
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GH_PAGES_DEPLOY }}
-          # Build output to publish to the `gh-pages` branch:
-          publish_dir: ./build
+          npx docusaurus deploy
