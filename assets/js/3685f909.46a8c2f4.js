@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[1592],{96193:function(s){s.exports=JSON.parse('{"label":"security","permalink":"/articles/tags/security","allTagsPath":"/articles/tags","count":1}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[5160],{48561:function(e){e.exports=JSON.parse('{"label":"learning","permalink":"/fr/articles/tags/learning","allTagsPath":"/fr/articles/tags","count":1}')}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[1312],{92406:function(a){a.exports=JSON.parse('{"label":"Cambodia","permalink":"/blog/tags/cambodia","allTagsPath":"/blog/tags","count":1}')}}]);
