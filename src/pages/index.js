@@ -98,19 +98,13 @@ function Home() {
     await loadFull(engine);
   }, []);
 
-  // const particlesLoaded = useCallback(async container => {
-  //   await console.log(container);
-  // }, []);
-
   return (
     <Layout title={`Home`} description="The OpenFn Documentation Site">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
-        {/* <Particles id="tsparticles" style={{ position: 'absolute', top: 0 }} /> */}
         <Particles
           style={{ position: 'absolute', top: 0 }}
           id="tsparticles"
           init={particlesInit}
-          // loaded={particlesLoaded}
           options={{
             particles: {
               number: {
