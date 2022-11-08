@@ -194,7 +194,7 @@ configuration steps** appear as regular fields, without a wizard.
 
 The **four configuration steps** include giving the job a name, defining what
 [triggers](/documentation/build/triggers) its execution, selecting an
-[adaptor](/documentation/build/adaptors), and providing
+[adaptor](/adaptors), and providing
 [authentication](/documentation/build/credentials) details.
 
 The **expression editor** is the area where you write your
@@ -242,7 +242,7 @@ a theme of your choice.
 
 In Job Studio, you can install adaptors that are not part of the recommended
 adaptors picklist directly from npm. See details
-[here](/documentation/build/adaptors#install-on-platform-via-npm) on how to
+[here](/adaptors#install-on-platform-via-npm) on how to
 install the unreleased adaptor version.
 
 #### Testing a job

@@ -22,7 +22,7 @@ time is reached.
 ## Adaptors
 
 We've got a whole section on creating new
-[Adaptors](/documentation/build/adaptors), but the critical thing to be aware of
+[Adaptors](/adaptors), but the critical thing to be aware of
 when writing a job is that you've got to choose an **adaptor**, and an **adaptor
 version**.
 
@@ -73,7 +73,7 @@ functions from `@openfn/language-http#v3.1.5`
 
 :::info
 
-See [the npm section](/documentation/build/adaptors#install-on-platform-via-npm)
+See [the npm section](/adaptors#install-on-platform-via-npm)
 on the adaptors docs page to learn how to install an adaptor from `npm` while
 using `platform`.
 

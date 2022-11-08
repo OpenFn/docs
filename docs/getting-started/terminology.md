@@ -64,7 +64,7 @@ multi-app Saga patterns). You can read more on two-way syncing below.
 
 ### Adaptor
 
-OpenFn [adaptors](/documentation/build/adaptors) are open-source modules that
+OpenFn [adaptors](/adaptors) are open-source modules that
 provide your jobs with the features they need to communicate with a particular
 system's API. Some examples are `language-dhis2`, `language-commcare`,
 `language-salesforce`, `language-postgresql`, etc. There are more than 50 active
