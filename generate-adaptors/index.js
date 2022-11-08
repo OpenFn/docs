@@ -31,10 +31,6 @@ keywords:
   - ${docType}
   - ${a.name}
 ---
-## Metadata
-- Name: ${a.name}
-- Adaptor: ${a.adaptor}
-- Adaptor Version: ${a.version}
 ${JSON.parse(a[docType])}`;
 }
 
