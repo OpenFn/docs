@@ -21,17 +21,47 @@ function pushToPaths(name) {
   });
 }
 
-function generateBody(a, docType) {
-  const docId = `${a.name}-${docType}`;
+function generateJsDoc(a) {
   return `---
 title: ${a.name}
-id: ${docId}
+id: ${a.name}-docs
 keywords:
   - adaptor
-  - ${docType}
   - ${a.name}
 ---
-${JSON.parse(a[docType])}`;
+${JSON.parse(a.docs)}`;
+}
+
+function generateChangelog(a) {
+  return `---
+title: ${a.name} changelog
+id: ${a.name}-changelog
+keywords:
+  - adaptor
+  - changelog
+  - ${a.name}
+---
+
+# Changelog for the ${a.name} adaptor
+
+${JSON.parse(a.changelog)}`;
+}
+
+function generateReadme(a) {
+  return `---
+title: ${a.name} developer readme
+id: ${a.name}-readme
+keywords:
+  - adaptor
+  - readme
+  - ${a.name}
+---
+
+# Developer README for the ${a.name} adaptor
+
+Source: https://github.com/OpenFn/adaptors/tree/main/packages/${a.name}
+
+${JSON.parse(a.readme)}`;
 }
 
 module.exports = function (context, { apiUrl }) {
@@ -50,9 +80,9 @@ module.exports = function (context, { apiUrl }) {
           console.log('Generating adaptors docs via JSDoc...');
 
           adaptors.map(a => {
-            const docsBody = generateBody(a, 'docs');
-            const readmeBody = generateBody(a, 'readme');
-            const changelogBody = generateBody(a, 'changelog');
+            const docsBody = generateJsDoc(a);
+            const readmeBody = generateReadme(a);
+            const changelogBody = generateChangelog(a);
 
             pushToPaths(a.name);
 

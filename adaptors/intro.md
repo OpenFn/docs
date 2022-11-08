@@ -5,11 +5,11 @@ sidebar_label: Introduction
 slug: /
 ---
 
-An adaptor is an open-source Javascript module that provides OpenFn core users
-with a set of operations that help communicate with a specific external system.
-In the past, we often referred to them as "language packages". And the two terms
-are sometimes used interchangeably, but the preferred way of communicating about
-adaptors is as follows:
+An adaptor is an open-source Javascript or Typescript module that provides
+OpenFn users with a clean set of helper functions that help communicate with a
+specific external system. In the past, we often referred to them as "language
+packages" and the two terms are sometimes used interchangeably, but the
+preferred way of communicating about adaptors is as follows:
 
 - "What _**adaptor**_ is that job using?" ("That job is using
   `language-dhis2`.")
@@ -17,14 +17,14 @@ adaptors is as follows:
 - "I don't have the right _**adaptor**_ for this job, let me install it by
   running `npm install @openfn/language-dhis2`.
 
-In short, _most_ _**adaptors**_ follow the naming convention
-`@openfn/language-xyz`, but not all do!
+In short, _most_ adaptors follow the naming convention `@openfn/language-xyz`,
+but not all do!
 
 ## Where to find them?
 
 ### On GitHub
 
-The developed adaptors can be found in GitHub under
+Source code for adaptors can be found in GitHub under
 [github.com/OpenFn/adaptors](https://github.com/OpenFn/adaptors), inside the
 `packages` directory. Some examples are:
 
@@ -40,7 +40,7 @@ list of adaptors, and click on one.
 
 <img src="/img/adaptor_choice_openfn.png" width="300" />
 
-### On npm
+### Via npm
 
 Most of our adaptors are also available on
 [npmjs](https://www.npmjs.com/search?q=%40openfn).
@@ -67,7 +67,7 @@ add this adaptor version to the picklist of recommended adaptors in
 adaptor will be available to use in any of your jobs as long as you specify it
 via the **Select Unreleased Adaptor** dialog.
 
-## Developing adaptors
+## Building and extending adaptors
 
 The source code and technical documentation for developing or extending existing
-adaptors can be found at www.github.com/OpenFn/adaptors.
+adaptors can be found on GitHub at www.github.com/OpenFn/adaptors.

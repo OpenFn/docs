@@ -10,18 +10,18 @@ const items = adaptors.sort().map(a => {
     items: [
       {
         type: 'doc',
-        label: 'Docs',
+        label: 'API',
         id: a.docsId,
-      },
-      {
-        type: 'doc',
-        label: 'Readme',
-        id: a.readmeId,
       },
       {
         type: 'doc',
         label: 'Changelog',
         id: a.changelogId,
+      },
+      {
+        type: 'doc',
+        label: 'Development',
+        id: a.readmeId,
       },
     ],
   };
