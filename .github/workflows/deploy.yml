@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Build & docusaurus deploy
 
 on:
   workflow_dispatch:

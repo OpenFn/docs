@@ -1,4 +1,4 @@
-name: Test build for deployment
+name: Test the build
 
 on:
   pull_request:
