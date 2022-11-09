@@ -9,6 +9,9 @@
 /library/jobs/auto/
 /library/publicPaths.json
 
+# this directory is built automatically and overwritten by the adaptor doc gen
+/adaptors/packages/
+
 # Generated files
 .docusaurus
 .cache-loader

@@ -5,7 +5,8 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "generate-library": "docusaurus generate-library",
-    "start": "docusaurus generate-library && docusaurus start",
+    "generate-adaptors": "docusaurus generate-adaptors",
+    "start": "docusaurus generate-library && docusaurus generate-adaptors && docusaurus start",
     "start-offline": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -29,8 +30,9 @@
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-flow-renderer": "^9.6.8",
+    "react-particles": "^2.5.3",
     "react-player": "^2.9.0",
-    "react-tsparticles": "^2.5.3"
+    "tsparticles": "^2.5.3"
   },
   "browserslist": {
     "production": [

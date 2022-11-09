@@ -66,6 +66,6 @@ const functions = adaptors
 const unique = [...new Set(functions)];
 
 fs.writeFileSync(
-  './job-library/master.temp.json',
+  './generate-library/master.temp.json',
   JSON.stringify(unique, null, 2)
 );
