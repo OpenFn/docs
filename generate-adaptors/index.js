@@ -9,7 +9,7 @@ async function loadAdaptorsDocs(apiUrl) {
 
     console.log(
       'Producing docs for:',
-      docs.map(x => x.functions)
+      docs.map(x => x.name)
     );
 
     return docs;
