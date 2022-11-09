@@ -35,11 +35,11 @@ module.exports = {
           label: 'Docs',
           position: 'left',
         },
-        {
-          to: 'adaptors',
-          label: 'Adaptors',
-          position: 'left',
-        },
+        // {
+        //   to: 'adaptors',
+        //   label: 'Adaptors',
+        //   position: 'left',
+        // },
         {
           to: 'library',
           label: 'Library',

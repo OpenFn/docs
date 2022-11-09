@@ -6,6 +6,12 @@ async function loadAdaptorsDocs(apiUrl) {
   return await axios.get(apiUrl).then(function (response) {
     console.log('Done ✓');
     const docs = response.data;
+
+    console.log(
+      'Producing docs for:',
+      docs.map(x => x.functions)
+    );
+
     return docs;
   });
 }
@@ -28,7 +34,9 @@ id: ${a.name}-docs
 keywords:
   - adaptor
   - ${a.name}
+  ${a.functions.length > 0 ? '- ' : ''}${a.functions.join('\r\n  - ')}
 ---
+
 ${JSON.parse(a.docs)}`;
 }
 
