@@ -174,13 +174,7 @@ module.exports = {
         sidebarPath: require.resolve('./sidebars-library.js'),
       },
     ],
-    [
-      path.resolve(__dirname, 'generate-adaptors'),
-      {
-        apiUrl:
-          'https://raw.githubusercontent.com/OpenFn/adaptors/docs/docs/docs.json',
-      },
-    ],
+    [path.resolve(__dirname, 'generate-adaptors'), {}],
     [
       '@docusaurus/plugin-content-docs',
       {

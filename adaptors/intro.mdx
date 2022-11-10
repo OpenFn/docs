@@ -5,6 +5,10 @@ sidebar_label: Introduction
 slug: /
 ---
 
+import AdaptorList from '/static/js/components/adaptorList';
+
+## What's an adaptor?
+
 An adaptor is an open-source Javascript or Typescript module that provides
 OpenFn users with a clean set of helper functions that help communicate with a
 specific external system. In the past, we often referred to them as "language
@@ -17,22 +21,18 @@ preferred way of communicating about adaptors is as follows:
 - "I don't have the right _**adaptor**_ for this job, let me install it by
   running `npm install @openfn/language-dhis2`.
 
-In short, _most_ adaptors follow the naming convention `@openfn/language-xyz`,
-but not all do!
+In short, _most_ adaptors follow the naming convention `@openfn/language-xyz`.
 
-## Where to find them?
+## Where to find them
 
-### On GitHub
+Here's a list of publicly supported OpenFn adaptors. Note that only some have
+been migrated to our new [monorepo](https://www.github.com/openfn/adaptors) and
+have their docs sites served here. For the rest, you can view the docs and
+source by clicking into the adaptor and choosing your version.
 
-Source code for adaptors can be found in GitHub under
-[github.com/OpenFn/adaptors](https://github.com/OpenFn/adaptors), inside the
-`packages` directory. Some examples are:
+<AdaptorList />
 
-- [http](https://github.com/OpenFn/adaptors/tree/main/packages/http)
-- [postgresql](https://github.com/OpenFn/adaptors/tree/main/packages/postgresql)
-- [primero](https://github.com/OpenFn/adaptors/tree/main/packages/primero)
-
-### On platform
+### On the OpenFn platform
 
 When creating or editing a job on platform, you can choose the adaptor to run
 the job. This way you "import" the needed operations. Simply open the dropdown
@@ -40,7 +40,7 @@ list of adaptors, and click on one.
 
 <img src="/img/adaptor_choice_openfn.png" width="300" />
 
-### Via npm
+### On npm
 
 Most of our adaptors are also available on
 [npmjs](https://www.npmjs.com/search?q=%40openfn).

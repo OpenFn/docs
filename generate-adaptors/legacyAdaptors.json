@@ -1,0 +1,280 @@
+[
+  {
+    "module": "asana",
+    "name": "Asana",
+    "versions": ["v1.0.1", "v2.0.0", "v2.1.0"],
+    "npm": "v2.1.0",
+    "public": true
+  },
+  {
+    "module": "beyonic",
+    "name": "Beyonic",
+    "versions": ["v0.1.3"],
+    "npm": "v0.1.0",
+    "public": true
+  },
+  {
+    "module": "cartodb",
+    "name": "Carto",
+    "versions": ["v0.0.4"],
+    "public": true
+  },
+  {
+    "module": "commcare",
+    "name": "CommCareHQ",
+    "versions": ["v1.2.1", "v1.4.1"],
+    "public": true
+  },
+  {
+    "module": "dhis2",
+    "name": "DHIS2",
+    "versions": [
+      "v1.0.1",
+      "v1.3.0",
+      "v2.0.4",
+      "v2.0.8",
+      "v2.0.11",
+      "v3.0.1",
+      "v3.0.4",
+      "v3.0.5",
+      "v3.2.1"
+    ],
+    "npm": "v3.2.1",
+    "public": true
+  },
+  {
+    "module": "dynamics",
+    "name": "Microsoft Dynamics",
+    "versions": ["v0.2.0"],
+    "public": true
+  },
+  {
+    "module": "googlesheets",
+    "name": "Google Sheets",
+    "versions": ["v1.0.2", "v2.0.0", "v2.1.0"],
+    "npm": "v2.1.0",
+    "public": true
+  },
+  {
+    "module": "facebook",
+    "name": "Facebook Messenger",
+    "versions": ["v0.1.0"],
+    "public": true
+  },
+  {
+    "module": "godata",
+    "name": "Go.Data",
+    "versions": ["v3.1.0"],
+    "public": true
+  },
+  {
+    "module": "http",
+    "name": "HTTP",
+    "versions": ["v2.4.15", "v3.1.7", "v3.1.11", "v3.1.12", "v4.0.0", "v4.2.1"],
+    "public": true,
+    "npm": "v4.1.0"
+  },
+  {
+    "module": "khanacademy",
+    "name": "Khan Academy",
+    "versions": ["v0.2.0"],
+    "public": true
+  },
+  {
+    "module": "kobotoolbox",
+    "name": "Kobo Toolbox",
+    "versions": ["v1.0.4"],
+    "public": true
+  },
+  {
+    "module": "magpi",
+    "name": "Magpi",
+    "versions": ["v0.3.2"],
+    "public": true
+  },
+  {
+    "module": "mailchimp",
+    "name": "Mailchimp",
+    "versions": ["v0.2.0"],
+    "public": true
+  },
+  {
+    "module": "mailgun",
+    "name": "Mailgun",
+    "versions": ["v0.2.2"],
+    "public": true
+  },
+  {
+    "module": "maximo",
+    "name": "IBM Maximo EAM",
+    "versions": ["v0.2.0"],
+    "public": true
+  },
+  {
+    "module": "medicmobile",
+    "name": "Medic Mobile",
+    "versions": ["v0.2.0"],
+    "public": true
+  },
+  {
+    "module": "mogli",
+    "name": "Mogli SMS",
+    "versions": ["v0.2.1"],
+    "public": true
+  },
+  {
+    "module": "mongodb",
+    "name": "MongoDB",
+    "versions": ["v1.0.4"],
+    "public": true
+  },
+  {
+    "module": "mssql",
+    "name": "Azure/MS SQL",
+    "versions": [
+      "v2.3.3",
+      "v2.6.1",
+      "v2.6.4",
+      "v2.6.9",
+      "v2.6.11",
+      "v3.0.0",
+      "v3.1.0"
+    ],
+    "npm": "v3.1.0",
+    "public": true
+  },
+  {
+    "module": "mysql",
+    "name": "MySQL",
+    "versions": ["v1.1.1", "v1.2.0"],
+    "public": true
+  },
+  {
+    "module": "nexmo",
+    "name": "Nexmo",
+    "versions": ["v0.1.1"],
+    "public": true
+  },
+  {
+    "module": "openfn",
+    "name": "OpenFn",
+    "versions": ["v1.1.3", "v1.1.4"],
+    "public": true
+  },
+  {
+    "module": "openhim",
+    "name": "OpenHIM",
+    "versions": ["v0.0.3"],
+    "public": true
+  },
+  {
+    "module": "openmrs",
+    "name": "OpenMRS",
+    "versions": ["v0.9.2"],
+    "public": true
+  },
+  {
+    "module": "postgresql",
+    "name": "PostgreSQL",
+    "versions": ["v2.4.0", "v3.1.4", "v3.3.2", "v3.3.1", "v3.3.3", "v3.4.0"],
+    "npm": "v3.4.0",
+    "public": true
+  },
+  {
+    "module": "primero",
+    "name": "Primero",
+    "versions": [
+      "v1.2.0",
+      "v2.2.3",
+      "v2.2.8",
+      "v2.3.4",
+      "v2.3.5",
+      "v2.3.6",
+      "v2.4.4",
+      "v2.7.0",
+      "v2.7.2",
+      "v2.8.0",
+      "v2.9.1",
+      "v2.9.2",
+      "v2.10.0"
+    ],
+    "npm": "v2.9.1",
+    "public": true
+  },
+  {
+    "module": "progres",
+    "name": "Progres",
+    "versions": ["v1.1.0"],
+    "public": true
+  },
+  {
+    "module": "rapidpro",
+    "name": "RapidPro",
+    "versions": ["v0.4.7"],
+    "public": true
+  },
+  {
+    "module": "resourcemap",
+    "name": "Resource Map",
+    "versions": ["v0.1.0"],
+    "public": true
+  },
+  {
+    "module": "salesforce",
+    "name": "Salesforce",
+    "versions": [
+      "v1.3.2",
+      "v2.3.2",
+      "v2.3.5",
+      "v2.4.0",
+      "v2.6.3",
+      "v2.7.2",
+      "v2.7.3",
+      "v2.7.4",
+      "v2.8.1",
+      "v2.9.0",
+      "v2.10.0",
+      "v2.11.0"
+    ],
+    "npm": "v2.11.0",
+    "public": true
+  },
+  {
+    "module": "sftp",
+    "name": "SFTP",
+    "versions": ["v0.3.3", "v0.4.0", "v0.6.1", "v0.6.2"],
+    "npm": "v0.6.1",
+    "public": true
+  },
+  { "module": "smpp", "name": "SMPP", "versions": ["v1.1.0"], "public": true },
+  {
+    "module": "surveycto",
+    "name": "SurveyCTO",
+    "versions": ["v1.0.0"],
+    "public": true
+  },
+  {
+    "module": "telerivet",
+    "name": "Telerivet",
+    "versions": ["v0.0.2"],
+    "public": true
+  },
+  {
+    "module": "twilio",
+    "name": "Twilio",
+    "versions": ["v0.2.0", "v0.2.1"],
+    "public": true
+  },
+  {
+    "module": "vtiger",
+    "name": "vtiger CRM",
+    "versions": ["v1.0.0"],
+    "public": true
+  },
+  {
+    "module": "zoho",
+    "name": "Zoho Reports",
+    "versions": ["v0.0.2", "v0.1.0"],
+    "public": true
+  }
+]

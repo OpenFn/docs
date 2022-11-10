@@ -1,9 +1,18 @@
 const axios = require('axios');
 const fs = require('fs');
 
-async function loadAdaptorsDocs(apiUrl) {
+async function listVersions() {
+  return axios
+    .get('https://api.github.com/repos/OpenFn/adaptors/tags')
+    .then(response => response.data);
+}
+
+async function loadAdaptorsDocs() {
+  const apiUrl =
+    'https://raw.githubusercontent.com/OpenFn/adaptors/docs/docs/docs.json';
+
   console.log('Loading adaptors docst from OpenFn/adaptors');
-  return await axios.get(apiUrl).then(function (response) {
+  return axios.get(apiUrl).then(function (response) {
     console.log('Done ✓');
     const docs = response.data;
 
@@ -29,7 +38,7 @@ function pushToPaths(name) {
 
 function generateJsDoc(a) {
   return `---
-title: ${a.name}
+title: ${a.name}@${a.version}
 id: ${a.name}-docs
 keywords:
   - adaptor
@@ -83,8 +92,15 @@ module.exports = function (context, { apiUrl }) {
           fs.existsSync('./adaptors/packages') ||
             fs.mkdirSync('./adaptors/packages');
 
-          // const adaptors = [{ name: 'http' }, { name: 'primero' }];
-          const adaptors = await loadAdaptorsDocs(apiUrl);
+          console.log('Getting version list...');
+          const versions = await listVersions();
+          fs.writeFileSync(
+            './adaptors/packages/versions.json',
+            JSON.stringify(versions, null, 2)
+          );
+
+          const adaptors = await loadAdaptorsDocs();
+
           console.log('Generating adaptors docs via JSDoc...');
 
           adaptors.map(a => {
@@ -107,10 +123,12 @@ module.exports = function (context, { apiUrl }) {
           console.log('Done ✓');
 
           console.log('Creating sidebar paths...');
+
           fs.writeFileSync(
             './adaptors/packages/publicPaths.json',
             JSON.stringify(filePaths, null, 2)
           );
+
           console.log('Done ✓');
         });
     },
