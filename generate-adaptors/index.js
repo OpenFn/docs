@@ -1,17 +1,35 @@
 const axios = require('axios');
 const fs = require('fs');
 
-async function listVersions() {
-  return axios
-    .get('https://api.github.com/repos/OpenFn/adaptors/tags')
-    .then(response => response.data);
+const versions = [];
+
+async function listVersions(next) {
+  const url = next || `https://api.github.com/repos/OpenFn/adaptors/tags`;
+
+  return axios.get(url).then(response => {
+    const { headers, data } = response;
+
+    versions.push(...data);
+    console.log('added versions');
+
+    const { link } = headers;
+    const nextLink = link.split(',').find(link => link.includes('next'));
+
+    if (nextLink) {
+      const newUrl = nextLink.substring(
+        nextLink.indexOf('<') + 1,
+        nextLink.lastIndexOf('>')
+      );
+      return listVersions(newUrl);
+    }
+  });
 }
 
 async function loadAdaptorsDocs() {
   const apiUrl =
     'https://raw.githubusercontent.com/OpenFn/adaptors/docs/docs/docs.json';
 
-  console.log('Loading adaptors docst from OpenFn/adaptors');
+  console.log('Loading adaptors docs from OpenFn/adaptors');
   return axios.get(apiUrl).then(function (response) {
     console.log('Done ✓');
     const docs = response.data;
@@ -93,7 +111,10 @@ module.exports = function (context, { apiUrl }) {
             fs.mkdirSync('./adaptors/packages');
 
           console.log('Getting version list...');
-          const versions = await listVersions();
+          await listVersions();
+
+          console.log(`Found ${versions.length} monorepo versions.`);
+
           fs.writeFileSync(
             './adaptors/packages/versions.json',
             JSON.stringify(versions, null, 2)
