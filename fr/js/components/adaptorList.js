@@ -63,7 +63,11 @@ const AdaptorList = () => {
             <details>
               <summary>
                 {publicPaths.find(p => p.name == a.module) ? (
-                  <a href={publicPaths.find(p => p.name == a.module).docsId}>
+                  <a
+                    href={`/adaptors/${
+                      publicPaths.find(p => p.name == a.module).docsId
+                    }`}
+                  >
                     {a.module}
                   </a>
                 ) : (
