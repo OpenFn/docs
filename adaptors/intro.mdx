@@ -5,7 +5,13 @@ sidebar_label: Introduction
 slug: /
 ---
 
-import AdaptorList from '/static/js/components/adaptorList';
+import { generateList } from '/static/js/components/adaptorList';
+import { compareVersions } from 'compare-versions';
+import publicPaths from './packages/publicPaths.json';
+
+OpenFn can connect to _any system_ via HTTP, but our community has also built
+dozens of "adaptors" to save time & money while connecting to most commonly used
+digital public goods and key ICT4D systems.
 
 ## What's an adaptor?
 
@@ -25,12 +31,83 @@ In short, _most_ adaptors follow the naming convention `@openfn/language-xyz`.
 
 ## Where to find them
 
-Here's a list of publicly supported OpenFn adaptors. Note that only some have
-been migrated to our new [monorepo](https://www.github.com/openfn/adaptors) and
-have their docs sites served here. For the rest, you can view the docs and
-source by clicking into the adaptor and choosing your version.
+<div>
+  Here's a list of the {generateList().length} publicly supported OpenFn
+  adaptors. Note that only some have been migrated to our new and have their
+  docs sites served here. For the rest, you can view the docs and source by
+  clicking into the adaptor and choosing your version.
+</div>
+<br />
+<div>
+  {generateList().map(a => {
+    return (
+      <details>
+        <summary>
+          <b>{a.module}</b>
+          {publicPaths.find(p => p.name == a.module) && (
+            <>
+              {' ('}
+              <a
+                href={`/adaptors/${
+                  publicPaths.find(p => p.name == a.module).docsId
+                }`}
+              >
+                docs
+              </a>
+              {')'}
+            </>
+          )}
+        </summary>
+        {publicPaths.find(p => p.name == a.module) ? (
+          <div>
+            The current{' '}
+            <a
+              href={`/adaptors/${
+                publicPaths.find(p => p.name == a.module).docsId
+              }`}
+            >
+              API docs
+            </a>
+            , <a
+              href={`/adaptors/${
+                publicPaths.find(p => p.name == a.module).changelogId
+              }`}
+            >
+              changelog
+            </a>, and <a
+              href={`/adaptors/${
+                publicPaths.find(p => p.name == a.module).readmeId
+              }`}
+            >
+              developer readme
+            </a> for <b>{a.module}</b> are available here. You can view the source
+            & documentation via these links:
+          </div>
+        ) : (
+          <div>
+            This adaptor hasn't been migrated yet, but it still works just fine
+            and you can view the source & documentation via these links:
+          </div>
+        )}
+        <ul>
+          {a.versions
+            .sort((a, b) => compareVersions(b.version, a.version))
+            .map(v => {
+              return (
+                <li>
+                  <a href={v.url} target="_blank">
+                    {v.version}
+                  </a>{' '}
+                </li>
+              );
+            })}
+        </ul>
+      </details>
+    );
+  })}
+</div>
 
-<AdaptorList />
+<!-- <AdaptorList /> -->
 
 ### On the OpenFn platform
 

@@ -1,13 +1,11 @@
-import React from 'react';
 import { compareVersions } from 'compare-versions';
 import adaptorTags from '../../../adaptors/packages/versions.json';
 import legacyAdaptors from '../../../generate-adaptors/legacyAdaptors.json';
-import publicPaths from '../../../adaptors/packages/publicPaths.json';
 
-const AdaptorList = () => {
+export function generateList() {
   const masterList = {};
 
-  const newAdaptors = adaptorTags
+  adaptorTags
     .filter(t => t.name.includes('language-'))
     .map(t => {
       const tagName = t.name;
@@ -55,44 +53,5 @@ const AdaptorList = () => {
     .sort((a, b) => (a.module > b.module ? 1 : b.module > a.module ? -1 : 0))
     .map(a => ({ ...a, versions: Object.values(a.versions) }));
 
-  return (
-    <div>
-      <ul>
-        {sortedArray.map(a => {
-          return (
-            <details>
-              <summary>
-                {publicPaths.find(p => p.name == a.module) ? (
-                  <a
-                    href={`/adaptors/${
-                      publicPaths.find(p => p.name == a.module).docsId
-                    }`}
-                  >
-                    {a.module}
-                  </a>
-                ) : (
-                  a.module
-                )}
-              </summary>
-              <ul>
-                {a.versions
-                  .sort((a, b) => compareVersions(b.version, a.version))
-                  .map(v => {
-                    return (
-                      <li>
-                        <a href={v.url} target="_blank">
-                          {v.version}
-                        </a>{' '}
-                      </li>
-                    );
-                  })}
-              </ul>
-            </details>
-          );
-        })}
-      </ul>
-    </div>
-  );
-};
-
-export default AdaptorList;
+  return sortedArray;
+}
