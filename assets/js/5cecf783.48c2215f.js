@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[52409],{10599:e=>{e.exports=JSON.parse('{"label":"case management","permalink":"/blog/tags/case-management","allTagsPath":"/blog/tags","count":1}')}}]);

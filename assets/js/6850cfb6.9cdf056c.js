@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[50003],{68713:e=>{e.exports=JSON.parse('{"label":"Salesforce","permalink":"/blog/tags/salesforce","allTagsPath":"/blog/tags","count":5}')}}]);
