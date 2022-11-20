@@ -15,19 +15,19 @@ const features = [
     imageUrl: 'img/undraw_Code_review_re_woeb.svg',
     description: (
       <>
-        Documentation on all aspects of OpenFn data integration, whether you're
-        using devtools, platform, or microservice.
+        Documentation on all aspects of OpenFn, the leading digital public good
+        for workflow automation.
       </>
     ),
   },
   {
-    title: 'Library',
-    link: 'library',
+    title: 'Adaptors',
+    link: 'adaptors',
     imageUrl: 'img/undraw_pair_programming_njlp.svg',
     description: (
       <>
-        Searchable and browseable jobs, triggers, and static data objects shared
-        by our community.
+        Searchable and browseable adaptors docs, examples, changelogs, and
+        overviews for connecting the world's most common DPGs.
       </>
     ),
   },

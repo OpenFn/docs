@@ -34,7 +34,7 @@ static website generator.
 
 ```sh
 ./sidebars.js
-./sidebars-library.js
+./sidebars-adaptors.js
 ./docusaurs.config.js
 ```
 
