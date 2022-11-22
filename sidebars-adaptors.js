@@ -70,6 +70,7 @@ const overviews = fs
   .filter(id => id !== 'intro')
   .filter(id => id !== 'adaptors')
   .filter(id => id !== 'library')
+  .filter(id => id !== 'library-intro')
   .filter(id => id !== 'packages');
 
 const extras = overviews
