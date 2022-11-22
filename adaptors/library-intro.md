@@ -1,8 +1,8 @@
 ---
 id: library-intro
-title: Welcome to The Library
-sidebar_label: Introduction
-slug: /
+title: The Community Job Library
+sidebar_label: Library Examples
+slug: library
 ---
 
 ## A growing knowledge base

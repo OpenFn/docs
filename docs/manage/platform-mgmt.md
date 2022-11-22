@@ -49,8 +49,8 @@ automatically, by OpenFn, then turn it **off**.
 OpenFn allows you to share jobs to an **open source job library** that other
 users can learn from or reuse. All jobs are available for sharing and inherit
 project sharing settings, by default. If you do not want a given job to be
-available for sharing to [OpenFn's Job Library](/library), then you can mark
-that job as **private**. To mark a job as private, follow the below steps:
+available for sharing to [OpenFn's Job Library](/adaptors/library), then you can
+mark that job as **private**. To mark a job as private, follow the below steps:
 
 - From the application **menu**, click on **Jobs**.
 - Find the job you would like to mark as **private**.
@@ -60,8 +60,8 @@ that job as **private**. To mark a job as private, follow the below steps:
 :::info
 
 Note that once a job is marked as **private**, sharing will be blocked even if
-its project is enrolled in the [OpenFn's Job Library](/library). You can toggle
-this setting back by clicking on the **eye** icon.
+its project is enrolled in the [OpenFn's Job Library](/adaptors/library). You
+can toggle this setting back by clicking on the **eye** icon.
 
 :::
 
@@ -242,8 +242,8 @@ a theme of your choice.
 
 In Job Studio, you can install adaptors that are not part of the recommended
 adaptors picklist directly from npm. See details
-[here](/adaptors#install-on-platform-via-npm) on how to
-install the unreleased adaptor version.
+[here](/adaptors#install-on-platform-via-npm) on how to install the unreleased
+adaptor version.
 
 #### Testing a job
 

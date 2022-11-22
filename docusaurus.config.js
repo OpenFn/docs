@@ -8,6 +8,7 @@ module.exports = {
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  // onDuplicateRoutes: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',

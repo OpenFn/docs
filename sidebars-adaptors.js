@@ -3,6 +3,20 @@ const fs = require('fs');
 const adaptorsFile = fs.readFileSync('./adaptors/packages/publicPaths.json');
 const adaptors = JSON.parse(adaptorsFile);
 
+const publicFile = fs.readFileSync(
+  './adaptors/library/jobs/auto/publicPaths.json'
+);
+const publicJobs = JSON.parse(publicFile);
+
+// Note: we can include out own examples here.
+const jobs = [...publicJobs];
+
+const groupedJobs = jobs.reduce((r, a) => {
+  r[a.adaptor] = r[a.adaptor] || [];
+  r[a.adaptor].push(a);
+  return r;
+}, Object.create(null));
+
 const items = adaptors.sort().map(a => {
   const base = {
     type: 'category',
@@ -13,6 +27,17 @@ const items = adaptors.sort().map(a => {
         label: 'Functions',
         id: a.docsId,
       },
+      groupedJobs[a.name] && groupedJobs[a.name].length > 0
+        ? {
+            type: 'category',
+            label: 'Examples',
+            items: groupedJobs[a.name].map(j => ({
+              type: 'doc',
+              label: j.name,
+              id: `library/${j.id}`,
+            })),
+          }
+        : {},
       {
         type: 'doc',
         label: 'Changelog',
@@ -43,6 +68,8 @@ const overviews = fs
   .readdirSync(`./adaptors/`)
   .map(file => file.replace(/\.[^/.]+$/, ''))
   .filter(id => id !== 'intro')
+  .filter(id => id !== 'adaptors')
+  .filter(id => id !== 'library')
   .filter(id => id !== 'packages');
 
 const extras = overviews
@@ -54,5 +81,9 @@ const list = [...items, ...extras].sort((a, b) =>
 );
 
 module.exports = {
-  library: [{ type: 'doc', id: 'adaptors-intro' }, ...list],
+  adaptors: [
+    { type: 'doc', id: 'adaptors-intro' },
+    { type: 'doc', id: 'library-intro' },
+    ...list,
+  ],
 };

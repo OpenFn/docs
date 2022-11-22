@@ -94,8 +94,7 @@ terminology here is: `function expression`, `arrow function`,
 
 ## Falsy values
 
-During the
-[mapping](/documentation/apps/salesforce/#mapping-and-design-considerations)
+During the [mapping](/adaptors/salesforce/#mapping-and-design-considerations)
 phase of integration design, we often discuss how each answer choice for
 **picklist** values should map from the source system to the destination system.
 Sometimes the mapping is simple but other times, there is an extensive list of
@@ -231,7 +230,7 @@ The value left of the colon is how the state is represented in the source
 system, and the value right of the colon represents how OpenFn will send the
 data to the destination system. This mapping process is key to integration
 design. Learn more about mappings
-[here](/documentation/apps/salesforce/#mapping-and-design-considerations).
+[here](/adaptors/salesforce/#mapping-and-design-considerations).
 
 :::tip
 

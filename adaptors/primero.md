@@ -56,7 +56,7 @@ https://github.com/primeroIMS/primero/tree/development_v2/app/controllers/api
 **List all referrals that took place for a record:**  
 `GET /api/v2/cases/:id/referrals`
 
-See the [Job Library](/library) for sample Primero jobs.
+See the examples section more sample Primero jobs.
 
 ### Integration tips
 
@@ -70,7 +70,8 @@ See the [Job Library](/library) for sample Primero jobs.
 - Each Primero case also has a `record_id` which is the id in the URL for each
   case
 - It is helpful to set up a job that only fetches a case from Primero like the
-  one [here](/library/jobs/auto/Get-cases-from-Primero-2021-09-23/#expression).
+  one
+  [here](/adaptors/library/jobs/auto/Get-cases-from-Primero-2021-09-23/#expression).
   This job can come in handy when it's time to test and troubleshoot your
   solution and validate any test data that was setup in Primero.
 

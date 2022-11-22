@@ -43,19 +43,17 @@ module.exports = {
             'jobs/job-studio',
             'jobs/editing_locally',
             'jobs/working_with_branches',
-            { type: 'link', label: 'The Library 📖', href: '/library' },
           ],
         },
         'build/triggers',
         'build/credentials',
+        { type: 'link', label: 'Adaptors', href: '/adaptors' },
         {
           type: 'category',
           label: 'Live Data',
           items: ['build/inbox', 'source-apps'],
         },
         'devtools/home',
-        { type: 'link', label: 'Adaptors', href: '/adaptors' },
-
         'build/troubleshooting',
       ],
     },
@@ -89,14 +87,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Contributing',
-      items: [
-        'roadmap',
-        // 'writing-code',
-        'for-devs',
-        'gsoc',
-        'writing-docs',
-        'style-guide',
-      ],
+      items: ['roadmap', 'for-devs', 'gsoc', 'writing-docs', 'style-guide'],
     },
     {
       type: 'doc',
