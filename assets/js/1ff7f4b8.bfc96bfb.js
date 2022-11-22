@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[87233],{15196:e=>{e.exports=JSON.parse('{"label":"docker","permalink":"/articles/tags/docker","allTagsPath":"/articles/tags","count":1}')}}]);

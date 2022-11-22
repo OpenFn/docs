@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[51818],{9482:e=>{e.exports=JSON.parse('{"label":"learning management system","permalink":"/blog/tags/learning-management-system","allTagsPath":"/blog/tags","count":1}')}}]);

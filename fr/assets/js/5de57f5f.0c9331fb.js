@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[5067],{42304:o=>{o.exports=JSON.parse('{"label":"Kobo Toolbox","permalink":"/fr/blog/tags/kobo-toolbox","allTagsPath":"/fr/blog/tags","count":1}')}}]);
