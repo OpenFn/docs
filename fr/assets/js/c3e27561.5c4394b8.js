@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[41191],{72201:a=>{a.exports=JSON.parse('{"label":"IBM Maximo","permalink":"/fr/blog/tags/ibm-maximo","allTagsPath":"/fr/blog/tags","count":1}')}}]);
