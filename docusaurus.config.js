@@ -3,11 +3,12 @@ const path = require('path');
 module.exports = {
   title: 'OpenFn/docs',
   tagline:
-    'Data Integration & Interoperability for Health and Humanitarian Interventions',
+    'The leading digital public good for workflow automation, OpenFn makes ICT4D more efficient.',
   url: 'https://docs.openfn.org',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
+  // onDuplicateRoutes: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
@@ -35,14 +36,9 @@ module.exports = {
           label: 'Docs',
           position: 'left',
         },
-        // {
-        //   to: 'adaptors',
-        //   label: 'Adaptors',
-        //   position: 'left',
-        // },
         {
-          to: 'library',
-          label: 'Library',
+          to: 'adaptors',
+          label: 'Adaptors',
           position: 'left',
         },
         {
@@ -83,8 +79,8 @@ module.exports = {
               to: 'documentation',
             },
             {
-              label: 'Library',
-              to: 'library',
+              label: 'Adaptors',
+              to: 'adaptors',
             },
             {
               label: 'Articles',
@@ -163,15 +159,6 @@ module.exports = {
       path.resolve(__dirname, 'generate-library'),
       {
         apiUrl: 'https://www.openfn.org/api/public',
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-docs',
-      {
-        id: 'library',
-        path: 'library',
-        routeBasePath: 'library',
-        sidebarPath: require.resolve('./sidebars-library.js'),
       },
     ],
     [path.resolve(__dirname, 'generate-adaptors'), {}],

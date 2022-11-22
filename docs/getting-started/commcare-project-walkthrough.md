@@ -68,7 +68,7 @@ Inbox). When a webhook is configured, any Commcare forms submitted are
 **_automatically forwarded_** to the designated endpoint, such as your OpenFn
 inbox. After data forwarding is set up, it happens automatically, **_in
 real-time for all forms and cases_**. Learn more about configuring a webhook
-[here](/documentation/apps/commcare#webhook-forward-cases-andor-forms-from-commcare-to-openfn-using-rest-service).
+[here](/adaptors/commcare#webhook-forward-cases-andor-forms-from-commcare-to-openfn-using-rest-service).
 
 ![option1](/img/option1.png)
 
@@ -188,8 +188,7 @@ get(
 1. Open the run to inspect the error message
 2. Adjust the job to issue and re-run the transaction as needed by clicking the
    play button in `Activity History`
-3. Check out the
-   [PostgreSQL common errors](/documentation/apps/postgresql/#common-errors)
+3. Check out the [PostgreSQL common errors](/adaptors/postgresql/#common-errors)
    page for more details!
 
 :::

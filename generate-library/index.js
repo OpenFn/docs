@@ -72,7 +72,7 @@ ${
 - Updated ${relative(j.updated_at)}
 - Score: <b>${
     isNaN(score) ? 100 : score
-  }</b> (an [indicator](/library/#library-scores) of how useful this job may be)
+  }</b> (an [indicator](/adaptors/library/#library-scores) of how useful this job may be)
 
 ## Key Functions
 
@@ -114,8 +114,8 @@ module.exports = function (context, { apiUrl }) {
         .command('generate-library')
         .description('Generate OpenFn.org Public Job Library')
         .action(async () => {
-          fs.existsSync('./library/jobs/auto') ||
-            fs.mkdirSync('./library/jobs/auto');
+          fs.existsSync('./adaptors/library/jobs/auto') ||
+            fs.mkdirSync('./adaptors/library/jobs/auto');
 
           const jobs = (await loadPublicLibrary(apiUrl)).map(j => {
             const name = cleanUp(j.name);
@@ -128,11 +128,13 @@ module.exports = function (context, { apiUrl }) {
 
           console.log('Parsing static examples...');
           const staticExamples = JSON.parse(
-            fs.readFileSync('./library/staticExamples.json')
+            fs.readFileSync('./adaptors/library/staticExamples.json')
           )
             .map(j => ({
               ...j,
-              expression: fs.readFileSync(`./library/${j.expressionPath}.js`),
+              expression: fs.readFileSync(
+                `./adaptors/library/${j.expressionPath}.js`
+              ),
             }))
             .map(j => {
               const keywords = getKeywords(j.expression);
@@ -140,7 +142,10 @@ module.exports = function (context, { apiUrl }) {
               const body = generateBody(j, uniqueName, keywords, true);
 
               pushToPaths(j, uniqueName);
-              fs.writeFileSync(`./library/jobs/auto/${uniqueName}.md`, body);
+              fs.writeFileSync(
+                `./adaptors/library/jobs/auto/${uniqueName}.md`,
+                body
+              );
             });
           console.log('Done ✓');
 
@@ -155,13 +160,16 @@ module.exports = function (context, { apiUrl }) {
             const body = generateBody(j, uniqueName, keywords);
 
             pushToPaths(j, uniqueName);
-            fs.writeFileSync(`./library/jobs/auto/${uniqueName}.md`, body);
+            fs.writeFileSync(
+              `./adaptors/library/jobs/auto/${uniqueName}.md`,
+              body
+            );
           });
           console.log('Done ✓');
 
           console.log('Creating sidebar paths...');
           fs.writeFileSync(
-            './library/jobs/auto/publicPaths.json',
+            './adaptors/library/jobs/auto/publicPaths.json',
             JSON.stringify(filePaths, null, 2)
           );
           console.log('Done ✓');

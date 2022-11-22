@@ -85,7 +85,7 @@ with it's error messages you become.
 
 OpenFn has outlined several of the more common error messages specific to some
 of the systems that we have integrated in the past. Explore these systems and
-their error messages [here](/documentation/apps/anything).
+their error messages [here](/adaptors#connect-anything).
 
 :::
 
