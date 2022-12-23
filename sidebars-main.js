@@ -54,6 +54,7 @@ module.exports = {
           items: ['build/inbox', 'source-apps'],
         },
         'devtools/home',
+        'cli',
         'build/troubleshooting',
       ],
     },
