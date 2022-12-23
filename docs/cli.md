@@ -4,6 +4,15 @@ sidebar_label: CLI (v2, beta)
 slug: /cli
 ---
 
+:::info What is this tutorial?
+
+This tutorial provides a _hands-on_ way to learn about the new OpenFn CLI. By
+following the prompts and "challenges", a developer with a bit of Javascript
+experience should be able to write, run, and debug complex, multi-step jobs with
+OpenFn, using nothing but a text editor and their terminal.
+
+:::
+
 ## Intro to the OpenFn CLI
 
 The [@openfn/cli](https://github.com/OpenFn/kit/tree/main/packages/cli) is the
@@ -13,7 +22,7 @@ This enables developers to run, build, and test steps in an OpenFn workflow.
 This CLI replaces the old [@openfn/devtools](https://github.com/OpenFn/devtools)
 and provides a new suite of features and improvements, including:
 
-- a new runtime and compiler for executing and creating runnable openfn jobs,
+- a new runtime and compiler for executing and creating runnable OpenFn jobs,
 - customizable logging output,
 - automatic installation of language adaptors,
 - and support for the adaptors monorepo
@@ -31,8 +40,6 @@ to use OpenFn and automate tasks within their workflow.
 
 2. Install NodeJs **v18**
 
-   - **Note: **Currently the CLI will not work with later versions of NodeJs
-     like v19. Please use **v18 **only.
    - To install a specific version of Node.js (in this case, version 18) on
      Linux, Windows, or macOS, you can use a version manager such as nvm (Node
      Version Manager) or any multiple runtime version manager eg:
@@ -42,12 +49,19 @@ to use OpenFn and automate tasks within their workflow.
    - Read this article to learn how to install nodejs in your machine
      [kinsta.com/blog/how-to-install-node-js/](https://kinsta.com/blog/how-to-install-node-js/)
 
+:::caution
+
+CLI v0.0.22 has a know incompatibility with Node 19. It's being addressed, but
+please use _only_ **Node 18** if you're on CLI v0.0.22.
+
+:::
+
 3. Install [git](https://git-scm.com/)
 4. Have a basic understanding of OpenFn—check out jobs and adaptors, at least,
    in the [OpenFn Concepts](getting-started/terminology) of this site.
 5. Install the OpenFn CLI with `npm install -g @openfn/cli`
 
-## Developer Tasks & Challenges
+## Walkthrough & Challenges
 
 ### 1. Getting started with the CLI
 
@@ -56,37 +70,16 @@ sure everything works by running the built-in test job:
 
 ```
 openfn test
-//Expected output
+```
+
+You should see the output:
+
+```sh
 [CLI] ⚠ No state detected: pass -S <number> to provide some state
 [CLI] ✔ Compiled job from const fn = () => state => state \*
 2; fn() [R/T] ✔ Operation 1 complete in 0ms
 [CLI] ✔ Result: 42
 ```
-
-##### Check the version:
-
-```
-openfn -v
-```
-
-##### Get help:
-
-```
-openfn help
-```
-
-##### Basic usage:
-
-```
-openfn path/to/job.js -ia {adaptor-name}
-```
-
-_Note: You MUST specify which adaptor to use. Pass the -i flag to auto-install
-that adaptor (it's safe to do this redundantly). \
-You can find the list of all available adaptors in [https://docs.openfn.org/adaptors](https://docs.openfn.org/adaptors)_
-
-Learn more about CLI
-[github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
 
 #### Tasks:
 
@@ -142,8 +135,7 @@ Write a job that prints your name
 
 Adaptors are Javascript or Typescript module that provides OpenFn users with a
 clean set of helper functions that help communicate with a specific external
-system. Learn more about the adaptors ->
-[docs.openfn.org/adaptors](https://docs.openfn.org/adaptors/)
+system. Learn more about the adaptors -> [docs.openfn.org/adaptors](/adaptors/)
 
 #### Basic usage:
 
@@ -206,10 +198,10 @@ get the list of users and print the object of the first user
 [CLI] ✔ Writing output to ./output.json [CLI] ✔ Done in 950ms! ✨
 ```
 
-### 3. Understanding **state**
+### 3. Understanding `state`
 
-It all starts with
-state[​](https://docs.openfn.org/articles/2021/07/05/wrapping-my-head-around-jobs/#it-all-starts-with-state),
+It
+[all starts with state​](/articles/2021/07/05/wrapping-my-head-around-jobs/#it-all-starts-with-state).
 If a job is a set of instructions for a chef (a recipe?) then the initial state
 is all of the ingredients they need tied up in a perfect little bundle. It
 usually looks something like this
@@ -259,7 +251,7 @@ How can we use state ?
 Each adaptor has a configuration schema that you need to use in your state.json.
 Here is an example of how you can setup your state configurations for **http
 adaptor** (Learn more
-[docs.openfn.org/adaptors/packages/http-readme](https://docs.openfn.org/adaptors/packages/http-readme))
+[docs.openfn.org/adaptors/packages/http-readme](/adaptors/packages/http-readme))
 
 ```json
 {
@@ -335,12 +327,23 @@ covid-19 metadata, using this
 [https://disease.sh/v3/covid-19/](https://disease.sh/v3/covid-19/) as you
 **baseUrl**
 
-### 4. Using @openfn/cli arguments and commands
+### 4. Additional arguments and commands
 
 #### Challenge:
 
-Compile a openfn job (**hello.js**) with the argument `--no-strict-output` and
-share the output with the facilitator
+1. Compile a openfn job (**hello.js**).
+
+   > What's the difference between the job you wrote and the compiled job?
+
+2. Run a job without "strict mode" enabled.
+
+   > What's the difference between the outputs when strict mode is enabled and
+   > disabled?
+
+3. Run a job with the log level set to `none`, and then run it again with the
+   log level set to `debug`.
+
+   > When is it appropriate to use these different log levels?
 
 ### 5. Manipulating data in a sequence of operations
 
@@ -468,7 +471,7 @@ fn(state => {
 
 As you can see from our logs that helper function `dataValue` has a TypeError,
 To troubleshoot this you can go to the documentation for **dataValue ->
-[docs.openfn.org/adaptors/packages/common-docs/#datavaluepath--operation](https://docs.openfn.org/adaptors/packages/common-docs/#datavaluepath--operation)
+[docs.openfn.org/adaptors/packages/common-docs/#datavaluepath--operation](/adaptors/packages/common-docs/#datavaluepath--operation)
 **
 
 According to the docs, dataValue take path which is a string type. But in our
@@ -547,7 +550,7 @@ each('posts', state => {
 
 Notice how this code uses the “each” function from common which is a helper
 function defined in
-[language-common](https://docs.openfn.org/adaptors/packages/common-docs/#eachdatasource-operation--operation)
+[language-common](/adaptors/packages/common-docs/#eachdatasource-operation--operation)
 but is accessed in this job that is using language-http
 
 ##### Run **openfn job.js -a http**
@@ -586,44 +589,79 @@ function that will get posts by user id.
 You’ll learn about these commands in the following challenges, but please refer
 to this section for the key commands used in working with the CLI.
 
-1.  **openfn execute [path]**
+### Check the version
 
-    > Path is the job to load the job from (a .js file or a dir containing a
-    > job.js file) For example `openfn execute foo/job.js ` Reads foo/job.js,
-    > looks for state and output in foo
+```
+openfn -v
+```
 
-2.  **openfn foo/job.js -i -a http**
+### Get help
 
-    ```
-    -i, --autoinstall Auto-install the language adaptor
-    -a, --adaptors, --adaptor A language adaptor to use for the job
+```
+openfn help
+```
 
-    If an adaptor is already installed by auto install, you can use the command without the -i options.
-    i.e openfn foo/job.js -a http
-    ```
+### Run a job
 
-3.  You can pass `-l info` or `--log info` to get more feedback about what's
-    happening, or `--log debug` for more details than you could ever use. Below
-    is the list of different log levels
+```
+openfn path/to/job.js -ia {adaptor-name}
+```
 
-    ```
-     openfn foo/job.js -a http -l none -> This won’t print any information
-     openfn foo/job.js -a http -l default -> Top level information of what is happening
-     openfn foo/job.js -a http -l info -> Get more feedback on what is happening
-     openfn foo/job.js -a http -l debug -> Get information about runtime, cli, compiler and the job
-    ```
+Note: You MUST specify which adaptor to use. Pass the `-i` flag to auto-install
+that adaptor (it's safe to do this redundantly).
 
-4.  Compilation
+You can find the list of publicly available adaptors [here](/adaptors).
 
-    The CLI will attempt to compile your job code into normalized Javascript. It
-    will do a number of things to make your code robust and portable: To compile
-    a job run
+> Path is the job to load the job from (a .js file or a dir containing a job.js
+> file) For example `openfn execute foo/job.js ` Reads foo/job.js, looks for
+> state and output in foo
 
-    `openfn compile [path]` -> Will compile a openfn job and print or save the
-    resulting js
+```
+-i, --autoinstall Auto-install the language adaptor
+-a, --adaptors, --adaptor A language adaptor to use for the job
+```
 
-5.  Strict Mode
+If an adaptor is already installed by auto install, you can use the command
+without the `-i` options. i.e `openfn foo/job.js -a http`
 
-    By default CLI will return only **state.data **after a successful run. To
-    Allow properties other than data to be returned in you need to use
-    `--no-strict-output` Eg: `openfn foo/job.js -a http --no-strict-output`
+### Change log level
+
+You can pass `-l info` or `--log info` to get more feedback about what's
+happening, or `--log debug` for more details than you could ever use. Below is
+the list of different log levels
+
+```
+openfn foo/job.js -a http -l none
+```
+
+| log level    | description                                              |
+| ------------ | -------------------------------------------------------- |
+| `-l none`    | Quiet mode                                               |
+| `-l default` | Top level information of what is happening               |
+| `-l info`    | Get more feedback on what is happening openfn            |
+| `-l debug`   | Get information about runtime, cli, compiler and the job |
+
+### Compilation
+
+The CLI will attempt to compile your job code into normalized Javascript. It
+will do a number of things to make your code robust, portable, and easier to
+debug from a pure JS perspective.
+
+```
+openfn compile [path]
+```
+
+Will compile a openfn job and print or save the resulting js
+
+### Strict Mode
+
+By default CLI will return only the `data` key inside the resulting state after
+a successful run. To Allow properties other than data to be returned in you need
+to use strict mode.
+
+```sh
+openfn foo/job.js -a http --no-strict-output
+```
+
+Learn more about CLI
+[github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
