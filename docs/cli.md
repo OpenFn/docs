@@ -27,16 +27,15 @@ to use OpenFn and automate tasks within their workflow.
 
 1. Ensure you have a code editor installed on your machine
    1. We recommend Visual Studio code
-2. Install NodeJs **v18** 2. **Note: **Currently the CLI will
-   _<span style="text-decoration:underline;">not</span> \_work with later
-   versions of NodeJs like v19. Please use **v18 **only. 3. To install a
+2. Install NodeJs **v18** 2. **Note: **Currently the CLI will not work with
+   later versions of NodeJs like v19. Please use **v18 **only. 3. To install a
    specific version of Node.js (in this case, version 18) on Linux, Windows, or
    macOS, you can use a version manager such as nvm (Node Version Manager) or
    any multiple runtime version manager eg:
    [asdf](https://github.com/asdf-vm/asdf). These tools allow you to install and
-   switch between multiple versions of Node.js on the same machine. \_See below_
-   for instructions for different operating systems. 4. Read this article to
-   learn how to install nodejs in your machine
+   switch between multiple versions of Node.js on the same machine. \_See
+   below\_ for instructions for different operating systems. 4. Read this
+   article to learn how to install nodejs in your machine
    [kinsta.com/blog/how-to-install-node-js/](https://kinsta.com/blog/how-to-install-node-js/)
 3. Install [git](https://git-scm.com/)
 4. Install the OpenFn CLI with `npm install -g @openfn/cli`
@@ -46,20 +45,21 @@ to use OpenFn and automate tasks within their workflow.
 You’ll learn about these commands in the following challenges, but please refer
 to this section for the key commands used in working with the CLI.
 
-1.  openfn execute [path]
+1.  **openfn execute [path]**
 
     > Path is the job to load the job from (a .js file or a dir containing a
     > job.js file) For example `openfn execute foo/job.js ` Reads foo/job.js,
     > looks for state and output in foo
 
-2.  `openfn foo/job.js -i -a http`
+2.  **openfn foo/job.js -i -a http**
 
-    `-i, --autoinstall Auto-install the language adaptor`
+    ```
+    -i, --autoinstall Auto-install the language adaptor
+    -a, --adaptors, --adaptor A language adaptor to use for the job
 
-    `-a, --adaptors, --adaptor A language adaptor to use for the job`
-
-    > If an adaptor is already installed by auto install, you can use the
-    > command without the -i options. I.e <code>openfn foo/job.js -a http</code>
+    If an adaptor is already installed by auto install, you can use the command without the -i options.
+    i.e openfn foo/job.js -a http
+    ```
 
 3.  You can pass `-l info` or `--log info` to get more feedback about what's
     happening, or `--log debug` for more details than you could ever use. Below
@@ -85,9 +85,7 @@ to this section for the key commands used in working with the CLI.
 
     By default CLI will return only **state.data **after a successful run. To
     Allow properties other than data to be returned in you need to use
-    `--no-strict-output` Eg:
-
-    `openfn foo/job.js -a http --no-strict-output`
+    `--no-strict-output` Eg: `openfn foo/job.js -a http --no-strict-output`
 
 ## Developer Tasks & Challenges
 
@@ -100,24 +98,24 @@ sure everything works by running the built-in test job:
 openfn test
 //Expected output
 [CLI] ⚠ No state detected: pass -S <number> to provide some state
-[CLI] ✔ Compiled job from const fn = () => state => state * 2; fn()
-[R/T] ✔ Operation 1 complete in 0ms
+[CLI] ✔ Compiled job from const fn = () => state => state \*
+2; fn() [R/T] ✔ Operation 1 complete in 0ms
 [CLI] ✔ Result: 42
 ```
 
-Check the version:
+##### Check the version:
 
 ```
 openfn -v
 ```
 
-Get help:
+##### Get help:
 
 ```
 openfn help
 ```
 
-Basic usage:
+##### Basic usage:
 
 ```
 openfn path/to/job.js -ia {adaptor-name}
@@ -187,7 +185,7 @@ clean set of helper functions that help communicate with a specific external
 system. Learn more about the adaptors ->
 [docs.openfn.org/adaptors](https://docs.openfn.org/adaptors/)
 
-Basic usage:
+#### Basic usage:
 
 Let’s use
 [@openfn/language-http](https://www.npmjs.com/package/@openfn/language-http)
@@ -325,11 +323,11 @@ Update your **state.json** to be like this \
 ```
 
 Since we have update our configuration in our state.json we can now use `get()`
-helper function without the need to specify the baseUrl
+helper function without the need to specify the **baseUrl**
 
-I.e `get(“posts”)`
+i.e `get(“posts”)`
 
-Update your job (getPosts.js) to be like this \
+##### Update your job (getPosts.js) to be like this
 
 ```jsx title="getPosts.js"
 // Get all posts
@@ -342,13 +340,13 @@ fn(state => {
 });
 ```
 
-Now run the job using the following command \
+##### Now run the job using the following command
 
 ```
 openfn getPosts.js -a http
 ```
 
-Expected output
+> Expected output
 
 ```
 [CLI] ✔ Loaded state from ./state.json
@@ -391,7 +389,7 @@ cleaning, or transformation. For example after we get data from the
 `https://jsonplaceholder.typicode.com` registry we might need to group the posts
 by user id.
 
-Example:
+##### Example:
 
 ```jsx title="getPosts.js"
 // Get all posts
@@ -421,14 +419,15 @@ fn(state => {
 });
 ```
 
-In summary \
-Operation 1: Will get all posts and return response will be in state.data
+##### In summary
 
-Operation2: Will group returned posts by userId
+1. Operation 1: Will get all posts and return response will be in state.data
 
-Operation3: Will log posts with userId 1
+2. Operation2: Will group returned posts by userId
 
-Expected output
+3. Operation3: Will log posts with userId 1
+
+> Expected output
 
 ```
 [CLI] ✔ Loaded state from foo/state.json
@@ -466,12 +465,16 @@ the content of the manipulated objects (such as state).
    2. fn(state => { console.log(state); return state; });
    3. secondOperation(...);
 
-\*Note: note that console.log(state) will display the whole state, but also
-configuration elements (username, and password). Remove this log whenever your
-done debudding to avoid accidentally exposing sensitive information when the job
-is successful deployed on production
+:::warning Important
 
-Eg: Create **debug.js** and paste the code below
+Note that `console.log(state)` will display the whole state, but also
+configuration elements **(username, and password)**. Remove this log whenever
+your done debudding to avoid accidentally exposing sensitive information when
+the job is successful deployed on production
+
+:::
+
+##### Create **debug.js** and paste the code below
 
 ```jsx title="debug.js"
 // Get all posts
@@ -486,9 +489,9 @@ fn(state => {
 });
 ```
 
-Run openfn debug.js -a http
+##### Run **openfn debug.js -a http**
 
-Expected output \
+> Expected output
 
 ```
 [CLI] ✘ TypeError: path.match is not a function
@@ -509,10 +512,10 @@ To troubleshoot this you can go to the documentation for **dataValue ->
 **
 
 According to the docs, dataValue take path which is a string type. But in our
-operation were passing an integer, that’s why we have a TypeError. \
-You can fix by passing a string in dataValue i.e console.log(dataValue(“1”))
+operation were passing an integer, that’s why we have a _TypeError_. You can fix
+by passing a string in dataValue i.e `console.log(dataValue(“1”))`
 
-Expected output
+> Expected output
 
 ```
 [CLI] ✔ Loaded state from ./state.json
@@ -522,13 +525,13 @@ GET request succeeded with 200 ✓
 [JOB] ℹ [Function (anonymous)]
 [R/T] ✔ Operation 2 complete in 1ms
 [CLI] ✔ Writing output to ./output.json
-[CLI] ✔ Done in 1.102s! ✨
+[CLI] ✔ Done in 1.102s!Example: ✨
 ```
 
 If you need more information for debugging you can pass -l debug which will give
 all information about the run
 
-I.e `openfn debug.js -a http -l debug`
+i.e `openfn debug.js -a http -l debug`
 
 #### Challenge:
 
@@ -546,7 +549,7 @@ We often have to perform the same operation multiple times for items in an
 array. Most of the helper functions for data manipulation are inherited from
 @openfn/language-common and are available in most of the adaptors.
 
-Eg: Create job.js and add the following codes
+##### Create job.js and add the following codes
 
 ```jsx
 // Get all posts
@@ -587,9 +590,9 @@ function defined in
 [language-common](https://docs.openfn.org/adaptors/packages/common-docs/#eachdatasource-operation--operation)
 but is accessed in this job that is using language-http
 
-Run `openfn job.js -a http `
+##### Run **openfn job.js -a http**
 
-Expected output
+> Expected output
 
 ```
 [CLI] ✔ Loaded state from ./state.json
@@ -611,7 +614,7 @@ GET request succeeded with 200 ✓
 Using Javascript globals i.e `Array.reduce, Array.filter or Array.map`, build
 function that will get posts by user id.
 
-Tasks:
+#### Tasks:
 
 1. Create a file called job1.js
 2. Add the 1st operation which is get all posts
