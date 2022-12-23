@@ -1,6 +1,6 @@
 ---
 title: The CLI (v2, beta)
-sidebar_label: CLI (beta)
+sidebar_label: CLI (v2, beta)
 slug: /cli
 ---
 
@@ -25,67 +25,27 @@ to use OpenFn and automate tasks within their workflow.
 
 ## Prerequisites
 
-1. Ensure you have a code editor installed on your machine
-   1. We recommend Visual Studio code
-2. Install NodeJs **v18** 2. **Note: **Currently the CLI will not work with
-   later versions of NodeJs like v19. Please use **v18 **only. 3. To install a
-   specific version of Node.js (in this case, version 18) on Linux, Windows, or
-   macOS, you can use a version manager such as nvm (Node Version Manager) or
-   any multiple runtime version manager eg:
-   [asdf](https://github.com/asdf-vm/asdf). These tools allow you to install and
-   switch between multiple versions of Node.js on the same machine. \_See
-   below\_ for instructions for different operating systems. 4. Read this
-   article to learn how to install nodejs in your machine
-   [kinsta.com/blog/how-to-install-node-js/](https://kinsta.com/blog/how-to-install-node-js/)
+1. Ensure you have a code editor installed on your machine (e.g.
+   [VS Code](https://code.visualstudio.com/),
+   [Sublime](https://www.sublimetext.com/))
+
+2. Install NodeJs **v18**
+
+   - **Note: **Currently the CLI will not work with later versions of NodeJs
+     like v19. Please use **v18 **only.
+   - To install a specific version of Node.js (in this case, version 18) on
+     Linux, Windows, or macOS, you can use a version manager such as nvm (Node
+     Version Manager) or any multiple runtime version manager eg:
+     [asdf](https://github.com/asdf-vm/asdf). These tools allow you to install
+     and switch between multiple versions of Node.js on the same machine. See
+     below for instructions for different operating systems.
+   - Read this article to learn how to install nodejs in your machine
+     [kinsta.com/blog/how-to-install-node-js/](https://kinsta.com/blog/how-to-install-node-js/)
+
 3. Install [git](https://git-scm.com/)
-4. Install the OpenFn CLI with `npm install -g @openfn/cli`
-
-## CLI Usage - Key Commands
-
-You’ll learn about these commands in the following challenges, but please refer
-to this section for the key commands used in working with the CLI.
-
-1.  **openfn execute [path]**
-
-    > Path is the job to load the job from (a .js file or a dir containing a
-    > job.js file) For example `openfn execute foo/job.js ` Reads foo/job.js,
-    > looks for state and output in foo
-
-2.  **openfn foo/job.js -i -a http**
-
-    ```
-    -i, --autoinstall Auto-install the language adaptor
-    -a, --adaptors, --adaptor A language adaptor to use for the job
-
-    If an adaptor is already installed by auto install, you can use the command without the -i options.
-    i.e openfn foo/job.js -a http
-    ```
-
-3.  You can pass `-l info` or `--log info` to get more feedback about what's
-    happening, or `--log debug` for more details than you could ever use. Below
-    is the list of different log levels
-
-    ```
-     openfn foo/job.js -a http -l none -> This won’t print any information
-     openfn foo/job.js -a http -l default -> Top level information of what is happening
-     openfn foo/job.js -a http -l info -> Get more feedback on what is happening
-     openfn foo/job.js -a http -l debug -> Get information about runtime, cli, compiler and the job
-    ```
-
-4.  Compilation
-
-    The CLI will attempt to compile your job code into normalized Javascript. It
-    will do a number of things to make your code robust and portable: To compile
-    a job run
-
-    `openfn compile [path]` -> Will compile a openfn job and print or save the
-    resulting js
-
-5.  Strict Mode
-
-    By default CLI will return only **state.data **after a successful run. To
-    Allow properties other than data to be returned in you need to use
-    `--no-strict-output` Eg: `openfn foo/job.js -a http --no-strict-output`
+4. Have a basic understanding of OpenFn—check out jobs and adaptors, at least,
+   in the [OpenFn Concepts](getting-started/terminology) of this site.
+5. Install the OpenFn CLI with `npm install -g @openfn/cli`
 
 ## Developer Tasks & Challenges
 
@@ -621,39 +581,49 @@ function that will get posts by user id.
 3. Add 2nd operation which has a function that filter posts by id
 4. Use the function from 2nd operation to get all post for user id 1
 
-## Key OpenFn Concepts
+## CLI Usage - Key Commands
 
-When working with the CLI and building and running OpenFn workflows locally, it
-will be important to understand the OpenFn building blocks: **jobs**,
-**adaptors**, and **state. **
+You’ll learn about these commands in the following challenges, but please refer
+to this section for the key commands used in working with the CLI.
 
-### What is a job?
+1.  **openfn execute [path]**
 
-A job is a task that is executed by the OpenFn platform. Jobs are typically
-triggered by events, such as the submission of a form or the receipt of a
-message, and they can perform a variety of actions, such as sending a message,
-updating a database, or calling an API.
+    > Path is the job to load the job from (a .js file or a dir containing a
+    > job.js file) For example `openfn execute foo/job.js ` Reads foo/job.js,
+    > looks for state and output in foo
 
-### What is an adaptor ?
+2.  **openfn foo/job.js -i -a http**
 
-An adaptor is a Javascript or Typescript module that provides OpenFn users with
-a clean set of helper functions that help communicate with a specific external
-system, such as databases, message brokers, and APIs. Adaptors provide a
-standard interface for connecting to these systems and allow jobs to perform
-actions on them.
+    ```
+    -i, --autoinstall Auto-install the language adaptor
+    -a, --adaptors, --adaptor A language adaptor to use for the job
 
-### What is state?
+    If an adaptor is already installed by auto install, you can use the command without the -i options.
+    i.e openfn foo/job.js -a http
+    ```
 
-State refers to the data that is stored and managed by the platform. This can
-include data that is used by jobs, such as form submissions or API responses, as
-well as data that is used to configure and manage the platform itself, such as
-user credentials for authorization and authentication.
+3.  You can pass `-l info` or `--log info` to get more feedback about what's
+    happening, or `--log debug` for more details than you could ever use. Below
+    is the list of different log levels
 
-A job state is defined as the result ("success", "failure", or "in progress") of
-the last run (ordered by the time it was finished, rather than when it was
-inserted into the runs table) for a given message-job combination.
+    ```
+     openfn foo/job.js -a http -l none -> This won’t print any information
+     openfn foo/job.js -a http -l default -> Top level information of what is happening
+     openfn foo/job.js -a http -l info -> Get more feedback on what is happening
+     openfn foo/job.js -a http -l debug -> Get information about runtime, cli, compiler and the job
+    ```
 
-Learn more about OpenFn key concepts
-[on the Docs site](https://docs.openfn.org/documentation/getting-started/terminology).
-In Administrator training, we will cover other key concepts and how these jobs
-can be configured to run automatically on platform.
+4.  Compilation
+
+    The CLI will attempt to compile your job code into normalized Javascript. It
+    will do a number of things to make your code robust and portable: To compile
+    a job run
+
+    `openfn compile [path]` -> Will compile a openfn job and print or save the
+    resulting js
+
+5.  Strict Mode
+
+    By default CLI will return only **state.data **after a successful run. To
+    Allow properties other than data to be returned in you need to use
+    `--no-strict-output` Eg: `openfn foo/job.js -a http --no-strict-output`
