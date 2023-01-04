@@ -217,7 +217,7 @@ usually looks something like this
 }
 ```
 
-Using CLI, **state.json** will be loaded automatically from foo directory
+Using CLI, **state.json** will be loaded automatically from the current directory
 
 Or you can specify the path to the state file by passing the option -s,
 --state-path
@@ -263,7 +263,7 @@ adaptor** (Learn more
 
 #### Tasks:
 
-Update your **state.json** to be like this \
+Update your **state.json** to be like this 
 
 ```json
 {
