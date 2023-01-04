@@ -432,7 +432,7 @@ the content of the manipulated objects (such as state).
 
 Note that `console.log(state)` will display the whole state, but also
 configuration elements **(username, and password)**. Remove this log whenever
-your done debudding to avoid accidentally exposing sensitive information when
+you're done debugging to avoid accidentally exposing sensitive information when
 the job is successful deployed on production
 
 :::
