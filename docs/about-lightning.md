@@ -1,5 +1,5 @@
 ---
-title: Lightning (Coming soon)
+title: Lightning (Beta)
 sidebar_label: Lightning
 ---
 
@@ -159,9 +159,7 @@ Security:
 - Role-based project access
 - Additional authentication rules for webhooks
 
-## Roadmap
-
-### Now (end of Q4)
+## Features
 
 ##### General
 
@@ -187,9 +185,12 @@ Run a job manually
 View all runs grouped by workflow  
 Search and filter runs by status, workflow and run logs
 
-### Soon
+## Roadmap
 
-Retry a workflow run from the start (first job) or from failure  
+### Now (Q1)
+
+Handle Oauth authentication flow Retry a workflow run from the start (first job)
+or from failure  
 Bulk reprocess workflow runs  
 Get notified via email on run failure  
 Get notified of run limits via email  
@@ -197,11 +198,14 @@ Import and export projects
 Automatic github version control  
 View key project metrics (number of runs, failures, workflows)
 
-### Later
+### Soon
 
 Set up multi-factor authentication  
 Zero persistence pipeline  
-Add authentication to webhook triggers  
+Add authentication to webhook triggers
+
+### Later
+
 Save job inputs as test cases  
 Run a job with a saved input
 
