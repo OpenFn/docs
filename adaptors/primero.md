@@ -21,6 +21,8 @@ Primero data is primarily stored in **cases**, **services** and **referrals**.
 Learn more about Primero records using the user guides at the Primero
 documentation site: https://support.primero.org/documentation
 
+**[See Primero admin guide](https://support.primero.org/assets/books-v2/1sP6VhT70WHhi5ZPbio6EszX-i4jZsBkO/#h.r1lefowgvf0n) for guidance on unique identifiers.**
+
 ## Integration Use Cases
 
 1. As a UNICEF caseworker, I would like to electronically send a referral for a
