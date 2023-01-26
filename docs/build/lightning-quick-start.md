@@ -25,29 +25,34 @@ Click on the 'Sample workflow'.
 
 ![lightning-click-sample-workflow](/img/lightning-click-sample-workflow.png)
 
-This is a workflow which takes data submitted to a webhook URL (for example from
-a CommCare form submission), checks it the patient is over 18 months old,
-formats the data to the OpenHIE standard and then uploads it to DHIS2.
+_This is a workflow which takes data submitted to a webhook URL (for example
+from a CommCare form submission), checks it the patient is over 18 months old,
+formats the data to the OpenHIE standard and then uploads it to DHIS2._
 
 ![lightning-sample-workflow](/img/lightning-sample-workflow.png)
 
-The top node shows you the trigger for the first job in your workflow. This is
+_The top node shows you the trigger for the first job in your workflow. This is
 what will trigger your workflow. In this case, it is when data is received at
-the webhook URL.
+the webhook URL._
 
 ![lightning-trigger-node](/img/lightning-trigger-node.png)
 
-Each node below the trigger represents a 'job' in your workflow. You can think
-of jobs as a set of instructions to carry out.
+_Each node below the trigger represents a 'job' in your workflow. Once a job is
+completed, it will trigger the next one. You can think of jobs as a set of
+instructions to carry out._
 
-Click on the last job 'Upload to DHIS2'. The **_adaptor_** tells you which
-system it is performing an action in. The **_credential_** tells you which
-account it is using to get authorisation in that system.
+![lightning-job-nodes](/img/lightning-job-nodes.png)
+
+Click on the last job 'Upload to DHIS2'.
+
+_The \*\*\_adaptor_** tells you which system it is performing an action in. The
+**_credential_\*\* tells you which account it is using to get authorisation in
+that system.\_
 
 ![lightning-dhis2-job](/img/lightning-dhis2-job.png)
 
-In this case, we're using the DHIS2 adaptor to connect to DHIS2 and using DHIS2
-play credentials to connect to the DHIS2 demo account.
+_In this case, we're using the DHIS2 adaptor to connect to DHIS2 and using DHIS2
+play credentials to connect to the DHIS2 demo account._
 
 :::tip
 
