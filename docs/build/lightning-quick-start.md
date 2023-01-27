@@ -45,9 +45,9 @@ instructions to carry out._
 
 Click on the last job 'Upload to DHIS2'.
 
-_The \*\*\_adaptor_** tells you which system it is performing an action in. The
-**_credential_\*\* tells you which account it is using to get authorisation in
-that system.\_
+_The **adaptor** tells you which system it is performing an action in. The
+**credential** tells you which account it is using to get authorisation in that
+system._
 
 ![lightning-dhis2-job](/img/lightning-dhis2-job.png)
 
@@ -115,14 +115,14 @@ your webhook URL into your command line.
 
 ```sh
 curl -H 'Content-Type: application/json' \
-      -d '{ "title":"foo","body":"bar", "id": 1}' \
+      -d '{"age_in_months": 19, "name": "Wycliffe Gigiwe"}' \
       -X POST \
       https://your-webhook-url.com/
 ```
 
 ### View the work order history
 
-Head to the History section in the navbar. You should now see one workorder,
+Head to the History section in the navbar. You should now see one **workorder**,
 with a final status of 'Success'. A work order is a request for data to get
 processed.
 
