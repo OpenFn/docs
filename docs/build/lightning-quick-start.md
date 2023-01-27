@@ -130,7 +130,9 @@ The work order status will be the status of the last attempt.
 
 ![lightning-2-attempts](/img/lightning-2-attempts.png)
 
-## Trigger your job through a webhook request
+## 4. Bonus
+
+### Trigger your job through a webhook request
 
 **If you'd like to trigger it through the webhook**, click on the first node to
 copy the webhook URL. Then make a curl request by pasting the command below with
