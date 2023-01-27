@@ -48,6 +48,11 @@ const items = adaptors.sort().map(a => {
         label: 'Contributing',
         id: a.readmeId,
       },
+      {
+        type: 'doc',
+        label: 'Configuration',
+        id: a.configurationSchemaId,
+      },
     ],
   };
 
