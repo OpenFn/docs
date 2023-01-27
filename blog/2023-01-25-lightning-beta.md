@@ -59,7 +59,14 @@ and share your feedback out loud while you go through the instructions below.
 - What is a job?
 
 3. Click on the first job ‘Check if age over 18’ and head to the input tab. Run
-   the job with the following custom input { "data": { "age_in_months": 19 } }
+   the job with the following custom input
+   ```
+   {"data": {
+   "age_in_months": 19,
+   "name": "Wycliffe Gigiwe"
+   }
+   }
+   ```
 
 - Can you see the output?
 - How did “state” change?
@@ -78,4 +85,10 @@ and share your feedback out loud while you go through the instructions below.
 - Select the DHIS2 adaptor
 - Create a 'DHIS2 play' credential (url:https://play.dhis2.org/2.38.2.1,
   username: district, pw: admin)
-- What operations are available in the xxx adaptor ?
+- From the adaptor documentation below the editor, select the operation which
+  gets tracked entity instance from DHIS2.
+- Run the job manually with an input `{}`
+
+```
+
+```
