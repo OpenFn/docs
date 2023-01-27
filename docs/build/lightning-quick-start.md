@@ -21,38 +21,34 @@ _If you already have an account, you can
 
 ## 2. View the example workflow
 
-Click on the 'Sample workflow'.
+2.1 Click on the 'Sample workflow' that has been created for you.
 
 ![lightning-click-sample-workflow](/img/lightning-click-sample-workflow.png)
 
-_This is a workflow which takes data submitted to a webhook URL (for example
-from a CommCare form submission), checks it the patient is over 18 months old,
-formats the data to the OpenHIE standard and then uploads it to DHIS2._
+This is a workflow which takes data submitted to a webhook URL (for example
+through a KoboToolbox or CommCare form submission), checks it the patient is
+over 18 months old, formats the data to the OpenHIE standard and then uploads it
+to DHIS2.
 
-![lightning-sample-workflow](/img/lightning-sample-workflow.png)
+![lightning-sample-workflow-a](/img/lightning-sample-workflow-a.png)
 
-_The top node shows you the trigger for the first job in your workflow. This is
-what will trigger your workflow. In this case, it is when data is received at
-the webhook URL._
+The top node shows you what triggers the first job in your workflow (ie: when it
+will run). Each node below it represents a **job** in your workflow.
 
-![lightning-trigger-node](/img/lightning-trigger-node.png)
+Once a job is completed, it will trigger the next one.
 
-_Each node below the trigger represents a 'job' in your workflow. Once a job is
-completed, it will trigger the next one. You can think of jobs as a set of
-instructions to carry out._
+_When Job 1 succeeds, it will trigger job 2._
 
-![lightning-job-nodes](/img/lightning-job-nodes.png)
-
-Click on the last job 'Upload to DHIS2'.
-
-_The **adaptor** tells you which system it is performing an action in. The
-**credential** tells you which account it is using to get authorisation in that
-system._
+2.2 Open up the job inspector by clicking on the last job 'Upload to DHIS2'
 
 ![lightning-dhis2-job](/img/lightning-dhis2-job.png)
 
-_In this case, we're using the DHIS2 adaptor to connect to DHIS2 and using DHIS2
-play credentials to connect to the DHIS2 demo account._
+The **trigger** tells you when the job runs: when Job 2 succeeds.
+
+The **adaptor** tells you which system it is performing an action in: DHIS2.
+
+The **credential** tells you which account it is using to get authorisation in
+that system: DHIS2 play.
 
 :::tip
 
@@ -62,21 +58,23 @@ first two jobs in our workflow.
 
 :::
 
+Click on the 'Editor' tab in the job inspector.
+
+![lightning-dhis2-editor](/img/lightning-dhis2-editor.png)
+
+This is where you will find the **job expression**.
+
+The adaptor documentation below the editor shows you the operations available in
+the adaptor which you can add and configure yourself.
+
 ## 3. Run it
 
-Now that we know what the Sample workflow does, let's run it.
+Now that we know what the 'Sample workflow' does, let's run it.
 
 ### Run manually
 
-**To run it manually**, click on the first job node below the trigger and head
-to the 'Input' tab. This is where you can select an input to run your job with.
-
-:::tip The input dropdown allows you to run jobs manually.
-
-You can select one of the three latest inputs the job was run with, or use your
-own custom input.
-
-:::
+Click on the first job node below the trigger and head to the 'Input' tab. This
+is where you can select an input to run your job with.
 
 This job hasn't been run before, so let's create a custom input.
 
@@ -88,8 +86,7 @@ Copy/paste the payload below into the 'custom input' box and click 'Run'.
 {
   "data": {
     "age_in_months": 19,
-    "first_name": "Wycliffe",
-    "last_name": "Bardo"
+    "name": "Wycliffe Bardo"
   }
 }
 ```
@@ -97,8 +94,12 @@ Copy/paste the payload below into the 'custom input' box and click 'Run'.
 You'll be taken to the output tab. This is where you can see the logs from your
 run, and what the output looks like.
 
+:::tip
+
 The **logs** will display any information that you choose to log during an
-operation by using `console.log()`.
+operation by using `console.log()`. (See job 1 for an example)
+
+:::
 
 ![lightning-logs](/img/lightning-logs.png)
 
@@ -107,24 +108,12 @@ the next job.
 
 ![lightning-output](/img/lightning-output.png)
 
-### Run through webhook request
-
-**If you'd like to trigger it through the webhook**, click on the first node to
-copy the webhook URL. Then make a curl request by pasting the command below with
-your webhook URL into your command line.
-
-```sh
-curl -H 'Content-Type: application/json' \
-      -d '{"age_in_months": 19, "name": "Wycliffe Gigiwe"}' \
-      -X POST \
-      https://your-webhook-url.com/
-```
-
 ### View the work order history
 
-Head to the History section in the navbar. You should now see one **workorder**,
-with a final status of 'Success'. A work order is a request for data to get
-processed.
+Head to the History section in the navbar. You should now see one workorder,
+with a final status of 'Success'.
+
+A **work order** is a request for data to get processed.
 
 ![lightning-history](/img/lightning-history.png)
 
@@ -140,3 +129,16 @@ retry the attempt. This will create a new attempt, under the same work order.
 The work order status will be the status of the last attempt.
 
 ![lightning-2-attempts](/img/lightning-2-attempts.png)
+
+## Trigger your job through a webhook request
+
+**If you'd like to trigger it through the webhook**, click on the first node to
+copy the webhook URL. Then make a curl request by pasting the command below with
+your webhook URL into your command line.
+
+```sh
+curl -H 'Content-Type: application/json' \
+      -d '{"age_in_months": 19, "name": "Wycliffe Gigiwe"}' \
+      -X POST \
+      https://your-webhook-url.com/
+```

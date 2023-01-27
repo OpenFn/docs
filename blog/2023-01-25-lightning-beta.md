@@ -58,25 +58,40 @@ and share your feedback out loud while you go through the instructions below.
 - What is an adaptor ?
 - What is a job?
 
-3. Click on the first job ‘Check if age over 18’ and head to the input tab. Run
-   the job with the following custom input
-   ```
-   {"data": {
-   "age_in_months": 19,
-   "name": "Wycliffe Gigiwe"
-   }
-   }
-   ```
+3. Click on the first job ‘Check if age over 18’ and head to the input tab.
+
+Run the job with the following custom input:
+
+```json
+{
+  "data": {
+    "age_in_months": 19,
+    "name": "Wycliffe Gigiwe"
+  }
+}
+```
 
 - Can you see the output?
 - How did “state” change?
 
-4. View the runs for that demo workflow
+Now, run the job with a patient that is under 18 months:
+
+```json
+{
+  "data": {
+    "age_in_months": 6,
+    "name": "Sarah Alice"
+  }
+}
+```
+
+- Did the job succeed? Why not?
+
+4. View the runs
 
 - What does each row represent?
 - Find the last failed run - why did it fail ?
 - Can you rerun it ?
-- Find the run that registered patient ‘Jerry’
 
 5. [Bonus] Create a new workflow that gets data from DHIS2 every week and
 
@@ -88,7 +103,3 @@ and share your feedback out loud while you go through the instructions below.
 - From the adaptor documentation below the editor, select the operation which
   gets tracked entity instance from DHIS2.
 - Run the job manually with an input `{}`
-
-```
-
-```
