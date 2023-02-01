@@ -51,7 +51,7 @@ where, how_ and _what_ to do.
 
 :::
 
-Click on a job to view more details about it.
+Click on a job to view more details about it in the setup and editor tab.
 
 ### [SETUP TAB]
 
@@ -71,8 +71,9 @@ following:
 
 :::tip
 
-The first job in a workflow can only have a cron or webhook trigger. All the
-other jobs will have a trigger of on success or on failure.
+The trigger for the first job in a workflow will always be either a 'cron' or
+'webhook' trigger. All the other jobs will have a trigger of 'on success' or 'on
+failure'.
 
 :::
 
@@ -107,7 +108,8 @@ The job expression defines what action to carry out and which data values to
 use.
 
 It is an example operation which has been added from the adaptor documentation
-and then configured to use specific values from the state input data.
+and then configured to use specific values from the state input data. (see image
+below for details)
 
 ![lightning_editor](/img/lightning_editor.png)
 
@@ -121,7 +123,8 @@ first node on the canvas) is called.
 :::
 
 In the case of the Sample Workflow, this is when data is sent to the webhook
-URL. There are two ways of doing this:
+URL. There are three ways of doing this. Follow the instructions from one of the
+options below to run your workflow.
 
 ### Manually send data to your first job trigger
 
@@ -161,20 +164,50 @@ curl -H 'Content-Type: application/json' \
       YOUR_WEBHOOK_URL
 ```
 
+### Send data from your external system
+
+:::tip
+
+You can trigger a workflow from an external system by configuring it's REST
+services to send data to your trigger webhook URL.
+
+:::
+
+In the case of our Sample Workflow, we're using KoboToolbox as an external
+system.
+
+[Log into](https://kf.kobotoolbox.org/accounts/login/#/) our KoboToolbox demo
+account with _username: openfn_demo and password: openfn_demo_. Select the form
+you’d like to connect ('Lightning sample workflow') and go to Settings -> REST
+services -> Register a new service.
+
+![kobo](/img/2.3_kobo_rest.png 'Register a REST service with Kobo')
+
+Set the service name to OpenFn and the URL to the webhook URL (you can copy is
+from the first node on your workflow).
+
+![kobo](/img/2.4_kobo_rest.png 'Set the REST service URL to your OpenFn inbox URL')
+
+Your form should now be configured to send data to the webhook trigger for your
+first job whenever a response is submitted. We can test this out by submitting
+some form responses at Form -> Open.
+
+![kobo form](/img/2.5_open_kobo_form.png 'Open a kobo form')
+
 ## 4. Check your request got processed correctly
 
 :::tip
 
-A **work order** is a request for data to get processed. You can view these on
-your history page.
+The history page shows you each **work order** or _request for data to be
+processed_.
 
 :::
 
-Now that you have run your workflow, head to the history page to see it.
+Now that you have run your workflow, head to the history page to see the work
+order. You'll see it has a status of 'Success' which means it got processed
+correctly.
 
 ![lightning_history](/img/lightning_history.png)
-
-You'll see it has a status of 'Success' which means it got processed correctly.
 
 Click on the chevron next to the status to expand it and see each job run.
 
@@ -194,18 +227,19 @@ old using the data below.
 }
 ```
 
-Head to the history page and see that the work order has a status of 'Failure'
-because the patient is not older than 18 months.
+Head to the history page and see that the work order has a status of 'Failure'.
+This is because the patient is **not** older than 18 months.
 
 ![lightning_history_failure](/img/lightning_history_failure.png)
 
-If we made a mistake and _actually_ wanted to register any patient that is both
-18 AND above, we can still edit the job logic and reprocess the request.
+Let's say we made a mistake and _actually_ wanted to register any patient that
+is _**both**_ 18 months old _**and**_ above. We want to edit the job logic and
+reprocess the request.
 
-Head to the Editor tab in Job 1 to update the logic. Change the if statement
-from `> 18` to `<= 18` then click save.
+Head to the Editor tab in Job 1 to update the logic by changing the if statement
+from `> 18` to `<= 18`.
 
-Your Job expression should now look like the following:
+Your Job expression should now be the following:
 
 ```js
 fn(state => {
@@ -218,8 +252,9 @@ fn(state => {
 });
 ```
 
-Head back to your history page and find the work order you want to reprocess.
-You can search for "Njoroge Orao" in the search bar to find it.
+Make sure to click save, then head back to your history page and find the work
+order you want to reprocess. You can search for "Njoroge Orao" in the search bar
+to find it.
 
 Expand the work order, and click the 'rerun' button next to the first job run.
 
