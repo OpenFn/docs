@@ -7,140 +7,214 @@ post a question to our [community forum](https://community.openfn.org/).
 
 ## 1. Register
 
-Register for an OpenFn Lightning account on
-[app.openfn.org](https://app.openfn.org/users/register).
+Register for an account on
+[app.openfn.org](https://app.openfn.org/users/register) and follow the link sent
+to your inbox to confirm your email.
 
+<!---
+I don't know if we need this picture, registering is pretty self-explanatory.
 ![lightning-register](/img/lightning-register.png)
-
-Follow the link sent to your inbox to confirm your email.
-
 ![lightning-email-confirmation](/img/lightning-email-confirmation.png)
+-->
 
-_If you already have an account, you can
-[login](https://app.openfn.org/users/log_in)._
+\*If you already have an account, you can
+[login](https://app.openfn.org/users/log_in).
 
-## 2. View the example workflow
+## 2. Understand the sample workflow
 
-2.1 Click on the 'Sample workflow' that has been created for you.
+Once you've registered for an account you'll be taken to your workflows page
+with the ‘Sample workflow’ we’ve created for you.
 
-![lightning-click-sample-workflow](/img/lightning-click-sample-workflow.png)
-
-This is a workflow which takes data submitted to a webhook URL (for example
-through a KoboToolbox or CommCare form submission), checks it the patient is
-over 18 months old, formats the data to the OpenHIE standard and then uploads it
-to DHIS2.
-
-![lightning-sample-workflow-a](/img/lightning-sample-workflow-a.png)
-
-The top node shows you what triggers the first job in your workflow (ie: when it
-will run). Each node below it represents a **job** in your workflow.
-
-Once a job is completed, it will trigger the next one.
-
-_When Job 1 succeeds, it will trigger job 2._
-
-2.2 Open up the job inspector by clicking on the last job 'Upload to DHIS2'
-
-![lightning-dhis2-job](/img/lightning-dhis2-job.png)
-
-The **trigger** tells you when the job runs: when Job 2 succeeds.
-
-The **adaptor** tells you which system it is performing an action in: DHIS2.
-
-The **credential** tells you which account it is using to get authorisation in
-that system: DHIS2 play.
+![lightning-workflows-page](/img/lightning-workflows-page.png)
 
 :::tip
 
-You'll notice some jobs use an adaptor called 'common'. This adaptor helps
-manipulate data _before_ sending it to another system. This is the case for the
-first two jobs in our workflow.
+A **workflow** is a series of tasks to be carried out _automatically_ (i.e a
+process that has been automated).
 
 :::
 
-Click on the 'Editor' tab in the job inspector.
+<!---
+<— add data somewhere ? Do these things with this data
+-->
 
-![lightning-dhis2-editor](/img/lightning-dhis2-editor.png)
+This sample workflow (pictured below) automates patient registration by taking a
+patient’s name and age and:
 
-This is where you will find the **job expression**.
+1. checking if they are over 18 months old;
+2. converting it to the same format as DHIS2;
+3. uploading it to DHIS2 (a digital health information system).
 
-The adaptor documentation below the editor shows you the operations available in
-the adaptor which you can add and configure yourself.
+![lightning-sample-workflow](/img/lightning-sample-workflow.png)
 
-## 3. Run it
+The sample workflow is made up of 3 _jobs_.
 
-Now that we know what the 'Sample workflow' does, let's run it.
+:::tip
 
-### Run manually
+A **job** is an action to be carried out at a given point in time. It has a
+trigger, an adaptor, a credential and a job expression which each define _when,
+where, how_ and _what_ to do.
 
-Click on the first job node below the trigger and head to the 'Input' tab. This
-is where you can select an input to run your job with.
+:::
 
-This job hasn't been run before, so let's create a custom input.
+Click on a job to view more details about it.
 
-![lightning-custom-input](/img/lightning-custom-input.png)
+### [SETUP TAB]
 
-Copy/paste the payload below into the 'custom input' box and click 'Run'.
+The SETUP TAB is where you define the when, where and how of your job.
+
+![lightning_setup](/img/lightning_setup.png)
+
+**When: trigger**
+
+The trigger defines when an action should happen. It can be one of the
+following:
+
+- When data is sent to OpenFn Lightning from an external system: **_webhook_**
+- At a recurring point in time: **_cron_**
+- When the job which comes before it in the workflow succeeds: **_on success_**
+- When the job which comes before it in the workflow fails: **_on failure_**
+
+:::tip
+
+The first job in a workflow can only have a cron or webhook trigger. All the
+other jobs will have a trigger of on success or on failure.
+
+:::
+
+**Where: adaptor**
+
+The adaptor is what helps you communicate with and perform actions in a
+particular system. In OpenFn, you can carry out an action in the following
+systems:
+
+- In OpenFn: OpenFn or common adaptors
+- In an external system: commcare, DHIS2, google sheets, kobotoolbox ...
+- In any external system which has an API: http adaptor
+
+**How: credential**
+
+Just as you need to log in when you do something manually in an external system,
+you need to provide credentials to do that same thing automatically.
+
+If you are performing an action in an external system, you'll need to select the
+same credential type as your adaptor.
+
+### [EDITOR TAB]
+
+The EDITOR TAB is where you define _what_ the job should do and which data to
+use.
+
+![lightning_editor_1](/img/lightning_editor_1.png)
+
+**What: Job expression**
+
+The job expression defines what action to carry out and which data values to
+use.
+
+It is an example operation which has been added from the adaptor documentation
+and then configured to use specific values from the state input data.
+
+![lightning_editor](/img/lightning_editor.png)
+
+## 3. Run the sample workflow
+
+:::tip
+
+A workflow will run when the trigger from the first job (represented as the
+first node on the canvas) is called.
+
+:::
+
+In the case of the Sample Workflow, this is when data is sent to the webhook
+URL. There are two ways of doing this:
+
+### Manually send data to your first job trigger
+
+Click on the first job in your workflow, then head to the input tab. Paste the
+data below into the `custom input`, then click `run`.
 
 ```json
 {
   "data": {
     "age_in_months": 19,
-    "name": "Wycliffe Bardo"
+    "name": "Wycliffe Gigiwe"
   }
 }
 ```
 
-You'll be taken to the output tab. This is where you can see the logs from your
-run, and what the output looks like.
+![lightning_manual_run](/img/lightning_manual_run.png)
 
 :::tip
 
-The **logs** will display any information that you choose to log during an
-operation by using `console.log()`. (See job 1 for an example)
+When a job is run, OpenFn adds the input into state (used to get data values in
+the job expression), along with the credentials which get added to
+configuration.
 
 :::
 
-![lightning-logs](/img/lightning-logs.png)
+### Through a curl request
 
-The **output** is what is returned from your job. This is what gets passed onto
-the next job.
+You can send data to a webhook URL through a curl request in your terminal.
 
-![lightning-output](/img/lightning-output.png)
-
-### View the work order history
-
-Head to the History section in the navbar. You should now see one workorder,
-with a final status of 'Success'.
-
-A **work order** is a request for data to get processed.
-
-![lightning-history](/img/lightning-history.png)
-
-Click on the chevron to expand the work order and view each job run.
-
-![lightning-work-order-expanded](/img/lightning-work-order-expanded.png)
-
-### Retry a run to create a new attempt
-
-If an attempt has failed (ex: one of the job runs failed), you can make a new
-attempt from any job by clicking 'rerun' at the point at which you would like to
-retry the attempt. This will create a new attempt, under the same work order.
-The work order status will be the status of the last attempt.
-
-![lightning-2-attempts](/img/lightning-2-attempts.png)
-
-## 4. Bonus
-
-### Trigger your job through a webhook request
-
-**If you'd like to trigger it through the webhook**, click on the first node to
-copy the webhook URL. Then make a curl request by pasting the command below with
-your webhook URL into your command line.
+Copy your webhook URL, then use it to replace `YOUR_WEBHOOK_URL` in the command
+below and run it in your CLI.
 
 ```sh
 curl -H 'Content-Type: application/json' \
       -d '{"age_in_months": 19, "name": "Wycliffe Gigiwe"}' \
       -X POST \
-      https://your-webhook-url.com/
+      YOUR_WEBHOOK_URL
 ```
+
+## 4. Check your request got processed correctly
+
+:::tip
+
+A **work order** is a request for data to get processed. You can view these on
+your history page.
+
+:::
+
+Now that you have run your workflow, head to the history page to see it.
+
+![lightning_history](/img/lightning_history.png)
+
+You'll see it has a status of 'Success' which means it got processed correctly.
+
+Click on the chevron next to the status to expand it and see each job run.
+
+![lightning-history_expanded](/img/lightning_history_expanded.png)
+
+## 5. Make a run that fails, then edit the job and retry it to make it succeed
+
+From your workflow page, run the job manually with a patient that is 18 months
+old using the data below.
+
+```json
+{
+  "data": {
+    "age_in_months": 18,
+    "name": "Njoroge Orao"
+  }
+}
+```
+
+Head to the history page and see that the work order has a status of 'Failure'
+because the patient is not older than 18 months.
+
+Imagine we made a mistake and _actually_ wanted to register any patient that is
+both 18 AND above.
+
+Head to the Editor tab in Job 1 to update the logic. Change the `<` to `<=` then
+click save.
+
+Now that we've updated the logic, we want to reprocess that work order with the
+new logic.
+
+Find the work order in the history page (you can search for "Njoroge Orao" in
+the search bar to find it). Expand the work order, and click the retry button
+from the first job to trigger the workflow again with the same input.
+
+You'll see a new ••attempt••, which this time succeeds. Your work order status
+will also be updated.
