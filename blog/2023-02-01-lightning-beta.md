@@ -43,6 +43,10 @@ familiar with the basics of OpenFn Lightning.
 
 Please record your screen ([Loom](https://www.loom.com/looms) is good and free)
 and share your feedback out loud while you go through the instructions below.
+Send the recording to our product manager Amber at amber@openfn.org.
+
+•Note: the recording will only be used internally. If you wish for it to be
+deleted once viewed please state so in the email.
 
 **_Please record yourself while working through the following tasks:_**
 
