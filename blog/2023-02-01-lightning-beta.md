@@ -27,14 +27,17 @@ _Read more about Lightning on our [docs page](documentation/about-lightning)._
 
 ## Register for an account and share your feedback
 
-You can register for a free account at app.openfn.org. Add your questions and
-comments to the Lightning thread on our community forum [ADD LINK].
+You can register for a free account at
+[app.openfn.org](https://app.openfn.org/users/register). Please help us out by
+carrying out our [user test](/blog#take-10-minutes-to-carry-out-our-user-test)
+or adding your questions and comments to the Lightning thread on our community
+forum [ADD LINK].
 
 ## Follow our quick start guide
 
 Follow our
-[quick start documentation](documentation/build/lightning-quick-start) to get up
-and running with Lightning.
+[quick start documentation](documentation/build/lightning-quick-start) to get
+familiar with the basics of OpenFn Lightning.
 
 ## Take 10 minutes to carry out our user test
 
@@ -43,8 +46,7 @@ and share your feedback out loud while you go through the instructions below.
 
 **_Please record yourself while working through the following tasks:_**
 
-1. Register / Login on app.openfn.org (you can register with your gmail account
-   by clicking ‘via external provider’)
+1. Register / Login on [app.openfn.org](https://app.openfn.org/users/register)
 
 - What are your first impressions ?
 - Can you tell what this app can be used for ?
@@ -102,4 +104,4 @@ Now, run the job with a patient that is under 18 months:
   username: district, pw: admin)
 - From the adaptor documentation below the editor, select the operation which
   gets tracked entity instance from DHIS2.
-- Run the job manually with an input `{}`
+- Run the job manually with an empty input: `{}`
