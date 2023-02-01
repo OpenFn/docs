@@ -11,12 +11,6 @@ Register for an account on
 [app.openfn.org](https://app.openfn.org/users/register) and follow the link sent
 to your inbox to confirm your email.
 
-<!---
-I don't know if we need this picture, registering is pretty self-explanatory.
-![lightning-register](/img/lightning-register.png)
-![lightning-email-confirmation](/img/lightning-email-confirmation.png)
--->
-
 \*If you already have an account, you can
 [login](https://app.openfn.org/users/log_in).
 
@@ -231,7 +225,8 @@ Expand the work order, and click the 'rerun' button next to the first job run.
 
 ![lightning_retry](/img/lightning_retry.png)
 
-You'll see a new **attempt**, which this time succeeds. Your work order status
-will also be updated.
+You'll see a new **attempt** created in the same work order, which now succeeds.
+The work order status also gets updated to the status of the last attempt to
+show 'Success'.
 
 ![lightning_new_attempt](/img/lightning_new_attempt.png)
