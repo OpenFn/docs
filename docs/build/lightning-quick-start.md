@@ -153,7 +153,7 @@ configuration.
 
 :::
 
-### Through a curl request
+### Send data through a curl request
 
 You can send data to a webhook URL through a curl request in your terminal.
 
@@ -203,18 +203,35 @@ old using the data below.
 Head to the history page and see that the work order has a status of 'Failure'
 because the patient is not older than 18 months.
 
-Imagine we made a mistake and _actually_ wanted to register any patient that is
-both 18 AND above.
+![lightning_history_failure](/img/lightning_history_failure.png)
 
-Head to the Editor tab in Job 1 to update the logic. Change the `<` to `<=` then
-click save.
+If we made a mistake and _actually_ wanted to register any patient that is both
+18 AND above, we can still edit the job logic and reprocess the request.
 
-Now that we've updated the logic, we want to reprocess that work order with the
-new logic.
+Head to the Editor tab in Job 1 to update the logic. Change the if statement
+from `> 18` to `<= 18` then click save.
 
-Find the work order in the history page (you can search for "Njoroge Orao" in
-the search bar to find it). Expand the work order, and click the retry button
-from the first job to trigger the workflow again with the same input.
+Your Job expression should now look like the following:
 
-You'll see a new ••attempt••, which this time succeeds. Your work order status
+```js
+fn(state => {
+  if (state.data.age_in_months >= 18) {
+    console.log('Eligible for program.');
+    return state;
+  } else {
+    throw 'Error, patient ineligible.';
+  }
+});
+```
+
+Head back to your history page and find the work order you want to reprocess.
+You can search for "Njoroge Orao" in the search bar to find it.
+
+Expand the work order, and click the 'rerun' button next to the first job run.
+
+![lightning_retry](/img/lightning_retry.png)
+
+You'll see a new **attempt**, which this time succeeds. Your work order status
 will also be updated.
+
+![lightning_new_attempt](/img/lightning_new_attempt.png)
