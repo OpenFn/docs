@@ -48,6 +48,10 @@ Send the recording to our product manager Amber at amber@openfn.org.
 •Note: the recording will only be used internally. If you wish for it to be
 deleted once viewed please state so in the email.
 
+If you would rather give your feedback in person, or have questions around using
+Lightning, please book office hours with our product manager Amber via the
+following link: https://calendly.com/amber-openfn/30min.
+
 **_Please record yourself while working through the following tasks:_**
 
 1. Register / Login on [app.openfn.org](https://app.openfn.org/users/register)
