@@ -49,17 +49,9 @@ to use OpenFn and automate tasks within their workflow.
    - Read this article to learn how to install nodejs in your machine
      [kinsta.com/blog/how-to-install-node-js/](https://kinsta.com/blog/how-to-install-node-js/)
 
-:::caution
-
-CLI v0.0.22 has a know incompatibility with Node 19. It's being addressed, but
-please use _only_ **Node 18** if you're on CLI v0.0.22.
-
-:::
-
-3. Install [git](https://git-scm.com/)
-4. Have a basic understanding of OpenFn—check out jobs and adaptors, at least,
+3. Have a basic understanding of OpenFn—check out jobs and adaptors, at least,
    in the [OpenFn Concepts](getting-started/terminology) of this site.
-5. Install the OpenFn CLI with `npm install -g @openfn/cli`
+4. Install the OpenFn CLI with `npm install -g @openfn/cli`
 
 ## Walkthrough & Challenges
 
@@ -217,7 +209,8 @@ usually looks something like this
 }
 ```
 
-Using CLI, **state.json** will be loaded automatically from the current directory
+Using CLI, **state.json** will be loaded automatically from the current
+directory
 
 Or you can specify the path to the state file by passing the option -s,
 --state-path
@@ -263,7 +256,7 @@ adaptor** (Learn more
 
 #### Tasks:
 
-Update your **state.json** to be like this 
+Update your **state.json** to be like this
 
 ```json
 {
