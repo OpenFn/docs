@@ -51,6 +51,7 @@ function pushToPaths(name) {
     docsId: `packages/${name}-docs`,
     readmeId: `packages/${name}-readme`,
     changelogId: `packages/${name}-changelog`,
+    configurationSchemaId: `packages/${name}-configuration-schema`,
   });
 }
 
@@ -99,6 +100,41 @@ Source: https://github.com/OpenFn/adaptors/tree/main/packages/${a.name}
 ${JSON.parse(a.readme)}`;
 }
 
+const sampleConfiguration = json => {
+  let { properties } = json;
+
+  const conf = {};
+  if (properties) {
+    Object.keys(properties).forEach((key, index) => {
+      conf[key] = `//${properties[key]['description']}`;
+
+      return conf;
+    });
+  }
+  return '```json \n' + JSON.stringify(conf, null, 2) + '\n```';
+};
+
+function generateConfigurationSchema(a) {
+  return `---
+title: ${a.name} Config
+id: ${a.name}-configuration-schema
+keywords:
+  - adaptor
+  - configuration-schema
+  - ${a.name}
+---
+
+  For use in \`state.configuration\`:
+
+${displaySchema(a['configuration-schema'])}
+`;
+}
+
+function displaySchema(schema) {
+  if (typeof schema == 'string') return schema;
+  return sampleConfiguration(schema);
+}
+
 module.exports = function (context, { apiUrl }) {
   return {
     name: 'adaptors',
@@ -129,6 +165,8 @@ module.exports = function (context, { apiUrl }) {
             const readmeBody = generateReadme(a);
             const changelogBody = generateChangelog(a);
 
+            const configurationSchemaBody = generateConfigurationSchema(a);
+
             pushToPaths(a.name);
 
             fs.writeFileSync(`./adaptors/packages/${a.name}-docs.md`, docsBody);
@@ -139,6 +177,10 @@ module.exports = function (context, { apiUrl }) {
             fs.writeFileSync(
               `./adaptors/packages/${a.name}-changelog.md`,
               changelogBody
+            );
+            fs.writeFileSync(
+              `./adaptors/packages/${a.name}-configuration-schema.md`,
+              configurationSchemaBody
             );
           });
           console.log('Done ✓');
