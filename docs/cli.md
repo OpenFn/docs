@@ -57,8 +57,8 @@ to use OpenFn and automate tasks within their workflow.
 
 ### 1. Getting started with the CLI
 
-@openfn/cli is a new devtools CLI for running openfn jobs. To get started, Make
-sure everything works by running the built-in test job:
+@openfn/cli is a new CLI for running openfn jobs. To get started, Make sure
+everything works by running the built-in test job:
 
 ```
 openfn test
@@ -75,23 +75,27 @@ You should see the output:
 
 #### Tasks:
 
-1.  Create a file called **hello.js** and write the following code
+1.  Create a file called `hello.js` and write the following code
 
+    ```js
+    fn(state => {
+      console.log('Hello World!');
+      return state;
+    });
     ```
-    fn((state) => { console.log("Hello World!"); return state; });
-    ```
 
-2.  Run the job using the cli
+2.  Run the job using the cli. (This will execute the job and produce an
+    `output.json` file.)
 
-    Using the short-form name of adaptor:
+    Run it with the short-form name of adaptor:
 
-    ```
+    ```sh
     openfn hello.js -ia http
     ```
 
-    Using the long-form name of adaptor:
+    Run it with the long-form name of adaptor:
 
-    ```
+    ```sh
     openfn hello.js -ia @openfn/language-http
     ```
 
@@ -242,9 +246,9 @@ GET request succeeded with 200 ✓
 #### How can we use state?
 
 Each adaptor has a configuration schema that's recommended for use in your
-`state.json`. Here is an example of how to set up `state.configuration` for
-**http** (Learn more
-[docs.openfn.org/adaptors/packages/http-readme](/adaptors/packages/http-readme))
+`state.json`.
+[Here is an example](/adaptors/packages/dhis2-configuration-schema) of how to
+set up `state.configuration` for `language-http`.
 
 ```json
 {
@@ -256,7 +260,7 @@ Each adaptor has a configuration schema that's recommended for use in your
 
 #### Tasks:
 
-Update your **state.json** to be like this
+Update your `state.json` to look like this:
 
 ```json
 {
@@ -272,7 +276,7 @@ helper function without the need to specify the **baseUrl**
 
 i.e `get(“posts”)`
 
-##### Update your job (getPosts.js) to be like this
+##### Update your job (`getPosts.js`) to look like this:
 
 ```jsx title="getPosts.js"
 // Get all posts
@@ -415,11 +419,19 @@ comment in that post
 When debugging, it’s interesting to use log to have a visual representation of
 the content of the manipulated objects (such as state).
 
-1. When you want to inspect the content of state in between operations, this
-   snippet might be useful.
-   1. firstOperation(...);
-   2. fn(state => { console.log(state); return state; });
-   3. secondOperation(...);
+1. When you want to inspect the content of state in between operations, add an
+   `fn()` block with a `console.log`:
+
+```js
+// firstOperation(...);
+
+fn(state => {
+  console.log(state);
+  return state;
+});
+
+// secondOperation(...);
+```
 
 :::warning Important
 
