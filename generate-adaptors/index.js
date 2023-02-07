@@ -113,9 +113,10 @@ const sampleConfiguration = json => {
   }
   return '```json \n' + JSON.stringify(conf, null, 2) + '\n```';
 };
+
 function generateConfigurationSchema(a) {
   return `---
-title: ${a.name} configuration-schema
+title: ${a.name} Config
 id: ${a.name}-configuration-schema
 keywords:
   - adaptor
@@ -123,11 +124,15 @@ keywords:
   - ${a.name}
 ---
 
-# Configuration schema for the ${a.name} adaptor
+  For use in \`state.configuration\`:
 
-
-  ${sampleConfiguration(a['configuration-schema'])}
+${displaySchema(a['configuration-schema'])}
 `;
+}
+
+function displaySchema(schema) {
+  if (typeof schema == 'string') return schema;
+  return sampleConfiguration(schema);
 }
 
 module.exports = function (context, { apiUrl }) {
@@ -159,6 +164,7 @@ module.exports = function (context, { apiUrl }) {
             const docsBody = generateJsDoc(a);
             const readmeBody = generateReadme(a);
             const changelogBody = generateChangelog(a);
+
             const configurationSchemaBody = generateConfigurationSchema(a);
 
             pushToPaths(a.name);
