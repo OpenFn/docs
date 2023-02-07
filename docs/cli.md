@@ -83,33 +83,34 @@ You should see the output:
 
 2.  Run the job using the cli
 
+    Using the short-form name of adaptor:
+
     ```
-    // Using the short-form name of adaptor
     openfn hello.js -ia http
-
     ```
 
+    Using the long-form name of adaptor:
+
     ```
-    // Using the long-form name of adaptor
     openfn hello.js -ia @openfn/language-http
-
     ```
 
-    ```
-    // Understanding CLI arguments
-    -i and -a -i, --autoinstall Auto-install the language adaptor,
-    -a, --adaptors, --adaptor A language adaptor to use for the job,
-    Short-form names are allowed. You can also include an explicit path to
-    a local adaptor build. Eg: -a http=/home/openfn/adaptors/packages/http
-    ```
+    :::info Understanding CLI arguments
+
+    Use `-a` to specify the adaptor; use `-i` to auto-install the necessary
+    adaptor
+
+    Run `openfn help` to see the full list of CLI arguments.
+
+    :::
 
 #### **Challenge:**
 
 Write a job that prints your name
 
-1.  Modify **hello.js** to print your name
-2.  Re-run the job by running `openfn hello.js -a http`
-3.  Expected output should look like this
+1.  Modify `hello.js` to print your name.
+2.  Re-run the job by running `openfn hello.js -a http`.
+3.  Validate that you receive this expected output:
 
     ```
     [CLI] ⚠ Error loading state from ./state.json
@@ -138,7 +139,7 @@ adaptor to fetch a list of forms from
 
 #### Tasks:
 
-1. Create a file called **getPosts.js** and write the following code
+1. Create a file called `getPosts.js` and write the following code
 
    ```jsx
    get('https://jsonplaceholder.typicode.com/posts');
@@ -174,9 +175,9 @@ Using the
 [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users)
 get the list of users and print the object of the first user
 
-1.  Create file called getUsers.js and write your operation to fetch the user
-2.  Run the job using the cli. openfn getUser.js -a http
-3.  Expected output
+1.  Create file called `getUsers.js` and write your operation to fetch the user.
+2.  Run the job using the cli. `openfn getUsers.js -a http`.
+3.  Validate that you receive this expected output:
 
 ```
 [CLI] ⚠ Error loading state from ./state.json
@@ -209,19 +210,18 @@ usually looks something like this
 }
 ```
 
-Using CLI, **state.json** will be loaded automatically from the current
-directory
+Using CLI, `state.json` will be loaded automatically from the current directory
 
 Or you can specify the path to the state file by passing the option -s,
 --state-path
 
-You can use this command to load the state automatically
+You can use this command to load the state automatically:
 
 ```
 openfn foo/job.js -a http
 ```
 
-Or you can specify the path of the state.json file` `
+Or you can specify the path of the `state.json` file:
 
 ```
 openfn foo/job.js -a http -s foo/state.json
@@ -239,11 +239,11 @@ GET request succeeded with 200 ✓
 [CLI] ✔ Done in 1.222s! ✨
 ```
 
-How can we use state ?
+#### How can we use state?
 
-Each adaptor has a configuration schema that you need to use in your state.json.
-Here is an example of how you can setup your state configurations for **http
-adaptor** (Learn more
+Each adaptor has a configuration schema that's recommended for use in your
+`state.json`. Here is an example of how to set up `state.configuration` for
+**http** (Learn more
 [docs.openfn.org/adaptors/packages/http-readme](/adaptors/packages/http-readme))
 
 ```json
