@@ -222,20 +222,20 @@ Or you can specify the path to the state file by passing the option -s,
 You can use this command to load the state automatically:
 
 ```
-openfn foo/job.js -a http
+openfn hello.js -a http
 ```
 
 Or you can specify the path of the `state.json` file:
 
 ```
-openfn foo/job.js -a http -s foo/state.json
+openfn hello.js -a http -s foo/state.json
 ```
 
 Expected output
 
 ```
 [CLI] ✔ Loaded state from foo/state.json
-[CLI] ✔ Compiled job from foo/job.js
+[CLI] ✔ Compiled job from hello.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 876ms
 [R/T] ✔ Operation 2 complete in 0ms
@@ -618,8 +618,8 @@ that adaptor (it's safe to do this redundantly).
 You can find the list of publicly available adaptors [here](/adaptors).
 
 > Path is the job to load the job from (a .js file or a dir containing a job.js
-> file) For example `openfn execute foo/job.js ` Reads foo/job.js, looks for
-> state and output in foo
+> file) For example `openfn execute hello.js ` Reads hello.js, looks for state
+> and output in foo
 
 ```
 -i, --autoinstall Auto-install the language adaptor
@@ -627,7 +627,7 @@ You can find the list of publicly available adaptors [here](/adaptors).
 ```
 
 If an adaptor is already installed by auto install, you can use the command
-without the `-i` options. i.e `openfn foo/job.js -a http`
+without the `-i` options. i.e `openfn hello.js -a http`
 
 ### Change log level
 
@@ -636,7 +636,7 @@ happening, or `--log debug` for more details than you could ever use. Below is
 the list of different log levels
 
 ```
-openfn foo/job.js -a http -l none
+openfn hello.js -a http -l none
 ```
 
 | log level    | description                                              |
@@ -665,7 +665,7 @@ a successful run. To Allow properties other than data to be returned in you need
 to use strict mode.
 
 ```sh
-openfn foo/job.js -a http --no-strict-output
+openfn hello.js -a http --no-strict-output
 ```
 
 Learn more about CLI
