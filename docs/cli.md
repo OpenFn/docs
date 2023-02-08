@@ -75,6 +75,9 @@ You should see the output:
 
 #### Tasks:
 
+> This task teaches how to run a job using `openfn/cli` but we will learn about
+> adaptors in the coming task
+
 1.  Create a file called `hello.js` and write the following code
 
     ```js
@@ -114,7 +117,7 @@ Write a job that prints your name
 
 1.  Modify `hello.js` to print your name.
 2.  Re-run the job by running `openfn hello.js -a http`.
-3.  Validate that you receive this expected output:
+3.  Validate that you receive this expected CLI logs:
 
     ```
     [CLI] ⚠ Error loading state from ./state.json
@@ -154,7 +157,7 @@ adaptor to fetch a list of forms from
    ```
 
 2. Run the job by running `openfn getPosts.js -a http`
-3. See expected output
+3. See expected CLI logs
 
    ```
    [CLI] ⚠ Error loading state from ./state.json
@@ -181,7 +184,7 @@ get the list of users and print the object of the first user
 
 1.  Create file called `getUsers.js` and write your operation to fetch the user.
 2.  Run the job using the cli. `openfn getUsers.js -a http`.
-3.  Validate that you receive this expected output:
+3.  Validate that you receive this expected CLI logs:
 
 ```
 [CLI] ⚠ Error loading state from ./state.json
@@ -206,13 +209,24 @@ usually looks something like this
 ```json
 {
   "configuration": {
-    // This is where we put credentials which are used to authorize connection to source/destination systems
+    "hostUrl": "https://moh.kenya.gov.ke/dhis2",
+    "username": "taylor",
+    "password": "very-secret"
   },
   "data": {
-    // This is where the data from our source system will wind up
+    "type": "registration",
+    "patient": {
+      "age": 24,
+      "gender": "M",
+      "nationalId": "321cs7"
+    }
   }
 }
 ```
+
+In `state.configuration` is where we put credentials which are used to authorize
+connection to source/destination systems and in `state.data` is where the data
+from our source system will wind up
 
 Using CLI, `state.json` will be loaded automatically from the current directory
 
@@ -228,13 +242,13 @@ openfn hello.js -a http
 Or you can specify the path of the `state.json` file:
 
 ```
-openfn hello.js -a http -s foo/state.json
+openfn hello.js -a http -s tmp/state.json
 ```
 
-Expected output
+Expected CLI logs
 
 ```
-[CLI] ✔ Loaded state from foo/state.json
+[CLI] ✔ Loaded state from tmp/state.json
 [CLI] ✔ Compiled job from hello.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 876ms
@@ -295,7 +309,7 @@ fn(state => {
 openfn getPosts.js -a http
 ```
 
-> Expected output
+> Expected CLI logs
 
 ```
 [CLI] ✔ Loaded state from ./state.json
@@ -347,7 +361,11 @@ covid-19 metadata, using this
 In most cases you need to write a sequence of operations for data manipulation,
 cleaning, or transformation. For example after we get data from the
 `https://jsonplaceholder.typicode.com` registry we might need to group the posts
-by user id.
+by user id. The example below shows how we can
+
+1. get all posts and return response in state.data
+2. group returned posts by userId
+3. log posts with userId 1
 
 ##### Example:
 
@@ -378,18 +396,10 @@ fn((state) => {
 });
 ```
 
-##### In summary
-
-1. Operation 1: Will get all posts and return response will be in state.data
-
-2. Operation2: Will group returned posts by userId
-
-3. Operation3: Will log posts with userId 1
-
-> Expected output
+> Expected CLI logs
 
 ```
-[CLI] ✔ Loaded state from foo/state.json
+[CLI] ✔ Loaded state from tmp/state.json
 [CLI] ✔ Compiled job from foo/tmp.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 825ms
@@ -458,7 +468,7 @@ fn(state => {
 
 ##### Run **openfn debug.js -a http**
 
-> Expected output
+> Expected CLI logs
 
 ```
 [CLI] ✘ TypeError: path.match is not a function
@@ -482,7 +492,7 @@ According to the docs, dataValue take path which is a string type. But in our
 operation were passing an integer, that’s why we have a _TypeError_. You can fix
 by passing a string in dataValue i.e `console.log(dataValue(“1”))`
 
-> Expected output
+> Expected CLI logs
 
 ```
 [CLI] ✔ Loaded state from ./state.json
@@ -557,7 +567,7 @@ but is accessed in this job that is using language-http
 
 ##### Run **openfn job.js -a http**
 
-> Expected output
+> Expected CLI logs
 
 ```
 [CLI] ✔ Loaded state from ./state.json
