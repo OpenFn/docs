@@ -353,18 +353,17 @@ by user id.
 
 ```jsx title="getPosts.js"
 // Get all posts
-get('posts');
+get("posts");
 
-// Group posts by user
-fn(state => {
+// 
+s by user
+fn((state) => {
   const posts = state.data;
 
-  //   Group posts by userId
-  //   r is an accumulator, a is a currentValue
-  const groupPostsByUserId = posts.reduce((r, a) => {
-    r[a.userId] = r[a.userId] || [];
-    r[a.userId].push(a);
-    return r;
+  // Group posts by userId
+  const groupPostsByUserId = posts.reduce((acc, post) => {
+    const existingValue = acc[post.userId] || [];
+    return { ...acc, [post.userId]: [...existingValue, post] };
   }, {});
 
   // console.log(groupPostsByUserId);
@@ -372,9 +371,9 @@ fn(state => {
 });
 
 // Log posts where userId = 1
-fn(state => {
+fn((state) => {
   const { groupPostsByUserId } = state;
-  console.log('Post with userId 1', groupPostsByUserId[1]);
+  console.log("Post with userId 1", groupPostsByUserId[1]);
   return state;
 });
 ```
@@ -527,12 +526,10 @@ get('posts');
 fn(state => {
   const posts = state.data;
 
-  //   Group posts by userId
-  //   r is an accumulator, a is a currentValue
-  const groupPostsByUserId = posts.reduce((r, a) => {
-    r[a.userId] = r[a.userId] || [];
-    r[a.userId].push(a);
-    return r;
+  // Group posts by userId
+  const groupPostsByUserId = posts.reduce((acc, post) => {
+    const existingValue = acc[post.userId] || [];
+    return { ...acc, [post.userId]: [...existingValue, post] };
   }, {});
 
   // console.log(groupPostsByUserId);
