@@ -6,10 +6,13 @@ slug: /cli
 
 :::info What is this tutorial?
 
-This tutorial provides a _hands-on_ way to learn about the new OpenFn CLI. By
-following the prompts and "challenges", a developer with a bit of Javascript
-experience should be able to write, run, and debug complex, multi-step jobs with
-OpenFn, using nothing but a text editor and their terminal.
+- This tutorial provides a _hands-on_ way to learn about the new OpenFn CLI. By
+  following the prompts and "challenges", a developer with a bit of Javascript
+  experience should be able to write, run, and debug complex, multi-step jobs
+  with OpenFn, using nothing but a text editor and their terminal.
+- The estimated time to finish this developer challenge is 1 to 2 hours
+- If you stuck and need help please openfn a topic in
+  [community.openfn.org](https://community.openfn.org/t/about-the-job-writing-category/11/1)
 
 :::
 
@@ -57,59 +60,80 @@ to use OpenFn and automate tasks within their workflow.
 
 ### 1. Getting started with the CLI
 
-@openfn/cli is a new CLI for running openfn jobs. To get started, Make sure
-everything works by running the built-in test job:
+Let's start by running a simple command with the CLI. Type the following into
+your terminal:
 
 ```
 openfn test
 ```
 
-You should see the output:
+The word `openfn` will invoke the CLI. The word `test` will invoke the test
+command.
+
+You should see some output like this:
 
 ```sh
-[CLI] ⚠ No state detected: pass -S <number> to provide some state
-[CLI] ✔ Compiled job from const fn = () => state => state \*
-2; fn() [R/T] ✔ Operation 1 complete in 0ms
+[CLI] ℹ Versions:
+         ▸ node.js     16.18.1
+         ▸ cli         0.0.29
+         ▸ runtime     0.0.19
+         ▸ compiler    0.0.25
+[CLI] ℹ Running test job...
+[CLI] ✔ Compiled job
+[JOB] ℹ Calculating the answer to life, the universe, and everything...
+[R/T] ✔ Operation 1 complete in 1ms
 [CLI] ✔ Result: 42
 ```
 
+What we've just done is executed some built in JavaScript, which we call a
+_job_. The output prefixed with `[JOB]` comes directly from `console.log`
+statements in our job code. All other output is the CLI trying to tell us what
+it is doing.
+
+<details>
+  <summary>What is a job ?</summary>
+A job is simply a bunch of Javascript code. Typically a job has one or more statements or <i>operations</i> which performs a particular task, like pulling information from a database.
+
+The test job we just ran looks like this:
+
+```
+const fn = () => (state) => {
+  console.log(
+    "Calculating the answer to life, the universe, and everything..."
+  );
+  return state * 2;
+};
+export default [fn()];
+```
+
+You can see this (and a lot more detail) by running the test command with
+debug-level logging:
+
+```
+openfn test --log debug
+```
+
+</details>
+
 #### Tasks:
 
-> This task teaches how to run a job using `openfn/cli` but we will learn about
-> adaptors in the coming task
+> Let's create our own job.
 
 1.  Create a file called `hello.js` and write the following code
 
     ```js
-    fn(state => {
-      console.log('Hello World!');
-      return state;
-    });
+    console.log('Hello World!');
     ```
 
-2.  Run the job using the cli. (This will execute the job and produce an
-    `output.json` file.)
-
-    Run it with the short-form name of adaptor:
-
-    ```sh
-    openfn hello.js -ia http
-    ```
-
-    Run it with the long-form name of adaptor:
-
-    ```sh
-    openfn hello.js -ia @openfn/language-http
-    ```
-
-    :::info Understanding CLI arguments
-
-    Use `-a` to specify the adaptor; use `-i` to auto-install the necessary
-    adaptor
-
-    Run `openfn help` to see the full list of CLI arguments.
-
-    :::
+<details>
+  <summary>What is console.log?</summary>
+  `console.log` is a core JavaScript language function which lets us send messages to the terminal window.
+</details>
+2.  Run the job using the cli.
+```
+openfn hello.js
+```
+Note that our console.log statement was printed as `[JOB] Hello world!`. Using the console like this can be a really helpful tool for debugging and understanding what's happening inside our jobs.
 
 #### **Challenge:**
 
@@ -143,6 +167,15 @@ Let’s use
 [@openfn/language-http](https://www.npmjs.com/package/@openfn/language-http)
 adaptor to fetch a list of forms from
 [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
+
+    :::info Understanding CLI arguments
+
+    Use `-a` to specify the adaptor; use `-i` to auto-install the necessary
+    adaptor
+
+    Run `openfn help` to see the full list of CLI arguments.
+
+    :::
 
 #### Tasks:
 
