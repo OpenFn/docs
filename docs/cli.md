@@ -145,15 +145,11 @@ Write a job that prints your name
 3.  Validate that you receive this expected CLI logs:
 
     ```
-    [CLI] ⚠ Error loading state from ./state.json
-    [CLI] ⚠ [Error: ENOENT: no
-    such file or directory, open './state.json'] { errno: -2, code: 'ENOENT',
-    syscall: 'open', path: './state.json' }
-    [CLI] ⚠ Using default state { data: {}, configuration: {} }
     [CLI] ✔ Compiled job from hello.js
     [JOB] ℹ My name is {YourName}
     [R/T] ✔ Operation 1 complete in 0ms
-    [CLI] ✔ Writing output to ./output.json [CLI] ✔ Done in 366ms! ✨
+    [CLI] ✔ Writing output to ./output.json
+    [CLI] ✔ Done in 366ms! ✨
     ```
 
 ### 2. Using adaptors helper functions
@@ -193,10 +189,6 @@ Run `openfn help` to see the full list of CLI arguments.
 3. See expected CLI logs
 
    ```
-   [CLI] ⚠ Error loading state from ./state.json
-   [CLI] ⚠ [Error: ENOENT: no such file or directory, open './state.json'] { errno: -2, code: 'ENOENT', syscall:
-   'open', path: './state.json' }
-   [CLI] ⚠ Using default state { data: {}, configuration: {} }
    [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
    [R/T] ✔ Operation 1 complete in 1.072s
    [JOB] ℹ { userId: 1, id: 2,
@@ -220,10 +212,6 @@ get the list of users and print the object of the first user
 3.  Validate that you receive this expected CLI logs:
 
 ```
-[CLI] ⚠ Error loading state from ./state.json
-[CLI] ⚠ [Error: ENOENT: no such file or directory, open './state.json'] { errno: -2, code: 'ENOENT', syscall:
-'open', path: './state.json' }
-[CLI] ⚠ Using default state { data: {}, configuration: {} }
 [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 581ms
 [JOB] ℹ {user details}
@@ -295,12 +283,11 @@ openfn hello.js -a http -s tmp/state.json
 Expected CLI logs
 
 ```
-[CLI] ✔ Loaded state from tmp/state.json
 [CLI] ✔ Compiled job from hello.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 876ms
 [R/T] ✔ Operation 2 complete in 0ms
-[CLI] ✔ Writing output to foo/output.json
+[CLI] ✔ Writing output to ./output.json
 [CLI] ✔ Done in 1.222s! ✨
 ```
 
@@ -359,22 +346,13 @@ openfn getPosts.js -a http
 > Expected CLI logs
 
 ```
-[CLI] ✔ Loaded state from ./state.json
-[CLI] ✔ Compiled job from getPosts.js
+[CLI] ✔ Compiled job from job.js
 GET request succeeded with 200 ✓
-[R/T] ✔ Operation 1 complete in 460ms
-[JOB] ℹ {
-  userId: 1,
-  id: 2,
-  title: 'qui est esse',
-  body: 'est rerum tempore vitae\n' +
-    'sequi sint nihil reprehenderit dolor beatae ea dolores neque\n' +
-    'fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\n' +
-    'qui aperiam non debitis possimus qui neque nisi nulla'
-}
-[R/T] ✔ Operation 2 complete in 12ms
-[CLI] ✔ Writing output to output.json
-[CLI] ✔ Done in 946ms! ✨
+[R/T] ✔ Operation 1 complete in 120ms
+[JOB] ℹ {"userId":1,"id":2,"title":"qui est esse","body":"est rerum tempore vitae\nsequi sint nihil reprehenderit dolor beatae ea dolores neque\nfugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\nqui aperiam non debitis possimus qui neque nisi nulla"}
+[R/T] ✔ Operation 2 complete in 0ms
+[CLI] ✔ Writing output to ./output.json
+[CLI] ✔ Done in 470ms! ✨
 ```
 
 #### Challenge:
@@ -475,8 +453,7 @@ You can learn more about `array.reduce` from
 > Expected CLI logs
 
 ```
-[CLI] ✔ Loaded state from tmp/state.json
-[CLI] ✔ Compiled job from foo/tmp.js
+[CLI] ✔ Compiled job from getPosts.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 825ms
 [R/T] ✔ Operation 2 complete in 0ms
@@ -484,7 +461,7 @@ GET request succeeded with 200 ✓
  //All of posts for userId 1
 ]
 [R/T] ✔ Operation 3 complete in 12ms
-[CLI] ✔ Writing output to foo/output.json
+[CLI] ✔ Writing output to ./output.json
 [CLI] ✔ Done in 1.239s! ✨
 ```
 
@@ -562,14 +539,13 @@ by passing a string in dataValue i.e `console.log(dataValue(“1”))`
 > Expected CLI logs
 
 ```
-[CLI] ✔ Loaded state from ./state.json
 [CLI] ✔ Compiled job from debug.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 722ms
 [JOB] ℹ [Function (anonymous)]
 [R/T] ✔ Operation 2 complete in 1ms
 [CLI] ✔ Writing output to ./output.json
-[CLI] ✔ Done in 1.102s!Example: ✨
+[CLI] ✔ Done in 1.102s ✨
 ```
 
 If you need more information for debugging you can pass -l debug which will give
@@ -637,7 +613,6 @@ but is accessed in this job that is using language-http
 > Expected CLI logs
 
 ```
-[CLI] ✔ Loaded state from ./state.json
 [CLI] ✔ Compiled job from job.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 730ms
@@ -732,6 +707,8 @@ openfn compile [path]
 
 Will compile a openfn job and print or save the resulting js
 
+<!--
+TODO: @Mtuchi revisit once we have a clear picture of the future of strict-mode
 ### Strict Mode
 
 By default CLI will return only the `data` key inside the resulting state after
@@ -740,7 +717,7 @@ to use strict mode.
 
 ```sh
 openfn hello.js -a http --no-strict-output
-```
+``` -->
 
 Learn more about CLI
 [github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
