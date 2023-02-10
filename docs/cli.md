@@ -11,7 +11,8 @@ slug: /cli
   experience should be able to write, run, and debug complex, multi-step jobs
   with OpenFn, using nothing but a text editor and their terminal.
 - The estimated time to finish this developer challenge is 1 to 2 hours
-- If you stuck and need help please openfn a topic in
+  (depending on your familiarity with the underlying concepts and tooling)
+- If you are stuck and need help, please post in
   [community.openfn.org](https://community.openfn.org/t/about-the-job-writing-category/11/1)
 
 :::
@@ -127,7 +128,7 @@ openfn test --log debug
 
 <details>
   <summary>What is console.log?</summary>
-  `console.log` is a core JavaScript language function which lets us send messages to the terminal window.
+  <code>console.log</code> is a core JavaScript language function which lets us send messages to the terminal window.
 </details>
 2.  Run the job using the cli.
 ```
@@ -168,14 +169,13 @@ Let’s use
 adaptor to fetch a list of forms from
 [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
 
-    :::info Understanding CLI arguments
+:::info Understanding CLI arguments
 
-    Use `-a` to specify the adaptor; use `-i` to auto-install the necessary
-    adaptor
+Use `-a` to specify the adaptor; use `-i` to auto-install the necessary adaptor
 
-    Run `openfn help` to see the full list of CLI arguments.
+Run `openfn help` to see the full list of CLI arguments.
 
-    :::
+:::
 
 #### Tasks:
 
@@ -257,9 +257,23 @@ usually looks something like this
 }
 ```
 
-In `state.configuration` is where we put credentials which are used to authorize
-connection to source/destination systems and in `state.data` is where the data
-from our source system will wind up
+#### `state.configuration`
+
+This is where we put credentials which are used to authorize connection to
+source/destination systems.
+
+#### `state.data`
+
+This is where the data from our source system will wind up.
+
+:::warning Important
+
+Note that `console.log(state)` will display the whole state, but also
+configuration elements **(username, and password)**. Remove this log whenever
+you're done debugging to avoid accidentally exposing sensitive information when
+the job is successful deployed on production
+
+:::
 
 Using CLI, `state.json` will be loaded automatically from the current directory
 
@@ -429,6 +443,35 @@ fn((state) => {
 });
 ```
 
+<details>
+  <summary>What is <code>array.reduce</code> ?</summary>
+  The <code>reduce()</code> method applies a function against an accumulator and each value of the array (from left-to-right) to reduce it to a single value.
+
+Perhaps the easiest-to-understand case for <code>reduce()</code> is to return
+the sum of all the elements in an array:
+
+##### JavaScript Demo: `Array.reduce()`
+
+```
+const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial);
+// Expected output: 10
+
+```
+
+You can learn more about `array.reduce` from
+[this article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+
+</details>
+
 > Expected CLI logs
 
 ```
@@ -474,15 +517,6 @@ fn(state => {
 
 // secondOperation(...);
 ```
-
-:::warning Important
-
-Note that `console.log(state)` will display the whole state, but also
-configuration elements **(username, and password)**. Remove this log whenever
-you're done debugging to avoid accidentally exposing sensitive information when
-the job is successful deployed on production
-
-:::
 
 ##### Create **debug.js** and paste the code below
 
