@@ -696,7 +696,7 @@ to this section for the key commands used in working with the CLI.
 ### Check the version
 
 ```
-openfn -v
+openfn version
 ```
 
 ### Get help
