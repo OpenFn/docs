@@ -85,7 +85,7 @@ case management systems operated by the government and partner agencies. The
 result, he went on, was not merely an increased administrative burden but
 re-victimization. Children might have to recount their whole case history,
 reliving their traumas time and time again in order to register and access each
-critical support service they needed.</p><p><img loading="lazy" alt="UNICEF Cambodia (c) Daravatey Seng 2020" src="/fr/assets/images/unicef-cambodia-cc-daravatey-seng-f8b0cb8fc7bdc42ae50ff11b3651d53b.jpg" width="765" height="510" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="fast-forward">Fast forward...<a class="hash-link" href="#fast-forward" title="Lien direct vers le titre">​</a></h3><p>...to the spring of 2021 and child protection case data is now being securely
+critical support service they needed.</p><p><img loading="lazy" alt="UNICEF Cambodia (c) Daravatey Seng 2020" src="/fr/assets/images/unicef-cambodia-cc-daravatey-seng-76d5f43d94f888412e6253cff7b4459f.jpg" width="765" height="510" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="fast-forward">Fast forward...<a class="hash-link" href="#fast-forward" title="Lien direct vers le titre">​</a></h3><p>...to the spring of 2021 and child protection case data is now being securely
 transmitted between systems as part of a fully automated, secure referral
 workflow running through OpenFn.</p><blockquote><p>If you’re not familiar with OpenFn, it’s an integration platform and toolkit
 that has been used in over 40 countries to automate business processes,
@@ -187,7 +187,7 @@ tools like <a href="https://www.dimagi.com/commcare/" target="_blank" rel="noope
 collection and service delivery platform, <a href="https://dhis2.org/" target="_blank" rel="noopener noreferrer">dhis2</a>, a health
 management information system (HMIS) used in over 40 countries, and
 <a href="https://openlmis.org/" target="_blank" rel="noopener noreferrer">OpenLMIS</a>, a popular logistics system, are digital
-global goods. OpenFn is proud to now be officially joining them on this list.</p><p><img loading="lazy" alt="Bridge as public good" src="/fr/assets/images/george-washington-bridge-4545e44b28de152e18043c77e8941fe8.jpg" width="1920" height="1279" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-imperative-for-digital-global-goods">The imperative for digital global goods<a class="hash-link" href="#the-imperative-for-digital-global-goods" title="Lien direct vers le titre">​</a></h3><p>The story of digital global goods began in July 2018 when the Secretary General
+global goods. OpenFn is proud to now be officially joining them on this list.</p><p><img loading="lazy" alt="Bridge as public good" src="/fr/assets/images/george-washington-bridge-fce1acf242f369da8d24608e3b1470b1.jpg" width="1920" height="1279" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="the-imperative-for-digital-global-goods">The imperative for digital global goods<a class="hash-link" href="#the-imperative-for-digital-global-goods" title="Lien direct vers le titre">​</a></h3><p>The story of digital global goods began in July 2018 when the Secretary General
 of the United Nations convened a High-Level Panel on Digital Cooperation to
 strengthen impact and better direct global efforts in the digital arena. What
 motivated this panel’s formation was a growing awareness that as digital
@@ -274,7 +274,7 @@ ours.</p><p>As the diagram below demonstrates we envision two main pathways for 
 integrations. The tech savvy project manager will configure their workflows via
 our intuitive platform, while the power IT user will configure their workflows
 from the command line. Regardless of the chosen approach, there is flexibility
-to change paths whenever required.</p><p><img loading="lazy" alt="Deployment Paths" src="/fr/assets/images/deployment_paths-f8ab18cbf4e86190f641bbce67755af0.png" width="1600" height="742" class="img_ev3q"></p><p>Again, <em>concretely</em>, this means our users will have more and better options for
+to change paths whenever required.</p><p><img loading="lazy" alt="Deployment Paths" src="/fr/assets/images/deployment_paths-679ee07e834c20ae413318af2885c208.png" width="1600" height="742" class="img_ev3q"></p><p>Again, <em>concretely</em>, this means our users will have more and better options for
 how they run their data integration solutions. While they might use
 OpenFn/platform to build and test solutions, they could easily choose to run
 those same solutions on their own servers via OpenFn/microservice. Visit
@@ -314,7 +314,7 @@ on to protect and respond to the needs of vulnerable children and women. Key
 outcomes achieved so far via this partnership include the implementation of a
 secure OpenFn project space with the automated data sharing workflows required
 to allow for the Cambodian government and their partner NGO caseworkers to
-communicate with one another seamlessly.</p><p><img loading="lazy" alt="Cambodia School" src="/fr/assets/images/cambodia_school-71c05bc5cc6e1b9215478a995d0f78a0.png" width="1526" height="1221" class="img_ev3q"></p><p>Case management applications help social service providers coordinate critical
+communicate with one another seamlessly.</p><p><img loading="lazy" alt="Cambodia School" src="/fr/assets/images/cambodia_school-b19e3c1b72ab519dc0a2e8fecebc3d8f.png" width="1526" height="1221" class="img_ev3q"></p><p>Case management applications help social service providers coordinate critical
 support activities for vulnerable children; ensuring that they can securely
 connect with one another and automating the flow of data between themshare and
 the launch of these integration features is especially important amidst an
@@ -335,7 +335,7 @@ development workers manage protection-related data, with modules that facilitate
 case management, incident monitoring and family tracing and reunification. OSCaR
 (Open Source Case-management and Record-keeping) is a case management software
 system that is used by civil society organizations in Cambodia to manage cases
-or children in residential care.</p><p><img loading="lazy" alt="Primero OpenFn Oscar Diagram" src="/fr/assets/images/primero_oscar-2d221fb4d84fdb39163e2de9bd65adf1.png" width="1534" height="694" class="img_ev3q"></p><p>First a definition: “Interoperability”, in this context, is the automated
+or children in residential care.</p><p><img loading="lazy" alt="Primero OpenFn Oscar Diagram" src="/fr/assets/images/primero_oscar-164912ef651cecccb7b2e559986c3037.png" width="1534" height="694" class="img_ev3q"></p><p>First a definition: “Interoperability”, in this context, is the automated
 ability of computer systems to work in concert with (sharing data and
 collaborating on processes with) other systems. Defining interoperability is the
 easy part; achieving it is another story. “In a complex, interagency project
@@ -389,7 +389,7 @@ delivery through automation, data integration, and interoperability solutions.</
         <content type="html"><![CDATA[<p>Nal’ibali is on a mission to change education across South Africa through its
 reading-for-enjoyment initiative, which promotes reading and writing in mother
 tongue languages. To effectively monitor program activities and children reached
-across the country, Nal’ibali needed to integrate multiple data platforms.</p><p><img loading="lazy" alt="Nal’ibali" src="/fr/assets/images/nalibali-b751380cabdfe1ee22e9508209a6677a.jpg" width="1134" height="850" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="did-you-know-that-south-africas-education-system-ranks-as-one-of-the-worst-in-the-world">Did you know that South Africa's education system ranks as one of the worst in the world?<a class="hash-link" href="#did-you-know-that-south-africas-education-system-ranks-as-one-of-the-worst-in-the-world" title="Lien direct vers le titre">​</a></h3><p>The results of the Progress in International Reading Literacy Study 2016 showed
+across the country, Nal’ibali needed to integrate multiple data platforms.</p><p><img loading="lazy" alt="Nal’ibali" src="/fr/assets/images/nalibali-7d358eefdf214f4ed70965580119450a.jpg" width="1134" height="850" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="did-you-know-that-south-africas-education-system-ranks-as-one-of-the-worst-in-the-world">Did you know that South Africa's education system ranks as one of the worst in the world?<a class="hash-link" href="#did-you-know-that-south-africas-education-system-ranks-as-one-of-the-worst-in-the-world" title="Lien direct vers le titre">​</a></h3><p>The results of the Progress in International Reading Literacy Study 2016 showed
 that 78% of Grade 4 learners in South Africa cannot read for meaning, which is
 the basis of learning. Children who aren’t good readers at a primary school
 level are on a trajectory of limited educational progress. Nal’ibali aims to
@@ -438,7 +438,7 @@ It features children doing role play in order to practice conversation.</em></p>
         <summary type="html"><![CDATA[Integration has saved Sinapis staff hundreds of manual hours and ensures that]]></summary>
         <content type="html"><![CDATA[<p>Integration has saved Sinapis staff hundreds of manual hours and ensures that
 all payment information is always accurate up-to-date to help Sinapis to run
-programs smoothly.</p><p><img loading="lazy" alt="Sinapis" src="/fr/assets/images/sinapis-68b046dc2f7747a81772c293d32a55a6.jpg" width="860" height="645" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="sinapis-is-accelerating-small-business-development-across-kenya-uganda-and-rwanda-with-their-innovative-training-program">Sinapis is accelerating small business development across Kenya, Uganda, and Rwanda with their innovative training program.<a class="hash-link" href="#sinapis-is-accelerating-small-business-development-across-kenya-uganda-and-rwanda-with-their-innovative-training-program" title="Lien direct vers le titre">​</a></h3><p>Sinapis found that small and growing businesses (those with 5 to 250 employees)
+programs smoothly.</p><p><img loading="lazy" alt="Sinapis" src="/fr/assets/images/sinapis-f6620ab59bff0f3b65c9fbf7f13b10ca.jpg" width="860" height="645" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="sinapis-is-accelerating-small-business-development-across-kenya-uganda-and-rwanda-with-their-innovative-training-program">Sinapis is accelerating small business development across Kenya, Uganda, and Rwanda with their innovative training program.<a class="hash-link" href="#sinapis-is-accelerating-small-business-development-across-kenya-uganda-and-rwanda-with-their-innovative-training-program" title="Lien direct vers le titre">​</a></h3><p>Sinapis found that small and growing businesses (those with 5 to 250 employees)
 account for up to
 <a href="https://sinapis.org/job-creators-why-small-and-growing-businesses-are-essential-to-recovering-from-a-pandemic/" target="_blank" rel="noopener noreferrer">67-80% of new job growth</a>
 in their respective economies. To help scale the impact of these businesses in
@@ -486,7 +486,7 @@ Kenya undergoing Sinapis's finance training.</em></p>]]></content>
 data in real-time to more effectively manage and monitor waste collection
 activities. With this integrated service system, X-runner can deliver high
 quality customer service and technical assistance to their customers, with no
-time lag.</p><p><img loading="lazy" alt="X-Runner" src="/fr/assets/images/x-runner-c6eee39a52c5472f1d0761c3691e295d.jpg" width="674" height="367" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="x-runner-is-providing-sanitation-solutions-for-better-health-in-informal-settlements-in-peru">X-Runner is providing sanitation solutions for better health in informal settlements in Peru.<a class="hash-link" href="#x-runner-is-providing-sanitation-solutions-for-better-health-in-informal-settlements-in-peru" title="Lien direct vers le titre">​</a></h3><p>Almost 10 million people in Peru, or 30% of the total population, do not have
+time lag.</p><p><img loading="lazy" alt="X-Runner" src="/fr/assets/images/x-runner-ccce8b4baabec33e93ffe573098a235b.jpg" width="674" height="367" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="x-runner-is-providing-sanitation-solutions-for-better-health-in-informal-settlements-in-peru">X-Runner is providing sanitation solutions for better health in informal settlements in Peru.<a class="hash-link" href="#x-runner-is-providing-sanitation-solutions-for-better-health-in-informal-settlements-in-peru" title="Lien direct vers le titre">​</a></h3><p>Almost 10 million people in Peru, or 30% of the total population, do not have
 access to proper sanitation due to increasing water scarcity and constant
 population growth. For many, only poorly constructed sanitary facilities are
 available, which endanger the health and safety of families as well as the
@@ -526,7 +526,7 @@ service and technical assistance to their customers, with no time lag.</p>]]></c
         <updated>2020-07-08T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[OpenFn data integration has enabled the Caris Foundation to "work towards a]]></summary>
         <content type="html"><![CDATA[<p>OpenFn data integration has enabled the Caris Foundation to "work towards a
-better experience for the patient, for the agent, and for external reporting."</p><p><img loading="lazy" alt="Caris" src="/fr/assets/images/carisfoundation-cc570a00f2ad8dbf0a3e8ec7c7ff4515.jpeg" width="1500" height="1000" class="img_ev3q"></p><p><em>This post was published by Taylor Downs, Head of Product, on
+better experience for the patient, for the agent, and for external reporting."</p><p><img loading="lazy" alt="Caris" src="/fr/assets/images/carisfoundation-943d25209d26c37fe84accd26edc59a4.jpeg" width="1500" height="1000" class="img_ev3q"></p><p><em>This post was published by Taylor Downs, Head of Product, on
 <a href="https://medium.com/@taylordowns2000/supporting-communities-affected-by-hiv-98eede455050" target="_blank" rel="noopener noreferrer">The OpenFn Founder’s blog</a>
 as “Supporting Communities Affected by HIV.” Some changes and updates have been
 made.</em></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="who-is-the-caris-foundation-and-what-do-they-do">Who is the Caris Foundation and what do they do?<a class="hash-link" href="#who-is-the-caris-foundation-and-what-do-they-do" title="Lien direct vers le titre">​</a></h3><p>Supported by USAID, the <a href="http://www.carisfoundation.org/" target="_blank" rel="noopener noreferrer">Caris Foundation</a>
@@ -584,7 +584,7 @@ agent, and for external reporting.” Read our
         <summary type="html"><![CDATA[In the past, it took KGVK months to digitize and analyze survey data before]]></summary>
         <content type="html"><![CDATA[<p>In the past, it took KGVK months to digitize and analyze survey data before
 sharing reports with key staff. By 2019, using OpenFn, KGVK was able to monitor
-data in near real-time and better serve the needs of its communities.</p><p><img loading="lazy" alt="kgvk" src="/fr/assets/images/kgvk.v2-0bd64e01d960fc6cb72a1d51bd4c19ef.png" width="844" height="404" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="kgvk-is-a-non-profit-organization-with-a-mission-to-improve-the-livelihood-of-jharkhand-villagers-in-india">KGVK is a non-profit organization with a mission to improve the livelihood of Jharkhand villagers in India.<a class="hash-link" href="#kgvk-is-a-non-profit-organization-with-a-mission-to-improve-the-livelihood-of-jharkhand-villagers-in-india" title="Lien direct vers le titre">​</a></h3><p>KGVK has developed an integrated approach to development called the
+data in near real-time and better serve the needs of its communities.</p><p><img loading="lazy" alt="kgvk" src="/fr/assets/images/kgvk.v2-743f6bd113428eb14be9fc38951c7b8b.png" width="844" height="404" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="kgvk-is-a-non-profit-organization-with-a-mission-to-improve-the-livelihood-of-jharkhand-villagers-in-india">KGVK is a non-profit organization with a mission to improve the livelihood of Jharkhand villagers in India.<a class="hash-link" href="#kgvk-is-a-non-profit-organization-with-a-mission-to-improve-the-livelihood-of-jharkhand-villagers-in-india" title="Lien direct vers le titre">​</a></h3><p>KGVK has developed an integrated approach to development called the
 <a href="https://www.kgvk.org/tvm.html" target="_blank" rel="noopener noreferrer">Total Village Management model (TVM)</a>. This
 approach, adapted to the rural setting, focuses on different key areas: natural
 resources management, education, renewable energy, livelihood, women’s
@@ -621,7 +621,7 @@ the needs of the Jharkhand communities it serves.</p><p>The photo above was orig
         <summary type="html"><![CDATA[ASE had a diverse data portfolio spread across so many sources that couldn't]]></summary>
         <content type="html"><![CDATA[<p>ASE had a diverse data portfolio spread across so many sources that couldn't
 easily be analyzed. Open Function delivered a centralized, single-view solution
-for monitoring students and sharing data across schools.</p><p><img loading="lazy" alt="ase" src="/fr/assets/images/ase-29bd6b269909d78ce1ccb28e91406721.jpg" width="1444" height="960" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="african-school-of-excellence-is-working-to-deliver-quality-affordable-education-in-south-africa">African School of Excellence is working to deliver quality, affordable education in South Africa.<a class="hash-link" href="#african-school-of-excellence-is-working-to-deliver-quality-affordable-education-in-south-africa" title="Lien direct vers le titre">​</a></h3><p>In South Africa, school funding and tuition costs often defer students from
+for monitoring students and sharing data across schools.</p><p><img loading="lazy" alt="ase" src="/fr/assets/images/ase-c4056f7dd3b59b9d0595cb8d6d03fc3b.jpg" width="1444" height="960" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="african-school-of-excellence-is-working-to-deliver-quality-affordable-education-in-south-africa">African School of Excellence is working to deliver quality, affordable education in South Africa.<a class="hash-link" href="#african-school-of-excellence-is-working-to-deliver-quality-affordable-education-in-south-africa" title="Lien direct vers le titre">​</a></h3><p>In South Africa, school funding and tuition costs often defer students from
 reaching their full potential.
 <a href="http://www.ase.org.za/" target="_blank" rel="noopener noreferrer">African School of Excellence (ASE)</a> helps students
 access affordable, world-class education by providing affordable world-class
@@ -663,7 +663,7 @@ under "WikiAfrica Schools training Africa School of Excellence."</p>]]></content
         <content type="html"><![CDATA[<p>With real-time data syncs, OpenFn helps this airport ensure top-quality assets
 and service for its workers and passengers. This integrated asset management
 system saves time and money, and prevents errors by reducing manual, paper-based
-data transfer between systems.</p><p><img loading="lazy" alt="airport" src="/fr/assets/images/airport-161901865b81160f5f11ae83f4b50292.jpeg" width="1260" height="708" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="airports-are-complex-businesses-responsible-for-passengers-equipment-employees-and-safety">Airports are complex businesses, responsible for passengers, equipment, employees, and safety.<a class="hash-link" href="#airports-are-complex-businesses-responsible-for-passengers-equipment-employees-and-safety" title="Lien direct vers le titre">​</a></h3><p>Airports all over the world face the challenge of ever-increasing passenger
+data transfer between systems.</p><p><img loading="lazy" alt="airport" src="/fr/assets/images/airport-254fcef7c6955e66aabfce135b58df96.jpeg" width="1260" height="708" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="airports-are-complex-businesses-responsible-for-passengers-equipment-employees-and-safety">Airports are complex businesses, responsible for passengers, equipment, employees, and safety.<a class="hash-link" href="#airports-are-complex-businesses-responsible-for-passengers-equipment-employees-and-safety" title="Lien direct vers le titre">​</a></h3><p>Airports all over the world face the challenge of ever-increasing passenger
 capacity and airline demand. To meet this demand, they put core infrastructure
 and safety (for both workers and passengers) at high regard, and must prioritize
 rigorous asset management, repairs, and maintenance.</p><p>An international American airport that serves 18 million passengers and 180,000
@@ -705,7 +705,7 @@ and service for its workers and passengers.</p>]]></content>
         <content type="html"><![CDATA[<p>By integrating a CommCare mobile data collection app with a national DHIS2
 reporting system for the ALMANACH health initiative, OpenFn provided SwissTPH
 with an automated, real-time connection that enables live disease monitoring
-in 2019.</p><p><img loading="lazy" alt="swissTPH" src="/fr/assets/images/swisstph1-1d6285ef320e065377b0846655a835a9.jpg" width="5312" height="2988" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="swisstph-a-world-leading-institute-in-global-health">SwissTPH: A world-leading institute in global health<a class="hash-link" href="#swisstph-a-world-leading-institute-in-global-health" title="Lien direct vers le titre">​</a></h3><p>The diverse professionals working at <a href="https://www.swisstph.ch/en/" target="_blank" rel="noopener noreferrer">SwissTPH</a> all
+in 2019.</p><p><img loading="lazy" alt="swissTPH" src="/fr/assets/images/swisstph1-a40422f3055ed82aabd6f9ad4e5d2a93.jpg" width="5312" height="2988" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="swisstph-a-world-leading-institute-in-global-health">SwissTPH: A world-leading institute in global health<a class="hash-link" href="#swisstph-a-world-leading-institute-in-global-health" title="Lien direct vers le titre">​</a></h3><p>The diverse professionals working at <a href="https://www.swisstph.ch/en/" target="_blank" rel="noopener noreferrer">SwissTPH</a> all
 have one common goal: to improve the health of people globally. In Nigeria,
 SwissTPH is helping healthcare providers to better screen, diagnose, and treat
 sick children through the
@@ -749,7 +749,7 @@ for real-time reporting.</em></p>]]></content>
         <content type="html"><![CDATA[<p>In 2017, OpenFn has saved the iKapaData team valuable time typically spent on
 manual data entry and cleaning processes.The real-time connection has enabled
 live data monitoring for the team as iKapaData survey enumerators were
-conducting the survey.</p><p><img loading="lazy" alt="ikapa" src="/fr/assets/images/ikapa2-624d3559f0bcb6bfc7e8c31a507426ca.jpg" width="1024" height="768" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ikapadatas-essential-work-in-south-africa">iKapaData's essential work in South Africa<a class="hash-link" href="#ikapadatas-essential-work-in-south-africa" title="Lien direct vers le titre">​</a></h3><p>The census plays an important role in public administration by creating a
+conducting the survey.</p><p><img loading="lazy" alt="ikapa" src="/fr/assets/images/ikapa2-f44d61a34f5b5203b90dc9abd2b576ba.jpg" width="1024" height="768" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="ikapadatas-essential-work-in-south-africa">iKapaData's essential work in South Africa<a class="hash-link" href="#ikapadatas-essential-work-in-south-africa" title="Lien direct vers le titre">​</a></h3><p>The census plays an important role in public administration by creating a
 compiled, numerical profile of South Africa. Enumerators are taught the local
 language and local customs in order to effectively achieve information from all
 households. This dataset is used as a benchmark in research and analysis for the
@@ -794,7 +794,7 @@ automated savings &amp; supply chain system. Small-scale farmers are feeding the
 world, but a majority of them are in an endless cycle of poverty and lack access
 to traditional banks and financing. In this post, we highlight our partner
 myAgro, an organization leveraging OpenFn automation to help scale its programs
-towards its goal of serving 1 million farmers in 2025.</p><p><img loading="lazy" alt="myAgro" src="/fr/assets/images/myAgro1-4b695e58fc265c650186f3611e07ba1a.JPG" width="700" height="467" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="heres-the-overview">Here's the overview.<a class="hash-link" href="#heres-the-overview" title="Lien direct vers le titre">​</a></h3><p><a href="https://www.myagro.org/" target="_blank" rel="noopener noreferrer">myAgro</a> has pioneered an innovative bankless savings
+towards its goal of serving 1 million farmers in 2025.</p><p><img loading="lazy" alt="myAgro" src="/fr/assets/images/myAgro1-2ca3797d21345de19cb745f98fe8e3d3.JPG" width="700" height="467" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="heres-the-overview">Here's the overview.<a class="hash-link" href="#heres-the-overview" title="Lien direct vers le titre">​</a></h3><p><a href="https://www.myagro.org/" target="_blank" rel="noopener noreferrer">myAgro</a> has pioneered an innovative bankless savings
 plan that allows thousands of farmers to finance themselves and invest their
 money in high-quality seeds, fertilizer, tools, and training. OpenFn automates
 myAgro’s mobile layaway platform, powering a system where farmers can
@@ -806,7 +806,7 @@ fertilizer using what they already have—their mobile phone. With a mission to
 move small-scale farmers out of poverty, myAgro leveraged OpenFn to develop a
 mobile layaway platform that connects their Telerivet SMS-based savings deposit
 system, Salesforce farmer tracking &amp; supply chain system, and CommCare
-barcode-scanning mobile app.</p><p><img loading="lazy" alt="myagro" src="/fr/assets/images/farmers-1d11313615eb979868ff43b1a4d9a7c9.jpg" width="4234" height="1468" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="using-excel-and-paper-to-manage-thousands-of-farmer-transactions">Using Excel and paper to manage thousands of farmer transactions.<a class="hash-link" href="#using-excel-and-paper-to-manage-thousands-of-farmer-transactions" title="Lien direct vers le titre">​</a></h3><p>In 2014, myAgro utilized <a href="https://telerivet.com/" target="_blank" rel="noopener noreferrer">Telerivet</a>, an instant SMS and
+barcode-scanning mobile app.</p><p><img loading="lazy" alt="myagro" src="/fr/assets/images/farmers-9a9c1f15f22d45cc32159c1e47bd5a0e.jpg" width="4234" height="1468" class="img_ev3q"></p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="using-excel-and-paper-to-manage-thousands-of-farmer-transactions">Using Excel and paper to manage thousands of farmer transactions.<a class="hash-link" href="#using-excel-and-paper-to-manage-thousands-of-farmer-transactions" title="Lien direct vers le titre">​</a></h3><p>In 2014, myAgro utilized <a href="https://telerivet.com/" target="_blank" rel="noopener noreferrer">Telerivet</a>, an instant SMS and
 voice platform, to capture farmer savings deposits, and paper to track voucher
 shipments. They would then regularly export the SMS data to an Excel
 spreadsheet, and manually match savings deposits against a database of vouchers
@@ -822,7 +822,7 @@ savings allocations. OpenFn helped myAgro transition from managing rows and
 columns of data in an Excel spreadsheet to an automated savings and inventory
 tracking system that enables real-time program monitoring.</p><ul><li>In 2014, myAgro serviced 14,000 farmers across 200 villages in Senegal and
 Mali.</li><li>With the help of OpenFn, myAgro worked with 120,000 farmers in 2019, and plans
-to scale towards its goal of reaching <code>1 million farmers</code> by 2025.</li></ul><p><img loading="lazy" alt="myagro" src="/fr/assets/images/myagrograph-332806bf73e3ff89948be5f5c659c785.jpg" width="1080" height="1080" class="img_ev3q"></p><p>Read more about myAgro’s mission <a href="https://www.myagro.org/" target="_blank" rel="noopener noreferrer">here</a>, and stay tuned
+to scale towards its goal of reaching <code>1 million farmers</code> by 2025.</li></ul><p><img loading="lazy" alt="myagro" src="/fr/assets/images/myagrograph-bf14565eddffbd2a30d7d8eede4b0f16.jpg" width="1080" height="1080" class="img_ev3q"></p><p>Read more about myAgro’s mission <a href="https://www.myagro.org/" target="_blank" rel="noopener noreferrer">here</a>, and stay tuned
 as myAgro continues to scale its OpenFn implementation.</p>]]></content>
         <author>
             <name>Lei Lei Tun</name>
@@ -844,7 +844,7 @@ as myAgro continues to scale its OpenFn implementation.</p>]]></content>
         <updated>2020-06-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[OpenFn provides the "Rosetta Stone" for your technologies and integrates any]]></summary>
         <content type="html"><![CDATA[<p>OpenFn provides the "Rosetta Stone" for your technologies and integrates any
-app.</p><p><img loading="lazy" alt="roads" src="/fr/assets/images/roads-955d8a56df36f28ea82eb437b2206121.jpg" width="3648" height="3648" class="img_ev3q"></p><p><em>This article was originally posted by Taylor Downs, Head of Product, on
+app.</p><p><img loading="lazy" alt="roads" src="/fr/assets/images/roads-a51d2c353c69c0dcc7bc00457e4332b3.jpg" width="3648" height="3648" class="img_ev3q"></p><p><em>This article was originally posted by Taylor Downs, Head of Product, on
 <a href="https://medium.com/@taylordowns2000" target="_blank" rel="noopener noreferrer">The OpenFn Founder's blog</a> as "Making
 technology work better in the social sector."</em></p><h4 class="anchor anchorWithStickyNavbar_LWe7" id="were-building-a-tool-that-will-make-integrating-critical-social-impact-technologies-trivial">We're building a tool that will make integrating critical social-impact technologies trivial.<a class="hash-link" href="#were-building-a-tool-that-will-make-integrating-critical-social-impact-technologies-trivial" title="Lien direct vers le titre">​</a></h4><p>The words “integrating” and “trivial” are not often written in the same sentence
 — and for good reason! Non-technical readers click away when they read the
@@ -893,7 +893,7 @@ established, <strong><em>your technology is instantly connected to every other t
 connected to OpenFn–and OpenFn can connect any application.</em></strong> It will start to
 snowball quickly, allowing data to flow instantly between hundreds of crucial
 applications, and each developer will only ever need to maintain a single
-connection.</p><p><img loading="lazy" alt="apps" src="/fr/assets/images/apps-e29ed05a7635be733774994830077abb.png" width="1036" height="582" class="img_ev3q"></p><p>Dozens of organizations worldwide use OpenFn to scale their interventions by
+connection.</p><p><img loading="lazy" alt="apps" src="/fr/assets/images/apps-49baedba1e9bb9bdfc57016d05c8c453.png" width="1036" height="582" class="img_ev3q"></p><p>Dozens of organizations worldwide use OpenFn to scale their interventions by
 automating key processes and information flows. OpenFn solutions deliver
 critical information, faster and unlock resources for organizations by
 eliminating manual, time-intensive tasks. OpenFn connects any app–including
@@ -924,7 +924,7 @@ and follow us on <a href="https://twitter.com/openfn" target="_blank" rel="noope
         <updated>2020-06-04T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[OpenFn’s first objective is to knock down the technical hurdles so organizations]]></summary>
         <content type="html"><![CDATA[<p>OpenFn’s first objective is to knock down the technical hurdles so organizations
-can focus on the important contextual stuff.</p><p><img loading="lazy" alt="tech1" src="/fr/assets/images/technology1-f06419ff70e8ed51e5c89c09fae22413.jpg" width="1024" height="603" class="img_ev3q"></p><p><em>This article was originally posted by Taylor Downs, Head of Product, on
+can focus on the important contextual stuff.</p><p><img loading="lazy" alt="tech1" src="/fr/assets/images/technology1-b08e3bc22a1ed2a711be3a572d34de2f.jpg" width="1024" height="603" class="img_ev3q"></p><p><em>This article was originally posted by Taylor Downs, Head of Product, on
 <a href="https://medium.com/@taylordowns2000" target="_blank" rel="noopener noreferrer">The OpenFn Founder's blog</a> as "Technology
 isn't the answer, but it shouldn't be the problem."</em></p><p>March 23, 2015 — Salesforce Foundation originally published
 <a href="https://www.salesforce.org/technology-isnt-answer-shouldnt-problem/" target="_blank" rel="noopener noreferrer">this blog post.</a></p><p>Three out of four IT implementations fail. While this is an accepted rate in the
@@ -950,7 +950,7 @@ hinges on solving complex people and process problems.</li><li>No single tool do
 than one — and they rarely ‘play nice’.</li></ol><p>Figuring out the people and the processes, that’s always going to be the hardest
 part to get right — whether or not the technical work presents a barrier.
 Openfn.org’s first objective is to knock down the technical hurdles so that
-organizations can focus on that important contextual stuff.</p><p><img loading="lazy" src="/fr/assets/images/techpic-6f94d5fedf79d9d80bee0cc9682c9a3e.jpg" width="2999" height="1999" class="img_ev3q"></p><p>We see a future where the technical setup of a mobile money platform, a
+organizations can focus on that important contextual stuff.</p><p><img loading="lazy" src="/fr/assets/images/techpic-3e8124b4f95b5f6dbf743b755804c8f7.jpg" width="2999" height="1999" class="img_ev3q"></p><p>We see a future where the technical setup of a mobile money platform, a
 biometrics tool, even an offline clinic registration platform, feels just like
 downloading an app from the app store.</p><p>We’re still a long way from that reality, but we’ve built an
 <a href="https://www.openfn.org/pricing#open-source" target="_blank" rel="noopener noreferrer">open-core</a> integration platform
@@ -984,7 +984,7 @@ CommCare, Salesforce, custom databases, and more.</p>]]></content>
         <content type="html"><![CDATA[<p>For the last few years, several OpenFn contributors and I have been blogging
 over at Medium. I'm still going to write there from time to time as part of the
 <a href="https://www.medium.com/@taylordowns2000" target="_blank" rel="noopener noreferrer">OpenFn Founder's Blog</a>, but today, I'm
-excited to announce the launch of our own, new, more tightly integrated blog.</p><p><img loading="lazy" alt="team" src="/fr/assets/images/team-no-td-e3d12b75777082451a799ad9f1a4d6a9.jpg" width="4032" height="3024" class="img_ev3q"></p><p>It will give us more flexibility to tell the stories of our clients journeys to
+excited to announce the launch of our own, new, more tightly integrated blog.</p><p><img loading="lazy" alt="team" src="/fr/assets/images/team-no-td-82059428653414f45e35865b3b8eb0cc.jpg" width="4032" height="3024" class="img_ev3q"></p><p>It will give us more flexibility to tell the stories of our clients journeys to
 scale, and all of the contributors to the OpenFn blog can post in the same
 place. You can still follow us and receive notifications by subscribing below,
 and we hope you'll do so.</p><p>For now, happy integrating!</p><p>— Taylor</p>]]></content>

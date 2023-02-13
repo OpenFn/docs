@@ -746,7 +746,7 @@ sync. This type of sync is triggered whenever a specified event takes place in a
 system. With this approach, whenever a case is referred in Primero (via the user
 interface, i.e., when a real case-worker clicks the “refer” button) OpenFn
 receives a small payload with case data and transmits it to OSCaR and vice
-versa.</p><p><img loading="lazy" alt="Real_Time_Sync" src="/assets/images/syncs1-ed8efbe5bdd76218c43fc801bcf76516.png" width="1710" height="716" class="img_ev3q"></p><p>Because of their instantaneous nature, real time/event based syncs are great for
+versa.</p><p><img loading="lazy" alt="Real_Time_Sync" src="/assets/images/syncs1-ea2cb66ff0b77bf6d05e49e59af62c63.png" width="1710" height="716" class="img_ev3q"></p><p>Because of their instantaneous nature, real time/event based syncs are great for
 integrations that involve mobile payments or sms messages to recipients. Really,
 anything that needs to be done “now”! Additionally, depending on your data
 volumes real time syncs might save you money because you’re only using resources
@@ -758,7 +758,7 @@ and allows for the reprocessing of individual events. There are, however,
 drawbacks.</p><p>For instance, what happens if the app that’s sending notifications to OpenFn
 fails to send? What if AWS or GCP goes down, taking half of the internet with
 it? If Primero “thinks” it sent the referral, OpenFn never receives it, that
-case might not get referred to Oscar!</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="scheduled-syncs">Scheduled Syncs<a class="hash-link" href="#scheduled-syncs" title="Direct link to heading">​</a></h3><p><img loading="lazy" alt="Schedule_Dependent_Sync" src="/assets/images/syncs2-b82b2585d36f4b7bb128dc2cae15fc7b.png" width="1710" height="946" class="img_ev3q"></p><p>The second option considered, a bi-directional schedule dependent sync, solves
+case might not get referred to Oscar!</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="scheduled-syncs">Scheduled Syncs<a class="hash-link" href="#scheduled-syncs" title="Direct link to heading">​</a></h3><p><img loading="lazy" alt="Schedule_Dependent_Sync" src="/assets/images/syncs2-c01d653dc6deb4939ad55425e02ba993.png" width="1710" height="946" class="img_ev3q"></p><p>The second option considered, a bi-directional schedule dependent sync, solves
 for the issue discussed above. On a scheduled basis (every 5 minutes, for
 example) OpenFn checks with Primero and Oscar to see if case referrals need to
 be transmitted between the two systems and then refers the case if required. In
