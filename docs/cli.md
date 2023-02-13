@@ -6,21 +6,25 @@ slug: /cli
 
 :::info What is this tutorial?
 
-This tutorial provides a _hands-on_ way to learn about the new OpenFn CLI. By
-following the prompts and "challenges", a developer with a bit of Javascript
-experience should be able to write, run, and debug complex, multi-step jobs with
-OpenFn, using nothing but a text editor and their terminal.
+- It's a _hands-on_ way to learn about the new OpenFn CLI. By following the
+  prompts and "challenges", a developer with a bit of Javascript experience
+  should be able to write, run, and debug complex, multi-step jobs with OpenFn,
+  using nothing but a text editor and their terminal.
+- The estimated time to finish this developer challenge is 1 to 2 hours
+  (depending on your familiarity with the underlying concepts and tooling)
+- If you are stuck and need help, please post in
+  [community.openfn.org](https://community.openfn.org/t/about-the-job-writing-category/11/1)
 
 :::
 
 ## Intro to the OpenFn CLI
 
-The [@openfn/cli](https://github.com/OpenFn/kit/tree/main/packages/cli) is the
-command line interface and developer toolkit for running OpenFn jobs locally.
-This enables developers to run, build, and test steps in an OpenFn workflow.
+The [@openfn/cli](https://github.com/OpenFn/kit/tree/main/packages/cli) is a
+command line interface for running OpenFn locally. It enables developers to run,
+build, and test steps in an OpenFn workflow.
 
-This CLI replaces the old [@openfn/devtools](https://github.com/OpenFn/devtools)
-and provides a new suite of features and improvements, including:
+This CLI replaces [@openfn/devtools](https://github.com/OpenFn/devtools) and
+provides a new suite of features and improvements, including:
 
 - a new runtime and compiler for executing and creating runnable OpenFn jobs,
 - customizable logging output,
@@ -30,7 +34,7 @@ and provides a new suite of features and improvements, including:
   adaptor source code and documentation lives.
 
 These features are designed to make it easier and more convenient for developers
-to use OpenFn and automate tasks within their workflow.
+to use and understand OpenFn.
 
 ## Prerequisites
 
@@ -57,82 +61,106 @@ to use OpenFn and automate tasks within their workflow.
 
 ### 1. Getting started with the CLI
 
-@openfn/cli is a new CLI for running openfn jobs. To get started, Make sure
-everything works by running the built-in test job:
+Let's start by running a simple command with the CLI. Type the following into
+your terminal:
 
 ```
 openfn test
 ```
 
-You should see the output:
+The word `openfn` will invoke the CLI. The word `test` will invoke the test
+command.
+
+You should see some output like this:
 
 ```sh
-[CLI] ⚠ No state detected: pass -S <number> to provide some state
-[CLI] ✔ Compiled job from const fn = () => state => state \*
-2; fn() [R/T] ✔ Operation 1 complete in 0ms
+[CLI] ℹ Versions:
+         ▸ node.js     16.18.1
+         ▸ cli         0.0.29
+         ▸ runtime     0.0.19
+         ▸ compiler    0.0.25
+[CLI] ℹ Running test job...
+[CLI] ✔ Compiled job
+[JOB] ℹ Calculating the answer to life, the universe, and everything...
+[R/T] ✔ Operation 1 complete in 1ms
 [CLI] ✔ Result: 42
 ```
 
+What we've just done is executed a JavaScript expression, which we call a _job_.
+The output prefixed with `[JOB]` comes directly from `console.log` statements in
+our job code. All other output is the CLI trying to tell us what it is doing.
+
+<details>
+<summary>What is a job ?</summary>
+A job Javascript code which follows a particular set of conventions. Typically a
+job has one or more <i>operations</i> which perform a particular task (like
+pulling information from a database, creating a record, etc.) and return state
+for the next operation to use.
+
+The test job we just ran looks like this:
+
+```js
+const fn = () => state => {
+  console.log(
+    'Calculating the answer to life, the universe, and everything...'
+  );
+  return state * 2;
+};
+export default [fn()];
+```
+
+You can see this (and a lot more detail) by running the test command with
+debug-level logging:
+
+```
+openfn test --log debug
+```
+
+</details>
+
 #### Tasks:
 
-1.  Create a file called `hello.js` and write the following code
+1.  Create a file called `hello.js` and write the following code.
 
     ```js
-    fn(state => {
-      console.log('Hello World!');
-      return state;
-    });
+    console.log('Hello World!');
     ```
 
-2.  Run the job using the cli. (This will execute the job and produce an
-    `output.json` file.)
+    <details>
+    <summary>What is console.log?</summary>
+    <code>console.log</code> is a core JavaScript language function which lets
+    us send messages to the terminal window.
+    </details>
 
-    Run it with the short-form name of adaptor:
+2.  Run the job using the cli.
 
     ```sh
-    openfn hello.js -ia http
+    openfn hello.js
     ```
 
-    Run it with the long-form name of adaptor:
+Note that our `console.log` statement was printed as `[JOB] Hello world!`. Using
+the console like this is helpful for debugging and/or understanding what's
+happening inside our jobs.
 
-    ```sh
-    openfn hello.js -ia @openfn/language-http
-    ```
-
-    :::info Understanding CLI arguments
-
-    Use `-a` to specify the adaptor; use `-i` to auto-install the necessary
-    adaptor
-
-    Run `openfn help` to see the full list of CLI arguments.
-
-    :::
-
-#### **Challenge:**
-
-Write a job that prints your name
+#### 🏆 Challenge: Write a job that prints your name
 
 1.  Modify `hello.js` to print your name.
 2.  Re-run the job by running `openfn hello.js -a http`.
-3.  Validate that you receive this expected output:
+3.  Validate that you receive the logs below:
 
     ```
-    [CLI] ⚠ Error loading state from ./state.json
-    [CLI] ⚠ [Error: ENOENT: no
-    such file or directory, open './state.json'] { errno: -2, code: 'ENOENT',
-    syscall: 'open', path: './state.json' }
-    [CLI] ⚠ Using default state { data: {}, configuration: {} }
     [CLI] ✔ Compiled job from hello.js
-    [JOB] ℹ My name is {YourName}
+    [JOB] ℹ My name is { YourName }
     [R/T] ✔ Operation 1 complete in 0ms
-    [CLI] ✔ Writing output to ./output.json [CLI] ✔ Done in 366ms! ✨
+    [CLI] ✔ Writing output to ./output.json
+    [CLI] ✔ Done in 366ms! ✨
     ```
 
-### 2. Using adaptors helper functions
+### 2. Using adaptor helper functions
 
-Adaptors are Javascript or Typescript module that provides OpenFn users with a
-clean set of helper functions that help communicate with a specific external
-system. Learn more about the adaptors -> [docs.openfn.org/adaptors](/adaptors/)
+Adaptors are Javascript or Typescript modules that provide OpenFn users with a
+set of helper functions for simplifying communication with a specific external
+system. Learn more about adaptors here: [docs.openfn.org/adaptors](/adaptors/)
 
 #### Basic usage:
 
@@ -141,6 +169,14 @@ Let’s use
 adaptor to fetch a list of forms from
 [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
 
+:::info Understanding CLI arguments
+
+Use `-a` to specify the adaptor; use `-i` to auto-install the necessary adaptor
+
+Run `openfn help` to see the full list of CLI arguments.
+
+:::
+
 #### Tasks:
 
 1. Create a file called `getPosts.js` and write the following code
@@ -148,185 +184,233 @@ adaptor to fetch a list of forms from
    ```jsx
    get('https://jsonplaceholder.typicode.com/posts');
    fn(state => {
-     console.log(state.data[1]);
+     console.log(state.data[0]);
      return state;
    });
    ```
 
 2. Run the job by running `openfn getPosts.js -a http`
-3. See expected output
+3. See expected CLI logs
 
    ```
-   [CLI] ⚠ Error loading state from ./state.json
-   [CLI] ⚠ [Error: ENOENT: no such file or directory, open './state.json'] { errno: -2, code: 'ENOENT', syscall:
-   'open', path: './state.json' }
-   [CLI] ⚠ Using default state { data: {}, configuration: {} }
    [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
    [R/T] ✔ Operation 1 complete in 1.072s
-   [JOB] ℹ { userId: 1, id: 2,
-   title: 'qui est esse', body: 'est rerum tempore vitae\n' + 'sequi sint nihil
-   reprehenderit dolor beatae ea dolores neque\n' + 'fugiat blanditiis voluptate
-   porro vel nihil molestiae ut reiciendis\n' + 'qui aperiam non debitis possimus
-   qui neque nisi nulla' }
+   [JOB] ℹ {
+    userId: 1,
+    id: 1,
+    title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+    body: 'quia et suscipit\n' +
+      'suscipit recusandae consequuntur expedita et cum\n' +
+      'reprehenderit molestiae ut ut quas totam\n' +
+      'nostrum rerum est autem sunt rem eveniet architecto'
+   }
    [R/T] ✔ Operation 2 complete in 0ms
    [CLI] ✔ Writing output to ./output.json
    [CLI] ✔ Done in 1.42s! ✨
    ```
 
-#### Challenge:
+#### 🏆 Challenge: Get and inspect data via HTTP
 
 Using the
 [https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users)
-get the list of users and print the object of the first user
+API, get a list of users and print the first user object.
 
 1.  Create file called `getUsers.js` and write your operation to fetch the user.
 2.  Run the job using the cli. `openfn getUsers.js -a http`.
-3.  Validate that you receive this expected output:
+3.  Validate that you receive this expected CLI logs:
 
 ```
-[CLI] ⚠ Error loading state from ./state.json
-[CLI] ⚠ [Error: ENOENT: no such file or directory, open './state.json'] { errno: -2, code: 'ENOENT', syscall:
-'open', path: './state.json' }
-[CLI] ⚠ Using default state { data: {}, configuration: {} }
 [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 581ms
-[JOB] ℹ {user details}
+[JOB] ℹ {
+  id: 1,
+  name: 'Leanne Graham',
+  username: 'Bret',
+  email: 'Sincere@april.biz',
+  address: {
+    street: 'Kulas Light',
+    suite: 'Apt. 556',
+    city: 'Gwenborough',
+    zipcode: '92998-3874',
+    geo: { lat: '-37.3159', lng: '81.1496' }
+  },
+  phone: '1-770-736-8031 x56442',
+  website: 'hildegard.org',
+  company: {
+    name: 'Romaguera-Crona',
+    catchPhrase: 'Multi-layered client-server neural-net',
+    bs: 'harness real-time e-markets'
+  }
+}
 [R/T] ✔ Operation 2 complete in 2ms
 [CLI] ✔ Writing output to ./output.json [CLI] ✔ Done in 950ms! ✨
 ```
 
 ### 3. Understanding `state`
 
-It
-[all starts with state​](/articles/2021/07/05/wrapping-my-head-around-jobs/#it-all-starts-with-state).
-If a job is a set of instructions for a chef (a recipe?) then the initial state
-is all of the ingredients they need tied up in a perfect little bundle. It
-usually looks something like this
+If a job expression is a set of instructions for a chef (a recipe?) then the
+initial state is all of the ingredients they need tied up in a perfect little
+bundle. See
+["It all starts with state​"](/articles/2021/07/05/wrapping-my-head-around-jobs/#it-all-starts-with-state)
+in the knowledge base for extra context.
+
+It usually looks something like this
 
 ```json
 {
   "configuration": {
-    // This is where we put credentials which are used to authorize connection to source/destination systems
+    "hostUrl": "https://moh.kenya.gov.ke/dhis2",
+    "username": "someone",
+    "password": "something-secret"
   },
   "data": {
-    // This is where the data from our source system will wind up
+    "type": "registration",
+    "patient": {
+      "age": 24,
+      "gender": "M",
+      "nationalId": "321cs7"
+    }
   }
 }
 ```
+
+#### `state.configuration`
+
+This key is where we put credentials which are used to authorize connections to
+any authenticated system that the job will interact with. (Note that this part
+of `state` is usually overwritten at runtime with a real "credential" when using
+the OpenFn platform, rather than the CLI.)
+
+:::warning Important
+
+Note that `console.log(state)` will display the whole state, including
+`state.configuration` elements such as **username and password**. Remove this
+log whenever you're done debugging to avoid accidentally exposing sensitive
+information when the job is successful deployed on production.
+
+The OpenFn platform has built in protections to "scrub" state from the logs, but
+when you're using the CLI directly you're on your own!
+
+:::
+
+#### `state.data`
+
+This key is where we put data related to a specific job run. On the platform,
+it's the work-order-specific data from a triggering HTTP request or some bit of
+information that's passed from one job to another.
 
 Using CLI, `state.json` will be loaded automatically from the current directory
 
 Or you can specify the path to the state file by passing the option -s,
 --state-path
 
-You can use this command to load the state automatically:
+Specify a path to your `state.json` file with this command:
 
-```
-openfn foo/job.js -a http
-```
-
-Or you can specify the path of the `state.json` file:
-
-```
-openfn foo/job.js -a http -s foo/state.json
+```sh
+openfn hello.js -a http -s tmp/state.json
 ```
 
-Expected output
+Expected CLI logs
 
 ```
-[CLI] ✔ Loaded state from foo/state.json
-[CLI] ✔ Compiled job from foo/job.js
+[CLI] ✔ Compiled job from hello.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 876ms
 [R/T] ✔ Operation 2 complete in 0ms
-[CLI] ✔ Writing output to foo/output.json
+[CLI] ✔ Writing output to ./output.json
 [CLI] ✔ Done in 1.222s! ✨
 ```
 
 #### How can we use state?
 
 Each adaptor has a configuration schema that's recommended for use in your
-`state.json`.
-[Here is an example](/adaptors/packages/dhis2-configuration-schema) of how to
-set up `state.configuration` for `language-http`.
+`state.json`. [Here is an example](/adaptors/packages/http-configuration-schema)
+of how to set up `state.configuration` for `language-http`.
 
 ```json
 {
-  "username": "<name@email>",
-  "password": "<supersecret>",
+  "username": "name@email",
+  "password": "supersecret",
   "baseUrl": "https://jsonplaceholder.typicode.com"
 }
 ```
 
 #### Tasks:
 
-Update your `state.json` to look like this:
+1. Update your `state.json` to look like this:
 
-```json
-{
-  "data": {},
-  "configuration": {
-    "baseUrl": "https://jsonplaceholder.typicode.com"
-  }
-}
-```
+   ```json
+   {
+     "data": {},
+     "configuration": {
+       "baseUrl": "https://jsonplaceholder.typicode.com"
+     }
+   }
+   ```
 
-Since we have update our configuration in our state.json we can now use `get()`
-helper function without the need to specify the **baseUrl**
+   Since we have update our configuration in our `state.json` we can now use
+   `get()` helper function without the need to specify the **baseUrl**—i.e
+   `get('posts')`
 
-i.e `get(“posts”)`
+2. Update your `getPosts.js` job to look like this:
 
-##### Update your job (`getPosts.js`) to look like this:
+   ```js title="getPosts.js"
+   // Get all posts
+   get('posts');
 
-```jsx title="getPosts.js"
-// Get all posts
-get('posts');
+   fn(state => {
+     const posts = state.data;
+     console.log(posts[0]);
+     return state;
+   });
+   ```
 
-fn(state => {
-  const posts = state.data;
-  console.log(posts[1]);
-  return state;
-});
-```
+3. Now run the job using the following command
 
-##### Now run the job using the following command
+   ```sh
+   openfn getPosts.js -a http
+   ```
 
-```
-openfn getPosts.js -a http
-```
+   And validate that you see the expected CLI logs:
 
-> Expected output
+   ```sh
+   [CLI] ✔ Compiled job from job.js
+   GET request succeeded with 200 ✓
+   [R/T] ✔ Operation 1 complete in 120ms
+   [JOB] ℹ {
+    userId: 1,
+    id: 1,
+    title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+    body: 'quia et suscipit\n' +
+      'suscipit recusandae consequuntur expedita et cum\n' +
+      'reprehenderit molestiae ut ut quas totam\n' +
+      'nostrum rerum est autem sunt rem eveniet architecto'
+   }
+   [R/T] ✔ Operation 2 complete in 0ms
+   [CLI] ✔ Writing output to ./output.json
+   [CLI] ✔ Done in 470ms! ✨
+   ```
 
-```
-[CLI] ✔ Loaded state from ./state.json
-[CLI] ✔ Compiled job from getPosts.js
-GET request succeeded with 200 ✓
-[R/T] ✔ Operation 1 complete in 460ms
-[JOB] ℹ {
-  userId: 1,
-  id: 2,
-  title: 'qui est esse',
-  body: 'est rerum tempore vitae\n' +
-    'sequi sint nihil reprehenderit dolor beatae ea dolores neque\n' +
-    'fugiat blanditiis voluptate porro vel nihil molestiae ut reiciendis\n' +
-    'qui aperiam non debitis possimus qui neque nisi nulla'
-}
-[R/T] ✔ Operation 2 complete in 12ms
-[CLI] ✔ Writing output to output.json
-[CLI] ✔ Done in 946ms! ✨
-```
+#### 🏆 Challenge: Fetch Covid-19 metadata
 
-#### Challenge:
+1. Using the [disease.sh API](https://disease.sh/), write an operation that
+   returns all covid-19 metadata.
 
-Using [disease.sh API](https://disease.sh/), write an operation that return all
-covid-19 metadata, using this
+:::tip
 
-[https://disease.sh/v3/covid-19/](https://disease.sh/v3/covid-19/) as you
-**baseUrl**
+`https://disease.sh/v3/covid-19/` as your **baseUrl** in `state.configuration`
+
+:::
+
+2. Validate your output: there are a lot of ways you might choose to format or
+   display this data. Share your results with your administrator for feedback.
 
 ### 4. Additional arguments and commands
 
-#### Challenge:
+#### 🏆 Challenge: Practice CLI arguments and commands
+
+Perform these tasks and submit answers to the discussion questions to your
+administrator for feedback.
 
 1. Compile a openfn job (**hello.js**).
 
@@ -344,14 +428,18 @@ covid-19 metadata, using this
 
 ### 5. Manipulating data in a sequence of operations
 
-In most cases you need to write a sequence of operations for data manipulation,
-cleaning, or transformation. For example after we get data from the
+In most cases you need to manipulate, clean, or transform data at some step in
+your workflow. For example after we get data from the
 `https://jsonplaceholder.typicode.com` registry we might need to group the posts
-by user id.
+by user id. The example below shows how we can:
+
+1. get all posts and return them in `state.data`
+2. group returned posts by `userId`
+3. log posts with userId 1
 
 ##### Example:
 
-```jsx title="getPosts.js"
+```js title="getPosts.js"
 // Get all posts
 get("posts");
 
@@ -378,19 +466,40 @@ fn((state) => {
 });
 ```
 
-##### In summary
+<details>
+<summary>What is <code>array.reduce</code> ?</summary>
+The <code>reduce()</code> method applies a function against an accumulator and
+each value of the array (from left-to-right) to reduce it to a single value.
 
-1. Operation 1: Will get all posts and return response will be in state.data
+Perhaps the easiest-to-understand case for <code>reduce()</code> is to return
+the sum of all the elements in an array:
 
-2. Operation2: Will group returned posts by userId
-
-3. Operation3: Will log posts with userId 1
-
-> Expected output
+##### JavaScript Demo: `Array.reduce()`
 
 ```
-[CLI] ✔ Loaded state from foo/state.json
-[CLI] ✔ Compiled job from foo/tmp.js
+const array1 = [1, 2, 3, 4];
+
+// 0 + 1 + 2 + 3 + 4
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
+
+console.log(sumWithInitial);
+// Expected output: 10
+
+```
+
+You can learn more about `array.reduce` from
+[this article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+
+</details>
+
+> Expected CLI logs
+
+```
+[CLI] ✔ Compiled job from getPosts.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 825ms
 [R/T] ✔ Operation 2 complete in 0ms
@@ -398,11 +507,11 @@ GET request succeeded with 200 ✓
  //All of posts for userId 1
 ]
 [R/T] ✔ Operation 3 complete in 12ms
-[CLI] ✔ Writing output to foo/output.json
+[CLI] ✔ Writing output to ./output.json
 [CLI] ✔ Done in 1.239s! ✨
 ```
 
-#### Challenge:
+#### 🏆 Challenge: extract names & emails
 
 Using
 [https://jsonplaceholder.typicode.com/posts/1/comments](https://jsonplaceholder.typicode.com/posts/1/comments)
@@ -413,13 +522,15 @@ comment in that post
 2. Extract name and email from comments
 3. Log the extracted data from comments
 
+Discuss the results with your administrator.
+
 ### 6. Debugging errors
 
 When debugging, it’s interesting to use log to have a visual representation of
 the content of the manipulated objects (such as state).
 
-1. When you want to inspect the content of state in between operations, add an
-   `fn()` block with a `console.log`:
+When you want to inspect the content of state in between operations, add an
+`fn()` block with a `console.log`:
 
 ```js
 // firstOperation(...);
@@ -431,15 +542,6 @@ fn(state => {
 
 // secondOperation(...);
 ```
-
-:::warning Important
-
-Note that `console.log(state)` will display the whole state, but also
-configuration elements **(username, and password)**. Remove this log whenever
-you're done debugging to avoid accidentally exposing sensitive information when
-the job is successful deployed on production
-
-:::
 
 ##### Create **debug.js** and paste the code below
 
@@ -458,7 +560,7 @@ fn(state => {
 
 ##### Run **openfn debug.js -a http**
 
-> Expected output
+> Expected CLI logs
 
 ```
 [CLI] ✘ TypeError: path.match is not a function
@@ -482,17 +584,16 @@ According to the docs, dataValue take path which is a string type. But in our
 operation were passing an integer, that’s why we have a _TypeError_. You can fix
 by passing a string in dataValue i.e `console.log(dataValue(“1”))`
 
-> Expected output
+> Expected CLI logs
 
 ```
-[CLI] ✔ Loaded state from ./state.json
 [CLI] ✔ Compiled job from debug.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 722ms
 [JOB] ℹ [Function (anonymous)]
 [R/T] ✔ Operation 2 complete in 1ms
 [CLI] ✔ Writing output to ./output.json
-[CLI] ✔ Done in 1.102s!Example: ✨
+[CLI] ✔ Done in 1.102s ✨
 ```
 
 If you need more information for debugging you can pass -l debug which will give
@@ -500,7 +601,7 @@ all information about the run
 
 i.e `openfn debug.js -a http -l debug`
 
-#### Challenge:
+#### 🏆 Challenge: control error messages
 
 Debug what is causing an error on the following line of code and display the
 error message
@@ -510,6 +611,8 @@ error message
 get('posts/180');
 ```
 
+Discuss the results with your administrator.
+
 ### 7. Each and array iteration
 
 We often have to perform the same operation multiple times for items in an
@@ -518,7 +621,7 @@ array. Most of the helper functions for data manipulation are inherited from
 
 ##### Create job.js and add the following codes
 
-```jsx
+```js
 // Get all posts
 get('posts');
 
@@ -550,17 +653,16 @@ each('posts', state => {
 });
 ```
 
-Notice how this code uses the “each” function from common which is a helper
-function defined in
+Notice how this code uses the `each` function, a helper function defined in
 [language-common](/adaptors/packages/common-docs/#eachdatasource-operation--operation)
-but is accessed in this job that is using language-http
+but accessed from this job that is using language-http. Most adaptors import and
+export many functions from `language-common`.
 
 ##### Run **openfn job.js -a http**
 
-> Expected output
+> Expected CLI logs
 
-```
-[CLI] ✔ Loaded state from ./state.json
+```sh
 [CLI] ✔ Compiled job from job.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 730ms
@@ -574,17 +676,17 @@ GET request succeeded with 200 ✓
 [CLI] ✔ Done in 1.091s! ✨
 ```
 
-#### Challenge
+#### 🏆 Challenge: Reduce, filter, and map
 
-Using Javascript globals i.e `Array.reduce, Array.filter or Array.map`, build
-function that will get posts by user id.
-
-#### Tasks:
+Using Javascript globals i.e `Array.reduce`, `Array.filter` or `Array.map`,
+build function that will get posts by user id.
 
 1. Create a file called job1.js
 2. Add the 1st operation which is get all posts
 3. Add 2nd operation which has a function that filter posts by id
 4. Use the function from 2nd operation to get all post for user id 1
+
+Discuss the results with your administrator.
 
 ## CLI Usage - Key Commands
 
@@ -615,8 +717,8 @@ that adaptor (it's safe to do this redundantly).
 You can find the list of publicly available adaptors [here](/adaptors).
 
 > Path is the job to load the job from (a .js file or a dir containing a job.js
-> file) For example `openfn execute foo/job.js ` Reads foo/job.js, looks for
-> state and output in foo
+> file) For example `openfn execute hello.js ` Reads hello.js, looks for state
+> and output in foo
 
 ```
 -i, --autoinstall Auto-install the language adaptor
@@ -624,7 +726,7 @@ You can find the list of publicly available adaptors [here](/adaptors).
 ```
 
 If an adaptor is already installed by auto install, you can use the command
-without the `-i` options. i.e `openfn foo/job.js -a http`
+without the `-i` options. i.e `openfn hello.js -a http`
 
 ### Change log level
 
@@ -633,7 +735,7 @@ happening, or `--log debug` for more details than you could ever use. Below is
 the list of different log levels
 
 ```
-openfn foo/job.js -a http -l none
+openfn hello.js -a http -l none
 ```
 
 | log level    | description                                              |
@@ -653,8 +755,10 @@ debug from a pure JS perspective.
 openfn compile [path]
 ```
 
-Will compile a openfn job and print or save the resulting js
+Will compile a openfn job and print or save the resulting js.
 
+<!--
+TODO: @Mtuchi revisit once we have a clear picture of the future of strict-mode
 ### Strict Mode
 
 By default CLI will return only the `data` key inside the resulting state after
@@ -662,8 +766,8 @@ a successful run. To Allow properties other than data to be returned in you need
 to use strict mode.
 
 ```sh
-openfn foo/job.js -a http --no-strict-output
-```
+openfn hello.js -a http --no-strict-output
+``` -->
 
 Learn more about CLI
 [github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
