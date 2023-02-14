@@ -42,7 +42,7 @@ to use and understand OpenFn.
    [VS Code](https://code.visualstudio.com/),
    [Sublime](https://www.sublimetext.com/))
 
-2. Install NodeJs **v18**
+2. Install NodeJs **v18 is the minimum version required**
 
    - To install a specific version of Node.js (in this case, version 18) on
      Linux, Windows, or macOS, you can use a version manager such as nvm (Node
@@ -75,7 +75,7 @@ You should see some output like this:
 
 ```sh
 [CLI] ℹ Versions:
-         ▸ node.js     16.18.1
+         ▸ node.js     18.12.1
          ▸ cli         0.0.29
          ▸ runtime     0.0.19
          ▸ compiler    0.0.25
