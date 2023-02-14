@@ -106,7 +106,7 @@ const sampleConfiguration = json => {
   const conf = {};
   if (properties) {
     Object.keys(properties).forEach((key, index) => {
-      conf[key] = `//${properties[key]['description']}`;
+      conf[key] = `${properties[key]['description']}`;
 
       return conf;
     });
