@@ -121,18 +121,21 @@ application. `Ids` however, represent actual data that should be mapped.
 
 ## CommCare Credentials
 
-To connect to CommCare you'll need a username, passoword, host URL, and the "appId". 
+To connect to CommCare you'll need a username, passoword, host URL, and the
+"appId".
 
 ![CommCare Credentials Menu](/img/commcare_credential.png)
 
-The username is your full email address and the "appId" is the UUID which designates your CommCare project as different from
-everyone elses. It can be found in the URL of your application when you first
-enter it from the project screen. I.e., the last part of this URL:
+The username is your full email address and the "appId" is the UUID which
+designates your CommCare project as different from everyone elses. It can be
+found in the URL of your application when you first enter it from the project
+screen. I.e., the last part of this URL:
 `https://www.commcarehq.org/a/YOUR_PROJECT/apps/view/YOUR_APP_ID/`
 
 ![CommCare Cred](/img/commcare_credential_edit.png)
 
-For **OpenFn/devtools** or **OpenFn/engine** the raw JSON of the credential for inclusion in state should look like this:
+For **OpenFn/devtools** or **OpenFn/engine** the raw JSON of the credential for
+inclusion in state should look like this:
 
 ```json
 {
