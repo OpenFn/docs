@@ -134,18 +134,10 @@ screen. I.e., the last part of this URL:
 
 ![CommCare Cred](/img/commcare_credential_edit.png)
 
-For **OpenFn/devtools** or **OpenFn/engine** the raw JSON of the credential for
-inclusion in state should look like this:
-
-```json
-{
-  "appId": "the-long-uuid-in-the-url-that-designates-a-unique-commcare-project",
-  "password": "shhh",
-  "username": "test@openfn.org",
-  "applicationName": "some-proof-of-concept",
-  "hostUrl": "https://www.commcarehq.org"
-}
-```
+The raw JSON of your credential (for use in the CLI or when inspecting
+`state.configuration`) is defined in the
+[CommCare Configuration](/adaptors/packages/commcare-configuration-schema/)
+section.
 
 ## Common Errors
 
