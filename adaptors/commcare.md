@@ -121,7 +121,7 @@ application. `Ids` however, represent actual data that should be mapped.
 
 ## CommCare Credentials
 
-To connect to CommCare you'll need a username, passoword, host URL, and the
+To connect to CommCare you'll need a username, password, host URL, and the
 "appId".
 
 ![CommCare Credentials Menu](/img/commcare_credential.png)
