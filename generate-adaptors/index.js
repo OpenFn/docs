@@ -106,12 +106,16 @@ const sampleConfiguration = json => {
   const conf = {};
   if (properties) {
     Object.keys(properties).forEach((key, index) => {
-      conf[key] = `${properties[key]['description']}`;
+      console.log(properties[key]['examples']);
+      conf[key] = 'Someting';
+      conf[key] =
+        Array.isArray(properties[key]['examples']) &&
+        `${properties[key]['examples'][0]}`;
 
       return conf;
     });
   }
-  return '```json \n' + JSON.stringify(conf, null, 2) + '\n```';
+  return '```json \n' + JSON.stringify(conf, null, 4) + '\n```';
 };
 
 function generateConfigurationSchema(a) {
@@ -132,13 +136,18 @@ keywords:
 
   ## Full Schema
 
-  ${displaySchema(a['configuration-schema'])}
+  ${displaySchemaFullSchema(a['configuration-schema'])}
 `;
 }
 
 function displaySchema(schema) {
   if (typeof schema == 'string') return schema;
   return sampleConfiguration(schema);
+}
+
+function displaySchemaFullSchema(schema) {
+  if (typeof schema == 'string') return schema;
+  return '```json \n' + JSON.stringify(schema, null, 4) + '\n```';
 }
 
 module.exports = function (context, { apiUrl }) {
