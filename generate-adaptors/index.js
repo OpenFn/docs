@@ -93,7 +93,7 @@ keywords:
   - ${a.name}
 ---
 
-# Developer README for the ${a.name} adaptor
+# ${a.name} Adaptor developer README.md
 
 Source: https://github.com/OpenFn/adaptors/tree/main/packages/${a.name}
 
@@ -120,7 +120,7 @@ const sampleConfiguration = json => {
 
 function generateConfigurationSchema(a) {
   return `---
-title: ${a.name} Config
+title: Config for ${a.name}
 id: ${a.name}-configuration-schema
 keywords:
   - adaptor
@@ -128,16 +128,34 @@ keywords:
   - ${a.name}
 ---
 
-  For use in \`state.configuration\`:
+${configurationPageBody(a)}
+`;
+}
+
+function configurationPageBody(a) {
+  if (typeof a['configuration-schema'] == 'string') {
+    return `No configuration schema has been defined for the ${a.name} adaptor.`;
+  }
+  return `
+  Jobs that use the \`${a.name}\` adaptor may require authentication. A
+  "credential" for the \`${a.name}\` adaptor will follow the schema below. When
+  using the CLI, you can set up your own \`state.configuration\` by using the
+  sample below.
 
   ## Sample Configuration
+
+  Paste this into the \`configuration\` key of your \`state.json\` file and
+  modify the values to run jobs locally.
   
   ${displaySchema(a['configuration-schema'])}
 
   ## Full Schema
 
+  The full configuration schema describes each attribute of the credential and
+  notes those that are required.
+
   ${displaySchemaFullSchema(a['configuration-schema'])}
-`;
+  `;
 }
 
 function displaySchema(schema) {

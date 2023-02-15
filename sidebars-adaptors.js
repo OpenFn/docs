@@ -27,6 +27,11 @@ const items = adaptors.sort().map(a => {
         label: 'Functions',
         id: a.docsId,
       },
+      {
+        type: 'doc',
+        label: 'Configuration',
+        id: a.configurationSchemaId,
+      },
       groupedJobs[a.name] && groupedJobs[a.name].length > 0
         ? {
             type: 'category',
@@ -45,13 +50,8 @@ const items = adaptors.sort().map(a => {
       },
       {
         type: 'doc',
-        label: 'Contributing',
+        label: 'README.md',
         id: a.readmeId,
-      },
-      {
-        type: 'doc',
-        label: 'Configuration',
-        id: a.configurationSchemaId,
       },
     ],
   };
