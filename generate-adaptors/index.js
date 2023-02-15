@@ -126,7 +126,13 @@ keywords:
 
   For use in \`state.configuration\`:
 
-${displaySchema(a['configuration-schema'])}
+  ## Sample Configuration
+  
+  ${displaySchema(a['configuration-schema'])}
+
+  ## Full Schema
+
+  ${displaySchema(a['configuration-schema'])}
 `;
 }
 
