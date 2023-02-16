@@ -189,7 +189,15 @@ Run `openfn help` to see the full list of CLI arguments.
    });
    ```
 
-2. Run the job by running `openfn getPosts.js -a http`
+2. Run the job by running
+
+```sh
+openfn getPosts.js -i -a http
+```
+
+Since it is our first time using the `http` adaptor, we are installing the
+adaptor using `-i` argument
+
 3. See expected CLI logs
 
    ```
@@ -216,8 +224,13 @@ Using the
 API, get a list of users and print the first user object.
 
 1.  Create file called `getUsers.js` and write your operation to fetch the user.
-2.  Run the job using the cli. `openfn getUsers.js -a http`.
-3.  Validate that you receive this expected CLI logs:
+2.  Run the job using the cli.
+
+```sh
+openfn getUsers.js -a http
+```
+
+3. Validate that you receive this expected CLI logs:
 
 ```
 [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
@@ -341,7 +354,6 @@ of how to set up `state.configuration` for `language-http`.
 
    ```json
    {
-     "data": {},
      "configuration": {
        "baseUrl": "https://jsonplaceholder.typicode.com"
      }
@@ -368,7 +380,7 @@ of how to set up `state.configuration` for `language-http`.
 3. Now run the job using the following command
 
    ```sh
-   openfn getPosts.js -a http
+   openfn getPosts.js -a http -s tmp/state.json
    ```
 
    And validate that you see the expected CLI logs:
@@ -443,7 +455,7 @@ by user id. The example below shows how we can:
 // Get all posts
 get("posts");
 
-// 
+//
 s by user
 fn((state) => {
   const posts = state.data;
