@@ -1,5 +1,5 @@
 ---
-title: Devtools
+title: Devtools (CLI)
 ---
 
 OpenFn/Devtools is a set of tools for writing &amp; testing job expressions,
