@@ -1,13 +1,13 @@
 ---
-title: Devtools (CLI)
+title: Devtools
 ---
 
-:::caution Microservice and devtools are being replaced by Lightning
+:::caution Devtools is deprecated
 
-Please note that [OpenFn/microservice](https://github.com/OpenFn/microservice)
-and [OpenFn/devtools](https://github.com/OpenFn/devtools) are being deprecated
-and replaced by [OpenFn/Lightning](https://github.com/OpenFn/lightning), When
-lighting is released.
+Please note that [OpenFn/devtools](https://github.com/OpenFn/devtools) are being
+deprecated and replaced by [OpenFn/cli](/documentation/cli). Learn more about
+CLI
+[github.com/OpenFn/cli/](https://github.com/OpenFn/kit/tree/main/packages/cli)
 
 :::
 
