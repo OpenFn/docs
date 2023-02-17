@@ -224,7 +224,7 @@ Using the
 API, get a list of users and print the first user object.
 
 1.  Create file called `getUsers.js` and write your operation to fetch the user.
-2.  Run the job using the cli. `openfn getUsers.js -a http`.
+2.  Run the job using the OpenFn/cli `openfn getUsers.js -a http`.
 3.  Validate that you receive this expected CLI logs:
 
 ```sh
