@@ -1023,10 +1023,10 @@ empty file) to Github, `autodeploy` is on, and that file is linked to an OpenFn
 job, you will **erase your existing job** and you may not be able to retrieve
 it. ⚠️
 
-For this reason, and because [**OpenFn/devtools**](/documentation/devtools/home)
-provides a free, open-source, offline testing environment, it's recommended to
-create your jobs using a Github repo and test them on your own machine _before_
-linking them to a project on OpenFn.
+For this reason, and because [**OpenFn/cli**](/documentation/cli) provides a
+free, open-source, offline testing environment, it's recommended to create your
+jobs using a Github repo and test them on your own machine _before_ linking them
+to a project on OpenFn.
 
 :::
 

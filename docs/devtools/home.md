@@ -2,6 +2,15 @@
 title: Devtools (CLI)
 ---
 
+:::caution Microservice and devtools are being replaced by Lightning
+
+Please note that [OpenFn/microservice](https://github.com/OpenFn/microservice)
+and [OpenFn/devtools](https://github.com/OpenFn/devtools) are being deprecated
+and replaced by [OpenFn/Lightning](https://github.com/OpenFn/lightning), When
+lighting is released.
+
+:::
+
 OpenFn/Devtools is a set of tools for writing &amp; testing job expressions,
 managing OpenFn projects, and developing new adaptors. It's how most people work
 with OpenFn from their own command lines, outside of OpenFn.org, Microservice,

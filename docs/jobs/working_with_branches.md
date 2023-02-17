@@ -27,8 +27,8 @@ repo to your local folder.
    branch. When you start editing your jobs, the changes will be kept on this
    branch, managed separately from `main`.
 
-2. To test the changes locally, check out the
-   [Devtools](/documentation/devtools/home) docs.
+2. To test the changes locally, check out the [The CLI](/documentation/cli)
+   docs.
 
 3. Just as you've seen when working on `main`, when you're done check which
    files you changed with `git status`.

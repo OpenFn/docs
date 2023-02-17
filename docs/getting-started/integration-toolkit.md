@@ -75,6 +75,15 @@ jobs, triggers, and credentials. The key components of the toolkit are:
 6. the OpenFn adaptors
 7. _OpenFn/lightning (coming soon...)_
 
+:::caution Microservice and devtools are being replaced by Lightning
+
+Please note that [OpenFn/microservice](https://github.com/OpenFn/microservice)
+and [OpenFn/devtools](https://github.com/OpenFn/devtools) are being deprecated
+and replaced by [OpenFn/Lightning](https://github.com/OpenFn/lightning), When
+lighting is released.
+
+:::
+
 ### Lightning, coming soon!
 
 Lightning is an upcoming addition to the Integration Toolkit. It is a _fully

@@ -8,11 +8,8 @@
 ### Other documentation
 
 Documentation for various OpenFn tools, such as
-[openfn/microservice](https://openfn.github.io/microservice/),
-[openfn/devtools](https://openfn.github.io/devtools/),
-[openfn/core](https://github.com/OpenFn/core), and all of our open-source
-adaptors can be found in
-[OpenFn's Github organization](https://github.com/OpenFn).
+[The CLI](http://localhost:3000/documentation/cli), and all of our open-source
+adaptors can be found in [openfn/adaptors](https://github.com/OpenFn/adaptors).
 
 This repository is used to maintain the docs site, and for users to submit
 issues and feature requests.

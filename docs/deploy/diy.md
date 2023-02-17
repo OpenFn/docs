@@ -7,9 +7,9 @@ sidebar_label: DIY
 
 Are you sure you want to build a new application using **core** and/or
 **engine**? OpenFn's completely free and open source
-**[microservice](/documentation/microservice/home)** offering provides a pretty good base in the
-event that you'd like to extend our existing functionality for your own
-purposes.
+**[microservice](/documentation/microservice/home)** offering provides a pretty
+good base in the event that you'd like to extend our existing functionality for
+your own purposes.
 
 :::
 
@@ -74,6 +74,14 @@ To get started, or just run fn-lang manually, from your command line, check out
 [openfn-devtools](https://github.com/OpenFn/openfn-devtools). With windows and
 linux install scripts, it's the fastest way to get up and running with OpenFn on
 your local machine.
+
+:::caution OpenFn/devtools is being replaced by The CLI
+
+Please note that [OpenFn/devtools](https://github.com/OpenFn/devtools) are being
+deprecated and replaced by [OpenFn/cli](https://github.com/OpenFn/cli). Learn
+more about the CLI from this [documentation](/documentation/cli)
+
+:::
 
 ### Sample files for DIY getting started
 
