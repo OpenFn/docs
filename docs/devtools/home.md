@@ -1,5 +1,5 @@
 ---
-title: Devtools (CLI)
+title: Devtools
 ---
 
 :::caution Devtools is deprecated
