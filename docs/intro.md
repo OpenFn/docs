@@ -80,20 +80,10 @@ If you have any questions about our products, please don't hesitate to email
 
 ### OpenFn developer tooling
 
-#### [OpenFn/devtools](/documentation/devtools/home)
+#### [OpenFn/cli](/documentation/cli)
 
 A set of CLI tools for writing & testing expressions, managing OpenFn projects,
-and developing [adaptors](https://github.com/openfn/adaptor).
-
-#### [OpenFn/core](https://github.com/openfn/core)
-
-The central job processing program used in the OpenFn platform.
-
-### OpenFn/Microservice
-
-[OpenFn/Microservice](https://openfn.github.io/microservice/readme.html) is open
-source software which makes use of OpenFn's core technology to create standalone
-microservices which can be deployed on any hardware.
+and developing [adaptors](https://github.com/openfn/adaptors).
 
 :::note
 

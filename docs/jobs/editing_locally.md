@@ -71,4 +71,4 @@ From there, the version control integration will update changed jobs in your
 OpenFn project and you can test those changes on the platform.
 
 Once you're ready to start running jobs and testing your changes _locally_, head
-over to the [Devtools](/documentation/devtools/home) docs for guidance.
+over to the [The CLI](/documentation/cli) docs for guidance.

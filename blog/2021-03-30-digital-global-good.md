@@ -127,6 +127,15 @@ anywhere can build integration and automation solutions more quickly and
 interoperability solutions will be within reach to organizations with varying
 technical capabilities.
 
+:::caution Microservice and devtools are being replaced by Lightning
+
+Please note that [OpenFn/microservice](https://github.com/OpenFn/microservice)
+and [OpenFn/devtools](https://github.com/OpenFn/devtools) are being deprecated
+and replaced by [OpenFn/Lightning](https://github.com/OpenFn/lightning), When
+lighting is released.
+
+:::
+
 Versatility is a key component of our open source vision. We are constructing a
 system that users can grow and mature with. While our enterprise platform might
 be right for your organization today, 5 years from now, once your organization
@@ -175,6 +184,6 @@ If your organization is thinking about interoperability and would like to learn
 more about OpenFn’s platform or open-source offerings please contact
 services@openfn.org for a free consultation.
 
-Also, be sure to stay tuned to our [blog](/blog), or
-subscribe to our [newsletter](http://eepurl.com/hcOw8H) to stay up to date with
-all ICT4D integration related news.
+Also, be sure to stay tuned to our [blog](/blog), or subscribe to our
+[newsletter](http://eepurl.com/hcOw8H) to stay up to date with all ICT4D
+integration related news.

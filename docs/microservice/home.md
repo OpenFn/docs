@@ -2,6 +2,15 @@
 title: Microservice
 ---
 
+:::caution Microservice and devtools are being replaced by Lightning
+
+Please note that [OpenFn/microservice](https://github.com/OpenFn/microservice)
+and [OpenFn/devtools](https://github.com/OpenFn/devtools) are being deprecated
+and replaced by [OpenFn/Lightning](https://github.com/OpenFn/lightning), When
+lighting is released.
+
+:::
+
 ## Intent
 
 OpenFn is used by numerous health and humanitarian organizations around the
@@ -13,8 +22,8 @@ deployed on any hardware.
 
 This microservice approach helps to ensure that governments and NGOs are never
 locked-in to OpenFn's SaaS offering, and can port their existing jobs, triggers,
-and credentials from [OpenFn.org](https://www.openfn.org) to their own infrastructure
-easily.
+and credentials from [OpenFn.org](https://www.openfn.org) to their own
+infrastructure easily.
 
 ## Introduction
 
