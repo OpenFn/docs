@@ -16,8 +16,7 @@ to your inbox to confirm your email.
 
 ## 2. Understand the sample workflow
 
-Once you've registered for an account you'll be taken to your workflows page
-with the ‘Sample workflow’ we’ve created for you.
+Click on the 'sample workflow' created for you on registration.
 
 ![lightning-workflows-page](/img/lightning-workflows-page.png)
 
@@ -28,11 +27,7 @@ process that has been automated).
 
 :::
 
-<!---
-<— add data somewhere ? Do these things with this data
--->
-
-This sample workflow (pictured below) automates patient registration by taking a
+The sample workflow (pictured below) automates patient registration by taking a
 patient’s name and age and:
 
 1. checking if they are over 18 months old;
@@ -41,7 +36,7 @@ patient’s name and age and:
 
 ![lightning-sample-workflow](/img/lightning-sample-workflow.png)
 
-The sample workflow is made up of 3 _jobs_.
+It is made up of 3 _jobs_.
 
 :::tip
 
@@ -51,7 +46,7 @@ where, how_ and _what_ to do.
 
 :::
 
-Click on a job to view more details about it in the setup and editor tab.
+Click on Job 3 to view more details about it in the setup and editor tab.
 
 ### [SETUP TAB]
 
@@ -84,21 +79,34 @@ particular system. In OpenFn, you can carry out an action in the following
 systems:
 
 - In OpenFn: OpenFn or common adaptors
-- In an external system: commcare, DHIS2, google sheets, kobotoolbox ...
-- In any external system which has an API: http adaptor
+- In an external system OpenFn has an adaptor for: commcare, DHIS2, google
+  sheets, kobotoolbox ...
+- In any other external system which has an API: http adaptor
 
 **How: credential**
 
-Just as you need to log in when you do something manually in an external system,
-you need to provide credentials to do that same thing automatically.
+Credentials define _how_ a Job is able to perform an action on your behalf, just
+as you would need to log in if you were carrying out an action manually.
 
-If you are performing an action in an external system, you'll need to select the
-same credential type as your adaptor.
+:::tip
+
+If you are performing an action in an external system, you'll need to select
+_the same_ credential type as your adaptor.
+
+:::
 
 ### [EDITOR TAB]
 
 The EDITOR TAB is where you define _what_ the job should do and which data to
 use.
+
+:::tip
+
+When you need to use data that comes from your webhook trigger (data sent from
+your external system), cron trigger, or a previous job you can find it in
+`state`.
+
+:::
 
 ![lightning_editor_1](/img/lightning_editor_1.png)
 
@@ -107,9 +115,9 @@ use.
 The job expression defines what action to carry out and which data values to
 use.
 
-It is an example operation which has been added from the adaptor documentation
-and then configured to use specific values from the state input data. (see image
-below for details)
+It gets added from the adaptor documentation below the editor as an example
+operation, and is then configured to use specific values from the state input
+data. (see image below for details)
 
 ![lightning_editor](/img/lightning_editor.png)
 
@@ -123,8 +131,9 @@ first node on the canvas) is called.
 :::
 
 In the case of the Sample Workflow, this is when data is sent to the webhook
-URL. There are three ways of doing this. Follow the instructions from one of the
-options below to run your workflow.
+URL. There are three ways of doing this.
+
+Follow the instructions from _one_ of the options below to run your workflow.
 
 ### Manually send data to your first job trigger
 
@@ -152,10 +161,11 @@ configuration.
 
 ### Send data through a curl request
 
-You can send data to a webhook URL through a curl request in your terminal.
+You can also send data to a webhook URL by making a curl request in your
+terminal.
 
-Copy your webhook URL, then use it to replace `YOUR_WEBHOOK_URL` in the command
-below and run it in your CLI.
+Copy your webhook URL by clicking on the first node of your workflow, then use
+it to replace `YOUR_WEBHOOK_URL` in the command below and run it in your CLI.
 
 ```sh
 curl -H 'Content-Type: application/json' \
