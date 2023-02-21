@@ -132,7 +132,7 @@ openfn test --log debug
     us send messages to the terminal window.
     </details>
 
-2.  Run the job using the OpenFn/cli
+2.  Run the job using the CLI
 
     ```sh
     openfn hello.js

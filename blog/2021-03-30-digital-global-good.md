@@ -119,7 +119,7 @@ In the past it was quite challenging to use OpenFn’s open source tools, and we
 feel that they didn’t provide enough functionality, out-of-the-box, to our
 users. It’s not surprising to find, then, that almost all of OpenFn’s users were
 on the proprietary platform. Going forward our
-[open source integration toolkit,](/documentation/deploy/options) including
+[open source integration toolkit](/documentation/deploy/options), including
 OpenFn/devtools, OpenFn/core, OpenFn/engine, and OpenFn/microservice, will be
 more robust, user friendly and accessible. This means that anyone, anywhere can
 build integration and automation solutions more quickly and interoperability
