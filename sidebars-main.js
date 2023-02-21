@@ -53,9 +53,17 @@ module.exports = {
           label: 'Live Data',
           items: ['build/inbox', 'source-apps'],
         },
-        'devtools/home',
+        'core',
         'cli',
         'build/troubleshooting',
+        {
+          type: 'category',
+          label: 'Old Versions',
+          items: [
+            'devtools/home',
+            'microservice/home',
+          ],
+        },
       ],
     },
     {
@@ -65,9 +73,7 @@ module.exports = {
         'deploy/options',
         'portability',
         'deploy/platform',
-        'microservice/home',
         'instant-openhie',
-        'deploy/diy',
       ],
     },
     {

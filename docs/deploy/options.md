@@ -4,7 +4,7 @@ title: Planning for Deployment
 
 ## Introduction
 
-OpenFn/platform (the iPaaS), OpenFn/microservice, OpenFn/diy and more than 50
+OpenFn/platform (the iPaaS), OpenFn/microservice and more than 50
 open-source adaptors maintained by OpenFn can be used locally or on the cloud,
 and as stand-alone solutions or as modules in other applications. Together the
 interoperability suite provides organizations with the tools they need to
@@ -76,16 +76,6 @@ jobs, credentials, and project configurations can be exported from OpenFn's
 iPaaS and used to create a Engine deployment using OpenFn's FOSS ETL tools. -->
 
 <!-- You might use Engine if... -->
-
-## DIY
-
-See: [diy](diy)
-
-The OpenFn intgration toolkit is a collection of dozens of completely free and
-open source integration tools, applications, and modules. If the out-of-the-box
-functionality provided by `microservice` doesn't meet your needs, look to the
-`engine`, `core` and the individual adaptors to build your own enterprise-grade
-integration and interoperability layer.
 
 <!-- ## Core
 

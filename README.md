@@ -8,7 +8,7 @@
 ### Other documentation
 
 Documentation for various OpenFn tools, such as
-[The CLI](http://localhost:3000/documentation/cli), and all of our open-source
+[The CLI](/documentation/cli), and all of our open-source
 adaptors can be found in [openfn/adaptors](https://github.com/OpenFn/adaptors).
 
 This repository is used to maintain the docs site, and for users to submit
