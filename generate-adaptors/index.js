@@ -10,7 +10,6 @@ async function listVersions(next) {
     const { headers, data } = response;
 
     versions.push(...data);
-    console.log('added versions');
 
     const { link } = headers;
     const nextLink = link.split(',').find(link => link.includes('next'));
@@ -106,7 +105,6 @@ const sampleConfiguration = json => {
   const conf = {};
   if (properties) {
     Object.keys(properties).forEach((key, index) => {
-      console.log(properties[key]['examples']);
       conf[key] = 'Someting';
       conf[key] =
         Array.isArray(properties[key]['examples']) &&
