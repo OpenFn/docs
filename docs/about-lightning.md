@@ -139,9 +139,9 @@ Collaboration functionality:
 - Add collaborators as view-only user or editor to a project
 - Audit all changes made to credentials
 
-### It’s not ‘just’ a request or a piece of data, it’s a person
+### It’s not "just" a request or a piece of data, it’s a person
 
-OpenFn specialises in integration tooling for the health and humanitarian
+OpenFn specializes in integration tooling for the health and humanitarian
 sector. This means that behind every piece of data which comes in through a
 request lies a person in need of critical services. This is why Lightning
 focusses on:
@@ -280,7 +280,7 @@ https://calendly.com/amber-openfn/short-call.
 
 ## Lightning FAQ
 
-#### I can see that Lightning was built recently, is it new? And if so, how can I trust it ?
+#### I can see that Lightning was built recently, is it new? And if so, how can I trust it?
 
 The Lightning repository may be new, but the technology isn’t. We’ve built out
 Lightning by porting the tried and tested code from our proprietary platform. In
@@ -293,7 +293,7 @@ for it. By bringing over the same tests from platform to Lightning, we’re
 essentially guaranteeing the same level of robustness by taking into account
 every single edge case or bug that we have ever encountered.
 
-#### If Lightning was built by open-sourcing code from the OpenFn platform, how is it different ?
+#### If Lightning was built by open-sourcing code from the OpenFn platform, how is it different?
 
 Under the hood, Lightning is the same as the OpenFn platform. Integrations are
 made up of the same building blocks of triggers, adaptors and job expressions;
@@ -301,17 +301,17 @@ requests are executed, retried and reprocessed in exactly the same way.
 
 What changes in Lightning is how users _build and monitor_ their integrations.
 
-#### Can I run anything from the OpenFn platform in Lightning ?
+#### Can I run anything from the OpenFn platform in Lightning?
 
 Yes, integrations built out on the OpenFn platform are fully compatible with
 Lightning.
 
-#### Who is Lightning for ?
+#### Who is Lightning for?
 
 Lightning is for anyone in the government or NGO space that needs to integrate
 different systems.
 
-#### What will I lose by switching from platform to Lightning ?
+#### What will I lose by switching from platform to Lightning?
 
 Right now: version control, authentication rules on webhooks, etc (that’s why
 we’re still in alpha).
@@ -322,7 +322,7 @@ to be able to switch over to it, speak up ! You can reach out to our product
 manager Amber via [email](mailto:amber@openfn.org) or even better book some time
 with her through her [calendar](https://koalendar.com/e/amber-rignell-openfn).
 
-#### When will Lightning Beta be ready ?
+#### When will Lightning Beta be ready?
 
 Lightning will be released in Beta by the end of Q4. We will be adding our
 roadmap to this page shortly but in the meantime you can follow our progress

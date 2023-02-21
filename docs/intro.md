@@ -1,6 +1,6 @@
 ---
 title: About
-sidebar_label: What is OpenFn
+sidebar_label: What is OpenFn?
 slug: /
 ---
 
@@ -34,7 +34,7 @@ Some OpenFn use cases are:
 |
 [Legacy Systems Integration](https://www.dropbox.com/s/dqhgvjkqjrs9vzi/OpenFn%20Legacy%20Systems%20Integration%20%26%20Sync%20Solutions.pdf?dl=0)
 
-## Who is it built by ?
+## Who is it built by?
 
 OpenFn products are built by the [Open Function Group](/documentation/about) and
 a growing community of open-source contributors.

@@ -5,15 +5,6 @@
 **_To view the documentation please visit
 [docs.openfn.org](https://docs.openfn.org)._**
 
-### Other documentation
-
-Documentation for various OpenFn tools, such as
-[The CLI](/documentation/cli), and all of our open-source
-adaptors can be found in [openfn/adaptors](https://github.com/OpenFn/adaptors).
-
-This repository is used to maintain the docs site, and for users to submit
-issues and feature requests.
-
 ### Contributing to this documentation site
 
 Visit https://docs.openfn.org/documentation/writing-docs/.

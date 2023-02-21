@@ -91,7 +91,7 @@ The output prefixed with `[JOB]` comes directly from `console.log` statements in
 our job code. All other output is the CLI trying to tell us what it is doing.
 
 <details>
-<summary>What is a job ?</summary>
+<summary>What is a job?</summary>
 A job Javascript code which follows a particular set of conventions. Typically a
 job has one or more <i>operations</i> which perform a particular task (like
 pulling information from a database, creating a record, etc.) and return state
@@ -480,7 +480,7 @@ fn((state) => {
 ```
 
 <details>
-<summary>What is <code>array.reduce</code> ?</summary>
+<summary>What is <code>array.reduce</code>?</summary>
 The <code>reduce()</code> method applies a function against an accumulator and
 each value of the array (from left-to-right) to reduce it to a single value.
 

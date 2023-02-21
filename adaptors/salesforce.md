@@ -168,8 +168,8 @@ A "Salesforce" Credential record should include:
 
 ![Salesforce Cred](/img/salesforce-cred.png)
 
-For use in the CLI, see an example [salesforce configuration](https://docs.openfn.org/adaptors/packages/salesforce-configuration-schema/)
-
+For use in the CLI, see an example
+[salesforce configuration](/adaptors/packages/salesforce-configuration-schema/)
 
 #### Resetting Your Security Token
 

@@ -69,10 +69,10 @@ writes that implementing OpenFn is “changing the way they work”.
 
 The “aha” moment for those involved in this project was that the artifacts
 produced in an OpenFn implementation—actual
-[“triggers”](https://docs.openfn.org/documentation/build/triggers) and
-[“jobs”](https://docs.openfn.org/documentation/build/jobs) written with and for
-the Open Source Integration Toolkit—publicly memorialize the data sharing
-agreements between partners.
+[“triggers”](/documentation/build/triggers) and
+[“jobs”](/documentation/build/jobs) written with and for the Open Source
+Integration Toolkit—publicly memorialize the data sharing agreements between
+partners.
 
 I want to stick with that for a moment: **the implementation _is_ the
 agreement!**
