@@ -1,6 +1,6 @@
 ---
 title: About
-sidebar_label: What is OpenFn
+sidebar_label: What is OpenFn?
 slug: /
 ---
 
@@ -34,7 +34,7 @@ Some OpenFn use cases are:
 |
 [Legacy Systems Integration](https://www.dropbox.com/s/dqhgvjkqjrs9vzi/OpenFn%20Legacy%20Systems%20Integration%20%26%20Sync%20Solutions.pdf?dl=0)
 
-## Who is it built by ?
+## Who is it built by?
 
 OpenFn products are built by the [Open Function Group](/documentation/about) and
 a growing community of open-source contributors.
@@ -80,20 +80,10 @@ If you have any questions about our products, please don't hesitate to email
 
 ### OpenFn developer tooling
 
-#### [OpenFn/devtools](/documentation/devtools/home)
+#### [OpenFn/cli](/documentation/cli)
 
 A set of CLI tools for writing & testing expressions, managing OpenFn projects,
-and developing [adaptors](https://github.com/openfn/adaptor).
-
-#### [OpenFn/core](https://github.com/openfn/core)
-
-The central job processing program used in the OpenFn platform.
-
-### OpenFn/Microservice
-
-[OpenFn/Microservice](https://openfn.github.io/microservice/readme.html) is open
-source software which makes use of OpenFn's core technology to create standalone
-microservices which can be deployed on any hardware.
+and developing [adaptors](https://github.com/openfn/adaptors).
 
 :::note
 

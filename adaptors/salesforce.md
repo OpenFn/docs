@@ -168,17 +168,8 @@ A "Salesforce" Credential record should include:
 
 ![Salesforce Cred](/img/salesforce-cred.png)
 
-For **OpenFn/devtools** or **OpenFn/engine** the raw JSON of the credential for
-inclusion in `state` should look like this:
-
-```json
-"configuration": {
-  "loginUrl": "https://login.salesforce.com/",
-  "username": "openfn@salesforce.org",
-  "password": "testing123",
-  "securityToken": "Mh4gkye9BVZA9dDjD61Fnd1ba"
-},
-```
+For use in the CLI, see an example
+[salesforce configuration](/adaptors/packages/salesforce-configuration-schema/)
 
 #### Resetting Your Security Token
 

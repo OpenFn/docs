@@ -5,18 +5,6 @@
 **_To view the documentation please visit
 [docs.openfn.org](https://docs.openfn.org)._**
 
-### Other documentation
-
-Documentation for various OpenFn tools, such as
-[openfn/microservice](https://openfn.github.io/microservice/),
-[openfn/devtools](https://openfn.github.io/devtools/),
-[openfn/core](https://github.com/OpenFn/core), and all of our open-source
-adaptors can be found in
-[OpenFn's Github organization](https://github.com/OpenFn).
-
-This repository is used to maintain the docs site, and for users to submit
-issues and feature requests.
-
 ### Contributing to this documentation site
 
 Visit https://docs.openfn.org/documentation/writing-docs/.

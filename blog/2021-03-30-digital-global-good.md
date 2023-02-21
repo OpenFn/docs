@@ -100,8 +100,7 @@ platform and our open source project have a symbiotic relationship with one
 another. Open source innovation drives platform innovation and vice versa.
 Crucially, both rely on each other.
 
-With a more robust
-[open source offering ](https://docs.openfn.org/documentation/microservice/home)and
+With a more robust [open source offering ](/documentation/microservice/home)and
 a heavy investment in documentation, it will be easier than ever for
 organizations to get up and running with OpenFn and then choose whether they
 want to scale their solutions on the platform or deploy them on their own
@@ -120,21 +119,29 @@ In the past it was quite challenging to use OpenFn’s open source tools, and we
 feel that they didn’t provide enough functionality, out-of-the-box, to our
 users. It’s not surprising to find, then, that almost all of OpenFn’s users were
 on the proprietary platform. Going forward our
-[open source integration toolkit,](https://docs.openfn.org/documentation/deploy/options)
-including OpenFn/devtools, OpenFn/core, OpenFn/engine, and OpenFn/microservice,
-will be more robust, user friendly and accessible. This means that anyone,
-anywhere can build integration and automation solutions more quickly and
-interoperability solutions will be within reach to organizations with varying
-technical capabilities.
+[open source integration toolkit](/documentation/deploy/options), including
+OpenFn/devtools, OpenFn/core, OpenFn/engine, and OpenFn/microservice, will be
+more robust, user friendly and accessible. This means that anyone, anywhere can
+build integration and automation solutions more quickly and interoperability
+solutions will be within reach to organizations with varying technical
+capabilities.
+
+:::caution Microservice and devtools are being replaced by Lightning
+
+Please note that [OpenFn/microservice](https://github.com/OpenFn/microservice)
+and [OpenFn/devtools](https://github.com/OpenFn/devtools) are being deprecated
+and replaced by [OpenFn/Lightning](https://github.com/OpenFn/lightning), When
+lighting is released.
+
+:::
 
 Versatility is a key component of our open source vision. We are constructing a
 system that users can grow and mature with. While our enterprise platform might
 be right for your organization today, 5 years from now, once your organization
 has its own dedicated IT team and server infrastructure, local deployment via
 microservice might make better sense. The good news is that OpenFn integration
-[portability](https://docs.openfn.org/documentation/portability) will make these
-transitions easy. Your integration will run just as well on your servers as
-ours.
+[portability](/documentation/portability) will make these transitions easy. Your
+integration will run just as well on your servers as ours.
 
 As the diagram below demonstrates we envision two main pathways for OpenFn
 integrations. The tech savvy project manager will configure their workflows via
@@ -148,9 +155,8 @@ Again, _concretely_, this means our users will have more and better options for
 how they run their data integration solutions. While they might use
 OpenFn/platform to build and test solutions, they could easily choose to run
 those same solutions on their own servers via OpenFn/microservice. Visit
-OpenFn’s
-[Planning for Deployment](https://docs.openfn.org/documentation/deploy/options)
-page to learn more.
+OpenFn’s [Planning for Deployment](/documentation/deploy/options) page to learn
+more.
 
 ### Open source is about more than code
 
@@ -175,6 +181,6 @@ If your organization is thinking about interoperability and would like to learn
 more about OpenFn’s platform or open-source offerings please contact
 services@openfn.org for a free consultation.
 
-Also, be sure to stay tuned to our [blog](/blog), or
-subscribe to our [newsletter](http://eepurl.com/hcOw8H) to stay up to date with
-all ICT4D integration related news.
+Also, be sure to stay tuned to our [blog](/blog), or subscribe to our
+[newsletter](http://eepurl.com/hcOw8H) to stay up to date with all ICT4D
+integration related news.

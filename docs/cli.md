@@ -50,7 +50,7 @@ to use and understand OpenFn.
      [asdf](https://github.com/asdf-vm/asdf). These tools allow you to install
      and switch between multiple versions of Node.js on the same machine. See
      below for instructions for different operating systems.
-   - Read this article to learn how to install nodejs in your machine
+   - Read this article to learn how to install NodeJs in your machine
      [kinsta.com/blog/how-to-install-node-js/](https://kinsta.com/blog/how-to-install-node-js/)
 
 3. Have a basic understanding of OpenFn—check out jobs and adaptors, at least,
@@ -91,7 +91,7 @@ The output prefixed with `[JOB]` comes directly from `console.log` statements in
 our job code. All other output is the CLI trying to tell us what it is doing.
 
 <details>
-<summary>What is a job ?</summary>
+<summary>What is a job?</summary>
 A job Javascript code which follows a particular set of conventions. Typically a
 job has one or more <i>operations</i> which perform a particular task (like
 pulling information from a database, creating a record, etc.) and return state
@@ -132,7 +132,7 @@ openfn test --log debug
     us send messages to the terminal window.
     </details>
 
-2.  Run the job using the cli.
+2.  Run the job using the CLI
 
     ```sh
     openfn hello.js
@@ -224,7 +224,8 @@ Using the
 API, get a list of users and print the first user object.
 
 1.  Create file called `getUsers.js` and write your operation to fetch the user.
-2.  Run the job using the cli.
+2.  Run the job using the OpenFn/cli `openfn getUsers.js -a http`.
+3.  Validate that you receive this expected CLI logs:
 
 ```sh
 openfn getUsers.js -a http
@@ -299,7 +300,7 @@ the OpenFn platform, rather than the CLI.)
 Note that `console.log(state)` will display the whole state, including
 `state.configuration` elements such as **username and password**. Remove this
 log whenever you're done debugging to avoid accidentally exposing sensitive
-information when the job is successful deployed on production.
+information when the job is successfully deployed on production.
 
 The OpenFn platform has built in protections to "scrub" state from the logs, but
 when you're using the CLI directly you're on your own!
@@ -479,7 +480,7 @@ fn((state) => {
 ```
 
 <details>
-<summary>What is <code>array.reduce</code> ?</summary>
+<summary>What is <code>array.reduce</code>?</summary>
 The <code>reduce()</code> method applies a function against an accumulator and
 each value of the array (from left-to-right) to reduce it to a single value.
 
@@ -593,8 +594,8 @@ To troubleshoot this you can go to the documentation for **dataValue ->
 **
 
 According to the docs, dataValue take path which is a string type. But in our
-operation were passing an integer, that’s why we have a _TypeError_. You can fix
-by passing a string in dataValue i.e `console.log(dataValue(“1”))`
+operation we were passing an integer, that’s why we have a _TypeError_. You can
+fix the error by passing a string in dataValue i.e `console.log(dataValue(“1”))`
 
 > Expected CLI logs
 
@@ -767,14 +768,14 @@ debug from a pure JS perspective.
 openfn compile [path]
 ```
 
-Will compile a openfn job and print or save the resulting js.
+Will compile the openfn job and print or save the resulting js.
 
 <!--
 TODO: @Mtuchi revisit once we have a clear picture of the future of strict-mode
 ### Strict Mode
 
 By default CLI will return only the `data` key inside the resulting state after
-a successful run. To Allow properties other than data to be returned in you need
+a successfully run. To Allow properties other than data to be returned in you need
 to use strict mode.
 
 ```sh
