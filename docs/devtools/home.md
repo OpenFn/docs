@@ -22,7 +22,7 @@ The [Devtools](https://github.com/OpenFn/devtools) repo is a collection of bash
 and Node scripts, as well as a _suggested_ (but not necessary) directory
 structure for working with OpenFn jobs and adaptors.
 
-To run OpenFn jobs locally, you only need [Core](https://github.com/OpenFn/core)
+To run OpenFn jobs locally, you only need [Core](/documentation/core)
 and at least one adaptor, e.g.
 [language-http](https://github.com/OpenFn/language-http) and you may prefer to
 install core globally via `npm install -g @openfn/core`
