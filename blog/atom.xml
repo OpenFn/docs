@@ -115,10 +115,10 @@ and rules of an integration. This is no small thing. In the Primero post
 mentioned above, Jan Panchalingam, also a Child Protection Specialist at UNICEF,
 writes that implementing OpenFn is “changing the way they work”.</p><p>The “aha” moment for those involved in this project was that the artifacts
 produced in an OpenFn implementation—actual
-<a href="https://docs.openfn.org/documentation/build/triggers" target="_blank" rel="noopener noreferrer">“triggers”</a> and
-<a href="https://docs.openfn.org/documentation/build/jobs" target="_blank" rel="noopener noreferrer">“jobs”</a> written with and for
-the Open Source Integration Toolkit—publicly memorialize the data sharing
-agreements between partners.</p><p>I want to stick with that for a moment: <strong>the implementation <em>is</em> the
+<a href="/documentation/build/triggers">“triggers”</a> and
+<a href="/documentation/build/jobs">“jobs”</a> written with and for the Open Source
+Integration Toolkit—publicly memorialize the data sharing agreements between
+partners.</p><p>I want to stick with that for a moment: <strong>the implementation <em>is</em> the
 agreement!</strong></p><div class="theme-admonition theme-admonition-success alert alert--success admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_S0QG"><p>By <strong>operationalizing a data sharing agreement</strong> through OpenFn, these
 organizations now have machine-readable granularity, full revision history, and
 proof-of-processing for their contract.</p></div></div><p>A huge portion of the work required to make the case management systems
@@ -244,8 +244,7 @@ to compete with and complement more directly our licensed platform and working
 to make the existing tools more accessible to a wider audience.The licensed
 platform and our open source project have a symbiotic relationship with one
 another. Open source innovation drives platform innovation and vice versa.
-Crucially, both rely on each other.</p><p>With a more robust
-<a href="https://docs.openfn.org/documentation/microservice/home" target="_blank" rel="noopener noreferrer">open source offering </a>and
+Crucially, both rely on each other.</p><p>With a more robust <a href="/documentation/microservice/home">open source offering </a>and
 a heavy investment in documentation, it will be easier than ever for
 organizations to get up and running with OpenFn and then choose whether they
 want to scale their solutions on the platform or deploy them on their own
@@ -258,19 +257,21 @@ varying licenses.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="what-doe
 feel that they didn’t provide enough functionality, out-of-the-box, to our
 users. It’s not surprising to find, then, that almost all of OpenFn’s users were
 on the proprietary platform. Going forward our
-<a href="https://docs.openfn.org/documentation/deploy/options" target="_blank" rel="noopener noreferrer">open source integration toolkit,</a>
-including OpenFn/devtools, OpenFn/core, OpenFn/engine, and OpenFn/microservice,
-will be more robust, user friendly and accessible. This means that anyone,
-anywhere can build integration and automation solutions more quickly and
-interoperability solutions will be within reach to organizations with varying
-technical capabilities.</p><p>Versatility is a key component of our open source vision. We are constructing a
+<a href="/documentation/deploy/options">open source integration toolkit</a>, including
+OpenFn/devtools, OpenFn/core, OpenFn/engine, and OpenFn/microservice, will be
+more robust, user friendly and accessible. This means that anyone, anywhere can
+build integration and automation solutions more quickly and interoperability
+solutions will be within reach to organizations with varying technical
+capabilities.</p><div class="theme-admonition theme-admonition-caution alert alert--warning admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Microservice and devtools are being replaced by Lightning</div><div class="admonitionContent_S0QG"><p>Please note that <a href="https://github.com/OpenFn/microservice" target="_blank" rel="noopener noreferrer">OpenFn/microservice</a>
+and <a href="https://github.com/OpenFn/devtools" target="_blank" rel="noopener noreferrer">OpenFn/devtools</a> are being deprecated
+and replaced by <a href="https://github.com/OpenFn/lightning" target="_blank" rel="noopener noreferrer">OpenFn/Lightning</a>, When
+lighting is released.</p></div></div><p>Versatility is a key component of our open source vision. We are constructing a
 system that users can grow and mature with. While our enterprise platform might
 be right for your organization today, 5 years from now, once your organization
 has its own dedicated IT team and server infrastructure, local deployment via
 microservice might make better sense. The good news is that OpenFn integration
-<a href="https://docs.openfn.org/documentation/portability" target="_blank" rel="noopener noreferrer">portability</a> will make these
-transitions easy. Your integration will run just as well on your servers as
-ours.</p><p>As the diagram below demonstrates we envision two main pathways for OpenFn
+<a href="/documentation/portability">portability</a> will make these transitions easy. Your
+integration will run just as well on your servers as ours.</p><p>As the diagram below demonstrates we envision two main pathways for OpenFn
 integrations. The tech savvy project manager will configure their workflows via
 our intuitive platform, while the power IT user will configure their workflows
 from the command line. Regardless of the chosen approach, there is flexibility
@@ -278,9 +279,8 @@ to change paths whenever required.</p><p><img loading="lazy" alt="Deployment Pat
 how they run their data integration solutions. While they might use
 OpenFn/platform to build and test solutions, they could easily choose to run
 those same solutions on their own servers via OpenFn/microservice. Visit
-OpenFn’s
-<a href="https://docs.openfn.org/documentation/deploy/options" target="_blank" rel="noopener noreferrer">Planning for Deployment</a>
-page to learn more.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-source-is-about-more-than-code">Open source is about more than code<a class="hash-link" href="#open-source-is-about-more-than-code" title="Direct link to heading">​</a></h3><p>An open source project is nothing without a strong community underpinning it.
+OpenFn’s <a href="/documentation/deploy/options">Planning for Deployment</a> page to learn
+more.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-source-is-about-more-than-code">Open source is about more than code<a class="hash-link" href="#open-source-is-about-more-than-code" title="Direct link to heading">​</a></h3><p>An open source project is nothing without a strong community underpinning it.
 Led by a steering committee of stakeholders that represent our different users,
 we are activating a diverse community around our products that will help guide
 and power their direction.</p><p>This community of “citizen integrators” (people familiar with processes and
@@ -291,9 +291,9 @@ integrate systems.</p><p>To join our community please sign up to our
 <a href="https://community.openfn.org/" target="_blank" rel="noopener noreferrer">community page </a>and feel free to contribute and
 ask questions on the forum.</p><h3 class="anchor anchorWithStickyNavbar_LWe7" id="if-youd-like-to-learn-more-about-this">If you’d like to learn more about this<a class="hash-link" href="#if-youd-like-to-learn-more-about-this" title="Direct link to heading">​</a></h3><p>If your organization is thinking about interoperability and would like to learn
 more about OpenFn’s platform or open-source offerings please contact
-<a href="mailto:services@openfn.org" target="_blank" rel="noopener noreferrer">services@openfn.org</a> for a free consultation.</p><p>Also, be sure to stay tuned to our <a href="/blog">blog</a>, or
-subscribe to our <a href="http://eepurl.com/hcOw8H" target="_blank" rel="noopener noreferrer">newsletter</a> to stay up to date with
-all ICT4D integration related news.</p>]]></content>
+<a href="mailto:services@openfn.org" target="_blank" rel="noopener noreferrer">services@openfn.org</a> for a free consultation.</p><p>Also, be sure to stay tuned to our <a href="/blog">blog</a>, or subscribe to our
+<a href="http://eepurl.com/hcOw8H" target="_blank" rel="noopener noreferrer">newsletter</a> to stay up to date with all ICT4D
+integration related news.</p>]]></content>
         <author>
             <name>Taylor Downs and Jed Goldstein</name>
             <uri>https://github.com/taylordowns2000</uri>

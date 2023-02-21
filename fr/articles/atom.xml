@@ -737,7 +737,7 @@ nightly basis. It might mean a lot of things, but the key concept is that when
 you sync systems, you’re asking them to work together while simultaneously
 respecting both software systems’ independence.</p><p>In this post we’ll discuss two different syncing protocols to consider when
 designing your data integration. These include:</p><ol><li><strong>Real-time, or event-based, syncs</strong></li><li><strong>Scheduled syncs</strong></li></ol><p>For a
-<a href="https://docs.openfn.org/blog/2021/02/09/interoperability_for_case_referrals" target="_blank" rel="noopener noreferrer">recent project in Cambodia</a>,
+<a href="/fr/blog/2021/02/09/interoperability_for_case_referrals">recent project in Cambodia</a>,
 OpenFn is being used by social workers to automate case referrals between the
 software systems Primero and OSCaR. In the design phase, we evaluated these two
 syncing options. Below, we'll explain what each one is, the differences between
