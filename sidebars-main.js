@@ -53,16 +53,12 @@ module.exports = {
           label: 'Live Data',
           items: ['build/inbox', 'source-apps'],
         },
-        'core',
         'cli',
         'build/troubleshooting',
         {
           type: 'category',
           label: 'Old Versions',
-          items: [
-            'devtools/home',
-            'microservice/home',
-          ],
+          items: ['core', 'devtools/home', 'microservice/home'],
         },
       ],
     },
