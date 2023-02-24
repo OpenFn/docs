@@ -11,11 +11,11 @@ I am in the wrong hemisphere.
 
 Six months ago, I joined OpenFn, intrigued by the mission to automate workflows
 in critical, but often neglected, humanitarian processes. For personal reasons,
-I didn’t really plan on being here long - but I thought I could help for a
+I didn’t really plan on being here long - but I thought I could help out for a
 while.
 
-"Hey," says CEO Taylor Downs, one winter’s morning. "Do you want to come with us
-to Cape Town?"
+"Hey," says CEO Taylor Downs, one winter’s morning. "Do you want to come to Cape
+Town with us?"
 
 ![Bo-Kaap](/img/bo-kaap.webp)
 
@@ -35,15 +35,17 @@ Load shedding just struck.
 
 But the conversation doesn’t even waver. Eyes briefly flick to the light
 fixtures, but we remain focused on refining our mission, putting an edge on our
-purpose, comparing visions on how, where and when we can make a difference. We
-have traveled all this way to figure out how to best work together.
+purpose, comparing visions on how, where and when we can make a difference.
+
+We have traveled all this way to figure out how to best work together.
 
 If we don’t get this right, we can’t achieve our mission. We are digital nomads,
 spread throughout Europe, Africa and North America. We rarely meet in physical
 space. Technology enables us to collaborate, but it brings its fair share of
 challenges too.
 
-"Sitting down all day is dangerous," says Taylor. "We have to make this count."
+"Sitting down all day is _dangerous_," says Taylor. "We have to make this
+_count_."
 
 It has taken weeks of preparation and worry to get here. I’ve been arranging
 travel, visas, domestic stuff, vaccinations. Since covid broke out, for three
@@ -52,6 +54,11 @@ always together. I fight back tears as we kiss goodbye on the doorstep, and
 start my long journey.
 
 ![Obligatory team photo](/img/team-cape-point.webp)
+
+It's an overnight flight. I do not sleep. I hit Cape Town tarmac at 7am,
+scrabble for a data connection at 8am, collapse into Stu's car at 9am. I watch
+the city, the townships, the shanty villages, the mountains; a new world drifts
+silently past the window.
 
 In Simon’s Town, as I shake hands with my colleagues for the first time, we
 learn things about each other that months of video conferencing could never
@@ -65,10 +72,10 @@ immerse ourselves in penguins (did you know Cape town has penguins?).
 
 At an artistic retreat in Scarborough, we sculpt from clay, eyes closed, hands
 busy, minds focused. A safe space, our guide tells us nervously, unsure how to
-break an ice that has formed in 30 degree heat
+break an ice that has suddenly formed in 30 degree heat.
 
 It is at the same time austere and liberating, creative and claustrophobic,
-individual and collective. We swap chairs and work on each other’s forms -
+individual and collective. We swap chairs and work on each other’s sculptures -
 nervously, at first, unwilling to do harm, but soon embracing the opportunity to
 co-imagine, to co-create.
 
@@ -104,9 +111,9 @@ stories, explore ideas, learn about ourselves and the business.
 
 On the penultimate day, I find myself overwhelmed with grief. Soon we depart to
 different corners of the world, vanish behind our screens. Yes, I miss my big
-monitor, my safe space, my family, my drinks cabinet, my wok. But I know that
-this special, sacred shared time is ending - and I will miss the company of my
-colleagues more than the comforts of home.
+monitor, my safe space, my family, my drinks cabinet, my PlayStation, my wok.
+But I know that this special, sacred shared time is ending - and later I will
+miss the company of my colleagues more than the comforts of home.
 
 Somewhere during this long pandemic, between fleeing an unsafe office and
 thriving in isolation, I Iost something. I forgot something important, something
