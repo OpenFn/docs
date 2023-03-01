@@ -23,7 +23,8 @@ I am not well traveled - I’ve never left Europe, let alone stepped foot on
 African soil. So I enthusiastically agree.
 
 And I’m not the only one. Between us, we have traveled 40,000 miles to be in
-District Six, Cape Town. It has taken us over 150 hours to get here.
+District Six, Cape Town - from London, Dakar, Arusha, Riga, Nairobi. It has
+taken us over 150 hours to get here.
 
 Right now we are gathered around this table, in this hot little room, scribbling
 our truths onto this oversized piece of paper. We are, in our own little way,
@@ -58,7 +59,8 @@ start my long journey.
 It's an overnight flight. I do not sleep. I hit Cape Town tarmac at 7am,
 scrabble for a data connection at 8am, collapse into Stu's car at 9am. I watch
 the city, the townships, the shanty villages, the mountains; a new world drifts
-silently past the window.
+silently past the window. The environment is beautiful, the poverty is
+heartbreaking.
 
 In Simon’s Town, as I shake hands with my colleagues for the first time, we
 learn things about each other that months of video conferencing could never
