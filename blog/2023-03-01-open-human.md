@@ -17,6 +17,8 @@ while.
 "Hey," says CEO Taylor Downs, one winter’s morning. "Do you want to come to Cape
 Town with us?"
 
+<!--truncate-->
+
 ![Bo-Kaap](/img/bo-kaap.webp)
 
 I am not well traveled - I’ve never left Europe, let alone stepped foot on
