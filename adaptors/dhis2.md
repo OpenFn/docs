@@ -31,7 +31,28 @@ exposed data and service methods for applications such as third-party software
 clients, web portals and internal DHIS 2 modules.
 
 ### Data Model
-See DHIS2 documentation for more about the data model and specific entities: https://docs.dhis2.org/archive/en/2.30/developer/html/techarch_data_model.html
+
+**Data element:** specifies **what** is being recorded by a particular data value. Ex. the number of COVID-19 cases. 
+
+**Data value:** the value for a data element. Ex. The value 100 for the `data element` "the number of COVID-19 cases."
+
+**Data set:** a collection of data elements, together forming one reporting form. Ex. "COVID-19 Health", which contains a variety of data elements related to this topic. 
+
+**Indicator:** a calculated formula based on a combination of data elements, category options, possibly constants and a factor which is used for data analysis. Ex. **Maternal mortality rate** is an indicator that is made up of the data elements maternal deaths and live births, and the factor 100,000. 
+
+**OrgUnit:** specifies where a piece of data was collected. Ex. Sierra Leone.
+
+**Period:** specifies when a piece of data was collected. Ex. 2023.
+
+**Category:** used for disaggregation of data elements and can be combined into `category option combinations` for further breakdown. Ex. Age and Gender are categories -- a category option combination for these two could be `female, >5`.
+
+
+See DHIS2 documentation for more information about the data model and specific entities: 
+1. [Data model](https://docs.dhis2.org/archive/en/2.30/developer/html/techarch_data_model.html)
+2. [Indicators](https://docs.dhis2.org/en/implement/database-design/aggregate-system-design/indicators.html#:~:text=In%20DHIS2%2C%20the%20indicator%20is,do%20not%20have%20a%20denominator.)
+3. [Configuring report in DHIS2](https://docs.dhis2.org/en/implement/database-design/aggregate-system-design/indicators.html#:~:text=In%20DHIS2%2C%20the%20indicator%20is,do%20not%20have%20a%20denominator.)
+4. [DHIS2 terminology](https://dhis2-app-course.ifi.uio.no/learn/dhis2/introduction/overview/terminologies/)
+
 
 ## Integration Use Cases
 
