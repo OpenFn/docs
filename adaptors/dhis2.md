@@ -5,7 +5,7 @@
 ## App Overview
 
 The District Health Information Software 2
-([DHIS2](https://www.dhis2.org/about))] is an open source, web-based health
+([DHIS2](https://www.dhis2.org/about)) is an open source, web-based health
 management information system ([HMIS](https:/some.useful.info)) platform.
 
 Today, DHIS2 is the world's largest HMIS platform, in use by 73 low and
@@ -31,6 +31,8 @@ exposed data and service methods for applications such as third-party software
 clients, web portals and internal DHIS 2 modules.
 
 ### Data Model
+
+**The entities summarized below are key entities for the `Aggregate` module of DHIS2 -- see the [`Tracker` documentation](https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-master/tracker.html) for details on this data model.**
 
 **Data element:** specifies **what** is being recorded by a particular data value. Ex. the number of COVID-19 cases. 
 
@@ -113,10 +115,6 @@ useful. In the following sections, special systems will be described.
 1. Data integration via DHIS2 Web API: https://docs.dhis2.org/en/develop/using-the-api/dhis-core-version-235/web-api.html
 
 2. Metadata integration via DHIS2 Web API. OpenFn implementations can leverage the [`DHIS2`](https://github.com/OpenFn/language-dhis2) adaptor. 
-
-## OpenFn Adaptor
-
-To connect with the DHIS2 Web API, OpenFn implementations can leverage the [`dhis2`](https://github.com/OpenFn/language-dhis2) adaptor. 
 
 ## Integration Examples
 
