@@ -661,8 +661,9 @@ fn(state => {
   return { ...state, posts };
 });
 
-each('posts', state => {
-  console.log('Posts', state.data);
+each('posts[*]', state => {
+  console.log('Post', JSON.stringify(state.data, null, 2));
+  return state;
 });
 ```
 
