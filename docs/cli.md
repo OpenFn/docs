@@ -456,8 +456,7 @@ by user id. The example below shows how we can:
 // Get all posts
 get("posts");
 
-//
-s by user
+// Group posts by user id
 fn((state) => {
   const posts = state.data;
 
