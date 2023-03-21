@@ -27,12 +27,14 @@ process that has been automated).
 
 :::
 
-The sample workflow (pictured below) automates patient registration by taking a
-patient’s name and age and:
+The sample workflow pictured below formats and sends data from a source system
+(KoboToolbox, a mobile data-collection app) to a destination system (DHIS2, a
+health information management system). It automates patient registration by
+taking a patient’s name and age and:
 
 1. checking if they are over 18 months old;
 2. converting it to the same format as DHIS2;
-3. uploading it to DHIS2 (a digital health information system).
+3. uploading it to DHIS2.
 
 ![lightning-sample-workflow](/img/lightning-sample-workflow.png)
 
@@ -64,6 +66,9 @@ following:
 - When the job which comes before it in the workflow succeeds: **_on success_**
 - When the job which comes before it in the workflow fails: **_on failure_**
 
+If you **never** want the job to run, you can disable it by unselecting the
+'Enabled' checkbox.
+
 :::tip
 
 The trigger for the first job in a workflow will always be either a 'cron' or
@@ -86,7 +91,8 @@ systems:
 **How: credential**
 
 Credentials define _how_ a Job is able to perform an action on your behalf, just
-as you would need to log in if you were carrying out an action manually.
+as you would need to cover logging in if you were explaining how to carry out an
+action manually.
 
 :::tip
 
@@ -104,7 +110,7 @@ use.
 
 When you need to use data that comes from your webhook trigger (data sent from
 your external system), cron trigger, or a previous job you can find it in
-`state`.
+`state`. Learn more [here](https://docs.openfn.org/documentation/jobs/state/).
 
 :::
 
@@ -115,7 +121,7 @@ your external system), cron trigger, or a previous job you can find it in
 The job expression defines what action to carry out and which data values to
 use.
 
-It gets added from the adaptor documentation below the editor as an example
+It gets added from the adaptor documentation _below_ the editor as an example
 operation, and is then configured to use specific values from the state input
 data. (see image below for details)
 
