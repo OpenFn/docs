@@ -169,7 +169,7 @@ A "Salesforce" Credential record should include:
 ![Salesforce Cred](/img/salesforce-cred.png)
 
 For use in the CLI, see an example
-[salesforce configuration](/adaptors/packages/salesforce-configuration-schema/)
+[salesforce configuration](/adaptors/packages/salesforce-configuration-schema)
 
 #### Resetting Your Security Token
 
