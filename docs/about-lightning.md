@@ -5,9 +5,10 @@ sidebar_label: Lightning
 
 ## Introducing Lightning
 
-[OpenFn/Lightning](https://github.com/OpenFn/lightning/) is a _fully open
-source_ workflow automation platform designed for governments and NGOs who need
-a flexible solution to integrate and connect _any system_.
+[OpenFn/Lightning](https://github.com/OpenFn/lightning/) is the v2 of the OpenFn
+integration software: a _fully open source_ workflow automation platform
+designed for governments and NGOs who need a flexible solution to integrate and
+connect _any system_.
 
 ##### Leveraging the tech powering the field-tested enterprise OpenFn platform...
 
@@ -46,6 +47,83 @@ provides users with a dashboard that allows them to monitor the health of their
 integrations to make sure no request goes unprocessed.
 
 ![Lightning audit interface](/img/lightning_audit.png)
+
+## Features
+
+##### General
+
+Deploy Lightning via docker  
+Create and delete user accounts  
+Create new projects and assign users with different access levels to these
+projects (owner/admin/editor/viewer)  
+Transfer credential ownership to another user  
+View an audit trail of all credential changes (superuser role)  
+Set up SSO via an identity provider  
+Generate and revoke API tokens  
+List projects, jobs and runs via JSON API
+
+##### Workflow builder
+
+Create a new workflow with a webhook or cron trigger  
+Create and configure jobs for a workflow with any OpenFn adaptor and operation  
+Create credentials through a form  
+View all available operations for a given adaptor  
+View the metadata from your external system (DHIS2 and Salesforce)  
+View the input and output from the last run of each job in a workflow  
+Run a job manually
+
+##### Runs history
+
+View all runs grouped by workflow  
+Search and filter runs by status, workflow and run logs  
+Retry a workflow run from the start (first job)
+
+##### Project settings
+
+Get notified via email on run failure  
+Receive a daily, weekly or monthly digest of project activity  
+View collaborators for a project  
+Update a project name and description
+
+## Roadmap
+
+### Now
+
+Handle Oauth authentication flow  
+Bulk reprocess workflow runs  
+Import and export projects  
+Automatic github version control  
+View key project metrics (number of runs, failures, workflows)  
+Get notified of run limits via email
+
+### Soon
+
+Set up multi-factor authentication  
+Zero persistence pipeline  
+Add authentication to webhook triggers
+
+### Later
+
+Save job inputs as test cases  
+Run a job with a saved input
+
+_You can follow our progress and track delivered features in our
+[changelog](https://github.com/OpenFn/Lightning/blob/main/CHANGELOG.md)._
+
+## Try it out
+
+:::danger Please note
+
+Lightning is still in Beta.
+
+:::
+
+Log into our demo account with username: `demo@openfn.org` password:
+`welcome123` or register for an account on
+[app.openfn.org](https://app.openfn.org/).
+
+Go through the [quick-start guide](/documentation/build/lightning-quick-start)
+to learn how it works.
 
 ## Guiding principles
 
@@ -159,56 +237,6 @@ Security:
 - Role-based project access
 - Additional authentication rules for webhooks
 
-## Features
-
-##### General
-
-Deploy Lightning via docker  
-Create and delete user accounts  
-Create new projects and assign users with different access levels to these
-projects  
-Transfer credential ownership to another user  
-Track all credential changes as a Lightning superuser  
-Set up SSO via an identity provider
-
-##### Workflow builder
-
-Create a new workflow with a webhook or cron trigger  
-Create and configure jobs for a workflow with any OpenFn adaptor and operation  
-Create credentials through a form  
-View all available operations for a given adaptor  
-View the input and output from the last run of each job in a workflow  
-Run a job manually
-
-##### Runs history
-
-View all runs grouped by workflow  
-Search and filter runs by status, workflow and run logs
-
-## Roadmap
-
-### Now (Q1)
-
-Handle Oauth authentication flow Retry a workflow run from the start (first job)
-or from failure  
-Bulk reprocess workflow runs  
-Get notified via email on run failure  
-Get notified of run limits via email  
-Import and export projects  
-Automatic github version control  
-View key project metrics (number of runs, failures, workflows)
-
-### Soon
-
-Set up multi-factor authentication  
-Zero persistence pipeline  
-Add authentication to webhook triggers
-
-### Later
-
-Save job inputs as test cases  
-Run a job with a saved input
-
 ## Security
 
 OpenFn treats security as a top priority, and is trusted to handle information
@@ -266,14 +294,13 @@ integrations, we’ve published a
 
 ## Get involved
 
-We are building out in the open, you can follow our progress on the
-[Lightning repository](https://github.com/OpenFn/lightning) by clicking ‘Watch’
-to track updates and new releases. Ongoing discussions about the development of
-Lightning with our Open Source Steering Committee are documented on our
-[community forum](https://community.openfn.org/c/ossc/15), all feedback and
-comments on Lightning are welcome there. If you would like to become a beta user
-or just want to learn more about Lightning and where we’re heading, book in a
-call with our product manager here:
+We are building out in the open, follow our progress on
+[Github](https://github.com/OpenFn/lightning) by clicking ‘Watch’ to track
+updates and new releases. Ongoing discussions with our Open Source Steering
+Committee about Lightning are documented on our
+[community forum](https://community.openfn.org/c/ossc/15). Your feedback and
+comments are welcome there. If you would like to become a beta user or learn
+more about Lightning, book in a call with our product manager here:
 https://calendly.com/amber-openfn/short-call.
 
 ![Lightning preview](/img/lightning_preview.png)
@@ -313,8 +340,8 @@ different systems.
 
 #### What will I lose by switching from platform to Lightning?
 
-Right now: version control, authentication rules on webhooks, etc (that’s why
-we’re still in alpha).
+Right now: version control, authentication rules on webhooks, and the other
+features in our roadmap (that’s why we’re still in alpha).
 
 Later: nothing - if a feature has proven important to our platform users, it
 will be available in Lightning. If there is any feature you require in Lightning
@@ -324,7 +351,5 @@ with her through her [calendar](https://koalendar.com/e/amber-rignell-openfn).
 
 #### When will Lightning Beta be ready?
 
-Lightning will be released in Beta by the end of Q4. We will be adding our
-roadmap to this page shortly but in the meantime you can follow our progress
-through our
-[changelog](https://github.com/OpenFn/Lightning/blob/main/CHANGELOG.md).
+Lightning is currently in private Beta. You can register for an account on
+[app.openfn.org](https://app.openfn.org/).
