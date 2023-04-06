@@ -136,7 +136,7 @@ screen. I.e., the last part of this URL:
 
 The raw JSON of your credential (for use in the CLI or when inspecting
 `state.configuration`) is defined in the
-[CommCare Configuration](/adaptors/packages/commcare-configuration-schema/)
+[CommCare Configuration](/adaptors/packages/commcare-configuration-schema)
 section.
 
 ## Common Errors

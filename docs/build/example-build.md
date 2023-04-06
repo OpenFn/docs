@@ -1,5 +1,5 @@
 ---
-title: Platform Quick-Start
+title: Platform Quick-Start (v1)
 ---
 
 Learn how to set up a simple data integration using the OpenFn platform. If you
