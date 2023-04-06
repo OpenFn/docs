@@ -22,8 +22,8 @@ intuitive, user-friendly UI.
 
 _Note that at the time of writing, Lightning is still in beta and has some rough
 edges. 95% of OpenFn users are still building workflow solutions on the v1
-(available at [openfn.org](openfn.org/signup)) but we’ll be ready for a full
-migration later this year._
+(available at [openfn.org](https://www.openfn.org/signup)) but we’ll be ready
+for a full migration later this year._
 
 ## Register for an account and share your feedback
 
