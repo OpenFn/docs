@@ -18,6 +18,8 @@ existing tried and tested technology whilst lowering the technical barrier to
 building robust workflow automation solutions and integrations through a more
 intuitive, user-friendly UI.
 
+<!--truncate-->
+
 **Read more about Lightning on our [docs page](documentation/about-lightning).**
 
 _Note that at the time of writing, Lightning is still in beta and has some rough
