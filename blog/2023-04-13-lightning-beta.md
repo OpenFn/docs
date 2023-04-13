@@ -33,7 +33,7 @@ Register for a free account at
 [app.openfn.org](https://app.openfn.org/users/register). Help us out by carrying
 out our [user test](/blog#take-10-minutes-to-carry-out-our-user-test) (~10
 minutes) and adding your questions and comments to the Lightning thread on our
-community forum [ADD LINK].
+[community forum](https://community.openfn.org/t/the-lightning-beta/297).
 
 ## Take 10 minutes to carry out our user test
 
