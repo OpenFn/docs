@@ -6,10 +6,10 @@ author_image_url: https://avatars.githubusercontent.com/amberrignell
 featured: true
 ---
 
-## We’re (soft) launching **OpenFn Lightning** _ -- the next generation of OpenFn automation tooling!_
-
 It’s been a wild year and we’re excited to announce the next generation of
-OpenFn’s **digital public good for workflow automation**: OpenFn Lightning.
+OpenFn’s digital public good for workflow automation, **OpenFn Lightning ⚡**
+
+## We’ve just "soft launched" OpenFn Lightning and here's what you should know
 
 Lightning represents our commitment to open source and the DPG community. It is
 a fully open source web application designed for governments and NGOs who need a
@@ -22,10 +22,17 @@ intuitive, user-friendly UI.
 
 **Read more about Lightning on our [docs page](documentation/about-lightning).**
 
-_Note that at the time of writing, Lightning is still in beta and has some rough
-edges. 95% of OpenFn users are still building workflow solutions on the v1
-(available at [openfn.org](https://www.openfn.org/signup)) but we’ll be ready
-for a full migration later this year._
+:::info
+
+At the time of writing, Lightning is still in beta and has some rough edges. 95%
+of OpenFn users are still building workflow solutions on the v1 (available at
+[openfn.org](https://www.openfn.org/signup)) but we’ll be ready for a full
+migration later this year.
+
+It's free to use during the beta, but we'll soon be providing a paid,
+enterprise-grade hosted service like you've become accustomed to on OpenFn.org
+
+:::
 
 ## Register for an account and share your feedback
 
