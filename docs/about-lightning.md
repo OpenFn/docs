@@ -341,7 +341,7 @@ different systems.
 #### What will I lose by switching from platform to Lightning?
 
 Right now: version control, authentication rules on webhooks, and the other
-features in our roadmap (that’s why we’re still in alpha).
+features in our roadmap (we’re still in beta).
 
 Later: nothing - if a feature has proven important to our platform users, it
 will be available in Lightning. If there is any feature you require in Lightning

@@ -51,32 +51,35 @@ This Toolkit is a **Digital Public Good** (a "DPG") recognized in the
 [DPG Registry](https://digitalpublicgoods.net/registry/) and Digital Square's
 [Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook).
 
-### The OpenFn iPaaS
+### OpenFn v1
 
-The [OpenFn iPaaS](https://www.openfn.org/signup) is an
+[OpenFn](https://www.openfn.org/signup) v1 is an
 _integration-platform-as-a-service_ or "iPaaS". It is enterprise-grade software,
 hosted by OpenFn. We recommend starting out there - you can
 [create an account for free](https://www.openfn.org/signup), or view our pricing
 [here](https://openfn.org/pricing).
 
-### OpenFn/Lightning (Alpha)
+### OpenFn v2: Lightning ⚡
 
 [OpenFn/Lightning](https://github.com/OpenFn/lightning/) is a _fully open
 source_ workflow automation web application which can be deployed and run
-anywhere. It is designed for governments or NGOs who want to deploy and manage
-their _own_ integration platform, and need fully-fledged user management and
-auditing capabilities. Lightning relies on the same tried-and-trusted core
-technology as the OpenFn iPaaS and comes with an improved, visual interface for
-building integrations.
+anywhere. It's the v2 of our digital public good. It is designed for governments
+and NGOs who want state-of-the-art workflow automation and data
+integration/interoperability capabilities with fully-fledged user management and
+auditing capabilities through a managed _or_ entirely self-hosted platform.
 
-It is currently in Alpha, but is scheduled for Beta release in Q4 2022.
+Lightning relies on the same tried-and-trusted core technology as the OpenFn
+iPaaS and comes with an improved, visual interface for building integrations.
 
-:::note
+:::info OpenFn/Lightning is now in beta
+
+Lightning is in beta, but will be validated for production use and publicly
+released in the second half of 2023.
+
+:::
 
 If you have any questions about our products, please don't hesitate to email
 [admin@openfn.org](mailto:admin@openfn.org).
-
-:::
 
 ### OpenFn developer tooling
 
