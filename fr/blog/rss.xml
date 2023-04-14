@@ -4,11 +4,44 @@
         <title>The OpenFn Blog</title>
         <link>https://docs.openfn.org/fr/blog</link>
         <description>OpenFn/docs Blog</description>
-        <lastBuildDate>Wed, 01 Mar 2023 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Thu, 13 Apr 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>fr</language>
         <copyright>Copyright © 2023 Open Function Group, LLC.</copyright>
+        <item>
+            <title><![CDATA[OpenFn Lightning Beta]]></title>
+            <link>https://docs.openfn.org/fr/blog/2023/04/13/lightning-beta</link>
+            <guid>https://docs.openfn.org/fr/blog/2023/04/13/lightning-beta</guid>
+            <pubDate>Thu, 13 Apr 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[We’re (soft) launching OpenFn Lightning  -- the next generation of OpenFn automation tooling!]]></description>
+            <content:encoded><![CDATA[<h2 class="anchor anchorWithStickyNavbar_LWe7" id="were-soft-launching-openfn-lightning-----the-next-generation-of-openfn-automation-tooling">We’re (soft) launching <strong>OpenFn Lightning</strong> <em> -- the next generation of OpenFn automation tooling!</em><a href="#were-soft-launching-openfn-lightning-----the-next-generation-of-openfn-automation-tooling" class="hash-link" aria-label="Direct link to were-soft-launching-openfn-lightning-----the-next-generation-of-openfn-automation-tooling" title="Direct link to were-soft-launching-openfn-lightning-----the-next-generation-of-openfn-automation-tooling">​</a></h2><p>It’s been a wild year and we’re excited to announce the next generation of
+OpenFn’s <strong>digital public good for workflow automation</strong>: OpenFn Lightning.</p><p>Lightning represents our commitment to open source and the DPG community. It is
+a fully open source web application designed for governments and NGOs who need a
+flexible solution to <strong>integrate and connect <em>any</em> system</strong>. It reuses our
+existing tried and tested technology whilst lowering the technical barrier to
+building robust workflow automation solutions and integrations through a more
+intuitive, user-friendly UI.</p><p><strong>Read more about Lightning on our <a href="/fr/blog/2023/04/13/documentation/about-lightning">docs page</a>.</strong></p><p><em>Note that at the time of writing, Lightning is still in beta and has some rough
+edges. 95% of OpenFn users are still building workflow solutions on the v1
+(available at <a href="https://www.openfn.org/signup" target="_blank" rel="noopener noreferrer">openfn.org</a>) but we’ll be ready
+for a full migration later this year.</em></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="register-for-an-account-and-share-your-feedback">Register for an account and share your feedback<a href="#register-for-an-account-and-share-your-feedback" class="hash-link" aria-label="Direct link to Register for an account and share your feedback" title="Direct link to Register for an account and share your feedback">​</a></h2><p>Register for a free account at
+<a href="https://app.openfn.org/users/register" target="_blank" rel="noopener noreferrer">app.openfn.org</a>. Help us out by carrying
+out our <a href="/fr/blog#take-10-minutes-to-carry-out-our-user-test">user test</a> (~10
+minutes) and adding your questions and comments to the Lightning thread on our
+<a href="https://community.openfn.org/t/the-lightning-beta/297" target="_blank" rel="noopener noreferrer">community forum</a>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="take-10-minutes-to-carry-out-our-user-test">Take 10 minutes to carry out our user test<a href="#take-10-minutes-to-carry-out-our-user-test" class="hash-link" aria-label="Direct link to Take 10 minutes to carry out our user test" title="Direct link to Take 10 minutes to carry out our user test">​</a></h2><p>Get your thinking hat on! We need you to click around OpenFn Lightning and
+figure out how it works.</p><p><strong> 1. Start recording your screen, and speak out loud as you work through tasks
+2 and 3.</strong></p><p>Use <a href="https://www.loom.com/looms" target="_blank" rel="noopener noreferrer">Loom</a> to more easily share your recording - you
+can create an account for free.</p><p>As you record, make sure to tell us:</p><ul><li>What you see</li><li>What you’re doing</li><li>What you’re thinking</li><li>What you expect</li></ul><p>For example, start off by saying “I’ve just started recoding my screen, and now
+I’m going to start the first task. (…) I’ve registered for an account and I’ve
+just been taken to the workflow page. I can see …”</p><p><strong> 2. Register / Login on
+<a href="https://app.openfn.org/users/register" target="_blank" rel="noopener noreferrer">app.openfn.org</a>.</strong></p><p>Take 2 minutes to click around the app and view all of the different pages. As
+you click into them, tell us where your attention is drawn and what you think
+each page might be for.</p><p><strong> 3. Using the <a href="/fr/documentation/build/lightning-quick-start">quick-start guide</a>,
+figure out how OpenFn works and what you can do in the application.</strong></p><p>What are jobs, trigger and adaptors? How do you run a job? What is the input?</p><p><strong> 4. Now, in your own words, explain to someone how to build a workflow.</strong></p><p>What is a workflow and how do I build one?</p><p>Why is OpenFn useful? What might discourage you from using it?</p><p><strong> 5. Send the recording to our product manager Amber at <a href="mailto:amber@openfn.org" target="_blank" rel="noopener noreferrer">amber@openfn.org</a>.</strong></p><p><em>•Note: the recording will only be used internally. If you wish for it to be
+deleted once viewed please state so in the email.</em></p><p>If you would rather give your feedback in person, or have questions around using
+Lightning, please book office hours with our product manager Amber via the
+following link: <a href="https://calendly.com/amber-openfn/30min" target="_blank" rel="noopener noreferrer">https://calendly.com/amber-openfn/30min</a>.</p>]]></content:encoded>
+        </item>
         <item>
             <title><![CDATA[OpenHumans (A Travelogue)]]></title>
             <link>https://docs.openfn.org/fr/blog/2023/03/01/open-human</link>
