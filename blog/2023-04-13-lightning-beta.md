@@ -30,7 +30,7 @@ of OpenFn users are still building workflow solutions on the v1 (available at
 migration later this year.
 
 It's free to use during the beta, but we'll soon be providing a paid,
-enterprise-grade hosted service like you've become accustomed to on OpenFn.org
+enterprise-grade hosted service like you've become accustomed to on OpenFn.org.
 
 :::
 
