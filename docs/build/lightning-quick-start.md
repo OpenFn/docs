@@ -141,7 +141,7 @@ URL. There are three ways of doing this.
 
 Follow the instructions from _one_ of the options below to run your workflow.
 
-### Manually send data to your first job trigger
+### Option 1: Manually send data to your first job trigger
 
 Click on the first job in your workflow, then head to the input tab. Paste the
 data below into the `custom input`, then click `run`.
@@ -165,7 +165,7 @@ configuration.
 
 :::
 
-### Send data through a curl request
+### Option 2: Send data through a curl request
 
 You can also send data to a webhook URL by making a curl request in your
 terminal.
@@ -180,7 +180,17 @@ curl -H 'Content-Type: application/json' \
       YOUR_WEBHOOK_URL
 ```
 
-### Send data from your external system
+You should get a response that looks like this:
+
+```json
+{
+  "attempt_id": "3602a2e6-cd01-4b48-bfa9-5237e7393c90",
+  "run_id": "fdebd5a9-3578-4bfd-945e-12e0a24e8c6a",
+  "work_order_id": "b1899b6f-e420-479f-a6ae-8641189764cd"
+}
+```
+
+### Option 3: Send data from your external system
 
 :::tip
 
@@ -229,7 +239,7 @@ Click on the chevron next to the status to expand it and see each job run.
 
 ![lightning-history_expanded](/img/lightning_history_expanded.png)
 
-## 5. Make a run that fails, then edit the job and retry it to make it succeed
+## 5. Make a run that fails, then edit the job and rerun it to make it succeed
 
 From your workflow page, run the job manually with a patient that is 18 months
 old using the data below.
@@ -281,3 +291,23 @@ The work order status also gets updated to the status of the last attempt to
 show 'Success'.
 
 ![lightning_new_attempt](/img/lightning_new_attempt.png)
+
+Rerun the same work order, this time from 'Job 3 - Upload to DHIS2'. You'll see
+the runs for Job 1 and 2 get copied over to the new attempt, so that their
+output can be used for the input of Job 3.
+
+![lightning_rerun_downstream_job](/img/lightning_rerun_downstream_job.png)
+
+:::tip Note
+
+When you rerun a workflow from a downstream job, the previous job runs are
+copied over to the new attempt, so you can still see where the input from your
+downstream job came from.
+
+:::
+
+You're all set! If you made it to the end of this tutorial, you should be
+familiar with the key concepts you need to start building your own workflow.
+Give it a go, and don't forget to post on our
+[community forum](https://community.openfn.org/) if you get stuck - or to let us
+know what you built.
