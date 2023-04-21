@@ -20,7 +20,7 @@ intuitive, user-friendly UI.
 
 <!--truncate-->
 
-**Read more about Lightning on our [docs page](documentation/about-lightning).**
+**Read more about Lightning on our [docs page](/documentation/about-lightning).**
 
 :::info
 
