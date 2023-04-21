@@ -14,16 +14,17 @@
             <link>https://docs.openfn.org/fr/blog/2023/04/13/lightning-beta</link>
             <guid>https://docs.openfn.org/fr/blog/2023/04/13/lightning-beta</guid>
             <pubDate>Thu, 13 Apr 2023 00:00:00 GMT</pubDate>
-            <description><![CDATA[It’s been a wild year and we’re excited to announce the next generation of]]></description>
-            <content:encoded><![CDATA[<p>It’s been a wild year and we’re excited to announce the next generation of
-OpenFn’s digital public good for workflow automation, <strong>OpenFn Lightning ⚡</strong></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="weve-just-soft-launched-openfn-lightning-and-heres-what-you-should-know">We’ve just "soft launched" OpenFn Lightning and here's what you should know<a href="#weve-just-soft-launched-openfn-lightning-and-heres-what-you-should-know" class="hash-link" aria-label="Direct link to We’ve just &quot;soft launched&quot; OpenFn Lightning and here's what you should know" title="Direct link to We’ve just &quot;soft launched&quot; OpenFn Lightning and here's what you should know">​</a></h2><p>Lightning represents our commitment to open source and the DPG community. It is
+            <description><![CDATA[It's been a wild year and we're excited to announce the next generation of]]></description>
+            <content:encoded><![CDATA[<p>It's been a wild year and we're excited to announce the next generation of
+OpenFn's digital public good for workflow automation, <strong>OpenFn Lightning ⚡</strong></p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="weve-just-soft-launched-openfn-lightning-and-heres-what-you-should-know">We've just "soft launched" OpenFn Lightning and here's what you should know<a href="#weve-just-soft-launched-openfn-lightning-and-heres-what-you-should-know" class="hash-link" aria-label="Direct link to We've just &quot;soft launched&quot; OpenFn Lightning and here's what you should know" title="Direct link to We've just &quot;soft launched&quot; OpenFn Lightning and here's what you should know">​</a></h2><p>Lightning represents our commitment to open source and the DPG community. It is
 a fully open source web application designed for governments and NGOs who need a
 flexible solution to <strong>integrate and connect <em>any</em> system</strong>. It reuses our
 existing tried and tested technology whilst lowering the technical barrier to
 building robust workflow automation solutions and integrations through a more
-intuitive, user-friendly UI.</p><p><strong>Read more about Lightning on our <a href="/fr/documentation/about-lightning">docs page</a>.</strong></p><div class="theme-admonition theme-admonition-info alert alert--info admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_S0QG"><p>At the time of writing, Lightning is still in beta and has some rough edges. 95%
+intuitive, user-friendly UI.</p><p><strong>Read more about Lightning on our
+<a href="/fr/documentation/about-lightning">docs page</a>.</strong></p><div class="theme-admonition theme-admonition-info alert alert--info admonition_LlT9"><div class="admonitionHeading_tbUL"><span class="admonitionIcon_kALy"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_S0QG"><p>At the time of writing, Lightning is still in beta and has some rough edges. 95%
 of OpenFn users are still building workflow solutions on the v1 (available at
-<a href="https://www.openfn.org/signup" target="_blank" rel="noopener noreferrer">openfn.org</a>) but we’ll be ready for a full
+<a href="https://www.openfn.org/signup" target="_blank" rel="noopener noreferrer">openfn.org</a>) but we'll be ready for a full
 migration later this year.</p><p>It's free to use during the beta, but we'll soon be providing a paid,
 enterprise-grade hosted service like you've become accustomed to on OpenFn.org.</p></div></div><h2 class="anchor anchorWithStickyNavbar_LWe7" id="register-for-an-account-and-share-your-feedback">Register for an account and share your feedback<a href="#register-for-an-account-and-share-your-feedback" class="hash-link" aria-label="Direct link to Register for an account and share your feedback" title="Direct link to Register for an account and share your feedback">​</a></h2><p>Register for a free account at
 <a href="https://app.openfn.org/users/register" target="_blank" rel="noopener noreferrer">app.openfn.org</a>. Help us out by carrying
@@ -32,9 +33,9 @@ minutes) and adding your questions and comments to the Lightning thread on our
 <a href="https://community.openfn.org/t/the-lightning-beta/297" target="_blank" rel="noopener noreferrer">community forum</a>.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="take-10-minutes-to-carry-out-our-user-test">Take 10 minutes to carry out our user test<a href="#take-10-minutes-to-carry-out-our-user-test" class="hash-link" aria-label="Direct link to Take 10 minutes to carry out our user test" title="Direct link to Take 10 minutes to carry out our user test">​</a></h2><p>Get your thinking hat on! We need you to click around OpenFn Lightning and
 figure out how it works.</p><p><strong> 1. Start recording your screen, and speak out loud as you work through tasks
 2 and 3.</strong></p><p>Use <a href="https://www.loom.com/looms" target="_blank" rel="noopener noreferrer">Loom</a> to more easily share your recording - you
-can create an account for free.</p><p>As you record, make sure to tell us:</p><ul><li>What you see</li><li>What you’re doing</li><li>What you’re thinking</li><li>What you expect</li></ul><p>For example, start off by saying “I’ve just started recoding my screen, and now
-I’m going to start the first task. (…) I’ve registered for an account and I’ve
-just been taken to the workflow page. I can see …”</p><p><strong> 2. Register / Login on
+can create an account for free.</p><p>As you record, make sure to tell us:</p><ul><li>What you see</li><li>What you're doing</li><li>What you're thinking</li><li>What you expect</li></ul><p>For example, start off by saying "I've just started recoding my screen, and now
+I'm going to start the first task. (…) I've registered for an account and I've
+just been taken to the workflow page. I can see …"</p><p><strong> 2. Register / Login on
 <a href="https://app.openfn.org/users/register" target="_blank" rel="noopener noreferrer">app.openfn.org</a>.</strong></p><p>Take 2 minutes to click around the app and view all of the different pages. As
 you click into them, tell us where your attention is drawn and what you think
 each page might be for.</p><p><strong> 3. Using the <a href="/fr/documentation/build/lightning-quick-start">quick-start guide</a>,
