@@ -1,6 +1,6 @@
 each(
   '$.enrolledUsers[10]',
-  alterState(state => {
+  fn(state => {
     const { host } = state.configuration;
     const { id } = state.data;
     const usersfields = [];

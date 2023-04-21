@@ -1,5 +1,5 @@
 // Here, we make sure CommCare gives us an array to use in each(merge(...), ...)
-alterState(state => {
+fn(state => {
   const idCards = state.data.form.ID_cards_given_to_vendor;
   if (!Array.isArray(idCards)) {
     state.data.form.ID_cards_given_to_vendor = [idCards];

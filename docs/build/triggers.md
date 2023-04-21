@@ -128,10 +128,10 @@ was < 50,000 bytes.)
 Most often, final state bloat is due to improper handling of `state.references`
 or `state.data`. This can be fixed by adding the following lines _either_ to the
 callback of your language-package's operation (if it allows for one) or by
-appending an `alterState(...)` operation after your operation.
+appending an `fn(...)` operation after your operation.
 
 ```js
-alterState(state => {
+fn(state => {
   state.custom = somethingIntentional;
   state.data = {};
   state.references = [];

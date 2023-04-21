@@ -1,5 +1,5 @@
 //Sample job to get Kobo data and post back to OpenFn Inbox
-alterState(state => {
+fn(state => {
   console.log(`Started at: ${new Date().toISOString()}`);
   state.submissions = [];
   state.data = {
@@ -49,7 +49,7 @@ each(dataPath('surveys[*]'), state => {
   })(state);
 });
 
-alterState(state => {
+fn(state => {
   console.log(`Finished at: ${new Date().toISOString()}`);
   return {
     data: {
