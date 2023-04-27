@@ -2,8 +2,9 @@
 title: Lightning Quick-Start (v2)
 ---
 
-Follow this tutorial to get familiar with OpenFn Lightning. If you get stuck,
-post a question to our [community forum](https://community.openfn.org/).
+This tutorial takes ~15 minutes to complete, and teaches you how to build
+workfows with OpenFn Lightning. If you get stuck, post a question to our
+[community forum](https://community.openfn.org/).
 
 ## 1. Register
 
@@ -103,8 +104,8 @@ _the same_ credential type as your adaptor.
 
 ### [EDITOR TAB]
 
-The EDITOR TAB is where you define _what_ the job should do and which data to
-use.
+The EDITOR TAB is where you define _what_ the job should do and which data from
+your from state (which contains your input) to use.
 
 :::tip
 
@@ -115,6 +116,18 @@ your external system), cron trigger, or a previous job you can find it in
 :::
 
 ![lightning_editor_1](/img/lightning_editor_1.png)
+
+In this job, we're using the `names` data from state, which we can see when we
+look at the input.
+
+![lightning_input_data](/img/lightning_input_data.png)
+
+:::tip
+
+The _input_ shows you the data that is added to state and can be accessed in
+your job.
+
+:::
 
 **What: Job expression**
 
@@ -157,6 +170,9 @@ data below into the `custom input`, then click `run`.
 
 ![lightning_manual_run](/img/lightning_manual_run.png)
 
+You should now be able to
+[see your request on the history page](#4-check-your-request-got-processed-correctly).
+
 :::tip
 
 When a job is run, OpenFn adds the input into state (used to get data values in
@@ -180,7 +196,8 @@ curl -H 'Content-Type: application/json' \
       YOUR_WEBHOOK_URL
 ```
 
-You should get a response that looks like this:
+You should get a response that looks like this, and be able to
+[see your request on the history page](#4-check-your-request-got-processed-correctly).
 
 ```json
 {
@@ -219,6 +236,9 @@ first job whenever a response is submitted. We can test this out by submitting
 some form responses at Form -> Open.
 
 ![kobo form](/img/2.5_open_kobo_form.png 'Open a kobo form')
+
+Once you've made a form submission, you should be able to
+[see your request on the history page](#4-check-your-request-got-processed-correctly).
 
 ## 4. Check your request got processed correctly
 
