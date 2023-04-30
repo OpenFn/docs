@@ -6,7 +6,7 @@ title: Instant OpenHIE
 
 Please note that OpenFn/microservice and OpenFn/devtools are being deprecated
 and replaced by OpenFn/lightning, When Lighting is released, it may be used
-within Instant OpenHIE (instead of microservice) as an OpenHIE-compliant workflow engine that can interface with the OpenHIE Interoperability Layer ([learn more](/documentation/about-lightning#standards-and-compliance-matter)). 
+within Instant OpenHIE (instead of microservice) as an OpenHIE-compliant workflow engine that can interface with the OpenHIE Interoperability Layer ([learn more](/documentation/about-lightning#1-standards-and-compliance-matter)). 
 
 :::
 
