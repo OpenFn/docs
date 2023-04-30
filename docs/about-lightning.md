@@ -87,25 +87,7 @@ Update a project name and description
 
 ## Roadmap
 
-### Now
-
-Handle Oauth authentication flow  
-Bulk reprocess workflow runs  
-Import and export projects  
-Automatic github version control  
-View key project metrics (number of runs, failures, workflows)  
-Get notified of run limits via email
-
-### Soon
-
-Set up multi-factor authentication  
-Zero persistence pipeline  
-Add authentication to webhook triggers
-
-### Later
-
-Save job inputs as test cases  
-Run a job with a saved input
+See [Products Roadmap](documentation/openfn-roadmap) for a detailed list of features that are in the backlog, planned, and/or in development for the OpenFn Digital Public Good. 
 
 _You can follow our progress and track delivered features in our
 [changelog](https://github.com/OpenFn/Lightning/blob/main/CHANGELOG.md)._
