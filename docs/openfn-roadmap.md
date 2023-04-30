@@ -64,3 +64,6 @@ OpenFn's open-source adaptors can connect any application, including web APIs, d
 | 5.  Template Shared Health Record Workflows | Not started | Q4 2023 | [See OpenHIE docs](https://guides.ohie.org/arch-spec/introduction/shared-health-record); to be hosted on demo.openfn.org | To demonstrate how OpenFn can allow external systems to automatically save and retrieve information from the HIE (from the OpenHIE standard spec)
 | 6.  Template Aggregate Reporting Workflows | Not started | 2024 | [See OpenHIE docs](https://guides.ohie.org/arch-spec/introduction/aggregate-reporting-workflows); to be hosted on demo.openfn.org | To demonstrate how OpenFn can support aggregate data exchange of health indicators, leveraging the ADX data standard
 |
+
+### Questions? Feedback? Ideas? 
+Post on the OpenFn Community at [community.openfn.org](community.openfn.org), or consider contributing to the OpenFn software, adaptors, or documentation (learn more in the [Contributing section](/documentation/writing-code)). 
