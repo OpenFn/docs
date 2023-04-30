@@ -1,6 +1,6 @@
 ---
 title: OpenFn Roadmap
-sidebar_label: Product Roadmap
+sidebar_label: OpenFn Roadmap
 ---
 
 ## OpenFn  Roadmap
