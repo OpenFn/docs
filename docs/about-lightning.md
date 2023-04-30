@@ -124,7 +124,7 @@ Committee to make sure our users can influence the roadmap.
 
 Lightning workflows can be used to automatically enforce and apply data exchange standards, such as FHIR and ADX. Lightning's design and roadmap are driven by open standards, and will therefore provide a GovStack- and OpenHIE-compliant workflow engine. Learn more via the following resources: 
 
-- [Watch this video](https://www.youtube.com/watch?v=PTRRZBYtqyc&ab_channel=OpenFn.org) to learn how OpenFn is an OpenHIE-compliant workflow engine. 
+- [Watch this video](https://youtu.be/PTRRZBYtqyc) to learn how OpenFn is an OpenHIE-compliant workflow engine. 
 - Check out OpenFn's entry in the [OpenHIE Reference Technologies page](https://wiki.ohie.org/display/documents/Reference+Technologies).
 - Explore the OpenFn <> Instant OpenHIE [reference demo implementation](/documentation/instant-openhie).
 - Learn more about the GovStack [Workflow Building Block](https://govstack.gitbook.io/bb-workflow/2-description) specification. 
