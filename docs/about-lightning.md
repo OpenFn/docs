@@ -52,60 +52,41 @@ integrations to make sure no request goes unprocessed.
 
 ##### General
 
-Deploy Lightning via docker  
-Create and delete user accounts  
-Create new projects and assign users with different access levels to these
-projects (owner/admin/editor/viewer)  
-Transfer credential ownership to another user  
-View an audit trail of all credential changes (superuser role)  
-Set up SSO via an identity provider  
-Generate and revoke API tokens  
-List projects, jobs and runs via JSON API
+- Deploy Lightning via docker  
+- Create and delete user accounts  
+- Create new projects and assign users with different access levels to these projects (owner/admin/editor/viewer)  
+- Transfer credential ownership to another user  
+- View an audit trail of all credential changes (superuser role)  
+- Set up SSO via an identity provider  
+- Generate and revoke API tokens  
+- List projects, jobs and runs via JSON API
 
 ##### Workflow builder
 
-Create a new workflow with a webhook or cron trigger  
-Create and configure jobs for a workflow with any OpenFn adaptor and operation  
-Create credentials through a form  
-View all available operations for a given adaptor  
-View the metadata from your external system (DHIS2 and Salesforce)  
-View the input and output from the last run of each job in a workflow  
-Run a job manually
+- Create a new workflow with a webhook or cron trigger  
+- Create and configure jobs for a workflow with any OpenFn adaptor and operation  
+- Create credentials through a form  
+- View all available operations for a given adaptor  
+- View the metadata from your external system (DHIS2 and Salesforce)  
+- View the input and output from the last run of each job in a workflow  
+- Run a job manually
 
 ##### Runs history
 
-View all runs grouped by workflow  
-Search and filter runs by status, workflow and run logs  
-Retry a workflow run from the start (first job)
+- View all runs grouped by workflow  
+- Search and filter runs by status, workflow and run logs  
+- Retry a workflow run from the start (first job)
 
 ##### Project settings
 
-Get notified via email on run failure  
-Receive a daily, weekly or monthly digest of project activity  
-View collaborators for a project  
-Update a project name and description
+- Get notified via email on run failure  
+- Receive a daily, weekly or monthly digest of project activity  
+- View collaborators for a project  
+- Update a project name and description
 
 ## Roadmap
 
-### Now
-
-Handle Oauth authentication flow  
-Bulk reprocess workflow runs  
-Import and export projects  
-Automatic github version control  
-View key project metrics (number of runs, failures, workflows)  
-Get notified of run limits via email
-
-### Soon
-
-Set up multi-factor authentication  
-Zero persistence pipeline  
-Add authentication to webhook triggers
-
-### Later
-
-Save job inputs as test cases  
-Run a job with a saved input
+See the [Lightning Roadmap](/documentation/openfn-roadmap) for a detailed list of features that are in the backlog, planned, and/or in development for the OpenFn Digital Public Good. 
 
 _You can follow our progress and track delivered features in our
 [changelog](https://github.com/OpenFn/Lightning/blob/main/CHANGELOG.md)._
@@ -135,16 +116,22 @@ about [here](https://openfn.github.io/governance/OSSC.html).
 On top of this, Lightning follows 4 key principles which determine how it should
 be developed:
 
-### Standards and compliance matter
+### 1. Standards and compliance matter
 
 Lightning is part of the OpenFn Integration Toolkit which is a certified Digital
 Public Good. It is fully open source and even has an Open Source Steering
 Committee to make sure our users can influence the roadmap.
 
-Lightning makes sure to stay in line with sector standards, and will be GovStack
-compliant and OpenHIE compliant.
+Lightning workflows can be used to automatically enforce and apply data exchange standards, such as FHIR and ADX. Lightning's design and roadmap are driven by open standards, and will therefore provide a GovStack- and OpenHIE-compliant workflow engine. Learn more via the following resources: 
 
-### Interoperability is an ongoing process
+- [Watch this video](https://youtu.be/PTRRZBYtqyc) to learn how OpenFn is an OpenHIE-compliant workflow engine. 
+- Check out OpenFn's entry in the [OpenHIE Reference Technologies page](https://wiki.ohie.org/display/documents/Reference+Technologies).
+- Explore the OpenFn-Instant OpenHIE [reference demo implementation](/documentation/instant-openhie).
+- Learn more about the GovStack [Workflow Building Block](https://govstack.gitbook.io/bb-workflow/2-description) specification. 
+
+
+
+### 2. Interoperability is an ongoing process
 
 Anyone that has worked on integration projects in the past is well aware that
 integrations do break. No matter how well designed they are, the fact is that
@@ -174,7 +161,7 @@ Re-processing functionality:
 - Bulk reprocess workflow runs after updating workflow steps to course-correct
   if a workflow has been running with flawed logic
 
-### Collaboration is key
+### 3. Collaboration is key
 
 On one hand, the users that understand what processes need automating are (more
 often than not) business analysts, not developers. They’re the experts on what
@@ -217,7 +204,7 @@ Collaboration functionality:
 - Add collaborators as view-only user or editor to a project
 - Audit all changes made to credentials
 
-### It’s not "just" a request or a piece of data, it’s a person
+### 4. It’s not "just" a request or a piece of data, it’s a person
 
 OpenFn specializes in integration tooling for the health and humanitarian
 sector. This means that behind every piece of data which comes in through a
