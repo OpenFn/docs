@@ -91,7 +91,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Contributing',
-      items: ['roadmap', 'for-devs', 'gsoc', 'writing-docs', 'style-guide'],
+      items: ['for-devs', 'gsoc', 'writing-docs', 'style-guide'],
     },
     {
       type: 'doc',
