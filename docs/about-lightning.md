@@ -126,7 +126,7 @@ Lightning workflows can be used to automatically enforce and apply data exchange
 
 - [Watch this video](https://youtu.be/PTRRZBYtqyc) to learn how OpenFn is an OpenHIE-compliant workflow engine. 
 - Check out OpenFn's entry in the [OpenHIE Reference Technologies page](https://wiki.ohie.org/display/documents/Reference+Technologies).
-- Explore the OpenFn <> Instant OpenHIE [reference demo implementation](/documentation/instant-openhie).
+- Explore the OpenFn-Instant OpenHIE [reference demo implementation](/documentation/instant-openhie).
 - Learn more about the GovStack [Workflow Building Block](https://govstack.gitbook.io/bb-workflow/2-description) specification. 
 
 
