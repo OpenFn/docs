@@ -91,7 +91,13 @@ module.exports = {
     {
       type: 'category',
       label: 'Contributing',
-      items: ['for-devs', 'gsoc', 'writing-docs', 'style-guide'],
+      items: [
+        'openfn-roadmap',
+        'for-devs',
+        'gsoc',
+        'writing-docs',
+        'style-guide',
+      ],
     },
     {
       type: 'doc',
