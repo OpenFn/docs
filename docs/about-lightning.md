@@ -118,7 +118,7 @@ Lightning is still in Beta.
 
 :::
 
-Log into our demo account with username: `demo@openfn.org` password:
+Log into our demo account at [demo.openfn.org](https://demo.openfn.org/) with username: `demo@openfn.org` password:
 `welcome123` or register for an account on
 [app.openfn.org](https://app.openfn.org/).
 
