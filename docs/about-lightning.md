@@ -102,7 +102,7 @@ Lightning is still in Beta.
 You have 3 options for exploring OpenFn/Lightning:
 
 1. For quick viewing, visit [demo.openfn.org](https://demo.openfn.org/) and log into our demo account with username: `demo@openfn.org` password:
-`welcome123`. (NOTE that this site refreshes every 24 hours)
+`welcome123`. (NOTE that any changes made here are lost when the demo resets every 24 hours. I.e., don't build things you'd like to keep.)
 2. To get your own account and start building non-production workflows, register for an account at [app.openfn.org](https://app.openfn.org/).
 3. To install and run Lightning locally follow the instructions in the [github README](https://github.com/OpenFn/Lightning).
 
