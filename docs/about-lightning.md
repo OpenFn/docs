@@ -106,7 +106,7 @@ You have 3 options for exploring OpenFn/Lightning:
 2. To get your own account and start building non-production workflows, register for an account at [app.openfn.org](https://app.openfn.org/).
 3. To install and run Lightning locally follow the instructions in the [github README](https://github.com/OpenFn/Lightning).
 
-Go through the [self-paced user interview](http://localhost:3000/blog/2023/04/13/lightning-beta#take-10-minutes-to-carry-out-our-user-test) to learn how OpenFn Lightning works _and_ help us out with feedback in just 15 minutes. 
+Go through the [self-paced user interview](/blog/2023/04/13/lightning-beta#take-15-minutes-to-carry-out-our-user-test) to learn how OpenFn Lightning works _and_ help us out with feedback in just 15 minutes. 
 
 ## Guiding principles
 
