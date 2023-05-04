@@ -43,7 +43,7 @@ out our [user test](/blog#take-10-minutes-to-carry-out-our-user-test) (~10
 minutes) and adding your questions and comments to the Lightning thread on our
 [community forum](https://community.openfn.org/t/the-lightning-beta/297).
 
-## Take 10 minutes to carry out our user test
+## Take 15 minutes to carry out our user test
 
 Get your thinking hat on! We need you to click around OpenFn Lightning and
 figure out how it works.
