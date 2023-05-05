@@ -222,7 +222,7 @@ Security:
 
 - Secure credential management (encrypted at REST, credential secrets are
   scrubbed from logs, secure credential sharing
-- Zero-persistence pipelines
+- Zero-retention pipelines
 - Role-based project access
 - Additional authentication rules for webhooks
 
