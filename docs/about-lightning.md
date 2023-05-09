@@ -271,6 +271,33 @@ To ensure best practices in our code we:
 - Ensure code is clean and standardised through preflight checks
 - Monitor code coverage of unit tests and integration tests with Codecov
 
+### Roles and permissions
+
+Lightning provides identity and access management for users via various roles
+and permissions which determine what level of access they have for resources
+across projects and instances (i.e., deployments).
+
+Lightning has 2 types of access levels:
+
+1. Instance-wide access levels are managed via an attribute on the `user`
+   object:
+
+- **Superusers** are the administrator of the Lightning instance. They can
+  manage projects and users, configure authentication providers and view the
+  audit trail.
+- **Users** are normal Lightning users. They can manage their own account and
+  credentials, and have access to projects they are added to.
+
+2. Project-wide access levels
+
+- A project **viewer** can view the resources of a project in read-only mode and
+  configure their own project digest and failure alerts.
+- A project **editor** can view, create and edit the jobs and workflows of a
+  project they have access to, as well as run and rerun jobs.
+- A project **admin** has administration access to project members. They can
+  edit the name and description as well as delete a project.
+- A project **owner** can delete a project.
+
 ### Application security
 
 Lightning is designed to:
