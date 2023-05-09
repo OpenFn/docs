@@ -273,13 +273,14 @@ To ensure best practices in our code we:
 
 ### Roles and permissions
 
-Authorization is a central part of Lightning. As such, users are given different
-roles which determine what level of access they have for resources in the
-application.
+Lightning provides identity and access management for users via various roles
+and permissions which determine what level of access they have for resources
+across projects and instances (i.e., deployments).
 
 Lightning has 2 types of access levels:
 
-1. Instance-wide access levels
+1. Instance-wide access levels are managed via an attribute on the `user`
+   object:
 
 - **Superusers** are the administrator of the Lightning instance. They can
   manage projects and users, configure authentication providers and view the
@@ -293,8 +294,8 @@ Lightning has 2 types of access levels:
   configure their own project digest and failure alerts.
 - A project **editor** can view, create and edit the jobs and workflows of a
   project they have access to, as well as run and rerun jobs.
-- A project **admin** has administration access to project members.They can edit
-  the name and description as well as delete a project.
+- A project **admin** has administration access to project members. They can
+  edit the name and description as well as delete a project.
 - A project **owner** can delete a project.
 
 ### Application security
