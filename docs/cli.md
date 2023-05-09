@@ -79,20 +79,61 @@ openfn test
 The word `openfn` will invoke the CLI. The word `test` will invoke the test
 command.
 
-You should see some output like this:
+<details>
+  <summary>You should see some output like this:</summary>
 
 ```sh
 [CLI] ℹ Versions:
-         ▸ node.js     18.12.1
-         ▸ cli         0.0.29
-         ▸ runtime     0.0.19
-         ▸ compiler    0.0.25
+        ▸ node.js     18.12.1
+        ▸ cli         0.0.39
+        ▸ runtime     0.0.24
+        ▸ compiler    0.0.32
 [CLI] ℹ Running test job...
-[CLI] ✔ Compiled job
-[JOB] ℹ Calculating the answer to life, the universe, and everything...
-[R/T] ✔ Operation 1 complete in 1ms
+[CLI] ℹ Workflow object:
+[CLI] ℹ {
+  "start": "start",
+  "jobs": [
+    {
+      "id": "start",
+      "data": {
+        "defaultAnswer": 42
+      },
+      "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
+      "next": {
+        "calculate": "!state.error"
+      }
+    },
+    {
+      "id": "calculate",
+      "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
+      "next": {
+        "result": true
+      }
+    },
+    {
+      "id": "result",
+      "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
+    }
+  ]
+}
+
+[CLI] ✔ Compilation complete
+[R/T] ♦ Starting job start
+[JOB] ℹ Starting computer...
+[R/T] ℹ Operation 1 complete in 0ms
+[R/T] ✔ Completed job start in 1ms
+[R/T] ♦ Starting job calculate
+[JOB] ℹ Calculating to life, the universe, and everything..
+[R/T] ℹ Operation 1 complete in 0ms
+[R/T] ✔ Completed job calculate in 1ms
+[R/T] ♦ Starting job result
+[R/T] ℹ Operation 1 complete in 0ms
+[R/T] ✔ Completed job result in 0ms
 [CLI] ✔ Result: 42
+
 ```
+
+</details>
 
 What we've just done is executed a JavaScript expression, which we call a _job_.
 The output prefixed with `[JOB]` comes directly from `console.log` statements in
@@ -128,6 +169,32 @@ openfn test --log debug
 
 #### Tasks:
 
+:::info To get started with @openfn/cli
+
+1. Create a new folder for the repository you'll be working on by running the
+   following command: `mkdir devchallenge && cd devchallenge`
+
+2. While you can keep your job scripts anywhere, it's a good practice to store
+   `state.json` and `output.json` in a `tmp` folder. To do this, create a new
+   directory called `tmp` within your `devchallenge` folder: `mkdir tmp`
+
+3. Since `state.json` and `output.json` may contain sensitive configuration
+   information and project data, it's important to never upload them to Github.
+   To ensure that Github ignores these files, add the `tmp` directory to your
+   `.gitignore` file: `echo "tmp" >> .gitignore`
+4. (Optional) Use the `tree` command to check that your directory structure
+   looks correct. Running `tree -a` in your `devchallenge` folder should display
+   a structure like this:
+   ```
+    devchallenge
+    ├── .gitignore
+    └── tmp
+        ├── state.json
+        └── output.json
+   ```
+
+:::
+
 1.  Create a file called `hello.js` and write the following code.
 
     ```js
@@ -140,11 +207,29 @@ openfn test --log debug
     us send messages to the terminal window.
     </details>
 
-2.  Run the job using the CLI
+1.  Run the job using the CLI
 
     ```sh
-    openfn hello.js
+    openfn hello.js -o tmp/output.json
     ```
+
+    <details>
+    <summary>View expected output</summary>
+
+    ```
+    [CLI] ⚠ WARNING: No adaptor provided!
+    [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
+              openfn job.js -a common
+    [CLI] ✔ Compiled from helo.js
+    [R/T] ♦ Starting job job-1
+    [JOB] ℹ Hello World!
+    [R/T] ✔ Completed job job-1 in 1ms
+    [CLI] ✔ State written to tmp/output.json
+    [CLI] ✔ Finished in 17ms ✨
+
+    ```
+
+    </details>
 
 Note that our `console.log` statement was printed as `[JOB] Hello world!`. Using
 the console like this is helpful for debugging and/or understanding what's
@@ -153,14 +238,14 @@ happening inside our jobs.
 #### 🏆 Challenge: Write a job that prints your name
 
 1.  Modify `hello.js` to print your name.
-2.  Re-run the job by running `openfn hello.js -a http`.
+2.  Re-run the job by running `openfn hello.js -a http -o tmp/output.json`.
 3.  Validate that you receive the logs below:
 
     ```
     [CLI] ✔ Compiled job from hello.js
     [JOB] ℹ My name is { YourName }
     [R/T] ✔ Operation 1 complete in 0ms
-    [CLI] ✔ Writing output to ./output.json
+    [CLI] ✔ Writing output to tmp/output.json
     [CLI] ✔ Done in 366ms! ✨
     ```
 
@@ -200,18 +285,23 @@ Run `openfn help` to see the full list of CLI arguments.
 2. Run the job by running
 
 ```sh
-openfn getPosts.js -i -a http
+openfn getPosts.js -i -a http -o tmp/output.json
 ```
 
 Since it is our first time using the `http` adaptor, we are installing the
 adaptor using `-i` argument
 
-3. See expected CLI logs
+<details>
+  <summary>3. See expected CLI logs</summary>
 
-   ```
-   [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
-   [R/T] ✔ Operation 1 complete in 1.072s
-   [JOB] ℹ {
+```
+  [CLI] ✔ Installing packages...
+  [CLI] ✔ Installed @openfn/language-http@4.2.8
+  [CLI] ✔ Installation complete in 14.555s
+  [CLI] ✔ Compiled from getPosts.js
+  [R/T] ♦ Starting job job-1
+  GET request succeeded with 200 ✓
+  [JOB] ℹ {
     userId: 1,
     id: 1,
     title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
@@ -219,11 +309,14 @@ adaptor using `-i` argument
       'suscipit recusandae consequuntur expedita et cum\n' +
       'reprehenderit molestiae ut ut quas totam\n' +
       'nostrum rerum est autem sunt rem eveniet architecto'
-   }
-   [R/T] ✔ Operation 2 complete in 0ms
-   [CLI] ✔ Writing output to ./output.json
-   [CLI] ✔ Done in 1.42s! ✨
-   ```
+  }
+  [R/T] ✔ Completed job job-1 in 872ms
+  [CLI] ✔ State written to tmp/output.json
+  [CLI] ✔ Finished in 15.518s ✨
+
+```
+
+</details>
 
 #### 🏆 Challenge: Get and inspect data via HTTP
 
@@ -232,14 +325,16 @@ Using the
 API, get a list of users and print the first user object.
 
 1.  Create file called `getUsers.js` and write your operation to fetch the user.
-2.  Run the job using the OpenFn/cli `openfn getUsers.js -a http`.
+2.  Run the job using the OpenFn/cli
+    `openfn getUsers.js -a http -o tmp/output.json`.
 3.  Validate that you receive this expected CLI logs:
 
 ```sh
-openfn getUsers.js -a http
+openfn getUsers.js -a http -o tmp/output.json
 ```
 
-3. Validate that you receive this expected CLI logs:
+<details>
+<summary>See expected CLI logs:</summary>
 
 ```
 [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
@@ -265,8 +360,10 @@ openfn getUsers.js -a http
   }
 }
 [R/T] ✔ Operation 2 complete in 2ms
-[CLI] ✔ Writing output to ./output.json [CLI] ✔ Done in 950ms! ✨
+[CLI] ✔ Writing output to tmp/output.json [CLI] ✔ Done in 950ms! ✨
 ```
+
+</details>
 
 ### 3. Understanding `state`
 
@@ -329,7 +426,7 @@ Or you can specify the path to the state file by passing the option -s,
 Specify a path to your `state.json` file with this command:
 
 ```sh
-openfn hello.js -a http -s tmp/state.json
+openfn hello.js -a http -s tmp/state.json -o tmp/output.json
 ```
 
 Expected CLI logs
@@ -339,7 +436,7 @@ Expected CLI logs
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 876ms
 [R/T] ✔ Operation 2 complete in 0ms
-[CLI] ✔ Writing output to ./output.json
+[CLI] ✔ Writing output to tmp/output.json
 [CLI] ✔ Done in 1.222s! ✨
 ```
 
@@ -389,7 +486,7 @@ of how to set up `state.configuration` for `language-http`.
 3. Now run the job using the following command
 
    ```sh
-   openfn getPosts.js -a http -s tmp/state.json
+   openfn getPosts.js -a http -s tmp/state.json -o tmp/output.json
    ```
 
    And validate that you see the expected CLI logs:
@@ -408,7 +505,7 @@ of how to set up `state.configuration` for `language-http`.
       'nostrum rerum est autem sunt rem eveniet architecto'
    }
    [R/T] ✔ Operation 2 complete in 0ms
-   [CLI] ✔ Writing output to ./output.json
+   [CLI] ✔ Writing output to tmp/output.json
    [CLI] ✔ Done in 470ms! ✨
    ```
 
@@ -527,7 +624,7 @@ GET request succeeded with 200 ✓
  //All of posts for userId 1
 ]
 [R/T] ✔ Operation 3 complete in 12ms
-[CLI] ✔ Writing output to ./output.json
+[CLI] ✔ Writing output to tmp/output.json
 [CLI] ✔ Done in 1.239s! ✨
 ```
 
@@ -612,7 +709,7 @@ GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 722ms
 [JOB] ℹ [Function (anonymous)]
 [R/T] ✔ Operation 2 complete in 1ms
-[CLI] ✔ Writing output to ./output.json
+[CLI] ✔ Writing output to tmp/output.json
 [CLI] ✔ Done in 1.102s ✨
 ```
 
@@ -679,7 +776,7 @@ Notice how this code uses the `each` function, a helper function defined in
 but accessed from this job that is using language-http. Most adaptors import and
 export many functions from `language-common`.
 
-##### Run **openfn job.js -a http**
+##### Run **openfn job.js -a http -o tmp/output.json**
 
 > Expected CLI logs
 
@@ -693,7 +790,7 @@ GET request succeeded with 200 ✓
 // Posts
 ]
 [R/T] ✔ Operation 4 complete in 10ms
-[CLI] ✔ Writing output to output.json
+[CLI] ✔ Writing output to tmp/output.json
 [CLI] ✔ Done in 1.091s! ✨
 ```
 
@@ -792,3 +889,7 @@ openfn hello.js -a http --no-strict-output
 
 Learn more about CLI
 [github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
+
+```
+
+```
