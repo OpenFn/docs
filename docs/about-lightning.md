@@ -257,7 +257,7 @@ To ensure best practices in our code we:
 
 ### Roles and permissions
 
-Authorization is a central part of Lightning. As such, we have implemented different roles which determine what level of access users have for resources in the application.
+Authorization is a central part of Lightning. As such, users are given different roles which determine what level of access they have for resources in the application.
 
 Lightning has 2 types of access levels:
 1. Instance-wide access levels
