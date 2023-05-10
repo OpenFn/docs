@@ -238,7 +238,7 @@ happening inside our jobs.
 #### 🏆 Challenge: Write a job that prints your name
 
 1.  Modify `hello.js` to print your name.
-2.  Re-run the job by running `openfn hello.js -a http -o tmp/output.json`.
+2.  Re-run the job by running `openfn hello.js -a common -o tmp/output.json`.
 3.  Validate that you receive the logs below:
 
     ```
@@ -492,7 +492,7 @@ of how to set up `state.configuration` for `language-http`.
    And validate that you see the expected CLI logs:
 
    ```sh
-   [CLI] ✔ Compiled job from job.js
+   [CLI] ✔ Compiled job from getPosts.js
    GET request succeeded with 200 ✓
    [R/T] ✔ Operation 1 complete in 120ms
    [JOB] ℹ {
@@ -736,7 +736,7 @@ We often have to perform the same operation multiple times for items in an
 array. Most of the helper functions for data manipulation are inherited from
 @openfn/language-common and are available in most of the adaptors.
 
-##### Create job.js and add the following codes
+##### Modify getPosts.js to group posts by user-ID
 
 ```js
 // Get all posts
@@ -776,12 +776,12 @@ Notice how this code uses the `each` function, a helper function defined in
 but accessed from this job that is using language-http. Most adaptors import and
 export many functions from `language-common`.
 
-##### Run **openfn job.js -a http -o tmp/output.json**
+##### Run **openfn getPosts.js -a http -o tmp/output.json**
 
 > Expected CLI logs
 
 ```sh
-[CLI] ✔ Compiled job from job.js
+[CLI] ✔ Compiled job from getPosts.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 730ms
 [R/T] ✔ Operation 2 complete in 0ms
@@ -805,6 +805,64 @@ build function that will get posts by user id.
 4. Use the function from 2nd operation to get all post for user id 1
 
 Discuss the results with your administrator.
+
+### 8. Using Execution Plan
+
+Execution Plan is a powerful feature of `@openfn/cli` that allows you to define
+a list of jobs and rules for executing them. You can use an Execution Plan to
+orchestrate the flow of data between systems, and to handle errors and retries
+in a structured and automated way.
+
+##### Workflow Plan Structure
+
+A Workflow Plan is a JSON object that consists of the following properties:
+
+- `start` (required): The ID of the job that should be executed first.
+- `jobs` (required): An array of job objects, each of which represents a
+  specific task to be executed.
+  - `id` (required): A unique ID that identifies the job.
+  - `data` (optional): An object that contains any data that should be passed to
+    the job.
+  - `expression` (required): A string that contains a JavaScript function to be
+    executed as the job. The function should accept a state parameter and return
+    a new state object.
+  - `next` (optional): An object that specifies the next job to be executed
+    based on the output of the current job. The object should have one or more
+    key-value pairs, where the key is the ID of the next job, and the value is a
+    boolean expression that determines whether the next job should be executed.
+
+###### Example of workflow Execution plan
+
+Here's an example of a simple Workflow Plan that consists of three jobs:
+
+```json
+{
+  "start": "start",
+  "jobs": [
+    {
+      "id": "start",
+      "data": {
+        "defaultAnswer": 42
+      },
+      "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
+      "next": {
+        "calculate": "!state.error"
+      }
+    },
+    {
+      "id": "calculate",
+      "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
+      "next": {
+        "result": true
+      }
+    },
+    {
+      "id": "result",
+      "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
+    }
+  ]
+}
+```
 
 ## CLI Usage - Key Commands
 
@@ -889,7 +947,3 @@ openfn hello.js -a http --no-strict-output
 
 Learn more about CLI
 [github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
-
-```
-
-```
