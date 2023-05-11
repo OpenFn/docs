@@ -102,6 +102,13 @@ _the same_ credential type as your adaptor.
 
 :::
 
+### [INPUT TAB]
+
+The INPUT TAB is where you can see data that has been passed into your job during previous runs. This is the data you will transform and use in your operation (see EDITOR TAB).
+
+![lightning_input_data](/img/lightning_input_data.png)
+
+
 ### [EDITOR TAB]
 
 The EDITOR TAB is where you define _what_ the job should do and which data from
@@ -117,10 +124,7 @@ your external system), cron trigger, or a previous job you can find it in
 
 ![lightning_editor_1](/img/lightning_editor_1.png)
 
-In this job, we're using the `names` data from state, which we can see when we
-look at the input.
-
-![lightning_input_data](/img/lightning_input_data.png)
+In this job, we're using the `names` data from state (which we saw in the Input tab). It gets added to `state` along with the `configuration` from your credential.
 
 :::tip
 
