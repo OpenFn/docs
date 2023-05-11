@@ -1,4 +1,4 @@
-alterState(state => {
+fn(state => {
   console.log('Here we will await the result of a LOT of async operations.');
 
   console.log('First we needed to break large arrays into smaller chunks.');
@@ -57,7 +57,7 @@ alterState(state => {
   return makePosts();
 });
 
-alterState(state => {
+fn(state => {
   console.log('I show up AFTER those async functions are resolved.');
   return state;
 });

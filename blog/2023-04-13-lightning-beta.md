@@ -6,10 +6,10 @@ author_image_url: https://avatars.githubusercontent.com/amberrignell
 featured: true
 ---
 
-It’s been a wild year and we’re excited to announce the next generation of
-OpenFn’s digital public good for workflow automation, **OpenFn Lightning ⚡**
+It's been a wild year and we're excited to announce the next generation of
+OpenFn's digital public good for workflow automation, **OpenFn Lightning ⚡**
 
-## We’ve just "soft launched" OpenFn Lightning and here's what you should know
+## We've just "soft launched" OpenFn Lightning and here's what you should know
 
 Lightning represents our commitment to open source and the DPG community. It is
 a fully open source web application designed for governments and NGOs who need a
@@ -20,13 +20,14 @@ intuitive, user-friendly UI.
 
 <!--truncate-->
 
-**Read more about Lightning on our [docs page](documentation/about-lightning).**
+**Read more about Lightning on our
+[docs page](/documentation/about-lightning).**
 
 :::info
 
 At the time of writing, Lightning is still in beta and has some rough edges. 95%
 of OpenFn users are still building workflow solutions on the v1 (available at
-[openfn.org](https://www.openfn.org/signup)) but we’ll be ready for a full
+[openfn.org](https://www.openfn.org/signup)) but we'll be ready for a full
 migration later this year.
 
 It's free to use during the beta, but we'll soon be providing a paid,
@@ -42,7 +43,7 @@ out our [user test](/blog#take-10-minutes-to-carry-out-our-user-test) (~10
 minutes) and adding your questions and comments to the Lightning thread on our
 [community forum](https://community.openfn.org/t/the-lightning-beta/297).
 
-## Take 10 minutes to carry out our user test
+## Take 15 minutes to carry out our user test
 
 Get your thinking hat on! We need you to click around OpenFn Lightning and
 figure out how it works.
@@ -56,13 +57,13 @@ can create an account for free.
 As you record, make sure to tell us:
 
 - What you see
-- What you’re doing
-- What you’re thinking
+- What you're doing
+- What you're thinking
 - What you expect
 
-For example, start off by saying “I’ve just started recoding my screen, and now
-I’m going to start the first task. (…) I’ve registered for an account and I’ve
-just been taken to the workflow page. I can see …”
+For example, start off by saying "I've just started recoding my screen, and now
+I'm going to start the first task. (…) I've registered for an account and I've
+just been taken to the workflow page. I can see …"
 
 ** 2. Register / Login on
 [app.openfn.org](https://app.openfn.org/users/register).**

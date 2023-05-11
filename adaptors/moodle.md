@@ -77,7 +77,7 @@ Example job to get enrolled users via the Moodle API endpoint (aka
 `web service function`): `core_enrol_get_enrolled_users`
 
 ```js
-alterState(state => {
+fn(state => {
   const { loginUrl, username, password, host } = state.configuration;
   return get(
     `${loginUrl}&username=${username}&password=${password}`,
@@ -88,7 +88,7 @@ alterState(state => {
       const enrolledUsers = [];
       return each(
         courseIds,
-        alterState(state => {
+        fn(state => {
           let courseid = state.data;
           return get(
             `${host}`,

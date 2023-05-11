@@ -6,7 +6,7 @@ create('Patient__c', fields(
 // NOTE: After inserts, Salesforce will return an sfID and it will be kept in
 // references. I'm using alterState here simply to log the output. It's not
 // necessary.
-alterState(state => {
+fn(state => {
   console.log(state.references);
   // References is an array:
   // references: [ { id: 'a0J0B00000QY9TbUAL', success: true, errors: [] } ],

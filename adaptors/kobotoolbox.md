@@ -113,7 +113,7 @@ With this OpenFn job snippet we fetch submission data from a list of surveys,
 indicated by their IDs.
 
 ```js
-alterState(state => {
+fn(state => {
   console.log('Current cursor value:', state.lastEnd);
   // Set a manual cursor if you'd like to only fetch data after this date.
   const manualCursor = '2020-11-20T14:32:43.325+01:00';

@@ -1,4 +1,4 @@
-alterState(async state => {
+fn(async state => {
   const { Patient, Visit } = state.data;
 
   console.log('Here we break large arrays into smaller chunks.');

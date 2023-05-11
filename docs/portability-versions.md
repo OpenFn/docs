@@ -20,7 +20,7 @@ jobs:
     credential: my-secret-credential
   recurring-job:
     expression: >
-      alterState(state => {
+      fn(state => {
         console.log("Hi there!")
         return state;
       })
@@ -28,7 +28,7 @@ jobs:
     trigger: every-minute
   flow-job:
     expression: >
-      alterState(state => {
+      fn(state => {
         state.data.number = state.data.number * 3
         return state;
       })
@@ -36,7 +36,7 @@ jobs:
     trigger: after-j1
   catch-job:
     expression: >
-      alterState(state => {
+      fn(state => {
         state.message = "handled it."
         return state;
       })
@@ -75,7 +75,7 @@ jobs:
     credential: my-secret-credential
   recurring-job:
     expression: >
-      alterState(state => {
+      fn(state => {
         console.log("Hi there!")
         return state;
       })
@@ -83,7 +83,7 @@ jobs:
     trigger: every-minute
   flow-job:
     expression: >
-      alterState(state => {
+      fn(state => {
         state.data.number = state.data.number * 3
         return state;
       })
@@ -91,7 +91,7 @@ jobs:
     trigger: after-j1
   catch-job:
     expression: >
-      alterState(state => {
+      fn(state => {
         state.message = "handled it."
         return state;
       })

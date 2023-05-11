@@ -1,6 +1,6 @@
 ---
-title: The CLI (v2, beta)
-sidebar_label: CLI (v2, beta)
+title: The CLI
+sidebar_label: CLI
 slug: /cli
 ---
 
@@ -20,8 +20,8 @@ slug: /cli
 ## Intro to the OpenFn CLI
 
 The [@openfn/cli](https://github.com/OpenFn/kit/tree/main/packages/cli) is a
-command line interface for running OpenFn locally. It enables developers to run,
-build, and test steps in an OpenFn workflow.
+command line interface for running OpenFn workflows locally. It enables
+developers to run, build, and test steps in an OpenFn workflow.
 
 This CLI replaces [@openfn/devtools](https://github.com/OpenFn/devtools) and
 provides a new suite of features and improvements, including:
@@ -35,6 +35,14 @@ provides a new suite of features and improvements, including:
 
 These features are designed to make it easier and more convenient for developers
 to use and understand OpenFn.
+
+:::caution Looking for a way to execute jobs from OpenFn v1 locally? Use Core!
+
+If you're looking for a way to execute jobs running on the OpenFn v1 platform,
+please see the documentation for **[@openfn/core](/documentation/core)** and
+[Devtools](/documentation/devtools/home).
+
+:::
 
 ## Prerequisites
 
@@ -454,10 +462,10 @@ by user id. The example below shows how we can:
 
 ```js title="getPosts.js"
 // Get all posts
-get("posts");
+get('posts');
 
 // Group posts by user id
-fn((state) => {
+fn(state => {
   const posts = state.data;
 
   // Group posts by userId
@@ -471,9 +479,9 @@ fn((state) => {
 });
 
 // Log posts where userId = 1
-fn((state) => {
+fn(state => {
   const { groupPostsByUserId } = state;
-  console.log("Post with userId 1", groupPostsByUserId[1]);
+  console.log('Post with userId 1', groupPostsByUserId[1]);
   return state;
 });
 ```

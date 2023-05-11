@@ -1,5 +1,5 @@
 // Example with language-salesforce
-alterState(state => {
+fn(state => {
   // return state => {
   return new Promise((resolve, reject) => {
     query('SELECT Name FROM Account')(state)
@@ -16,7 +16,7 @@ alterState(state => {
   // };
 });
 
-alterState(state => {
+fn(state => {
   console.log('and also in here!');
   console.log(state.references);
   return state;

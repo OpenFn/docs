@@ -1,4 +1,4 @@
-alterState(async state => {
+fn(async state => {
   const dataArray =
     state.data.body.st_grass_repeat ||
     state.data.body["plot_forest_area/st_grass_repeat"] ||
@@ -26,6 +26,7 @@ alterState(async state => {
       AnswerId: state.data.body._id,
     });
   }
+  
   return upsertMany(
     "WCSPROGRAMS_VegetationGrass",
     "WCSPROGRAMS_VegetationGrassCode",

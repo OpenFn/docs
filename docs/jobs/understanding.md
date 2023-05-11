@@ -52,7 +52,7 @@ execute each operation with state, then return state. If you want to execute
 operations inside another custom function, you must explicitly pass in state.
 
 ```js
-alterState(state => {
+fn(state => {
   return create('object', fields(
     field(...)
   ))(state)
@@ -65,7 +65,7 @@ Using `execute` you can string together several sequential operations inside a
 custom function.
 
 ```js
-alterState(state => {
+fn(state => {
   const { userName } = state.data.form.meta;
 
   if (userName != 'tester') {
@@ -94,7 +94,7 @@ moving on to your next operation. If `execute` doesn't work for your use case,
 you could use `Promise.all` and return an async function.
 
 ```js
-alterState(state => {
+fn(state => {
   console.log('Here we will await the result of a LOT of async operations.');
   console.log('First we define a bunch of different async functions.');
   const postClinics = async c => {
@@ -132,7 +132,7 @@ alterState(state => {
   return makePosts();
 });
 
-alterState(state => {
+fn(state => {
   console.log('I get called AFTER those async functions are resolved.');
   return state;
 });
