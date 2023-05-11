@@ -274,7 +274,7 @@ Run `openfn help` to see the full list of CLI arguments.
 
 1. Create a file called `getPosts.js` and write the following code
 
-   ```jsx
+   ```jsx title=getPosts.js
    get('https://jsonplaceholder.typicode.com/posts');
    fn(state => {
      console.log(state.data[0]);
@@ -458,7 +458,7 @@ of how to set up `state.configuration` for `language-http`.
 
 1. Update your `state.json` to look like this:
 
-   ```json
+   ```json title=state.json
    {
      "configuration": {
        "baseUrl": "https://jsonplaceholder.typicode.com"
@@ -738,7 +738,7 @@ array. Most of the helper functions for data manipulation are inherited from
 
 ##### Modify getPosts.js to group posts by user-ID
 
-```js
+```js title="getPosts.js"
 // Get all posts
 get('posts');
 
@@ -808,14 +808,14 @@ Discuss the results with your administrator.
 
 ### 8. Using Execution Plan
 
-Execution Plan is a powerful feature of `@openfn/cli` that allows you to define
+Execution plan is a powerful feature of `@openfn/cli` that allows you to define
 a list of jobs and rules for executing them. You can use an Execution Plan to
 orchestrate the flow of data between systems, and to handle errors and retries
 in a structured and automated way.
 
 ##### Workflow Plan Structure
 
-A Workflow Plan is a JSON object that consists of the following properties:
+A workflow plan is a JSON object that consists of the following properties:
 
 - `start` (required): The ID of the job that should be executed first.
 - `jobs` (required): An array of job objects, each of which represents a
@@ -833,9 +833,9 @@ A Workflow Plan is a JSON object that consists of the following properties:
 
 ###### Example of workflow Execution plan
 
-Here's an example of a simple Workflow Plan that consists of three jobs:
+Here's an example of a simple workflow plan that consists of three jobs:
 
-```json
+```json title="workflow.json"
 {
   "start": "start",
   "jobs": [
@@ -862,6 +862,12 @@ Here's an example of a simple Workflow Plan that consists of three jobs:
     }
   ]
 }
+```
+
+To execute the workflow execution plan
+
+```
+openfn workflow.json
 ```
 
 ## CLI Usage - Key Commands
