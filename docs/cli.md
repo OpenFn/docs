@@ -821,11 +821,14 @@ A workflow plan is a JSON object that consists of the following properties:
 - `jobs` (required): An array of job objects, each of which represents a
   specific task to be executed.
   - `id` (required): A unique ID that identifies the job.
+  - `configuration`: (optional) Specifies the configuration file associated with
+    the job
   - `data` (optional): An object that contains any data that should be passed to
     the job.
-  - `expression` (required): A string that contains a JavaScript function to be
-    executed as the job. The function should accept a state parameter and return
-    a new state object.
+  - `adaptor` (required): Specifies the adaptor used for the job
+  - `expression` (required): Specifies the JavaScript file associated with the
+    job. It can also be a string that contains a JavaScript function to be
+    executed as the job.
   - `next` (optional): An object that specifies the next job to be executed
     based on the output of the current job. The object should have one or more
     key-value pairs, where the key is the ID of the next job, and the value is a
@@ -842,23 +845,28 @@ Here's an example of a simple workflow plan that consists of three jobs:
     {
       "id": "start",
       "data": {
-        "defaultAnswer": 42
+        "name": "Foo Bar"
       },
-      "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
+      "adaptor": "common",
+      "expression": "hello.js",
       "next": {
-        "calculate": "!state.error"
+        "getUsers": "!state.error"
       }
     },
     {
-      "id": "calculate",
-      "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
+      "id": "getUsers",
+      "adaptor": "http",
+      "expression": "getUsers.js",
+      "configuration": "http-creds.json",
       "next": {
-        "result": true
+        "getPosts": true
       }
     },
     {
-      "id": "result",
-      "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
+      "id": "getPosts",
+      "adaptor": "http",
+      "configuration": "http-creds.json",
+      "expression": "getPosts.js"
     }
   ]
 }
