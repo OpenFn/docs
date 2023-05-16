@@ -104,15 +104,23 @@ _the same_ credential type as your adaptor.
 
 ### [INPUT TAB]
 
-The INPUT TAB is where you can see data that has been passed into your job during previous runs. This is the data you will transform and use in your operation (see EDITOR TAB).
+The INPUT TAB is where you can see examples of data that has been sent to your job during previous runs.
+
+In job 3, we'll be using the data in `names` from the input to create a tracked entity instance.
 
 ![lightning_input_data](/img/lightning_input_data.png)
+
+:::tip
+
+The _input_ shows you the data that is added to state and can be accessed in
+your job.
+
+:::
 
 
 ### [EDITOR TAB]
 
-The EDITOR TAB is where you define _what_ the job should do and which data from
-your from state (which contains your input) to use.
+The EDITOR TAB is where you define _what_ the job should do and which data from state (which contains your input) to use.
 
 :::tip
 
@@ -124,14 +132,7 @@ your external system), cron trigger, or a previous job you can find it in
 
 ![lightning_editor_1](/img/lightning_editor_1.png)
 
-In this job, we're using the `names` data from state (which we saw in the Input tab). It gets added to `state` along with the `configuration` from your credential.
-
-:::tip
-
-The _input_ shows you the data that is added to state and can be accessed in
-your job.
-
-:::
+In this job, we're using the `names` data from state (which we saw in the Input tab). 
 
 **What: Job expression**
 
