@@ -878,6 +878,12 @@ To execute the workflow execution plan
 openfn workflow.json
 ```
 
+To execute the workflow execution plan with adaptor autoinstall option
+
+```
+openfn workflow.json -i
+```
+
 ## CLI Usage - Key Commands
 
 You’ll learn about these commands in the following challenges, but please refer
