@@ -241,13 +241,13 @@ happening inside our jobs.
 2.  Re-run the job by running `openfn hello.js -a common -o tmp/output.json`.
 3.  Validate that you receive the logs below:
 
-    ```
-    [CLI] ✔ Compiled job from hello.js
-    [JOB] ℹ My name is { YourName }
-    [R/T] ✔ Operation 1 complete in 0ms
-    [CLI] ✔ Writing output to tmp/output.json
-    [CLI] ✔ Done in 366ms! ✨
-    ```
+```
+[CLI] ✔ Compiled job from hello.js
+[JOB] ℹ My name is { YourName }
+[R/T] ✔ Operation 1 complete in 0ms
+[CLI] ✔ Writing output to tmp/output.json
+[CLI] ✔ Done in 366ms! ✨
+```
 
 ### 2. Using adaptor helper functions
 
