@@ -836,7 +836,8 @@ A workflow plan is a JSON object that consists of the following properties:
 
 ###### Example of workflow Execution plan
 
-Here's an example of a simple workflow plan that consists of three jobs:
+<details>
+<summary>Here's an example of a simple workflow plan that consists of three jobs:</summary>
 
 ```json title="workflow.json"
 {
@@ -857,7 +858,7 @@ Here's an example of a simple workflow plan that consists of three jobs:
       "id": "getUsers",
       "adaptor": "http",
       "expression": "getUsers.js",
-      "configuration": "http-creds.json",
+      "configuration": "tmp/http-creds.json",
       "next": {
         "getPosts": true
       }
@@ -865,14 +866,35 @@ Here's an example of a simple workflow plan that consists of three jobs:
     {
       "id": "getPosts",
       "adaptor": "http",
-      "configuration": "http-creds.json",
+      "configuration": "tmp/http-creds.json",
       "expression": "getPosts.js"
     }
   ]
 }
 ```
 
-To execute the workflow execution plan
+</details>
+
+To execute the workflow execution plan we run `openfn [path/to/workflow.json]`.
+
+<details>
+<summary>
+For example if you created <code>workflow.json</code> in root of your project directory
+</summary>
+
+```
+    devchallenge
+    ├── .gitignore
+    ├── hello.js
+    ├── getUsers.js
+    ├── getPosts.js
+    ├── workflow.json
+    └── tmp
+        ├── http-creds.json
+        └── output.json
+```
+
+</details>
 
 ```
 openfn workflow.json
@@ -883,6 +905,35 @@ To execute the workflow execution plan with adaptor autoinstall option
 ```
 openfn workflow.json -i
 ```
+
+:::danger Important
+
+When working with the `workflow.json` file, it is important to handle sensitive
+information, such as credentials and initial input data, in a secure manner. To
+ensure the protection of your sensitive data, please follow the guidelines
+outlined below:
+
+1. Configuration Key: In the `workflow.json` file, specify a path to a
+   gitignored configuration file that will be contain necessary credentials that
+   will be used to access the destination system. For example:
+
+   ```
+   {
+      ...
+      "configuration": "tmp/openMRS-credentials.json"
+    },
+   ```
+
+2. Data Key: Incase you need to path initial data to your job, Specify a path to
+   a gitignored data file
+   ```
+   {
+   ...
+    "data": "tmp/initial-data.json",
+   }
+   ```
+
+:::
 
 ## CLI Usage - Key Commands
 
@@ -952,18 +1003,6 @@ openfn compile [path]
 ```
 
 Will compile the openfn job and print or save the resulting js.
-
-<!--
-TODO: @Mtuchi revisit once we have a clear picture of the future of strict-mode
-### Strict Mode
-
-By default CLI will return only the `data` key inside the resulting state after
-a successfully run. To Allow properties other than data to be returned in you need
-to use strict mode.
-
-```sh
-openfn hello.js -a http --no-strict-output
-``` -->
 
 Learn more about CLI
 [github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
