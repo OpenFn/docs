@@ -72,7 +72,7 @@ please see the documentation for **[@openfn/core](/documentation/core)** and
 Let's start by running a simple command with the CLI. Type the following into
 your terminal:
 
-```
+```bash
 openfn test
 ```
 
@@ -82,7 +82,7 @@ command.
 <details>
   <summary>You should see some output like this:</summary>
 
-```sh
+```bash
 [CLI] ℹ Versions:
         ▸ node.js     18.12.1
         ▸ cli         0.0.39
@@ -161,7 +161,7 @@ export default [fn()];
 You can see this (and a lot more detail) by running the test command with
 debug-level logging:
 
-```
+```bash
 openfn test --log debug
 ```
 
@@ -185,7 +185,7 @@ openfn test --log debug
 4. (Optional) Use the `tree` command to check that your directory structure
    looks correct. Running `tree -a` in your `devchallenge` folder should display
    a structure like this:
-   ```
+   ```bash
     devchallenge
     ├── .gitignore
     └── tmp
@@ -202,34 +202,35 @@ openfn test --log debug
     ```
 
     <details>
-    <summary>What is console.log?</summary>
-    <code>console.log</code> is a core JavaScript language function which lets
-    us send messages to the terminal window.
+      <summary>What is console.log?</summary>
+      <code>console.log</code> is a core JavaScript language function which lets
+      us send messages to the terminal window.
     </details>
 
 1.  Run the job using the CLI
 
-    ```sh
-    openfn hello.js -o tmp/output.json
-    ```
+        ```bash
+        openfn hello.js -o tmp/output.json
+        ```
 
-    <details>
+        <details>
+
     <summary>View expected output</summary>
 
-    ```
-    [CLI] ⚠ WARNING: No adaptor provided!
-    [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
-              openfn job.js -a common
-    [CLI] ✔ Compiled from helo.js
-    [R/T] ♦ Starting job job-1
-    [JOB] ℹ Hello World!
-    [R/T] ✔ Completed job job-1 in 1ms
-    [CLI] ✔ State written to tmp/output.json
-    [CLI] ✔ Finished in 17ms ✨
+        ```bash
+        [CLI] ⚠ WARNING: No adaptor provided!
+        [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
+                  openfn job.js -a common
+        [CLI] ✔ Compiled from helo.js
+        [R/T] ♦ Starting job job-1
+        [JOB] ℹ Hello World!
+        [R/T] ✔ Completed job job-1 in 1ms
+        [CLI] ✔ State written to tmp/output.json
+        [CLI] ✔ Finished in 17ms ✨
 
-    ```
+        ```
 
-    </details>
+        </details>
 
 Note that our `console.log` statement was printed as `[JOB] Hello world!`. Using
 the console like this is helpful for debugging and/or understanding what's
@@ -241,7 +242,7 @@ happening inside our jobs.
 2.  Re-run the job by running `openfn hello.js -a common -o tmp/output.json`.
 3.  Validate that you receive the logs below:
 
-```
+```bash
 [CLI] ✔ Compiled job from hello.js
 [JOB] ℹ My name is { YourName }
 [R/T] ✔ Operation 1 complete in 0ms
@@ -284,7 +285,7 @@ Run `openfn help` to see the full list of CLI arguments.
 
 2. Run the job by running
 
-```sh
+```bash
 openfn getPosts.js -i -a http -o tmp/output.json
 ```
 
@@ -294,7 +295,7 @@ adaptor using `-i` argument
 <details>
   <summary>3. See expected CLI logs</summary>
 
-```
+```bash
   [CLI] ✔ Installing packages...
   [CLI] ✔ Installed @openfn/language-http@4.2.8
   [CLI] ✔ Installation complete in 14.555s
@@ -329,7 +330,7 @@ API, get a list of users and print the first user object.
     `openfn getUsers.js -a http -o tmp/output.json`.
 3.  Validate that you receive this expected CLI logs:
 
-```sh
+```bash
 openfn getUsers.js -a http -o tmp/output.json
 ```
 
@@ -425,7 +426,7 @@ Or you can specify the path to the state file by passing the option -s,
 
 Specify a path to your `state.json` file with this command:
 
-```sh
+```bash
 openfn hello.js -a http -s tmp/state.json -o tmp/output.json
 ```
 
@@ -485,13 +486,13 @@ of how to set up `state.configuration` for `language-http`.
 
 3. Now run the job using the following command
 
-   ```sh
+   ```bash
    openfn getPosts.js -a http -s tmp/state.json -o tmp/output.json
    ```
 
    And validate that you see the expected CLI logs:
 
-   ```sh
+   ```bash
    [CLI] ✔ Compiled job from getPosts.js
    GET request succeeded with 200 ✓
    [R/T] ✔ Operation 1 complete in 120ms
@@ -679,7 +680,7 @@ fn(state => {
 
 > Expected CLI logs
 
-```
+```bash
 [CLI] ✘ TypeError: path.match is not a function
     at dataPath (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:258:26)
     at dataValue (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:262:22)
@@ -703,7 +704,7 @@ fix the error by passing a string in dataValue i.e `console.log(dataValue(“1�
 
 > Expected CLI logs
 
-```
+```bash
 [CLI] ✔ Compiled job from debug.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 722ms
@@ -780,7 +781,7 @@ export many functions from `language-common`.
 
 > Expected CLI logs
 
-```sh
+```bash
 [CLI] ✔ Compiled job from getPosts.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 730ms
@@ -882,7 +883,7 @@ To execute the workflow execution plan we run `openfn [path/to/workflow.json]`.
 For example if you created <code>workflow.json</code> in root of your project directory
 </summary>
 
-```
+```bash
     devchallenge
     ├── .gitignore
     ├── hello.js
@@ -896,13 +897,13 @@ For example if you created <code>workflow.json</code> in root of your project di
 
 </details>
 
-```
+```bash
 openfn workflow.json
 ```
 
 To execute the workflow execution plan with adaptor autoinstall option
 
-```
+```bash
 openfn workflow.json -i
 ```
 
@@ -917,7 +918,7 @@ outlined below:
    gitignored configuration file that will be contain necessary credentials that
    will be used to access the destination system. For example:
 
-   ```
+   ```json
    {
       ...
       "configuration": "tmp/openMRS-credentials.json"
@@ -926,7 +927,7 @@ outlined below:
 
 2. Data Key: Incase you need to path initial data to your job, Specify a path to
    a gitignored data file
-   ```
+   ```json
    {
    ...
     "data": "tmp/initial-data.json",
@@ -942,19 +943,19 @@ to this section for the key commands used in working with the CLI.
 
 ### Check the version
 
-```
+```bash
 openfn version
 ```
 
 ### Get help
 
-```
+```bash
 openfn help
 ```
 
 ### Run a job
 
-```
+```bash
 openfn path/to/job.js -ia {adaptor-name}
 ```
 
@@ -967,7 +968,7 @@ You can find the list of publicly available adaptors [here](/adaptors).
 > file) For example `openfn execute hello.js ` Reads hello.js, looks for state
 > and output in foo
 
-```
+```bash
 -i, --autoinstall Auto-install the language adaptor
 -a, --adaptors, --adaptor A language adaptor to use for the job
 ```
@@ -981,7 +982,7 @@ You can pass `-l info` or `--log info` to get more feedback about what's
 happening, or `--log debug` for more details than you could ever use. Below is
 the list of different log levels
 
-```
+```bash
 openfn hello.js -a http -l none
 ```
 
@@ -998,7 +999,7 @@ The CLI will attempt to compile your job code into normalized Javascript. It
 will do a number of things to make your code robust, portable, and easier to
 debug from a pure JS perspective.
 
-```
+```bash
 openfn compile [path]
 ```
 
