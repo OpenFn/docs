@@ -2,12 +2,87 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://docs.openfn.org/fr/blog</id>
     <title>The OpenFn Blog</title>
-    <updated>2023-04-13T00:00:00.000Z</updated>
+    <updated>2023-06-01T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://docs.openfn.org/fr/blog"/>
     <subtitle>OpenFn/docs Blog</subtitle>
     <icon>https://docs.openfn.org/fr/img/favicon.ico</icon>
     <rights>Copyright © 2023 Open Function Group, LLC.</rights>
+    <entry>
+        <title type="html"><![CDATA[Open Function Group receives impact investment]]></title>
+        <id>https://docs.openfn.org/fr/blog/2023/06/01/open-function-group</id>
+        <link href="https://docs.openfn.org/fr/blog/2023/06/01/open-function-group"/>
+        <updated>2023-06-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The team behind OpenFn has secured a $2M investment from the]]></summary>
+        <content type="html"><![CDATA[<p>The team behind OpenFn has secured a $2M investment from the
+<a href="https://www.steelefoundationforhope.org/" target="_blank" rel="noopener noreferrer">Steele Foundation for Hope</a> to help
+us scale our impact.</p><blockquote><p><strong>tl;dr:</strong> OpenFn, the open source
+<a href="https://digitalpublicgoods.net/" target="_blank" rel="noopener noreferrer">Digital Public Good</a> (DPG),
+<a href="https://digitalsquare.org/digital-health-global-goods" target="_blank" rel="noopener noreferrer">Global Good for Health</a>,
+and increasingly important part of the digital public infrastructure that's
+relied on by governments and NGOs around the world, is now in a better
+position than ever to serve our growing community of global users.</p></blockquote><p>What follows is a description of what the company behind it is doing and
+why—specifically in terms of what it will mean for the future of the OpenFn DPG.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="some-context">Some context<a href="#some-context" class="hash-link" aria-label="Direct link to Some context" title="Direct link to Some context">​</a></h2><details class="details_lb9f alert alert--info details_b_Ee" data-collapsed="true"><summary>What is OpenFn?</summary><div><div class="collapsibleContent_i85q"><div>OpenFn is workflow automation platform in use in over 40 countries by governments and social-sector organizations to automate critical business processes that run across multiple systems.</div><br><div>You are on our blog &amp; docs site. If you're new to OpenFn, you may want to start on our homepage: <a href="https://www.openfn.org" target="_blank" rel="noopener noreferrer">www.openfn.org</a></div></div></div></details><p><strong>Open Function Group</strong> is a public benefit corporation and we are the primary
+stewards of the OpenFn DPG. Historically, most of our revenue came from selling
+software licenses and doing implementation work around a proprietary web
+application built on top of the open-source OpenFn integration toolkit. We have
+reinvested our earned revenue over the years into the development of this free
+and open source (FOSS) toolkit. In recent years, since committing to making the
+next version of our flagship product fully open-source, we’ve also received key
+grants, donations, and pull requests to strengthen the toolkit and this next
+version, OpenFn/Lightning, directly.</p><p>The <strong>Steele Foundation for Hope</strong> is a foundation that invests in lasting
+solutions for some of humanity’s hardest challenges. They believe that advances
+found through technology and innovation are key to improving quality of life for
+less fortunate people around the world. They share our vision for a diverse,
+thriving ICT4D sector with local ownership of solutions and distribution of
+power, and we are incredibly excited to have their backing for this next stage
+OpenFn’s growth.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-were-doing">What we're doing<a href="#what-were-doing" class="hash-link" aria-label="Direct link to What we're doing" title="Direct link to What we're doing">​</a></h2><p>Making our flagship product fully open-source is important to our long-term
+strategy for impact at scale. Even when governments and NGOs choose a managed
+OpenFn offering, they need to know that they're not locked in. They've got to
+own their solution, and that means having the substantive freedom to implement,
+deploy, run, maintain, or easily migrate off OpenFn when and however they want.</p><p>At the same time, customers running critical workflows on OpenFn only chose our
+technology in the first place because they're confident that it's well built,
+well maintained, and isn't going anywhere anytime soon. In other words, they
+want robust software that's supported by reliable businesses—in that sense, they
+do not want us to do anything that might threaten the long-term sustainability
+of the company that built it.</p><p>Donor funding to enhance our open source software and documentation has been
+absolutely pivotal to date, and we’ll continue to receive grant funding for
+this, <strong>but the investment from the Steele Foundation allows us to do something
+different.</strong> It allows us to expand key aspects of our <em>business</em> that may
+ultimately help us reduce our reliance on donors and drastically expand the
+social impact of the free and open source digital public good we provide.</p><p>Two major initiatives that are already underway are a UX redesign focused on
+new-user onboarding and the development of a new channel partner certification
+program. Through the latter, we've seen staff at two different partner
+organizations get certified and one has gone on to deliver an OpenFn
+implementation with the Ministry of Health in St. Lucia, automating a vaccine
+reporting workflow involving DHIS2 and a custom ministry database.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="what-this-means-for-the-dpg">What this means for the DPG<a href="#what-this-means-for-the-dpg" class="hash-link" aria-label="Direct link to What this means for the DPG" title="Direct link to What this means for the DPG">​</a></h2><p>So what does an investment in Open Function Group mean for the future of the
+OpenFn DPG?</p><p>First, it means we have the ability to set and execute on a longer-term strategy
+for the product—one that we feel will allow the impact of the DPG to grow
+exponentially by decoupling adoption from the growth of our own core team. A
+large portion of this investment will go directly into the design and
+implementation of features in the Lightning code base, made in conversation with
+our open-source steering committee for the immediate benefit of the whole
+community.</p><p>Second, we'll be able to back up that new product strategy with serious capacity
+building and business generation initiatives that grow the implementer
+network—this means that there will be more capable OpenFn implementers within
+governments, NGOs, and for-profit consultancies all over the world.</p><p>Finally, as we iterate on and improve our software-delivery-as-a-service
+(hosting, deployment, maintenance, support) model, we’ll achieve greater
+financial stability, safeguarding the continued development of the DPG for years
+to come.</p><h2 class="anchor anchorWithStickyNavbar_LWe7" id="one-more-thing">One more thing<a href="#one-more-thing" class="hash-link" aria-label="Direct link to One more thing" title="Direct link to One more thing">​</a></h2><p>This is a significant moment for the OpenFn community. On behalf of the team at
+Open Function Group, I want to thank all of our users, contributors,
+implementers, and partners. Your work, and the hope that you put in ICT4D is why
+we're doing what we're doing.</p><p>Whether you're a longtime forum user or are yet to make you first post on
+<a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer">community.openfn.org</a>, now is the perfect time to
+make some noise.</p><ul><li>Ask a question about the data model. (Or the business model!)</li><li>Share about or get advice on your upcoming implementations.</li><li>Ask about the open source steering committee.</li><li>Request a new feature for Lightning.</li><li>Learn how to build new adaptors.</li><li>Report a bug.</li><li>Tell us why you love OpenFn or what you hate about it. (OpenFn is only here
+because of <em>you</em> and the importance of your work.)</li></ul><p>Your use cases, workflows, adaptors, features, frustrations, feelings of
+delight... they have driven the product forward for the last 9 years and we
+can’t tell you how grateful we are for your continued support and willingness to
+contribute. Thank you.</p><p>— Taylor</p>]]></content>
+        <author>
+            <name>Taylor Downs</name>
+            <uri>https://github.com/taylordowns2000</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[OpenFn Lightning Beta]]></title>
         <id>https://docs.openfn.org/fr/blog/2023/04/13/lightning-beta</id>
