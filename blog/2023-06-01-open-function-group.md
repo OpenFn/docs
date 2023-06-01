@@ -27,6 +27,9 @@ why—specifically in terms of what it will mean for the future of the OpenFn DP
 <details>
   <summary>What is OpenFn?</summary>
   <div>
+    <img src="/img/openfn-color.png" width="100" />
+  </div>
+  <div>
     OpenFn is workflow automation platform in use in over 40 countries by
     governments and social-sector organizations to automate critical business
     processes that run across multiple systems.
@@ -38,6 +41,8 @@ why—specifically in terms of what it will mean for the future of the OpenFn DP
   </div>
 </details>
 
+<img src="/img/ofg.png" width="300"/>
+
 **Open Function Group** is a public benefit corporation and we are the primary
 stewards of the OpenFn DPG. Historically, most of our revenue came from selling
 software licenses and doing implementation work around a proprietary web
@@ -47,6 +52,8 @@ and open source (FOSS) toolkit. In recent years, since committing to making the
 next version of our flagship product fully open-source, we’ve also received key
 grants, donations, and pull requests to strengthen the toolkit and this next
 version, OpenFn/Lightning, directly.
+
+<img src="/img/sffh.png" width="400" />
 
 The **Steele Foundation for Hope** is a foundation that invests in lasting
 solutions for some of humanity’s hardest challenges. They believe that advances
