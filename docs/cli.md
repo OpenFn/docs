@@ -814,26 +814,37 @@ a list of jobs and rules for executing them. You can use an Execution Plan to
 orchestrate the flow of data between systems, and to handle errors and retries
 in a structured and automated way.
 
+_For example, if you have two jobs in your workflow (GET users from system A &
+POST users to system B), you can use your execution plan to automatically run
+both jobs from start to finish. This imitates the
+[flow and fail trigger patterns](https://docs.openfn.org/documentation/build/triggers#flow-triggers)
+on the OpenFn platform where a second job should run after the first one
+succeeds or fails, respectively, using the data returned from the first job. “_
+
 ##### Workflow Plan Structure
 
 A workflow plan is a JSON object that consists of the following properties:
 
-- `start` (required): The ID of the job that should be executed first.
+- `start` (optional): The ID of the job that should be executed first (defaults
+  to jobs[0]).
 - `jobs` (required): An array of job objects, each of which represents a
   specific task to be executed.
-  - `id` (required): A unique ID that identifies the job.
+  - `id` (required): A job name that is unique to the workflow and helps you ID
+    your job.
   - `configuration`: (optional) Specifies the configuration file associated with
     the job
-  - `data` (optional): An object that contains any data that should be passed to
-    the job.
-  - `adaptor` (required): Specifies the adaptor used for the job
+  - `data` (optional): An object that contains any pre-populate data that should
+    be passed to the job (this will be overriden by keys in previous state).
+  - `adaptor` (required): Specifies the adaptor used for the job (version
+    optional)
   - `expression` (required): Specifies the JavaScript file associated with the
     job. It can also be a string that contains a JavaScript function to be
     executed as the job.
-  - `next` (optional): An object that specifies the next job to be executed
-    based on the output of the current job. The object should have one or more
-    key-value pairs, where the key is the ID of the next job, and the value is a
-    boolean expression that determines whether the next job should be executed.
+  - `next` (optional): An object that specifies which jobs to call next.All
+    edges returning true will run. The object should have one or more key-value
+    pairs, where the key is the ID of the next job, and the value is a boolean
+    expression that determines whether the next job should be executed.If there
+    are no next edges, the workflow will end
 
 ###### Example of workflow Execution plan
 
@@ -842,18 +853,13 @@ A workflow plan is a JSON object that consists of the following properties:
 
 ```json title="workflow.json"
 {
-  "start": "start",
+  "start": "getUsers",
   "jobs": [
     {
-      "id": "start",
-      "data": {
-        "name": "Foo Bar"
-      },
-      "adaptor": "common",
-      "expression": "hello.js",
-      "next": {
-        "getUsers": "!state.error"
-      }
+      "id": "createUsers",
+      "adaptor": "http",
+      "expression": "createUsers.js",
+      "configuration": "tmp/http-creds.json"
     },
     {
       "id": "getUsers",
@@ -861,7 +867,8 @@ A workflow plan is a JSON object that consists of the following properties:
       "expression": "getUsers.js",
       "configuration": "tmp/http-creds.json",
       "next": {
-        "getPosts": true
+        "createUsers": true,
+        "getPosts": false
       }
     },
     {
@@ -872,6 +879,64 @@ A workflow plan is a JSON object that consists of the following properties:
     }
   ]
 }
+```
+
+</details>
+
+<details>
+  <summary>tmp/http-creds.json</summary>
+
+```json title="http-creds.json"
+{
+  "baseUrl": "https://jsonplaceholder.typicode.com/"
+}
+```
+
+</details>
+
+<details>
+  <summary>getUsers.js</summary>
+
+```json title="getUsers.js"
+get('users', {}, state => {
+  function changeEmailDomain(email) {
+    // Split the email into username and domain parts
+    const [username, domain] = email.split('@');
+    return `${username}@openf.demo`;
+  }
+
+  const newUsers = state.data.map(user => {
+    return {
+      name: `${user.name}-OpenFn`,
+      username: `${user.username}-openfn`,
+      email: changeEmailDomain(user.email),
+      website: 'openfn.org',
+      company: {
+        name: 'OpenFn',
+        catchPhrase: 'Integration and automation made easy',
+      },
+    };
+  });
+  return { ...state, data: {}, response: {}, newUsers };
+});
+```
+
+</details>
+
+<details>
+  <summary>createUsers.js</summary>
+
+```json title="createUsers.js"
+post('users', state => state.newUsers);
+```
+
+</details>
+
+<details>
+  <summary>getPosts.js</summary>
+
+```json title="getPosts.js"
+get('posts');
 ```
 
 </details>
@@ -888,6 +953,7 @@ For example if you created <code>workflow.json</code> in root of your project di
     ├── .gitignore
     ├── hello.js
     ├── getUsers.js
+    ├── createUsers.js
     ├── getPosts.js
     ├── workflow.json
     └── tmp
@@ -906,6 +972,10 @@ To execute the workflow execution plan with adaptor autoinstall option
 ```bash
 openfn workflow.json -i
 ```
+
+_On execution, this workflow plan will first auto-install the adaptors then run
+*getUsers* job successed then *createUsers* will run using the final state of
+*getUsers*. getPosts will not run because it was specified as false_
 
 :::danger Important
 
