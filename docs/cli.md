@@ -807,23 +807,31 @@ build function that will get posts by user id.
 
 Discuss the results with your administrator.
 
-### 8. Using Execution Plan
+### 8. Running Workflows
 
-Execution plan is a powerful feature of `@openfn/cli` that allows you to define
-a list of jobs and rules for executing them. You can use an Execution Plan to
-orchestrate the flow of data between systems, and to handle errors and retries
-in a structured and automated way.
+As of `v0.0.35` the `@openfn/cli` supports running workflows as well as jobs.
+that allows you to define a list of jobs and rules for executing them. You can
+use a workflow to orchestrate the flow of data between systems in a structured
+and automated way.
 
 _For example, if you have two jobs in your workflow (GET users from system A &
-POST users to system B), you can use your execution plan to automatically run
-both jobs from start to finish. This imitates the
+POST users to system B), you can setup your workflow to run all jobs in sequence
+from start to finish. This imitates the
 [flow and fail trigger patterns](https://docs.openfn.org/documentation/build/triggers#flow-triggers)
 on the OpenFn platform where a second job should run after the first one
 succeeds or fails, respectively, using the data returned from the first job. “_
 
-##### Workflow Plan Structure
+:::info TLRD
 
-A workflow plan is a JSON object that consists of the following properties:
+You won't have to assemble the initial state of the next job, the final state of
+the upstream job will be passed down to the down stream job as initial state
+
+:::
+
+##### Workflow
+
+A workflow is in execution plan for running several jobs in a sequence. It is
+defined as a JSON object that consists of the following properties:
 
 - `start` (optional): The ID of the job that should be executed first (defaults
   to jobs[0]).
@@ -846,10 +854,10 @@ A workflow plan is a JSON object that consists of the following properties:
     expression that determines whether the next job should be executed.If there
     are no next edges, the workflow will end
 
-###### Example of workflow Execution plan
+###### Example of a workflow
 
 <details>
-<summary>Here's an example of a simple workflow plan that consists of three jobs:</summary>
+<summary>Here's an example of a simple workflow that consists of three jobs:</summary>
 
 ```json title="workflow.json"
 {
@@ -941,7 +949,7 @@ get('posts');
 
 </details>
 
-To execute the workflow execution plan we run `openfn [path/to/workflow.json]`.
+To execute the workflow we run `openfn [path/to/workflow.json]`.
 
 <details>
 <summary>
@@ -964,18 +972,30 @@ For example if you created <code>workflow.json</code> in root of your project di
 </details>
 
 ```bash
-openfn workflow.json
+openfn workflow.json -o tmp/output.json
 ```
 
-To execute the workflow execution plan with adaptor autoinstall option
+:::info This will work only if adaptors are installed
+
+On execution, this workflow will first run _getUsers_ job,If successed then
+_createUsers_ will run using the final state of _getUsers_. _getPosts_ will not
+run
+
+:::
+
+To execute the workflow with adaptor autoinstall option
 
 ```bash
-openfn workflow.json -i
+openfn workflow.json -i -o tmp/output.json
 ```
 
-_On execution, this workflow plan will first auto-install the adaptors then run
-*getUsers* job successed then *createUsers* will run using the final state of
-*getUsers*. getPosts will not run because it was specified as false_
+:::info
+
+On execution, this workflow will first auto-install the adaptors then run
+_getUsers_ job,If successed then _createUsers_ will run using the final state of
+_getUsers_. _getPosts_ will not run
+
+:::
 
 :::danger Important
 
