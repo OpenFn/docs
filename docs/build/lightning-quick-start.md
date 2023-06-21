@@ -106,14 +106,13 @@ _the same_ credential type as your adaptor.
 
 The INPUT TAB is where you can see examples of data that has been sent to your job during previous runs.
 
-In job 3, we'll be using the data in `names` from the input to create a tracked entity instance.
+In job 3, we'll be using the data values that are in `names` which are `"Wycliffe"` and `"Orao"` in this example. Can you see them? 
 
 ![lightning_input_data](/img/lightning_input_data.png)
 
 :::tip
 
-The _input_ shows you the data that is added to state and can be accessed in
-your job.
+The _input_ data of a job can be accessed through state. For example, if you want the `names` values from an input, you can access it at `state.names`.
 
 :::
 
