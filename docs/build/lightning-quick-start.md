@@ -104,22 +104,25 @@ _the same_ credential type as your adaptor.
 
 ### [INPUT TAB]
 
-The INPUT TAB is where you can see examples of data that has been sent to your job during previous runs.
+The INPUT TAB is where you can see examples of data that has been sent to your
+job during previous runs.
 
-In job 3, we'll be using the data values that are in `names` which are `"Wycliffe"` and `"Orao"` in this example. Can you see them? 
+In job 3, we'll be using the data values that are in `names` which are
+`"Wycliffe"` and `"Orao"` in this example. Can you see them?
 
 ![lightning_input_data](/img/lightning_input_data.png)
 
 :::tip
 
-The _input_ data of a job can be accessed through state. For example, if you want the `names` values from an input, you can access it at `state.names`.
+The _input_ data of a job can be accessed through state. For example, if you
+want the `names` values from an input, you can access it at `state.names`.
 
 :::
 
-
 ### [EDITOR TAB]
 
-The EDITOR TAB is where you define _what_ the job should do and which data from state (which contains your input) to use.
+The EDITOR TAB is where you define _what_ the job should do and which data from
+state (which contains your input) to use.
 
 :::tip
 
@@ -131,7 +134,8 @@ your external system), cron trigger, or a previous job you can find it in
 
 ![lightning_editor_1](/img/lightning_editor_1.png)
 
-In this job, we're using the `names` data from state (which we saw in the Input tab). 
+In this job, we're using the `names` data from state (which we saw in the Input
+tab).
 
 **What: Job expression**
 
