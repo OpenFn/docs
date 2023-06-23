@@ -85,6 +85,15 @@ module.exports = {
       ],
     },
     {
+      type: 'category',
+      label: 'Standards',
+      items: [
+        'standards/digital-public-goods',
+        'standards/global-goods',
+        'standards/openhie',
+      ],
+    },
+    {
       type: 'doc',
       id: 'faqs',
     },
