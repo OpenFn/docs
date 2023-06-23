@@ -85,6 +85,13 @@ module.exports = {
       ],
     },
     {
+      type: 'category',
+      label: 'Standards',
+      items: [
+        'standards/openhie',
+      ],
+    },
+    {
       type: 'doc',
       id: 'faqs',
     },
