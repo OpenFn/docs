@@ -88,9 +88,9 @@ module.exports = {
       type: 'category',
       label: 'Standards',
       items: [
-        'standards/openhie',
         'standards/digital-public-goods',
-        'standards/global-goods'
+        'standards/global-goods',
+        'standards/openhie',
       ],
     },
     {
