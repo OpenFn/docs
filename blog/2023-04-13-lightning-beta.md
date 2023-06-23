@@ -75,13 +75,13 @@ each page might be for.
 ** 3. Using the [quick-start guide](/documentation/build/lightning-quick-start),
 figure out how OpenFn works and what you can do in the application.**
 
-What are jobs, trigger and adaptors? How do you run a job? What is the input?
-
 ** 4. Now, in your own words, explain to someone how to build a workflow.**
 
 What is a workflow and how do I build one?
 
-Why is OpenFn useful? What might discourage you from using it?
+What are jobs, trigger and adaptors? How do you run a job? What is the input?
+
+Why can OpenFn be used for? What might discourage you from using it?
 
 ** 5. Send the recording to our product manager Amber at amber@openfn.org.**
 
