@@ -810,12 +810,12 @@ Discuss the results with your administrator.
 ### 8. Running Workflows
 
 As of `v0.0.35` the `@openfn/cli` supports running workflows as well as jobs.
-that allows you to define a list of jobs and rules for executing them. You can
+that allow you to define a list of jobs and rules for executing them. You can
 use a workflow to orchestrate the flow of data between systems in a structured
 and automated way.
 
 _For example, if you have two jobs in your workflow (GET users from system A &
-POST users to system B), you can setup your workflow to run all jobs in sequence
+POST users to system B), you can set up your workflow to run all jobs in sequence
 from start to finish. This imitates the
 [flow trigger patterns](https://docs.openfn.org/documentation/build/triggers#flow-triggers)
 on the OpenFn platform where a second job should run after the first one
@@ -824,13 +824,13 @@ succeeds, respectively, using the data returned from the first job. “_
 :::info TLRD
 
 You won't have to assemble the initial state of the next job, the final state of
-the upstream job will be passed down to the down stream job as initial state
+the upstream job will be passed down to the downstream job as initial state
 
 :::
 
 ##### Workflow
 
-A workflow is in execution plan for running several jobs in a sequence. It is
+A workflow is in the execution plan for running several jobs in a sequence. It is
 defined as a JSON object that consists of the following properties:
 
 - `start` (optional): The ID of the job that should be executed first (defaults
@@ -842,7 +842,7 @@ defined as a JSON object that consists of the following properties:
   - `configuration`: (optional) Specifies the configuration file associated with
     the job
   - `data` (optional): An object that contains any pre-populate data that should
-    be passed to the job (this will be overriden by keys in previous state).
+    be passed to the job (this will be overridden by keys in the previous state).
   - `adaptor` (required): Specifies the adaptor used for the job (version
     optional)
   - `expression` (required): Specifies the JavaScript file associated with the
@@ -1066,7 +1066,7 @@ openfn workflow.json -o tmp/output.json
 
 :::info This will work only if adaptors are installed
 
-On execution, this workflow will first run _getPatients_ job,If successed then
+On execution, this workflow will first run _getPatients_ job,If succeed then
 _createTEIs_ will run using the final state of _getPatients_.
 _getGlobalOrgsUnit_ will not run
 
@@ -1081,7 +1081,7 @@ openfn workflow.json -i -o tmp/output.json
 :::info
 
 On execution, this workflow will first auto-install the adaptors then run
-_getPatients_ job,If successed then _createTEIs_ will run using the final state
+_getPatients_ job,If succeed then _createTEIs_ will run using the final state
 of _getPatients_. _getGlobalOrgsUnit_ will not run
 
 :::
@@ -1094,7 +1094,7 @@ ensure the protection of your sensitive data, please follow the guidelines
 outlined below:
 
 1. Configuration Key: In the `workflow.json` file, specify a path to a
-   gitignored configuration file that will be contain necessary credentials that
+   git ignored configuration file that will contain necessary credentials that
    will be used to access the destination system. For example:
 
    ```json
