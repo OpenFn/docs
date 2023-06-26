@@ -817,9 +817,9 @@ and automated way.
 _For example, if you have two jobs in your workflow (GET users from system A &
 POST users to system B), you can setup your workflow to run all jobs in sequence
 from start to finish. This imitates the
-[flow and fail trigger patterns](https://docs.openfn.org/documentation/build/triggers#flow-triggers)
+[flow trigger patterns](https://docs.openfn.org/documentation/build/triggers#flow-triggers)
 on the OpenFn platform where a second job should run after the first one
-succeeds or fails, respectively, using the data returned from the first job. “_
+succeeds, respectively, using the data returned from the first job. “_
 
 :::info TLRD
 
@@ -861,29 +861,30 @@ defined as a JSON object that consists of the following properties:
 
 ```json title="workflow.json"
 {
-  "start": "getUsers",
+  "start": "getPatients",
   "jobs": [
     {
-      "id": "createUsers",
+      "id": "getPatients",
       "adaptor": "http",
-      "expression": "createUsers.js",
-      "configuration": "tmp/http-creds.json"
-    },
-    {
-      "id": "getUsers",
-      "adaptor": "http",
-      "expression": "getUsers.js",
+      "expression": "getPatients.js",
       "configuration": "tmp/http-creds.json",
       "next": {
-        "createUsers": true,
-        "getPosts": false
+        "getGlobalOrgsUnit": true
       }
     },
     {
-      "id": "getPosts",
-      "adaptor": "http",
-      "configuration": "tmp/http-creds.json",
-      "expression": "getPosts.js"
+      "id": "getGlobalOrgsUnit",
+      "adaptor": "common",
+      "expression": "getGlobalOrgsUnit.js",
+      "next": {
+        "createTEIs": true
+      }
+    },
+    {
+      "id": "createTEIs",
+      "adaptor": "dhis2",
+      "expression": "createTEIs.js",
+      "configuration": "tmp/dhis2-creds.json"
     }
   ]
 }
@@ -894,7 +895,7 @@ defined as a JSON object that consists of the following properties:
 <details>
   <summary>tmp/http-creds.json</summary>
 
-```json title="http-creds.json"
+```json title="tmp/http-creds.json"
 {
   "baseUrl": "https://jsonplaceholder.typicode.com/"
 }
@@ -903,48 +904,136 @@ defined as a JSON object that consists of the following properties:
 </details>
 
 <details>
-  <summary>getUsers.js</summary>
+  <summary>tmp/dhis2-creds.json</summary>
 
-```json title="getUsers.js"
-get('users', {}, state => {
-  function changeEmailDomain(email) {
-    // Split the email into username and domain parts
-    const [username, domain] = email.split('@');
-    return `${username}@openf.demo`;
-  }
+```json title="tmp/dhis2-creds.json"
+{
+  "hostUrl": "https://play.dhis2.org/2.39.1.2",
+  "password": "district",
+  "username": "admin"
+}
+```
 
-  const newUsers = state.data.map(user => {
-    return {
-      name: `${user.name}-OpenFn`,
-      username: `${user.username}-openfn`,
-      email: changeEmailDomain(user.email),
-      website: 'openfn.org',
-      company: {
-        name: 'OpenFn',
-        catchPhrase: 'Integration and automation made easy',
-      },
-    };
-  });
-  return { ...state, data: {}, response: {}, newUsers };
+</details>
+
+<details>
+  <summary>getPatients.js</summary>
+
+```js title="getPatients.js"
+// Get users from jsonplaceholder
+get('users');
+
+// Prepare new users as new patients
+fn(state => {
+  const newPatients = state.data;
+  return { ...state, newPatients };
 });
 ```
 
 </details>
 
 <details>
-  <summary>createUsers.js</summary>
+  <summary>getGlobalOrgsUnit.js</summary>
 
-```json title="createUsers.js"
-post('users', state => state.newUsers);
+```js title="getGlobalOrgsUnit.js"
+// Globals: orgUnits
+fn(state => {
+  const globalOrgUnits = [
+    {
+      label: 'Njandama MCHP',
+      id: 'g8upMTyEZGZ',
+      source: 'Gwenborough',
+    },
+    {
+      label: 'Njandama MCHP',
+      id: 'g8upMTyEZGZ',
+      source: 'Wisokyburgh',
+    },
+    {
+      label: 'Njandama MCHP',
+      id: 'g8upMTyEZGZ',
+      source: 'McKenziehaven',
+    },
+    {
+      label: 'Njandama MCHP',
+      id: 'g8upMTyEZGZ',
+      source: 'South Elvis',
+    },
+    {
+      label: 'Ngelehun CHC',
+      id: 'IpHINAT79UW',
+      source: 'Roscoeview',
+    },
+    {
+      label: 'Ngelehun CHC',
+      id: 'IpHINAT79UW',
+      source: 'South Christy',
+    },
+    {
+      label: 'Ngelehun CHC',
+      id: 'IpHINAT79UW',
+      source: 'Howemouth',
+    },
+    {
+      label: 'Ngelehun CHC',
+      id: 'IpHINAT79UW',
+      source: 'Aliyaview',
+    },
+    {
+      label: 'Baoma Station CHP',
+      id: 'jNb63DIHuwU',
+      source: 'Bartholomebury',
+    },
+    {
+      label: 'Baoma Station CHP',
+      id: 'jNb63DIHuwU',
+      source: 'Lebsackbury',
+    },
+  ];
+
+  return { ...state, globalOrgUnits };
+});
 ```
 
 </details>
 
 <details>
-  <summary>getPosts.js</summary>
+  <summary>createTEIs.js</summary>
 
-```json title="getPosts.js"
-get('posts');
+```js title="createTEIs.js"
+fn(state => {
+  const { newPatients, globalOrgUnits } = state;
+
+  const getOrgUnit = city =>
+    globalOrgUnits.find(orgUnit => orgUnit.source === city).id;
+
+  const mappedEntities = newPatients.map(patient => {
+    const [firstName = 'Patient', lastName = 'Test'] = (
+      patient.name || ''
+    ).split(' ');
+
+    const orgUnit = getOrgUnit(patient.address.city);
+
+    const attributes = [
+      { attribute: 'w75KJ2mc4zz', value: firstName },
+      { attribute: 'zDhUuAYrxNC', value: lastName },
+      { attribute: 'cejWyOfXge6', value: 'Male' },
+    ];
+
+    return { ...patient, attributes: attributes, orgUnit: orgUnit };
+  });
+
+  return { ...state, mappedEntities };
+});
+
+each(
+  'mappedEntities[*]',
+  create('trackedEntityInstances', {
+    orgUnit: dataValue('orgUnit'),
+    trackedEntityType: 'nEenWmSyUEp',
+    attributes: dataValue('attributes'),
+  })
+);
 ```
 
 </details>
@@ -959,13 +1048,13 @@ For example if you created <code>workflow.json</code> in root of your project di
 ```bash
     devchallenge
     ├── .gitignore
-    ├── hello.js
-    ├── getUsers.js
-    ├── createUsers.js
-    ├── getPosts.js
+    ├── getPatients.js
+    ├── createTEIs.js
+    ├── getGlobalOrgsUnit.js
     ├── workflow.json
     └── tmp
         ├── http-creds.json
+        ├── dhis2-creds.json
         └── output.json
 ```
 
@@ -977,9 +1066,9 @@ openfn workflow.json -o tmp/output.json
 
 :::info This will work only if adaptors are installed
 
-On execution, this workflow will first run _getUsers_ job,If successed then
-_createUsers_ will run using the final state of _getUsers_. _getPosts_ will not
-run
+On execution, this workflow will first run _getPatients_ job,If successed then
+_createTEIs_ will run using the final state of _getPatients_.
+_getGlobalOrgsUnit_ will not run
 
 :::
 
@@ -992,8 +1081,8 @@ openfn workflow.json -i -o tmp/output.json
 :::info
 
 On execution, this workflow will first auto-install the adaptors then run
-_getUsers_ job,If successed then _createUsers_ will run using the final state of
-_getUsers_. _getPosts_ will not run
+_getPatients_ job,If successed then _createTEIs_ will run using the final state
+of _getPatients_. _getGlobalOrgsUnit_ will not run
 
 :::
 
