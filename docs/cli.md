@@ -815,13 +815,13 @@ use a workflow to orchestrate the flow of data between systems in a structured
 and automated way.
 
 _For example, if you have two jobs in your workflow (GET users from system A &
-POST users to system B), you can set up your workflow to run all jobs in sequence
-from start to finish. This imitates the
+POST users to system B), you can set up your workflow to run all jobs in
+sequence from start to finish. This imitates the
 [flow trigger patterns](https://docs.openfn.org/documentation/build/triggers#flow-triggers)
 on the OpenFn platform where a second job should run after the first one
 succeeds, respectively, using the data returned from the first job. “_
 
-:::info TLRD
+:::info tl;dr
 
 You won't have to assemble the initial state of the next job, the final state of
 the upstream job will be passed down to the downstream job as initial state
@@ -830,8 +830,8 @@ the upstream job will be passed down to the downstream job as initial state
 
 ##### Workflow
 
-A workflow is in the execution plan for running several jobs in a sequence. It is
-defined as a JSON object that consists of the following properties:
+A workflow is in the execution plan for running several jobs in a sequence. It
+is defined as a JSON object that consists of the following properties:
 
 - `start` (optional): The ID of the job that should be executed first (defaults
   to jobs[0]).
@@ -842,7 +842,8 @@ defined as a JSON object that consists of the following properties:
   - `configuration`: (optional) Specifies the configuration file associated with
     the job
   - `data` (optional): An object that contains any pre-populate data that should
-    be passed to the job (this will be overridden by keys in the previous state).
+    be passed to the job (this will be overridden by keys in the previous
+    state).
   - `adaptor` (required): Specifies the adaptor used for the job (version
     optional)
   - `expression` (required): Specifies the JavaScript file associated with the
@@ -869,13 +870,13 @@ defined as a JSON object that consists of the following properties:
       "expression": "getPatients.js",
       "configuration": "tmp/http-creds.json",
       "next": {
-        "getGlobalOrgsUnit": true
+        "getGlobalOrgUnits": true
       }
     },
     {
-      "id": "getGlobalOrgsUnit",
+      "id": "getGlobalOrgUnits",
       "adaptor": "common",
-      "expression": "getGlobalOrgsUnit.js",
+      "expression": "getGlobalOrgUnits.js",
       "next": {
         "createTEIs": true
       }
@@ -933,9 +934,9 @@ fn(state => {
 </details>
 
 <details>
-  <summary>getGlobalOrgsUnit.js</summary>
+  <summary>getGlobalOrgUnits.js</summary>
 
-```js title="getGlobalOrgsUnit.js"
+```js title="getGlobalOrgUnits.js"
 // Globals: orgUnits
 fn(state => {
   const globalOrgUnits = [
@@ -1050,7 +1051,7 @@ For example if you created <code>workflow.json</code> in root of your project di
     ├── .gitignore
     ├── getPatients.js
     ├── createTEIs.js
-    ├── getGlobalOrgsUnit.js
+    ├── getGlobalOrgUnits.js
     ├── workflow.json
     └── tmp
         ├── http-creds.json
@@ -1064,27 +1065,20 @@ For example if you created <code>workflow.json</code> in root of your project di
 openfn workflow.json -o tmp/output.json
 ```
 
-:::info This will work only if adaptors are installed
+On execution, this workflow will first run the `getPatients` job,If succeed then
+`createTEIs` will run using the final state of `getPatients`.
+`getGlobalOrgUnits` will not run.
 
-On execution, this workflow will first run _getPatients_ job,If succeed then
-_createTEIs_ will run using the final state of _getPatients_.
-_getGlobalOrgsUnit_ will not run
-
-:::
-
-To execute the workflow with adaptor autoinstall option
+Note that without the `-i` flag, you'll need to already have your adaptor
+installed. To execute the workflow with adaptor autoinstall option:
 
 ```bash
 openfn workflow.json -i -o tmp/output.json
 ```
 
-:::info
-
 On execution, this workflow will first auto-install the adaptors then run
-_getPatients_ job,If succeed then _createTEIs_ will run using the final state
-of _getPatients_. _getGlobalOrgsUnit_ will not run
-
-:::
+`getPatients` job. If that first job succeeds then `createTEIs` will run using
+the final state of `getPatients`. The `getGlobalOrgUnits` job will not run.
 
 :::danger Important
 
@@ -1093,9 +1087,9 @@ information, such as credentials and initial input data, in a secure manner. To
 ensure the protection of your sensitive data, please follow the guidelines
 outlined below:
 
-1. Configuration Key: In the `workflow.json` file, specify a path to a
-   git ignored configuration file that will contain necessary credentials that
-   will be used to access the destination system. For example:
+1. Configuration Key: In the `workflow.json` file, specify a path to a git
+   ignored configuration file that will contain necessary credentials that will
+   be used to access the destination system. For example:
 
    ```json
    {
