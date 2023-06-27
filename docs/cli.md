@@ -1066,8 +1066,9 @@ openfn workflow.json -o tmp/output.json
 ```
 
 On execution, this workflow will first run the `getPatients` job,If succeed then
-`createTEIs` will run using the final state of `getPatients`.
-`getGlobalOrgUnits` will not run.
+`getGlobalOrgUnits` will run using the final state of `getPatients`. If
+`getGlobalOrgUnits` succeed then `createTEIs` will run using the final state of
+`getGlobalOrgUnits`.
 
 Note that without the `-i` flag, you'll need to already have your adaptor
 installed. To execute the workflow with adaptor autoinstall option:
@@ -1077,8 +1078,9 @@ openfn workflow.json -i -o tmp/output.json
 ```
 
 On execution, this workflow will first auto-install the adaptors then run
-`getPatients` job. If that first job succeeds then `createTEIs` will run using
-the final state of `getPatients`. The `getGlobalOrgUnits` job will not run.
+`getPatients` job,If succeed then `getGlobalOrgUnits` will run using the final
+state of `getPatients`. If `getGlobalOrgUnits` succeed then `createTEIs` will
+run using the final state of `getGlobalOrgUnits`.
 
 :::danger Important
 
