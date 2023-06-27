@@ -810,7 +810,7 @@ Discuss the results with your administrator.
 ### 8. Running Workflows
 
 As of `v0.0.35` the `@openfn/cli` supports running workflows as well as jobs.
-that allow you to define a list of jobs and rules for executing them. You can
+This allow you to define a list of jobs and rules for executing them. You can
 use a workflow to orchestrate the flow of data between systems in a structured
 and automated way.
 
@@ -824,14 +824,15 @@ succeeds, respectively, using the data returned from the first job. “_
 :::info tl;dr
 
 You won't have to assemble the initial state of the next job, the final state of
-the upstream job will be passed down to the downstream job as initial state
+the upstream job will automatically be passed down to the downstream job as the
+initial state
 
 :::
 
 ##### Workflow
 
-A workflow is in the execution plan for running several jobs in a sequence. It
-is defined as a JSON object that consists of the following properties:
+A workflow is the execution plan for running several jobs in a sequence. It is
+defined as a JSON object that consists of the following properties:
 
 - `start` (optional): The ID of the job that should be executed first (defaults
   to jobs[0]).
@@ -840,20 +841,18 @@ is defined as a JSON object that consists of the following properties:
   - `id` (required): A job name that is unique to the workflow and helps you ID
     your job.
   - `configuration`: (optional) Specifies the configuration file associated with
-    the job
-  - `data` (optional): An object that contains any pre-populate data that should
-    be passed to the job (this will be overridden by keys in the previous
-    state).
+    the job.
+  - `data` (optional): An object that contains any pre-populated data.
   - `adaptor` (required): Specifies the adaptor used for the job (version
-    optional)
+    optional).
   - `expression` (required): Specifies the JavaScript file associated with the
     job. It can also be a string that contains a JavaScript function to be
     executed as the job.
-  - `next` (optional): An object that specifies which jobs to call next.All
+  - `next` (optional): An object that specifies which jobs to call next. All
     edges returning true will run. The object should have one or more key-value
     pairs, where the key is the ID of the next job, and the value is a boolean
     expression that determines whether the next job should be executed.If there
-    are no next edges, the workflow will end
+    are no next edges, the workflow will end.
 
 ###### Example of a workflow
 
@@ -1039,11 +1038,11 @@ each(
 
 </details>
 
-To execute the workflow we run `openfn [path/to/workflow.json]`.
+Run `openfn [path/to/workflow.json]` to execute the workflow.
 
 <details>
 <summary>
-For example if you created <code>workflow.json</code> in root of your project directory
+For example if you created <code>workflow.json</code> in the root of your project directory, This is how your project will look like
 </summary>
 
 ```bash
@@ -1065,22 +1064,21 @@ For example if you created <code>workflow.json</code> in root of your project di
 openfn workflow.json -o tmp/output.json
 ```
 
-On execution, this workflow will first run the `getPatients` job,If succeed then
-`getGlobalOrgUnits` will run using the final state of `getPatients`. If
-`getGlobalOrgUnits` succeed then `createTEIs` will run using the final state of
-`getGlobalOrgUnits`.
+On execution, this workflow will first run the `getPatients.js` job. If is
+successful then `getGlobalOrgUnits.js` will run using the final state of
+`getPatients.js`. If `getGlobalOrgUnits.js` is successful then `createTEIs.js`
+will run using the final state of `getGlobalOrgUnits.js`.
 
 Note that without the `-i` flag, you'll need to already have your adaptor
-installed. To execute the workflow with adaptor autoinstall option:
+installed. To execute the workflow with the adaptor autoinstall option run this
+command:
 
 ```bash
 openfn workflow.json -i -o tmp/output.json
 ```
 
-On execution, this workflow will first auto-install the adaptors then run
-`getPatients` job,If succeed then `getGlobalOrgUnits` will run using the final
-state of `getPatients`. If `getGlobalOrgUnits` succeed then `createTEIs` will
-run using the final state of `getGlobalOrgUnits`.
+On execution, this workflow will first auto-install the adaptors then run the
+workflow
 
 :::danger Important
 
@@ -1100,7 +1098,7 @@ outlined below:
     },
    ```
 
-2. Data Key: Incase you need to path initial data to your job, Specify a path to
+2. Data Key: Incase you need to pass initial data to your job, specify a path to
    a gitignored data file
    ```json
    {
