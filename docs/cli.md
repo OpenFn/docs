@@ -809,10 +809,10 @@ Discuss the results with your administrator.
 
 ### 8. Running Workflows
 
-As of `v0.0.35` the `@openfn/cli` supports running workflows as well as jobs.
-This allow you to define a list of jobs and rules for executing them. You can
-use a workflow to orchestrate the flow of data between systems in a structured
-and automated way.
+As of `v0.0.35` the `@openfn/cli` supports running not only jobs, but also
+_workflows_. Running a workflow allows you to define a list of jobs and rules
+for executing them. You can use a workflow to orchestrate the flow of data
+between systems in a structured and automated way.
 
 _For example, if you have two jobs in your workflow (GET users from system A &
 POST users to system B), you can set up your workflow to run all jobs in
@@ -825,7 +825,7 @@ succeeds, respectively, using the data returned from the first job. “_
 
 You won't have to assemble the initial state of the next job, the final state of
 the upstream job will automatically be passed down to the downstream job as the
-initial state
+initial state.
 
 :::
 
@@ -842,7 +842,7 @@ defined as a JSON object that consists of the following properties:
     your job.
   - `configuration`: (optional) Specifies the configuration file associated with
     the job.
-  - `data` (optional): An object that contains any pre-populated data.
+  - `data` (optional): A JSON object that contains the pre-populated data.
   - `adaptor` (required): Specifies the adaptor used for the job (version
     optional).
   - `expression` (required): Specifies the JavaScript file associated with the
@@ -1065,9 +1065,9 @@ openfn workflow.json -o tmp/output.json
 ```
 
 On execution, this workflow will first run the `getPatients.js` job. If is
-successful then `getGlobalOrgUnits.js` will run using the final state of
-`getPatients.js`. If `getGlobalOrgUnits.js` is successful then `createTEIs.js`
-will run using the final state of `getGlobalOrgUnits.js`.
+successful, `getGlobalOrgUnits.js` will run using the final state of
+`getPatients.js`. If `getGlobalOrgUnits.js` is successful, `createTEIs.js` will
+run using the final state of `getGlobalOrgUnits.js`.
 
 Note that without the `-i` flag, you'll need to already have your adaptor
 installed. To execute the workflow with the adaptor autoinstall option run this
