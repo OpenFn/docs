@@ -72,27 +72,68 @@ please see the documentation for **[@openfn/core](/documentation/core)** and
 Let's start by running a simple command with the CLI. Type the following into
 your terminal:
 
-```
+```bash
 openfn test
 ```
 
 The word `openfn` will invoke the CLI. The word `test` will invoke the test
 command.
 
-You should see some output like this:
+<details>
+  <summary>You should see some output like this:</summary>
 
-```sh
+```bash
 [CLI] ℹ Versions:
-         ▸ node.js     18.12.1
-         ▸ cli         0.0.29
-         ▸ runtime     0.0.19
-         ▸ compiler    0.0.25
+        ▸ node.js     18.12.1
+        ▸ cli         0.0.39
+        ▸ runtime     0.0.24
+        ▸ compiler    0.0.32
 [CLI] ℹ Running test job...
-[CLI] ✔ Compiled job
-[JOB] ℹ Calculating the answer to life, the universe, and everything...
-[R/T] ✔ Operation 1 complete in 1ms
+[CLI] ℹ Workflow object:
+[CLI] ℹ {
+  "start": "start",
+  "jobs": [
+    {
+      "id": "start",
+      "data": {
+        "defaultAnswer": 42
+      },
+      "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
+      "next": {
+        "calculate": "!state.error"
+      }
+    },
+    {
+      "id": "calculate",
+      "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
+      "next": {
+        "result": true
+      }
+    },
+    {
+      "id": "result",
+      "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
+    }
+  ]
+}
+
+[CLI] ✔ Compilation complete
+[R/T] ♦ Starting job start
+[JOB] ℹ Starting computer...
+[R/T] ℹ Operation 1 complete in 0ms
+[R/T] ✔ Completed job start in 1ms
+[R/T] ♦ Starting job calculate
+[JOB] ℹ Calculating to life, the universe, and everything..
+[R/T] ℹ Operation 1 complete in 0ms
+[R/T] ✔ Completed job calculate in 1ms
+[R/T] ♦ Starting job result
+[R/T] ℹ Operation 1 complete in 0ms
+[R/T] ✔ Completed job result in 0ms
 [CLI] ✔ Result: 42
+
 ```
+
+</details>
 
 What we've just done is executed a JavaScript expression, which we call a _job_.
 The output prefixed with `[JOB]` comes directly from `console.log` statements in
@@ -120,13 +161,39 @@ export default [fn()];
 You can see this (and a lot more detail) by running the test command with
 debug-level logging:
 
-```
+```bash
 openfn test --log debug
 ```
 
 </details>
 
 #### Tasks:
+
+:::info To get started with @openfn/cli
+
+1. Create a new folder for the repository you'll be working on by running the
+   following command: `mkdir devchallenge && cd devchallenge`
+
+2. While you can keep your job scripts anywhere, it's a good practice to store
+   `state.json` and `output.json` in a `tmp` folder. To do this, create a new
+   directory called `tmp` within your `devchallenge` folder: `mkdir tmp`
+
+3. Since `state.json` and `output.json` may contain sensitive configuration
+   information and project data, it's important to never upload them to Github.
+   To ensure that Github ignores these files, add the `tmp` directory to your
+   `.gitignore` file: `echo "tmp" >> .gitignore`
+4. (Optional) Use the `tree` command to check that your directory structure
+   looks correct. Running `tree -a` in your `devchallenge` folder should display
+   a structure like this:
+   ```bash
+    devchallenge
+    ├── .gitignore
+    └── tmp
+        ├── state.json
+        └── output.json
+   ```
+
+:::
 
 1.  Create a file called `hello.js` and write the following code.
 
@@ -135,16 +202,35 @@ openfn test --log debug
     ```
 
     <details>
-    <summary>What is console.log?</summary>
-    <code>console.log</code> is a core JavaScript language function which lets
-    us send messages to the terminal window.
+      <summary>What is console.log?</summary>
+      <code>console.log</code> is a core JavaScript language function which lets
+      us send messages to the terminal window.
     </details>
 
-2.  Run the job using the CLI
+1.  Run the job using the CLI
 
-    ```sh
-    openfn hello.js
-    ```
+        ```bash
+        openfn hello.js -o tmp/output.json
+        ```
+
+        <details>
+
+    <summary>View expected output</summary>
+
+        ```bash
+        [CLI] ⚠ WARNING: No adaptor provided!
+        [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
+                  openfn job.js -a common
+        [CLI] ✔ Compiled from helo.js
+        [R/T] ♦ Starting job job-1
+        [JOB] ℹ Hello World!
+        [R/T] ✔ Completed job job-1 in 1ms
+        [CLI] ✔ State written to tmp/output.json
+        [CLI] ✔ Finished in 17ms ✨
+
+        ```
+
+        </details>
 
 Note that our `console.log` statement was printed as `[JOB] Hello world!`. Using
 the console like this is helpful for debugging and/or understanding what's
@@ -153,16 +239,16 @@ happening inside our jobs.
 #### 🏆 Challenge: Write a job that prints your name
 
 1.  Modify `hello.js` to print your name.
-2.  Re-run the job by running `openfn hello.js -a http`.
+2.  Re-run the job by running `openfn hello.js -a common -o tmp/output.json`.
 3.  Validate that you receive the logs below:
 
-    ```
-    [CLI] ✔ Compiled job from hello.js
-    [JOB] ℹ My name is { YourName }
-    [R/T] ✔ Operation 1 complete in 0ms
-    [CLI] ✔ Writing output to ./output.json
-    [CLI] ✔ Done in 366ms! ✨
-    ```
+```bash
+[CLI] ✔ Compiled job from hello.js
+[JOB] ℹ My name is { YourName }
+[R/T] ✔ Operation 1 complete in 0ms
+[CLI] ✔ Writing output to tmp/output.json
+[CLI] ✔ Done in 366ms! ✨
+```
 
 ### 2. Using adaptor helper functions
 
@@ -189,7 +275,7 @@ Run `openfn help` to see the full list of CLI arguments.
 
 1. Create a file called `getPosts.js` and write the following code
 
-   ```jsx
+   ```jsx title=getPosts.js
    get('https://jsonplaceholder.typicode.com/posts');
    fn(state => {
      console.log(state.data[0]);
@@ -199,19 +285,24 @@ Run `openfn help` to see the full list of CLI arguments.
 
 2. Run the job by running
 
-```sh
-openfn getPosts.js -i -a http
+```bash
+openfn getPosts.js -i -a http -o tmp/output.json
 ```
 
 Since it is our first time using the `http` adaptor, we are installing the
 adaptor using `-i` argument
 
-3. See expected CLI logs
+<details>
+  <summary>3. See expected CLI logs</summary>
 
-   ```
-   [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
-   [R/T] ✔ Operation 1 complete in 1.072s
-   [JOB] ℹ {
+```bash
+  [CLI] ✔ Installing packages...
+  [CLI] ✔ Installed @openfn/language-http@4.2.8
+  [CLI] ✔ Installation complete in 14.555s
+  [CLI] ✔ Compiled from getPosts.js
+  [R/T] ♦ Starting job job-1
+  GET request succeeded with 200 ✓
+  [JOB] ℹ {
     userId: 1,
     id: 1,
     title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
@@ -219,11 +310,14 @@ adaptor using `-i` argument
       'suscipit recusandae consequuntur expedita et cum\n' +
       'reprehenderit molestiae ut ut quas totam\n' +
       'nostrum rerum est autem sunt rem eveniet architecto'
-   }
-   [R/T] ✔ Operation 2 complete in 0ms
-   [CLI] ✔ Writing output to ./output.json
-   [CLI] ✔ Done in 1.42s! ✨
-   ```
+  }
+  [R/T] ✔ Completed job job-1 in 872ms
+  [CLI] ✔ State written to tmp/output.json
+  [CLI] ✔ Finished in 15.518s ✨
+
+```
+
+</details>
 
 #### 🏆 Challenge: Get and inspect data via HTTP
 
@@ -232,14 +326,16 @@ Using the
 API, get a list of users and print the first user object.
 
 1.  Create file called `getUsers.js` and write your operation to fetch the user.
-2.  Run the job using the OpenFn/cli `openfn getUsers.js -a http`.
+2.  Run the job using the OpenFn/cli
+    `openfn getUsers.js -a http -o tmp/output.json`.
 3.  Validate that you receive this expected CLI logs:
 
-```sh
-openfn getUsers.js -a http
+```bash
+openfn getUsers.js -a http -o tmp/output.json
 ```
 
-3. Validate that you receive this expected CLI logs:
+<details>
+<summary>See expected CLI logs:</summary>
 
 ```
 [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
@@ -265,8 +361,10 @@ openfn getUsers.js -a http
   }
 }
 [R/T] ✔ Operation 2 complete in 2ms
-[CLI] ✔ Writing output to ./output.json [CLI] ✔ Done in 950ms! ✨
+[CLI] ✔ Writing output to tmp/output.json [CLI] ✔ Done in 950ms! ✨
 ```
+
+</details>
 
 ### 3. Understanding `state`
 
@@ -328,8 +426,8 @@ Or you can specify the path to the state file by passing the option -s,
 
 Specify a path to your `state.json` file with this command:
 
-```sh
-openfn hello.js -a http -s tmp/state.json
+```bash
+openfn hello.js -a http -s tmp/state.json -o tmp/output.json
 ```
 
 Expected CLI logs
@@ -339,7 +437,7 @@ Expected CLI logs
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 876ms
 [R/T] ✔ Operation 2 complete in 0ms
-[CLI] ✔ Writing output to ./output.json
+[CLI] ✔ Writing output to tmp/output.json
 [CLI] ✔ Done in 1.222s! ✨
 ```
 
@@ -361,7 +459,7 @@ of how to set up `state.configuration` for `language-http`.
 
 1. Update your `state.json` to look like this:
 
-   ```json
+   ```json title=state.json
    {
      "configuration": {
        "baseUrl": "https://jsonplaceholder.typicode.com"
@@ -388,14 +486,14 @@ of how to set up `state.configuration` for `language-http`.
 
 3. Now run the job using the following command
 
-   ```sh
-   openfn getPosts.js -a http -s tmp/state.json
+   ```bash
+   openfn getPosts.js -a http -s tmp/state.json -o tmp/output.json
    ```
 
    And validate that you see the expected CLI logs:
 
-   ```sh
-   [CLI] ✔ Compiled job from job.js
+   ```bash
+   [CLI] ✔ Compiled job from getPosts.js
    GET request succeeded with 200 ✓
    [R/T] ✔ Operation 1 complete in 120ms
    [JOB] ℹ {
@@ -408,7 +506,7 @@ of how to set up `state.configuration` for `language-http`.
       'nostrum rerum est autem sunt rem eveniet architecto'
    }
    [R/T] ✔ Operation 2 complete in 0ms
-   [CLI] ✔ Writing output to ./output.json
+   [CLI] ✔ Writing output to tmp/output.json
    [CLI] ✔ Done in 470ms! ✨
    ```
 
@@ -527,7 +625,7 @@ GET request succeeded with 200 ✓
  //All of posts for userId 1
 ]
 [R/T] ✔ Operation 3 complete in 12ms
-[CLI] ✔ Writing output to ./output.json
+[CLI] ✔ Writing output to tmp/output.json
 [CLI] ✔ Done in 1.239s! ✨
 ```
 
@@ -582,7 +680,7 @@ fn(state => {
 
 > Expected CLI logs
 
-```
+```bash
 [CLI] ✘ TypeError: path.match is not a function
     at dataPath (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:258:26)
     at dataValue (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:262:22)
@@ -606,13 +704,13 @@ fix the error by passing a string in dataValue i.e `console.log(dataValue(“1�
 
 > Expected CLI logs
 
-```
+```bash
 [CLI] ✔ Compiled job from debug.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 722ms
 [JOB] ℹ [Function (anonymous)]
 [R/T] ✔ Operation 2 complete in 1ms
-[CLI] ✔ Writing output to ./output.json
+[CLI] ✔ Writing output to tmp/output.json
 [CLI] ✔ Done in 1.102s ✨
 ```
 
@@ -639,9 +737,9 @@ We often have to perform the same operation multiple times for items in an
 array. Most of the helper functions for data manipulation are inherited from
 @openfn/language-common and are available in most of the adaptors.
 
-##### Create job.js and add the following codes
+##### Modify getPosts.js to group posts by user-ID
 
-```js
+```js title="getPosts.js"
 // Get all posts
 get('posts');
 
@@ -679,12 +777,12 @@ Notice how this code uses the `each` function, a helper function defined in
 but accessed from this job that is using language-http. Most adaptors import and
 export many functions from `language-common`.
 
-##### Run **openfn job.js -a http**
+##### Run **openfn getPosts.js -a http -o tmp/output.json**
 
 > Expected CLI logs
 
-```sh
-[CLI] ✔ Compiled job from job.js
+```bash
+[CLI] ✔ Compiled job from getPosts.js
 GET request succeeded with 200 ✓
 [R/T] ✔ Operation 1 complete in 730ms
 [R/T] ✔ Operation 2 complete in 0ms
@@ -693,7 +791,7 @@ GET request succeeded with 200 ✓
 // Posts
 ]
 [R/T] ✔ Operation 4 complete in 10ms
-[CLI] ✔ Writing output to output.json
+[CLI] ✔ Writing output to tmp/output.json
 [CLI] ✔ Done in 1.091s! ✨
 ```
 
@@ -709,6 +807,308 @@ build function that will get posts by user id.
 
 Discuss the results with your administrator.
 
+### 8. Running Workflows
+
+As of `v0.0.35` the `@openfn/cli` supports running not only jobs, but also
+_workflows_. Running a workflow allows you to define a list of jobs and rules
+for executing them. You can use a workflow to orchestrate the flow of data
+between systems in a structured and automated way.
+
+_For example, if you have two jobs in your workflow (GET users from system A &
+POST users to system B), you can set up your workflow to run all jobs in
+sequence from start to finish. This imitates the
+[flow trigger patterns](https://docs.openfn.org/documentation/build/triggers#flow-triggers)
+on the OpenFn platform where a second job should run after the first one
+succeeds, respectively, using the data returned from the first job. “_
+
+:::info tl;dr
+
+You won't have to assemble the initial state of the next job, the final state of
+the upstream job will automatically be passed down to the downstream job as the
+initial state.
+
+:::
+
+##### Workflow
+
+A workflow is the execution plan for running several jobs in a sequence. It is
+defined as a JSON object that consists of the following properties:
+
+- `start` (optional): The ID of the job that should be executed first (defaults
+  to jobs[0]).
+- `jobs` (required): An array of job objects, each of which represents a
+  specific task to be executed.
+  - `id` (required): A job name that is unique to the workflow and helps you ID
+    your job.
+  - `configuration`: (optional) Specifies the configuration file associated with
+    the job.
+  - `data` (optional): A JSON object that contains the pre-populated data.
+  - `adaptor` (required): Specifies the adaptor used for the job (version
+    optional).
+  - `expression` (required): Specifies the JavaScript file associated with the
+    job. It can also be a string that contains a JavaScript function to be
+    executed as the job.
+  - `next` (optional): An object that specifies which jobs to call next. All
+    edges returning true will run. The object should have one or more key-value
+    pairs, where the key is the ID of the next job, and the value is a boolean
+    expression that determines whether the next job should be executed.If there
+    are no next edges, the workflow will end.
+
+###### Example of a workflow
+
+<details>
+<summary>Here's an example of a simple workflow that consists of three jobs:</summary>
+
+```json title="workflow.json"
+{
+  "start": "getPatients",
+  "jobs": [
+    {
+      "id": "getPatients",
+      "adaptor": "http",
+      "expression": "getPatients.js",
+      "configuration": "tmp/http-creds.json",
+      "next": {
+        "getGlobalOrgUnits": true
+      }
+    },
+    {
+      "id": "getGlobalOrgUnits",
+      "adaptor": "common",
+      "expression": "getGlobalOrgUnits.js",
+      "next": {
+        "createTEIs": true
+      }
+    },
+    {
+      "id": "createTEIs",
+      "adaptor": "dhis2",
+      "expression": "createTEIs.js",
+      "configuration": "tmp/dhis2-creds.json"
+    }
+  ]
+}
+```
+
+</details>
+
+<details>
+  <summary>tmp/http-creds.json</summary>
+
+```json title="tmp/http-creds.json"
+{
+  "baseUrl": "https://jsonplaceholder.typicode.com/"
+}
+```
+
+</details>
+
+<details>
+  <summary>tmp/dhis2-creds.json</summary>
+
+```json title="tmp/dhis2-creds.json"
+{
+  "hostUrl": "https://play.dhis2.org/2.39.1.2",
+  "password": "district",
+  "username": "admin"
+}
+```
+
+</details>
+
+<details>
+  <summary>getPatients.js</summary>
+
+```js title="getPatients.js"
+// Get users from jsonplaceholder
+get('users');
+
+// Prepare new users as new patients
+fn(state => {
+  const newPatients = state.data;
+  return { ...state, newPatients };
+});
+```
+
+</details>
+
+<details>
+  <summary>getGlobalOrgUnits.js</summary>
+
+```js title="getGlobalOrgUnits.js"
+// Globals: orgUnits
+fn(state => {
+  const globalOrgUnits = [
+    {
+      label: 'Njandama MCHP',
+      id: 'g8upMTyEZGZ',
+      source: 'Gwenborough',
+    },
+    {
+      label: 'Njandama MCHP',
+      id: 'g8upMTyEZGZ',
+      source: 'Wisokyburgh',
+    },
+    {
+      label: 'Njandama MCHP',
+      id: 'g8upMTyEZGZ',
+      source: 'McKenziehaven',
+    },
+    {
+      label: 'Njandama MCHP',
+      id: 'g8upMTyEZGZ',
+      source: 'South Elvis',
+    },
+    {
+      label: 'Ngelehun CHC',
+      id: 'IpHINAT79UW',
+      source: 'Roscoeview',
+    },
+    {
+      label: 'Ngelehun CHC',
+      id: 'IpHINAT79UW',
+      source: 'South Christy',
+    },
+    {
+      label: 'Ngelehun CHC',
+      id: 'IpHINAT79UW',
+      source: 'Howemouth',
+    },
+    {
+      label: 'Ngelehun CHC',
+      id: 'IpHINAT79UW',
+      source: 'Aliyaview',
+    },
+    {
+      label: 'Baoma Station CHP',
+      id: 'jNb63DIHuwU',
+      source: 'Bartholomebury',
+    },
+    {
+      label: 'Baoma Station CHP',
+      id: 'jNb63DIHuwU',
+      source: 'Lebsackbury',
+    },
+  ];
+
+  return { ...state, globalOrgUnits };
+});
+```
+
+</details>
+
+<details>
+  <summary>createTEIs.js</summary>
+
+```js title="createTEIs.js"
+fn(state => {
+  const { newPatients, globalOrgUnits } = state;
+
+  const getOrgUnit = city =>
+    globalOrgUnits.find(orgUnit => orgUnit.source === city).id;
+
+  const mappedEntities = newPatients.map(patient => {
+    const [firstName = 'Patient', lastName = 'Test'] = (
+      patient.name || ''
+    ).split(' ');
+
+    const orgUnit = getOrgUnit(patient.address.city);
+
+    const attributes = [
+      { attribute: 'w75KJ2mc4zz', value: firstName },
+      { attribute: 'zDhUuAYrxNC', value: lastName },
+      { attribute: 'cejWyOfXge6', value: 'Male' },
+    ];
+
+    return { ...patient, attributes: attributes, orgUnit: orgUnit };
+  });
+
+  return { ...state, mappedEntities };
+});
+
+each(
+  'mappedEntities[*]',
+  create('trackedEntityInstances', {
+    orgUnit: dataValue('orgUnit'),
+    trackedEntityType: 'nEenWmSyUEp',
+    attributes: dataValue('attributes'),
+  })
+);
+```
+
+</details>
+
+Run `openfn [path/to/workflow.json]` to execute the workflow.
+
+<details>
+<summary>
+For example if you created <code>workflow.json</code> in the root of your project directory, This is how your project will look like
+</summary>
+
+```bash
+    devchallenge
+    ├── .gitignore
+    ├── getPatients.js
+    ├── createTEIs.js
+    ├── getGlobalOrgUnits.js
+    ├── workflow.json
+    └── tmp
+        ├── http-creds.json
+        ├── dhis2-creds.json
+        └── output.json
+```
+
+</details>
+
+```bash
+openfn workflow.json -o tmp/output.json
+```
+
+On execution, this workflow will first run the `getPatients.js` job. If is
+successful, `getGlobalOrgUnits.js` will run using the final state of
+`getPatients.js`. If `getGlobalOrgUnits.js` is successful, `createTEIs.js` will
+run using the final state of `getGlobalOrgUnits.js`.
+
+Note that without the `-i` flag, you'll need to already have your adaptor
+installed. To execute the workflow with the adaptor autoinstall option run this
+command:
+
+```bash
+openfn workflow.json -i -o tmp/output.json
+```
+
+On execution, this workflow will first auto-install the adaptors then run the
+workflow
+
+:::danger Important
+
+When working with the `workflow.json` file, it is important to handle sensitive
+information, such as credentials and initial input data, in a secure manner. To
+ensure the protection of your sensitive data, please follow the guidelines
+outlined below:
+
+1. Configuration Key: In the `workflow.json` file, specify a path to a git
+   ignored configuration file that will contain necessary credentials that will
+   be used to access the destination system. For example:
+
+   ```json
+   {
+      ...
+      "configuration": "tmp/openMRS-credentials.json"
+    },
+   ```
+
+2. Data Key: Incase you need to pass initial data to your job, specify a path to
+   a gitignored data file
+   ```json
+   {
+   ...
+    "data": "tmp/initial-data.json",
+   }
+   ```
+
+:::
+
 ## CLI Usage - Key Commands
 
 You’ll learn about these commands in the following challenges, but please refer
@@ -716,19 +1116,19 @@ to this section for the key commands used in working with the CLI.
 
 ### Check the version
 
-```
+```bash
 openfn version
 ```
 
 ### Get help
 
-```
+```bash
 openfn help
 ```
 
 ### Run a job
 
-```
+```bash
 openfn path/to/job.js -ia {adaptor-name}
 ```
 
@@ -741,7 +1141,7 @@ You can find the list of publicly available adaptors [here](/adaptors).
 > file) For example `openfn execute hello.js ` Reads hello.js, looks for state
 > and output in foo
 
-```
+```bash
 -i, --autoinstall Auto-install the language adaptor
 -a, --adaptors, --adaptor A language adaptor to use for the job
 ```
@@ -755,7 +1155,7 @@ You can pass `-l info` or `--log info` to get more feedback about what's
 happening, or `--log debug` for more details than you could ever use. Below is
 the list of different log levels
 
-```
+```bash
 openfn hello.js -a http -l none
 ```
 
@@ -772,23 +1172,11 @@ The CLI will attempt to compile your job code into normalized Javascript. It
 will do a number of things to make your code robust, portable, and easier to
 debug from a pure JS perspective.
 
-```
+```bash
 openfn compile [path]
 ```
 
 Will compile the openfn job and print or save the resulting js.
-
-<!--
-TODO: @Mtuchi revisit once we have a clear picture of the future of strict-mode
-### Strict Mode
-
-By default CLI will return only the `data` key inside the resulting state after
-a successfully run. To Allow properties other than data to be returned in you need
-to use strict mode.
-
-```sh
-openfn hello.js -a http --no-strict-output
-``` -->
 
 Learn more about CLI
 [github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)

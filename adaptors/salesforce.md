@@ -211,6 +211,7 @@ Please save this `security token` in your OpenFn `Credential`.
    Master-Detail relationship field may need to be turned on .
 9. `UNABLE_TO_LOCK_ROW: unable to obtain exclusive access to this record`: This error occurs when either 1) the OpenFn job tries to update the same record more than once at the same time or 2) the OpenFn job tries to updates a Salesforce record at the same time as someone else in the Salesforce system (this includes any automation that may be running in parallel to the OpenFn jobs).  
 
+
 ## OpenFn Adaptors
 
 OpenFn has a robust
