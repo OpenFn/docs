@@ -146,11 +146,6 @@ values (e.g., `M: male, F: female`).
 semicolon-separated strings (e.g.,
 `Services__c: 'Food;Counselling;Medical_Aid`).
 
-#### Timeout considerations  
-
-The Salesforce adaptor currently waits for the batch to finish syncing to Salesforce to ensure that the batch results (i.e., whether the batch import was successful, how many records succeeded, how many failures) can be relayed back to the OpenFn user in Activity History. This can potentially cause timeout errors in OpenFn if the batch sync triggers Salesforce automation which takes long to complete. 
-
-In future adaptor updates, OpenFn will consider adding a new option to the adaptor to not wait for the batch results, and to have the batch run asynchronously. The tradeoff is that the OpenFn run would always succeed–and the administrator would have to log into Salesforce and monitor the batch results via the Salesforce Setup “Bulk Data Load Jobs” page. With this approach, OpenFn wouldn’t set limits on the batch processing time avoiding timeout errors, but it does move the batch monitoring from OpenFn to Salesforce. 
 
 ### Salesforce Credentials
 
