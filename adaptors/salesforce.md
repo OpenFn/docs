@@ -146,11 +146,6 @@ values (e.g., `M: male, F: female`).
 semicolon-separated strings (e.g.,
 `Services__c: 'Food;Counselling;Medical_Aid`).
 
-#### Timeout considerations  
-
-The Salesforce adaptor currently waits for the batch to finish syncing to Salesforce to ensure that the batch results (i.e., whether the batch import was successful, how many records succeeded, how many failures) can be relayed back to the OpenFn user in Activity History. This can potentially cause timeout errors in OpenFn if the batch sync triggers Salesforce automation which takes long to complete. 
-
-In future adaptor updates, OpenFn will consider adding a new option to the adaptor to not wait for the batch results, and to have the batch run asynchronously. The tradeoff is that the OpenFn run would always succeed–and the administrator would have to log into Salesforce and monitor the batch results via the Salesforce Setup “Bulk Data Load Jobs” page. With this approach, OpenFn wouldn’t set limits on the batch processing time avoiding timeout errors, but it does move the batch monitoring from OpenFn to Salesforce. 
 
 ### Salesforce Credentials
 
@@ -213,8 +208,9 @@ Please save this `security token` in your OpenFn `Credential`.
 8. `INVALID_FIELD_FOR_INSERT_UPDATE: Unable to create/update fields`: This might
    occur when trying to update a Relationship field, for example a Person
    related to a Person's Visit. The field setting `Allow reparenting` on the
-   Master-Detail relationship field may need to be turned on.
-9. `UNABLE_TO_LOCK_ROW: unable to obtain exclusive access to this record`: This error occurs when either 1) the OpenFn job tries to update the same record more than once at the same time or 2) the OpenFn job tries to updates a Salesforce record at the same time as someone else in the Salesforce system (this includes any automation that may be running in parallel to the OpenFn jobs). 
+   Master-Detail relationship field may need to be turned on .
+9. `UNABLE_TO_LOCK_ROW: unable to obtain exclusive access to this record`: This error occurs when either 1) the OpenFn job tries to update the same record more than once at the same time or 2) the OpenFn job tries to updates a Salesforce record at the same time as someone else in the Salesforce system (this includes any automation that may be running in parallel to the OpenFn jobs).  
+
 
 ## OpenFn Adaptors
 
