@@ -171,6 +171,28 @@ credentials:
     key: 'My FHIR Credential'
 ```
 
+### Using the CLI to generate or consume this files
+The  project state and the project spec above can be used for a variety of reasons, e.g One could generate the state and spec as backups of the project or one could generate these files and indeed use them for auditing and record keeping and so on and so forth.
+The OpenFN CLI named [Kit](https://github.com/OpenFn/kit) comes with commands that can be used to create and interact with these files.
+
+### Generating the spec and state
+In order to generate the spec and state files one could use the [Kit](https://github.com/OpenFn/kit) command `pull` which works as follows 
+
+`openfn pull some-project-id`
+
+- This command assumes you have set up or are passing in your configuration which includes your `Endpoint`, `API_KEY`, `StatePath` and `SpecPath`, the last two are the file names that will be used when persisting your state and spec. Otherwise `Kit` will assumed `.state.json` and `project.yaml`.
+- The resut of this will be a new local set of files for your state and spec, which you can now use as you wish.
+
+
+### Consuming the spec and state
+A common way of consuming the state and spec files is deploying the project described in them to some Lightning Instance, in order to do this [Kit](https://github.com/OpenFn/kit) provides a `deploy` command that pushes the project to the instance described by your `endpoint` and accessed by your `API_KEY`, the deploy command can be invoked as follows
+
+`openfn deploy`
+
+- This use the current specified endpoint and beam up the project as described in the `state` and `spec` files
+
+### Automating deploy and pull with our github actions
+
 The full specification can be viewed
 [here](https://github.com/OpenFn/projects-as-code).
 
