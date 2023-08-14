@@ -12,7 +12,7 @@ guide covering key milestones in most interoperability and integration projects.
 
 While this checklist should be tailored for each implementation, the tasks
 outlined here provide a template workplan that can help any organization prepare
-for their upcoming implementation.
+for their upcoming implementation. 
 
 :::tip
 
@@ -24,72 +24,91 @@ partner NGOs:
 
 :::
 
-## (1) Preparing for the Technical Implementation
+:::info
 
-- [ ] Point of contacts identified for informing functional requirements,
-      technical requirements (incl. target system administrators), & testing
-- [ ] Dating sharing agreement finalized (including data residency & compliance
-      requirements, and detailed list of data points that may be exchanged)
+The XLS version of this template can be found [here](https://docs.google.com/spreadsheets/d/1_XY0nx0OLNUsogrIHnRaSTyZ-KdcSXks-tqwm3ZfMc4/edit#gid=72612093).
 
-## (2) Functional Requirements
+:::
 
-- [ ] Business value articulated & user stories documented.
-      [Learn more about user stories.](/documentation/design/design-quickstart#1-capture-requirements-as-user-stories)
-- [ ] Diagrams documenting business processes.
-      [Learn more about diagrams & BPMN notation.](/documentation/design/design-quickstart#2-diagram-the-business-process)
-- [ ] Data element mapping specifications drafted.
-      [Read about mapping specs here](/documentation/design/design-quickstart#3-map-data-elements-to-be-exchanged).
 
-## (3) System APIs
+## (1) Preparing for the Implementation
 
-- [ ] Do the target systems have available APIs?
-- [ ] API documentation secured
-- [ ] Access to staging/developer environments for testing with target systems
-      secured
-- [ ] Authentication via the API tested to verify your system credentials
-- [ ] Target API endpoints determined based on the functional requirements
-- [ ] Target API endpoints tested to validate API behavior and verify your
-      system credential's permissions
+- [ ] Point of contacts identified for each target system (incl. system administrators, folks who can speak to the functional and technical requirements)
+- [ ] Data sharing agreement finalized (if required; common for cross-organization workflows)
+- [ ] Business value assessed & documented
+- [ ] High-level workflow requirements gathered & documented (in diagram)
+- [ ] Technical feasibility assessment completed to verify integration approach, available connection points, and OpenFn deployment option and adaptors
+- [ ] Capacity assessment completed
 
-## (4) Data Flows
 
-- [ ] `Trigger` confirmed (What kicks off a flow or data sync? Is it time- or
-      event-based?)
-- [ ] Diagrams documenting the technical data flow finalized.
-      [Learn more about diagrams & BPMN notation.](/documentation/design/design-quickstart#2-diagram-the-business-process)
-- [ ] Data element mapping specifications finalized (with specifications for
-      data transformation, cleaning, & calculation rules, technical specs)
-- [ ] Technical specifications finalized for the integration setup (which
-      reference the `Diagrams` & `Data element mapping specifications`)
-- [ ] Solution assumptions documented (regarding human workflows, data entry,
-      consent, other criteria)
-- [ ] Testing plan drafted with testing instructions for end users with expected
-      inputs & outputs
+## (2) Discovery & Design - Functional Workflow Requirements
 
-## (5) Security
+- [ ] User stories documented to capture business value & desired outcomes
+      Learn more about user stories [here.](/documentation/design/design-quickstart#1-capture-requirements-as-user-stories)
+- [ ] Workflow BPMN diagram capturing functional steps of the business process finalized
+      Learn more about diagrams & BPMN notation [here.](/documentation/design/design-quickstart#2-diagram-the-business-process)
+- [ ] Request list of data elements from administrators of target systems
+      Read about mapping specs [here.](/documentation/design/design-quickstart#3-map-data-elements-to-be-exchanged).
+- [ ] Data element mapping specifications finalized (functional/business-friendly version)
+- [ ] Client sign-offs on workflow diagram & mapping specs
+- [ ] Workflow assumptions documented (e.g., what human, manual steps does the workflow rely on; what are the unique identifiers) 
+- [ ] Testing scenarios drafted 
 
-- [ ] Sign-off received for the technical specifications & how compliance will
-      be ensured
-- [ ] Sign-off for data points (if any) that can be logged to help monitor
-      integration `Activity History`
-- [ ] Administrator users & access levels confirmed
+## (3) Discovery & Design - Technical Specifications
 
-## (6) Administration
+- [ ] Documentation on APIs or target connection points secured
+- [ ] Connection points & authentication methods confirmed
+- [ ] Access secured to developer/sandbox environments for testing
+- [ ] Authentication and authorization methods & credentials tested
+- [ ] Target API endpoints determined based on functional specifications & review of API docs
+- [ ] Target API endpoints tested to validate the functional data element specifications can be delivered
+- [ ] Workflow BPMN diagram capturing the technical steps of the workflow finalized 
+- [ ] Technical version of data element mapping specifications created 
+- [ ] Workflow assumptions updated to include any technical considerations 
+- [ ] Test scenarios updated to include any technical considerations
+- [ ] Project Security Configuration Checklist drafted to capture data security & compliance considerations
+- [ ] Github repository created
+- [ ] Job specifications written for developers 
 
-### Provisioning, Hosting, & Maintenance
+## (4) Build
 
-- [ ] Deployment pathway confirmed (SaaS, Local, Open-Source) - If using OpenFn,
-      [learn about deployment options](/documentation/deploy/options).
-- [ ] Hosting & Maintenance: Software maintenance, security updates, server
-      status, etc. - confirm roles & responsibilities across systems
+- [ ] OpenFn platform: project space created & relevant users invited
+- [ ] OpenFn platform: Jobs, triggers, and credentials configured 
+- [ ] OpenFn platform: Version control configured to connect Github repo
+- [ ] Jobs written & pushed to branch on Github
+- [ ] Job code review complete and merged to main branch on Github
+- [ ] OpenFn platform: Github paths updated on each job to link to source file
+- [ ] Test data created (if needed)
+- [ ] Engineer updates mapping specifications (if needed)
 
-### Support
+## (5) Testing
 
-- [ ] Administor responsible for monitoring the integration is identified &
-      trained
-- [ ] Support point of contacts (e.g., system administrators) identified for
-      each target system if troubleshooting support required
-- [ ] Solution documentation & training materials saved/shared
+- [ ] Testing Round 1: Developers run jobs locally with sample data provided
+- [ ] Testing Round 2: Analysts complete Test Scenarios & run jobs on platform
+- [ ] Iteration: Analysts submit feedback to developers & re-test
+- [ ] UAT Round 1: Client completes Test Scenarios
+- [ ] Iteration: Analysts submit feedback to developers & re-test
+- [ ] UAT Round 2 (if needed): Client completes Test Scenarios
+- [ ] Iteration: Analysts submit feedback to developers & re-test
+
+## (6) Training & Prep for Go-Live
+
+- [ ] Training materials drafted for client administrators
+- [ ] Documentation drafted, and all project artefacts/docs linked
+- [ ] Project Security Configuration Checklist reviewed to determine if any configuration changes or settings need to be implemented post-testing
+- [ ] Confirm that production system(s) have been configured
+- [ ] Production credentials secured & tested (authentication & authorization)
+- [ ] OpenFn platform: "production" project created (cloned from "staging" project), job configuration migrated, & jobs connected to production credentials
+- [ ] OpenFn administrator users & access levels confirmed and granted?
+- [ ] Support POCs identified for each target system?
+- [ ] Establish support structures & governance model for change management 
+- [ ] Training session delivered to designated OpenFn and target system administrators and any other ToTs
+
+### Rollout & Support
+
+- [ ] Go Live: Turn "on" OpenFn jobs in production platform project so that the workflow is now live in production systems
+- [ ] Confirm administrators have OpenFn notifications turned on to "Each Time" so that they will receive failure notifications (see OpenFn Account Settings)
+- [ ] Communicate to end users as needed about the go-live and its implications
 
 ## Questions or feedback?
 
