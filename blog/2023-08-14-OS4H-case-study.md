@@ -3,6 +3,8 @@ title: 'Open Solutions for Health delivers workflow automation for the St. Lucia
 author: Aissatou Diallo
 author_url: https://github.com/daissatou2
 author_image_url: https://avatars.githubusercontent.com/daissatou2
+image: /img/os4h-team.png
+tags: [case study, Open Solutions for Health, OS4H, St. Lucia, MOH, DHIS2, health]
 featured: true
 ---
 
