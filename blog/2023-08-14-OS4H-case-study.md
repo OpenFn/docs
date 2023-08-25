@@ -14,7 +14,7 @@ implementer specializing in providing enterprise support for free and open-sourc
 
  Peter Ricketts, CEO at OS4H, says the Dominica-based team provides sustainable solutions designed to meet the needs of organizations in small island developing states (SIDS) that will strengthen their health management operations. While OS4H specializes in digital health implementations for the Caribbean, their team of IT specialists also works across other sectors, including education and agriculture. 
 
-> “At OS4H, our mission is to improve health outcomes by matching the right technologies to the problems and build the supporting framework around it to ensure it is implemented and sustained over the long run. We believe in making high quality data and information available to those who need it, where they need it, and when they need it in a sustainable manner.”  -Peter Ricketts
+> “At OS4H, our mission is to improve health outcomes by matching the right technologies to the problems and build the supporting framework around it to ensure it is implemented and sustained over the long run. We believe in making high quality data and information available to those who need it, where they need it, and when they need it in a sustainable manner.”  - Peter Ricketts
 
 
 
@@ -56,15 +56,18 @@ This process involved consultations with St. Lucia MOH partners to understand th
 1. On an hourly basis, OpenFn executes complex SQL queries to extract and aggregate immunization data from the SLUHIS PostgreSQL database.
 2. OpenFn next fetches a list of “data mapping rules” from SLUHIS, which inform how municipalities should be reassigned to organization units in the DHIS2 location hierarchy.
 3. OpenFn then maps the SLUHIS aggregated indicators results to related DHIS2 data elements to prepare the data for import.
-4. Finally, using the DHIS2 adaptor, OpenFn imports data values to DHIS2, updating linked indicators and dashboards.
+4. Finally, using the DHIS2 adaptor, OpenFn imports data values to DHIS2, updating linked indicators and dashboards. 
+
+As the workflow runs, all activity history can be centrally monitored in the OpenFn platform, and alerts are configured to notify St. Lucia MOH partners if any errors are thrown. 
 
 | ![osh4h-dashboard](/img/os4h-dashboard.png) |
 |:--:|
 | *Above: Screenshot of the test DHIS2 dashboard for key immunization indicators, which displays data from SLUHIS that is aggregated and updated by OpenFn daily. This image contains test data only.*|
 
-As the workflow runs, all activity history can be centrally monitored in the OpenFn app, and alerts are configured to notify St. Lucia MOH partners if any errors are thrown. 
 
-For the MOH staff and epidemiologist end users, the DHIS2 immunization dashboards are updated automatically and regularly, ensuring access to timely information to inform their program decision-making. These users might not even be aware that OpenFn is the workflow automation engine under the hood–the DHIS2 solution just works.   
+For the MOH staff and epidemiologist end users, the DHIS2 immunization dashboards are updated automatically and regularly, ensuring access to timely and accurate information. MOH dashboard users  don't need to worry about manual reporting and data analysis tasks. **Automation enables MOH staff to focus on identifying trends and patterns in the administration of vaccines to improve program management operations.** 
+
+These users might not even be aware that OpenFn is engine powering the workflow automation under the hood—for them, the dashboard *just works*.   
 
 
 | ![osh4h-meet](/img/os4h-meet.png) |
