@@ -25,7 +25,7 @@ This year, OS4H has been working with partners at the St. Lucia Ministry of Heal
 
 DHIS2 offers robust dashboard and data visualization options, but St. Lucia’s immunization data was collected in a separate database, along with sensitive patient information that should only be accessed by authorized users. Therefore, to (i) avoid manual data entry and indicators calculations, and (ii) minimize access to sensitive patient data, OS4H sought to automate the reporting of key immunization indicators to DHIS2. After researching secure, open source, and OpenHIE-compliant options for data integration, OS4H decided to deliver this solution using the OpenFn workflow automation platform. 
 
-**In less than 1 month, OS4H successfully designed and implemented workflow automation that integrates the St. Lucia Health Information System (“SLUHIS”) database with DHIS2, enabling regular, nation-wide monitoring of key immunization indicators for MOH staff and epidemiologists.**
+**In less than 1 month, OS4H successfully designed and implemented workflow automation on OpenFn that integrates the St. Lucia Health Information System (“SLUHIS”) database with DHIS2, enabling regular, nation-wide monitoring of key immunization indicators for MOH staff and epidemiologists.**
 
 This OS4H implementation consisted of two phases: (1) training on the OpenFn platform and(2) implementation of the automated workflow for St. Lucia. 
 
