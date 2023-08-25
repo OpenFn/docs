@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[96545],{53187:s=>{s.exports=JSON.parse('{"label":"St. Lucia","permalink":"/blog/tags/st-lucia","allTagsPath":"/blog/tags","count":1}')}}]);

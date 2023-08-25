@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[11421],{13802:e=>{e.exports=JSON.parse('{"label":"Open Solutions for Health","permalink":"/fr/blog/tags/open-solutions-for-health","allTagsPath":"/fr/blog/tags","count":1}')}}]);
