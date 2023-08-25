@@ -1,6 +1,6 @@
 ---
 title: 'Open Solutions for Health delivers workflow automation for the St. Lucia Ministry of Health'
-author: Aicha Diallo
+author: Aissatou Diallo
 author_url: https://github.com/daissatou2
 author_image_url: https://avatars.githubusercontent.com/daissatou2
 featured: true
