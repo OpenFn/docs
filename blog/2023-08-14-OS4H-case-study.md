@@ -20,7 +20,7 @@ implementer specializing in providing enterprise support for free and open-sourc
 
 | ![osh4h-team](/img/os4h-team.png) |
 |:--:|
-| *Above: Members of the Open Solutions for Health team, based in Roseau, Dominica.*|
+| *Above: Members of the Open Solutions for Health team based in Roseau, Dominica.*|
 
 
 This year, OS4H has been working with partners at the St. Lucia Ministry of Health (MOH) to expand their in-country DHIS2 implementation to monitor key immunization indicators so that they can strengthen management operations against vaccine preventable diseases. Check out [this press release](https://dominicanewsonline.com/news/homepage/news/press-release-for-world-immunization-week-open-solutions-for-health-delivers-again/) to learn more about the project supported by the [Pan American Health Organization (PAHO)](https://www.paho.org/en).
@@ -32,7 +32,7 @@ DHIS2 offers robust dashboard and data visualization options, but St. Lucia’s 
 This OS4H implementation consisted of two phases: (1) training on the OpenFn platform and(2) implementation of the automated workflow for St. Lucia. 
 
 
-## OS4H learned OpenFn to help deliver their partners achieve systems interoperability
+## OS4H is now a certified OpenFn implementer
 
 At OpenFn, we have a small implementation team that cannot meet the rising demand for workflow automation we’re seeing worldwide. Therefore, we are investing more in partner enablement to help develop the automation expertise and OpenFn implementation capacity of local IT teams solving local problems–like OS4H in the Caribbean. Earlier this year, our core team launched the OpenFn Implementation Partner Program to offer training on the OpenFn Digital Public Good, as well as on our implementation process. 
 
