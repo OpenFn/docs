@@ -191,7 +191,63 @@ A common way of consuming the state and spec files is deploying the project desc
 
 - This use the current specified endpoint and beam up the project as described in the `state` and `spec` files
 
-### Automating deploy and pull with our github actions
+### Automating Pull and Deploy
+Since we now have utilities to pull project state as well as deploy a project state, one can see how beneficial automating this would be consider an audit case for example. Where we would like to use version control (Github in this case) to store a versioned history of our project. Lightning comes with a Github App that enables use to sync projects from an instance to Github using the `openfn pull` command and to do the vice versa using `openfn deploy`. 
+
+To do this one would need to do the following.
+1. Create a project repo connection to a github repository, this can be done in the `Sync to Github` section of Lightning Project Settings.
+2. While doing this you will be guided on how to install the Lightning Github app on the repository you need to sync a project to
+3. Once you have created a a connection you would need to do some additional work on  your github repo i.e set up pull and deploy workflows that use openfn github actions to do the deploy and well and the pull.
+4. Once you have set up the workflows (examples below) you would be able to now sync to Github from Lightning as well as deploy from Github to Lightning.
+
+Secrets 
+The workflows that interact with the OpenFn actions will need the repository set up with a number of secrets used in the github actions 
+- OPENFN_API_KEY: This is your API Key as generated from Lightning and will be needed for authentication
+- OPENFN_PROJECT_ID: This is your Project ID from Lightning this will be used to pull from the lightning instance
+- A config file that matche the spec outlined by [Kit](https://github.com/OpenFn/kit)
+
+Given these you can set up your Github Workflows as follows:
+
+#### Deploy Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml#L1) 
+```
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  deploy-to-lightning:
+    runs-on: ubuntu-latest
+    name: A job to deploy to Lightning
+    steps:
+      - name: openfn deploy
+        uses: OpenFn/cli-deploy-action@v0.1.11
+        with: 
+          secret_input: ${{ secrets.OPENFN_API_KEY }}
+```
+
+#### Pull Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/pull.yml)  
+```
+on: [repository_dispatch]
+
+jobs:
+  pull-from-lightning:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    name: A job to pull changes from Lightning
+    steps:
+      - env:
+          MESSAGE: ${{ github.event.client_payload.message }}
+      - name: openfn pull and commit
+        uses: OpenFn/cli-pull-action@v0.6.0
+        with: 
+          secret_input: ${{ secrets.OPENFN_API_KEY }}
+          project_id_input: ${{ secrets.OPENFN_PROJECT_ID }}
+          commit_message_input: $MESSAGE
+```
+
+You can see [full example](https://github.com/OpenFn/demo-openhie) of repo and workflows [this repo](https://github.com/OpenFn/demo-openhie/)
 
 The full specification can be viewed
 [here](https://github.com/OpenFn/projects-as-code).
