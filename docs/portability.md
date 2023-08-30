@@ -249,6 +249,26 @@ jobs:
 
 You can see [full example](https://github.com/OpenFn/demo-openhie) of repo and workflows [this repo](https://github.com/OpenFn/demo-openhie/)
 
+### Getting Help with the cli 
+The cli  package comes with an inbuilt `help` flag and providin the `--help` flag to a command such as `openfn deploy -- help` will result in a help message describing the command and the options available when using this command. See an example below
+```
+7:45 demo-openhie~>(main)~ openfn deploy --help
+openfn deploy
+
+Deploy a project's config to a remote Lightning instance
+
+Options:
+      --version                Show version number                                                                                                                     [boolean]
+      --help                   Show help                                                                                                                               [boolean]
+  -c, --config, --config-path  The location of your config file                                                                                      [default: "./.config.json"]
+      --no-confirm             Skip confirmation prompts (e.g. 'Are you sure?')                                                                                        [boolean]
+      --describe               Downloads the project yaml from the specified instance                                                                                  [boolean]
+  -l, --log                    Set the log level                                                                                                                        [string]
+      --log-json               Output all logs as JSON objects                                                                                                         [boolean]
+  -p, --project-path           The location of your project.yaml file                                                                                                   [string]
+  -s, --state-path             Path to the state file
+```
+
 The full specification can be viewed
 [here](https://github.com/OpenFn/projects-as-code).
 
