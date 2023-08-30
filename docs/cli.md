@@ -141,10 +141,10 @@ our job code. All other output is the CLI trying to tell us what it is doing.
 
 <details>
 <summary>What is a job?</summary>
-A job Javascript code which follows a particular set of conventions. Typically a
-job has one or more <i>operations</i> which perform a particular task (like
-pulling information from a database, creating a record, etc.) and return state
-for the next operation to use.
+A job is Javascript code which follows a particular set of conventions.
+Typically a job has one or more <i>operations</i> which perform a particular
+task (like pulling information from a database, creating a record, etc.) and
+return state for the next operation to use.
 
 The test job we just ran looks like this:
 

@@ -171,48 +171,93 @@ credentials:
     key: 'My FHIR Credential'
 ```
 
-### Using the CLI to generate or consume this files
-The  project state and the project spec above can be used for a variety of reasons, e.g One could generate the state and spec as backups of the project or one could generate these files and indeed use them for auditing and record keeping and so on and so forth.
-The OpenFN CLI named [Kit](https://github.com/OpenFn/kit) comes with commands that can be used to create and interact with these files.
+### Using the CLI to deploy or describe projects projects as code
 
-### Generating the spec and state
-In order to generate the spec and state files one could use the [Kit](https://github.com/OpenFn/kit) command `pull` which works as follows 
+The project spec and project state above can be used for a variety of reasons,
+e.g one could generate the state and spec as backups of the project or one could
+generate these files and use them for auditing and record keeping, etc. The
+OpenFn [CLI](https://github.com/OpenFn/kit/tree/main/packages/cli) comes with
+commands that can be used to pull project configurations down from a running
+Lightning server, and to deploy or push updates to existing projects on a
+Lightning server.
 
-`openfn pull some-project-id`
+:::info Don't have the CLI yet?
 
-- This command assumes you have set up or are passing in your configuration which includes your `Endpoint`, `API_KEY`, `StatePath` and `SpecPath`, the last two are the file names that will be used when persisting your state and spec. Otherwise `Kit` will assumed `.state.json` and `project.yaml`.
-- The resut of this will be a new local set of files for your state and spec, which you can now use as you wish.
+Install it by running `npm install -g @openfn/cli`
 
+:::
 
-### Consuming the spec and state
-A common way of consuming the state and spec files is deploying the project described in them to some Lightning Instance, in order to do this [Kit](https://github.com/OpenFn/kit) provides a `deploy` command that pushes the project to the instance described by your `endpoint` and accessed by your `API_KEY`, the deploy command can be invoked as follows
+### Generating a project spec and state (pull)
+
+To generate the spec and state files for an existing project, use the
+[Kit](https://github.com/OpenFn/kit) command `pull` which works as follows
+
+`openfn pull some-project-uuid`
+
+- This command assumes you have set up or are passing in your configuration
+  which includes your `Endpoint`, `API_KEY`, `StatePath` and `SpecPath`, the
+  last two are the file names that will be used when persisting your state and
+  spec. Otherwise `Kit` will assumed `.state.json` and `project.yaml`.
+- The result of this will be a new local set of files for your state and spec,
+  which you can now use as you wish.
+
+### Deploying a new project from a project.yaml (deploy)
+
+-- @zacck to add --
+
+### Updating an existing project with a project.yaml and a projectState.json (deploy)
+
+A common way of consuming the state and spec files is deploying the project
+described in them to some Lightning Instance, in order to do this
+[Kit](https://github.com/OpenFn/kit) provides a `deploy` command that pushes the
+project to the instance described by your `endpoint` and accessed by your
+`API_KEY`, the deploy command can be invoked as follows
 
 `openfn deploy`
 
-- This use the current specified endpoint and beam up the project as described in the `state` and `spec` files
+- This use the current specified endpoint and beam up the project as described
+  in the `state` and `spec` files
 
-### Automating Pull and Deploy
-Since we now have utilities to pull project state as well as deploy a project state, one can see how beneficial automating this would be consider an audit case for example. Where we would like to use version control (Github in this case) to store a versioned history of our project. Lightning comes with a Github App that enables use to sync projects from an instance to Github using the `openfn pull` command and to do the vice versa using `openfn deploy`. 
+### Automated Version Control with Github and Lightning
+
+Since we now have utilities to pull representations of projects as code and
+deploy/update projects from those representation as code, your entire project
+can be checked into a version control system such as Github.
+
+Lightning comes with a Github App that enables user to sync projects from an
+instance to Github using the `openfn pull` command and to do the vice versa
+using `openfn deploy`.
 
 To do this one would need to do the following.
-1. Create a project repo connection to a github repository, this can be done in the `Sync to Github` section of Lightning Project Settings.
-2. While doing this you will be guided on how to install the Lightning Github app on the repository you need to sync a project to
-3. Once you have created a a connection you would need to do some additional work on  your github repo i.e set up pull and deploy workflows that use openfn github actions to do the deploy and well and the pull.
-4. Once you have set up the workflows (examples below) you would be able to now sync to Github from Lightning as well as deploy from Github to Lightning.
 
-Secrets 
-The workflows that interact with the OpenFn actions will need the repository set up with a number of secrets used in the github actions 
-- OPENFN_API_KEY: This is your API Key as generated from Lightning and will be needed for authentication
-- OPENFN_PROJECT_ID: This is your Project ID from Lightning this will be used to pull from the lightning instance
-- A config file that matche the spec outlined by [Kit](https://github.com/OpenFn/kit)
+1. Create a project repo connection to a github repository, this can be done in
+   the `Sync to Github` section of Lightning Project Settings.
+2. While doing this you will be guided on how to install the Lightning Github
+   app on the repository you need to sync a project to
+3. Once you have created a a connection you would need to do some additional
+   work on your github repo i.e set up pull and deploy workflows that use openfn
+   github actions to do the deploy and well and the pull.
+4. Once you have set up the workflows (examples below) you would be able to now
+   sync to Github from Lightning as well as deploy from Github to Lightning.
+
+Secrets The workflows that interact with the OpenFn actions will need the
+repository set up with a number of secrets used in the github actions
+
+- OPENFN_API_KEY: This is your API Key as generated from Lightning and will be
+  needed for authentication
+- OPENFN_PROJECT_ID: This is your Project ID from Lightning this will be used to
+  pull from the lightning instance
+- A config file that matche the spec outlined by
+  [Kit](https://github.com/OpenFn/kit)
 
 Given these you can set up your Github Workflows as follows:
 
-#### Deploy Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml#L1) 
+#### Deploy Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml#L1)
+
 ```
 on:
   push:
-    branches: 
+    branches:
       - main
 
 jobs:
@@ -222,11 +267,12 @@ jobs:
     steps:
       - name: openfn deploy
         uses: OpenFn/cli-deploy-action@v0.1.11
-        with: 
+        with:
           secret_input: ${{ secrets.OPENFN_API_KEY }}
 ```
 
-#### Pull Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/pull.yml)  
+#### Pull Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/pull.yml)
+
 ```
 on: [repository_dispatch]
 
@@ -241,16 +287,37 @@ jobs:
           MESSAGE: ${{ github.event.client_payload.message }}
       - name: openfn pull and commit
         uses: OpenFn/cli-pull-action@v0.6.0
-        with: 
+        with:
           secret_input: ${{ secrets.OPENFN_API_KEY }}
           project_id_input: ${{ secrets.OPENFN_PROJECT_ID }}
           commit_message_input: $MESSAGE
 ```
 
-You can see [full example](https://github.com/OpenFn/demo-openhie) of repo and workflows [this repo](https://github.com/OpenFn/demo-openhie/)
+You can see [full example](https://github.com/OpenFn/demo-openhie) of repo and
+workflows [this repo](https://github.com/OpenFn/demo-openhie/)
 
-### Getting Help with the cli 
-The cli  package comes with an inbuilt `help` flag and providin the `--help` flag to a command such as `openfn deploy -- help` will result in a help message describing the command and the options available when using this command. See an example below
+#### Using version control
+
+##### Lightning to GitHub
+
+Once you have configured version control for a project and a related repository
+branch, you can sync changes to GitHub by pressing the "Initiate Sync" button on
+the version control page and the Lightning GitHub app will run a `openfn pull`
+action to update the versioned representation of your project as code.
+
+##### Github to Lightning
+
+Assuming you've configured a deploy action, any time there are changes made to
+that branch in your GitHub repo, those changes will be pushed to your Lightning
+project via `openfn deploy`.
+
+### Getting Help with the cli
+
+The cli package comes with an inbuilt `help` flag and providin the `--help` flag
+to a command such as `openfn deploy -- help` will result in a help message
+describing the command and the options available when using this command. See an
+example below
+
 ```
 7:45 demo-openhie~>(main)~ openfn deploy --help
 openfn deploy
@@ -274,7 +341,7 @@ The full specification can be viewed
 
 ## Other Versions
 
-- [Portability Proposal v4](https://github.com/OpenFn/projects-as-code)
+- [Portability Proposal v4](portability-versions#proposal-v4)
 - [Portability Proposal v3](portability-versions#proposal-v3)
 - [Portability Proposal v2](portability-versions#proposal-v2) (`@latest` for
   platform-app/microservice compatibility.)
