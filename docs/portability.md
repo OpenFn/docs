@@ -192,19 +192,28 @@ Install it by running `npm install -g @openfn/cli`
 To generate the spec and state files for an existing project, use the
 [Kit](https://github.com/OpenFn/kit) command `pull` which works as follows
 
-`openfn pull some-project-uuid`
+`openfn pull $OPENFN_PROJECT_ID -c config.json`
 
 - This command assumes you have set up or are passing in your configuration
   which includes your `Endpoint`, `API_KEY`, `StatePath` and `SpecPath`, the
   last two are the file names that will be used when persisting your state and
-  spec. Otherwise `Kit` will assumed `.state.json` and `project.yaml`.
+  spec. Otherwise `Kit` will assume `.projectState.json` and `projectSpec.yaml`.
 - The result of this will be a new local set of files for your state and spec,
   which you can now use as you wish.
 
 ### Deploying a new project from a project.yaml (deploy)
 
--- @zacck to add --
+To deploy a new project to a Lightning Instance from a Project spec file use the 
+[Kit](https://github.com/OpenFn/kit) command `deploy` which works as follows
 
+`openfn deploy -c config.json`
+
+- This command assumes you have set up or are passing in your configuration
+  which includes your `Endpoint`, `API_KEY`, `StatePath` and `SpecPath`, the
+  last two are the file names that will be used when persisting your state and
+  spec. Otherwise `Kit` will assume `.projectState.json` and `projectSpec.yaml`.
+- The result of this will be a new project on the set instance on Lightning at `Endpoint`.
+  
 ### Updating an existing project with a project.yaml and a projectState.json (deploy)
 
 A common way of consuming the state and spec files is deploying the project
@@ -216,7 +225,9 @@ project to the instance described by your `endpoint` and accessed by your
 `openfn deploy`
 
 - This use the current specified endpoint and beam up the project as described
-  in the `state` and `spec` files
+  in the `projectState` and `projectspec` files, the `projectState` file is optional and will
+  effectively cause a new project to be deployed whose state will pulled and saved in a new
+  `.projectState` file.
 
 ### Automated Version Control with Github and Lightning
 
@@ -236,8 +247,9 @@ To do this one would need to do the following.
    app on the repository you need to sync a project to
 3. Once you have created a a connection you would need to do some additional
    work on your github repo i.e set up pull and deploy workflows that use openfn
-   github actions to do the deploy and well and the pull.
-4. Once you have set up the workflows (examples below) you would be able to now
+   github actions to do the deploy and well and the pull. See the linked repo and
+   workflow examples below.
+5. Once you have set up the workflows (examples below) you would be able to now
    sync to Github from Lightning as well as deploy from Github to Lightning.
 
 Secrets The workflows that interact with the OpenFn actions will need the
@@ -252,7 +264,7 @@ repository set up with a number of secrets used in the github actions
 
 Given these you can set up your Github Workflows as follows:
 
-#### Deploy Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml#L1)
+#### Deploy Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml#L1)](https://github.com/OpenFn/kit/tree/main/packages/cli#deploying-workflows)
 
 ```
 on:
