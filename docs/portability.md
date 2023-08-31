@@ -36,41 +36,23 @@ import ReactPlayer from 'react-player';
 <ReactPlayer url='https://www.youtube.com/watch?v=9xXK5xoiMgA' />
 ```
 
-## Proposal v4 `@next`
+## OpenFn projects as code
 
 The portability specification v4 defines how entire projects (groups of
-workflows with their associated triggers, credentials and jobs) can be
-represented as code. This specification has been written for
-[Lightning](/documentation/getting-started/integration-toolkit/#lightning-coming-soon),
-the fully open source webb app which extends the OpenFn DPG. It aims to (a)
-improve developer experience, allowing them to build and test workflows locally;
-(b) enable version control and an audit trail of project changes; and (c) enable
-users to port existing workflows from the OpenFn platform to Lightning.
+workflows with their associated triggers, edges, credentials and jobs) can be
+represented as code. It improves the OpenFn developer experience, allowing
+workflows to be built and tested locally; (b) enables project version control
+and an audit trail of project changes; and (c) allows users to port existing
+workflows from OpenFn v1 to v2, as well as between instances or deployments of
+Lightning.
 
-This new specification has been designed and documented thanks to support from a
-Digital Square Global Goods grant.
+### Project "spec"
 
-The `project.zip` structure and files:
-
-```
-/globals
-   sample-clinic-map.json
-   sample-translations.json
-/workflow-a
-   job-1.js
-   job-2.js
-   job-3.js
-/workflow-b
-   job-4.js
-project.yaml
-project.state.yaml
-```
-
-The `project.yaml`:
+The project specification (or "spec") is often saved as a `project.yaml` file.
 
 ```yaml
 name: openhie-project
-# description:
+description: Some sample
 # credentials:
 # globals:
 workflows:
@@ -138,7 +120,11 @@ workflows:
         condition: on_job_failure
 ```
 
-The `project.state.json`:
+### Project "state"
+
+The project state is a representation of a particular project as _on a specific
+Lightning instance_. It is often saved as `projectState.json` and contains UUIDs
+for resources on a particular Lightning deployment.
 
 ```json
 {
@@ -245,8 +231,8 @@ The `project.state.json`:
 
 ### Using the CLI to deploy or describe projects projects as code
 
-The project spec and project state above can be used for a variety of reasons,
-e.g one could generate the state and spec as backups of the project or one could
+The project spec and project state can be used for a variety of reasons, e.g.
+one could generate the state and spec as backups of the project or one could
 generate these files and use them for auditing and record keeping, etc. The
 OpenFn [CLI](https://github.com/OpenFn/kit/tree/main/packages/cli) comes with
 commands that can be used to pull project configurations down from a running
@@ -259,89 +245,130 @@ Install it by running `npm install -g @openfn/cli`
 
 :::
 
-See how to use the cli [here](https://github.com/OpenFn/kit/tree/main/packages/cli#basic-usage)
+Before using the CLI, configure it either by passing in environment variables:
 
+```
+OPENFN_ENDPOINT=https://app.openfn.org
+OPENFN_API_KEY=yourSecretApiToken
+```
 
-### Generating a project spec and state (pull)
+Or through a `config.json` file:
 
-To generate the spec and state files for an existing project, use the
-[Kit](https://github.com/OpenFn/kit) command `pull` which works as follows
+```json
+{
+  // Required, can be overridden or set with `OPENFN_API_KEY` env var
+  "apiKey": "***",
 
-`openfn pull $OPENFN_PROJECT_ID -c config.json`
+  // Optional: can be set using the -p, defaults to project.yaml
+  "specPath": "project.yaml",
 
-- This command assumes you have set up or are passing in your configuration
-  which includes your `OPENFN_ENDPOINT`, `OPENFN_API_KEY` (these can be environment variables).
-  The `statePath` and `specPath` are the file names that will be used when persisting your state and
-  spec. Otherwise `Kit` will assume `.projectState.json` and `projectSpec.yaml`.
-- The result of this will be a new local set of files for your state and spec,
-  which you can now use as you wish.
+  // Optional: can be set using -s, defaults to .state.json
+  "statePath": ".state.json",
 
-### Deploying a new project from a project.yaml (deploy)
+  // Optional: defaults to OpenFn.org's API, can be overridden or set with
+  // `OPENFN_ENDPOINT` env var
+  "endpoint": "https://app.openfn.org/api/provision"
+}
+```
 
-To deploy a new project to a Lightning Instance from a Project spec file use the 
-[Kit](https://github.com/OpenFn/kit) command `deploy` which works as follows
+More details on the CLI can be found
+[here](https://github.com/OpenFn/kit/tree/main/packages/cli#basic-usage).
 
-`openfn deploy -c config.json`
+### `openfn pull` to generate a project spec and state
 
-- This command assumes you have set up or are passing in your configuration
-  which includes your `Endpoint`, `API_KEY`, `StatePath` and `SpecPath`, the
-  last two are the file names that will be used when persisting your state and
-  spec. Otherwise `Kit` will assume `.projectState.json` and `projectSpec.yaml`.
-- The result of this will be a new project on the set instance on Lightning at `Endpoint`.
-  
-### Updating an existing project with a project.yaml and a projectState.json (deploy)
+To generate the spec and state files for an existing project, use:
 
-A common way of consuming the state and spec files is deploying the project
-described in them to some Lightning Instance, in order to do this
-[Kit](https://github.com/OpenFn/kit) provides a `deploy` command that pushes the
-project to the instance described by your `endpoint` and accessed by your
-`API_KEY`, the deploy command can be invoked as follows
+```sh
+openfn pull {YOUR-PROJECT-UUID} -c ./config.json
+```
 
-`openfn deploy`
+This command will save (or overwrite) a project spec and state file based on the
+path you've set in your configuration.
 
-- This use the current specified endpoint and beam up the project as described
-  in the `projectState` and `projectspec` files, the `projectState` file is optional and will
-  effectively cause a new project to be deployed whose state will pulled and saved in a new
-  `.projectState` file.
+### `openfn deploy` to create a project on a Lightning instance
+
+To deploy a new project to a Lightning instance from a project spec (without a
+project state) file use:
+
+```sh
+openfn deploy -c config.json
+```
+
+### `openfn deploy` to update an existing project
+
+With a valid project state defined in your `config.json`, the same
+`openfn deploy` command will beam up your changes as described by a difference
+between your project spec and what's found on the server.
+
+```sh
+openfn deploy -c config.json
+Checking https://demo.openfn.org/api/provision/4adf2644-ed4e-4f97-a24c-ab35b3cb1efa for existing project.
+Project found.
+[CLI] ♦ Changes:
+ {
+   workflows: [
+     {
+       jobs: [
+         {
+-          body: "fn(state => {\n  console.log(\"ok\")\n  return state\n});"
++          body: "fn(state => {\n  console.log(\"some changes here!\")\n  return state\n});\n"
+         }
+         ...
+         ...
+         ...
+       ]
+     }
+   ]
+ }
+
+? Deploy? yes
+[CLI] ♦ Deployed.
+```
 
 ### Automated Version Control with Github and Lightning
 
-Since we now have utilities to pull representations of projects as code and
-deploy/update projects from those representation as code, your entire project
-can be checked into a version control system such as Github.
+Representations of projects as code and pull/deploy functionality allows you to
+check your whole project into a version control system such as Github.
 
 Lightning comes with a Github App that enables user to sync projects from an
 instance to Github using the `openfn pull` command and to do the vice versa
 using `openfn deploy`.
 
-To do this one would need to do the following.
+To set up version control:
 
-1. Create a project repo connection to a github repository, this can be done in
-   the `Sync to Github` section of Lightning Project Settings.
-2. While doing this you will be guided on how to install the Lightning Github
-   app on the repository you need to sync a project to
-3. Once you have created a a connection you would need to do some additional
-   work on your github repo i.e set up pull and deploy workflows that use openfn
-   github actions to do the deploy and well and the pull. See the linked repo and
-   workflow examples below.
-5. Once you have set up the workflows (examples below) you would be able to now
-   sync to Github from Lightning as well as deploy from Github to Lightning.
+1. Create a project repo connection to a github repository in **Project Settings
+   -> Sync to Github**.
+2. Follow the instructions to install the Lightning Github app in your desired
+   repository.
+3. Once you have created a a connection, set up pull and deploy workflows that
+   use openfn github actions below.
+4. Add `OPENFN_API_KEY` and `OPENFN_PROJECT_ID` repository secrets to your
+   Github repo as described below.
+5. Click the sync to Github button to initiate a sync from Lightning to GitHub.
+6. Push a change to your selected branch to push changes from Github to
+   Lightning.
 
-Secrets The workflows that interact with the OpenFn actions will need the
-repository set up with a number of secrets used in the github actions
+#### Github Repository Secrets
+
+The workflows that interact with the OpenFn actions will need the repository set
+up with two secrets used in the github actions:
 
 - OPENFN_API_KEY: This is your API Key as generated from Lightning and will be
   needed for authentication
 - OPENFN_PROJECT_ID: This is your Project ID from Lightning this will be used to
   pull from the lightning instance
-- A config file that matche the spec outlined by
-  [Kit](https://github.com/OpenFn/kit)
 
-Given these you can set up your Github Workflows as follows:
+#### Github Repository Structure
 
-#### Deploy Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml)] or (https://github.com/OpenFn/kit/tree/main/packages/cli#deploying-workflows)
+Here you can do pretty much what you want, so long as you've got a `config.json`
+pointing to your project spec, state, and Lightning endpoint.
 
-```
+#### Example [Deploy Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml) for GitHub
+
+See https://docs.github.com/en/actions/quickstart#creating-your-first-workflow
+for more help here.
+
+```yml
 on:
   push:
     branches:
@@ -358,9 +385,12 @@ jobs:
           secret_input: ${{ secrets.OPENFN_API_KEY }}
 ```
 
-#### Pull Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/pull.yml)
+#### Example [Pull Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/pull.yml) for GitHub
 
-```
+See https://docs.github.com/en/actions/quickstart#creating-your-first-workflow
+for more help here.
+
+```yml
 on: [repository_dispatch]
 
 jobs:
@@ -380,8 +410,9 @@ jobs:
           commit_message_input: $MESSAGE
 ```
 
-You can see [full example](https://github.com/OpenFn/demo-openhie) of repo and
-workflows [this repo](https://github.com/OpenFn/demo-openhie/)
+The Lightning [demo instance](https://demo.openfn.org) is currently connected to
+[this repo](https://github.com/OpenFn/demo-openhie/). Feel free to play around
+with it.
 
 #### Using version control
 
@@ -400,13 +431,12 @@ project via `openfn deploy`.
 
 ### Getting Help with the cli
 
-The cli package comes with an inbuilt `help` flag and providin the `--help` flag
-to a command such as `openfn deploy -- help` will result in a help message
-describing the command and the options available when using this command. See an
-example below
+The cli package comes with an inbuilt `help`. Adding `--help` to a command such
+as `openfn deploy --help` will result in a help message describing the command
+and the options available when using this command. See an example below
 
-```
-7:45 demo-openhie~>(main)~ openfn deploy --help
+```sh
+openfn deploy --help
 openfn deploy
 
 Deploy a project's config to a remote Lightning instance
@@ -422,8 +452,6 @@ Options:
   -p, --project-path           The location of your project.yaml file                                                                                                   [string]
   -s, --state-path             Path to the state file
 ```
-
-
 
 ## Other Versions
 
