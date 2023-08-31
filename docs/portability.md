@@ -423,8 +423,7 @@ Options:
   -s, --state-path             Path to the state file
 ```
 
-The full specification can be viewed
-[here](https://github.com/OpenFn/projects-as-code).
+
 
 ## Other Versions
 
