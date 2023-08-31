@@ -69,106 +69,178 @@ project.state.yaml
 The `project.yaml`:
 
 ```yaml
-name: "My Project" # The project name
-
-globals: # All global constants accessible to this project
-  clinic-map: file://./globals/clinic-map.json
-  project-expense-codes: file://./globals/project-expense-codes.json
-  service-codes:
-    body:
-      m126: Medical Referral
-      g01: General Checkup
-      ps: Psycho-social Support
-
-workflows: # All workflows in a project
-  CommCare-to-OpenMRS: #The workflow name. Workflow names won't have spaces
-    jobs: # All jobs/steps in a workflow
-      Coerce-to-FHIR: # The job/step name
-        trigger: webhook #webhook urls are uids so are not included
-        adaptor: language-fhir
+name: openhie-project
+# description:
+# credentials:
+# globals:
+workflows:
+  OpenHIE-Workflow:
+    name: OpenHIE Workflow
+    jobs:
+      FHIR-standard-Data-with-change:
+        name: FHIR-standard-Data-with-change
+        adaptor: '@openfn/language-http@latest'
         enabled: true
-        credential: my-fihr-credential #looks up credential in state by its name
-        # when running locally, the credentials values are taken from the overrides file
-        # cli run workflow "CommCare-to-OpenMRS" --overrides ./keys-and-values.yaml
-        body: "file://./CommCare-to-OpenMRS/Coerce-to-FHIR.js" # each job job-body is stored in a separate file, within a folder for the whole workflow
+        # credential:
+        # globals:
+        body: |
+          fn(state => {
+            console.log("hello github integration")
+            return state
+        });
 
-      Load-to-openmrs:
-        trigger:
-          on-success: Coerce-to-FHIR
-        adaptor: language-openmrs
-        credential: my-other-credential
+      Send-to-OpenHIM-to-route-to-SHR:
+        name: Send-to-OpenHIM-to-route-to-SHR
+        adaptor: '@openfn/language-http@latest'
         enabled: true
-        body:
-          # no "include", but pathlike doesn't work: if you're doing a uri you need to be explicit about it
-          # default to local fs -- no numbering because too complicated if users change the order
-          "file://./CommCare-to-OpenMRS/Load-to-openmrs.js"
+        # credential:
+        # globals:
+        body: |
+          fn(state => state);
 
-      Send-Wrap-Up-Reports:
-        trigger:
-          on-success: Load-to-openmrs
+      Notify-CHW-upload-successful:
+        name: Notify-CHW-upload-successful
+        adaptor: '@openfn/language-http@latest'
         enabled: true
-        adaptor: language-mailgun
-        globals:
-          - service-codes
-          - clinic-map
-        body: >
-          # this triggers a new workflow
-          fn(state => state)
-          sendEmail(state => state.emailContent)
+        # credential:
+        # globals:
+        body: |
+          fn(state => state);
 
-  Kobo-to-DHIS2: #This is a second workflow
-    Fetch-Kobo-Submissions:
-      trigger:
-        cron: * 5 * * *
-      enabled: true
-      adaptor: language-kobotoolbox
-      body: "file://./Kobo-to-DHIS2/Fetch-Kobo-Submissions.js"
+      Notify-CHW-upload-failed:
+        name: Notify-CHW-upload-failed
+        adaptor: '@openfn/language-http@latest'
+        enabled: true
+        # credential:
+        # globals:
+        body: |
+          fn(state => state);
 
-    Upload-to-DHIS2:
-      trigger:
-        on-success: Fetch-Kobo-Submissions
-      adaptor: language-kobotoolbox
-      enabled: false
-      body: "file://./Kobo-to-DHIS2/Upload-to-DHIS2.js"
+    triggers:
+      webhook:
+        type: webhook
+    edges:
+      webhook->FHIR-standard-Data-with-change:
+        source_trigger: webhook
+        target_job: FHIR-standard-Data-with-change
+        condition: always
+      FHIR-standard-Data-with-change->Send-to-OpenHIM-to-route-to-SHR:
+        source_job: FHIR-standard-Data-with-change
+        target_job: Send-to-OpenHIM-to-route-to-SHR
+        condition: on_job_success
+      Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-successful:
+        source_job: Send-to-OpenHIM-to-route-to-SHR
+        target_job: Notify-CHW-upload-successful
+        condition: on_job_success
+      Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-failed:
+        source_job: Send-to-OpenHIM-to-route-to-SHR
+        target_job: Notify-CHW-upload-failed
+        condition: on_job_failure
 ```
 
-The `project.state.yaml`:
+The `project.state.json`:
 
-```yaml
-project:
-  - id: '45bffee'
-    key: 'My Project'
-
-globals:
-  - id: 'sj23n36'
-    key: 'clinic-map'
-  - id: 'bss522g'
-    key: 'project-expense-codes'
-  - id: '22aa4st'
-    key: 'service-codes'
-
-workflows:
-  - id: 'cfd7c68'
-    key: 'CommCare-to-OpenMRS' # this is the NAME and the KEY
-  - id: 'd1ecc4f'
-    key: 'Kobo-to-DHIS2'
-
-jobs:
-  - id: 'ns6yw54'
-    key: 'Coerce-to-FHIR'
-  - id: '12bs52j'
-    key: 'Load-to-openmrs'
-  - id: 'lk81hs6'
-    key: 'Send-Wrap-Up-Reports'
-
-  - id: 'sn26sh2'
-    key: 'Fetch-Kobo-Submissions'
-  - id: 'sk1722h'
-    key: 'Upload-to-DHIS2'
-
-credentials:
-  - id: '12ms62y'
-    key: 'My FHIR Credential'
+```json
+{
+  "workflows": {
+    "OpenHIE-Workflow": {
+      "id": "27ae2937-0959-48b8-a597-b1646aae8c14",
+      "name": "OpenHIE Workflow",
+      "jobs": {
+        "Transform-data-to-FHIR-standard": {
+          "id": "e44f65bb-5038-4e17-8d93-b63cbe95254a",
+          "delete": true
+        },
+        "Send-to-OpenHIM-to-route-to-SHR": {
+          "id": "977b87ff-f347-42b5-832f-6ae2ca726f32",
+          "name": "Send-to-OpenHIM-to-route-to-SHR",
+          "adaptor": "@openfn/language-http@latest",
+          "body": "fn(state => state);\n",
+          "enabled": true
+        },
+        "Notify-CHW-upload-successful": {
+          "id": "86b743a3-fd00-4629-b9fb-d5f38fb56d0b",
+          "name": "Notify-CHW-upload-successful",
+          "adaptor": "@openfn/language-http@latest",
+          "body": "fn(state => state);\n",
+          "enabled": true
+        },
+        "Notify-CHW-upload-failed": {
+          "id": "be85df30-0abd-4f8e-be17-501f67e18b8d",
+          "name": "Notify-CHW-upload-failed",
+          "adaptor": "@openfn/language-http@latest",
+          "body": "fn(state => state);\n",
+          "enabled": true
+        },
+        "FHIR-standard-Data": {
+          "id": "55016dda-42e3-4ee1-8a9c-24e3f23d42f1",
+          "delete": true
+        },
+        "FHIR-standard-Data-with-change": {
+          "id": "28dd0846-a6ae-40c0-8ab4-3e0a6b487afe",
+          "name": "FHIR-standard-Data-with-change",
+          "adaptor": "@openfn/language-http@latest",
+          "body": "fn(state => state);\n",
+          "enabled": true
+        }
+      },
+      "triggers": {
+        "webhook": {
+          "id": "530cde0b-0de4-4f68-8834-0a4356a2fe53",
+          "type": "webhook"
+        }
+      },
+      "edges": {
+        "webhook->Transform-data-to-FHIR-standard": {
+          "id": "b2c7407b-0ae9-4ca5-9d6b-ee624976fa54",
+          "delete": true
+        },
+        "Transform-data-to-FHIR-standard->Send-to-OpenHIM-to-route-to-SHR": {
+          "id": "d22ed6f4-26a2-4c85-b261-cc110a6851e6",
+          "delete": true
+        },
+        "Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-successful": {
+          "id": "26c12f7f-7806-4008-87cd-6747998f95f4",
+          "condition": "on_job_success",
+          "source_job_id": "977b87ff-f347-42b5-832f-6ae2ca726f32",
+          "source_trigger_id": null,
+          "target_job_id": "86b743a3-fd00-4629-b9fb-d5f38fb56d0b"
+        },
+        "Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-failed": {
+          "id": "0630ac96-4f67-4de7-8c3d-0bf3f89f80d9",
+          "condition": "on_job_failure",
+          "source_job_id": "977b87ff-f347-42b5-832f-6ae2ca726f32",
+          "source_trigger_id": null,
+          "target_job_id": "be85df30-0abd-4f8e-be17-501f67e18b8d"
+        },
+        "webhook->FHIR-standard-Data": {
+          "id": "5ce3a8ed-b9eb-464a-a2cd-ba55adc393c2",
+          "delete": true
+        },
+        "FHIR-standard-Data->Send-to-OpenHIM-to-route-to-SHR": {
+          "id": "5f459cd9-2882-4a61-a2cc-ec45e58d4837",
+          "delete": true
+        },
+        "webhook->FHIR-standard-Data-with-change": {
+          "id": "75e7f7d8-274b-410d-9600-730bbd535229",
+          "condition": "always",
+          "source_job_id": null,
+          "source_trigger_id": "530cde0b-0de4-4f68-8834-0a4356a2fe53",
+          "target_job_id": "28dd0846-a6ae-40c0-8ab4-3e0a6b487afe"
+        },
+        "FHIR-standard-Data-with-change->Send-to-OpenHIM-to-route-to-SHR": {
+          "id": "1e5ba385-2c49-4241-8cd2-042c99a810ec",
+          "condition": "on_job_success",
+          "source_job_id": "28dd0846-a6ae-40c0-8ab4-3e0a6b487afe",
+          "source_trigger_id": null,
+          "target_job_id": "977b87ff-f347-42b5-832f-6ae2ca726f32"
+        }
+      }
+    }
+  },
+  "id": "8deff39d-8189-4bd7-9dc7-f9f08e7f2c60",
+  "name": "openhie-project"
+}
 ```
 
 ### Using the CLI to deploy or describe projects projects as code
