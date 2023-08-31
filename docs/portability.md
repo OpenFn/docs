@@ -259,6 +259,9 @@ Install it by running `npm install -g @openfn/cli`
 
 :::
 
+See how to use the cli [here](https://github.com/OpenFn/kit/tree/main/packages/cli#basic-usage)
+
+
 ### Generating a project spec and state (pull)
 
 To generate the spec and state files for an existing project, use the
@@ -267,8 +270,8 @@ To generate the spec and state files for an existing project, use the
 `openfn pull $OPENFN_PROJECT_ID -c config.json`
 
 - This command assumes you have set up or are passing in your configuration
-  which includes your `Endpoint`, `API_KEY`, `StatePath` and `SpecPath`, the
-  last two are the file names that will be used when persisting your state and
+  which includes your `OPENFN_ENDPOINT`, `OPENFN_API_KEY` (these can be environment variables).
+  The `statePath` and `specPath` are the file names that will be used when persisting your state and
   spec. Otherwise `Kit` will assume `.projectState.json` and `projectSpec.yaml`.
 - The result of this will be a new local set of files for your state and spec,
   which you can now use as you wish.
