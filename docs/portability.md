@@ -336,7 +336,7 @@ repository set up with a number of secrets used in the github actions
 
 Given these you can set up your Github Workflows as follows:
 
-#### Deploy Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml#L1)](https://github.com/OpenFn/kit/tree/main/packages/cli#deploying-workflows)
+#### Deploy Example [Github Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml)] or (https://github.com/OpenFn/kit/tree/main/packages/cli#deploying-workflows)
 
 ```
 on:
