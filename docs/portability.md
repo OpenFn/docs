@@ -340,12 +340,14 @@ To set up version control:
    -> Sync to Github**.
 2. Follow the instructions to install the Lightning Github app in your desired
    repository.
-3. Once you have created a a connection, set up pull and deploy workflows that
-   use openfn github actions below.
+3. Once you have created a a connection, set up `pull` and `deploy` workflows
+   that use openfn github actions below.
 4. Add `OPENFN_API_KEY` and `OPENFN_PROJECT_ID` repository secrets to your
    Github repo as described below.
-5. Click the sync to Github button to initiate a sync from Lightning to GitHub.
-6. Push a change to your selected branch to push changes from Github to
+5. Add a `.config.json` file to your repository which specifies your endpoint
+   and paths to project spec and state files.
+6. Click the sync to Github button to initiate a sync from Lightning to GitHub.
+7. Push a change to your selected branch to push changes from Github to
    Lightning.
 
 #### Github Repository Secrets
