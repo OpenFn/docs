@@ -402,14 +402,13 @@ jobs:
       contents: write
     name: A job to pull changes from Lightning
     steps:
-      - env:
-          MESSAGE: ${{ github.event.client_payload.message }}
       - name: openfn pull and commit
-        uses: OpenFn/cli-pull-action@v0.6.0
+        uses: OpenFn/cli-pull-action@v0.7.0
         with:
           secret_input: ${{ secrets.OPENFN_API_KEY }}
           project_id_input: ${{ secrets.OPENFN_PROJECT_ID }}
-          commit_message_input: $MESSAGE
+          commit_message_input:
+            'user ${{ github.event.client_payload.message }}'
 ```
 
 The Lightning [demo instance](https://demo.openfn.org) is currently connected to
