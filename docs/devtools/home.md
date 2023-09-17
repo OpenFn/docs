@@ -22,10 +22,9 @@ The [Devtools](https://github.com/OpenFn/devtools) repo is a collection of bash
 and Node scripts, as well as a _suggested_ (but not necessary) directory
 structure for working with OpenFn jobs and adaptors.
 
-To run OpenFn jobs locally, you only need [Core](/documentation/core)
-and at least one adaptor, e.g.
-[language-http](https://github.com/OpenFn/language-http) and you may prefer to
-install core globally via `npm install -g @openfn/core`
+To run OpenFn jobs locally, you only need [Core](/documentation/core) and at
+least one adaptor, e.g. [language-http](https://github.com/OpenFn/language-http)
+and you may prefer to install core globally via `npm install -g @openfn/core`
 
 :::
 
@@ -172,10 +171,9 @@ Check out this example workflow for using devtools in your day-to-day.
 
 ## Configure an OpenFn project
 
-You can use YAML project configuration files to define projects both on the
-[OpenFn platform](/documentation/deploy/platform) and in
-[OpenFn microservice](https://openfn.github.io/microservice/readme.html#content).
-Running `./scripts/generate-project.js` helps you build a project config YAML
+The easiest way to configure a project is via the web interface (you can then
+export or `openfn pull` the project as code) but you can also run
+`./scripts/generate-project.js` helps you build a project config YAML
 interactively, adding your triggers, credentials and jobs to the config. You can
 read more about the config file
 [here](https://openfn.github.io/microservice/readme.html#sample-configuration)
