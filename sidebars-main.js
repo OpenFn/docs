@@ -68,8 +68,8 @@ module.exports = {
       label: 'Deploy',
       items: [
         'deploy/options',
+        'deploy/requirements',
         'portability',
-        'deploy/platform',
         'instant-openhie',
       ],
     },

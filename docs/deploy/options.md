@@ -1,90 +1,102 @@
 ---
-title: Planning for Deployment
+title: Planning
 ---
 
 ## Introduction
 
-OpenFn/platform (the iPaaS), OpenFn/microservice and more than 50
-open-source adaptors maintained by OpenFn can be used locally or on the cloud,
-and as stand-alone solutions or as modules in other applications. Together the
-interoperability suite provides organizations with the tools they need to
-connect with any application or database, adhere to any data standards, and
-automate any rote digital process. The tools themselves range from lightweight
-NodeJS apps to robust and highly-fault-tolerant enterprise applications running
-on the ErlangVM. They are typically used in their hosted forms on the cloud or
-deployed with Docker and/or Kubernetes.
+OpenFn can be used as a secure, stable, scalable cloud-hosted offering or
+deployed locally—with both managed and un-managed options. Regardless of which
+path you choose, you can configure OpenFn so that no sensitive data is kept
+outside your country's borders.
 
-<!-- if we come up with new names for products, we will need to rename things here... -->
+:::success Portability
 
-See below for a chart of the available implementation pathways.
+Because of OpenFn's [portability specification](/portability.md) and open-source
+deployment tools you can transition between these various pathways at any time.
+We're committed to a **no vendor lock-in** experience.
 
-![Implementation Pathways](/img/implementation_pathways.png)
+:::
 
-<!-- @taylor now that we have added in the new chart (see below), should we get rid of this chart? -->
+|        Pathway        |                                             Free                                             |                                                   Standard                                                    |                                                                Dedicated                                                                |                                                Do-it-yourself (DIY)                                                |
+| :-------------------: | :------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------: |
+|      Description      |                     Go live today on OpenFn.org for small scale projects                     |                                 Scale up and down, pay only for what you need                                 |                       A dedicated, unrestricted OpenFn installation anywhere in the world on our servers or yours                       |                                  Deploy and manage your own solutions with OpenFn                                  |
+|        License        |                             Free forever with usage limitations                              | **SaaS** [plans](https://www.openfn.org/pricing); contact enterprise@openfn.org for custom/invoice agreements | **SDaaS** includes deployment, maintenance, security patches, upgrades, and troubleshooting as a service; contact enterprise@openfn.org | LGPLv3 means use freely as part of any closed or open-source solution, but make all _derivative_ works open source |
+|       Location        |                            Secure **global** cloud infrastructure                            |                                    Secure **global** cloud infrastructure                                     |                                           **Local (in-country)** or **Global** infrastructure                                           |                                                 Wherever you want                                                  |
+|      Deployment       |              **Click to start** at [OpenFn.org](https://www.openfn.org/signup)               |                       **Click to start** at [OpenFn.org](https://www.openfn.org/signup)                       |                                                    **Contact** enterprise@openfn.org                                                    |                     Read this docs page and visit our [Github](https://www.github.com/OpenFn)                      |
+| Setup & Configuration | **Your choice** to setup yourself, with a certified implementer, or with the OpenFn.org team |         **Your choice** to setup yourself, with a certified implementer, or with the OpenFn.org team          |                      **Your choice** to setup yourself, with a certified implementer, or with the OpenFn.org team                       |            **Your choice** to setup yourself, with a certified implementer, or with the OpenFn.org team            |
+|        Support        |           Give & receive support via the [community](https://community.openfn.org)           |                                    Various levels from support@openfn.org                                     |                                                 Various levels from support@openfn.org                                                  |                      Give & receive support via the [community](https://community.openfn.org)                      |
 
-<!--@Taylor would you be willing to spend some time creating an update to this chart? Please note that the chart doesn't include anything re OpenFn/Core or OpenFn/Engine. Source for chart is: https://drive.google.com/file/d/1wRr7EH-PXT3gHgPnVWDA2kTZSSjigwqq/view?usp=sharing  -->
+## Sample Local Deployment Plan
 
-When you configure projects (think `jobs`, `triggers`, and `credentials`) to run
-on OpenFn, you can deploy them in a number of different ways. In fact, a key
-feature of OpenFn's offerings are the versatility they provide to users. A user
-can build her project using OpenFn's enterprise platform, or using components of
-the open source integration toolkit. A user may then choose to deploy the
-project initially on the platform and later migrate to her own servers when
-doing so makes sense. The good news is that OpenFn project
-[portability](/portability.md) will make these transitions easy. You will have
-full control and ownership of your integration project regardless of the
-deployment pathway you pursue.
+:::info This is just an example
 
-![Deployment Options](/img/deployment_options.png)
+Your requirements will vary, but this is an example plan for acheiving a
+large-scale, high-sensitivity local deployment.
 
-## Platform
+:::
 
-See: [platform](platform)
+If you're considering a large-scale/high-sensitivity implementation of OpenFn on
+local/government-managed servers, you might:
 
-The OpenFn integration platform provides a flexible, scalable, and secure
-infrastructure to connect your existing systems, streamline data sharing, and
-automate workflows.
+1. **Run a proof-of-concept, prototype, or time-bound production solution**
+   using the cloud hosted offering while determining fit and value. (It's a more
+   secure, less expensive, and faster way to prove out the value and viability
+   of the solution itself.)
+2. While the first phase is running, **assess the value and beging
+   preparations**:
+   1. Assess the **value of the solution** itself—is it solving the problems you
+      thought it would?
+   2. Asses your **data residency requirements**—do you need to run this
+      soltuion in country?
+   3. Assess your team’s technical **DevOps capacity**—how are other local
+      deployments of DPGs going?
+   4. Assess your countries computing, storage, and networking
+      infrastructure—what options\* are available for servers and network
+      connectivity?
+   5. Determine if a **"zero-persistence"** cloud solution or a **locally
+      deployed** solution is best for your ministry—with the data above run a
+      cost-benefit analysis on both options.
+3. Engage with OpenFn.org or a certified parnter to **practice deployment**,
+   migration, rollback, restart, backup, etc.
+4. Using OpenFn’s portability tools, **run a cloned local version** of your
+   cloud-hosted solution to assess the readiness of your local deployment.
+5. Establish a **fail-over protocol** with OpenFn to “fail to cloud” for
+   critical systems.
+   1. How often should the implementation configuration (not the sensitive data)
+      be backed up to the OpenFn.org hosted cloud?
+   2. What credentials and/or test environments should the cloud backup have
+      access to?
+   3. Establish a plan for switching between cloud and local.
+6. Establish a **support retainer** with OpenFn-certified local vendors and/or
+   the OpenFn core team to help maintain the local deployment in case of issues.
+7. **Transition fully to your local deployment** and maintain capacity to
+   support or redeploy your solution to other cloud or local servers.
+8. **Monitor & adjust your strategy** as and when required by your country’s
+   usage and data sovereignty requirements evolve over time.
 
-Platform is right for you if you are very serious about security, stability and
-scalability, or you don't have a strong/well-resourced IT team with devops
-experience in your organization.
+\*Head over to the [Requirements](./requirements.md) page for more information
+on recommended server specifications.
 
-The least expensive way to do deploy on platform is using our cloud servers,
-currently based in the US and Switzerland but availalbe in many more countries
-on-demand.
+## Moving from cloud to local (v1 or v2)
 
-If you've got data-residency requirements to comply with, you might consider a
-local-deployment of `platform`—this will still require a paid license but you
-can pick and choose exactly how and where OpenFn runs.
+For users that are planning a self-hosted implementation, we recommend
+developing and testing the initial solution on the OpenFn SaaS (v1 or v2,
+possibly on a free tier) and then exporting for use in Lightning (v2).
 
-## Microservice
+This allows the implementer to focus on ironing out the business and technical
+requirements of the automation before incurring deployment costs. Focus on the
+solution, not the deployment. Your OpenFn solution can then be migrated to a
+local deployment of Lightning once it has been piloted, its value has been
+proven, and you're ready to scale it up.
 
-See: [microservice](/documentation/microservice/home)
+### A user journey for locally deployed OpenFn
 
-Microservice is right for you if you are already managing high-availability
-software and don't need a web-front end. Microservice gives you lots of
-flexbility, and it's completely FOSS—meaning you use it for free and can even
-develop your own new features as needed.
-
-While this community-supported variant of OpenFn may lack some of the more
-powerful features of `platform`, it's 100% cross-compatible, meaning that you
-can even build and test entire projects on `platform` and then export the
-`project.yaml` file to run on your own servers using `microservice`.
-
-<!-- When organizations or governments have an open-source license requirement, all
-jobs, credentials, and project configurations can be exported from OpenFn's
-iPaaS and used to create a Engine deployment using OpenFn's FOSS ETL tools. -->
-
-<!-- You might use Engine if... -->
-
-<!-- ## Core
-
-This is the FOSS ETL tool at the heart of the OpenFn platform. We are currently
-working on getting this into a state where it can be deployed as a completely
-free and open source Engine which automatically receives messages and executes
-OpenFn jobs, harnessing all the power of thousands of existing OpenFn jobs and
-adaptors. -->
-
-<!-- You might use Core if... -->
-
-<!-- project.yaml is your jobs, triggers and credentials. you can run on our cloud or your cloud. you can look at individual components  -->
+1. Build and test your workflows on [Openfn.org](https://www.openfn.org).
+2. Export your OpenFn project _as code_ using the "export" button or deployment
+   CLI.
+3. Deploy your local instance of OpenFn/Lightning.
+4. Import your project (from step #2) to your local OpenFn/Lightning instance
+   using the deployment CLI.
+5. Re-configure your credentials (credential secrets will _not_ be included in
+   the export).
+6. Test your locally deployed project.

@@ -4,39 +4,21 @@ title: Portability
 
 ## Intent
 
-Beyond facilitating portability/transferability between OpenFn's
-[platform](deploy/platform), [microservice](/documentation/microservice/home),
-and
-[lightning](/documentation/getting-started/integration-toolkit/#lightning-coming-soon)
-deployment pathways, the portability proposal establishes a simple,
-globally-applicable way of **_specifying workflow automation_** and **_systems
-integration_** that might be applied across workflow-engines/integration
-platforms across the sector. Nothing about the spec _must_ be specific to OpenFn
-or any one of our individual products. We envision a future in which software
-built with Lightning, the OpenFn Integration Toolkit, and entirely new and
-different integration/workflow tools can adopt this specification.
-
-It boils down to several key top-level artifacts: `workflows` (containing jobs
-and triggers), `globals`, and `credentials`.
-
-- **Jobs** dictate what tasks or actions must be performed;
-- **Triggers** when they must be performed;
-- **Globals** are reusable constants, or datasets (like mapping tables) shared
-  across jobs;
-- and **Credentials** are what, if any, authentication they'll need to perform
-  them.
+The portability specification allows for the representations of entire workflow
+projects "as code", lets user move between various deployment pathways (cloud,
+local, DIY, etc.) and proposes a globally-applicable way of **_specifying
+workflow automation_** and **_systems integration_** that might be applied
+across workflow-engines/integration platforms across the sector. Nothing about
+the spec _must_ be specific to OpenFn or any one of our individual products. We
+envision a future in which software built with Lightning, the OpenFn Integration
+Toolkit, and entirely new and different integration/workflow tools can adopt
+this specification.
 
 If you're interested in contributing to the specification, reach out to OpenFn
 via the [community forum](https://community.openfn.org), write to us, or suggest
 changes by submitting a pull request here.
 
-```mdx-code-block
-import ReactPlayer from 'react-player';
-
-<ReactPlayer url='https://www.youtube.com/watch?v=9xXK5xoiMgA' />
-```
-
-## OpenFn projects as code
+## "Projects as code"
 
 The portability specification v4 defines how entire projects (groups of
 workflows with their associated triggers, edges, credentials and jobs) can be
@@ -46,7 +28,7 @@ and an audit trail of project changes; and (c) allows users to port existing
 workflows from OpenFn v1 to v2, as well as between instances or deployments of
 Lightning.
 
-### Project "spec"
+### The project "spec"
 
 The project specification (or "spec") is often saved as a `project.yaml` file.
 
@@ -120,7 +102,7 @@ workflows:
         condition: on_job_failure
 ```
 
-### Project "state"
+### The project "state"
 
 The project state is a representation of a particular project as _on a specific
 Lightning instance_. It is often saved as `projectState.json` and contains UUIDs

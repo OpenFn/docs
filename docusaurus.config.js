@@ -17,6 +17,10 @@ module.exports = {
     defaultLocale: 'en',
     locales: ['en', 'fr'],
   },
+  markdown: {
+    mermaid: true,
+  },
+  themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
     algolia: {
       appId: 'O729P2PJGT',
