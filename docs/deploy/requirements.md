@@ -35,21 +35,29 @@ your deployment partner can better estimate your total cost of ownership.
 
 ## Knowledge Requirements
 
-| Skill      | Relevance and reason |
-| ---------- | -------------------- |
-| Docker     | it's good            |
-| Javascript | it's good            |
-| Erlang     | it's good            |
-| Postgres   | it's good            |
-| Kubernetes | it's good            |
+| Skill      | Relevance and reason                                                                                                                                                                                                                                                         |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Erlang     | The OpenFn **webapp/orchestration layer** is an Erlang OTP application.                                                                                                                                                                                                      |
+| Javascript | The OpenFn **job processing workers** and OpenFn workflows themselves are Javascript-based. With knowledge of how NodeJs works you can build workflows that do _anything_.                                                                                                   |
+| Postgres   | The default **database** for OpenFn is PostgreSQL                                                                                                                                                                                                                            |
+| Docker     | We publish all **OpenFn [images](https://hub.docker.com/repository/docker/openfn/lightning/general)** on Docker Hub. Whether you're streamlining developer setup or using container orchestration technologies, understanding docker and containerized computing is helpful. |
+| Kubernetes | For high-availability deployments, Kubernetes services provide **load balancing** and simplify **container management** on multiple hosts. They make it easy for an enterprise's apps to have greater scalability and be flexible, portable and more productive.              |
 
 ## Machine Requirements
 
-OpenFn uses [Kubernetes](https://kubernetes.io/) for our managed deployments on
-Google Cloud and we recommend it for high-availability, scalable deployments.
-This also allows the Erlang orchestration/webapp layer to scale independently of
-the Javascript worker layer, saving cost and ensuring better scalability even
-with lumpy work order loads.
+:::tip If you're going with "DIY", start simple
+
+Kubernetes is _NOT_ required, but it's recommended for high-availability
+deployments. Consider docker or bare-metal deployments (Erlang OTP apps work
+very well on Linux) for a simpler setup.
+
+:::
+
+The official OpenFn SaaS uses [Kubernetes](https://kubernetes.io/) for managed
+deployments on Google Cloud and we recommend it for high-availability and
+scalable deployments. With dynamic workloads, it is important (for stability and
+cost reasons) to be able to scale the Erlang OTP app node pool & pods
+independently of the Javascript worker node pool & pods.
 
 1. Use a scalable SQL service and keeping _at least_ two app nodes running with
    the following specs will help prevent unwanted downtime.
