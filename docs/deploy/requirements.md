@@ -41,7 +41,7 @@ your deployment partner can better estimate your total cost of ownership.
 | Javascript | The OpenFn **job processing workers** and OpenFn workflows themselves are Javascript-based. With knowledge of how NodeJs works you can build workflows that do _anything_.                                                                                                   |
 | Postgres   | The default **database** for OpenFn is PostgreSQL                                                                                                                                                                                                                            |
 | Docker     | We publish all **OpenFn [images](https://hub.docker.com/repository/docker/openfn/lightning/general)** on Docker Hub. Whether you're streamlining developer setup or using container orchestration technologies, understanding docker and containerized computing is helpful. |
-| Kubernetes | For high-availability deployments, Kubernetes services provide **load balancing** and simplify **container management** on multiple hosts. They make it easy for an enterprise's apps to have greater scalability and be flexible, portable and more productive.              |
+| Kubernetes | For high-availability deployments, Kubernetes services provide **load balancing** and simplify **container management** on multiple hosts. They make it easy for an enterprise's apps to have greater scalability and be flexible, portable and more productive.             |
 
 ## Machine Requirements
 

@@ -100,3 +100,13 @@ proven, and you're ready to scale it up.
 5. Re-configure your credentials (credential secrets will _not_ be included in
    the export).
 6. Test your locally deployed project.
+
+## Technical Guidelines
+
+For detailed deployment documentation instructions, head to the Lightning
+[developer docs page](https://openfn.github.io/Lightning/readme.html), paying
+special attention to several sections:
+
+1. [Getting Started](https://openfn.github.io/Lightning/readme.html#getting-started)
+2. [Deployment Considerations](https://openfn.github.io/Lightning/deployment.html)
+3. [Benchmarking](https://openfn.github.io/Lightning/benchmarking.html)
