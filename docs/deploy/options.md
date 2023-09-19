@@ -30,7 +30,7 @@ We're committed to a **no vendor lock-in** experience.
 
 :::info This is just an example
 
-Your requirements will vary, but this is an example plan for acheiving a
+Your requirements will vary, but this is an example plan for achieving a
 large-scale, high-sensitivity local deployment.
 
 :::
@@ -42,12 +42,12 @@ local/government-managed servers, you might:
    using the cloud hosted offering while determining fit and value. (It's a more
    secure, less expensive, and faster way to prove out the value and viability
    of the solution itself.)
-2. While the first phase is running, **assess the value and beging
+2. While the first phase is running, **assess the value and begin
    preparations**:
    1. Assess the **value of the solution** itself—is it solving the problems you
       thought it would?
    2. Asses your **data residency requirements**—do you need to run this
-      soltuion in country?
+      solution in country?
    3. Assess your team’s technical **DevOps capacity**—how are other local
       deployments of DPGs going?
    4. Assess your countries computing, storage, and networking
@@ -56,7 +56,7 @@ local/government-managed servers, you might:
    5. Determine if a **"zero-persistence"** cloud solution or a **locally
       deployed** solution is best for your ministry—with the data above run a
       cost-benefit analysis on both options.
-3. Engage with OpenFn.org or a certified parnter to **practice deployment**,
+3. Engage with OpenFn.org or a certified partner to **practice deployment**,
    migration, rollback, restart, backup, etc.
 4. Using OpenFn’s portability tools, **run a cloned local version** of your
    cloud-hosted solution to assess the readiness of your local deployment.
