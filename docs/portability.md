@@ -322,30 +322,66 @@ To set up version control:
    -> Sync to Github**.
 2. Follow the instructions to install the Lightning Github app in your desired
    repository.
-3. Once you have created a a connection, set up `pull` and `deploy` workflows
-   that use openfn github actions below.
-4. Add `OPENFN_API_KEY` and `OPENFN_PROJECT_ID` repository secrets to your
-   Github repo as described below.
-5. Add a `.config.json` file to your repository which specifies your endpoint
-   and paths to project spec and state files.
-6. Click the sync to Github button to initiate a sync from Lightning to GitHub.
-7. Push a change to your selected branch to push changes from Github to
-   Lightning.
+3. Then, create an OpenFn API Key. ⚠️[ADD LINK TO DOCS OR INSTRUCTIONS ON HOW TO GENERATE THIS.]⚠️
+4. Once you have created an API key, in a separate tab, navigate to your now connected Github repository. You will need to configure 2 Github workflows. Read on for instructions, and learn more at https://docs.github.com/en/actions/quickstart#creating-your-first-workflow
+4. First create a `.github/workflows` directory in your repository on GitHub if this directory does not already exist.
+5. In the `.github/workflows` directory, create a file named `deploy.yml`. Copy this code below into the body of the file, replace `OPENFN_API_KEY` with the key you created in step 3. Save and commit the file to ⚠️`XYZ???`⚠️ branch. 
+```yml
+on:
+  push:
+    branches:
+      - main
 
-#### Github Repository Secrets
+jobs:
+  deploy-to-lightning:
+    runs-on: ubuntu-latest
+    name: A job to deploy to Lightning
+    steps:
+      - name: openfn deploy
+        uses: OpenFn/cli-deploy-action@v0.1.11
+        with:
+          secret_input: ${{ secrets.OPENFN_API_KEY }}
+```
+6. Next go back to OpenFn to find your `OPENFN_PROJECT_ID`. ⚠️IDKHOW???⚠️
+7. In the `.github/workflows` directory, create a file named `pull.yml`. Copy this code below into the body of the file, replace `OPENFN_PROJECT_ID` with the ID you found in step 6. 
+Also replace `OPENFN_API_KEY` with the key you created in step 3. 
+Save and commit the file to ⚠️`XYZ???`⚠️ branch. 
+```yml
+on: [repository_dispatch]
 
-The workflows that interact with the OpenFn actions will need the repository set
-up with two secrets used in the github actions:
+jobs:
+  pull-from-lightning:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    name: A job to pull changes from Lightning
+    steps:
+      - name: openfn pull and commit
+        uses: OpenFn/cli-pull-action@v0.7.0
+        with:
+          secret_input: ${{ secrets.OPENFN_API_KEY }}
+          project_id_input: ${{ secrets.OPENFN_PROJECT_ID }}
+          commit_message_input:
+            'user ${{ github.event.client_payload.message }}'
+```
+8. If you haven't already created files in your Github repository to save your (1) project spec and (2) state files, then create 2 new files: `project.yaml` and `projectState.json` 
+9. In your Github root directory, add a `.config.json` file to your repository which specifies your OpenFn's app domain name and paths to these Github files you created in step 8 to sync the OpenFn configuration with. See below example. 
+```
+{
+  "endpoint": "https://app.openfn.org",
+  "statePath": "./projectState.json",
+  "specPath": "./project.yaml"
+}
+```
+10. Back in the OpenFn `Project Settings` page, click the `Sync to Github` button to initiate a sync from Lightning to GitHub. ⚠️IS IT REALLY IMPORTANT FOR ME TO DO THIS STEP FIRST SO I DONT OVERWRITE CODE IN LIGHTNING???⚠️
+11. To sync changes from Github to Lightning, push a change to your connected Github branch.
 
-- OPENFN_API_KEY: This is your API Key as generated from Lightning and will be
-  needed for authentication
-- OPENFN_PROJECT_ID: This is your Project ID from Lightning this will be used to
-  pull from the lightning instance
+#### Troubleshooting help
+If you need more help with the Github workflow setupp, see related Github docs (https://docs.github.com/en/actions/quickstart#creating-your-first-workflow ) or the demo `deploy` and `pull` workflows linked below. 
 
-#### Github Repository Structure
-
-Here you can do pretty much what you want, so long as you've got a `config.json`
-pointing to your project spec, state, and Lightning endpoint.
+The Lightning [demo instance](https://demo.openfn.org) is currently connected to
+[this repo](https://github.com/OpenFn/demo-openhie/). Feel free to play around
+with it, or explore the demo Github workflow files. 
 
 #### Example [Deploy Workflow](https://github.com/OpenFn/demo-openhie/blob/main/.github/workflows/deploy.yml) for GitHub
 
@@ -392,10 +428,6 @@ jobs:
           commit_message_input:
             'user ${{ github.event.client_payload.message }}'
 ```
-
-The Lightning [demo instance](https://demo.openfn.org) is currently connected to
-[this repo](https://github.com/OpenFn/demo-openhie/). Feel free to play around
-with it.
 
 #### Using version control
 
