@@ -98,7 +98,7 @@ _You can follow our progress and track delivered features in our
 
 :::danger Please note
 
-Lightning is still in Beta.
+Lightning is still in Beta. Full release planned for Q4 2023. 
 
 :::
 
@@ -111,7 +111,8 @@ You have 3 options for exploring OpenFn/Lightning:
 2. To get your own account and start building non-production workflows, register
    for an account at [app.openfn.org](https://app.openfn.org/).
 3. To install and run Lightning locally follow the instructions in the
-   [github README](https://github.com/OpenFn/Lightning).
+   [github README](https://github.com/OpenFn/Lightning) or the 
+   [linked Docs site](https://github.com/OpenFn/lightning/). 
 
 Go through the
 [self-paced user interview](/blog/2023/04/13/lightning-beta#take-15-minutes-to-carry-out-our-user-test)
@@ -377,11 +378,11 @@ features in our roadmap (we’re still in beta).
 
 Later: nothing - if a feature has proven important to our platform users, it
 will be available in Lightning. If there is any feature you require in Lightning
-to be able to switch over to it, speak up ! You can reach out to our product
-manager Amber via [email](mailto:amber@openfn.org) or even better book some time
-with her through her [calendar](https://koalendar.com/e/amber-rignell-openfn).
+to be able to switch over to it, speak up! You can reach out to our team via the 
+[OpenFn Community](https://community.openfn.org/).
 
-#### When will Lightning Beta be ready?
+#### When will Lightning be ready?
 
-Lightning is currently in private Beta. You can register for an account on
-[app.openfn.org](https://app.openfn.org/).
+Lightning is currently in Beta. You can register for an account on
+[app.openfn.org](https://app.openfn.org/). Lightning will be released
+in Q4 2023. 
