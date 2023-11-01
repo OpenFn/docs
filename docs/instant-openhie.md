@@ -300,7 +300,7 @@ These two methods are detailed below:
 [hapifhir]: https://hapifhir.io/
 [commcare]: https://www.commcarehq.org/
 [kobo]: https://www.kobotoolbox.org/
-[projects]: /documentation/build/example-build/
+[projects]: /documentation/build/lightning-quick-start/
 [projectyaml]: https://github.com/OpenFn/microservice/blob/main/project.yaml.example
 [triggers]: /documentation/build/triggers/
 [commcaresample]: https://github.com/OpenFn/instant-demo/blob/main/fixtures/commcare_sample.json
