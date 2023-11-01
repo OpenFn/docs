@@ -14,7 +14,6 @@ module.exports = {
       type: 'category',
       label: 'Getting Started',
       items: [
-        'build/example-build',
         'build/lightning-quick-start',
         'getting-started/terminology',
         'getting-started/implementation-checklist',

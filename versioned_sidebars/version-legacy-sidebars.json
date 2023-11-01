@@ -1,0 +1,125 @@
+{
+  "docs": [
+    {
+      "type": "category",
+      "label": "Introduction",
+      "items": [
+        "intro",
+        "getting-started/integration-toolkit",
+        "about-lightning",
+        "getting-started/so-you-want-to-integrate"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Getting Started",
+      "items": [
+        "build/example-build",
+        "build/lightning-quick-start",
+        "getting-started/terminology",
+        "getting-started/implementation-checklist",
+        "getting-started/security"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Design",
+      "items": ["design/design-quickstart", "getting-started/glossary"]
+    },
+    {
+      "type": "category",
+      "label": "Build",
+      "items": [
+        {
+          "type": "category",
+          "label": "Jobs",
+          "items": [
+            "build/jobs",
+            "jobs/job-design-intro",
+            "jobs/understanding",
+            "jobs/operations",
+            "jobs/multiple-operations",
+            "jobs/state",
+            "jobs/each",
+            "jobs/job-studio",
+            "jobs/editing_locally",
+            "jobs/working_with_branches"
+          ]
+        },
+        "build/triggers",
+        "build/credentials",
+        {
+          "type": "link",
+          "label": "Adaptors",
+          "href": "/adaptors"
+        },
+        {
+          "type": "category",
+          "label": "Live Data",
+          "items": ["build/inbox", "source-apps"]
+        },
+        "cli",
+        "build/troubleshooting",
+        {
+          "type": "category",
+          "label": "Old Versions",
+          "items": ["core", "devtools/home", "microservice/home"]
+        }
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Deploy",
+      "items": [
+        "deploy/options",
+        "deploy/requirements",
+        "portability",
+        "instant-openhie"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Manage",
+      "items": [
+        "manage/platform-mgmt",
+        "manage/troubleshooting-tips-on-platform",
+        "jobs/errors",
+        "jobs/limits",
+        "release-notes"
+      ]
+    },
+    {
+      "type": "category",
+      "label": "Standards",
+      "items": [
+        "standards/digital-public-goods",
+        "standards/global-goods",
+        "standards/openhie"
+      ]
+    },
+    {
+      "type": "doc",
+      "id": "faqs"
+    },
+    {
+      "type": "category",
+      "label": "Contributing",
+      "items": [
+        "openfn-roadmap",
+        "for-devs",
+        "gsoc",
+        "writing-docs",
+        "style-guide"
+      ]
+    },
+    {
+      "type": "doc",
+      "id": "about"
+    },
+    {
+      "type": "link",
+      "label": "Community Forum",
+      "href": "https://community.openfn.org"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 ---
-title: Quick-Start
+title: Lightning Quick-Start (v2)
 ---
 
 This tutorial takes ~15 minutes to complete, and teaches you how to build

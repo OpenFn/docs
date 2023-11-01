@@ -61,6 +61,10 @@ module.exports = {
           position: 'right',
         },
         {
+          type: 'docsVersionDropdown',
+          position: 'right',
+        },
+        {
           href: 'https://github.com/openfn/docs',
           position: 'right',
           className: 'header-github-link',
@@ -139,6 +143,17 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars-main.js'),
           routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/main',
+          lastVersion: 'legacy',
+          versions: {
+            current: {
+              banner: 'unreleased',
+              label: "Lightning 🚧"
+            },
+            'legacy': {
+              banner: 'none',
+              label: "Platform (v1)"
+            },
+          },
         },
         blog: {
           showReadingTime: true,
