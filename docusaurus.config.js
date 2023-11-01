@@ -151,7 +151,7 @@ module.exports = {
             },
             'legacy': {
               banner: 'none',
-              label: "Legacy"
+              label: "Platform (v1)"
             },
           },
         },
