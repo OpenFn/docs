@@ -14,6 +14,7 @@
       "type": "category",
       "label": "Getting Started",
       "items": [
+        "build/example-build",
         "build/lightning-quick-start",
         "getting-started/terminology",
         "getting-started/implementation-checklist",
@@ -23,10 +24,7 @@
     {
       "type": "category",
       "label": "Design",
-      "items": [
-        "design/design-quickstart",
-        "getting-started/glossary"
-      ]
+      "items": ["design/design-quickstart", "getting-started/glossary"]
     },
     {
       "type": "category",
@@ -58,21 +56,14 @@
         {
           "type": "category",
           "label": "Live Data",
-          "items": [
-            "build/inbox",
-            "source-apps"
-          ]
+          "items": ["build/inbox", "source-apps"]
         },
         "cli",
         "build/troubleshooting",
         {
           "type": "category",
           "label": "Old Versions",
-          "items": [
-            "core",
-            "devtools/home",
-            "microservice/home"
-          ]
+          "items": ["core", "devtools/home", "microservice/home"]
         }
       ]
     },
