@@ -1,8 +1,15 @@
 ---
-title: Integration Design
+sidebar_label: Design Process
+title: Design Process for OpenFn Solutions
 ---
+:::warning Under construction
 
-# Getting Started on Integration Design
+This docs page is under construction. Check back later for the complete docs, or check out the Docs Version "Platform (v1)". 
+
+:::
+
+# Getting started with workflow automation design for OpenFn projects
+Overview of design process and key outputs/artefacts...
 
 **Integration design begins with the functional or business requirements (not
 the technical bits).** Therefore, you do not need to be an IT consultant or

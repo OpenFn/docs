@@ -1,5 +1,5 @@
 ---
-sidebar_label: Security
+sidebar_label: Security in Implementations
 title: Security considerations for data integration projects
 ---
 

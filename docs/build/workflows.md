@@ -1,5 +1,5 @@
 ---
-title: Introduction to Jobs
+title: What are "workflows"? 
 ---
 
 A job defines the specific series of "operations" (think: tasks or database

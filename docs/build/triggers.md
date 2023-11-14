@@ -2,9 +2,8 @@
 title: Triggers
 ---
 
-Triggers are responsible for starting job runs automatically. They come in 4
-types. The most common are "message filter" triggers, but there are also "cron"
-triggers, "flow" triggers, and "fail" triggers.
+Triggers are responsible for starting workflows automatically. They come in 2
+types: "cron" triggers and "webhook event" triggers. 
 
 ## Trigger types
 

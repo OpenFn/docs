@@ -1,6 +1,45 @@
 ---
-title: OpenHIE
+sidebar_label: Standards
+title: Standards & OpenFn
 ---
+
+# Digital Public Good
+OpenFn is recognised by the
+[Ditial Public Goods Alliance](https://digitalpublicgoods.net/) as a Digital
+Public Good, or "DPG".
+
+:::info Digital Public Goods Definition
+
+Open-source software, open data, open AI models, open standards, and open
+content that adhere to privacy and other applicable best practices, do no harm
+by design and are of high relevance for attainment of the United Nations 2030
+Sustainable Development Goals (SDGs)
+
+:::
+
+You can read more about the DPG standard
+[here](https://digitalpublicgoods.net/standard/).
+
+# Global Good for Health
+
+OpenFn is one of 36 software applications that have been recognised as a Digital
+Square Global Good for Health.
+
+:::info Global Goods for Health Definition
+
+A mature digital health software global good is software that is Free and Open
+Source Software (FOSS), is supported by a strong community, has a clear
+governance structure, is funded by multiple sources, has been deployed at
+significant scale, is used across multiple countries, has demonstrated
+effectiveness, is designed to be interoperable, and is an emergent standard
+application.
+
+:::
+
+You can read more about Global Goods for Health
+[here](https://digitalsquare.org/digital-health-global-goods).
+
+# OpenHIE Standard Architecture
 
 _This section assumes you are familiar with the OpenHIE specification–a
 reference framework that makes sharing health data across information systems
