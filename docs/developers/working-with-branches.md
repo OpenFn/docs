@@ -2,8 +2,8 @@
 title: Working with branches
 ---
 
-In the [Editing jobs locally](/documentation/jobs/editing-locally) section we
-walked through the process of creating and adding your changes to the `main`
+In the [Editing jobs locally](/documentation/developers/editing-locally) section
+we walked through the process of creating and adding your changes to the `main`
 branch of a project.
 
 However, most code change workflows involve sharing and reviewing changes before
