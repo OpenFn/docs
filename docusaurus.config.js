@@ -32,10 +32,10 @@ module.exports = {
       },
       items: [
         {
-          to: 'documentation/',
-          activeBasePath: 'documentation',
-          label: 'Docs',
+          type: 'doc',
           position: 'left',
+          docId: 'intro',
+          label: 'Docs',
         },
         {
           to: 'adaptors',
@@ -75,21 +75,22 @@ module.exports = {
         {
           title: 'This Site',
           items: [
+            // {
+            //   type: 'doc',
+            //   docId: 'intro',
+            //   label: 'Docs',
+            // },
             {
-              label: 'Documentation',
-              to: 'documentation',
-            },
-            {
-              label: 'Adaptors',
               to: 'adaptors',
+              label: 'Adaptors',
             },
             {
-              label: 'Articles',
               to: 'articles',
+              label: 'Articles',
             },
             {
-              label: 'Blog',
               to: 'blog',
+              label: 'Blog',
             },
           ],
         },

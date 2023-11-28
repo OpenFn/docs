@@ -4,7 +4,7 @@ module.exports = {
       type: 'category',
       label: 'Intro',
       items: [
-        'intro/about-openfn',
+        'intro',
         // 'intro/terminology',
         // 'intro/standards',
         // 'intro/security-compliance',

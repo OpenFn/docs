@@ -1,5 +1,6 @@
 ---
 title: About
+id: intro
 sidebar_label: What is OpenFn?
 slug: /
 ---
