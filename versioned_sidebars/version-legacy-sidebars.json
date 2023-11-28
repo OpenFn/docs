@@ -4,7 +4,7 @@
       "type": "category",
       "label": "Introduction",
       "items": [
-        "intro",
+        "intro/home",
         "getting-started/integration-toolkit",
         "about-lightning",
         "getting-started/so-you-want-to-integrate"

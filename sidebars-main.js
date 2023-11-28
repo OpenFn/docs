@@ -4,7 +4,7 @@ module.exports = {
       type: 'category',
       label: 'Intro',
       items: [
-        'intro',
+        'intro/home',
         // 'intro/terminology',
         // 'intro/standards',
         // 'intro/security-compliance',
@@ -50,17 +50,17 @@ module.exports = {
     {
       type: 'category',
       label: 'Monitor Activity History',
-      items: ['monitor-activity/activity-history'],
+      items: ['history/activity-history'],
     },
     {
       type: 'category',
       label: 'Manage Projects',
-      items: ['manage-projects/platform-mgmt'],
+      items: ['projects/platform-mgmt'],
     },
     {
       type: 'category',
       label: 'User Management',
-      items: ['user-management/user-profile'],
+      items: ['users/user-profile'],
     },
     {
       type: 'category',
@@ -71,11 +71,11 @@ module.exports = {
       type: 'category',
       label: 'Docs & Roadmap',
       items: [
-        'docs-roadmap/openfn-roadmap',
-        // 'docs-roadmap/roadmap',
-        // 'docs-roadmap/writing-code',
-        // 'docs-roadmap/writing-docs',
-        // 'docs-roadmap/style-guide',
+        'contributing/openfn-roadmap',
+        // 'contributing/roadmap',
+        // 'contributing/writing-code',
+        // 'contributing/writing-docs',
+        // 'contributing/style-guide',
       ],
     },
     {
