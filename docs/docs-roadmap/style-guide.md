@@ -263,7 +263,7 @@ import TabItem from '@theme/TabItem';
 
 Note how we import tabs first, then use them as below:
 
-```jsx
+```mdx-code-block
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -278,7 +278,7 @@ import TabItem from '@theme/TabItem';
   <TabItem value="apple">This is an apple 🍎</TabItem>
   <TabItem value="orange">This is an orange 🍊</TabItem>
   <TabItem value="banana">This is a banana 🍌</TabItem>
-</Tabs>;
+</Tabs>
 ```
 
 ```mdx-code-block
