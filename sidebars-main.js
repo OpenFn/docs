@@ -2,114 +2,81 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Introduction',
+      label: 'Intro',
       items: [
-        'intro',
-        'getting-started/integration-toolkit',
-        'about-lightning',
-        'getting-started/so-you-want-to-integrate',
+        'intro/home',
+        // 'intro/terminology',
+        // 'intro/standards',
+        // 'intro/security-compliance',
+        // 'intro/security',
+        // 'intro/implementation-checklist',
       ],
     },
     {
       type: 'category',
-      label: 'Getting Started',
+      label: 'Designing Workflows',
       items: [
-        'build/lightning-quick-start',
-        'getting-started/terminology',
-        'getting-started/implementation-checklist',
-        'getting-started/security',
+        'design/overview',
+        //'design/discovery'
       ],
     },
     {
       type: 'category',
-      label: 'Design',
-      items: ['design/design-quickstart', 'getting-started/glossary'],
+      label: 'Tutorials',
+      items: ['tutorials/kobo-to-dhis2'],
     },
     {
       type: 'category',
-      label: 'Build',
+      label: 'Build Workflows',
       items: [
-        {
-          type: 'category',
-          label: 'Jobs',
-          items: [
-            'build/jobs',
-            'jobs/job-design-intro',
-            'jobs/understanding',
-            'jobs/operations',
-            'jobs/multiple-operations',
-            'jobs/state',
-            'jobs/each',
-            'jobs/job-studio',
-            'jobs/editing_locally',
-            'jobs/working_with_branches',
-          ],
-        },
-        'build/triggers',
-        'build/credentials',
-        { type: 'link', label: 'Adaptors', href: '/adaptors' },
-        {
-          type: 'category',
-          label: 'Live Data',
-          items: ['build/inbox', 'source-apps'],
-        },
-        'cli',
-        'build/troubleshooting',
-        {
-          type: 'category',
-          label: 'Old Versions',
-          items: ['core', 'devtools/home', 'microservice/home'],
-        },
+        'build/tutorial',
+        //'build/triggers'
       ],
     },
     {
       type: 'category',
-      label: 'Deploy',
+      label: 'Developers',
       items: [
-        'deploy/options',
-        'deploy/requirements',
-        'portability',
-        'instant-openhie',
+        'developers/cli',
+        //'developers/for-devs'
       ],
     },
     {
       type: 'category',
-      label: 'Manage',
-      items: [
-        'manage/platform-mgmt',
-        'manage/troubleshooting-tips-on-platform',
-        'jobs/errors',
-        'jobs/limits',
-        'release-notes',
-      ],
+      label: 'Local Deployment',
+      items: ['deploy/options', 'deploy/requirements', 'deploy/portability'],
+    },
+
+    {
+      type: 'category',
+      label: 'Monitor Activity History',
+      items: ['history/activity-history'],
     },
     {
       type: 'category',
-      label: 'Standards',
-      items: [
-        'standards/digital-public-goods',
-        'standards/global-goods',
-        'standards/openhie',
-      ],
-    },
-    {
-      type: 'doc',
-      id: 'faqs',
+      label: 'Manage Projects',
+      items: ['projects/platform-mgmt'],
     },
     {
       type: 'category',
-      label: 'Contributing',
-      items: [
-        'openfn-roadmap',
-        'for-devs',
-        'gsoc',
-        'writing-docs',
-        'style-guide',
-      ],
+      label: 'User Management',
+      items: ['users/user-profile'],
     },
     {
-      type: 'doc',
-      id: 'about',
+      type: 'category',
+      label: 'Support',
+      items: ['support/support'],
+    },
+    {
+      type: 'category',
+      label: 'Docs & Roadmap',
+      items: [
+        'contributing/openfn-roadmap',
+        // 'contributing/roadmap',
+        // 'contributing/writing-code',
+        // 'contributing/writing-docs',
+        // 'contributing/style-guide',
+      ],
     },
     {
       type: 'link',

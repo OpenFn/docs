@@ -220,7 +220,6 @@ function Home() {
     <Layout title={`Home`} description="The OpenFn Documentation Site">
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <Particles
-          // style={particlesStyle}
           id="tsparticles"
           init={particlesInit}
           options={particlesConfig}
@@ -234,7 +233,7 @@ function Home() {
                 'button button--secondary button--lg',
                 styles.getStarted
               )}
-              to={useBaseUrl('documentation/')}
+              to={'/documentation'}
             >
               Get Started
             </Link>

@@ -13,10 +13,6 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr'],
-  },
   markdown: {
     mermaid: true,
   },
@@ -36,10 +32,10 @@ module.exports = {
       },
       items: [
         {
-          to: 'documentation/',
-          activeBasePath: 'documentation',
-          label: 'Docs',
+          type: 'doc',
           position: 'left',
+          docId: 'intro/home',
+          label: 'Docs',
         },
         {
           to: 'adaptors',
@@ -55,10 +51,6 @@ module.exports = {
           to: 'blog',
           label: 'Blog',
           position: 'left',
-        },
-        {
-          type: 'localeDropdown',
-          position: 'right',
         },
         {
           type: 'docsVersionDropdown',
@@ -83,21 +75,22 @@ module.exports = {
         {
           title: 'This Site',
           items: [
+            // {
+            //   type: 'doc',
+            //   docId: 'intro',
+            //   label: 'Docs',
+            // },
             {
-              label: 'Documentation',
-              to: 'documentation',
-            },
-            {
-              label: 'Adaptors',
               to: 'adaptors',
+              label: 'Adaptors',
             },
             {
-              label: 'Articles',
               to: 'articles',
+              label: 'Articles',
             },
             {
-              label: 'Blog',
               to: 'blog',
+              label: 'Blog',
             },
           ],
         },
@@ -147,11 +140,11 @@ module.exports = {
           versions: {
             current: {
               banner: 'unreleased',
-              label: "Lightning 🚧"
+              label: 'Lightning 🚧',
             },
-            'legacy': {
+            legacy: {
               banner: 'none',
-              label: "Platform (v1)"
+              label: 'Platform (v1)',
             },
           },
         },
