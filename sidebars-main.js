@@ -50,7 +50,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Monitor Activity History',
-      items: ['monitoring-activity/activity-history'],
+      items: ['monitor-activity/activity-history'],
     },
     {
       type: 'category',

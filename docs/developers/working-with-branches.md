@@ -2,7 +2,7 @@
 title: Working with branches
 ---
 
-In the [Editing jobs locally](/documentation/jobs/editing_locally) section we
+In the [Editing jobs locally](/documentation/jobs/editing-locally) section we
 walked through the process of creating and adding your changes to the `main`
 branch of a project.
 
