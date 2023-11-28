@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[1081],{58096:s=>{s.exports=JSON.parse('{"label":"OS4H","permalink":"/fr/blog/tags/os-4-h","allTagsPath":"/fr/blog/tags","count":1}')}}]);

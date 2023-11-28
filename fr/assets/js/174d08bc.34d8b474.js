@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[81995],{46853:s=>{s.exports=JSON.parse('{"label":"odk","permalink":"/fr/blog/tags/odk","allTagsPath":"/fr/blog/tags","count":3}')}}]);
