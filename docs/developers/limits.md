@@ -23,9 +23,9 @@ badge as your attempt state.
 > _Instance superusers can control this limit the `MAX_RUN_DURATION` environment
 > variable._
 
-## Memory Usage (1GB)
+## Memory Usage (500 MB)
 
-Each workflow attempt may not use more than `1GB` of memory. You can view the
+Each workflow attempt may not use more than `500 MB` of memory. You can view the
 maximum memory usage of each attempt by clicking on the attempt ID. If an
 attempt exceeds this limit, it will be killed by the worker and you'll see a
 `Killed:OOM` badge as your attempt state.
