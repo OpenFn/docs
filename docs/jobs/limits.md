@@ -13,7 +13,7 @@ locally deployment instance.
 
 :::
 
-## Workflow execution duration (1hr)
+## Workflow execution duration (1 hour)
 
 Each workflow attempt needs to complete in less than `1 hour`. You can view the
 duration of each attempt by clicking on the attempt ID. If an attempt exceeds
@@ -44,7 +44,11 @@ attempt exceeds this limit, it will be killed by the worker and you'll see a
 If you send a payload to a webhook trigger URL which breaches this limit, the
 server will respond with a `413` error with a `:request_entity_too_large`
 message. If the dataclips produced by the final state of runs and attempts are
-too large, you will see {TODO: Set text for dataclip size warning}.
+too large, you will no be able to access them and instead see:
+
+```json
+{ "__lightning": "Run result too large to save" }
+```
 
 > _Instance superusers can control this limit via the `MAX_DATACLIP_SIZE`
 > environment variable._
