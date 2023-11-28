@@ -253,27 +253,3 @@ This is a caution
 This is a warning
 
 :::
-
-## Tabs
-
-```txt
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-```
-
-Note how we import tabs first, then use them as below:
-
-```txt
-<Tabs
-  defaultValue="apple"
-  values={[
-    { label: 'Apple', value: 'apple' },
-    { label: 'Orange', value: 'orange' },
-    { label: 'Banana', value: 'banana' },
-  ]}
->
-  <TabItem value="apple">This is an apple 🍎</TabItem>
-  <TabItem value="orange">This is an orange 🍊</TabItem>
-  <TabItem value="banana">This is a banana 🍌</TabItem>
-</Tabs>
-```
