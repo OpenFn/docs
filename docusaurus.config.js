@@ -13,10 +13,6 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'fr'],
-  },
   markdown: {
     mermaid: true,
   },
@@ -55,10 +51,6 @@ module.exports = {
           to: 'blog',
           label: 'Blog',
           position: 'left',
-        },
-        {
-          type: 'localeDropdown',
-          position: 'right',
         },
         {
           type: 'docsVersionDropdown',
@@ -147,11 +139,11 @@ module.exports = {
           versions: {
             current: {
               banner: 'unreleased',
-              label: "Lightning 🚧"
+              label: 'Lightning 🚧',
             },
-            'legacy': {
+            legacy: {
               banner: 'none',
-              label: "Platform (v1)"
+              label: 'Platform (v1)',
             },
           },
         },

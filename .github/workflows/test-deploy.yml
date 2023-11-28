@@ -21,10 +21,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Test build website
-        env:
-          CROWDIN_PERSONAL_TOKEN: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
         run: |
           yarn generate-library
           yarn generate-adaptors
-          yarn crowdin:sync
           yarn build
