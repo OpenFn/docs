@@ -62,7 +62,7 @@ please see the documentation for **[@openfn/core](/documentation/core)** and
      [kinsta.com/blog/how-to-install-node-js/](https://kinsta.com/blog/how-to-install-node-js/)
 
 3. Have a basic understanding of OpenFn—check out jobs and adaptors, at least,
-   in the [OpenFn Concepts](getting-started/terminology) of this site.
+   in the [Intro section](documentation/next) of this site.
 4. Install the OpenFn CLI with `npm install -g @openfn/cli`
 
 ## Walkthrough & Challenges
