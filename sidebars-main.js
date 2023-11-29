@@ -2,9 +2,9 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Intro',
+      label: 'Get Started',
       items: [
-        'intro/home',
+        'get-started/home',
         // 'intro/terminology',
         // 'intro/standards',
         // 'intro/security-compliance',
@@ -14,69 +14,72 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Designing Workflows',
+      label: 'Design Workflows',
       items: [
         'design/overview',
         //'design/discovery'
       ],
     },
+    // {
+    //   type: 'category',
+    //   label: 'Tutorials',
+    //   items: ['tutorials/kobo-to-dhis2'],
+    // },
     {
       type: 'category',
-      label: 'Tutorials',
-      items: ['tutorials/kobo-to-dhis2'],
-    },
-    {
-      type: 'category',
-      label: 'Build Workflows',
+      label: 'Build & Manage Workflows',
       items: [
         'build/tutorial',
-        'developers/limits',
+        'build/limits',
         // 'build/triggers'
       ],
     },
     {
       type: 'category',
-      label: 'Developers',
+      label: 'Build (For Developers)',
       items: [
-        'developers/cli',
-        //'developers/for-devs'
+        'build-for-developers/cli-intro',
+        'build-for-developers/cli-usage',
+        'build-for-developers/cli-tutorial',
+        'build-for-developers/build-with-api',
+        'build-for-developers/security-for-devs',
+        //'build-for-developers/for-devs'
       ],
     },
     {
       type: 'category',
-      label: 'Local Deployment',
+      label: 'Deploy',
       items: ['deploy/options', 'deploy/requirements', 'deploy/portability'],
     },
-
     {
       type: 'category',
-      label: 'Monitor Activity History',
-      items: ['history/activity-history'],
+      label: 'Monitor History',
+      items: ['monitor-history/activity-history'],
     },
     {
       type: 'category',
       label: 'Manage Projects',
-      items: ['projects/platform-mgmt'],
+      items: ['manage-projects/platform-mgmt'],
     },
     {
       type: 'category',
-      label: 'User Management',
-      items: ['users/user-profile'],
+      label: 'Manage Users & Credentials',
+      items: ['manage-users/user-profile'],
     },
     {
       type: 'category',
-      label: 'Support',
-      items: ['support/support'],
+      label: 'Get Help',
+      items: ['get-help/support'],
     },
     {
       type: 'category',
-      label: 'Docs & Roadmap',
+      label: 'Contribute - Docs & Roadmap',
       items: [
-        'contributing/openfn-roadmap',
-        // 'contributing/roadmap',
-        // 'contributing/writing-code',
-        // 'contributing/writing-docs',
-        // 'contributing/style-guide',
+        'contribute/openfn-roadmap',
+        // 'contribute/roadmap',
+        // 'contribute/writing-code',
+        'contribute/writing-docs',
+        'contribute/style-guide',
       ],
     },
     {

@@ -1,6 +1,7 @@
 ---
 sidebar_label: Kobo to DHIS2
 title: Kobo to DHIS2 Reporting Workflow
+slug: /kobo-to-dhis2
 ---
 :::warning Under construction
 
