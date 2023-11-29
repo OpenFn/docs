@@ -30,7 +30,8 @@ module.exports = {
       label: 'Build Workflows',
       items: [
         'build/tutorial',
-        //'build/triggers'
+        'developers/limits',
+        // 'build/triggers'
       ],
     },
     {

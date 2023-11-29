@@ -43,12 +43,13 @@ attempt exceeds this limit, it will be killed by the worker and you'll see a
 
 If you send a payload to a webhook trigger URL which breaches this limit, the
 server will respond with a `413` error with a `:request_entity_too_large`
-message. If the dataclips produced by the final state of runs and attempts are
-too large, you will no be able to access them and instead see:
+message.
 
-```json
-{ "__lightning": "Run result too large to save" }
-```
+If the dataclips produced by the final state of runs and attempts are too large,
+they will not be persisted. The worker will still process downstream steps but
+these steps will not be retryable because Lightning won't save a copy of the
+dataclips. You will see an `ERROR: DataClip too large for storage` error in your
+attempt logs.
 
 > _Instance superusers can control this limit via the `MAX_DATACLIP_SIZE`
 > environment variable._
