@@ -38,8 +38,10 @@ attempt exceeds this limit, it will be killed by the worker and you'll see a
 1. Each **webhook request** to a trigger URL cannot exceed `10MB`.
 2. If you are persisting the final state of each **run** as a dataclip, each
    dataclip may not exceed `10MB`.
-3. If you are persisting the final state of an **attempt** as a dataclip, it may
-   not exceed `10MB`.
+
+<!-- TODO: make final decision on attempt states -->
+<!-- 3. If you are persisting the final state of an **attempt** as a dataclip, it may
+   not exceed `10MB`. -->
 
 If you send a payload to a webhook trigger URL which breaches this limit, the
 server will respond with a `413` error with a `:request_entity_too_large`
