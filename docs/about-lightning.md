@@ -112,7 +112,7 @@ You have 3 options for exploring OpenFn/Lightning:
    for an account at [app.openfn.org](https://app.openfn.org/).
 3. To install and run Lightning locally follow the instructions in the
    [github README](https://github.com/OpenFn/Lightning) or the 
-   [linked Docs site](https://github.com/OpenFn/lightning/). 
+   [linked Docs site](https://openfn.github.io/Lightning/readme.html). 
 
 Go through the
 [self-paced user interview](/blog/2023/04/13/lightning-beta#take-15-minutes-to-carry-out-our-user-test)
