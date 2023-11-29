@@ -64,7 +64,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Manage Users & Credentials',
-      items: ['users-credentials/user-profile'],
+      items: ['manage-users/user-profile'],
     },
     {
       type: 'category',
