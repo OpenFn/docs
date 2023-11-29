@@ -42,6 +42,7 @@ module.exports = {
         'developers/cli-usage',
         'developers/cli-tutorial',
         'developers/build-with-api',
+        'developers/security-for-devs',
         //'developers/for-devs'
       ],
     },
