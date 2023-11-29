@@ -1,7 +1,7 @@
 ---
 title: The CLI
 sidebar_label: CLI
-slug: /cli
+slug: /cli-usage
 ---
 
 ## Prerequisites

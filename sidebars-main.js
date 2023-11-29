@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Intro',
+      label: 'Get Started',
       items: [
         'intro/home',
         // 'intro/terminology',
@@ -14,7 +14,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Designing Workflows',
+      label: 'Design Workflows',
       items: [
         'design/overview',
         //'design/discovery'
@@ -27,7 +27,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Build Workflows',
+      label: 'Build & Manage Workflows',
       items: [
         'build/tutorial',
         'developers/limits',
@@ -36,21 +36,23 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Developers',
+      label: 'Build Workflows (For Developers)',
       items: [
         'developers/cli',
+        'developers/cli-usage',
+        'developers/cli-tutorial',
+        'developers/build-with-api',
         //'developers/for-devs'
       ],
     },
     {
       type: 'category',
-      label: 'Local Deployment',
+      label: 'Deploy',
       items: ['deploy/options', 'deploy/requirements', 'deploy/portability'],
     },
-
     {
       type: 'category',
-      label: 'Monitor Activity History',
+      label: 'Monitor History',
       items: ['history/activity-history'],
     },
     {
@@ -60,17 +62,17 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'User Management',
+      label: 'Manage Users & Credentials',
       items: ['users/user-profile'],
     },
     {
       type: 'category',
-      label: 'Support',
+      label: 'Get Help',
       items: ['support/support'],
     },
     {
       type: 'category',
-      label: 'Docs & Roadmap',
+      label: 'Contribute - Docs & Roadmap',
       items: [
         'contributing/openfn-roadmap',
         // 'contributing/roadmap',
