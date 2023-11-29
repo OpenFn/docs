@@ -4,7 +4,7 @@ module.exports = {
       type: 'category',
       label: 'Get Started',
       items: [
-        'intro/home',
+        'get-started/home',
         // 'intro/terminology',
         // 'intro/standards',
         // 'intro/security-compliance',
@@ -30,7 +30,7 @@ module.exports = {
       label: 'Build & Manage Workflows',
       items: [
         'build/tutorial',
-        'developers/limits',
+        'build/limits',
         // 'build/triggers'
       ],
     },
@@ -38,12 +38,12 @@ module.exports = {
       type: 'category',
       label: 'Build Workflows (For Developers)',
       items: [
-        'developers/cli',
-        'developers/cli-usage',
-        'developers/cli-tutorial',
-        'developers/build-with-api',
-        'developers/security-for-devs',
-        //'developers/for-devs'
+        'build-for-developers/cli',
+        'build-for-developers/cli-usage',
+        'build-for-developers/cli-tutorial',
+        'build-for-developers/build-with-api',
+        'build-for-developers/security-for-devs',
+        //'build-for-developers/for-devs'
       ],
     },
     {
@@ -54,32 +54,32 @@ module.exports = {
     {
       type: 'category',
       label: 'Monitor History',
-      items: ['history/activity-history'],
+      items: ['monitor-history/activity-history'],
     },
     {
       type: 'category',
       label: 'Manage Projects',
-      items: ['projects/platform-mgmt'],
+      items: ['manage-projects/platform-mgmt'],
     },
     {
       type: 'category',
       label: 'Manage Users & Credentials',
-      items: ['users/user-profile'],
+      items: ['users-credentials/user-profile'],
     },
     {
       type: 'category',
       label: 'Get Help',
-      items: ['support/support'],
+      items: ['get-help/support'],
     },
     {
       type: 'category',
       label: 'Contribute - Docs & Roadmap',
       items: [
-        'contributing/openfn-roadmap',
-        // 'contributing/roadmap',
-        // 'contributing/writing-code',
-        // 'contributing/writing-docs',
-        // 'contributing/style-guide',
+        'contribute/openfn-roadmap',
+        // 'contribute/roadmap',
+        // 'contribute/writing-code',
+        'contribute/writing-docs',
+        'contribute/style-guide',
       ],
     },
     {
