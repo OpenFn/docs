@@ -1,6 +1,6 @@
 ---
-title: The CLI
-sidebar_label: CLI
+title: Using the CLI
+sidebar_label: CLI Usage
 slug: /cli-usage
 ---
 

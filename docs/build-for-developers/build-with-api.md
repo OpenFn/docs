@@ -1,7 +1,7 @@
 ---
 id: build-with-api
 title: Build Projects via the OpenFn API
-sidebar_label: Build with API
+sidebar_label: Build with the API
 slug: /build-with-api
 ---
 

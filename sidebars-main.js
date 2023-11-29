@@ -36,7 +36,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Build Workflows (For Developers)',
+      label: 'Build (For Developers)',
       items: [
         'build-for-developers/cli-intro',
         'build-for-developers/cli-usage',
