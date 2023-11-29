@@ -20,11 +20,11 @@ module.exports = {
         //'design/discovery'
       ],
     },
-    {
-      type: 'category',
-      label: 'Tutorials',
-      items: ['tutorials/kobo-to-dhis2'],
-    },
+    // {
+    //   type: 'category',
+    //   label: 'Tutorials',
+    //   items: ['tutorials/kobo-to-dhis2'],
+    // },
     {
       type: 'category',
       label: 'Build & Manage Workflows',

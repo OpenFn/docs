@@ -1,6 +1,7 @@
 ---
 title: Update User Profile
 sidebar_label: User Profile
+slug: /user-profile
 ---
 :::warning Under construction
 
