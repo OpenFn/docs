@@ -1,49 +1,40 @@
 ---
-title: Intro to the OpenFn CLI
+title: OpenFn CLI Quick Start
 sidebar_label: Intro to CLI
 slug: /cli
 ---
 
-:::info What is this tutorial?
+### Introduction
 
-- It's a _hands-on_ way to learn about the new OpenFn CLI. By following the
-  prompts and "challenges", a developer with a bit of Javascript experience
-  should be able to write, run, and debug complex, multi-step jobs with OpenFn,
-  using nothing but a text editor and their terminal.
-- The estimated time to finish this developer challenge is 1 to 2 hours
-  (depending on your familiarity with the underlying concepts and tooling)
-- If you are stuck and need help, please post in
-  [community.openfn.org](https://community.openfn.org/t/about-the-job-writing-category/11/1)
+Welcome to the documentation for the @openfn/cli, an essential tool designed for
+running workflows locally. It streamlines the execution, building, and testing
+of OpenFn workflows for developers.
 
-:::
+### Overview
 
-## Intro to the OpenFn CLI
+This documentation serves as a comprehensive guide to the
+[@openfn/cli](https://www.npmjs.com/package/@openfn/cli), replacing the
+deprecated [@openfn/devtools](https://github.com/OpenFn/devtools). It introduces
+new features, including:
 
-The [@openfn/cli](https://github.com/OpenFn/kit/tree/main/packages/cli) is a
-command line interface for running OpenFn workflows locally. It enables
-developers to run, build, and test steps in an OpenFn workflow.
+- A new runtime and compiler for executing and creating OpenFn jobs.
+- Customizable logging output for enhanced visibility.
+- Automatic installation of language adaptors.
+- Support for the adaptors monorepo (@openfn/adaptors).
 
-This CLI replaces [@openfn/devtools](https://github.com/OpenFn/devtools) and
-provides a new suite of features and improvements, including:
+### Before You Start
 
-- a new runtime and compiler for executing and creating runnable OpenFn jobs,
-- customizable logging output,
-- automatic installation of language adaptors,
-- and support for the adaptors monorepo
-  ([@openfn/adaptors](https://github.com/OpenFn/adaptors)) where all OpenFn
-  adaptor source code and documentation lives.
+Before you begin with the @openfn/cli, make sure to follow these simple steps:
 
-These features are designed to make it easier and more convenient for developers
-to use and understand OpenFn.
-
-:::caution Looking for a way to execute jobs from OpenFn v1 locally? Use Core!
-
-If you're looking for a way to execute jobs running on the OpenFn v1 platform,
-please see the documentation for **[@openfn/core](/documentation/core)** and
-[Devtools](/documentation/devtools/home).
-
-:::
-
-
-Learn more about CLI
-[github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
+1. **Code Editor:** Ensure you have a code editor installed on your machine. You
+   can use popular editors like [VS Code](https://code.visualstudio.com/) or
+   [Sublime](https://www.sublimetext.com/).
+2. **Node.js Installation:** Install Node.js (version 18 or later): - For Linux,
+   Windows, or macOS, use a version manager like
+   [nvm](https://github.com/nvm-sh/nvm) or
+   [asdf](https://asdf-vm.com/guide/getting-started.html). -
+   [Install Node.js](https://kinsta.com/blog/how-to-install-node-js/) by
+   following this guide.
+3. **Understand OpenFn Basics:** Have a basic understanding of OpenFn,
+   particularly jobs and adaptors. Check out the
+   [Intro section](/documentation/next) on this site.

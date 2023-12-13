@@ -1,98 +1,140 @@
 ---
 title: Using the CLI
-sidebar_label: CLI Usage
+sidebar_label: Basic Usage
 slug: /cli-usage
 ---
 
-## Prerequisites
-
-1. Ensure you have a code editor installed on your machine (e.g.
-   [VS Code](https://code.visualstudio.com/),
-   [Sublime](https://www.sublimetext.com/))
-
-2. Install NodeJs **v18 is the minimum version required**
-
-   - To install a specific version of Node.js (in this case, version 18) on
-     Linux, Windows, or macOS, you can use a version manager such as nvm (Node
-     Version Manager) or any multiple runtime version manager eg:
-     [asdf](https://github.com/asdf-vm/asdf). These tools allow you to install
-     and switch between multiple versions of Node.js on the same machine. See
-     below for instructions for different operating systems.
-   - Read this article to learn how to install NodeJs in your machine
-     [kinsta.com/blog/how-to-install-node-js/](https://kinsta.com/blog/how-to-install-node-js/)
-
-3. Have a basic understanding of OpenFn—check out jobs and adaptors, at least,
-   in the [Intro section](documentation/next) of this site.
-4. Install the OpenFn CLI with `npm install -g @openfn/cli`
-
-## CLI Usage - Key Commands
-
-You’ll learn about these commands in the following challenges, but please refer
-to this section for the key commands used in working with the CLI.
-
-### Check the version
-
-```bash
-openfn version
-```
-
-### Get help
-
-```bash
-openfn help
-```
+You're probably here to run jobs (expressions) or workflows, which the CLI makes
+easy. Here's an outline of the basic usage scenarios
 
 ### Run a job
 
-```bash
-openfn path/to/job.js -ia {adaptor-name}
-```
+To run a single job, you must explicitly specify which adaptor to use.You can
+find the list of publicly available [adaptors here](/adaptors). See examples
+below
 
-Note: You MUST specify which adaptor to use. Pass the `-i` flag to auto-install
-that adaptor (it's safe to do this redundantly).
+- Use a shorthand (e.g., `http`):
 
-You can find the list of publicly available adaptors [here](/adaptors).
+  ```bash
+  openfn path/to/job.js -ia http
+  ```
 
-> Path is the job to load the job from (a .js file or a dir containing a job.js
-> file) For example `openfn execute hello.js ` Reads hello.js, looks for state
-> and output in foo
+- Use the full package name (e.g., `@openfn/language-http`):
 
-```bash
--i, --autoinstall Auto-install the language adaptor
--a, --adaptors, --adaptor A language adaptor to use for the job
-```
+  ```bash
+  openfn path/to/job.js -ia @openfn/language-http
+  ```
 
-If an adaptor is already installed by auto install, you can use the command
-without the `-i` options. i.e `openfn hello.js -a http`
+- Add a specific version:
 
-### Change log level
+  ```bash
+  openfn path/to/job.js -ia http@2.0.0
+  ```
 
-You can pass `-l info` or `--log info` to get more feedback about what's
-happening, or `--log debug` for more details than you could ever use. Below is
-the list of different log levels
+- Pass a path to a locally installed adaptor:
 
-```bash
-openfn hello.js -a http -l none
-```
+  ```bash
+  openfn path/to/job.js -a http=/repo/openfn/adaptors/my-http-build
+  ```
 
-| log level    | description                                              |
-| ------------ | -------------------------------------------------------- |
-| `-l none`    | Quiet mode                                               |
-| `-l default` | Top level information of what is happening               |
-| `-l info`    | Get more feedback on what is happening openfn            |
-| `-l debug`   | Get information about runtime, cli, compiler and the job |
+> Note: You MUST specify which adaptor to use. Pass the `-i` flag to
+> auto-install that adaptor (it's safe to do this redundantly).
 
-### Compilation
+### Compile a job
 
 The CLI will attempt to compile your job code into normalized Javascript. It
 will do a number of things to make your code robust, portable, and easier to
 debug from a pure JS perspective.
 
 ```bash
-openfn compile [path]
+openfn compile path/to/job.js
 ```
 
 Will compile the openfn job and print or save the resulting js.
 
-Learn more about CLI
-[github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
+### Write resulting state to disk:
+
+After the job finishes, the CLI writes the resulting state to disk. By default,
+it creates an `output.json` next to the job file. You can specify custom paths
+for the output and state files.
+
+```bash
+openfn path/to/job.js -ia adaptor-name -o path/to/output.json -s path/to/state.json
+```
+
+### Pass state through stdin and return output through stdout
+
+Use `-S` and `-O` to pass state through stdin and return the output through
+stdout.
+
+```bash
+openfn path/to/job.js -ia adaptor-name -S '{"data": "Hello world!"}' -O
+```
+
+### Adjust logging level
+
+You can pass `-l info` or `--log info` to get more feedback about what's
+happening during runtime. Below is the list of different log levels
+
+| log level                                     | description                                              |
+| --------------------------------------------- | -------------------------------------------------------- |
+| `openfn path/to/job.js -a adaptor -l none`    | Quiet mode                                               |
+| `openfn path/to/job.js -a adaptor -l default` | Top level information of what is happening               |
+| `openfn path/to/job.js -a adaptor -l info`    | Get more feedback about runtime, cli and the job         |
+| `openfn path/to/job.js -a adaptor -l debug`   | Get information about runtime, cli, compiler and the job |
+
+### Maintain auto-installed adaptors repo
+
+- List the repo contents:
+
+  ```bash
+  openfn repo list
+  ```
+
+- Specify the repo folder using the `OPENFN_REPO_DIR` env var:
+
+  ```bash
+  export OPENFN_REPO_DIR=/path/to/repo
+  ```
+
+- Auto-install adaptors and check if a matching version is found in the repo:
+
+  ```bash
+  openfn path/to/job.js -ia adaptor-name
+  ```
+
+- Remove all adaptors from the repo:
+
+  ```bash
+  openfn repo clean
+  ```
+
+### Run adaptors from monorepo
+
+- Load from the monorepo using the `-m` flag:
+
+  ```bash
+  openfn path/to/job.js -ma /path/to/monorepo
+  ```
+
+- Set the monorepo location using the `OPENFN_ADAPTORS_REPO` env var:
+
+  ```bash
+  export OPENFN_ADAPTORS_REPO=/path/to/monorepo
+  ```
+
+- Include `-m` to load from the monorepo:
+
+  ```bash
+  openfn path/to/job.js -ma adaptor-name
+  ```
+
+- Remember to build an adaptor before running.
+
+If running a single job, you MUST specify which adaptor to use.
+
+## Get help
+
+```bash
+openfn help
+```
