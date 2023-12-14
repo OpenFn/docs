@@ -96,28 +96,6 @@ openfn path/to/job.js -ia adaptor-name
 openfn repo clean
 ```
 
-### Run adaptors from monorepo
-
-**Load from the monorepo using the `-m` flag**
-
-```bash
-openfn path/to/job.js -ma /path/to/monorepo
-```
-
-**Set the monorepo location using the `OPENFN_ADAPTORS_REPO` env var**
-
-```bash
-export OPENFN_ADAPTORS_REPO=/path/to/monorepo
-```
-
-**Include `-m` to load from the monorepo**
-
-```bash
-openfn path/to/job.js -ma adaptor-name
-```
-
-> Remember to build an adaptor before running.
-
 ### Run a workflow
 
 <details>
