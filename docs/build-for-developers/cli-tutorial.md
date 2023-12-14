@@ -69,7 +69,7 @@ slug: /cli-tutorial
     [CLI] ⚠ WARNING: No adaptor provided!
     [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
               openfn job.js -a common
-    [CLI] ✔ Compiled from helo.js
+    [CLI] ✔ Compiled from hello.js
     [R/T] ♦ Starting job job-1
     [JOB] ℹ Hello World!
     [R/T] ✔ Completed job job-1 in 1ms

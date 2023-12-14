@@ -72,10 +72,7 @@ command.
     [CLI] ✔ Result: 42
 
 </details>
-
-What we've just done is executed a JavaScript expression, which we call a _job_.
-The output prefixed with `[JOB]` comes directly from `console.log` statements in
-our job code. All other output is the CLI trying to tell us what it is doing.
+All other output is the CLI telling us what it is doing internally
 
 **Check the version**
 

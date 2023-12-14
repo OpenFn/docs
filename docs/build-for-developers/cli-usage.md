@@ -50,13 +50,12 @@ for the output and state files.
 openfn path/to/job.js -ia adaptor-name -o path/to/output.json -s path/to/state.json
 ```
 
-### Pass state through stdin and return output through stdout
+### Return resulting state through stdout
 
-Use `-S` and `-O` to pass state through stdin and return the output through
-stdout.
+Use `-O` to return the output through stdout.
 
 ```bash
-openfn path/to/job.js -ia adaptor-name -S '{"data": "Hello world!"}' -O
+openfn path/to/job.js -ia adaptor-name -O
 ```
 
 ### Adjust logging level
@@ -140,7 +139,7 @@ openfn path/to/job.js -ma adaptor-name
         // If there are no next edges, the workflow will end
         "b": true,
         "c": {
-          "condition": "!state.error" // Not that this is an expression, not a function
+          "condition": "!state.error" // Note that this is an expression, not a function
         }
       }
     }
