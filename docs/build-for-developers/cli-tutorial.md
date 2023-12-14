@@ -1,111 +1,12 @@
 ---
 title: CLI Walkthrough & Challenges
-sidebar_label: CLI Tutorial
+sidebar_label: Walkthrough & Challenges
 slug: /cli-tutorial
 ---
-
 
 ## Walkthrough & Challenges
 
 ### 1. Getting started with the CLI
-
-Let's start by running a simple command with the CLI. Type the following into
-your terminal:
-
-```bash
-openfn test
-```
-
-The word `openfn` will invoke the CLI. The word `test` will invoke the test
-command.
-
-<details>
-  <summary>You should see some output like this:</summary>
-
-```bash
-[CLI] ℹ Versions:
-        ▸ node.js     18.12.1
-        ▸ cli         0.0.39
-        ▸ runtime     0.0.24
-        ▸ compiler    0.0.32
-[CLI] ℹ Running test job...
-[CLI] ℹ Workflow object:
-[CLI] ℹ {
-  "start": "start",
-  "jobs": [
-    {
-      "id": "start",
-      "data": {
-        "defaultAnswer": 42
-      },
-      "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
-      "next": {
-        "calculate": "!state.error"
-      }
-    },
-    {
-      "id": "calculate",
-      "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
-      "next": {
-        "result": true
-      }
-    },
-    {
-      "id": "result",
-      "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
-    }
-  ]
-}
-
-[CLI] ✔ Compilation complete
-[R/T] ♦ Starting job start
-[JOB] ℹ Starting computer...
-[R/T] ℹ Operation 1 complete in 0ms
-[R/T] ✔ Completed job start in 1ms
-[R/T] ♦ Starting job calculate
-[JOB] ℹ Calculating to life, the universe, and everything..
-[R/T] ℹ Operation 1 complete in 0ms
-[R/T] ✔ Completed job calculate in 1ms
-[R/T] ♦ Starting job result
-[R/T] ℹ Operation 1 complete in 0ms
-[R/T] ✔ Completed job result in 0ms
-[CLI] ✔ Result: 42
-
-```
-
-</details>
-
-What we've just done is executed a JavaScript expression, which we call a _job_.
-The output prefixed with `[JOB]` comes directly from `console.log` statements in
-our job code. All other output is the CLI trying to tell us what it is doing.
-
-<details>
-<summary>What is a job?</summary>
-A job is Javascript code which follows a particular set of conventions.
-Typically a job has one or more <i>operations</i> which perform a particular
-task (like pulling information from a database, creating a record, etc.) and
-return state for the next operation to use.
-
-The test job we just ran looks like this:
-
-```js
-const fn = () => state => {
-  console.log(
-    'Calculating the answer to life, the universe, and everything...'
-  );
-  return state * 2;
-};
-export default [fn()];
-```
-
-You can see this (and a lot more detail) by running the test command with
-debug-level logging:
-
-```bash
-openfn test --log debug
-```
-
-</details>
 
 #### Tasks:
 
@@ -135,11 +36,19 @@ openfn test --log debug
 
 :::
 
-1.  Create a file called `hello.js` and write the following code.
+1.  Create a job file called `hello.js` and write the following code.
 
     ```js
     console.log('Hello World!');
     ```
+
+    <details>
+      <summary>What is a job?</summary>
+      A job is Javascript code which follows a particular set of conventions.
+      Typically a job has one or more <i>operations</i> which perform a particular
+      task (like pulling information from a database, creating a record, etc.) and
+      return state for the next operation to use.
+    </details>
 
     <details>
       <summary>What is console.log?</summary>
@@ -147,30 +56,29 @@ openfn test --log debug
       us send messages to the terminal window.
     </details>
 
-1.  Run the job using the CLI
+2.  Run the job using the CLI
 
-        ```bash
-        openfn hello.js -o tmp/output.json
-        ```
+    ```bash
+    openfn hello.js -o tmp/output.json
+    ```
 
-        <details>
-
+  <details>
     <summary>View expected output</summary>
 
-        ```bash
-        [CLI] ⚠ WARNING: No adaptor provided!
-        [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
-                  openfn job.js -a common
-        [CLI] ✔ Compiled from helo.js
-        [R/T] ♦ Starting job job-1
-        [JOB] ℹ Hello World!
-        [R/T] ✔ Completed job job-1 in 1ms
-        [CLI] ✔ State written to tmp/output.json
-        [CLI] ✔ Finished in 17ms ✨
+    ```bash
+    [CLI] ⚠ WARNING: No adaptor provided!
+    [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
+              openfn job.js -a common
+    [CLI] ✔ Compiled from helo.js
+    [R/T] ♦ Starting job job-1
+    [JOB] ℹ Hello World!
+    [R/T] ✔ Completed job job-1 in 1ms
+    [CLI] ✔ State written to tmp/output.json
+    [CLI] ✔ Finished in 17ms ✨
 
-        ```
+    ```
 
-        </details>
+  </details>
 
 Note that our `console.log` statement was printed as `[JOB] Hello world!`. Using
 the console like this is helpful for debugging and/or understanding what's
@@ -275,34 +183,34 @@ openfn getUsers.js -a http -o tmp/output.json
 ```
 
 <details>
-<summary>See expected CLI logs:</summary>
+  <summary>See expected CLI logs:</summary>
 
-```
-[CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
-[R/T] ✔ Operation 1 complete in 581ms
-[JOB] ℹ {
-  id: 1,
-  name: 'Leanne Graham',
-  username: 'Bret',
-  email: 'Sincere@april.biz',
-  address: {
-    street: 'Kulas Light',
-    suite: 'Apt. 556',
-    city: 'Gwenborough',
-    zipcode: '92998-3874',
-    geo: { lat: '-37.3159', lng: '81.1496' }
-  },
-  phone: '1-770-736-8031 x56442',
-  website: 'hildegard.org',
-  company: {
-    name: 'Romaguera-Crona',
-    catchPhrase: 'Multi-layered client-server neural-net',
-    bs: 'harness real-time e-markets'
+  ```
+  [CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
+  [R/T] ✔ Operation 1 complete in 581ms
+  [JOB] ℹ {
+    id: 1,
+    name: 'Leanne Graham',
+    username: 'Bret',
+    email: 'Sincere@april.biz',
+    address: {
+      street: 'Kulas Light',
+      suite: 'Apt. 556',
+      city: 'Gwenborough',
+      zipcode: '92998-3874',
+      geo: { lat: '-37.3159', lng: '81.1496' }
+    },
+    phone: '1-770-736-8031 x56442',
+    website: 'hildegard.org',
+    company: {
+      name: 'Romaguera-Crona',
+      catchPhrase: 'Multi-layered client-server neural-net',
+      bs: 'harness real-time e-markets'
+    }
   }
-}
-[R/T] ✔ Operation 2 complete in 2ms
-[CLI] ✔ Writing output to tmp/output.json [CLI] ✔ Done in 950ms! ✨
-```
+  [R/T] ✔ Operation 2 complete in 2ms
+  [CLI] ✔ Writing output to tmp/output.json [CLI] ✔ Done in 950ms! ✨
+  ```
 
 </details>
 
@@ -475,12 +383,7 @@ administrator for feedback.
 
    > What's the difference between the job you wrote and the compiled job?
 
-2. Run a job without "strict mode" enabled.
-
-   > What's the difference between the outputs when strict mode is enabled and
-   > disabled?
-
-3. Run a job with the log level set to `none`, and then run it again with the
+2. Run a job with the log level set to `none`, and then run it again with the
    log level set to `debug`.
 
    > When is it appropriate to use these different log levels?
@@ -1043,7 +946,9 @@ outlined below:
    ```json
    {
    ...
-    "data": "tmp/initial-data.json",
+    "state": {
+      "data": "tmp/initial-data.json",
+    }
    }
    ```
 

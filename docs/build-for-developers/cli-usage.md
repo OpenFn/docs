@@ -13,46 +13,34 @@ To run a single job, you must explicitly specify which adaptor to use.You can
 find the list of publicly available [adaptors here](/adaptors). See examples
 below
 
-- Use a shorthand (e.g., `http`):
+> Pass the `-i` flag to auto-install that adaptor (it's safe to do this
+> redundantly).
 
-  ```bash
-  openfn path/to/job.js -ia http
-  ```
-
-- Use the full package name (e.g., `@openfn/language-http`):
-
-  ```bash
-  openfn path/to/job.js -ia @openfn/language-http
-  ```
-
-- Add a specific version:
-
-  ```bash
-  openfn path/to/job.js -ia http@2.0.0
-  ```
-
-- Pass a path to a locally installed adaptor:
-
-  ```bash
-  openfn path/to/job.js -a http=/repo/openfn/adaptors/my-http-build
-  ```
-
-> Note: You MUST specify which adaptor to use. Pass the `-i` flag to
-> auto-install that adaptor (it's safe to do this redundantly).
-
-### Compile a job
-
-The CLI will attempt to compile your job code into normalized Javascript. It
-will do a number of things to make your code robust, portable, and easier to
-debug from a pure JS perspective.
+**Use a shorthand (e.g., `http`)**
 
 ```bash
-openfn compile path/to/job.js
+openfn path/to/job.js -ia http
 ```
 
-Will compile the openfn job and print or save the resulting js.
+**Use the full package name (e.g., `@openfn/language-http`)**
 
-### Write resulting state to disk:
+```bash
+openfn path/to/job.js -ia @openfn/language-http
+```
+
+**Add a specific version**
+
+```bash
+openfn path/to/job.js -ia http@2.0.0
+```
+
+**Pass a path to a locally installed adaptor**
+
+```bash
+openfn path/to/job.js -a http=/repo/openfn/adaptors/my-http-build
+```
+
+### Write resulting state to disk
 
 After the job finishes, the CLI writes the resulting state to disk. By default,
 it creates an `output.json` next to the job file. You can specify custom paths
@@ -85,56 +73,88 @@ happening during runtime. Below is the list of different log levels
 
 ### Maintain auto-installed adaptors repo
 
-- List the repo contents:
+**List the repo contents**
 
-  ```bash
-  openfn repo list
-  ```
+```bash
+openfn repo list
+```
 
-- Specify the repo folder using the `OPENFN_REPO_DIR` env var:
+**Specify the repo folder using the `OPENFN_REPO_DIR` env var**
 
-  ```bash
-  export OPENFN_REPO_DIR=/path/to/repo
-  ```
+```bash
+export OPENFN_REPO_DIR=/path/to/repo
+```
 
-- Auto-install adaptors and check if a matching version is found in the repo:
+**Auto-install adaptors and check if a matching version is found in the repo**
 
-  ```bash
-  openfn path/to/job.js -ia adaptor-name
-  ```
+```bash
+openfn path/to/job.js -ia adaptor-name
+```
 
-- Remove all adaptors from the repo:
+**Remove all adaptors from the repo**
 
-  ```bash
-  openfn repo clean
-  ```
+```bash
+openfn repo clean
+```
 
 ### Run adaptors from monorepo
 
-- Load from the monorepo using the `-m` flag:
-
-  ```bash
-  openfn path/to/job.js -ma /path/to/monorepo
-  ```
-
-- Set the monorepo location using the `OPENFN_ADAPTORS_REPO` env var:
-
-  ```bash
-  export OPENFN_ADAPTORS_REPO=/path/to/monorepo
-  ```
-
-- Include `-m` to load from the monorepo:
-
-  ```bash
-  openfn path/to/job.js -ma adaptor-name
-  ```
-
-- Remember to build an adaptor before running.
-
-If running a single job, you MUST specify which adaptor to use.
-
-## Get help
+**Load from the monorepo using the `-m` flag**
 
 ```bash
-openfn help
+openfn path/to/job.js -ma /path/to/monorepo
 ```
+
+**Set the monorepo location using the `OPENFN_ADAPTORS_REPO` env var**
+
+```bash
+export OPENFN_ADAPTORS_REPO=/path/to/monorepo
+```
+
+**Include `-m` to load from the monorepo**
+
+```bash
+openfn path/to/job.js -ma adaptor-name
+```
+
+> Remember to build an adaptor before running.
+
+### Run a workflow
+
+<details>
+  <summary>A workflow has a structure like this</summary>
+
+```json
+{
+  "start": "a", // optionally specify the start node (defaults to jobs[0])
+  "jobs": [
+    {
+      "id": "a",
+      "expression": "fn((state) => state)", // code or a path
+      "adaptor": "@openfn/language-common@1.75", // specifiy the adaptor to use (version optional)
+      "data": {}, // optionally pre-populate the data object (this will be overriden by keys in in previous state)
+      "configuration": {}, // Use this to pass credentials
+      "next": {
+        // This object defines which jobs to call next
+        // All edges returning true will run
+        // If there are no next edges, the workflow will end
+        "b": true,
+        "c": {
+          "condition": "!state.error" // Not that this is an expression, not a function
+        }
+      }
+    }
+  ]
+}
+```
+
+</details>
+
+To run a workflow
+
+```bash
+openfn path/to/workflow.json -i
+```
+
+Here is the detailed tutorial about
+[running workflows](cli-tutorial#8-running-workflows)

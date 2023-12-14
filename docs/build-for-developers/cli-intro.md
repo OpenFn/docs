@@ -22,7 +22,7 @@ new features, including:
 - Automatic installation of language adaptors.
 - Support for the adaptors monorepo (@openfn/adaptors).
 
-### Before You Start
+### Before you start
 
 Before you begin with the @openfn/cli, make sure to follow these simple steps:
 
