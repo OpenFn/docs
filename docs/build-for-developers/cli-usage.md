@@ -146,5 +146,5 @@ openfn repo clean
 openfn path/to/workflow.json -i
 ```
 
-Check out this detailed [tutorial](cli-tutorial#8-running-workflows) on running
-workflows via the CLI.
+Check out this detailed [tutorial](cli-walkthrough#7-running-workflows) on
+running workflows via the CLI.
