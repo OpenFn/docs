@@ -16,6 +16,8 @@ OpenFn CLI to:
 - Troubleshoot and debug OpenFn jobs
 - Deployment of workflows to OpenFn
 
+---
+
 ### Before you start
 
 Before you begin with the @openfn/cli, make sure to follow these simple steps:
@@ -32,6 +34,8 @@ Before you begin with the @openfn/cli, make sure to follow these simple steps:
 3. **Understand OpenFn Basics:** Have a basic understanding of OpenFn,
    particularly jobs and adaptors. Check out the
    [Intro section](/documentation/next) on this site.
+
+---
 
 ### Install the OpenFn CLI
 
@@ -118,6 +122,8 @@ openfn -v
 openfn help
 ```
 
+---
+
 ### Update the OpenFn CLI
 
 To install a new version straight on top of your current installation, run the
@@ -127,10 +133,12 @@ following command.
 npm install -g @openfn/cli
 ```
 
+---
+
 ### Troubleshoot Installation
 
-If you encounter installation issues, try uninstalling the current version
-first, And then re-installing.
+If you encounter installation issues, try uninstalling the current version first
+and then re-installing.
 
 ```bash
 npm uninstall -g @openfn/cli
