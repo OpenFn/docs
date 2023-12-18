@@ -39,7 +39,6 @@ module.exports = {
       label: 'Build (For Developers)',
       items: [
         'build-for-developers/cli-intro',
-        'build-for-developers/cli-installation',
         'build-for-developers/cli-usage',
         'build-for-developers/cli-tutorial',
         'build-for-developers/build-with-api',
