@@ -40,7 +40,8 @@ module.exports = {
       items: [
         'build-for-developers/cli-intro',
         'build-for-developers/cli-usage',
-        'build-for-developers/cli-tutorial',
+        'build-for-developers/cli-walkthrough',
+        'build-for-developers/cli-challenges',
         'build-for-developers/build-with-api',
         'build-for-developers/security-for-devs',
         //'build-for-developers/for-devs'
