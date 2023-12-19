@@ -12,7 +12,7 @@ slug: /cli-challenges
   and debug complex, multi-step jobs with OpenFn, using nothing but a text
   editor and their terminal.
 - If you are stuck and need help, please post in
-  [community.openfn.org](community.openfn.org).
+  [community.openfn.org](https://community.openfn.org).
   <details>
   <summary>Expand to see bug report template</summary>
 
