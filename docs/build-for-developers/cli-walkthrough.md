@@ -149,6 +149,17 @@ adaptor using `-i` argument
 
 </details>
 
+:::warning Placeholder Data
+
+The data displayed in this CLI logs is generated from a
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) API and does not
+represent real-world information. It is intended for testing and development
+purposes only.
+
+For accurate testing, consider using real data from your API or service.
+
+:::
+
 ### 3. Understanding `state`
 
 If a job expression is a set of instructions for a chef (a recipe?) then the
