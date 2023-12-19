@@ -324,7 +324,7 @@ Since we have update our configuration in our `state.json` we can now use
 
    </details>
 
-### 4. Transform data in a sequence of operations
+### 4. Clean & Transform Data
 
 In most cases you need to manipulate, clean, or transform data at some step in
 your workflow. For example after we get data from the
@@ -583,25 +583,29 @@ initial state.
 A workflow is the execution plan for running several jobs in a sequence. It is
 defined as a JSON object that consists of the following properties:
 
-- `start` (optional): The ID of the job that should be executed first (defaults
-  to jobs[0]).
-- `jobs` (required): An array of job objects, each of which represents a
-  specific task to be executed.
-  - `id` (required): A job name that is unique to the workflow and helps you ID
-    your job.
-  - `configuration`: (optional) Specifies the configuration file associated with
-    the job.
-  - `data` (optional): A JSON object that contains the pre-populated data.
-  - `adaptor` (required): Specifies the adaptor used for the job (version
-    optional).
-  - `expression` (required): Specifies the JavaScript file associated with the
-    job. It can also be a string that contains a JavaScript function to be
-    executed as the job.
-  - `next` (optional): An object that specifies which jobs to call next. All
-    edges returning true will run. The object should have one or more key-value
-    pairs, where the key is the ID of the next job, and the value is a boolean
-    expression that determines whether the next job should be executed.If there
-    are no next edges, the workflow will end.
+```json
+{
+  "start": "a", // optionally specify the start node (defaults to jobs[0])
+  "jobs": [
+    {
+      "id": "a",
+      "expression": "fn((state) => state)", // code or a path
+      "adaptor": "@openfn/language-common@1.75", // specifiy the adaptor to use (version optional)
+      "data": {}, // optionally pre-populate the data object (this will be overriden by keys in in previous state)
+      "configuration": {}, // Use this to pass credentials
+      "next": {
+        // This object defines which jobs to call next
+        // All edges returning true will run
+        // If there are no next edges, the workflow will end
+        "b": true,
+        "c": {
+          "condition": "!state.error" // Note that this is an expression, not a function
+        }
+      }
+    }
+  ]
+}
+```
 
 ###### Example of a workflow
 
