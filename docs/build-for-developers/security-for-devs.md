@@ -12,12 +12,12 @@ many security risks in data integration implementations. Read on for best
 practices and tips for developers to ensure top-notch security when building
 OpenFn workflows.
 
-## Common Mistakes and Best Practices
+## Common mistakes and how to avoid them
 
 Writing OpenFn jobs can be straightforward, but there are common mistakes that
 developers might make. Here are some of them and tips on how to avoid them:
 
-### Hardcoding Sensitive Information
+### Hardcoding sensitive information
 
 - **Avoid Hardcoding Credentials:** Instead of hardcoding usernames, passwords,
   or API keys directly into your scripts, use the `state` object to store and
@@ -39,7 +39,7 @@ const username = state.configuration.username;
 const password = state.configuration.password;
 ```
 
-### Checking Sensitive Data into GitHub
+### Checking sensitive data into GitHub
 
 - **Be Mindful of Repository Contents:** When working on client projects, avoid
   saving sensitive data, such as `state.json`, in the client's public GitHub
@@ -95,7 +95,7 @@ console.log('Received sensitive data:', state.data);
 > development on OpenFn, minimizing the risk of inadvertently exposing sensitive
 > data in logs.
 
-### Ignoring Error Handling
+### Ignoring error handling
 
 - **Handle Errors Gracefully:** Always implement error handling in your scripts.
   Provide meaningful error messages within the `state` object to assist in
@@ -111,7 +111,7 @@ state.error = new Error(
 console.error(state.error);
 ```
 
-### Overly Broad Permissions on Credentials
+### Overly broad permissions on credentials
 
 When adding credentials to OpenFn, it is imperative to follow the principle of
 least privilege. Specifically:
@@ -144,7 +144,7 @@ least privilege. Specifically:
     > the risk of unintended access and protects sensitive client data during
     > integration processes.
 
-### Retaining your OpenFn Project
+### Retaining your OpenFn project
 
 If you have strict data residency requirements, it’s possible to configure
 OpenFn as a “zero-retention” data pipeline to ensure compliance. This ensures
@@ -159,7 +159,7 @@ of failure. To enable this more user-friendly troubleshooting experience, most
 users opt to leave temporary data retention on, and the retention period can be
 adjusted by the OpenFn super admin.
 
-### Adaptors Security Practices
+### Adaptors security practices
 
 - **Client State Protection:** Adaptors (language packages) should never expose
   any part of a client’s state directly. Callbacks may log parts of state but
