@@ -54,7 +54,10 @@ module.exports = {
     {
       type: 'category',
       label: 'Monitor History',
-      items: ['monitor-history/activity-history'],
+      items: [
+        'monitor-history/activity-history',
+        'monitor-history/status-codes'
+      ],
     },
     {
       type: 'category',
