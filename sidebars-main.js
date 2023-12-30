@@ -16,7 +16,13 @@ module.exports = {
       type: 'category',
       label: 'Design Workflows',
       items: [
-        'design/overview',
+        //'design/overview',
+        'design/design-process-overview',
+        'design/discovery',
+        'design/design-workflow',
+        'design/api-discovery',
+        'design/mapping-specs',
+        'design/workflow-specs'
         //'design/discovery'
       ],
     },
