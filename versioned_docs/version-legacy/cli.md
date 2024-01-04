@@ -535,12 +535,7 @@ administrator for feedback.
 
    > What's the difference between the job you wrote and the compiled job?
 
-2. Run a job without "strict mode" enabled.
-
-   > What's the difference between the outputs when strict mode is enabled and
-   > disabled?
-
-3. Run a job with the log level set to `none`, and then run it again with the
+2. Run a job with the log level set to `none`, and then run it again with the
    log level set to `debug`.
 
    > When is it appropriate to use these different log levels?

@@ -1,113 +1,10 @@
 ---
-title: CLI Walkthrough & Challenges
-sidebar_label: CLI Tutorial
-slug: /cli-tutorial
+title: CLI Walkthrough
+sidebar_label: CLI Walkthrough
+slug: /cli-walkthrough
 ---
 
-
-## Walkthrough & Challenges
-
 ### 1. Getting started with the CLI
-
-Let's start by running a simple command with the CLI. Type the following into
-your terminal:
-
-```bash
-openfn test
-```
-
-The word `openfn` will invoke the CLI. The word `test` will invoke the test
-command.
-
-<details>
-  <summary>You should see some output like this:</summary>
-
-```bash
-[CLI] ℹ Versions:
-        ▸ node.js     18.12.1
-        ▸ cli         0.0.39
-        ▸ runtime     0.0.24
-        ▸ compiler    0.0.32
-[CLI] ℹ Running test job...
-[CLI] ℹ Workflow object:
-[CLI] ℹ {
-  "start": "start",
-  "jobs": [
-    {
-      "id": "start",
-      "data": {
-        "defaultAnswer": 42
-      },
-      "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
-      "next": {
-        "calculate": "!state.error"
-      }
-    },
-    {
-      "id": "calculate",
-      "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
-      "next": {
-        "result": true
-      }
-    },
-    {
-      "id": "result",
-      "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
-    }
-  ]
-}
-
-[CLI] ✔ Compilation complete
-[R/T] ♦ Starting job start
-[JOB] ℹ Starting computer...
-[R/T] ℹ Operation 1 complete in 0ms
-[R/T] ✔ Completed job start in 1ms
-[R/T] ♦ Starting job calculate
-[JOB] ℹ Calculating to life, the universe, and everything..
-[R/T] ℹ Operation 1 complete in 0ms
-[R/T] ✔ Completed job calculate in 1ms
-[R/T] ♦ Starting job result
-[R/T] ℹ Operation 1 complete in 0ms
-[R/T] ✔ Completed job result in 0ms
-[CLI] ✔ Result: 42
-
-```
-
-</details>
-
-What we've just done is executed a JavaScript expression, which we call a _job_.
-The output prefixed with `[JOB]` comes directly from `console.log` statements in
-our job code. All other output is the CLI trying to tell us what it is doing.
-
-<details>
-<summary>What is a job?</summary>
-A job is Javascript code which follows a particular set of conventions.
-Typically a job has one or more <i>operations</i> which perform a particular
-task (like pulling information from a database, creating a record, etc.) and
-return state for the next operation to use.
-
-The test job we just ran looks like this:
-
-```js
-const fn = () => state => {
-  console.log(
-    'Calculating the answer to life, the universe, and everything...'
-  );
-  return state * 2;
-};
-export default [fn()];
-```
-
-You can see this (and a lot more detail) by running the test command with
-debug-level logging:
-
-```bash
-openfn test --log debug
-```
-
-</details>
-
-#### Tasks:
 
 :::info To get started with @openfn/cli
 
@@ -135,11 +32,19 @@ openfn test --log debug
 
 :::
 
-1.  Create a file called `hello.js` and write the following code.
+1.  Create a job file called `hello.js` and write the following code.
 
     ```js
     console.log('Hello World!');
     ```
+
+    <details>
+      <summary>What is a job?</summary>
+      A job is Javascript code which follows a particular set of conventions.
+      Typically a job has one or more <i>operations</i> which perform a particular
+      task (like pulling information from a database, creating a record, etc.) and
+      return state for the next operation to use.
+    </details>
 
     <details>
       <summary>What is console.log?</summary>
@@ -147,48 +52,33 @@ openfn test --log debug
       us send messages to the terminal window.
     </details>
 
-1.  Run the job using the CLI
+2.  Run the job using the CLI
 
-        ```bash
-        openfn hello.js -o tmp/output.json
-        ```
+    ```bash
+    openfn hello.js -o tmp/output.json
+    ```
 
-        <details>
-
+  <details>
     <summary>View expected output</summary>
 
-        ```bash
-        [CLI] ⚠ WARNING: No adaptor provided!
-        [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
-                  openfn job.js -a common
-        [CLI] ✔ Compiled from helo.js
-        [R/T] ♦ Starting job job-1
-        [JOB] ℹ Hello World!
-        [R/T] ✔ Completed job job-1 in 1ms
-        [CLI] ✔ State written to tmp/output.json
-        [CLI] ✔ Finished in 17ms ✨
+    ```bash
+    [CLI] ⚠ WARNING: No adaptor provided!
+    [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
+              openfn job.js -a common
+    [CLI] ✔ Compiled from hello.js
+    [R/T] ♦ Starting job job-1
+    [JOB] ℹ Hello World!
+    [R/T] ✔ Completed job job-1 in 1ms
+    [CLI] ✔ State written to tmp/output.json
+    [CLI] ✔ Finished in 17ms ✨
 
-        ```
+    ```
 
-        </details>
+  </details>
 
 Note that our `console.log` statement was printed as `[JOB] Hello world!`. Using
 the console like this is helpful for debugging and/or understanding what's
 happening inside our jobs.
-
-#### 🏆 Challenge: Write a job that prints your name
-
-1.  Modify `hello.js` to print your name.
-2.  Re-run the job by running `openfn hello.js -a common -o tmp/output.json`.
-3.  Validate that you receive the logs below:
-
-```bash
-[CLI] ✔ Compiled job from hello.js
-[JOB] ℹ My name is { YourName }
-[R/T] ✔ Operation 1 complete in 0ms
-[CLI] ✔ Writing output to tmp/output.json
-[CLI] ✔ Done in 366ms! ✨
-```
 
 ### 2. Using adaptor helper functions
 
@@ -233,7 +123,7 @@ Since it is our first time using the `http` adaptor, we are installing the
 adaptor using `-i` argument
 
 <details>
-  <summary>3. See expected CLI logs</summary>
+  <summary>3. Expand to see expected CLI logs</summary>
 
 ```bash
   [CLI] ✔ Installing packages...
@@ -259,52 +149,16 @@ adaptor using `-i` argument
 
 </details>
 
-#### 🏆 Challenge: Get and inspect data via HTTP
+:::warning Placeholder Data
 
-Using the
-[https://jsonplaceholder.typicode.com/users](https://jsonplaceholder.typicode.com/users)
-API, get a list of users and print the first user object.
+The data displayed in this CLI logs is generated from a
+[JSONPlaceholder](https://jsonplaceholder.typicode.com/) API and does not
+represent real-world information. It is intended for testing and development
+purposes only.
 
-1.  Create file called `getUsers.js` and write your operation to fetch the user.
-2.  Run the job using the OpenFn/cli
-    `openfn getUsers.js -a http -o tmp/output.json`.
-3.  Validate that you receive this expected CLI logs:
+For accurate testing, consider using real data from your API or service.
 
-```bash
-openfn getUsers.js -a http -o tmp/output.json
-```
-
-<details>
-<summary>See expected CLI logs:</summary>
-
-```
-[CLI] ✔ Compiled job from hello.js GET request succeeded with 200 ✓
-[R/T] ✔ Operation 1 complete in 581ms
-[JOB] ℹ {
-  id: 1,
-  name: 'Leanne Graham',
-  username: 'Bret',
-  email: 'Sincere@april.biz',
-  address: {
-    street: 'Kulas Light',
-    suite: 'Apt. 556',
-    city: 'Gwenborough',
-    zipcode: '92998-3874',
-    geo: { lat: '-37.3159', lng: '81.1496' }
-  },
-  phone: '1-770-736-8031 x56442',
-  website: 'hildegard.org',
-  company: {
-    name: 'Romaguera-Crona',
-    catchPhrase: 'Multi-layered client-server neural-net',
-    bs: 'harness real-time e-markets'
-  }
-}
-[R/T] ✔ Operation 2 complete in 2ms
-[CLI] ✔ Writing output to tmp/output.json [CLI] ✔ Done in 950ms! ✨
-```
-
-</details>
+:::
 
 ### 3. Understanding `state`
 
@@ -314,7 +168,8 @@ bundle. See
 ["It all starts with state​"](/articles/2021/07/05/wrapping-my-head-around-jobs/#it-all-starts-with-state)
 in the knowledge base for extra context.
 
-It usually looks something like this
+<details>
+  <summary>It usually looks something like this</summary>
 
 ```json
 {
@@ -333,6 +188,8 @@ It usually looks something like this
   }
 }
 ```
+
+</details>
 
 #### `state.configuration`
 
@@ -370,7 +227,8 @@ Specify a path to your `state.json` file with this command:
 openfn hello.js -a http -s tmp/state.json -o tmp/output.json
 ```
 
-Expected CLI logs
+<details>
+  <summary>Expand to see expected CLI logs</summary>
 
 ```
 [CLI] ✔ Compiled job from hello.js
@@ -380,6 +238,8 @@ GET request succeeded with 200 ✓
 [CLI] ✔ Writing output to tmp/output.json
 [CLI] ✔ Done in 1.222s! ✨
 ```
+
+</details>
 
 #### How can we use state?
 
@@ -399,19 +259,27 @@ of how to set up `state.configuration` for `language-http`.
 
 1. Update your `state.json` to look like this:
 
-   ```json title=state.json
-   {
-     "configuration": {
-       "baseUrl": "https://jsonplaceholder.typicode.com"
-     }
-   }
-   ```
+ <details>
+    <summary>Expand to see state.json</summary>
 
-   Since we have update our configuration in our `state.json` we can now use
-   `get()` helper function without the need to specify the **baseUrl**—i.e
-   `get('posts')`
+    ```json title=state.json
+    {
+      "configuration": {
+        "baseUrl": "https://jsonplaceholder.typicode.com"
+      }
+    }
+    ```
+
+   </details>
+
+Since we have update our configuration in our `state.json` we can now use
+`get()` helper function without the need to specify the **baseUrl**—i.e
+`get('posts')`
 
 2. Update your `getPosts.js` job to look like this:
+
+   <details>
+   <summary>Expand to see getPosts.js</summary>
 
    ```js title="getPosts.js"
    // Get all posts
@@ -424,68 +292,39 @@ of how to set up `state.configuration` for `language-http`.
    });
    ```
 
+   </details>
+
 3. Now run the job using the following command
 
    ```bash
    openfn getPosts.js -a http -s tmp/state.json -o tmp/output.json
    ```
 
-   And validate that you see the expected CLI logs:
+   <details>
+    <summary>And validate that you see the expected CLI logs:</summary>
 
    ```bash
    [CLI] ✔ Compiled job from getPosts.js
    GET request succeeded with 200 ✓
    [R/T] ✔ Operation 1 complete in 120ms
    [JOB] ℹ {
-    userId: 1,
-    id: 1,
-    title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
-    body: 'quia et suscipit\n' +
-      'suscipit recusandae consequuntur expedita et cum\n' +
-      'reprehenderit molestiae ut ut quas totam\n' +
-      'nostrum rerum est autem sunt rem eveniet architecto'
+     userId: 1,
+     id: 1,
+     title: 'sunt aut facere repellat provident occaecati excepturi optio reprehenderit',
+     body: 'quia et suscipit\n' +
+       'suscipit recusandae consequuntur expedita et cum\n' +
+       'reprehenderit molestiae ut ut quas totam\n' +
+       'nostrum rerum est autem sunt rem eveniet architecto'
    }
    [R/T] ✔ Operation 2 complete in 0ms
    [CLI] ✔ Writing output to tmp/output.json
    [CLI] ✔ Done in 470ms! ✨
+
    ```
 
-#### 🏆 Challenge: Fetch Covid-19 metadata
+   </details>
 
-1. Using the [disease.sh API](https://disease.sh/), write an operation that
-   returns all covid-19 metadata.
-
-:::tip
-
-`https://disease.sh/v3/covid-19/` as your **baseUrl** in `state.configuration`
-
-:::
-
-2. Validate your output: there are a lot of ways you might choose to format or
-   display this data. Share your results with your administrator for feedback.
-
-### 4. Additional arguments and commands
-
-#### 🏆 Challenge: Practice CLI arguments and commands
-
-Perform these tasks and submit answers to the discussion questions to your
-administrator for feedback.
-
-1. Compile a openfn job (**hello.js**).
-
-   > What's the difference between the job you wrote and the compiled job?
-
-2. Run a job without "strict mode" enabled.
-
-   > What's the difference between the outputs when strict mode is enabled and
-   > disabled?
-
-3. Run a job with the log level set to `none`, and then run it again with the
-   log level set to `debug`.
-
-   > When is it appropriate to use these different log levels?
-
-### 5. Manipulating data in a sequence of operations
+### 4. Clean & Transform Data
 
 In most cases you need to manipulate, clean, or transform data at some step in
 your workflow. For example after we get data from the
@@ -494,35 +333,30 @@ by user id. The example below shows how we can:
 
 1. get all posts and return them in `state.data`
 2. group returned posts by `userId`
-3. log posts with userId 1
+3. log posts with userId `1`
 
-##### Example:
+<details>
+<summary>Expand to see example:</summary>
 
 ```js title="getPosts.js"
 // Get all posts
 get('posts');
 
-// Group posts by user id
-fn(state => {
-  const posts = state.data;
+// Group posts by user id fn(state => { const posts = state.data;
 
-  // Group posts by userId
-  const groupPostsByUserId = posts.reduce((acc, post) => {
-    const existingValue = acc[post.userId] || [];
-    return { ...acc, [post.userId]: [...existingValue, post] };
-  }, {});
+// Group posts by userId const groupPostsByUserId = posts.reduce((acc, post) =>
+{ const existingValue = acc[post.userId] || []; return { ...acc, [post.userId]:
+[...existingValue, post] }; }, {});
 
-  // console.log(groupPostsByUserId);
-  return { ...state, groupPostsByUserId };
+// console.log(groupPostsByUserId); return { ...state, groupPostsByUserId }; });
+
+// Log posts where userId = 1 fn(state => { const { groupPostsByUserId } =
+state; console.log('Post with userId 1', groupPostsByUserId[1]); return state;
 });
 
-// Log posts where userId = 1
-fn(state => {
-  const { groupPostsByUserId } = state;
-  console.log('Post with userId 1', groupPostsByUserId[1]);
-  return state;
-});
 ```
+
+</details>
 
 <details>
 <summary>What is <code>array.reduce</code>?</summary>
@@ -535,17 +369,14 @@ the sum of all the elements in an array:
 ##### JavaScript Demo: `Array.reduce()`
 
 ```
+
 const array1 = [1, 2, 3, 4];
 
-// 0 + 1 + 2 + 3 + 4
-const initialValue = 0;
-const sumWithInitial = array1.reduce(
-  (accumulator, currentValue) => accumulator + currentValue,
-  initialValue
-);
+// 0 + 1 + 2 + 3 + 4 const initialValue = 0; const sumWithInitial =
+array1.reduce( (accumulator, currentValue) => accumulator + currentValue,
+initialValue );
 
-console.log(sumWithInitial);
-// Expected output: 10
+console.log(sumWithInitial); // Expected output: 10
 
 ```
 
@@ -554,35 +385,23 @@ You can learn more about `array.reduce` from
 
 </details>
 
-> Expected CLI logs
+>
+
+<details>
+  <summary>Expand to see expected CLI logs</summary>
 
 ```
-[CLI] ✔ Compiled job from getPosts.js
-GET request succeeded with 200 ✓
-[R/T] ✔ Operation 1 complete in 825ms
-[R/T] ✔ Operation 2 complete in 0ms
-[JOB] ℹ Post with userId 1 [
- //All of posts for userId 1
-]
-[R/T] ✔ Operation 3 complete in 12ms
-[CLI] ✔ Writing output to tmp/output.json
-[CLI] ✔ Done in 1.239s! ✨
+
+[CLI] ✔ Compiled job from getPosts.js GET request succeeded with 200 ✓ [R/T] ✔
+Operation 1 complete in 825ms [R/T] ✔ Operation 2 complete in 0ms [JOB] ℹ Post
+with userId 1 [ //All of posts for userId 1 ] [R/T] ✔ Operation 3 complete in
+12ms [CLI] ✔ Writing output to tmp/output.json [CLI] ✔ Done in 1.239s! ✨
+
 ```
 
-#### 🏆 Challenge: extract names & emails
+</details>
 
-Using
-[https://jsonplaceholder.typicode.com/posts/1/comments](https://jsonplaceholder.typicode.com/posts/1/comments)
-API fetch comments for post with id 1 and extract name and email from each
-comment in that post
-
-1. Get post all comments for post id 1
-2. Extract name and email from comments
-3. Log the extracted data from comments
-
-Discuss the results with your administrator.
-
-### 6. Debugging errors
+### 5. Debugging errors
 
 When debugging, it’s interesting to use log to have a visual representation of
 the content of the manipulated objects (such as state).
@@ -603,6 +422,10 @@ fn(state => {
 
 ##### Create **debug.js** and paste the code below
 
+<details>
+
+  <summary>Expand to see debug.js</summary>
+
 ```jsx title="debug.js"
 // Get all posts
 get('posts');
@@ -616,22 +439,25 @@ fn(state => {
 });
 ```
 
+</details>
+
 ##### Run **openfn debug.js -a http**
 
-> Expected CLI logs
-
-```bash
-[CLI] ✘ TypeError: path.match is not a function
-    at dataPath (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:258:26)
-    at dataValue (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:262:22)
-    at getPostbyIndex (vm:module(0):5:37)
-    at vm:module(0):18:36
-    at /tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:241:12
-    at file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:288:26
-    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-    at async run (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:269:18)
-    at async executeHandler (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/dist/process/runner.js:388:20)
-```
+<details>
+  <summary>Expected CLI logs</summary>
+  ```bash
+  [CLI] ✘ TypeError: path.match is not a function
+      at dataPath (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:258:26)
+      at dataValue (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:262:22)
+      at getPostbyIndex (vm:module(0):5:37)
+      at vm:module(0):18:36
+      at /tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:241:12
+      at file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:288:26
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async run (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:269:18)
+      at async executeHandler (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/dist/process/runner.js:388:20)
+  ```
+</details>
 
 As you can see from our logs that helper function `dataValue` has a TypeError,
 To troubleshoot this you can go to the documentation for **dataValue ->
@@ -642,42 +468,34 @@ According to the docs, dataValue take path which is a string type. But in our
 operation we were passing an integer, that’s why we have a _TypeError_. You can
 fix the error by passing a string in dataValue i.e `console.log(dataValue(“1”))`
 
-> Expected CLI logs
-
-```bash
-[CLI] ✔ Compiled job from debug.js
-GET request succeeded with 200 ✓
-[R/T] ✔ Operation 1 complete in 722ms
-[JOB] ℹ [Function (anonymous)]
-[R/T] ✔ Operation 2 complete in 1ms
-[CLI] ✔ Writing output to tmp/output.json
-[CLI] ✔ Done in 1.102s ✨
-```
+<details>
+  <summary>Expected CLI logs</summary>
+  ```bash
+  [CLI] ✔ Compiled job from debug.js
+  GET request succeeded with 200 ✓
+  [R/T] ✔ Operation 1 complete in 722ms
+  [JOB] ℹ [Function (anonymous)]
+  [R/T] ✔ Operation 2 complete in 1ms
+  [CLI] ✔ Writing output to tmp/output.json
+  [CLI] ✔ Done in 1.102s ✨
+  ```
+</details>
 
 If you need more information for debugging you can pass -l debug which will give
 all information about the run
 
 i.e `openfn debug.js -a http -l debug`
 
-#### 🏆 Challenge: control error messages
-
-Debug what is causing an error on the following line of code and display the
-error message
-
-```jsx
-// Get post where id is 180
-get('posts/180');
-```
-
-Discuss the results with your administrator.
-
-### 7. Each and array iteration
+### 6. Each and array iteration
 
 We often have to perform the same operation multiple times for items in an
 array. Most of the helper functions for data manipulation are inherited from
 @openfn/language-common and are available in most of the adaptors.
 
 ##### Modify getPosts.js to group posts by user-ID
+
+<details>
+<summary>Expand to see getPosts.js</summary>
 
 ```js title="getPosts.js"
 // Get all posts
@@ -712,6 +530,8 @@ each('posts[*]', state => {
 });
 ```
 
+</details>
+
 Notice how this code uses the `each` function, a helper function defined in
 [language-common](/adaptors/packages/common-docs/#eachdatasource-operation--operation)
 but accessed from this job that is using language-http. Most adaptors import and
@@ -719,35 +539,24 @@ export many functions from `language-common`.
 
 ##### Run **openfn getPosts.js -a http -o tmp/output.json**
 
-> Expected CLI logs
+<details>
+  <summary>Expand to see expected CLI logs</summary>
+  ```bash
+  [CLI] ✔ Compiled job from getPosts.js
+  GET request succeeded with 200 ✓
+  [R/T] ✔ Operation 1 complete in 730ms
+  [R/T] ✔ Operation 2 complete in 0ms
+  [R/T] ✔ Operation 3 complete in 0ms
+  [JOB] ℹ Posts [
+  // Posts
+  ]
+  [R/T] ✔ Operation 4 complete in 10ms
+  [CLI] ✔ Writing output to tmp/output.json
+  [CLI] ✔ Done in 1.091s! ✨
+  ```
+</details>
 
-```bash
-[CLI] ✔ Compiled job from getPosts.js
-GET request succeeded with 200 ✓
-[R/T] ✔ Operation 1 complete in 730ms
-[R/T] ✔ Operation 2 complete in 0ms
-[R/T] ✔ Operation 3 complete in 0ms
-[JOB] ℹ Posts [
-// Posts
-]
-[R/T] ✔ Operation 4 complete in 10ms
-[CLI] ✔ Writing output to tmp/output.json
-[CLI] ✔ Done in 1.091s! ✨
-```
-
-#### 🏆 Challenge: Reduce, filter, and map
-
-Using Javascript globals i.e `Array.reduce`, `Array.filter` or `Array.map`,
-build function that will get posts by user id.
-
-1. Create a file called job1.js
-2. Add the 1st operation which is get all posts
-3. Add 2nd operation which has a function that filter posts by id
-4. Use the function from 2nd operation to get all post for user id 1
-
-Discuss the results with your administrator.
-
-### 8. Running Workflows
+### 7. Running Workflows
 
 As of `v0.0.35` the `@openfn/cli` supports running not only jobs, but also
 _workflows_. Running a workflow allows you to define a list of jobs and rules
@@ -774,25 +583,29 @@ initial state.
 A workflow is the execution plan for running several jobs in a sequence. It is
 defined as a JSON object that consists of the following properties:
 
-- `start` (optional): The ID of the job that should be executed first (defaults
-  to jobs[0]).
-- `jobs` (required): An array of job objects, each of which represents a
-  specific task to be executed.
-  - `id` (required): A job name that is unique to the workflow and helps you ID
-    your job.
-  - `configuration`: (optional) Specifies the configuration file associated with
-    the job.
-  - `data` (optional): A JSON object that contains the pre-populated data.
-  - `adaptor` (required): Specifies the adaptor used for the job (version
-    optional).
-  - `expression` (required): Specifies the JavaScript file associated with the
-    job. It can also be a string that contains a JavaScript function to be
-    executed as the job.
-  - `next` (optional): An object that specifies which jobs to call next. All
-    edges returning true will run. The object should have one or more key-value
-    pairs, where the key is the ID of the next job, and the value is a boolean
-    expression that determines whether the next job should be executed.If there
-    are no next edges, the workflow will end.
+```json
+{
+  "start": "a", // optionally specify the start node (defaults to jobs[0])
+  "jobs": [
+    {
+      "id": "a",
+      "expression": "fn((state) => state)", // code or a path
+      "adaptor": "@openfn/language-common@1.75", // specifiy the adaptor to use (version optional)
+      "data": {}, // optionally pre-populate the data object (this will be overriden by keys in in previous state)
+      "configuration": {}, // Use this to pass credentials
+      "next": {
+        // This object defines which jobs to call next
+        // All edges returning true will run
+        // If there are no next edges, the workflow will end
+        "b": true,
+        "c": {
+          "condition": "!state.error" // Note that this is an expression, not a function
+        }
+      }
+    }
+  ]
+}
+```
 
 ###### Example of a workflow
 
@@ -1043,7 +856,9 @@ outlined below:
    ```json
    {
    ...
-    "data": "tmp/initial-data.json",
+    "state": {
+      "data": "tmp/initial-data.json",
+    }
    }
    ```
 

@@ -1,49 +1,146 @@
 ---
-title: Intro to the OpenFn CLI
-sidebar_label: Intro to CLI
+title: Get started with the OpenFn CLI
+sidebar_label: Get started
 slug: /cli
 ---
 
-:::info What is this tutorial?
+#### Build and test your automated workflows and integrations via the command line.
 
-- It's a _hands-on_ way to learn about the new OpenFn CLI. By following the
-  prompts and "challenges", a developer with a bit of Javascript experience
-  should be able to write, run, and debug complex, multi-step jobs with OpenFn,
-  using nothing but a text editor and their terminal.
-- The estimated time to finish this developer challenge is 1 to 2 hours
-  (depending on your familiarity with the underlying concepts and tooling)
-- If you are stuck and need help, please post in
-  [community.openfn.org](https://community.openfn.org/t/about-the-job-writing-category/11/1)
+The OpenFn CLI is a developer tool to help you build, test, and manage your
+workflows and integration with OpenFn directly from the command line. It’s
+simple to install, works on macOS, Windows, and Linux, and offers a range of
+functionality to enhance your developer experience with OpenFn. You can use the
+OpenFn CLI to:
 
-:::
+- Securely run OpenFn jobs and workflows
+- Troubleshoot and debug OpenFn jobs
+- Deployment of workflows to OpenFn
 
-## Intro to the OpenFn CLI
+---
 
-The [@openfn/cli](https://github.com/OpenFn/kit/tree/main/packages/cli) is a
-command line interface for running OpenFn workflows locally. It enables
-developers to run, build, and test steps in an OpenFn workflow.
+### Before you start
 
-This CLI replaces [@openfn/devtools](https://github.com/OpenFn/devtools) and
-provides a new suite of features and improvements, including:
+Before you begin with the @openfn/cli, make sure to follow these simple steps:
 
-- a new runtime and compiler for executing and creating runnable OpenFn jobs,
-- customizable logging output,
-- automatic installation of language adaptors,
-- and support for the adaptors monorepo
-  ([@openfn/adaptors](https://github.com/OpenFn/adaptors)) where all OpenFn
-  adaptor source code and documentation lives.
+1. **Code Editor:** Ensure you have a code editor installed on your machine. You
+   can use popular editors like [VS Code](https://code.visualstudio.com/) or
+   [Sublime](https://www.sublimetext.com/).
+2. **Node.js Installation:** Install Node.js (version 18 or later): - For Linux,
+   Windows, or macOS, use a version manager like
+   [nvm](https://github.com/nvm-sh/nvm) or
+   [asdf](https://asdf-vm.com/guide/getting-started.html). -
+   [Install Node.js](https://kinsta.com/blog/how-to-install-node-js/) by
+   following this guide.
+3. **Understand OpenFn Basics:** Have a basic understanding of OpenFn,
+   particularly jobs and adaptors. Check out the
+   [Intro section](/documentation/next) on this site.
 
-These features are designed to make it easier and more convenient for developers
-to use and understand OpenFn.
+---
 
-:::caution Looking for a way to execute jobs from OpenFn v1 locally? Use Core!
+### Install the OpenFn CLI
 
-If you're looking for a way to execute jobs running on the OpenFn v1 platform,
-please see the documentation for **[@openfn/core](/documentation/core)** and
-[Devtools](/documentation/devtools/home).
+To download the latest version of
+[@openfn/cli](https://www.npmjs.com/package/@openfn/cli), on the command line,
+run the following command.
 
-:::
+```bash
+npm install -g @openfn/cli
+```
 
+**Make sure everything works by running the built-in test job**
 
-Learn more about CLI
-[github.com/OpenFn/kit/](https://github.com/OpenFn/kit/tree/main/packages/cli)
+```bash
+openfn test
+```
+
+The word `openfn` will invoke the CLI. The word `test` will invoke the test
+command.
+
+<details><summary>Expand to see the expected output.</summary>
+
+    [CLI] ℹ Versions:
+            ▸ node.js     18.12.1
+            ▸ cli         0.4.11
+            ▸ runtime     0.2.2
+            ▸ compiler    0.0.38
+    [CLI] ℹ Running test job...
+    [CLI] ℹ Workflow object:
+    [CLI] ℹ {
+        "start": "start",
+        "jobs": [
+        {
+            "id": "start",
+            "data": {
+            "defaultAnswer": 42
+            },
+            "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
+            "next": {
+            "calculate": "!state.error"
+            }
+        },
+        {
+            "id": "calculate",
+            "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
+            "next": {
+            "result": true
+            }
+        },
+        {
+            "id": "result",
+            "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
+        }
+        ]
+    }
+
+    [CLI] ✔ Compilation complete
+    [R/T] ♦ Starting job start
+    [JOB] ℹ Starting computer...
+    [R/T] ℹ Operation 1 complete in 0ms
+    [R/T] ✔ Completed job start in 1ms
+    [R/T] ♦ Starting job calculate
+    [JOB] ℹ Calculating to life, the universe, and everything..
+    [R/T] ℹ Operation 1 complete in 0ms
+    [R/T] ✔ Completed job calculate in 1ms
+    [R/T] ♦ Starting job result
+    [R/T] ℹ Operation 1 complete in 0ms
+    [R/T] ✔ Completed job result in 0ms
+    [CLI] ✔ Result: 42
+
+</details>
+
+All other output is the CLI telling us what it is doing internally.
+
+**Check the version**
+
+```bash
+openfn -v
+```
+
+**Get help**
+
+```bash
+openfn help
+```
+
+---
+
+### Update the OpenFn CLI
+
+To install a new version straight on top of your current installation, run the
+following command.
+
+```bash
+npm install -g @openfn/cli
+```
+
+---
+
+### Troubleshoot Installation
+
+If you encounter installation issues, try uninstalling the current version first
+and then re-installing.
+
+```bash
+npm uninstall -g @openfn/cli
+npm install -g @openfn/cli
+```
