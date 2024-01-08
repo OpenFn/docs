@@ -49,7 +49,7 @@ const password = state.configuration.password;
 - **Use Specific Directories for Test Payloads:** If you store test payloads in
   a client repository, use directories like `sampleData/` and ensure the
   filenames do not resemble `state.json`. Avoid complete state objects in these
-  files; instead, mimic the exact message body found on OpenFn.org.
+  files; instead, mimic the exact test payload.
 
 - **Check Git Diffs Before Committing:** Before making commits, carefully read
   the git diff line by line to identify unintentional changes and logs. Follow
