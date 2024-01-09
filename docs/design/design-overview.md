@@ -14,7 +14,7 @@ Before you dive in, make sure you have a clear understanding of these key terms 
 ### Workflow
 The set of instructions that determine how to solve a problem or accomplish a task. They are often broken down into smaller, independent tasks. 
 
-![Workflow](/img/worfklow.png)
+![Workflow](/img/workflow.png)
 
 
 ### Workflow Automation

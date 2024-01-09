@@ -17,7 +17,7 @@ module.exports = {
       label: 'Design Workflows',
       items: [
         //'design/overview',
-        'design/design-process-overview',
+        'design/design-overview',
         'design/discovery',
         'design/design-workflow',
         'design/api-discovery',

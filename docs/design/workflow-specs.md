@@ -13,7 +13,7 @@ __The key outputs of the the design process are:__
 4. [Data element mapping specifications](/documentation/next/design/mapping-specs)
 
 
-Given these, you’ll be ready to finalize your workflow specifications and hand-off to developers for job-writing! 
+Given these, you’ll be ready to finalize your workflow specifications and hand-off to developers for job-writing!  
 
 Each “task” or “step” in the OpenFn swimlane of your technical diagram can be implemented as a distinct operation in your workflow configuration. In the example diagram below, you might implement 1 job with 3 chained operations, or 3 jobs with 1 operation each. 
 
