@@ -6,7 +6,7 @@ title: Discovery & Scoping for OpenFn Projects
 # Discovery & Scoping for OpenFn Projects
 
 
-This article outlines key discovery and scoping questions to confirm the business value, core workflow requirements, technical feasibility, and client capacity when starting a new implementation. This article will be referencing the example use case introduced in the [series introduction](/documentation/next/design/design-process-overview#example-use-case). 
+This article outlines key discovery and scoping questions to confirm the business value, core workflow requirements, technical feasibility, and client capacity when starting a new implementation. This article will be referencing the example use case introduced in the [series introduction](/documentation/next/design/design-overview#example-use-case). 
 
 
 :::tip 
