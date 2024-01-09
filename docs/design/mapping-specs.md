@@ -1,200 +1,56 @@
 ---
-sidebar_label: Design Process
-title: Design Process for OpenFn Solutions
+sidebar_label: Mapping Specifications
+title: Writing Data Element Mapping Specifications
 ---
-:::warning Under construction
 
-This docs page is under construction. Check back later for the complete docs, or check out the Docs Version "Platform (v1)". 
+# Mapping data elements to define data integration & automation rules
 
-:::
+This article walks through the data element mapping process used to develop entity- and field-level specifications for how data points should be exchanged, cleaned, and/or transformed in a data integration workflow. In basic terms, data mapping is the process of connecting a data field from one source to a data field in another source (e.g., System A "patient" =  "person" in System B).
 
-# Getting started with workflow automation design for OpenFn projects
-Overview of design process and key outputs/artefacts...
 
-**Integration design begins with the functional or business requirements (not
-the technical bits).** Therefore, you do not need to be an IT consultant or
-software engineer to start designing an integration solution! (Although having
-those resources certainly helps when we get to the technical specifications...
-but more on that later).
+A data element mapping specification is a special type of data dictionary that serves as (1) documentation on how you are translating meaning between systems, and (2)  specifications for developers building the workflow automation solution.
 
-A clear understanding and _documentation_ of the business processes, functional
-requirements, and people interacting with your desired integration are the first
-critical step in integration design. As you're planning for your next
-integration project, start developing the following documentation to get started
-with solution.
+For each automation step in your workflow, you will document which data elements (or metadata) will be referenced, as well as the “rules” for how these data elements should be mapped, reassigned, cleaned, transformed, and/or calculated.
 
-## 1. Capture requirements as user stories
+![mapping](/img/mapping_example.png)
+ 
 
-Documenting _why_ the integration is needed and the driving requirements is
-important to making sure the priority needs are identified and that everyone is
-aligned on project expectations.
 
-_User stories_ are short, simple descriptions of a requirement told from the
-perspective of the person who desires the new functionality.
+__To draft a data element mapping specification, you’ll need to…__
 
-> As a `<type of user>`, I want `<some functionality>` so that
-> `<desired business outcome>`.
+1. Export the metadata or ask for a list of data elements from the target systems,
+2. Procure a sample “input” record from the source system and procure a sample output record from the destination system. At best, this is an example JSON payload or a link to example records. At worst, this is a screenshot or a CSV file with “dummy” data. 
+3. Start “mapping” the data elements and recording transformation rules! 
 
-Good user stories will capture 3 parts:
+| ![mapping](/img/mapping_process.png) |
+|:--:|
+| *The data mapping process for data integration solutions.*|
+ 
 
-1. _Who_ - who is using the solution?
-2. _What_ - what do they hope to achieve via the solution?
-3. _Why_ - why is this desire important? What are the business implications?
+## OpenFn Mapping Specification Template
+You can document data elements, mappings, and rules using the OpenFn mapping specification template. This [template](https://docs.google.com/spreadsheets/d/19sPRLP4zeFgFbtOL1wKh-rc7D0KPMu3etmOOG_x5t68/edit#gid=1275153608) was created by the OpenFn team as a result of lessons learned from implementing data integrations solutions for NGOs and government partners around the world. It is used on all OpenFn projects and is maintained by the OpenFn team. 
 
-If you capture these 3 elements, user stories can b ean effective way of
-detailing integration requirements and starting discussions at your organization
-about which requirements are priority.
 
-### Example user stories:
+## Mapping Considerations
 
-- **Case Referrals:** As a caseworker, I want to automatically send referral
-  requests to my partner agency using another case management system, so that I
-  can securely share case information and quickly notify them when their
-  services are needed in a crisis situation.
-- **EMR - HIS:** As a clinic manager, I would like to integrate patient data
-  from the district clinic electronic medical record system with the national
-  DHIS2 health information system, so that I can securely and automatically
-  report on health outcomes for key indicators in my district.
-- **Kobo Toolbox - MSSQL Database:** As a M&E manager, I want to monitor Kobo
-  Toolbox survey responses in a central database in real-time, so that I can
-  better understand data collection activities and program performance across my
-  research partner sites.
+### Maintaining Mapping Specifications
+Once your OpenFn project is live, the Mapping Specs document may be the business-friendly way your users interact with your solution. If you make any changes, make sure the Mapping Spec always matches your job code. Also consider versioning your mapping specs so stakeholders have access to historical implementations of the solution. 
 
-## 2. Diagram the business process
+:::info
 
-Once the user stories have been identified, start to document the functional
-processes that are in place (or will need to be implemented) in order to achieve
-the desired requirments. These might be automated or human/manually-driven
-processes. This is the precursor step to mapping out the data flow (which
-details the technical steps for how connections will be made and data exchanged
-between systems). Again, process mapping is _business analysis_–not a technical
-exercise.
-
-For example, if you want to exchange information between your organization and
-another... how might this exchange work from a functional point of view? _What_
-information will be exchanged? With _whom_ (between which systems or users)?
-_When_ will the information be exchanged? And what are the human or automation
-steps that should facilitate and trigger this exchange? These business process
-questions are discussed in more detail on the
-[So, what is an integration?](/documentation/getting-started/so-you-want-to-integrate/)
-page.
-
-:::tip
-
-Capture the current & desired process Document _current and desired_ business
-processes in order to determine how information should be exchanged between your
-organization/system/users and others, and to ensure alignment of expectations
-and assumptions across partners.
+While the OpenFn XLS-based mapping template is helpful for collaborating with other stakeholders on defining the mapping requirements, once these specifications are set, you might consider capturing these mapping rules in a database table or in an application like [Open Concept Lab](https://openconceptlab.org/) (which has a user-friendly web app for recording data dictionaries & mapping rules, and REST API support). This would then allow you to dynamically query these mapping rules using OpenFn, to ensure your integration is utilizing the latest and greatest specifications. 
 
 :::
 
-### Use BPMN for standardized documentation
+### Functional vs. Technical Mapping 
+After your organization (or “the business”) determines the functional data element mapping rules for source/target systems, you'll need to consider which other technical data elements are required in order for the integration to work. These may include system-specific fields, IDs, and/or API parameters that are “under the hood" and may not be visible to the end user, but are required by the target system to share the data. 
 
-When documenting internal business procedures, consider using standard Business
-Process Model and Notation (BPMN) as a standard way to graphically document key
-business processes. BPMN (learn more about standard
-[BPMN 2.0](https://www.omg.org/spec/BPMN/2.0/)) has flowchart-like symbols and
-precise notation that can be translated to software process components.
 
-Check out these resources for learning & building your own BPMN diagrams:
+### Mapping to Individual or Aggregate Entities 
 
-- `BPMN.io` open-source modeler: https://bpmn.io/
-- `Camunda BPMN Tool` includes a free tool and tutorial:
-  https://camunda.com/bpmn/
-- `LucidChart` provides a very user-friendly diagramming interface:
-  https://www.lucidchart.com/pages/bpmn
+Consider if your integration requires a 1-to-1 exchange of individual records, or if there is a need for individual records to be summaries or aggregated. 
+Your workflow may require you to map individual entities (i.e., 1-to-1 mapping). For example, you can map a patient from KoboToolBox to a patient in DHIS2. You should use the [default OpenFn mapping template](https://docs.google.com/spreadsheets/d/19sPRLP4zeFgFbtOL1wKh-rc7D0KPMu3etmOOG_x5t68/edit#gid=1275153608) for such scenarios. 
 
-Looking for a crash course? This video provides a quick overview of BPMN and how
-to use it: https://www.youtube.com/watch?v=BwkNceoybvA
-
-### OpenFn Examples of BPMN Diagrams
-
-See the below example BPMN diagram for the user story:
-
-> As a program manager, I want to extract beneficiary details ("tracked entity
-> instances") from my country's DHIS2 system, so that I can enroll them as
-> contacts in my SMS campaign configured on RapidPro to send them automated
-> alerts and program updates.
-
-<img src="/img/sample-bpmn.png" url />
-
-## 3. Map data elements to be exchanged
-
-Once the business processes are documented, start to document the specific data
-elements to be exchanged. This exercise requires a lot of specificity to detail
-the individual "fields" or "attributes" to be exchanged.
-
-The output of this exerice is a `Data Element Mapping Specification`, which will
-serve as (1) documentation of the specific data elements agreed to be exchanges,
-as well as (2) a guide for how to translate meaning between partners and systems
-(e.g., `client` in one system might mean `patient` in another).
-
-If your organization already has a data management or sharing agreement, this
-might be the perfect starting point for identifying the specific data points to
-be exchanged.
-
-### Mapping Specification Template
-
-Collaborating on mapping specifications with implementing partners is an
-important exercise for documenting very specific requirements and building
-consensus on what data exactly will be exchanged, and how.
-
-:::tip Template for getting started
-
-[Use this template](https://docs.google.com/spreadsheets/d/1IqTIgOzyOztEevXbgY_4uE8Y8tiHXufZXx-IyJZase0/edit?usp=sharing)
-for drafting your own data element mapping specification.
-
-:::
-
-This template includes:
-
-1. Details on the source metadata such as field API name, data type, sample data
-   values and comments:
-   ![image](https://user-images.githubusercontent.com/80456839/130796010-fe900c03-1bff-40c0-9263-c29e22d9191f.png)
-2. Similar details on the destination metadata:
-   ![image](https://user-images.githubusercontent.com/80456839/130796087-67b0359d-207a-4169-aa88-6609572b2561.png)
-3. Notes on data transformations & cleaning required and comments for tracking
-   changes & questions for technical input:
-
-   ![image](https://user-images.githubusercontent.com/80456839/130796170-2e29a997-9b41-44f7-ac60-79375d096cc9.png)
-
-### To build a complete mapping specification, you’ll need to...
-
-1. Define the data elements to be exchanged by connected systems (you may need
-   to export target system metadata to identify exact names)
-2. Determine which data elements belong to the data source, and which belong to
-   the destination system
-3. Agree on how the data elements should map between target systems
-4. Analyze the structure and quality of the data to consider if data values will
-   need to be transformed, cleaned, or re-labeled in order to map
-
-This mapping will serve as a blueprint for the technical integration setup, and
-will be an important artefact of the data sharing agreement between partners.
-
-### Tips for drafting mapping specifications
-
-- **Version mappings** to keep track of mapping change requests over time
-- **Color coding:** Highlight any fields that require further discussion one
-  color and any newly added fields another color
-- Use Google Sheets or shared document comments and email to notify appropriate
-  users when changes have been made to the mappings
-- Include a **legend/README** that explains how to use the mappings template
-- **Unique identifiers:** spend time evaluating available unique identifier
-  schemes and what options may already be implemented by related information
-  systems
-- When mapping multiple choice questions, make sure to consider how the answer
-  choices should map to the source/destination system.
-- Check out system-specific mapping tips by visiting the `Apps` section of the
-  Docs site (see sidebar).
-
-## Next Steps
-
-Once you have your (1) `user stories`, (2) `business process diagrams`, and (3)
-`data element specifications` defined, you have produced a suite of functional
-design documentation that will drive the technical design of your integration
-solution, as well as memorialize the business decisions and agreements made by
-implementing partners.
-
-Share this documentation with any technical implementation team, or check out
-the [Build](/documentation/build/jobs) documentation section to learn how to
-implement these design specifications using OpenFn.
+However, if your workflow requires mapping individual entities to an aggregate/summarized entity (i.e., many-to-1 mapping), then you can use OpenFn’s [aggregate mapping template](https://docs.google.com/spreadsheets/d/1JVcM7FEkCeezHXONRaAaEPFks9lS8xO_q51jql_hUtc/edit) to start. 
+ . For example, you might collect individual patient records in KoboToolBox, but want to send an aggregated count of patients to DHIS2 for key indicator results reporting (e.g. the number of patients under 18 years old). 
+  
