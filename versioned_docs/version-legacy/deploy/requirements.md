@@ -134,8 +134,10 @@ flowchart TB
 
 ### (c) Ideal
 
-Auto-scale different optimized node pools for the Erlang orchestration app and
-the Javascript worker app.
+Auto-scale different optimized node pools in a Kubernetes cluster for the Erlang
+orchestration app and the Javascript worker app.
+
+Consider high-availability Postgres-as-a-service, or also run it in a cluster.
 
 ```mermaid
 flowchart TB
@@ -145,14 +147,14 @@ flowchart TB
   subgraph "Load Balancer"
     lb1(Ingress)
   end
-  subgraph "Pool of VMs for Erlang apps"
+  subgraph "VMs/Node Pools for Erlang apps"
     direction LR
     ex1(Erlang OTP Apps)
   end
-  subgraph "Pool of VMs for JS Worker Apps"
+  subgraph "VMs/Node Pool for JS Worker Apps"
     js1(NodeJs Worker Apps)
   end
-  subgraph "Linux VM"
+  subgraph "VMs/Node Pool"
     db1[(PostgreSQL)]
   end
 ```
