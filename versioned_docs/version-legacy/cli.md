@@ -209,15 +209,15 @@ openfn test --log debug
 
 1.  Run the job using the CLI
 
-        ```bash
-        openfn hello.js -o tmp/output.json
-        ```
+    ```bash
+    openfn hello.js -o tmp/output.json
+    ```
 
-        <details>
+    <details>
 
-    <summary>View expected output</summary>
+      <summary>View expected output</summary>
 
-        ```bash
+      ```bash
         [CLI] ⚠ WARNING: No adaptor provided!
         [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
                   openfn job.js -a common
@@ -227,10 +227,9 @@ openfn test --log debug
         [R/T] ✔ Completed job job-1 in 1ms
         [CLI] ✔ State written to tmp/output.json
         [CLI] ✔ Finished in 17ms ✨
+      ```
 
-        ```
-
-        </details>
+    </details>
 
 Note that our `console.log` statement was printed as `[JOB] Hello world!`. Using
 the console like this is helpful for debugging and/or understanding what's
