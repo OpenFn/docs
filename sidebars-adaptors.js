@@ -3,6 +3,7 @@ const fs = require('fs');
 // Note that we'd like a way to start the docs site even if the
 // generate-adaptors code has not yet been run. This if/else is not very elegent
 // but does the trick.
+let list = [];
 if (fs.existsSync('./adaptors/packages/publicPaths.json')) {
   const adaptorsFile = fs.readFileSync('./adaptors/packages/publicPaths.json');
   const adaptors = JSON.parse(adaptorsFile);
@@ -86,9 +87,7 @@ if (fs.existsSync('./adaptors/packages/publicPaths.json')) {
     .filter(id => !adaptors.map(a => `${a.name}`).includes(id))
     .map(id => ({ type: 'doc', id, label: id }));
 
-  const list = [...items, ...extras].sort((a, b) =>
-    a.label.localeCompare(b.label)
-  );
+  list = [...items, ...extras].sort((a, b) => a.label.localeCompare(b.label));
 } else {
   list = [];
 }
