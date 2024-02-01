@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[10324],{5065:a=>{a.exports=JSON.parse('{"label":"Amp Impact","permalink":"/blog/tags/amp-impact","allTagsPath":"/blog/tags","count":1}')}}]);

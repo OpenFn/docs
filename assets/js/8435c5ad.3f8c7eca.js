@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[71188],{72744:s=>{s.exports=JSON.parse('{"label":"supply chain system","permalink":"/blog/tags/supply-chain-system","allTagsPath":"/blog/tags","count":1}')}}]);

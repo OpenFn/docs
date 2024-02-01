@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[21216],{2160:e=>{e.exports=JSON.parse('{"label":"healthcare","permalink":"/blog/tags/healthcare","allTagsPath":"/blog/tags","count":4}')}}]);
