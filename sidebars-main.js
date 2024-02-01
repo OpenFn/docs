@@ -22,9 +22,8 @@ module.exports = {
         'design/design-workflow',
         'design/api-discovery',
         'design/mapping-specs',
-        'design/workflow-specs'
+        'design/workflow-specs',
         //'design/discovery'
-
       ],
     },
     // {
@@ -39,6 +38,25 @@ module.exports = {
         'build/tutorial',
         'build/limits',
         // 'build/triggers'
+        //====== JOBS SUBCATEGORY =============//
+        //TODO: @Mtuchi pls clean up the below pages and decide which to keep/refresh/delete for V2 docs//
+        {
+          type: 'category',
+          label: 'Jobs',
+          items: [
+            'build/jobs/jobs',
+            'build/jobs/job-design-intro',
+            'build/jobs/understanding',
+            'build/jobs/operations',
+            'build/jobs/multiple-operations',
+            'build/jobs/state',
+            'build/jobs/each',
+            'build/jobs/job-studio',
+            'build/jobs/editing_locally',
+            'build/jobs/working_with_branches',
+          ],
+        },
+        //============  END  =================//
       ],
     },
     {
@@ -64,7 +82,7 @@ module.exports = {
       label: 'Monitor History',
       items: [
         'monitor-history/activity-history',
-        'monitor-history/status-codes'
+        'monitor-history/status-codes',
       ],
     },
     {
