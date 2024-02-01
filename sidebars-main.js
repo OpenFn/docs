@@ -22,9 +22,8 @@ module.exports = {
         'design/design-workflow',
         'design/api-discovery',
         'design/mapping-specs',
-        'design/workflow-specs'
+        'design/workflow-specs',
         //'design/discovery'
-
       ],
     },
     // {
@@ -64,13 +63,17 @@ module.exports = {
       label: 'Monitor History',
       items: [
         'monitor-history/activity-history',
-        'monitor-history/status-codes'
+        'monitor-history/status-codes',
       ],
     },
     {
       type: 'category',
       label: 'Manage Projects',
-      items: ['manage-projects/platform-mgmt'],
+      items: [
+        'manage-projects/platform-mgmt',
+        'manage-projects/retention-periods',
+        'manage-projects/io-data-storage',
+      ],
     },
     {
       type: 'category',
