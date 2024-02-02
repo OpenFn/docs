@@ -7,6 +7,11 @@ actions) to be performed when a triggering message is received (even-based),
 another run finishes (flow- or catch-based) or a pre-scheduled (and recurring)
 time is reached.
 
+A Step is a node that exists in the Workflow, linked to a Adaptor and contains
+business logic to perform a task or operation. A Step has a starting state
+(which may contain an Input) and results in an end state that will include Logs
+and an Output.
+
 ## The properties of a job
 
 - `Name` - a human-readable name describing the series of operations
@@ -15,16 +20,13 @@ time is reached.
   job
 - `Adaptor` - the adaptor that is used to provide tool-specific functionality
   for this job (e.g., `language-dhis2` or `language-commcare`)
-- `Auto-process?` - a true/false switch which controls whether the trigger
-  should be used to automatically run this job when its criteria are met
 - `Expression` - the job "script" itself; a sequence of operations
 
 ## Adaptors
 
-We've got a whole section on creating new
-[Adaptors](/adaptors), but the critical thing to be aware of
-when writing a job is that you've got to choose an **adaptor**, and an **adaptor
-version**.
+We've got a whole section on creating new [Adaptors](/adaptors), but the
+critical thing to be aware of when writing a job is that you've got to choose an
+**adaptor**, and an **adaptor version**.
 
 All of the discussion below of helper functions like `create` or `findPatient`
 requires some understanding of adaptors. When you run a job, you're borrowing a
@@ -73,9 +75,8 @@ functions from `@openfn/language-http#v3.1.5`
 
 :::info
 
-See [the npm section](/adaptors#install-on-platform-via-npm)
-on the adaptors docs page to learn how to install an adaptor from `npm` while
-using `platform`.
+See [the npm section](/adaptors#install-on-platform-via-npm) on the adaptors
+docs page to learn how to install an adaptor from `npm` while using `platform`.
 
 :::
 
