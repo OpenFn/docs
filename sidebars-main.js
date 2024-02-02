@@ -38,22 +38,22 @@ module.exports = {
         'build/tutorial',
         'build/limits',
         // 'build/triggers'
-        //====== JOBS SUBCATEGORY =============//
+        //====== STEPS SUBCATEGORY =============//
         //TODO: @Mtuchi pls clean up the below pages and decide which to keep/refresh/delete for V2 docs//
         {
           type: 'category',
-          label: 'Jobs',
+          label: 'Steps',
           items: [
-            'build/jobs/jobs',
-            'build/jobs/job-design-intro',
-            'build/jobs/understanding',
-            'build/jobs/operations',
-            'build/jobs/multiple-operations',
-            'build/jobs/state',
-            'build/jobs/each',
-            'build/jobs/job-studio',
-            'build/jobs/editing_locally',
-            'build/jobs/working_with_branches',
+            'build/steps/steps',
+            'build/steps/step-design-intro',
+            'build/steps/understanding',
+            'build/steps/operations',
+            'build/steps/multiple-operations',
+            'build/steps/state',
+            'build/steps/each',
+            'build/steps/step-studio',
+            'build/steps/editing_locally',
+            'build/steps/working_with_branches',
           ],
         },
         //============  END  =================//

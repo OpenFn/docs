@@ -1,11 +1,6 @@
 ---
-title: Introduction to Jobs
+title: Introduction to Steps
 ---
-
-A job defines the specific series of "operations" (think: tasks or database
-actions) to be performed when a triggering message is received (even-based),
-another run finishes (flow- or catch-based) or a pre-scheduled (and recurring)
-time is reached.
 
 A Step is a node that exists in the Workflow, linked to a Adaptor and contains
 business logic to perform a task or operation. A Step has a starting state
@@ -52,7 +47,7 @@ is the default choice here.
 The _first 4 lines_ in the log of any run on OpenFn will tell you what adaptor
 you're running. (As well as the version of core and NodeJs) This is incredibly
 important, particularly if you're trying to troubleshoot jobs in various
-environments (like your own shell, OpenFn.org, OpenFn/microservice, etc.).
+environments (like your own shell, app.openfn.org etc.).
 
 :::
 
@@ -60,25 +55,17 @@ Pay careful attention to which `version` you're using to write a job. Consider
 the following run logs:
 
 ```sh
-╭───────────────────────────────────────────────╮
-│ ◲ ◱  @openfn/core#v1.3.12 (Node.js v12.20.1)  │
-│ ◳ ◰             @openfn/language-http#v2.4.15 │
-╰───────────────────────────────────────────────╯
+Versions for run f470a3da-8b90-480e-a94f-6dd982c91afe:
+    ▸ node.js                     18.19.0
+    ▸ worker                      0.5.0
+    ▸ engine                      0.2.6
+    ▸ @openfn/language-primero    2.9.1
 ...more logs here...
-
-Finished.
 ```
 
 Note that here, OpenFn/core version `1.3.12` is running on Node.js `12.20.1` and
 using `@openfn/language-http#v2.4.15` which might have very different helper
 functions from `@openfn/language-http#v3.1.5`
-
-:::info
-
-See [the npm section](/adaptors#install-on-platform-via-npm) on the adaptors
-docs page to learn how to install an adaptor from `npm` while using `platform`.
-
-:::
 
 ### Upgrading to newer adaptor versions
 
@@ -233,23 +220,6 @@ each(
   )
 );
 ```
-
-#### beta.each
-
-```js
-beta.each(JSON_path, operation(...))
-```
-
-Scopes an array of data based on a JSONPath but then returns to the state it was
-given upon completion
-[(source)](https://github.com/OpenFn/language-common/blob/master/src/beta.js#L44).
-This is necessary if you string multiple `each(...)` functions together in-line
-in the same expression. (E.g., Given data which has multiple separate 'repeat
-groups' in a form which are rendered as arrays, you want to create new records
-for each item inside the first repeat group, then _RETURN TO THE TOP LEVEL_ of
-the data, and then create new records for each item in the second repeat group.
-Using `beta.each(...)` lets you enter the first array, create your records, then
-return to the top level and be able to enter the second array.
 
 ### Salesforce
 
