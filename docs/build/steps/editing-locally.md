@@ -3,12 +3,12 @@ title: Editing steps locally
 ---
 
 To edit steps, instead of using the OpenFn
-[Job Studio](/documentation/steps/job-studio) you can also use your favorite
+[Job Editor](/documentation/steps/job-editor) you can also use your favorite
 text editor and make changes offline, committing and pushing to GitHub to deploy
 to your OpenFn using the
 [version control feature](/documentation/manage/platform-mgmt/#github-version-control).
 
-First, make sure that version control is set up for your project and the job in
+First, make sure that version control is set up for your project and the step in
 question. When that's all done, follow the steps below:
 
 1. Make sure you have
