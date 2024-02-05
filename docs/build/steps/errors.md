@@ -44,10 +44,10 @@ This is a standard out of memory error from the NodeVM. See
 
 ## Special Exit Codes (Platform)
 
-The OpenFn platform controls the execution of all of your steps via the ErlangVM.
-(Learn about Erlang [here](https://www.erlang.org/).) The following exit codes
-are applied at the level of this controlling VM, rather than down inside your
-run's NodeVM.
+The OpenFn platform controls the execution of all of your steps via the
+ErlangVM. (Learn about Erlang [here](https://www.erlang.org/).) The following
+exit codes are applied at the level of this controlling VM, rather than down
+inside your run's NodeVM.
 
 ### 3: Failed to start
 
@@ -80,9 +80,5 @@ exit code itself couldn't be captured by our application.
 
 ## Limits
 
-We've shifted this content to a dedicated [limits](/documentation/steps/limits)
-page.
-
-### [NodeVM memory limits](/documentation/steps/limits#nodevm-memory-limits)
-
-### [Job state limits](/documentation/steps/limits#job-state-limits)
+We've shifted this content to a dedicated
+[limits](/documentation/next/build/steps/limits) page.
