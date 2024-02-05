@@ -2,7 +2,7 @@
 title: Working with branches
 ---
 
-In the [Editing steps locally](/documentation/steps/editing_locally) section we
+In the [Editing steps locally](/documentation/steps/editing-locally) section we
 walked through the process of creating and adding your changes to the `main`
 branch of a project.
 
@@ -27,7 +27,7 @@ repo to your local folder.
    branch. When you start editing your steps, the changes will be kept on this
    branch, managed separately from `main`.
 
-2. To test the changes locally, check out the [The CLI](/documentation/cli)
+2. To test the changes locally, check out the [The CLI](/documentation/next/cli)
    docs.
 
 3. Just as you've seen when working on `main`, when you're done check which
