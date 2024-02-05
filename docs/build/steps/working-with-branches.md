@@ -2,9 +2,9 @@
 title: Working with branches
 ---
 
-In the [Editing steps locally](/documentation/steps/editing-locally) section we
-walked through the process of creating and adding your changes to the `main`
-branch of a project.
+In the [Editing steps locally](/documentation/next/build/steps/editing-locally)
+section we walked through the process of creating and adding your changes to the
+`main` branch of a project.
 
 However, most code change workflows involve sharing and reviewing changes before
 deployment. You can do this by creating, testing and sharing your changes on a

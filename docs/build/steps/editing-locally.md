@@ -71,4 +71,4 @@ From there, the version control integration will update changed steps in your
 OpenFn project and you can test those changes on the platform.
 
 Once you're ready to start running steps and testing your changes _locally_,
-head over to the [The CLI](/documentation/next/build/cli) docs for guidance.
+head over to the [The CLI](/documentation/next/cli) docs for guidance.

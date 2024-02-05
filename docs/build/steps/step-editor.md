@@ -1,30 +1,19 @@
 ---
-title: The OpenFn Job Editor
+title: The OpenFn Step Inspector
 ---
 
-The OpenFn Job Editor allows you create and test steps on the platform with easy
-access to documentation of [adaptors](/documentation/build/steps#adaptors),
-matching [messages](/documentation/build/inbox) and real-time logs.
+The inspector interface allows a user to create, modify and test business logic
+for the connected Adaptor that is associated to the Step. It's accessed through
+the "code" button displayed on the on the Step configuration panel which is
+shown when a Step is selected.
 
-```mdx-code-block
-import ReactPlayer from 'react-player';
+## Step Inspector Features
 
-<ReactPlayer url='https://www.youtube.com/watch?v=5KeZTNtnyM0' />
-```
-
-## Job Editor Features
-
-When editing a job, you can find messages in the inbox that match your job
+When editing a step, you can find messages in the inbox that match your step
 trigger by clicking "Find messages matching this trigger". If you navigate to a
 field within the message JSON, you can copy the exact path to the field and
-paste it as a `dataValue` in your job.
+paste it as a `dataValue` in your step.
 
 You can find a list of avaible helper functions for your chosen adaptor in the
-job writing panel heading. Clicking the function name copies the function code
-that you can directly paste into the job.
-
-![Job_Studio_Edit](/img/job_studio_edit.gif)
-
-By clicking "Save and Run" run logs are shown real-time in the Output panel.
-
-![Stream](/img/stream.gif)
+step writing panel heading. Clicking the function name copies the function code
+that you can directly paste into the step.
