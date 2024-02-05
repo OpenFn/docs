@@ -5,9 +5,9 @@ title: Using multiple operations
 You can do many things in sequence with OpenFn, whether using `core`,
 `microservice`, or `platform`.
 
-## Flow jobs vs multiple operations in a single job vs posting back to the inbox
+## Flow steps vs multiple operations in a single job vs posting back to the inbox
 
-### Reasons to use flow jobs
+### Reasons to use flow steps
 
 - Each operation needs to use functions that are _only_ available in different
   adaptors.
@@ -21,7 +21,7 @@ You can do many things in sequence with OpenFn, whether using `core`,
 
 - The job must be atomic, you want the whole thing to count as a failure if any
   part of it fails.
-- You run jobs manually and you want a single button to click to retry the
+- You run steps manually and you want a single button to click to retry the
   entire sequence of operations.
 - You update a `cursor` in a series of operations that involve `GET` and `POST`.
   When the `POST` fails, you don't want to update the `cursor` for the

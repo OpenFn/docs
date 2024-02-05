@@ -1,9 +1,9 @@
 ---
-title: The OpenFn Job Studio
+title: The OpenFn Job Editor
 ---
 
-The OpenFn Job Studio allows you create and test jobs on the platform with easy
-access to documentation of [adaptors](/documentation/build/jobs#adaptors),
+The OpenFn Job Editor allows you create and test steps on the platform with easy
+access to documentation of [adaptors](/documentation/build/steps#adaptors),
 matching [messages](/documentation/build/inbox) and real-time logs.
 
 ```mdx-code-block
@@ -12,7 +12,7 @@ import ReactPlayer from 'react-player';
 <ReactPlayer url='https://www.youtube.com/watch?v=5KeZTNtnyM0' />
 ```
 
-## Job Studio Features
+## Job Editor Features
 
 When editing a job, you can find messages in the inbox that match your job
 trigger by clicking "Find messages matching this trigger". If you navigate to a

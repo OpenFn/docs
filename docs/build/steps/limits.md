@@ -32,9 +32,9 @@ For a `1GB` limit for an individual job, use:
 node --max-old-space-size=1024 core execute ...arguments
 ```
 
-### Increase memory limit for all jobs on that machine
+### Increase memory limit for all steps on that machine
 
-For a `4GB` limit for all jobs, set an environment variable with:
+For a `4GB` limit for all steps, set an environment variable with:
 
 ```sh
 export NODE_OPTIONS=--max_old_space_size=4096
@@ -49,7 +49,7 @@ is executed.
 
 :::note
 
-If you're using OpenFn for bulk data processing/periodic batch jobs, you can
+If you're using OpenFn for bulk data processing/periodic batch steps, you can
 either reconfigure these limits on your microservice deployment or contact
 enterprise@openfn.org to have special provisions made for your OpenFn.org
 project.

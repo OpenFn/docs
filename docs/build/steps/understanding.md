@@ -1,14 +1,14 @@
 ---
-title: A closer look at jobs
+title: A closer look at steps
 ---
 
-This is technical documentation aimed at making complex custom jobs easier to
+This is technical documentation aimed at making complex custom steps easier to
 write.
 
 ## Key Terms and Concepts
 
 1. **core** (https://github.com/openfn/core) is the Javascript program which
-   executes jobs for OpenFn in an emphemeral Node.js environment.
+   executes steps for OpenFn in an emphemeral Node.js environment.
 2. **state** is a .JSON file that is built and passed into the Node environment.
    It contains at least two keys, `configuration` and `data`. Configuration will
    be populated with your credential and it used by adaptors for authentication,
@@ -32,7 +32,7 @@ write.
 ```
 
 3. **expressions** are sequences of operations to be executed. They are part of
-   "jobs", which also include a credential, a trigger, a label, and (sometimes)
+   "steps", which also include a credential, a trigger, a label, and (sometimes)
    a github filepath.
 4. **operations** are named functions, exported for use by specific adaptors,
    which take state and return state.

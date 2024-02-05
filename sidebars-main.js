@@ -51,9 +51,9 @@ module.exports = {
             'build/steps/multiple-operations',
             'build/steps/state',
             'build/steps/each',
-            'build/steps/step-studio',
-            'build/steps/editing_locally',
-            'build/steps/working_with_branches',
+            'build/steps/step-editor',
+            'build/steps/editing-locally',
+            'build/steps/working-with-branches',
           ],
         },
         //============  END  =================//

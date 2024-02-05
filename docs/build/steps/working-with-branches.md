@@ -2,7 +2,7 @@
 title: Working with branches
 ---
 
-In the [Editing jobs locally](/documentation/jobs/editing_locally) section we
+In the [Editing steps locally](/documentation/steps/editing_locally) section we
 walked through the process of creating and adding your changes to the `main`
 branch of a project.
 
@@ -24,7 +24,7 @@ Let's pick up the workflow when you `git pull` -ed the latest changes of the
 repo to your local folder.
 
 1. Running `git checkout -b {branch_name}` will create and switch over to a new
-   branch. When you start editing your jobs, the changes will be kept on this
+   branch. When you start editing your steps, the changes will be kept on this
    branch, managed separately from `main`.
 
 2. To test the changes locally, check out the [The CLI](/documentation/cli)

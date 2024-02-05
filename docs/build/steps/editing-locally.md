@@ -1,11 +1,11 @@
 ---
-title: Editing jobs locally
+title: Editing steps locally
 ---
 
-To edit jobs, instead of using the OpenFn
-[Job Studio](/documentation/jobs/job-studio) you can also use your favorite text
-editor and make changes offline, committing and pushing to GitHub to deploy to
-your OpenFn using the
+To edit steps, instead of using the OpenFn
+[Job Studio](/documentation/steps/job-studio) you can also use your favorite
+text editor and make changes offline, committing and pushing to GitHub to deploy
+to your OpenFn using the
 [version control feature](/documentation/manage/platform-mgmt/#github-version-control).
 
 First, make sure that version control is set up for your project and the job in
@@ -40,7 +40,7 @@ for more info.)
 5. For this tutorial, we assume you're making changes on the `main` or `master`
    branch: the one that is deployed as your production system to OpenFn.
 
-6. To edit your jobs, use a code editor such as
+6. To edit your steps, use a code editor such as
    [Visual Studio Code](https://code.visualstudio.com/download).
 
 ![VS Code](/img/edit_job_vscode.png)
@@ -67,8 +67,8 @@ There's a lot to learn about git.
 10. Then run `git push` to upload the files to the repo (see more on
     [git docs](https://github.com/git-guides/git-push)).
 
-From there, the version control integration will update changed jobs in your
+From there, the version control integration will update changed steps in your
 OpenFn project and you can test those changes on the platform.
 
-Once you're ready to start running jobs and testing your changes _locally_, head
-over to the [The CLI](/documentation/cli) docs for guidance.
+Once you're ready to start running steps and testing your changes _locally_,
+head over to the [The CLI](/documentation/cli) docs for guidance.

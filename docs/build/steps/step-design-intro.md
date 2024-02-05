@@ -1,14 +1,14 @@
 ---
-title: Designing a job
+title: Designing a step
 ---
 
-A job defines the specific series of tasks or database actions to be performed
-when a triggering message is received (even-based) or a pre-scheduled (and
+A step defines the specific series of tasks or database actions to be performed
+when a triggering webhook request is received (even-based) or a pre-scheduled (and
 recurring) time is reached. It's the series of instructions for handling the
 data coming from a source system and to be sent to the destination system, or in
 other words, mapping data elements from one system to the other.
 
-Designing a job really just means clearly defining the “rules” for data element
+Designing a step really just means clearly defining the “rules” for data element
 mapping. We'll walk through the main steps using Kobo Toolbox as an example
 source system and a Postgres database as destination but check out the
 [integration design](/documentation/design/design-quickstart/) page for more
@@ -39,19 +39,19 @@ Step 3. Define your operations: insert, update, upsert...
    data (form ID, answer ID, or, case or patient ID etc.).
 2. Determine operations: e.g. insert, update, upsert, upsertMany
 3. Check the adaptor for helper functions. a. Example from
-   [language-postgresql](https://github.com/OpenFn/language-postgresql)
+   [language-postgresql](/adaptors/packages/postgresql-docs)
    - `insert(...)`, `insertMany(...)`
    - `update(...)`, `updateMany(...)`
    - `upsert(...)`, `upsertMany(...)`  → update if record exists or insert if it
      doesn’t; references an external Id b. Example from
-     [language-dhis2](https://github.com/OpenFn/language-dhis2) using Tracked
-     Entity Instances (TEI)
+     [language-dhis2](/adaptors/packages/dhis2-docs) using Tracked Entity
+     Instances (TEI)
    - `updateTEI(...)`
    - `upsertTEI(...)`
 
-Example upsert job:
+Example upsert step:
 
-```
+```js
 upsert('mainDataTable', 'AnswerId', {
   AnswerId: dataValue('\_id'), //external Id for upsert
   column: dataValue('firstQuestion)'),
