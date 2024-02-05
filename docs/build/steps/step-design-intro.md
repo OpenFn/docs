@@ -3,15 +3,15 @@ title: Designing a step
 ---
 
 A step defines the specific series of tasks or database actions to be performed
-when a triggering webhook request is received (even-based) or a pre-scheduled (and
-recurring) time is reached. It's the series of instructions for handling the
-data coming from a source system and to be sent to the destination system, or in
-other words, mapping data elements from one system to the other.
+when a triggering webhook request is received (event-based) or a pre-scheduled
+(and recurring) time is reached. It's the series of instructions for handling
+the data coming from a source system and to be sent to the destination system,
+or in other words, mapping data elements from one system to the other.
 
 Designing a step really just means clearly defining the “rules” for data element
 mapping. We'll walk through the main steps using Kobo Toolbox as an example
 source system and a Postgres database as destination but check out the
-[integration design](/documentation/design/design-quickstart/) page for more
+[workflow design](/documentation/next/design/design-overview) page for more
 details on data flow diagrams and mappings.
 
 Step 1: Map your data flows

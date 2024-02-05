@@ -7,9 +7,7 @@ write.
 
 ## Key Terms and Concepts
 
-1. **core** (https://github.com/openfn/core) is the Javascript program which
-   executes steps for OpenFn in an emphemeral Node.js environment.
-2. **state** is a .JSON file that is built and passed into the Node environment.
+1. **state** is a .JSON file that is built and passed into the Node environment.
    It contains at least two keys, `configuration` and `data`. Configuration will
    be populated with your credential and it used by adaptors for authentication,
    and data will be populated with message data if the job was triggered by an
@@ -31,10 +29,10 @@ write.
 }
 ```
 
-3. **expressions** are sequences of operations to be executed. They are part of
+2. **expressions** are sequences of operations to be executed. They are part of
    "steps", which also include a credential, a trigger, a label, and (sometimes)
    a github filepath.
-4. **operations** are named functions, exported for use by specific adaptors,
+3. **operations** are named functions, exported for use by specific adaptors,
    which take state and return state.
 
 ## State is passed to operations. Operations Return state.

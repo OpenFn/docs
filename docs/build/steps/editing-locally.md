@@ -4,9 +4,7 @@ title: Editing steps locally
 
 To edit steps, instead of using the OpenFn
 [Step Editor](/documentation/next/build/steps/step-editor) you can also use your
-favorite text editor and make changes offline, committing and pushing to GitHub
-to deploy to your OpenFn using the
-[version control feature](/documentation/manage/platform-mgmt/#github-version-control).
+favorite text editor and make changes offline, committing and pushing to GitHub.
 
 First, make sure that version control is set up for your workflow and the step
 in question. When that's all done, follow the steps below:
