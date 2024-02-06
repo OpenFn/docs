@@ -16,10 +16,9 @@ A Project on OpenFn is a shared workspace for a team or organization that contai
 
 You can access your Project's information under Settings. Setup allows you to view or edit the project name and description.  
 
+// ![Project Overview](/static/img/lightning_project_overview.png)
 
-// ![Project Overview](/img/project_overview.png) screenshot
+You can also export your entire project "as code" - either to save it, or to edit your project locally. You can learn more about this feature on our [Portability page](https://docs.openfn.org/documentation/next/deploy/portability).
 
-You can also export your entire project "as code" - either to save it, or to edit your project locally. You can learn more about this feature on our Portability page. (https://docs.openfn.org/documentation/next/deploy/portability)
 
-// screenshot
 

@@ -73,6 +73,8 @@ module.exports = {
         'manage-projects/platform-mgmt',
         'manage-projects/retention-periods',
         'manage-projects/io-data-storage',
+        'manage-projects/manage-credentials',
+
       ],
     },
     {
