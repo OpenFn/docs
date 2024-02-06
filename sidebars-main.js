@@ -74,6 +74,8 @@ module.exports = {
         'manage-projects/retention-periods',
         'manage-projects/io-data-storage',
         'manage-projects/user-roles-permissions',
+        'manage-projects/link-project-to-gh',
+
       ],
     },
     {
