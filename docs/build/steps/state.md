@@ -2,13 +2,35 @@
 title: Initial and final state for runs
 ---
 
+1. **state** is a .JSON file that is built and passed into the Node environment.
+   It contains at least two keys, `configuration` and `data`. Configuration will
+   be populated with your credential and it used by adaptors for authentication,
+   and data will be populated with message data if the job was triggered by an
+   incoming message.
+
+```json
+{
+  "configuration": {
+    "username": "taylor",
+    "password": "shhhhhh",
+    "loginUrl": "https://login.salesforce.com"
+  },
+  "data": {
+    "a": 1,
+    "b": {
+      "x": [1, 2, 3]
+    }
+  }
+}
+```
+
 ## Initial state
 
 Depending on what tools you're using and what triggered a given run, the initial
 `state` for a job run might be generated in a number of different ways, and you
-might even build `state` by hand. For `microservice`, `engine`, and `platform`
-however, there are strict rules around how `state` gets created and provided to
-a runtime for execution of your operations. See the table below for details.
+might even build `state` by hand. For `lightning` however, there are strict
+rules around how `state` gets created and provided to a runtime for execution of
+your operations.
 
 ## Final state
 
@@ -31,12 +53,3 @@ will instead receive the initial state of the previous (failed) run, plus a new
 for details.
 
 :::
-
-## States by job trigger type
-
-| Triggering Event | Initial State                                                                                          |
-| ---------------- | ------------------------------------------------------------------------------------------------------ |
-| http request     | `{ data: httpRequest.body, configuration: job.credential.body }`                                       |
-| cron             | `{ ...finalStateOfLastSuccessfulRun, configuration: job.credential.body }`                         |
-| flow: success    | `{ ...finalStateOfTriggeringRun, configuration: job.credential.body }`                                 |
-| flow: failure    | `{ ...initialStateOfTriggeringRun, error: logsFromTriggeringRun, configuration: job.credential.body }` |
