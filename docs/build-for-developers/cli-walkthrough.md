@@ -458,6 +458,7 @@ fn(state => {
 
 <details>
   <summary>Expected CLI logs</summary>
+
   ```bash
   [CLI] ✘ TypeError: path.match is not a function
       at dataPath (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:258:26)
@@ -470,6 +471,7 @@ fn(state => {
       at async run (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:269:18)
       at async executeHandler (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/dist/process/runner.js:388:20)
   ```
+
 </details>
 
 As you can see from our logs that helper function `dataValue` has a TypeError,
@@ -483,6 +485,7 @@ fix the error by passing a string in dataValue i.e `console.log(dataValue(“1�
 
 <details>
   <summary>Expected CLI logs</summary>
+
   ```bash
   [CLI] ✔ Compiled job from debug.js
   GET request succeeded with 200 ✓
@@ -492,6 +495,7 @@ fix the error by passing a string in dataValue i.e `console.log(dataValue(“1�
   [CLI] ✔ Writing output to tmp/output.json
   [CLI] ✔ Done in 1.102s ✨
   ```
+
 </details>
 
 If you need more information for debugging you can pass -l debug which will give
@@ -554,6 +558,7 @@ export many functions from `language-common`.
 
 <details>
   <summary>Expand to see expected CLI logs</summary>
+
   ```bash
   [CLI] ✔ Compiled job from getPosts.js
   GET request succeeded with 200 ✓
@@ -567,6 +572,7 @@ export many functions from `language-common`.
   [CLI] ✔ Writing output to tmp/output.json
   [CLI] ✔ Done in 1.091s! ✨
   ```
+
 </details>
 
 ### 7. Running Workflows
