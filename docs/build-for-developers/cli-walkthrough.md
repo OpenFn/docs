@@ -554,7 +554,7 @@ Notice how this code uses the `each` function, a helper function defined in
 but accessed from this job that is using language-http. Most adaptors import and
 export many functions from `language-common`.
 
-##### Run **openfn getPosts.js -a http -o tmp/output.json**
+##### Run **openfn getPosts.js -a http -s tmp/state.json -o tmp/output.json**
 
 <details>
   <summary>Expand to see expected CLI logs</summary>
