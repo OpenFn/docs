@@ -74,6 +74,7 @@ module.exports = {
         'manage-projects/retention-periods',
         'manage-projects/io-data-storage',
         'manage-projects/manage-credentials',
+        'manage-projects/user-roles-permissions',
 
       ],
     },
