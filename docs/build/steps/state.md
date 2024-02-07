@@ -2,28 +2,6 @@
 title: Initial and final state for runs
 ---
 
-1. **state** is a .JSON file that is built and passed into the Node environment.
-   It contains at least two keys, `configuration` and `data`. Configuration will
-   be populated with your credential and it used by adaptors for authentication,
-   and data will be populated with message data if the job was triggered by an
-   incoming message.
-
-```json
-{
-  "configuration": {
-    "username": "taylor",
-    "password": "shhhhhh",
-    "loginUrl": "https://login.salesforce.com"
-  },
-  "data": {
-    "a": 1,
-    "b": {
-      "x": [1, 2, 3]
-    }
-  }
-}
-```
-
 ## Initial state
 
 Depending on what tools you're using and what triggered a given run, the initial
