@@ -15,10 +15,9 @@ for more details on solution design and links to templates.
 
 In short, to design a Workflow Step, you will need to follow the below actions,
 and consider summarizing your design specifications in a
-[workflow diagram](/design/design-workflow).
+[workflow diagram](/documentation/next/design/design-workflow).
 
 ![Example Workflow](/img/example-workflow-state.png)
-
 
 ### 1: Determine your Inputs/Outputs
 
@@ -30,9 +29,9 @@ and consider summarizing your design specifications in a
 
 ### 2: Map your data elements
 
-[See here](https://docs.openfn.org/documentation/next/design/mapping-specs) for
-detailed guidance on mapping data elements or "data dictionaries" between your
-source and destination apps. To get started:
+[See here](/documentation/next/design/mapping-specs) for detailed guidance on
+mapping data elements or "data dictionaries" between your source and destination
+apps. To get started:
 
 1. Export the metadata (or "form", "field list", or "data elements") of your
    source app (input) & destination app (output).
@@ -64,8 +63,8 @@ source and destination apps. To get started:
    - `updateTEI(...)`
    - `upsertTEI(...)`
 
-See example [Job expression](/docs/build/steps/job-expressions.md) for a Step that will "upsert" (update or insert)
-records in a SQL database.
+See example [Job expression](/docs/build/steps/job-expressions.md) for a Step
+that will "upsert" (update or insert) records in a SQL database.
 
 ```js
 upsert('mainDataTable', 'AnswerId', {

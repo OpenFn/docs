@@ -9,8 +9,9 @@ locally, instead of on the platform via
 [the Inspector](/documentation/next/build/steps/step-editor).
 
 First, make sure that version control is set up for your Project (see
-[Manage Projects](/docs/manage-projects/) for more on configuring this). When
-that's all done, follow these steps on your local machine:
+[Manage Projects](/documentation/next/manage-projects/platform-mgmt) for more on
+configuring this). When that's all done, follow these steps on your local
+machine:
 
 1. Make sure you have
    [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
