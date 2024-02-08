@@ -54,6 +54,6 @@ ask on [Community](https://community.openfn.org).
 
 ![New Credential Ready](/img/lightning_new_cred_ready.png)
 
-### Sharing Credentials
+### Share Credentials
 
-@Rita to complete
+@Rita to complete & confirm:: I don't _think_ this nor transferring ownership is possible yet, so we might need to advise users to share outside of OpenFn (via secure means like a password manager or encrypted messaging platform)
