@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Get Started',
+      label: 'Get started',
       items: [
         'get-started/home',
         // 'intro/terminology',
@@ -33,7 +33,7 @@ module.exports = {
     // },
     {
       type: 'category',
-      label: 'Build & Manage Workflows',
+      label: 'Build & manage Workflows',
       items: [
         'build/tutorial',
         'build/limits',
@@ -98,12 +98,12 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Get Help',
+      label: 'Get help',
       items: ['get-help/support'],
     },
     {
       type: 'category',
-      label: 'Contribute - Docs & Roadmap',
+      label: 'Contribute',
       items: [
         'contribute/openfn-roadmap',
         // 'contribute/roadmap',

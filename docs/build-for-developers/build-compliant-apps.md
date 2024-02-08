@@ -1,6 +1,6 @@
 ---
-title: Developing Connected Applications
-sidebar_label: Building Compliant APIs
+title: Developing connected applications
+sidebar_label: Building compliant APIs
 ---
 
 This section is for you if you are hoping to build or extend an existing
