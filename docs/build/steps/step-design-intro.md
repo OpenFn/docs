@@ -64,7 +64,7 @@ source and destination apps. To get started:
    - `updateTEI(...)`
    - `upsertTEI(...)`
 
-See example job expression for a Step that will "upsert" (update or insert)
+See example [Job expression](/docs/build/steps/job-expressions.md) for a Step that will "upsert" (update or insert)
 records in a SQL database.
 
 ```js
@@ -77,5 +77,3 @@ upsert('mainDataTable', 'AnswerId', {
   ...
 });
 ```
-
-This will help you 

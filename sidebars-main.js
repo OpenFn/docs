@@ -61,12 +61,13 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Build (For Developers)',
+      label: 'Build (CLI)',
       items: [
         'build-for-developers/cli-intro',
         'build-for-developers/cli-usage',
         'build-for-developers/cli-walkthrough',
         'build-for-developers/cli-challenges',
+        'build-for-developers/jobs',
         'build-for-developers/build-with-api',
         'build-for-developers/security-for-devs',
         //'build-for-developers/for-devs'
