@@ -75,7 +75,6 @@ module.exports = {
         'manage-projects/io-data-storage',
         'manage-projects/manage-credentials',
         'manage-projects/user-roles-permissions',
-
       ],
     },
     {
