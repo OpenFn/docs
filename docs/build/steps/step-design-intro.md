@@ -1,44 +1,56 @@
 ---
-title: Designing a step
+title: Design your Step
 ---
 
-A step defines the specific series of tasks or database actions to be performed
-when a triggering webhook request is received (event-based) or a pre-scheduled
-(and recurring) time is reached. It's the series of instructions for handling
-the data coming from a source system and to be sent to the destination system,
-or in other words, mapping data elements from one system to the other.
+Before you can configure your Step, you'll need to design the Workflow and
+consider which specific tasks, activities, or business logic will be executed.
+Read on for a brief overview.
 
-Designing a step really just means clearly defining the “rules” for data element
-mapping. We'll walk through the main steps using Kobo Toolbox as an example
-source system and a Postgres database as destination but check out the
-[workflow design](/documentation/next/design/design-overview) page for more
-details on data flow diagrams and mappings.
+:::tip
 
-Step 1: Map your data flows
+Check out the [Workflow Design](/documentation/next/design/design-overview) docs
+for more details on solution design and links to templates.
 
-1. Define your input(s). What data collection forms are used to collect data?
-   How many forms? Are there different form versions?
-2. Define your output(s). Where should the data be stored? In what format? What
-   are your analysis requirements?
+:::
 
-Step 2: Map your data elements
+In short, to design a Workflow Step, you will need to follow the below actions,
+and consider summarizing your design specifications in a
+[workflow diagram](/design/design-workflow).
 
-1. Export the metadata of your form (input) & destination DB (output).
+### 1: Determine your Inputs/Outputs
+
+1. What is the Input for this Workflow Step? Consider what is the initial state
+   or data _before_ the Step begins.
+2. What is the desired Output (i.e., the final state or data _after_ the Step is
+   executed)? Consider what you want to send to the target app and/or pass onto
+   the next Step in the Workflow.
+
+### 2: Map your data elements
+
+[See here](https://docs.openfn.org/documentation/next/design/mapping-specs) for
+detailed guidance on mapping data elements or "data dictionaries" between your
+source and destination apps. To get started:
+
+1. Export the metadata (or "form", "field list", or "data elements") of your
+   source app (input) & destination app (output).
 2. Paste the metadata into an Excel spreadsheet to create a mapping sheet:
 
 ![Sample mapping sheet](/img/data-element-mapping.png)
 
-3. Map data elements & define rules for data cleaning and transformation a. How
-   should the data collected be translated into your destination system’s data
-   model?  b. Does your destination system have data input & validation
-   requirements?
+3. Map the source and destinationdata elements & define rules for data cleaning
+   and transformation Consider:
 
-Step 3. Define your operations: insert, update, upsert...
+- How should the data collected be translated into your destination system’s
+  data model?
+- Does your destination system have data input & validation requirements?
+
+## 3. Define your methods (GET, POST...) and/or operations (insert, update, upsert...)
 
 1. Find out or create the unique identifiers you will use to insert and update
-   data (form ID, answer ID, or, case or patient ID etc.).
-2. Determine operations: e.g. insert, update, upsert, upsertMany
-3. Check the adaptor for helper functions. a. Example from
+   data (e.g., uuid, form_id, patient_id, etc.).
+2. Determine the HTTP methods (e.g., GET, POST, PUT) or database operations
+   (e.g. insert, update, delete) you want to perform in the target app
+3. Check the Adaptor for helper functions. a. Example from
    [language-postgresql](/adaptors/packages/postgresql-docs)
    - `insert(...)`, `insertMany(...)`
    - `update(...)`, `updateMany(...)`
@@ -49,7 +61,8 @@ Step 3. Define your operations: insert, update, upsert...
    - `updateTEI(...)`
    - `upsertTEI(...)`
 
-Example upsert step:
+See example job expression for a Step that will "upsert" (update or insert)
+records in a SQL database.
 
 ```js
 upsert('mainDataTable', 'AnswerId', {

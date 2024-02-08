@@ -46,6 +46,7 @@ module.exports = {
           items: [
             'build/steps/steps',
             'build/steps/step-design-intro',
+            'build/steps/job-expressions',
             'build/steps/operations',
             'build/steps/multiple-operations',
             'build/steps/state',

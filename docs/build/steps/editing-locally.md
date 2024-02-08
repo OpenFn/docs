@@ -1,13 +1,16 @@
 ---
-title: Editing steps locally
+title: Edit Steps locally
+sidebar_label: Edit Steps locally
 ---
 
-To edit steps, instead of using the OpenFn
-[Step Editor](/documentation/next/build/steps/step-editor) you can also use your
-favorite text editor and make changes offline, committing and pushing to GitHub.
+If you're a developer, you can use your favorite text editor and make changes
+offline, committing and pushing to GitHub. This page describes how to edit Steps
+locally, instead of on the platform via
+[the Inspector](/documentation/next/build/steps/step-editor).
 
-First, make sure that version control is set up for your workflow and the step
-in question. When that's all done, follow the steps below:
+First, make sure that version control is set up for your Project (see
+[Manage Projects](/docs/manage-projects/) for more on configuring this). When
+that's all done, follow these steps on your local machine:
 
 1. Make sure you have
    [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -66,7 +69,7 @@ There's a lot to learn about git.
     [git docs](https://github.com/git-guides/git-push)).
 
 From there, the version control integration will update changed steps in your
-OpenFn project and you can test those changes on the platform.
+OpenFn Project and you can test those changes on the platform.
 
 Once you're ready to start running steps and testing your changes _locally_,
 head over to the [The CLI](/documentation/next/cli) docs for guidance.

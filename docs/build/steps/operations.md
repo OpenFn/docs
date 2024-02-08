@@ -1,16 +1,16 @@
 ---
-title: What's an operation?
+title: Operations
 ---
 
-An Operation is a function which returns a function which takes `state` and
+In a Job expression, an Operation is a function which returns a function which takes `state` and
 returns a `Promise` or `state`.
 
 The purpose of an Operation is to act as an unresolved unit of behaviour.
 
-For example, when creating an expression - the code itself doesn't know what the
+For example, when drafting a Job expression - the code itself doesn't know what the
 state is going to be, only what _it's going to do_.
 
-Language packs all follow this convention, where the functions that are provided
+Adaptors all follow this convention, where the functions that are provided
 all return Operations.
 
 ```javascript
