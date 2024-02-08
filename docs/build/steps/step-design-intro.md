@@ -17,6 +17,9 @@ In short, to design a Workflow Step, you will need to follow the below actions,
 and consider summarizing your design specifications in a
 [workflow diagram](/design/design-workflow).
 
+![Example Workflow](/img/example-workflow-state.png)
+
+
 ### 1: Determine your Inputs/Outputs
 
 1. What is the Input for this Workflow Step? Consider what is the initial state
@@ -74,3 +77,5 @@ upsert('mainDataTable', 'AnswerId', {
   ...
 });
 ```
+
+This will help you 

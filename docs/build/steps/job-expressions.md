@@ -3,19 +3,18 @@ title: Write Job expressions
 ---
 
 To define the business logic and data transformation rules or logic for
-individual `Steps` in your workflow, you will need to write a `Job`.
-This article will provide a basic overview of Job expressions & writing tips.
+individual `Steps` in your workflow, you will need to write a `Job`. This
+article will provide a basic overview of Job expressions & writing tips.
 
 ## About Job expressions
 
-A `Job` is evaluated as a JavaScript expression and primarily defines the specific series of
-[Operations](/docs/build/steps/operations.md) (think: tasks, database actions, custom functions) to be performed
-in a specific Workflow Step.
+A `Job` is evaluated as a JavaScript expression and primarily defines the
+specific series of [Operations](/docs/build/steps/operations.md) (think: tasks,
+database actions, custom functions) to be performed in a specific Workflow Step.
 
-In most cases, a Job is a series of `create` or `upsert` operations that
-are triggered by a webhook event (e.g., form submission forwarded from ODK
-mobile data collection app) or cron (e.g., daily @ 12:00). See this basic
-example:
+In most cases, a Job is a series of `create` or `upsert` operations that are
+triggered by a webhook event (e.g., form submission forwarded from ODK mobile
+data collection app) or cron (e.g., daily @ 12:00). See this basic example:
 
 ```js
 create(

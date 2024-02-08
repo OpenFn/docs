@@ -3,6 +3,10 @@ title: Chaining multiple operations in one Job
 sidebar_label: Chaining operations
 ---
 
+This page describes why you might want to chain multiple operations in a single Job when designing your Step. 
+
+![Chaining Steps](/img/chaining-operations.png)
+
 ### Reasons to use multiple operations in a single Job
 
 - Your desired final `Output` for a Step requires multiple operations to produce

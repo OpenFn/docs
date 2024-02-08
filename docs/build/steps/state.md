@@ -2,9 +2,11 @@
 title: Initial and final state
 ---
 
-Every Step has an initial state (which may contain an `Input`) and results in a
+Each Step has an initial state (which may contain an `Input`) and results in a
 final state that will include `Logs` and an `Output`. This article explains
 these concepts in greater detail.
+
+![Job State Overview](/img/state-javascript.png)
 
 ## Initial state
 
@@ -22,6 +24,13 @@ The final state of a Run is determined by _you_. Remember that job expressions
 are a series of `operations`—they each take `state` and return `state`, after
 creating any number of side effects. You control what is outputted to hand off
 to the next Step and/or what is sent to the destination app.
+
+### Passing state to the next Step
+
+See the below diagram for a visual description of how state might be passed between
+Steps in a Workflow.
+
+![Passing State](/img/passing-state-steps.png)
 
 ### Final state after an error
 
