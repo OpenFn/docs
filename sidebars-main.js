@@ -63,6 +63,10 @@ module.exports = {
       label: 'Monitor History',
       items: [
         'monitor-history/activity-history',
+        'monitor-history/failure-notifications-digests',
+        'monitor-history/viewing-workflow-runs',
+        'monitor-history/rerunning-workflow',
+        'monitor-history/troubleshooting',
         'monitor-history/status-codes',
       ],
     },
