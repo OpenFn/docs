@@ -3,8 +3,8 @@ title: Manage Credentials
 ---
 
 You can view the Credentials related to a Project under the Project
-`Settings > Credentials` page. In this article, you'll learn how to manage
-credentials.
+`Settings > Credentials` page. In this article, you'll learn how to manage your
+credentials related to a project.
 
 ### View all Project Credentials
 
@@ -56,4 +56,4 @@ ask on [Community](https://community.openfn.org).
 
 ### Share Credentials
 
-@Rita to complete & confirm:: I don't _think_ this nor transferring ownership is possible yet, so we might need to advise users to share outside of OpenFn (via secure means like a password manager or encrypted messaging platform)
+If you own a Credential, you can choose which Project has access to it. You can update project access on your `User Profile` - just follow the steps on the [User Credentials](https://docs.openfn.org/documentation/next/manage-users/user-credentials) docs page.

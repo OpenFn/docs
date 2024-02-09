@@ -80,7 +80,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Manage Users & Credentials',
-      items: ['manage-users/user-profile'],
+      items: ['manage-users/user-profile',
+              'manage-users/user-credentials'
+    ],
     },
     {
       type: 'category',
