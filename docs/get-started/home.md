@@ -89,14 +89,14 @@ through a managed _or_ entirely self-hosted platform.
 The v2 leverages the same tried-and-trusted core technology as the OpenFn v1 and
 comes with an improved, visual interface for building integrations.
 
+![OpenFn Workflow Canvas](/img/case_referral_workflow.png)
+
 :::info OpenFn v2 replaces the v1
 
 OpenFn v2 is available to any new users. All organizations currently using the
 legacy OpenFn v1 platform will be migrated to OpenFn v2 by the end of 2024.
 
 :::
-
-![OpenFn Workflow Canvas](/img/case_referral_workflow.png)
 
 ### OpenFn v1
 
@@ -112,7 +112,7 @@ OpenFn v2 (see above).
 writing & testing workflows, managing OpenFn projects, and developing
 [Adaptors](https://github.com/openfn/adaptors).
 
-:::note
+:::note Browse all OpenFn code
 
 You can view the technical documentation and source code for OpenFn's fully open
 source ("FOSS") integration tools and adaptors in their respective repositories
@@ -122,12 +122,12 @@ options and additional docs.
 
 :::
 
-## The Community Forum
+## Community
 
-Finally, please make sure to check out our Discourse forum at
-[community.openfn.org](https://community.openfn.org). Sign up and join the
-conversation. Usually, that's the quickest way to get help if you've got
-questions that aren't answered here.
+To ask questions, report issues, or learn from other OpenFn implementers, check
+out our Discourse forum at [community.openfn.org](https://community.openfn.org).
+Sign up and join the conversation. Usually, that's the quickest way to get help
+if you've got questions that aren't answered here.
 
 If you have any questions about our products, ask on the Community or email the
 core team [support@openfn.org](mailto:support@openfn.org).

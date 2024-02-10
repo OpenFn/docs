@@ -8,18 +8,23 @@ important to establish some of the foundational concepts we need to press
 forward. This doesn't mean you can't use OpenFn if you don't know what any of
 these words mean prior to reading our documentation, but it does mean that some
 of the most important tasks along the OpenFn journey will assume at least a
-basic understanding of each of these terms. In
-some cases, we also link to further reading if you want a better
-understanding of some part of your data integration picture.
+basic understanding of each of these terms. In some cases, we also link to
+further reading if you want a better understanding of some part of your data
+integration picture.
 
-Note: This glossary is meant to be OpenFn-agnostic. The rest of the docs and [Key Concepts page](/documentation/get-started/terminology) help
-you to get a picture of the parts of OpenFn, what we call them, and why, but
-this glossary is really meant as a prerequisite to all those other things to aid
-users with no experience in this area.
+Note: This glossary is meant to be OpenFn-agnostic. The rest of the docs and
+[Key Concepts page](/documentation/get-started/terminology) help you to get a
+picture of the parts of OpenFn, what we call them, and why, but this glossary is
+really meant as a prerequisite to all those other things to aid users with no
+experience in this area.
 
 :::tip Something missing?
 
-If you've come across a word, phrase, or concept that you think is missing from this page, open an issue on [OpenFn/docs](https://github.com/OpenFn/docs), suggest an edit to [this page](https://github.com/OpenFn/docs/blob/main/docs/get-started/glossary.md), or ask on the [Community](https://community.openfn.org)
+If you've come across a word, phrase, or concept that you think is missing from
+this page, open an issue on [OpenFn/docs](https://github.com/OpenFn/docs),
+suggest an edit to
+[this page](https://github.com/OpenFn/docs/blob/main/docs/get-started/glossary.md),
+or ask on the [Community](https://community.openfn.org)
 
 :::
 
@@ -48,7 +53,9 @@ it's got a structure with which to reference all the stuff it's storing, and the
 
 ## Data integration
 
-The process of combining data from different sources into a centralized view. Data integration is a means of achieving workflow automation. Its tasks may be streamlined, automated, and managed by a workflow automation tool.
+The process of combining data from different sources into a centralized view.
+Data integration is a means of achieving workflow automation. Its tasks may be
+streamlined, automated, and managed by a workflow automation tool.
 
 ## Data source
 
@@ -126,8 +133,8 @@ data to a destination system.
 
 ## Webhook
 
-A [webhook](/documentation/source-apps#standard-webhook-configuration) (also called a web
-callback or HTTP push API — thanks
+A [webhook](/documentation/source-apps#standard-webhook-configuration) (also
+called a web callback or HTTP push API — thanks
 [SendGrid](https://sendgrid.com/blog/whats-webhook/)!) is a feature of an
 application that allows <i>pushing</i>. It's often configured to notify some
 external URL when an event occurs. A system administrator might create a
@@ -146,11 +153,13 @@ data type, field size, and so on.
 
 ## Workflow
 
-The set of instructions that determine how to solve a problem or accomplish a task. They are often broken down into smaller, independent tasks.
+The set of instructions that determine how to solve a problem or accomplish a
+task. They are often broken down into smaller, independent tasks.
 
 ## Workflow automation
 
-The use of software to perform tasks or a business process independently, in accordance with predefined business rules, and without the need for human input.
+The use of software to perform tasks or a business process independently, in
+accordance with predefined business rules, and without the need for human input.
 
 ## Writeback
 

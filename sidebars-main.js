@@ -6,10 +6,12 @@ module.exports = {
       items: [
         'get-started/home',
         'get-started/terminology',
-        // 'intro/standards',
-        // 'intro/security-compliance',
-        // 'intro/security',
-        // 'intro/implementation-checklist',
+        'get-started/glossary',
+        'get-started/standards',
+        'get-started/security-compliance',
+        'get-started/security',
+        // 'get-started/implementation-checklist',
+        //
       ],
     },
     {
