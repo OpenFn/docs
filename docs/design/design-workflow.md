@@ -30,11 +30,28 @@ Next, consider visually outlining the structure and flow of a workflow to ensure
 The output of this exercise is clear documentation on how a business process will be executed by automation, humans, and often a combination of both. 
 
 ## Diagram using global standards
-When diagramming, consider using global standards like BPMN (business process model and notation) so that diagrams are consistent and can be understood by outside parties. 
+When diagramming, consider using global standards like BPMN (business process model and notation) so that diagrams are consistent and can be understood by outside parties. BPMN (learn more about standard
+[BPMN 2.0](https://www.omg.org/spec/BPMN/2.0/)) has flowchart-like symbols and
+precise notation that can be translated to software process components.
 
-1. There are lots of online resources to learn basic concepts like this post. 
-2. The OpenFn team has compiled some learning resources and BPMN diagramming tools in this document. 
+Check out these resources for learning & building your own BPMN diagrams:
 
-Your organization may already be using a different standard notation (e.g., UML). What’s important is consistency across your documentation to ensure that your solutions can be easily understood by other stakeholders. 
+- `BPMN.io` open-source modeler: https://bpmn.io/
+- `Camunda BPMN Tool` includes a free tool and tutorial:
+  https://camunda.com/bpmn/
+- `LucidChart` provides a very user-friendly diagramming interface:
+  https://www.lucidchart.com/pages/bpmn
 
-![Workflow](/img/BPMN_example.png)
+Looking for a crash course? This video provides a quick overview of BPMN and how
+to use it: https://www.youtube.com/watch?v=BwkNceoybvA
+
+### OpenFn Examples of BPMN Diagrams
+
+See the below example BPMN diagram for the user story:
+
+> As a program manager, I want to extract beneficiary details ("tracked entity
+> instances") from my country's DHIS2 system, so that I can enroll them as
+> contacts in my SMS campaign configured on RapidPro to send them automated
+> alerts and program updates.
+
+<img src="/img/sample-bpmn.png" url />
