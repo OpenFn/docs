@@ -65,8 +65,7 @@ module.exports = {
       label: 'Monitor History',
       items: [
         'monitor-history/activity-history',
-        'monitor-history/failure-notifications-digests',
-        'monitor-history/viewing-workflow-runs',
+        'monitor-history/inspect-runs',
         'monitor-history/rerunning-workflow',
         'monitor-history/troubleshooting',
         'monitor-history/status-codes',
@@ -80,6 +79,7 @@ module.exports = {
         'manage-projects/retention-periods',
         'manage-projects/io-data-storage',
         'manage-projects/user-roles-permissions',
+        'manage-projects/notifications',
       ],
     },
     {
