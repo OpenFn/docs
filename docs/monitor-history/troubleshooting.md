@@ -81,7 +81,7 @@ their error messages [here](/adaptors#connect-anything).
 
 ## Leveraging search and filtering in OpenFn
 
-Leverage the various search functionalities in OpenFn to find the right runs to support your troubleshooting. You can search on the History page across OpenFn IDs, Inputs, and/or Logs. Check out this [video](https://www.loom.com/share/083b371a26de43cfbbb72321249a694b?sid=3e2a897b-81d5-487e-a7a4-f8a7b88c7b63) for how to use Search.
+Leverage the various search functionalities in OpenFn to find the right runs to support your troubleshooting. You can search on the History page across OpenFn IDs, Inputs, and/or Logs. Check out this [video](https://youtu.be/XIUykmLCxwQ?si=hquc8rPTJrAZkbbD) for how to use Search.
 
 
 
