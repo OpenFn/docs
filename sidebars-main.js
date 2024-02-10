@@ -5,7 +5,7 @@ module.exports = {
       label: 'Get Started',
       items: [
         'get-started/home',
-        // 'intro/terminology',
+        'get-started/terminology',
         // 'intro/standards',
         // 'intro/security-compliance',
         // 'intro/security',
