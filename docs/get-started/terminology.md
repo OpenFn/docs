@@ -1,83 +1,114 @@
 ---
-title: OpenFn Concepts
+title: Key Concepts
 ---
 
-All across the OpenFn Integration Toolkit, the iPaaS, and this documentation
-site you'll find some OpenFn-specific terminology that's important to
-understand. This page is your reference guide—a glossary of the most important
-_OpenFn-specific_ words and what they mean.
+All across the OpenFn Integration Toolkit and this documentation site you'll
+find some OpenFn-specific terminology that's important to understand. This page
+is your reference guide—a glossary of the most important _OpenFn-specific_ words
+and what they mean.
 
-:::tip Keep In Mind
+:::tip Something missing?
 
-As you read about the terms below, remember that in order to make OpenFn perform
-some sort of data integration work you'll always need to specify:
-
-- **What** to do (e.g., update patient data in some system)
-- **When** to do it (e.g., at 7am every day)
-- and **How** to log in (e.g., go to `example.com` and use `abc123` as the
-  security token)
-
-With this in mind, let's check out the key terms.
+If you've come across a word, phrase, or concept that you think is missing from
+this page, open an issue on [OpenFn/docs](https://github.com/OpenFn/docs),
+suggest an edit to
+[this page](https://github.com/OpenFn/docs/blob/main/docs/get-started/terminology.md),
+or ask on the [Community](https://community.openfn.org)
 
 :::
 
 Please note that if you're looking for a glossary for generic terms used in
 data-integration (rather than this _OpenFn-specific_ stuff) head over to the
-[Glossary for Integration](/documentation/getting-started/glossary) page in the
+[Glossary for Integration](/documentation/get-started/glossary) page in the
 Design section. Otherwise, read on!
 
 ## Project
 
-A project is an administrative grouping in OpenFn. In
-[OpenFn/microservice](/documentation/microservice/home/), it corresponds to a
-[`project.yaml`](/documentation/portability#proposal-v2-latest) file. On the
-platform, it's got an owner, a billing plan, and a bunch of
-collaborators—different users that have been granted access to the project. In
-either case, a project contains jobs, triggers, credentials, and everything you
-need to run an integration with OpenFn.
+A Project is an administrative grouping in OpenFn like a "workspace".
 
-## Job
+On the platform (OpenFn/lightning), Projects define who can access your OpenFn
+workflow configuration & history. Projects have an owner and one or more
+Collaborators.
+
+In local deployment and development, Project also corresponds to a
+[`project.yaml`](/documentation/next/deploy/portability-versions#proposal-v2)
+file, which defines a project' configuration.
+
+In either case, a Project contains Workflows, Triggers, Credentials, and
+everything you need to automate and integrate with OpenFn.
+
+## Workflow
 
 :::tip
 
-Jobs are the **"what to do"** part of automation!
+Workflows are the **"what to do"** part of automation!
 
 :::
 
-OpenFn automation centers around [jobs](/documentation/build/jobs), which define
-the specific series of operations (i.e., tasks) that OpenFn should perform. Jobs
-can be executed at certain times, when message arrive from outside systems, or
-when _other jobs_ succeed or fail. Think of jobs as a set of instructions you
-might give a data entry staff member (e.g., Please create a new Patient record
-in OpenMRS when a form containing a newly registered client is received from
-CommCare, export data to DHIS2 every week on Friday 11pm, send SMS with payment
-confirmation number when payment confirmation message is received etc.).
+A Workflow is a collection of a Trigger, Steps, Paths, and custom logic
+connected together to automate a specific business process or task. A Workflow
+is configured via the Canvas in the web app, or locally (via code).
 
-:::note Jobs are Reusable
+OpenFn automation centers around
+[Workflows](/documentation/next/build/workflows), which may have one or multiple
+Steps. Workflows can be run in real-time (based on an event -e.g., new patient
+registration), on a scheduled basis (e.g., every day at 8am), or manually
+on-demand.
 
-Jobs are fully configurable and reusable. They can also be chained together to
-create [multi-step automation](/documentation/jobs/multiple-operations) flows,
-two-way syncs, and to keep data consistent between multiple applications (using
-multi-app Saga patterns). You can read more on two-way syncing below.
+Think of workflow as a set of instructions you might give a staff member (e.g.,
+please create a new Patient record in OpenMRS when a form containing a newly
+registered client is received from CommCare, export data to DHIS2 every week on
+Friday 11pm, send SMS with payment confirmation number when payment confirmation
+message is received etc.).
+
+Common Workflows automate:
+
+- Reporting for enhanced/faster program monitoring (especially mobile-to-MIS
+  reporting)
+- Rote data ETL (extract, transform, load) and data cleaning steps
+- Alerts (SMS, email)
+- Referrals between partner systems
+- Task assignments or approvals
+- Grievance or case reporting
+- Financial tansactions or payments
+
+:::note Workflows are reusable
+
+Workflows are fully configurable and reusable. They can also be chained together
+to automate multi-step processes and two-way data syncs to keep data consistent
+between multiple applications (using multi-app Saga patterns).
 
 :::note
 
 ### Adaptor
 
-OpenFn [adaptors](/adaptors) are open-source modules that
-provide your jobs with the features they need to communicate with a particular
-system's API. Some examples are `language-dhis2`, `language-commcare`,
-`language-salesforce`, `language-postgresql`, etc. There are more than 50 active
-adaptors at the moment, and anyone is free to build or enhance them.
+:::tip
 
-### Operation
+Adaptors are the **"where to do it"** part of automation!
 
-An [operation](/documentation/jobs/operations) is the sub-task inside a job. For
-example, a job for loading data to DHIS2 might include 3 separate operations:
+:::
 
-1. Create a new "program".
-2. Create many new "tracked entity instances".
-3. Enroll those tracked entity instances in the program.
+OpenFn [Adaptors](/adaptors) are open-source modules that provide your Workflows
+with the features they need to communicate with a particular system's API. Some
+examples are [dhis](/adaptors/dhis2), [`postgresql`](/adaptors/postgresql), and
+[`http`](/adaptors/packages/http-docs) etc. There are more than 70 active
+adaptors at the moment, and anyone is free to build or enhance them. See
+[Github/Adaptors](https://github.com/OpenFn/adaptors) for the source code.
+
+## Credential
+
+:::tip
+
+Credentials are the **"how to log in"** part of automation!
+
+:::
+
+A [Credential](/documentation/next/manage-projects/manage-credentials) is used
+to authenticate with a destination app (e.g., Database username, password &
+login URL) so that a Workflow Step can run. Via OpenFn's security model,
+Credentials are separated from the Workflows themselves to ensure that stored
+usernames and passwords (which are all encrypted) do not get leaked or accessed
+by the wrong people.
 
 ## Trigger
 
@@ -87,110 +118,127 @@ Triggers are the **"when to do it"** part of automation!
 
 :::
 
-A [trigger](/documentation/build/triggers) determines **when** to run a job
-automatically. A trigger could be set up to run a job when a message arrives
-(this is known as a `message filter` trigger), on a cron schedule (a `cron`
-trigger) or based on the success or failure of _another_ job(a `flow` or `catch`
-trigger). A simple cron trigger might specify to run a job at "7am every
-weekday".
+A [Trigger](/documentation/build/triggers) determines **how and when** Workflows
+should execute automatically (e.g., real-time or schedule-based). When
+activated, Triggers create a new
+[Work Order](/documentation/get-started/terminology#work-order) and run (or
+"execute") the Workflow.
 
-## Credential
+A "Webhook Event" Trigger may be configured if you want your Workflow to execute
+in real-time when an event in an external app occurs (e.g., new form submitted,
+new notification received).
+
+A "Cron" Trigger may be configured if you want your Workflow to execute
+according to a specific schedule (e.g., daily at 8am, the 1st Monday of every
+month).
+
+## Work Order
 
 :::tip
 
-Credentials are the **"How to log in"** part of automation!
+Work Orders capture **"when & what triggered"** the automation, and help us
+monitor if and when the Workflow is successfully completed.
 
 :::
 
-A [credential](/documentation/build/credentials) is used to log in to a
-destination system (e.g., Salesforce username, password & login URL) so that a
-job can run. Via OpenFn's security model, they are separated from the jobs
-themselves to ensure that stored usernames and passwords (which are all
-encrypted) do not get leaked or accessed by the wrong people.
+A Work Order is a request to execute a Workflow with a given input (e.g, a new
+form submission or patient record that needs to be processed).
 
-## Message
+A Work Order is created every time a Workflow's Trigger is activated, or
+manually by an Admin user.
 
-A message is a chunk of data that's been received by your inbox. (Technically,
-it's an HTTP request.) It might trigger a job run, and it contains the `body`
-and `headers` of the HTTP request that was made to your inbox.
+For a Work Order to be completed successfully, the Work Order should reach an
+ending Step succesfully (without errors) - this ensures that the processing has
+been completed. Multiple Workflow "Runs" may be required for a given Work Order
+to be considered succesful.
 
-### Inbox
+Work Orders enable users to closely monitor whether unique inputs (e.g.,
+"patient record 123") are successfully processed by a given workflow, for a
+"case-management" auditing experience.
 
-Your project's [inbox](/documentation/build/inbox) contains all of the messages
-that have been sent to your project. Messages are stored payloads or data (e.g.,
-an incoming SMS, a submitted CommCare form) that were sent via HTTP post to your
-inbox.
+Imagine that a Workflow is configured to create a new patient in OpenMRS
+whenever a new case is opened in CommCare. Over the next week, if 5 cases are
+opened in CommCare, you’ll see 5 different Work Orders for this one Workflow. If
+4 Work Orders are successful and one has failed, you’ll see 4 new patients in
+OpenMRS, and your system administrator will have been notified that one of those
+patients couldn’t be created (or whatever more robust error-handling you’ve set
+up will take place.)
 
-:::info Inbox URL
+:::note
 
-Click the link icon in the top right of the "Inbox" page to copy your inbox URL.
-You can then use this URL to send data to OpenFn.
+There’s usually a 1-to-1 mapping between WorK Orders and the real-world things
+you’re working with. I might create a Workflow that gets all updated event data
+from DHIS2 for the last 2 weeks and publishes it to a public map using CartoDB.
+This Workflow will be triggered at specified time intervals, every 2 weeks in
+this case, and after a month, we’ll only see 2 Work Orders in OpenFn (that’s one
+every two weeks). Each Work Order will have success or failed status with
+related Runs that capture the details of each transaction and how many event
+records may have been processed.
 
 :::
 
 ## Run
 
-A run is each individual execution of a job. Imagine that a job is configured to
-create a new patient in OpenMRS whenever a case is opened in CommCare. Over the
-next week, if 5 cases are opened in CommCare, you’ll see 5 different runs of
-this one job. If 4 runs are successful and one has failed, you’ll see 4 new
-patients in OpenMRS, and your system administrator will have been notified that
-one of those patients couldn’t be created (or whatever more robust
-error-handling you’ve set up will take place.)
+:::tip
 
-Runs have start times, end times, logs and exit codes that indicate when they
+Runs capture **"what happened"** in the automation!
+
+:::
+
+A Run is an individual execution attempt to complete a Work Order. Multiple
+Workflow Runs may exist to fulfill one Work Order (because the first Run might
+fail, so it needs to be retried to successfully process).
+
+Runs have start times, end times, logs, and status codes that indicate when they
 took place, what they did, and whether or not they succeeded.
 
-:::note
+![Work Order](/img/work_order_shot.png)
 
-There’s not always a 1-to-1 mapping between runs and the real-world things
-you’re working with. I might define a job that gets all updated event data from
-DHIS2 for the last 2 weeks and publishes it to a public map using CartoDB. This
-job will be triggered at specified time intervals, every 2 weeks in this case,
-and after a month, we’ll only see 2 runs in OpenFn (that’s one run every two
-weeks). Each run will have succeeded or failed, and each one might have
-processed thousands of events from DHIS2.
+Imagine that a Workflow is configured to create a new patient in OpenMRS
+whenever a new case is opened in CommCare. Today if 1 patient is created, then:
 
-:::note
+- 1 Work Order will be created in OpenFn. This will trigger a Run to execute to
+  create the patient in OpenMRS.
+- If that Run fails due to an error (e.g., OpenMRS user password is incorrect,
+  or patient is missing required information), then the "Status" of that Run and
+  related Work Order will show as `failed`.
+- OpenFn users can correct the error and then choose to "rerun" that failed Run.
+  This will create a 2nd Run related to the original Work Order. If it
+  successed, then the "Status" of the 2nd Run and Work Order will show as
+  "success".
 
-### Activity History
+## Logs
 
-On the platform, the Activity History section provides a list of all of the runs
-that have taken place in a project. ("Activity History" is to "Run" and "Inbox"
-is to "Message".)
+Logs are the records generated by the workflow execution engine to capture the
+activities performed when running a Workflow or specific Step.
 
-## Related Runs and Messages
+OpenFn developers can control what appears in Logs by editing `console.log(...)`
+statements in the Workflow job expressions of individual Steps.
 
-Given the many-to-one relationship between `runs` and `messages`, OpenFn
-provides an interface for viewing a messages **"job-state"**. This is a
-calculation that can be useful for organizations that need to understand if a
-given message has _eventually_ been handled successfully.
+## Input
 
-A job state is defined as the result ("success", "failure", or "in progress") of
-the _last_ run (ordered by the time it was finished, rather than when it was
-inserted into the runs table) for a given message-job combination.
+An Input is the data (`json`) that is used as the starting Input for a Workflow
+Step to utilise when it's run. Every Run will have an Input (initial state) and
+Output (final state).
 
-If two runs for the same message-job combination finished at the same time, it's
-ordered by their start time, and then finally by their primary key. In reality,
-since the same message-job combination can only be used to create a run once
-every 10 seconds, this will almost never occur.
+Inputs may be created automatically by a webhook event (e.g., a message
+forwarded or JSON payload posted to OpenFn) or another Workflow Step, or
+manually by an OpenFn user.
 
-:::info A Job state example
+## Output
 
-Consider a message which should trigger both a case referral job and a payment
-job. Two runs will get created when the message arrives, with the referral
-succeeding and the payment failing. Navigating to the inbox, you'd see two
-"job-states" for that single message:
+An Output is the final data (`json`) that is outputted by a workflow Step,
+according to the business logic defined in the Step's job expression. Outputs
+are either passed to the next Step in the workflow and/or to the connected
+destination app.
 
-1. Referral (success - run 1)
-2. Payment (failure - run 2)
+### History
 
-If an administrator then made some sort of change, re-ran the failed payment job
-for that message, and this third run succeeded, you'd still only see 2
-"job-states" in the inbox, but they'd both be successful:
+On the platform, the History page provides a list of all of the Work Orders and
+Runs that have been processed in a Project.
 
-1. Referral (success - run 1)
-2. Payment (success - run 3)
+### Inspector
 
-Browsing to the receipt inspector would show all three runs for this single
-message.
+On the platform, the Inspector interface allows users to edit, test, and run
+workflows, while viewing 3 key components: Input, Editor (for editing job
+expressions for a Step), and Output.
