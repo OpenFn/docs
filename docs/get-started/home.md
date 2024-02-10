@@ -96,7 +96,7 @@ legacy OpenFn v1 platform will be migrated to OpenFn v2 by the end of 2024.
 
 :::
 
-![OpenFn Workflow Canvas][/img/case-referral-workflow.png]
+![OpenFn Workflow Canvas](/img/case_referral_workflow.png)
 
 ### OpenFn v1
 
@@ -108,8 +108,9 @@ OpenFn v2 (see above).
 
 ### OpenFn developer tooling
 
-[OpenFn/kit](/documentation/kit) provides a CLI and set of developer tools for writing & testing workflows, managing
-OpenFn projects, and developing [Adaptors](https://github.com/openfn/adaptors).
+[OpenFn/kit](/documentation/kit) provides a CLI and set of developer tools for
+writing & testing workflows, managing OpenFn projects, and developing
+[Adaptors](https://github.com/openfn/adaptors).
 
 :::note
 
