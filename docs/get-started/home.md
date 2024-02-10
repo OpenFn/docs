@@ -108,7 +108,7 @@ OpenFn v2 (see above).
 
 ### OpenFn developer tooling
 
-[OpenFn/kit](/documentation/kit) provides a CLI and set of developer tools for
+[OpenFn/kit](https://github.com/OpenFn/kit) provides a CLI and set of developer tools for
 writing & testing workflows, managing OpenFn projects, and developing
 [Adaptors](https://github.com/openfn/adaptors).
 

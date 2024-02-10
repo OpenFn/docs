@@ -13,7 +13,7 @@ further reading if you want a better understanding of some part of your data
 integration picture.
 
 Note: This glossary is meant to be OpenFn-agnostic. The rest of the docs and
-[Key Concepts page](/documentation/get-started/terminology) help you to get a
+[Key Concepts page](/documentation/next/get-started/terminology) help you to get a
 picture of the parts of OpenFn, what we call them, and why, but this glossary is
 really meant as a prerequisite to all those other things to aid users with no
 experience in this area.

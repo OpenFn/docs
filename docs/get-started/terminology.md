@@ -19,7 +19,7 @@ or ask on the [Community](https://community.openfn.org)
 
 Please note that if you're looking for a glossary for generic terms used in
 data-integration (rather than this _OpenFn-specific_ stuff) head over to the
-[Glossary for Integration](/documentation/get-started/glossary) page in the
+[Glossary for Integration](/documentation/next/get-started/glossary) page in the
 Design section. Otherwise, read on!
 
 ## Project
@@ -103,7 +103,7 @@ Credentials are the **"how to log in"** part of automation!
 
 :::
 
-A [Credential](/documentation/next/manage-projects/manage-credentials) is used
+A Credential is used
 to authenticate with a destination app (e.g., Database username, password &
 login URL) so that a Workflow Step can run. Via OpenFn's security model,
 Credentials are separated from the Workflows themselves to ensure that stored
@@ -121,7 +121,7 @@ Triggers are the **"when to do it"** part of automation!
 A [Trigger](/documentation/build/triggers) determines **how and when** Workflows
 should execute automatically (e.g., real-time or schedule-based). When
 activated, Triggers create a new
-[Work Order](/documentation/get-started/terminology#work-order) and run (or
+[Work Order](/documentation/next/get-started/terminology#work-order) and run (or
 "execute") the Workflow.
 
 A "Webhook Event" Trigger may be configured if you want your Workflow to execute
