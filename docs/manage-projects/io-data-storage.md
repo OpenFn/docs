@@ -1,5 +1,5 @@
 ---
-title: I/O Data Storage
+title: Data Storage
 ---
 
 In the "Data Storage" section, you can configure what you'd like Lightning to do
