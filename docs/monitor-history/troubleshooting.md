@@ -9,7 +9,7 @@ sidebar_label: Troubleshooting
 
 One of the most helpful pages for troubleshooting on OpenFn is the
 [History](/documentation/next/monitor-history/activity-history) page.
-This page provides a list of all of the runs executed for a Work Order and their status. Project administrators can troubleshoot errors by clicking into the run to review the run details. Learn more about runs [here](/documentation/next/monitor-history/viewing-workflow-runs) here.
+This page provides a list of all of the runs executed for a Work Order and their status. Project administrators can troubleshoot errors by clicking into the run to review the run details. Learn more about runs [here](/documentation/next/monitor-history/inspect-runs) here.
 
 ### Status codes
 
@@ -87,7 +87,7 @@ Leverage the various search functionalities in OpenFn to find the right runs to 
 
 ## Sign up for email alerts
 
-You can turn on notifications to receive [email alerts ](/documentation/next/monitor-history/failure-notifications-digests)when a workflow fails and subscribe to digests that summarize project activity.
+You can turn on notifications to receive [email alerts](/documentation/next/monitor-history/notifications) when a workflow fails and subscribe to digests that summarize project activity.
 
 ## More
 
