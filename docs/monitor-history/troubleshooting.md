@@ -87,7 +87,7 @@ Leverage the various search functionalities in OpenFn to find the right runs to 
 
 ## Sign up for email alerts
 
-You can turn on notifications to receive [email alerts](/documentation/next/monitor-history/notifications) when a workflow fails and subscribe to digests that summarize project activity.
+You can turn on notifications to receive [email alerts](/documentation/next/manage-projects/notifications) when a workflow fails and subscribe to digests that summarize project activity.
 
 ## More
 
