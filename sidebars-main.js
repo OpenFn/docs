@@ -102,6 +102,8 @@ module.exports = {
         'manage-projects/manage-credentials',
         'manage-projects/user-roles-permissions',
         'manage-projects/notifications',
+        'manage-projects/link-project-to-gh.md',
+
       ],
     },
     {
