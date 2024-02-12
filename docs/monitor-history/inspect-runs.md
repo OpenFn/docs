@@ -26,4 +26,4 @@ To learn how to search and filter Work Order and Run history via the History
 page, check out the below video tutorial
 ([or see link](https://youtu.be/XIUykmLCxwQ?si=pCzefw4zyLxG1voE)).
 
-<iframe width="784" height="441" src="https://www.youtube.com/embed/XIUykmLCxwQ?si=IM73HvXEC2Azg5YF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe width="8" height="441" src="https://www.youtube.com/embed/XIUykmLCxwQ?si=IM73HvXEC2Azg5YF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

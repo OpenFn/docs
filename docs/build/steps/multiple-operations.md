@@ -1,5 +1,5 @@
 ---
-title: Chaining multiple operations in one Job
+title: Chaining operations in 1 Step
 sidebar_label: Chaining operations
 ---
 
@@ -51,7 +51,4 @@ This page describes why you might want to chain multiple operations in a single 
     )
   );
   ```
-
-```
-
-```
+Check out the Job [Library Examples](/adaptors/library/) for more examples. 

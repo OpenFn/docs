@@ -1,12 +1,21 @@
 ---
 title: Write Job expressions
+sidebar_label: Write Jobs
 ---
 
 To define the business logic and data transformation rules or logic for
 individual `Steps` in your workflow, you will need to write a `Job`. This
 article will provide a basic overview of Job expressions & writing tips.
 
-## About Job expressions
+:::tip
+
+For example Jobs written by the OpenFn core team and other users, check out the
+[Library](/adaptors/library) or other project repositories under
+[Github.com/OpenFn](https://github.com/OpenFn).
+
+:::
+
+## About Jobs
 
 A `Job` is evaluated as a JavaScript expression and primarily defines the
 specific series of [Operations](/docs/build/steps/operations.md) (think: tasks,
@@ -67,8 +76,19 @@ time that the operation (`create` in the above expression) is executed.
 
 ### A Job with custom JavaScript
 
-See below for an example Job with custom JavaScript code for data
-transformation.
+To write your own custom JavaScript functions, simply add an `fn(...)` block to
+your code as below.
+
+```js
+fn(state => {
+  //write your own function to manipulate/transform state
+  return state;
+});
+```
+
+Alternatively, you can add custom JavaScript code in-line any Adaptor-specific
+functions. See example job below where JavaScript was added to transform the
+data value outputted for `Name`.
 
 ```js
 create(

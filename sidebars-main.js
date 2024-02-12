@@ -28,32 +28,33 @@ module.exports = {
         //'design/discovery'
       ],
     },
-    // {
-    //   type: 'category',
-    //   label: 'Tutorials',
-    //   items: ['tutorials/kobo-to-dhis2'],
-    // },
+    {
+      type: 'category',
+      label: 'Tutorials',
+      items: ['tutorials/tutorial', 'tutorials/kobo-to-dhis2'],
+    },
     {
       type: 'category',
       label: 'Build & manage Workflows',
       items: [
-        'build/tutorial',
+        'build/workflows',
+        'build/triggers',
+        'build/steps/steps',
+        'build/steps/step-editor',
+        'build/steps/step-design-intro',
+        'build/steps/paths',
         'build/limits',
-        // 'build/triggers'
-        //====== STEPS SUBCATEGORY =============//
-        //TODO: @Mtuchi pls clean up the below pages and decide which to keep/refresh/delete for V2 docs//
+        //'build/troubleshooting',
         {
           type: 'category',
-          label: 'Steps',
+          label: 'Jobs',
           items: [
-            'build/steps/steps',
-            'build/steps/step-design-intro',
             'build/steps/job-expressions',
+            'build/steps/job-examples',
             'build/steps/operations',
             'build/steps/multiple-operations',
             'build/steps/state',
             'build/steps/each',
-            'build/steps/step-editor',
             'build/steps/editing-locally',
             'build/steps/working-with-branches',
           ],
@@ -106,9 +107,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Manage Users & Credentials',
-      items: ['manage-users/user-profile',
-              'manage-users/user-credentials'
-    ],
+      items: ['manage-users/user-profile', 'manage-users/user-credentials'],
     },
     {
       type: 'category',
