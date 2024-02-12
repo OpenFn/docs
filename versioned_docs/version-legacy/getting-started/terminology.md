@@ -116,7 +116,7 @@ and `headers` of the HTTP request that was made to your inbox.
 
 ### Inbox
 
-Your project's [inbox](/documentation/legacy/build/inbox) contains all of the messages
+Your project's [inbox](/documentation/build/inbox) contains all of the messages
 that have been sent to your project. Messages are stored payloads or data (e.g.,
 an incoming SMS, a submitted CommCare form) that were sent via HTTP post to your
 inbox.

@@ -3,7 +3,7 @@ title: Troubleshooting
 sidebar_label: Troubleshooting
 ---
 
-
+This page provides troubleshooting tips for *OpenFn v2 platform* users.
 
 ## Runs
 
@@ -81,7 +81,9 @@ their error messages [here](/adaptors#connect-anything).
 
 ## Leveraging search and filtering in OpenFn
 
-Leverage the various search functionalities in OpenFn to find the right runs to support your troubleshooting. You can search on the History page across OpenFn IDs, Inputs, and/or Logs. Check out this [video](https://youtu.be/XIUykmLCxwQ?si=hquc8rPTJrAZkbbD) for how to use Search.
+Leverage the various search functionalities in OpenFn to find the right runs to support your troubleshooting. You can search on the History page across OpenFn IDs, Inputs, and/or Logs. 
+
+Check out this [video](https://youtu.be/XIUykmLCxwQ?si=hquc8rPTJrAZkbbD) for how to use Search.
 
 
 

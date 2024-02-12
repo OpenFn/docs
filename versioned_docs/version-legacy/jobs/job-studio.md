@@ -4,7 +4,7 @@ title: The OpenFn Job Studio
 
 The OpenFn Job Studio allows you create and test jobs on the platform with easy
 access to documentation of [adaptors](/documentation/build/workflows#adaptors),
-matching [messages](/documentation/legacy/build/inbox) and real-time logs.
+matching [messages](/documentation/build/inbox) and real-time logs.
 
 ```mdx-code-block
 import ReactPlayer from 'react-player';
