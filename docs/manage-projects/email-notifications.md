@@ -28,4 +28,4 @@ project, summarizing successful and failed runs for each of your workflows.
 
 ![Digest Email Setting](/img/lightning_digest.png)
 
-![Digest Email](/img/lightning_digest_email.png)
+![Digest Email](/img/lightning_weekly_digest.png)
