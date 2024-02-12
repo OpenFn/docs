@@ -34,7 +34,7 @@ A Step includes these key components:
 
 Writing Jobs to add custom logic for business or data transformation rules
 typically requires basic knowledge of JavaScript. See the
-[Job-writing docs](/documentation/build/jobs) for a detailed
+[Job-writing docs](/documentation/build/workflows) for a detailed
 overview and the [Library Examples](/adaptors/library) for sample code.
 
 :::

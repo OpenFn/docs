@@ -70,7 +70,7 @@ writes that implementing OpenFn is “changing the way they work”.
 The “aha” moment for those involved in this project was that the artifacts
 produced in an OpenFn implementation—actual
 [“triggers”](/documentation/build/triggers) and
-[“jobs”](/documentation/build/jobs) written with and for the Open Source
+[“jobs”](/documentation/build/workflows) written with and for the Open Source
 Integration Toolkit—publicly memorialize the data sharing agreements between
 partners.
 

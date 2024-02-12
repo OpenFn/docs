@@ -44,11 +44,11 @@ The XLS version of this template can be found [here](https://docs.google.com/spr
 ## (2) Discovery & Design - Functional Workflow Requirements
 
 - [ ] User stories documented to capture business value & desired outcomes
-      Learn more about user stories [here.](https://docs.openfn.org/documentation/design/design-quickstart#1-capture-requirements-as-user-stories)
+      Learn more about user stories [here.](https://docs.openfn.org/documentation/design/design-overview#1-capture-requirements-as-user-stories)
 - [ ] Workflow BPMN diagram capturing functional steps of the business process finalized
-      Learn more about diagrams & BPMN notation [here.](https://docs.openfn.org/documentation/design/design-quickstart#2-diagram-the-business-process)
+      Learn more about diagrams & BPMN notation [here.](https://docs.openfn.org/documentation/design/design-overview#2-diagram-the-business-process)
 - [ ] Request list of data elements from administrators of target systems
-      Read about mapping specs [here.](https://docs.openfn.org/documentation/design/design-quickstart#3-map-data-elements-to-be-exchanged).
+      Read about mapping specs [here.](https://docs.openfn.org/documentation/design/design-overview#3-map-data-elements-to-be-exchanged).
 - [ ] Data element mapping specifications finalized (functional/business-friendly version)
 - [ ] Client sign-offs on workflow diagram & mapping specs
 - [ ] Workflow assumptions documented (e.g., what human, manual steps does the workflow rely on; what are the unique identifiers) 

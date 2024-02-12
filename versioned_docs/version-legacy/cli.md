@@ -39,8 +39,8 @@ to use and understand OpenFn.
 :::caution Looking for a way to execute jobs from OpenFn v1 locally? Use Core!
 
 If you're looking for a way to execute jobs running on the OpenFn v1 platform,
-please see the documentation for **[@openfn/core](/documentation/core)** and
-[Devtools](/documentation/devtools/home).
+please see the documentation for **[@openfn/core](/https://github.com/OpenFn/core)** and
+[Devtools](https://github.com/OpenFn/devtools).
 
 :::
 

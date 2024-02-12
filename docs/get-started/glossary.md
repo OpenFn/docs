@@ -133,7 +133,7 @@ data to a destination system.
 
 ## Webhook
 
-A [webhook](/documentation/source-apps#standard-webhook-configuration) (also
+A [webhook](/documentation/legacy/source-apps#standard-webhook-configuration) (also
 called a web callback or HTTP push API — thanks
 [SendGrid](https://sendgrid.com/blog/whats-webhook/)!) is a feature of an
 application that allows <i>pushing</i>. It's often configured to notify some

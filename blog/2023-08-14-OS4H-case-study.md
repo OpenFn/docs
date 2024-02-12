@@ -75,7 +75,7 @@ These users might not even be aware that OpenFn is engine powering the workflow 
 | *Above: Screenshot from online meeting with Taylor Downs (OpenFn) and Clem Francis (Developer, OS4H) celebrating the successful setup of an OpenFn workflow that automates calculating and reporting aggregated data values for key indicators to DHIS2.*|
 
 ## What's next? 
-In April 2023, OS4H successfully launched the DHIS2 dashboard solution and handed over the monitoring of the OpenFn automation to the St. Lucia MOH team for the duration of the pilot. In the coming months, the St. Lucia MOH and OS4H will consider adding functionality and deploying the solution on a local, ministry-managed server, using [OpenFn Lightning](https://docs.openfn.org/documentation/about-lightning) (the OpenFn “v2” fully open-source web app) for continued use at a greater scale. 
+In April 2023, OS4H successfully launched the DHIS2 dashboard solution and handed over the monitoring of the OpenFn automation to the St. Lucia MOH team for the duration of the pilot. In the coming months, the St. Lucia MOH and OS4H will consider adding functionality and deploying the solution on a local, ministry-managed server, using [OpenFn Lightning](https://docs.openfn.org/documentation#openfn-v2-lightning-) (the OpenFn “v2” fully open-source web app) for continued use at a greater scale. 
 
 In the meantime, the OS4H team is continuing to deliver transformative digital solutions for partners across the Caribbean and is lining up its next OpenFn project. 
 

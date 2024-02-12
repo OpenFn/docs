@@ -69,7 +69,7 @@ information will be exchanged? With _whom_ (between which systems or users)?
 _When_ will the information be exchanged? And what are the human or automation
 steps that should facilitate and trigger this exchange? These business process
 questions are discussed in more detail on the
-[So, what is an integration?](/documentation/getting-started/so-you-want-to-integrate/)
+[So, what is an integration?](/documentation/tutorials/tutorial/)
 page.
 
 :::tip
@@ -189,5 +189,5 @@ solution, as well as memorialize the business decisions and agreements made by
 implementing partners.
 
 Share this documentation with any technical implementation team, or check out
-the [Build](/documentation/build/jobs) documentation section to learn how to
+the [Build](/documentation/build/workflows) documentation section to learn how to
 implement these design specifications using OpenFn.

@@ -12,7 +12,7 @@ Currently, this section is specific to **OpenFn/platform**.
 ## Runs
 
 One of the most helpful pages for troubleshooting on OpenFn platform is the
-[Activity History](/documentation/getting-started/terminology/#activity-history).
+[Activity History](/documentation/get-started/terminology/#activity-history).
 This pages provides a list of all of the runs executed in a project and always
 marks any failed runs red or yellow. Project administrators can troubleshoot
 errors by clicking into the run to review the run details. Keep reading for all
@@ -23,7 +23,7 @@ troubleshooting!
 
 Every run will have an exit code. The exit code is a way for OpenFn to classify
 the run status and can help you troubleshoot errors. Learn more about OpenFn
-exit codes and what each one means [here](/documentation/jobs/errors).
+exit codes and what each one means [here](/documentation/monitor-history/troubleshooting).
 
 ### The time it took for the job to fail
 
@@ -95,22 +95,22 @@ Leverage the various search functionalities in OpenFn to find the right messages
 and runs to support your troubleshooting. You can search in the Inbox, Activity
 History, and Search Console.
 
-1. **[Inbox](/documentation/manage/platform-mgmt/#inbox)** - The inbox contains
+1. **[Inbox](/documentation/legacy/manage/platform-mgmt/#inbox)** - The inbox contains
    all the messages that have been sent to your project. Search your project
    inbox for messages that contain a specific body text. You can also filter
    these messages by date, run status and trigger. You can even use filtering to
    see all the messages whose last run failed, so you can get to
    troubleshooting! Learn more about inbox filtering
-   [here](/documentation/manage/platform-mgmt/#inbox).
+   [here](/documentation/legacy/manage/platform-mgmt/#inbox).
 
-2. **[Activity history](/documentation/getting-started/terminology/#activity-history)** -
+2. **[Activity history](/documentation/get-started/terminology/#activity-history)** -
    As discussed above, the activity history records all runs for the current
    project. It has similar search and filtering capabilities as the inbox except
    it doesn't require valid JSON in the search box. Use the search in activity
    history instead of inbox when you want to search **_run logs_** instead of
    messages.
 
-3. **[Search console](/documentation/manage/platform-mgmt/#search-console)** -
+3. **[Search console](/documentation/legacy/manage/platform-mgmt/#search-console)** -
    The search console will search in both message bodies **_and_** run logs for
    any string is entered!
 
@@ -123,7 +123,7 @@ leverage **bulk reprocessing** in the OpenFn inbox and activity history to
 reprocess all messages in the current filtered query. This means OpenFn will
 rerun all of those transactions in the order they were received. Learn more
 about bulk reprocessing
-[here](/documentation/manage/platform-mgmt/#bulk-reprocess-messages).
+[here](/documentation/legacy/manage/platform-mgmt/#bulk-reprocess-messages).
 
 Sometimes you'll have so many messages with failed runs that it will be
 virtually impossible to open each one and inspect the run logs. In this case,

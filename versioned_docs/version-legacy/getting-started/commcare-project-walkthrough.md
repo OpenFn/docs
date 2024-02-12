@@ -9,8 +9,8 @@ title:
   minute!)
 - You have checked out our glossary and have an understanding of basic OpenFn
   and API terminology. Check out the pages below to get started
-  - [OpenFn Concepts](/documentation/getting-started/terminology/)
-  - [A glossary for data integration](/documentation/getting-started/terminology/)
+  - [OpenFn Concepts](/documentation/get-started/terminology/)
+  - [A glossary for data integration](/documentation/get-started/terminology/)
 - You have a CommCare application with at least one form configured. This is
   your source system.
 - You have a PostgreSQL database configured. This is your destination system.
@@ -110,7 +110,7 @@ In the credential `JSON Configuration`, add your credential as follows:
 
 :::tip
 
-Check out [this](/documentation/getting-started/terminology/#inbox) docs page on
+Check out [this](/documentation/get-started/terminology/#inbox) docs page on
 how to find your OpenFn inbox URL to fill in the configuration above.
 
 :::
@@ -213,7 +213,7 @@ there are 2:**
    configured the database
    [like this](https://docs.google.com/spreadsheets/d/1pi_oxImakhtaCCCIENkjTPZeuyWhpFEcNmH7hfvTBgo/edit?usp=sharing)
    to capture the CommCare form data. Check out the
-   [design quickstart](/documentation/design/design-quickstart#3-map-data-elements-to-be-exchanged)
+   [design quickstart](/documentation/design/design-overview#3-map-data-elements-to-be-exchanged)
    for how to create your own `mapping specification document` to map data
    elements to be exchanged.
 
@@ -265,7 +265,7 @@ dataValue for source data fields in the OpenFn job studio.
 :::tip
 
 Check out the
-[design quickstart](/documentation/design/design-quickstart#3-map-data-elements-to-be-exchanged)
+[design quickstart](/documentation/design/design-overview#3-map-data-elements-to-be-exchanged)
 for how to create your own `mapping specification document` to map data elements
 to be exchanged.
 

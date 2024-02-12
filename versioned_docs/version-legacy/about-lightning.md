@@ -14,7 +14,7 @@ connect _any system_.
 
 Lightning brings together the tried and tested technology which we have been
 using since 2015 (the OpenFn
-[Integration Toolkit](/documentation/getting-started/integration-toolkit)) to
+[Integration Toolkit](/documentation#our-products)) to
 manage the orchestration and execution of integrations in a stable, scalable and
 secure way.
 
@@ -87,7 +87,7 @@ integrations to make sure no request goes unprocessed.
 
 ## Roadmap
 
-See the [Lightning Roadmap](/documentation/openfn-roadmap) for a detailed list
+See the [Lightning Roadmap](/documentation/contribute/openfn-roadmap) for a detailed list
 of features that are in the backlog, planned, and/or in development for the
 OpenFn Digital Public Good.
 
@@ -144,7 +144,7 @@ workflow engine. Learn more via the following resources:
 - Check out OpenFn's entry in the
   [OpenHIE Reference Technologies page](https://wiki.ohie.org/display/documents/Reference+Technologies).
 - Explore the OpenFn-Instant OpenHIE
-  [reference demo implementation](/documentation/instant-openhie).
+  [reference demo implementation](/documentation/get-started/standards#openhie-standard-architecture).
 - Learn more about the GovStack
   [Workflow Building Block](https://govstack.gitbook.io/bb-workflow/2-description)
   specification.
@@ -322,7 +322,7 @@ location—guaranteeing that no data ever leaves the selected country.
 
 To help our users adopt best practices when it comes to the design of their
 integrations, we’ve published a
-[Security Guidebook for data integration implementations](/documentation/getting-started/security).
+[Security Guidebook for data integration implementations](/documentation/get-started/security).
 
 ## Get involved
 

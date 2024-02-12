@@ -39,7 +39,7 @@ steps below:
 :::info
 
 Note that once a job is **switched on**, OpenFn will run it automatically, as
-[configured](/documentation/build/jobs). If you do not want a job to be run
+[configured](/documentation/build/workflows). If you do not want a job to be run
 automatically, by OpenFn, then turn it **off**.
 
 :::
@@ -198,14 +198,14 @@ The **four configuration steps** include giving the job a name, defining what
 [authentication](/documentation/build/credentials) details.
 
 The **expression editor** is the area where you write your
-[job expression](/documentation/build/jobs/#composing-job-expressions). Fill-in
+[job expression](/documentation/build/workflows/#composing-job-expressions). Fill-in
 all the details, and click on the **Save** icon in the top-right corner to save
 your job's configuration changes.
 
 #### Inspecting job's initial state
 
 This feature allows you to view the
-[initial state](/documentation/jobs/state/#initial-state) of a selected job.
+[initial state](/documentation/build/steps/state/#initial-state) of a selected job.
 Note that this feature is currently only available for
 [message-triggered jobs](/documentation/build/triggers#message-filter-triggers).
 
@@ -219,7 +219,7 @@ as data path for the job's expression.
 #### Accessing inline adaptor documentation
 
 For a selected adaptor, OpenFn allows you to view documentation and code
-examples for each [adaptor operation](/documentation/jobs/operations).
+examples for each [adaptor operation](/documentation/build/steps/operations).
 
 To view adaptor documentation, click on the `documentation icon`(first icon) on
 the top-right corner of the `Expression Pane`.
@@ -806,12 +806,12 @@ finished working on the first.
 #### Exporting Project Config
 
 - OpenFn allows you to run your project as a
-  [Microservice](/documentation/microservice/home/) .
+  [Microservice](/documentation/deploy/portability/) .
 - There are two options for exporting the project config used in OpenFn
   Microservice. Exporting as `project.yaml` will provide you with a `YAML` file
   that can be used to run this project with
-  [OpenFn/engine](/documentation/microservice/home/),
-  [OpenFn/microservice](/documentation/microservice/home/), or for use in
+  [OpenFn/engine](/documentation/deploy/portability/),
+  [OpenFn/microservice](/documentation/deploy/portability/), or for use in
   another OpenFn/platform space.
 - Exporting as `microservice.zip` will prepare a `ZIP` file with
   `openfn/microservice:latest` (from hub.docker.com) and a your `YAML` file

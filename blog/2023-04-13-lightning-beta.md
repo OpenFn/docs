@@ -21,7 +21,7 @@ intuitive, user-friendly UI.
 <!--truncate-->
 
 **Read more about Lightning on our
-[docs page](/documentation/about-lightning).**
+[docs page](/documentation#openfn-v2-lightning-).**
 
 :::info
 
@@ -72,7 +72,7 @@ Take 2 minutes to click around the app and view all of the different pages. As
 you click into them, tell us where your attention is drawn and what you think
 each page might be for.
 
-** 3. Using the [quick-start guide](/documentation/build/lightning-quick-start),
+** 3. Using the [quick-start guide](/documentation/tutorials/tutorial),
 figure out how OpenFn works and what you can do in the application.**
 
 ** 4. Now, in your own words, explain to someone how to build a workflow.**

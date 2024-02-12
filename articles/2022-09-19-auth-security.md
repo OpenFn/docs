@@ -57,7 +57,7 @@ to implement such security features down the line.
 As product manager at Open Function Group, I myself have recently been reviewing
 and analyzing numerous resources to identify and prioritize features required to
 get to fully-secure authentication and authorization for our newest product
-[Lightning](/documentation/about-lightning/)–and make sure that nothing falls
+[Lightning](/documentation#openfn-v2-lightning-/)–and make sure that nothing falls
 through the cracks. I’ve also had the opportunity to gather insights from
 Digital Public Good community forums (OpenMRS, DHIS2, OpenLMIS, etc) and speak
 to other product managers and engineers from the Digital Public Goods community

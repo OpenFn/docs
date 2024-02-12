@@ -90,7 +90,7 @@ Lightning is an upcoming addition to the Integration Toolkit. It is a _fully
 open source_ workflow automation platform designed for governments and NGOs who
 need a flexible solution to integrate and connect _any system_.
 
-You can read all about it [here](/documentation/about-lightning)!
+You can read all about it [here](/documentation#openfn-v2-lightning-)!
 
 ## Architecture for implementation
 
