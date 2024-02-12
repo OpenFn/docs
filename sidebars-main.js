@@ -42,7 +42,7 @@ module.exports = {
         'build/steps/steps',
         'build/steps/step-editor',
         'build/steps/step-design-intro',
-        'build/steps/paths',
+        'build/paths',
         'build/limits',
         //'build/troubleshooting',
         {
