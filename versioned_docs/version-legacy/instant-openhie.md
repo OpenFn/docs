@@ -6,7 +6,7 @@ title: Instant OpenHIE
 
 Please note that OpenFn/microservice and OpenFn/devtools are being deprecated
 and replaced by OpenFn/lightning, When Lighting is released, it may be used
-within Instant OpenHIE (instead of microservice) as an OpenHIE-compliant workflow engine that can interface with the OpenHIE Interoperability Layer ([learn more](/documentation#openfn-v2-lightning-#standards-and-compliance-matter)). 
+within Instant OpenHIE (instead of microservice) as an OpenHIE-compliant workflow engine that can interface with the OpenHIE Interoperability Layer ([learn more](/documentation/about-lightning#standards-and-compliance-matter)). 
 
 :::
 
@@ -291,10 +291,10 @@ These two methods are detailed below:
 [openhiestack]: https://openhim.readthedocs.io/en/latest/implementations/openhie.html
 [openhiearchitecture]: https://wiki.ohie.org/pages/viewpage.action?pageId=8454157
 [openhim]: http://openhim.org/
-[jobs]: /documentation/build/workflows/
+[jobs]: /documentation/build/jobs/
 [mediators]: http://openhim.org/mediator-library/
 [demorepo]: https://github.com/OpenFn/instant-demo
-[openfnmicroservice]: /documentation/deploy/portability/
+[openfnmicroservice]: /documentation/microservice/home/
 [digitalsquare]: https://digitalsquare.org/
 [fhir]: https://fhir.org/
 [hapifhir]: https://hapifhir.io/
@@ -311,13 +311,13 @@ These two methods are detailed below:
 [jembi]: https://www.jembi.org/
 [cred]: /documentation/build/credentials/
 [trig]: /documentation/build/triggers/
-[devtools]: https://github.com/OpenFn/devtools
+[devtools]: /documentation/devtools/home/#configure-an-openfn-project
 [testfile]: https://github.com/OpenFn/instant-demo/blob/main/test.js
 [instantdemo]: https://github.com/OpenFn/instant-demo
 [samplecred]: https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml#L165-L167
 [openfncli]: https://github.com/OpenFn/devtools/#configure-an-openfn-project
 [demoexpr]: https://github.com/OpenFn/instant-demo/tree/main/expressions
-[jobexpr]: /documentation/build/workflows/#a-basic-expression
+[jobexpr]: /documentation/build/jobs/#a-basic-expression
 [sampleyaml]: https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml
 [curl]: https://curl.se/
 [studio]: /documentation/jobs/job-studio/

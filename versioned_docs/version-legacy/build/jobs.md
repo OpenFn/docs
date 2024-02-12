@@ -207,7 +207,7 @@ language-packs.
 
 #### each()
 
-Read more about each here: [The each(...) operation](/documentation/build/steps/each)
+Read more about each here: [The each(...) operation](/documentation/jobs/each)
 
 ```js
 each(

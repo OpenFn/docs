@@ -128,7 +128,7 @@ state (which contains your input) to use.
 
 When you need to use data that comes from your webhook trigger (data sent from
 your external system), cron trigger, or a previous job you can find it in
-`state`. Learn more [here](https://docs.openfn.org/documentation/build/steps/state/).
+`state`. Learn more [here](/documentation/jobs/state/).
 
 :::
 

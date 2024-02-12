@@ -12,7 +12,7 @@ Currently, this section is specific to **OpenFn/platform**.
 ## Runs
 
 One of the most helpful pages for troubleshooting on OpenFn platform is the
-[Activity History](/documentation/get-started/terminology/#activity-history).
+[Activity History](/documentation/getting-started/terminology/#activity-history).
 This pages provides a list of all of the runs executed in a project and always
 marks any failed runs red or yellow. Project administrators can troubleshoot
 errors by clicking into the run to review the run details. Keep reading for all
@@ -23,7 +23,7 @@ troubleshooting!
 
 Every run will have an exit code. The exit code is a way for OpenFn to classify
 the run status and can help you troubleshoot errors. Learn more about OpenFn
-exit codes and what each one means [here](/documentation/monitor-history/troubleshooting).
+exit codes and what each one means [here](/documentation/jobs/errors).
 
 ### The time it took for the job to fail
 
@@ -103,7 +103,7 @@ History, and Search Console.
    troubleshooting! Learn more about inbox filtering
    [here](/documentation/manage/platform-mgmt/#inbox).
 
-2. **[Activity history](/documentation/get-started/terminology/#activity-history)** -
+2. **[Activity history](/documentation/getting-started/terminology/#activity-history)** -
    As discussed above, the activity history records all runs for the current
    project. It has similar search and filtering capabilities as the inbox except
    it doesn't require valid JSON in the search box. Use the search in activity
