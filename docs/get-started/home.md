@@ -30,7 +30,7 @@ interoperability at all levels.
 
 OpenFn can be deployed locally or on the secure
 [cloud-hosted platform](https://openfn.org/pricing). See the
-[Deploy docs](/documentation/next/deploy/options) for more on deployment options
+[Deploy docs](/documentation/deploy/options) for more on deployment options
 and requirements.
 
 To support implementers, OpenFn has an online
@@ -117,7 +117,7 @@ writing & testing workflows, managing OpenFn projects, and developing
 You can view the technical documentation and source code for OpenFn's fully open
 source ("FOSS") integration tools and adaptors in their respective repositories
 at [Github.com/OpenFn](https://github.com/openfn) or see
-[Deploy](/documentation/next/deploy/options) section for an overview of the FOSS
+[Deploy](/documentation/deploy/options) section for an overview of the FOSS
 options and additional docs.
 
 :::

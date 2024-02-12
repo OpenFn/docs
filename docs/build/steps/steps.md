@@ -34,7 +34,7 @@ A Step includes these key components:
 
 Writing Jobs to add custom logic for business or data transformation rules
 typically requires basic knowledge of JavaScript. See the
-[Job-writing docs](/documentation/next/build/job-expressions) for a detailed
+[Job-writing docs](/documentation/build/jobs) for a detailed
 overview and the [Library Examples](/adaptors/library) for sample code.
 
 :::
@@ -134,5 +134,5 @@ want this and to avoid the risk of accidental upgrades on live Workflows.
 Click the code button `</>` displayed on the configuration panel to write or
 edit a Job expression to define the "rules" or the specific tasks to be
 completed by your Step. See the pages on
-[the Inspector](/docs/build/steps/step-editor.md) and
-[writing Jobs](/docs/build/steps/job-expressions.md) to learn more.
+[the Inspector](/docs/build/steps/step-editor) and
+[writing Jobs](/docs/build/steps/jobs) to learn more.

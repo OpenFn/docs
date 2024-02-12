@@ -8,14 +8,14 @@ Read on for a brief overview.
 
 :::tip
 
-Check out the [Workflow Design](/documentation/next/design/design-overview) docs
+Check out the [Workflow Design](/documentation/design/design-overview) docs
 for more details on solution design and links to templates.
 
 :::
 
 In short, to design a Workflow Step, you will need to follow the below actions,
 and consider summarizing your design specifications in a
-[workflow diagram](/documentation/next/design/design-workflow).
+[workflow diagram](/documentation/design/design-workflow).
 
 ![Example Workflow](/img/example-workflow-state.png)
 
@@ -29,7 +29,7 @@ and consider summarizing your design specifications in a
 
 ### 2: Map your data elements
 
-[See here](/documentation/next/design/mapping-specs) for detailed guidance on
+[See here](/documentation/design/mapping-specs) for detailed guidance on
 mapping data elements or "data dictionaries" between your source and destination
 apps. To get started:
 
@@ -63,7 +63,7 @@ apps. To get started:
    - `updateTEI(...)`
    - `upsertTEI(...)`
 
-See example [Job expression](/docs/build/steps/job-expressions.md) for a Step
+See example [Job expression](/docs/build/steps/jobs.md) for a Step
 that will "upsert" (update or insert) records in a SQL database.
 
 ```js

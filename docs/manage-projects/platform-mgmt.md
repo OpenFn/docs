@@ -16,4 +16,4 @@ sidebar). Setup allows you to view or edit the project name and description.
 
 You can also export your entire project "as code" - either to save it, or to
 edit your project locally. You can learn more about this feature on our
-[Portability page](/documentation/next/deploy/portability).
+[Portability page](/documentation/deploy/portability).

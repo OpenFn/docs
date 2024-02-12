@@ -11,7 +11,7 @@ outside your country's borders.
 
 :::success Portability
 
-Because of OpenFn's [portability specification](/documentation/next/deploy/portability) and open-source
+Because of OpenFn's [portability specification](/documentation/deploy/portability) and open-source
 deployment tools you can transition between these various pathways at any time.
 We're committed to a **no vendor lock-in** experience.
 

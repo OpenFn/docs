@@ -17,7 +17,7 @@ NGOs worldwide.
 ✓ Build “zero-persistence” data pipelines to fully control where data is store
 
 ✓ Security implementation training & guidance for your project teams
-([read more](/documentation/next/get-started/security))
+([read more](/documentation/get-started/security))
 
 See our main website to learn more about OpenFn
 [Compliance](https://openfn.org/compliance) and
@@ -33,7 +33,7 @@ Workflows can be configured to adhere to your organization's specific data
 sharing agreements and security policies.
 
 Consult the `Manage Projects` docs pages for more on project and
-[data storage settings](documentation/next/manage-projects/io-data-storage).
+[data storage settings](documentation/manage-projects/io-data-storage).
 
 See the below diagram for an example architecture where even the cloud-hosted
 OpenFn platform can be configured as a **“zero-persistence” data pipeline** to

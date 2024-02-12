@@ -81,4 +81,4 @@ exit code itself couldn't be captured by our application.
 ## Limits
 
 We've shifted this content to a dedicated
-[limits](/documentation/next/build/limits) page.
+[limits](/documentation/build/limits) page.

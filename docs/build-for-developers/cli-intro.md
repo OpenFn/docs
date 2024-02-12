@@ -33,7 +33,7 @@ Before you begin with the @openfn/cli, make sure to follow these simple steps:
    following this guide.
 3. **Understand OpenFn Basics:** Have a basic understanding of OpenFn,
    particularly jobs and adaptors. Check out the
-   [Intro section](/documentation/next) on this site.
+   [Intro section](/documentation) on this site.
 
 ---
 

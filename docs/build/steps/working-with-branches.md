@@ -3,7 +3,7 @@ title: Manage changes with Github branches
 sidebar_label: Manage changes
 ---
 
-In the [Edit Steps Locally](/documentation/next/build/steps/editing-locally)
+In the [Edit Steps Locally](/documentation/build/steps/editing-locally)
 section, we walked through the process of creating and adding your changes to
 the `main` branch of a project.
 
@@ -28,7 +28,7 @@ repo to your local folder.
    branch. When you start editing your steps, the changes will be kept on this
    branch, managed separately from `main`.
 
-2. To test the changes locally, check out the [The CLI](/documentation/next/cli)
+2. To test the changes locally, check out the [The CLI](/documentation/cli)
    docs.
 
 3. Just as you've seen when working on `main`, when you're done check which

@@ -19,7 +19,7 @@ or ask on the [Community](https://community.openfn.org)
 
 Please note that if you're looking for a glossary for generic terms used in
 data-integration (rather than this _OpenFn-specific_ stuff) head over to the
-[Glossary for Integration](/documentation/next/get-started/glossary) page in the
+[Glossary for Integration](/documentation/get-started/glossary) page in the
 Design section. Otherwise, read on!
 
 ## Project
@@ -31,7 +31,7 @@ workflow configuration & history. Projects have an owner and one or more
 Collaborators.
 
 In local deployment and development, Project also corresponds to a
-[`project.yaml`](/documentation/next/deploy/portability-versions#proposal-v2)
+[`project.yaml`](/documentation/deploy/portability-versions#proposal-v2)
 file, which defines a project' configuration.
 
 In either case, a Project contains Workflows, Triggers, Credentials, and
@@ -50,7 +50,7 @@ connected together to automate a specific business process or task. A Workflow
 is configured via the Canvas in the web app, or locally (via code).
 
 OpenFn automation centers around
-[Workflows](/documentation/next/build/workflows), which may have one or multiple
+[Workflows](/documentation/build/workflows), which may have one or multiple
 Steps. Workflows can be run in real-time (based on an event -e.g., new patient
 registration), on a scheduled basis (e.g., every day at 8am), or manually
 on-demand.
@@ -121,7 +121,7 @@ Triggers are the **"when to do it"** part of automation!
 A [Trigger](/documentation/build/triggers) determines **how and when** Workflows
 should execute automatically (e.g., real-time or schedule-based). When
 activated, Triggers create a new
-[Work Order](/documentation/next/get-started/terminology#work-order) and run (or
+[Work Order](/documentation/get-started/terminology#work-order) and run (or
 "execute") the Workflow.
 
 A "Webhook Event" Trigger may be configured if you want your Workflow to execute

@@ -6,10 +6,10 @@ sidebar_label: Edit Steps locally
 If you're a developer, you can use your favorite text editor and make changes
 offline, committing and pushing to GitHub. This page describes how to edit Steps
 locally, instead of on the platform via
-[the Inspector](/documentation/next/build/steps/step-editor).
+[the Inspector](/documentation/build/steps/step-editor).
 
 First, make sure that version control is set up for your Project (see
-[Manage Projects](/documentation/next/manage-projects/platform-mgmt) for more on
+[Manage Projects](/documentation/manage-projects/platform-mgmt) for more on
 configuring this). When that's all done, follow these steps on your local
 machine:
 
@@ -73,4 +73,4 @@ From there, the version control integration will update changed steps in your
 OpenFn Project and you can test those changes on the platform.
 
 Once you're ready to start running steps and testing your changes _locally_,
-head over to the [The CLI](/documentation/next/cli) docs for guidance.
+head over to the [The CLI](/documentation/cli) docs for guidance.

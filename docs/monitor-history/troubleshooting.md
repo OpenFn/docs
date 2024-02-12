@@ -8,14 +8,14 @@ sidebar_label: Troubleshooting
 ## Runs
 
 One of the most helpful pages for troubleshooting on OpenFn is the
-[History](/documentation/next/monitor-history/activity-history) page.
-This page provides a list of all of the runs executed for a Work Order and their status. Project administrators can troubleshoot errors by clicking into the run to review the run details. Learn more about runs [here](/documentation/next/monitor-history/inspect-runs) here.
+[History](/documentation/monitor-history/activity-history) page.
+This page provides a list of all of the runs executed for a Work Order and their status. Project administrators can troubleshoot errors by clicking into the run to review the run details. Learn more about runs [here](/documentation/monitor-history/inspect-runs) here.
 
 ### Status codes
 
 Every run will have a status code. The status code is a way for OpenFn to classify
 the run status and can help you troubleshoot errors. Learn more about OpenFn
-status codes and what each one means [here](/documentation/next/monitor-history/status-codes).
+status codes and what each one means [here](/documentation/monitor-history/status-codes).
 
 ### The time it took for the workflow to fail
 
@@ -87,7 +87,7 @@ Leverage the various search functionalities in OpenFn to find the right runs to 
 
 ## Sign up for email alerts
 
-You can turn on notifications to receive [email alerts](/documentation/next/manage-projects/notifications) when a workflow fails and subscribe to digests that summarize project activity.
+You can turn on notifications to receive [email alerts](/documentation/manage-projects/notifications) when a workflow fails and subscribe to digests that summarize project activity.
 
 ## More
 

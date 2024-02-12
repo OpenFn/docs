@@ -10,8 +10,8 @@ components.
 ## History
 
 The `History` page provides a list of all of the
-[Work Orders](/documentation/next/get-started/terminology#work-order) and
-[Runs](/documentation/next/get-started/terminology#run) that have been processed
+[Work Orders](/documentation/get-started/terminology#work-order) and
+[Runs](/documentation/get-started/terminology#run) that have been processed
 in a Project.
 
 ![History](/img/case-referral-history.png)
@@ -28,7 +28,7 @@ OpenFn Workflows are executed as follows:
    (without errors) - this ensures that the processing of has been completed.
 3. A `Run` is then executed to try to complete the Workflow successfully. This
    Run will have a
-   [status code](/documentation/next/monitor-history/status-codes), indicating
+   [status code](/documentation/monitor-history/status-codes), indicating
    whether the Workflow Steps were successfully processed.
 4. If the 1st `Run` fails, then you can rerun it to "retry" the workflow. A 2nd
    `Run` will be created. If successful, then both the Run and related Work

@@ -32,11 +32,11 @@ The process of combining data from different sources into a centralized view. Da
 ## Introduction
 
 Workflow automation design features 5 main steps that are covered in depth in other articles:
-1. [Discovery & Scoping](/documentation/next/design/discovery)
-2. [Workflow Design](/documentation/next/design/design-workflow)
-3. [API Discovery and Technical Design](/documentation/next/design/api-discovery)
-4. [Data Element Mapping Specifications](/documentation/next/design/mapping-specs)
-5. [Workflow Specifications](/documentation/next/design/workflow-specs)
+1. [Discovery & Scoping](/documentation/design/discovery)
+2. [Workflow Design](/documentation/design/design-workflow)
+3. [API Discovery and Technical Design](/documentation/design/api-discovery)
+4. [Data Element Mapping Specifications](/documentation/design/mapping-specs)
+5. [Workflow Specifications](/documentation/design/workflow-specs)
 
 ### Example Use Case
 Throughout the design documentation we will reference the fictional data collection & workflow automation scenario below:

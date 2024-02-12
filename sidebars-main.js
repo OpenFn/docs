@@ -49,7 +49,7 @@ module.exports = {
           type: 'category',
           label: 'Jobs',
           items: [
-            'build/steps/job-expressions',
+            'build/steps/jobs',
             'build/steps/job-examples',
             'build/steps/operations',
             'build/steps/multiple-operations',
