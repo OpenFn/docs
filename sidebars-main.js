@@ -10,22 +10,19 @@ module.exports = {
         'get-started/standards',
         'get-started/security-compliance',
         'get-started/security',
-        // 'get-started/implementation-checklist',
-        //
+        // 'get-started/implementation-checklist', //TODO: Add back after Aicha's updates
       ],
     },
     {
       type: 'category',
       label: 'Design Workflows',
       items: [
-        //'design/overview',
         'design/design-overview',
         'design/discovery',
         'design/design-workflow',
         'design/api-discovery',
         'design/mapping-specs',
         'design/workflow-specs',
-        //'design/discovery'
       ],
     },
     {
@@ -43,8 +40,9 @@ module.exports = {
         'build/steps/step-editor',
         'build/steps/step-design-intro',
         'build/paths',
+        'build/credentials',
         'build/limits',
-        //'build/troubleshooting',
+        'build/troubleshooting',
         {
           type: 'category',
           label: 'Jobs',
@@ -59,7 +57,6 @@ module.exports = {
             'build/steps/working-with-branches',
           ],
         },
-        //============  END  =================//
       ],
     },
     {
@@ -73,13 +70,17 @@ module.exports = {
         'build-for-developers/jobs',
         'build-for-developers/build-with-api',
         'build-for-developers/security-for-devs',
-        //'build-for-developers/for-devs'
       ],
     },
     {
       type: 'category',
       label: 'Deploy',
-      items: ['deploy/options', 'deploy/requirements', 'deploy/portability'],
+      items: [
+        'deploy/options',
+        'deploy/requirements',
+        'deploy/portability',
+        'deploy/portability-versions',
+      ],
     },
     {
       type: 'category',
@@ -119,8 +120,7 @@ module.exports = {
       label: 'Contribute',
       items: [
         'contribute/openfn-roadmap',
-        // 'contribute/roadmap',
-        // 'contribute/writing-code',
+        'contribute/writing-code',
         'contribute/writing-docs',
         'contribute/style-guide',
       ],
