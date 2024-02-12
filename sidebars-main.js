@@ -5,11 +5,13 @@ module.exports = {
       label: 'Get started',
       items: [
         'get-started/home',
-        // 'intro/terminology',
-        // 'intro/standards',
-        // 'intro/security-compliance',
-        // 'intro/security',
-        // 'intro/implementation-checklist',
+        'get-started/terminology',
+        'get-started/glossary',
+        'get-started/standards',
+        'get-started/security-compliance',
+        'get-started/security',
+        // 'get-started/implementation-checklist',
+        //
       ],
     },
     {
@@ -83,13 +85,22 @@ module.exports = {
       label: 'Monitor History',
       items: [
         'monitor-history/activity-history',
+        'monitor-history/inspect-runs',
+        'monitor-history/rerunning-workflow',
+        'monitor-history/troubleshooting',
         'monitor-history/status-codes',
       ],
     },
     {
       type: 'category',
       label: 'Manage Projects',
-      items: ['manage-projects/platform-mgmt'],
+      items: [
+        'manage-projects/platform-mgmt',
+        'manage-projects/retention-periods',
+        'manage-projects/io-data-storage',
+        'manage-projects/user-roles-permissions',
+        'manage-projects/notifications',
+      ],
     },
     {
       type: 'category',

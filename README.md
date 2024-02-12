@@ -1,16 +1,14 @@
-# [OpenFn Documentation & Issue Tracking](https://docs.openfn.org)
+# [OpenFn Documentation](https://docs.openfn.org)
 
-## [![Logo](static/img/round-logo.png)&nbsp;&nbsp;docs.openfn.org](https://docs.openfn.org)
+**_Visit [docs.openfn.org](https://docs.openfn.org) to view the documentation
+site._**
 
-**_To view the documentation please visit
-[docs.openfn.org](https://docs.openfn.org)._**
-
-### Contributing to this documentation site
+## Contributing to this documentation site
 
 Visit https://docs.openfn.org/documentation/writing-docs/.
 
-This website is built using [Docusaurus 2](https://v2.docusaurus.io/), a modern
-static website generator.
+This website is built using [Docusaurus](https://docusaurus.io/), a static
+website generator that uses Markdown and Javascript.
 
 - To create new docs pages, add markdown files (or JS files) to the `/docs`
   folder.
@@ -26,9 +24,9 @@ static website generator.
 ./docusaurs.config.js
 ```
 
-#####
+## Local Development
 
-Installation
+### Installation
 
 ```console
 asdf install
@@ -36,26 +34,39 @@ corepack enable
 yarn install
 ```
 
-### Local Development
+### Starting your docs site server
 
 ```console
 yarn start
 ```
 
-This command builds the job library from OpenFn.org, starts a local development
-server, and opens up a browser window. Most changes are reflected live without
-having to restart the server.
+This command builds the Adaptor docs from
+[OpenFn/adaptors](https://github.com/OpenFn/adaptors), starts a local
+development server, and opens up a browser window. Most changes are reflected
+live without having to restart the server.
+
+### Start without rebuilding adaptor docs
 
 ```
 yarn start-offline
 ```
 
-This command skips the job library step, which requires an active internet
+This command skips the adaptor docs step, which requires an active internet
 connection.
+
+### Building the job library
+
+```
+yarn generate-library
+```
+
+This command pulls public job data from OpenFn.org to create a local "job
+library".
 
 ### Build and serve for full-featured testing
 
 ```console
+yarn generate-adaptors
 yarn generate-library
 yarn build
 yarn serve
@@ -67,4 +78,5 @@ served using any static contents hosting service.
 ### Deployment
 
 Builds to `main` will automatically be deployed to
-[docs.openfn.org](https://docs.openfn.org).
+[docs.openfn.org](https://docs.openfn.org). This branch is protected, but we
+welcome pull requests!

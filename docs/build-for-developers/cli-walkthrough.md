@@ -342,16 +342,29 @@ by user id. The example below shows how we can:
 // Get all posts
 get('posts');
 
-// Group posts by user id fn(state => { const posts = state.data;
+// Group posts by user id
+fn(state => {
+  const posts = state.data;
 
-// Group posts by userId const groupPostsByUserId = posts.reduce((acc, post) =>
-{ const existingValue = acc[post.userId] || []; return { ...acc, [post.userId]:
-[...existingValue, post] }; }, {});
+  // Group posts by userId
+  const groupPostsByUserId = posts.reduce((acc, post) => {
+    const existingValue = acc[post.userId] || [];
+    return {
+      ...acc,
+      [post.userId]:[...existingValue, post]
+    };
+  }, {});
 
-// console.log(groupPostsByUserId); return { ...state, groupPostsByUserId }; });
+  console.log(groupPostsByUserId);
 
-// Log posts where userId = 1 fn(state => { const { groupPostsByUserId } =
-state; console.log('Post with userId 1', groupPostsByUserId[1]); return state;
+  return { ...state, groupPostsByUserId };
+});
+
+// Log posts where userId = 1
+fn(state => {
+  const { groupPostsByUserId } = state;
+  console.log('Post with userId 1', groupPostsByUserId[1]);
+  return state;
 });
 
 ```
@@ -445,6 +458,7 @@ fn(state => {
 
 <details>
   <summary>Expected CLI logs</summary>
+
   ```bash
   [CLI] ✘ TypeError: path.match is not a function
       at dataPath (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:258:26)
@@ -457,6 +471,7 @@ fn(state => {
       at async run (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:269:18)
       at async executeHandler (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/dist/process/runner.js:388:20)
   ```
+
 </details>
 
 As you can see from our logs that helper function `dataValue` has a TypeError,
@@ -470,6 +485,7 @@ fix the error by passing a string in dataValue i.e `console.log(dataValue(“1�
 
 <details>
   <summary>Expected CLI logs</summary>
+
   ```bash
   [CLI] ✔ Compiled job from debug.js
   GET request succeeded with 200 ✓
@@ -479,6 +495,7 @@ fix the error by passing a string in dataValue i.e `console.log(dataValue(“1�
   [CLI] ✔ Writing output to tmp/output.json
   [CLI] ✔ Done in 1.102s ✨
   ```
+
 </details>
 
 If you need more information for debugging you can pass -l debug which will give
@@ -537,10 +554,11 @@ Notice how this code uses the `each` function, a helper function defined in
 but accessed from this job that is using language-http. Most adaptors import and
 export many functions from `language-common`.
 
-##### Run **openfn getPosts.js -a http -o tmp/output.json**
+##### Run **openfn getPosts.js -a http -s tmp/state.json -o tmp/output.json**
 
 <details>
   <summary>Expand to see expected CLI logs</summary>
+
   ```bash
   [CLI] ✔ Compiled job from getPosts.js
   GET request succeeded with 200 ✓
@@ -554,6 +572,7 @@ export many functions from `language-common`.
   [CLI] ✔ Writing output to tmp/output.json
   [CLI] ✔ Done in 1.091s! ✨
   ```
+
 </details>
 
 ### 7. Running Workflows
