@@ -1,6 +1,7 @@
 ---
-title: Linking your Project to GitHub (Version Control)
-sidebar_label: Linking your Project to GitHub
+title: Linking Your Project to GitHub (Version Control)
+sidebar_label: Linking Your Project to GitHub
+slug: /link-to-github
 ---
 
 You can set up version control for your OpenFn projects. This article walks you
@@ -36,7 +37,7 @@ Click `Configure`...
    sync to, and click `Connect Branch`.
 
 6. Your GitHub connection is now set up! From here, each time you want to sync
-between your project and GitHub, click `Initiate Sycn to Branch`.
+   between your project and GitHub, click `Initiate Sycn to Branch`.
 
 ### How It Works in a Nutshell
 
