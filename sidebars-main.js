@@ -98,6 +98,7 @@ module.exports = {
         'manage-projects/platform-mgmt',
         'manage-projects/retention-periods',
         'manage-projects/io-data-storage',
+        'manage-projects/manage-credentials',
         'manage-projects/user-roles-permissions',
         'manage-projects/notifications',
       ],
@@ -105,7 +106,9 @@ module.exports = {
     {
       type: 'category',
       label: 'Manage Users & Credentials',
-      items: ['manage-users/user-profile'],
+      items: ['manage-users/user-profile',
+              'manage-users/user-credentials'
+    ],
     },
     {
       type: 'category',

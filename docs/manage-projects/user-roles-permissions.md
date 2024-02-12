@@ -34,3 +34,5 @@ When OpenFn Users are invited to work on your Project as `Collaborators`, they a
 | Settings| Change History retention period  | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |"
 | Settings| Update GitHub project/repo connection  | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: |"
 | Settings| Initiate GitHub sync  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x: |"
+
+Contact your app's super admin if you need to add/remove project collaborators or modify a user's role. 
