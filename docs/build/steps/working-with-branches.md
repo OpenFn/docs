@@ -1,14 +1,15 @@
 ---
-title: Working with branches
+title: Manage changes with Github branches
+sidebar_label: Manage changes
 ---
 
-In the [Editing Workflows Locally](editing-locally)
-section we walked through the process of creating and adding your changes to the
-`main` branch of a project.
+In the [Edit Steps Locally](/documentation/next/build/steps/editing-locally)
+section, we walked through the process of creating and adding your changes to
+the `main` branch of a project.
 
-However, most code change workflows involve sharing and reviewing changes before
+However, most code change to workflows involve sharing and reviewing changes before
 deployment. You can do this by creating, testing and sharing your changes on a
-new branch, then, once final, merging them into `main` for deployment.
+new Github branch, then, once final, merging them into `main` for deployment.
 
 :::tip
 
@@ -24,10 +25,10 @@ Let's pick up the workflow when you `git pull` -ed the latest changes of the
 repo to your local folder.
 
 1. Running `git checkout -b {branch_name}` will create and switch over to a new
-   branch. When you start editing your jobs, the changes will be kept on this
+   branch. When you start editing your steps, the changes will be kept on this
    branch, managed separately from `main`.
 
-2. To test the changes locally, check out the [The CLI](/documentation/cli)
+2. To test the changes locally, check out the [The CLI](/documentation/next/cli)
    docs.
 
 3. Just as you've seen when working on `main`, when you're done check which

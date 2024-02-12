@@ -1,6 +1,6 @@
 ---
 title: Basic usage of OpenFn CLI
-sidebar_label: Basic Usage
+sidebar_label: Basic usage
 slug: /cli-usage
 ---
 

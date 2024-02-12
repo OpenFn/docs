@@ -1,6 +1,6 @@
 ---
-title: CLI Walkthrough
-sidebar_label: CLI Walkthrough
+title: CLI walkthrough
+sidebar_label: CLI walkthrough
 slug: /cli-walkthrough
 ---
 

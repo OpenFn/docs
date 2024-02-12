@@ -1,7 +1,7 @@
 ---
 id: security-for-devs
-title: Security Considerations for Development
-sidebar_label: Security Considerations
+title: Security considerations for OpenFn development
+sidebar_label: Security considerations
 slug: /security-for-devs
 ---
 

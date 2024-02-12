@@ -1,6 +1,6 @@
 ---
 title: CLI Challenges
-sidebar_label: CLI Challenges
+sidebar_label: CLI challenges
 slug: /cli-challenges
 ---
 

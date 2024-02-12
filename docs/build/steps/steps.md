@@ -1,0 +1,129 @@
+---
+title: Configure Steps
+---
+
+A Step is a specific task or activity in a workflow. Each Step is linked to an
+[Adaptor](/adaptors/) and contains business logic to perform a specific task or
+operation in that target app. Read on to learn more.
+
+## Create or edit a Step
+
+Via the Workflow Canvas, click the plus `+` icon to create a _new_ Step, or
+click on existing Step to view or configure its key components.
+
+## Configure the Step
+
+When configuring a Step, you must understand its basic anatomy.
+
+![Step Anatomy](/img/step-anatomy.png)
+
+A Step includes these key components:
+
+- `Name` - A human-readable name describing the Step and its purpose.
+- `Adaptor` - The selected [Adaptor](/adaptors/) that is used to provide
+  app-specific functionality for this Step (e.g., `dhis2` or `commcare`).
+- `Adaptor Version` - The version of the selected Adaptor, which determines
+  which API endpoints and Adaptor functions are available. See below section to
+  learn more.
+- `Credentials` - The Credential used to authorize connections to the target app
+  related to this Step.
+- `Expression` - The step "script" or `Job expression` that defines the business
+  logic and/or sequence of operations to be executed
+
+## Choose an Adaptor
+
+We've got a whole section on creating new [Adaptors](/adaptors), but the
+critical thing to be aware of when writing a step is that you've got to choose
+an **Adaptor**, and an **Adaptor Version**.
+
+All of the discussion below of helper functions like `create` or `findPatient`
+requires some understanding of adaptors. When you run a step, you're borrowing a
+layer of functionality that's been built to connect with some specific API, type
+of API, or database.
+
+For example, `create` means one thing in the `salesforce` Adaptor and another
+thing entirely in `dhis2`. For this reason, before you can begin writing a step
+you have to decide which [Adaptor](/adaptors/) to work with.
+
+### Choose an Adaptor Version
+
+Adaptors change over time. They're open source, and we encourage as much
+contribution as possible—releasing new versions for use on OpenFn.org as soon as
+they pass our security reviews. New features may be added and bugs may be fixed,
+but in order to make sure that an existing integration is not broken, we
+recommend that you select a specific version (rather than using the
+"auto-upgrade" feature) when you choose an adaptor. The highest released version
+is the default choice here.
+
+:::tip
+
+The _first 4 lines_ in the log of any run on OpenFn will tell you what adaptor
+you're running. (As well as the version of worker, engine and NodeJs) This is
+incredibly important, particularly if you're trying to troubleshoot steps in
+various environments (like your own shell, app.openfn.org etc.).
+
+:::
+
+Pay careful attention to which `version` you're using to write a step. Consider
+the following run logs:
+
+```sh
+Versions for run f470a3da-8b90-480e-a94f-6dd982c91afe:
+    ▸ node.js                     18.19.0
+    ▸ worker                      0.5.0
+    ▸ engine                      0.2.6
+    ▸ @openfn/language-primero    2.9.1
+...more logs here...
+```
+
+### Managing Adaptor Versions
+
+While it may be beneficial to upgrade as part of your routine maintenance, these
+upgrades should be carefully tested. Most often, customers upgrade to a new
+adaptor version for an existing step when they are making business-drives
+changes to that step. Some business-driven changes may actually _require_
+upgrading the version in order to use a new feature from the adaptor. Even if
+those changes don't require and upgrade, if the technical team must spend time
+testing step-specific changes anyway, it may be an ideal opportunity to test
+also test an upgrade.
+
+Adaptors follow [SEMVER](https://semver.org/) so you can be reasonably assured
+that upgrading from `x.1.z` to `x.2.z` will not lead to existing step code
+failing, but an upgrade from `3.y.z` to `4.y.z` may—in SEMVER _major_ upgrades
+(those that change the first number in the `x.y.z` version number) have
+"breaking" or "non-backwards compatible" changes.
+
+:::tip
+
+When you configure a Step, you can select a specific `Adaptor Version` to
+version-lock your Step. Avoid selecting `latest` for Adaptor Version, if you
+want this and to avoid the risk of accidental upgrades on live Workflows.
+
+:::
+
+## Run & Test Steps
+
+When running Steps to test the configuration, every Run will have an initial
+state (which may contain an `Input`) and results in a final state that will
+include `Logs` and an `Output`.
+
+- `Input` - Data (JSON) that is used as the starting Input for a Step to utilise
+  in its run. An Input can exist for a Work Order and individual Steps within a
+  Run, though it is possible for either to exist without an Input.
+- `Output` - Data (JSON) that is created as the Output of a Step's execution. An
+  Output can exist for a Work Order and individual jobs within a run, and
+  typically contains the data sent to the target app.
+- `Logs` - A record generated by the workflow execution engine that details the
+  activities performed when running a Workflow or individual Step.
+
+See [Edit Steps](/docs/build/steps/step-editor.md) for more on making changes
+and testing, and see [this article](/docs/build/steps/state.md) for more on the
+concept of "state" when writing Jobs and building OpenFn Workflows.
+
+## Add business logic or data transformation rules
+
+Click the code button `</>` displayed on the configuration panel to write or
+edit a Job expression to define the "rules" or the specific tasks to be
+completed by your Step. See the pages on
+[the Inspector](/docs/build/steps/step-editor.md) and
+[writing Job expressions](/docs/build/steps/job-expressions.md) to learn more.

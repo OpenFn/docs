@@ -1,0 +1,78 @@
+---
+title: Design your Step
+---
+
+Before you can configure your Step, you'll need to design the Workflow and
+consider which specific tasks, activities, or business logic will be executed.
+Read on for a brief overview.
+
+:::tip
+
+Check out the [Workflow Design](/documentation/next/design/design-overview) docs
+for more details on solution design and links to templates.
+
+:::
+
+In short, to design a Workflow Step, you will need to follow the below actions,
+and consider summarizing your design specifications in a
+[workflow diagram](/documentation/next/design/design-workflow).
+
+![Example Workflow](/img/example-workflow-state.png)
+
+### 1: Determine your Inputs/Outputs
+
+1. What is the Input for this Workflow Step? Consider what is the initial state
+   or data _before_ the Step begins.
+2. What is the desired Output (i.e., the final state or data _after_ the Step is
+   executed)? Consider what you want to send to the target app and/or pass onto
+   the next Step in the Workflow.
+
+### 2: Map your data elements
+
+[See here](/documentation/next/design/mapping-specs) for detailed guidance on
+mapping data elements or "data dictionaries" between your source and destination
+apps. To get started:
+
+1. Export the metadata (or "form", "field list", or "data elements") of your
+   source app (input) & destination app (output).
+2. Paste the metadata into an Excel spreadsheet to create a mapping sheet:
+
+![Sample mapping sheet](/img/data-element-mapping.png)
+
+3. Map the source and destinationdata elements & define rules for data cleaning
+   and transformation Consider:
+
+- How should the data collected be translated into your destination system’s
+  data model?
+- Does your destination system have data input & validation requirements?
+
+## 3. Define your methods (GET, POST...) and/or operations (insert, update, upsert...)
+
+1. Find out or create the unique identifiers you will use to insert and update
+   data (e.g., uuid, form_id, patient_id, etc.).
+2. Determine the HTTP methods (e.g., GET, POST, PUT) or database operations
+   (e.g. insert, update, delete) you want to perform in the target app
+3. Check the Adaptor for helper functions. a. Example from
+   [language-postgresql](/adaptors/packages/postgresql-docs)
+   - `insert(...)`, `insertMany(...)`
+   - `update(...)`, `updateMany(...)`
+   - `upsert(...)`, `upsertMany(...)`  → update if record exists or insert if it
+     doesn’t; references an external Id b. Example from
+     [language-dhis2](/adaptors/packages/dhis2-docs) using Tracked Entity
+     Instances (TEI)
+   - `updateTEI(...)`
+   - `upsertTEI(...)`
+
+See example [Job expression](/docs/build/steps/job-expressions.md) for a Step
+that will "upsert" (update or insert) records in a SQL database.
+
+```js
+upsert('mainDataTable', 'AnswerId', {
+  AnswerId: dataValue('\_id'), //external Id for upsert
+  column: dataValue('firstQuestion)'),
+  LastUpdate: new Date().toISOString(),
+  Participant: dataValue('participant'),
+  Surveyor: dataValue('surveyor'),
+  ...
+});
+```

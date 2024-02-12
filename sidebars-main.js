@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Get Started',
+      label: 'Get started',
       items: [
         'get-started/home',
         'get-started/terminology',
@@ -35,21 +35,41 @@ module.exports = {
     // },
     {
       type: 'category',
-      label: 'Build & Manage Workflows',
+      label: 'Build & manage Workflows',
       items: [
         'build/tutorial',
         'build/limits',
         // 'build/triggers'
+        //====== STEPS SUBCATEGORY =============//
+        //TODO: @Mtuchi pls clean up the below pages and decide which to keep/refresh/delete for V2 docs//
+        {
+          type: 'category',
+          label: 'Steps',
+          items: [
+            'build/steps/steps',
+            'build/steps/step-design-intro',
+            'build/steps/job-expressions',
+            'build/steps/operations',
+            'build/steps/multiple-operations',
+            'build/steps/state',
+            'build/steps/each',
+            'build/steps/step-editor',
+            'build/steps/editing-locally',
+            'build/steps/working-with-branches',
+          ],
+        },
+        //============  END  =================//
       ],
     },
     {
       type: 'category',
-      label: 'Build (For Developers)',
+      label: 'Build (CLI)',
       items: [
         'build-for-developers/cli-intro',
         'build-for-developers/cli-usage',
         'build-for-developers/cli-walkthrough',
         'build-for-developers/cli-challenges',
+        'build-for-developers/jobs',
         'build-for-developers/build-with-api',
         'build-for-developers/security-for-devs',
         //'build-for-developers/for-devs'
@@ -89,12 +109,12 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Get Help',
+      label: 'Get help',
       items: ['get-help/support'],
     },
     {
       type: 'category',
-      label: 'Contribute - Docs & Roadmap',
+      label: 'Contribute',
       items: [
         'contribute/openfn-roadmap',
         // 'contribute/roadmap',

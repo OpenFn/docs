@@ -1,15 +1,17 @@
 ---
-title: Editing jobs locally
+title: Edit Steps locally
+sidebar_label: Edit Steps locally
 ---
 
-To edit jobs, instead of using the OpenFn
-[Job Studio](/documentation/jobs/job-studio) you can also use your favorite text
-editor and make changes offline, committing and pushing to GitHub to deploy to
-your OpenFn using the
-[version control feature](/documentation/manage/platform-mgmt/#github-version-control).
+If you're a developer, you can use your favorite text editor and make changes
+offline, committing and pushing to GitHub. This page describes how to edit Steps
+locally, instead of on the platform via
+[the Inspector](/documentation/next/build/steps/step-editor).
 
-First, make sure that version control is set up for your project and the job in
-question. When that's all done, follow the steps below:
+First, make sure that version control is set up for your Project (see
+[Manage Projects](/documentation/next/manage-projects/platform-mgmt) for more on
+configuring this). When that's all done, follow these steps on your local
+machine:
 
 1. Make sure you have
    [git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
@@ -40,7 +42,7 @@ for more info.)
 5. For this tutorial, we assume you're making changes on the `main` or `master`
    branch: the one that is deployed as your production system to OpenFn.
 
-6. To edit your jobs, use a code editor such as
+6. To edit your steps, use a code editor such as
    [Visual Studio Code](https://code.visualstudio.com/download).
 
 ![VS Code](/img/edit_job_vscode.png)
@@ -67,8 +69,8 @@ There's a lot to learn about git.
 10. Then run `git push` to upload the files to the repo (see more on
     [git docs](https://github.com/git-guides/git-push)).
 
-From there, the version control integration will update changed jobs in your
-OpenFn project and you can test those changes on the platform.
+From there, the version control integration will update changed steps in your
+OpenFn Project and you can test those changes on the platform.
 
-Once you're ready to start running jobs and testing your changes _locally_, head
-over to the [The CLI](/documentation/cli) docs for guidance.
+Once you're ready to start running steps and testing your changes _locally_,
+head over to the [The CLI](/documentation/next/cli) docs for guidance.
