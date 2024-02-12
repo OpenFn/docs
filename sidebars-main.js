@@ -102,12 +102,15 @@ module.exports = {
         'manage-projects/manage-credentials',
         'manage-projects/user-roles-permissions',
         'manage-projects/notifications',
+        'manage-projects/link-to-gh',
+
       ],
     },
     {
       type: 'category',
       label: 'Manage Users & Credentials',
-      items: ['manage-users/user-profile', 'manage-users/user-credentials'],
+      items: ['manage-users/user-profile', 'manage-users/user-credentials', 'manage-users/email-notifications',
+       'manage-users/api-tokens'],
     },
     {
       type: 'category',
