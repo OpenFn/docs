@@ -35,7 +35,7 @@ New features:
 - **Exclusion filters:** Users can now specify message filter triggers to
   _exclude_ messages matching a certain signature via the same matching rules as
   the standard _inclusion_ filter. Read more in the
-  [docs](/documentation/build/triggers#message-filter-triggers)
+  [docs](./build/triggers.md#message-filter-triggers)
 
 ## Version 1.90.30 (2021-03-31)
 

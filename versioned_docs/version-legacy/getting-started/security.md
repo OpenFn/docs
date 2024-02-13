@@ -103,7 +103,7 @@ Here are the key OpenFn templates and resources referenced in the Guidebook:
 
 - [Mapping Specification Template](https://docs.google.com/spreadsheets/d/1IqTIgOzyOztEevXbgY_4uE8Y8tiHXufZXx-IyJZase0/edit#gid=1822444315)
 - [Solution Architecture Diagram](https://lucid.app/lucidchart/1e997197-2d67-4393-8394-a532d83561b2/edit#?templateid=fb96ae05-e288-4d1f-b3fc-2cbf7641a7cc)
-- [BPMN Diagram resources](/documentation/design/design-quickstart/#use-bpmn-for-standardized-documentation)
+- [BPMN Diagram resources](../design/design-quickstart.md#use-bpmn-for-standardized-documentation)
 - [Project Security Configuration & Go-Live Checklist](https://docs.google.com/document/d/1CbQkN7SqNmXeqt3nMTYP4ioQlTuwF2LbDkkFqhp0zsU/edit?usp=sharing)
 
 ### Communities of practice & other experts

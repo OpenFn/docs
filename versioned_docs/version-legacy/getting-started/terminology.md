@@ -23,14 +23,14 @@ With this in mind, let's check out the key terms.
 
 Please note that if you're looking for a glossary for generic terms used in
 data-integration (rather than this _OpenFn-specific_ stuff) head over to the
-[Glossary for Integration](/documentation/getting-started/glossary) page in the
+[Glossary for Integration](../getting-started/glossary.md) page in the
 Design section. Otherwise, read on!
 
 ## Project
 
 A project is an administrative grouping in OpenFn. In
 [OpenFn/microservice](https://github.com/OpenFn/microservice), it corresponds to a
-[`project.yaml`](/documentation/portability#proposal-v2-latest) file. On the
+[`project.yaml`](../portability.md#proposal-v2-latest) file. On the
 platform, it's got an owner, a billing plan, and a bunch of
 collaborators—different users that have been granted access to the project. In
 either case, a project contains jobs, triggers, credentials, and everything you
@@ -44,7 +44,7 @@ Jobs are the **"what to do"** part of automation!
 
 :::
 
-OpenFn automation centers around [jobs](/documentation/build/jobs), which define
+OpenFn automation centers around [jobs](../build/jobs.md), which define
 the specific series of operations (i.e., tasks) that OpenFn should perform. Jobs
 can be executed at certain times, when message arrive from outside systems, or
 when _other jobs_ succeed or fail. Think of jobs as a set of instructions you
@@ -56,7 +56,7 @@ confirmation number when payment confirmation message is received etc.).
 :::note Jobs are Reusable
 
 Jobs are fully configurable and reusable. They can also be chained together to
-create [multi-step automation](/documentation/jobs/multiple-operations) flows,
+create [multi-step automation](../jobs/multiple-operations.md) flows,
 two-way syncs, and to keep data consistent between multiple applications (using
 multi-app Saga patterns). You can read more on two-way syncing below.
 
@@ -72,7 +72,7 @@ adaptors at the moment, and anyone is free to build or enhance them.
 
 ### Operation
 
-An [operation](/documentation/jobs/operations) is the sub-task inside a job. For
+An [operation](../jobs/operations.md) is the sub-task inside a job. For
 example, a job for loading data to DHIS2 might include 3 separate operations:
 
 1. Create a new "program".
@@ -87,7 +87,7 @@ Triggers are the **"when to do it"** part of automation!
 
 :::
 
-A [trigger](/documentation/build/triggers) determines **when** to run a job
+A [trigger](../build/triggers.md) determines **when** to run a job
 automatically. A trigger could be set up to run a job when a message arrives
 (this is known as a `message filter` trigger), on a cron schedule (a `cron`
 trigger) or based on the success or failure of _another_ job(a `flow` or `catch`
@@ -102,7 +102,7 @@ Credentials are the **"How to log in"** part of automation!
 
 :::
 
-A [credential](/documentation/build/credentials) is used to log in to a
+A [credential](../build/credentials.md) is used to log in to a
 destination system (e.g., Salesforce username, password & login URL) so that a
 job can run. Via OpenFn's security model, they are separated from the jobs
 themselves to ensure that stored usernames and passwords (which are all
@@ -116,7 +116,7 @@ and `headers` of the HTTP request that was made to your inbox.
 
 ### Inbox
 
-Your project's [inbox](/documentation/build/inbox) contains all of the messages
+Your project's [inbox](../build/inbox.md) contains all of the messages
 that have been sent to your project. Messages are stored payloads or data (e.g.,
 an incoming SMS, a submitted CommCare form) that were sent via HTTP post to your
 inbox.

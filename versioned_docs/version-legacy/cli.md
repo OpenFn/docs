@@ -39,7 +39,7 @@ to use and understand OpenFn.
 :::caution Looking for a way to execute jobs from OpenFn v1 locally? Use Core!
 
 If you're looking for a way to execute jobs running on the OpenFn v1 platform,
-please see the documentation for **[@openfn/core](/https://github.com/OpenFn/core)** and
+please see the documentation for **[@openfn/core](https://github.com/OpenFn/core)** and
 [Devtools](https://github.com/OpenFn/devtools).
 
 :::
@@ -811,7 +811,7 @@ between systems in a structured and automated way.
 _For example, if you have two jobs in your workflow (GET users from system A &
 POST users to system B), you can set up your workflow to run all jobs in
 sequence from start to finish. This imitates the
-[flow trigger patterns](https://docs.openfn.org/documentation/build/triggers#flow-triggers)
+[flow trigger patterns](./build/triggers.md#flow-triggers)
 on the OpenFn platform where a second job should run after the first one
 succeeds, respectively, using the data returned from the first job. “_
 

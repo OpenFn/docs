@@ -5,7 +5,7 @@ title: Requirements
 ## Plan first
 
 Not sure where to start? Head back to the
-["Planning"](/documentation/deploy/options) page to think about how you want to
+["Planning"](./options.md) page to think about how you want to
 scale up your OpenFn automation projects.
 
 ## Assess your capacity

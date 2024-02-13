@@ -39,7 +39,7 @@ steps below:
 :::info
 
 Note that once a job is **switched on**, OpenFn will run it automatically, as
-[configured](/documentation/build/jobs). If you do not want a job to be run
+[configured](../build/jobs.md). If you do not want a job to be run
 automatically, by OpenFn, then turn it **off**.
 
 :::
@@ -193,21 +193,21 @@ steps** and an **expression editor**. In **Fullscreen mode**, the **four
 configuration steps** appear as regular fields, without a wizard.
 
 The **four configuration steps** include giving the job a name, defining what
-[triggers](/documentation/build/triggers) its execution, selecting an
+[triggers](../build/triggers.md) its execution, selecting an
 [adaptor](/adaptors), and providing
-[authentication](/documentation/build/credentials) details.
+[authentication](../build/credentials.md) details.
 
 The **expression editor** is the area where you write your
-[job expression](/documentation/jobs/#composing-job-expressions). Fill-in
+[job expression](../build/jobs.md/#composing-job-expressions). Fill-in
 all the details, and click on the **Save** icon in the top-right corner to save
 your job's configuration changes.
 
 #### Inspecting job's initial state
 
 This feature allows you to view the
-[initial state](/documentation/jobs/state/#initial-state) of a selected job.
+[initial state](../jobs/state.md/#initial-state) of a selected job.
 Note that this feature is currently only available for
-[message-triggered jobs](/documentation/build/triggers#message-filter-triggers).
+[message-triggered jobs](../build/triggers.md#message-filter-triggers).
 
 To view or inspect a job's initial state, click the expression pane splitter and
 drag to the right. After dragging, you will see a `json tree` representation of
@@ -219,7 +219,7 @@ as data path for the job's expression.
 #### Accessing inline adaptor documentation
 
 For a selected adaptor, OpenFn allows you to view documentation and code
-examples for each [adaptor operation](/documentation/jobs/operations).
+examples for each [adaptor operation](../jobs/operations.md).
 
 To view adaptor documentation, click on the `documentation icon`(first icon) on
 the top-right corner of the `Expression Pane`.
@@ -289,7 +289,7 @@ trigger, follow the steps below:
 - Find the trigger you would like to **edit**.
 - On the bottom-left corner of the trigger card, click on **Edit**.
 - See details about types of triggers and other editing options
-  [here](/documentation/build/triggers).
+  [here](../build/triggers.md).
 
 ### Deleting a trigger
 
@@ -321,7 +321,7 @@ To create a new trigger, follow the steps below:
 - Clicking the **+** button will open **New Trigger Form** for you to enter the
   details for your new trigger.
 - See details about types of triggers and other editing options
-  [here](/documentation/build/triggers).
+  [here](../build/triggers.md).
 
 ## Credentials
 
@@ -382,7 +382,7 @@ given credential, follow the steps below:
 - Find the credential you would like to **edit**.
 - On the bottom-left corner of the credential card, click on **Edit**.
 - See details about types of credentials and other editing options
-  [here](/documentation/build/credentials).
+  [here](../build/credentials.md).
 
 ### Transferring credential ownership
 
@@ -469,7 +469,7 @@ To create a new credential, follow the steps below:
 - After choosing the type of credential, OpenFn will open the **New Credential
   Form** for you to enter the details.
 - See details about types of credentials and other editing options
-  [here](/documentation/build/credentials).
+  [here](../build/credentials.md).
 
 ## Activity
 
@@ -490,7 +490,7 @@ began and ended.
 > performing multiple actions in a destination system or if they are fetching
 > lots of data from a REST api at the start of a migration. They will appear as
 > red if they have failed. In the case of failure, refer to our
-> [Troubleshooting](/documentation/manage/troubleshooting-tips-on-platform)
+> [Troubleshooting](../manage/troubleshooting-tips-on-platform.md)
 > section below.
 
 ### Filter runs in the Activity view
@@ -806,12 +806,12 @@ finished working on the first.
 #### Exporting Project Config
 
 - OpenFn allows you to run your project as a
-  [Microservice](/documentation/microservice/home/) .
+  [Microservice](../microservice/home.md) .
 - There are two options for exporting the project config used in OpenFn
   Microservice. Exporting as `project.yaml` will provide you with a `YAML` file
   that can be used to run this project with
-  [OpenFn/engine](/documentation/microservice/home/),
-  [OpenFn/microservice](/documentation/microservice/home/), or for use in
+  [OpenFn/engine](../microservice/home.md),
+  [OpenFn/microservice](../microservice/home.md), or for use in
   another OpenFn/platform space.
 - Exporting as `microservice.zip` will prepare a `ZIP` file with
   `openfn/microservice:latest` (from hub.docker.com) and a your `YAML` file
@@ -1023,7 +1023,7 @@ empty file) to Github, `autodeploy` is on, and that file is linked to an OpenFn
 job, you will **erase your existing job** and you may not be able to retrieve
 it. ⚠️
 
-For this reason, and because [**OpenFn/cli**](/documentation/cli) provides a
+For this reason, and because [**OpenFn/cli**](../cli.md) provides a
 free, open-source, offline testing environment, it's recommended to create your
 jobs using a Github repo and test them on your own machine _before_ linking them
 to a project on OpenFn.

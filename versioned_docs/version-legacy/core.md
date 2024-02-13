@@ -20,7 +20,7 @@ governments and NGOs all over the world.
 Core is used in OpenFn v1 (the web platform) and by developers who want to test
 job execution on their local machines. It's _not_ used in Lightning (OpenFn v2)
 which instead makes use of the new runtime. For a local developer experience
-using the new runtime, check out [CLI](/documentation/cli).
+using the new runtime, check out [CLI](./cli.md).
 
 ## Why might I want to use it now?
 
@@ -30,7 +30,7 @@ be incredibly helpful for debugging.
 
 :::tip Using the new CLI.
 
-If you're a new OpenFn user and want to build or test jobs for Lighting (v2) and beyond in 2023, use the new [CLI](/documentation/cli) instead!
+If you're a new OpenFn user and want to build or test jobs for Lighting (v2) and beyond in 2023, use the new [CLI](./cli.md) instead!
 
 :::
 

@@ -37,7 +37,7 @@ Some OpenFn use cases are:
 
 ## Who is it built by?
 
-OpenFn products are built by the [Open Function Group](/documentation/about) and
+OpenFn products are built by the [Open Function Group](../about.md) and
 a growing community of open-source contributors.
 
 ## Our products
@@ -47,7 +47,7 @@ users the freedom to switch between any and all of the OpenFn products.
 
 All OpenFn products, other than the OpenFn iPaaS are part of the free and
 open-source
-[**OpenFn Integration Toolkit**](/documentation/getting-started/integration-toolkit).
+[**OpenFn Integration Toolkit**](../getting-started/integration-toolkit.md).
 This Toolkit is a **Digital Public Good** (a "DPG") recognized in the
 [DPG Registry](https://digitalpublicgoods.net/registry/) and Digital Square's
 [Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook).
@@ -84,7 +84,7 @@ If you have any questions about our products, please don't hesitate to email
 
 ### OpenFn developer tooling
 
-#### [OpenFn/cli](/documentation/cli)
+#### [OpenFn/cli](../cli.md)
 
 A set of CLI tools for writing & testing expressions, managing OpenFn projects,
 and developing [adaptors](https://github.com/openfn/adaptors).
@@ -94,7 +94,7 @@ and developing [adaptors](https://github.com/openfn/adaptors).
 You can view the technical documentation and source code for OpenFn's FOSS
 integration tools and adaptors in their respective repositories at
 [Github.com/OpenFn](https://github.com/openfn) or see
-[Deploy](/documentation/deploy/options) section for an overview of the FOSS
+[Deploy](../deploy/options.md) section for an overview of the FOSS
 options and additional docs.
 
 :::
