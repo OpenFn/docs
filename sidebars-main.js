@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Get started',
+      label: 'Get Started',
       items: [
         'get-started/home',
         'get-started/terminology',
@@ -32,7 +32,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Build & manage Workflows',
+      label: 'Build & Manage Workflows',
       items: [
         'build/workflows',
         'build/triggers',
