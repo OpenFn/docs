@@ -34,3 +34,9 @@ failed runs for each of your workflows.
 ![Digest Email Setting](/img/lightning_digest.png)
 
 ![Digest Email](/img/lightning_weekly_digest.png)
+
+:::note
+
+If you want to adjust your notifications settings and you are a Collaborator on more than 1 Project, then you will need to go to the `Project Settings > Collaboration` page for _each_ Project you belong to. 
+
+:::
