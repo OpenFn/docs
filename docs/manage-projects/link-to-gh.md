@@ -44,7 +44,7 @@ Click `Configure`...
 Your whole OpenFn project can be represented as a project.yaml file.
 
 Using our Command Line Interface, the
-[@openfn/cli](../deploy/portability#using-the-cli-to-deploy-or-describe-projects-projects-as-code)
+[@openfn/cli](../deploy/portability.md)
 you can pull a project config from OpenFn to a folder or repo on your computer,
 and you can deploy a change in your project.yaml file from that directory or
 repo to OpenFn.
@@ -55,4 +55,4 @@ keep a repository in sync with your OpenFn project.
 
 For more detailed information on representing your project as code and using the
 @openfn/cli, head over to our documentation on
-[Portability](../deploy/portability).
+[Portability](../deploy/portability.md).

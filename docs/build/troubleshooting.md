@@ -3,12 +3,17 @@ title: Troubleshooting integrations
 sidebar_label: Troubleshooting
 ---
 
-Or, a penny for your thoughts during the debugging process.
-
-<!--truncate-->
-
 So, you've noticed that something isn't quite right. Here's a list of questions,
 and complications, that might help you get to the bottom of it.
+
+:::tip
+
+Check out the [Troubleshooting page](../monitor-history/troubleshooting.md) in
+the "Monitor History" section for more specific tips and common errors.
+
+:::
+
+<!--truncate-->
 
 ## The Implementation Perspective
 
