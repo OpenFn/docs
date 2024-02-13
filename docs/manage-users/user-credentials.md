@@ -14,7 +14,7 @@ The `Credentials` page of your `User Settings` allows you to add, view, edit or 
 
 ![User Credentials List](/img/lightning_edit_user_credential.png)
 
-For guidance on how to set up a new Credential, head over to our [Manage Credentials](/documentation/manage-projects/manage-credentials) page.
+For guidance on how to set up a new Credential, head over to our [Manage Credentials](../manage-projects/manage-credentials.md) page.
 
 You can update the name and login details of a Credential after clicking `Edit`.
 

@@ -1,28 +1,42 @@
 ---
 title: Failure Notifications and Digests
-sidebar_label: Notifications
+sidebar_label: Email Notifications
+slug: /notifications
 ---
 
 If you would like to receive email `Notifications` when a Workflow Run fails or
 emailed summary `Digests` on activity across your project, read on to learn how
 to configure your project settings accordingly.
 
-## How to turn on email notifications for Run failures
+This article walks you through how to set up email notifications to monitor your
+workflows.
 
-1. Go to your Project `Settings` > `Collaboration` page
-2. Find your User
-3. In the `Failure Alert` dropdown, choose `Enabled` to turn on real-time email
-   notifications for Run failures
+### Failure Alerts
 
-![Notifications Config](/img/notifications.png)
+You can enable failure alerts to receive email notifications when a job fails
+under `Project Settings > Collaboration`.
 
-## How to turn on email notifications for Run failures
+![Failure Alert](/img/lightning_failure_alert.png)
 
-1. Go to your Project `Settings` > `Collaboration` page
-2. Find your User
-3. In the `Digest` dropdown, choose desired notification frequency (`Daily`,
-   `Weekly`,`Monthly`, or `Never` ) if you would also like to receive a summary
-   of Work Order activity and success rates across your project. See below
-   screenshot for an example digest.
+The email notification includes the logs and a link to the failed run that you
+can inspect and begin troubleshooting.
 
-![Digest Email](/img/digest_email.png)
+![Failure Email](/img/lightning_failure_email.png)
+
+![Failure Run](/img/lightning_failed_run.png)
+
+### Email Digests
+
+Also in `Project Settings > Collaboration`, you can choose to receive daily,
+weekly or monthly email digests from a project, summarizing successful and
+failed runs for each of your workflows.
+
+![Digest Email Setting](/img/lightning_digest.png)
+
+![Digest Email](/img/lightning_weekly_digest.png)
+
+:::note
+
+If you want to adjust your notifications settings and you are a Collaborator on more than 1 Project, then you will need to go to the `Project Settings > Collaboration` page for _each_ Project you belong to. 
+
+:::
