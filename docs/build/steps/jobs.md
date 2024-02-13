@@ -1,5 +1,5 @@
 ---
-title: Write Job expressions
+title: Write Jobs
 sidebar_label: Write Jobs
 ---
 
@@ -150,7 +150,7 @@ when writing Job expressions.
 #### each()
 
 For more on the `each(...)` operation, see
-[this page](/documentation/next/build/steps/each) and the below example.
+[this page](/documentation/build/steps/each) and the below example.
 
 ```js
 each(

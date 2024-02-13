@@ -9,8 +9,8 @@ title:
   minute!)
 - You have checked out our glossary and have an understanding of basic OpenFn
   and API terminology. Check out the pages below to get started
-  - [OpenFn Concepts](/documentation/getting-started/terminology/)
-  - [A glossary for data integration](/documentation/getting-started/terminology/)
+  - [OpenFn Concepts](../getting-started/terminology.md)
+  - [A glossary for data integration](../getting-started/glossary.md)
 - You have a CommCare application with at least one form configured. This is
   your source system.
 - You have a PostgreSQL database configured. This is your destination system.
@@ -110,14 +110,14 @@ In the credential `JSON Configuration`, add your credential as follows:
 
 :::tip
 
-Check out [this](/documentation/getting-started/terminology/#inbox) docs page on
+Check out [this](../getting-started/terminology.md/#inbox) docs page on
 how to find your OpenFn inbox URL to fill in the configuration above.
 
 :::
 
 Now that you've configured the job Trigger and Credential to authenticate…
 
-4. **Configure a new job. Note that this job will use the HTTP adaptor in order
+1. **Configure a new job. Note that this job will use the HTTP adaptor in order
    to connect with the CommCare REST API.**
 
 ![configure_job_cc](/img/configure_job_cc.gif)
@@ -213,20 +213,20 @@ there are 2:**
    configured the database
    [like this](https://docs.google.com/spreadsheets/d/1pi_oxImakhtaCCCIENkjTPZeuyWhpFEcNmH7hfvTBgo/edit?usp=sharing)
    to capture the CommCare form data. Check out the
-   [design quickstart](/documentation/design/design-quickstart#3-map-data-elements-to-be-exchanged)
+   [design quickstart](../design/design-quickstart.md#3-map-data-elements-to-be-exchanged)
    for how to create your own `mapping specification document` to map data
    elements to be exchanged.
 
 ![db_config](/img/db_config.png)
 
-2. **Create a new message filter trigger, to run our second job for every new
+1. **Create a new message filter trigger, to run our second job for every new
    patient record received in the OpenFn inbox.** Learn more about message
    filter triggers
-   [here](/documentation/build/triggers/#message-filter-triggers).
+   [here](../build/triggers.md#message-filter-triggers).
 
 ![create_new_trgger_db](/img/create_new_trgger_db.gif)
 
-3. **Create a PostgreSQL credential which will be used by the job to
+1. **Create a PostgreSQL credential which will be used by the job to
    authenticate with the database.**
 
 ![add_credential_postgres](/img/add_credential_postgres.gif)
@@ -259,19 +259,19 @@ upsert('patient', 'ON CONSTRAINT patient_pk', {
 
 Feel free to modify the code above to reflect your CommCare and database
 configuration according to your mapping specifications. Check out this
-[page](/documentation/jobs/job-studio#job-studio-features) for how to copy the
+[page](../jobs/job-studio.md#job-studio-features) for how to copy the
 dataValue for source data fields in the OpenFn job studio.
 
 :::tip
 
 Check out the
-[design quickstart](/documentation/design/design-quickstart#3-map-data-elements-to-be-exchanged)
+[design quickstart](../design/design-quickstart.md#3-map-data-elements-to-be-exchanged)
 for how to create your own `mapping specification document` to map data elements
 to be exchanged.
 
 :::
 
-6. **Save and turn on the job**
+1. **Save and turn on the job**
 
 ![save_db_job](/img/save_db_job.gif)
 

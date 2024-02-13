@@ -2,6 +2,13 @@
 title: The Integration Toolkit
 ---
 
+:::warning
+
+This page is from the v1 legacy docs. Visit the "v2" docs to see an updated
+overview on the OpenFn Integration Toolkit and its products.
+
+:::
+
 OpenFn's free and open-source Integration Toolkit gives governments and NGOs
 around the world more flexibility and freedom to chose how they achieve success
 in integration and interoperability projects. The Toolkit is both a recognized
@@ -90,7 +97,7 @@ Lightning is an upcoming addition to the Integration Toolkit. It is a _fully
 open source_ workflow automation platform designed for governments and NGOs who
 need a flexible solution to integrate and connect _any system_.
 
-You can read all about it [here](/documentation/about-lightning)!
+You can read all about it [here](../about-lightning.md)!
 
 ## Architecture for implementation
 

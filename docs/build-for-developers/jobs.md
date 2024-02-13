@@ -2,7 +2,7 @@
 title: Jobs
 ---
 
-Jobs define the specific series of "operations" (think: tasks or database actions) to be performed in an individual Workflow Step. See the [Steps section](/docs/build/steps/steps.md) for detailed documentation and tips for [writing Job expressions](/docs/build/steps/job-expressions.md). 
+Jobs define the specific series of "operations" (think: tasks or database actions) to be performed in an individual Workflow Step. See the [Steps section](../build/steps/steps.md) for detailed documentation and tips for [writing Job expressions](../build/steps/jobs.md). 
 
 :::note
 

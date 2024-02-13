@@ -70,7 +70,7 @@ Be on the lookout for API limits. Documentation will often have a dedicated sect
 
 ## Technical Workflow Diagramming
 
-The output of API discovery should be a “technical” workflow diagram. This diagram is different from the functional workflow diagram produced during [“Discovery”](/documentation/next/design/discovery) in that it captures the technical specifications for how to integrate with target applications. These specifications include the specific methods/operations (e.g., GET, POST) and the database/API names of the target resources (i.e., specific API endpoints or database tables). 
+The output of API discovery should be a “technical” workflow diagram. This diagram is different from the functional workflow diagram produced during [“Discovery”](/documentation/design/discovery) in that it captures the technical specifications for how to integrate with target applications. These specifications include the specific methods/operations (e.g., GET, POST) and the database/API names of the target resources (i.e., specific API endpoints or database tables). 
 
 ![Workflow](/img/api_example.png)
 
@@ -93,6 +93,6 @@ __When drafting your technical specifications, consider the following:__
     - Consider bulk operations & batching requests
 
 
-Check out the technical workflow diagram below for syncing forms submissions from KoboToolBox to DHIS2. The original functional diagram can be found [here](/documentation/next/design/discovery#workflow-requirements-gathering). 
+Check out the technical workflow diagram below for syncing forms submissions from KoboToolBox to DHIS2. The original functional diagram can be found [here](/documentation/design/discovery#workflow-requirements-gathering). 
 
 ![Workflow](/img/technical_example.png)

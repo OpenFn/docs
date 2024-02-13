@@ -80,9 +80,9 @@ exit code itself couldn't be captured by our application.
 
 ## Limits
 
-We've shifted this content to a dedicated [limits](/documentation/jobs/limits)
+We've shifted this content to a dedicated [limits](./limits.md)
 page.
 
-### [NodeVM memory limits](/documentation/jobs/limits#nodevm-memory-limits)
+### [NodeVM memory limits](./limits.md#nodevm-memory-limits)
 
-### [Job state limits](/documentation/jobs/limits#job-state-limits)
+### [Job state limits](./limits.md#job-state-limits)

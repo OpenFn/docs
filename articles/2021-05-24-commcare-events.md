@@ -372,9 +372,9 @@ this all up on your own are:
 2. the [forum](https://community.openfn.org) (community.openfn.org)
 
 Read through the
-["What is an integration"](/documentation/getting-started/so-you-want-to-integrate),
-["OpenFn Concepts"](/documentation/getting-started/terminology), and
-["Build"](/documentation/build/jobs) sections if you're a thorough,
+["What is an integration"](/documentation/tutorials/tutorial),
+["OpenFn Concepts"](/documentation/get-started/terminology), and
+["Build"](/documentation/build/workflows) sections if you're a thorough,
 background-first kind of learner. If you crave snippets and sample job code,
 head directly to the [Job Library](/adaptors/library) to see how other OpenFn
 users are creating their jobs.

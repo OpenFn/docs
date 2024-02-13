@@ -2,11 +2,13 @@
 title: Instant OpenHIE
 ---
 
-:::caution Microservice and devtools are being replaced by Lightning
+:::caution Microservice and devtools have been replaced by Lightning
 
 Please note that OpenFn/microservice and OpenFn/devtools are being deprecated
-and replaced by OpenFn/lightning, When Lighting is released, it may be used
-within Instant OpenHIE (instead of microservice) as an OpenHIE-compliant workflow engine that can interface with the OpenHIE Interoperability Layer ([learn more](/documentation/about-lightning#standards-and-compliance-matter)). 
+and replaced by OpenFn/lightning. Lightning may be used within Instant OpenHIE
+(instead of microservice) as an OpenHIE-compliant workflow engine that can
+interface with the OpenHIE Interoperability Layer
+([learn more](./about-lightning.md#standards-and-compliance-matter)).
 
 :::
 
@@ -291,35 +293,35 @@ These two methods are detailed below:
 [openhiestack]: https://openhim.readthedocs.io/en/latest/implementations/openhie.html
 [openhiearchitecture]: https://wiki.ohie.org/pages/viewpage.action?pageId=8454157
 [openhim]: http://openhim.org/
-[jobs]: /documentation/build/jobs/
+[jobs]: ./build/jobs.md
 [mediators]: http://openhim.org/mediator-library/
 [demorepo]: https://github.com/OpenFn/instant-demo
-[openfnmicroservice]: /documentation/microservice/home/
+[openfnmicroservice]: ./microservice/home.md
 [digitalsquare]: https://digitalsquare.org/
 [fhir]: https://fhir.org/
 [hapifhir]: https://hapifhir.io/
 [commcare]: https://www.commcarehq.org/
 [kobo]: https://www.kobotoolbox.org/
-[projects]: /documentation/build/example-build/
+[projects]: ./build/example-build.md
 [projectyaml]: https://github.com/OpenFn/microservice/blob/main/project.yaml.example
-[triggers]: /documentation/build/triggers/
+[triggers]: ./build/triggers.md
 [commcaresample]: https://github.com/OpenFn/instant-demo/blob/main/fixtures/commcare_sample.json
 [kobosample]: https://github.com/OpenFn/instant-demo/blob/main/fixtures/koboCaseRegistration.json
 [patientspec]: https://www.hl7.org/fhir/patient-example.json.html
 [encouterspec]: https://www.hl7.org/fhir/encounter-example.json.html
 [openhiecomm]: https://ohie.org/tag/community/
 [jembi]: https://www.jembi.org/
-[cred]: /documentation/build/credentials/
-[trig]: /documentation/build/triggers/
-[devtools]: https://github.com/OpenFn/devtools
+[cred]: ./build/credentials.md
+[trig]: ./build/triggers.md
+[devtools]: ./devtools/home.md#configure-an-openfn-project
 [testfile]: https://github.com/OpenFn/instant-demo/blob/main/test.js
 [instantdemo]: https://github.com/OpenFn/instant-demo
 [samplecred]: https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml#L165-L167
-[openfncli]: /documentation/devtools/home/#configure-an-openfn-project
+[openfncli]: https://github.com/OpenFn/devtools/#configure-an-openfn-project
 [demoexpr]: https://github.com/OpenFn/instant-demo/tree/main/expressions
-[jobexpr]: /documentation/build/jobs/#a-basic-expression
+[jobexpr]:  ./build/jobs.md#a-basic-expression
 [sampleyaml]: https://github.com/OpenFn/instant-demo/blob/main/openfn/docker/config/project.yaml
 [curl]: https://curl.se/
-[studio]: /documentation/jobs/job-studio/
+[studio]: ./jobs/job-studio.md
 [examplejobs]: https://openfn.org/projects/p5pqx3/jobs
 <!-- prettier-ignore-end -->

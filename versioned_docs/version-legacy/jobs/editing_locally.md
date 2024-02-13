@@ -3,10 +3,10 @@ title: Editing jobs locally
 ---
 
 To edit jobs, instead of using the OpenFn
-[Job Studio](/documentation/jobs/job-studio) you can also use your favorite text
+[Job Studio](./job-studio.md) you can also use your favorite text
 editor and make changes offline, committing and pushing to GitHub to deploy to
 your OpenFn using the
-[version control feature](/documentation/manage/platform-mgmt/#github-version-control).
+[version control feature](../manage/platform-mgmt.md/#github-version-control).
 
 First, make sure that version control is set up for your project and the job in
 question. When that's all done, follow the steps below:
@@ -71,4 +71,4 @@ From there, the version control integration will update changed jobs in your
 OpenFn project and you can test those changes on the platform.
 
 Once you're ready to start running jobs and testing your changes _locally_, head
-over to the [The CLI](/documentation/cli) docs for guidance.
+over to the [The CLI](../cli.md) docs for guidance.

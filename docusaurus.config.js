@@ -34,7 +34,7 @@ module.exports = {
         {
           type: 'doc',
           position: 'left',
-          docId: 'intro/home',
+          docId: 'get-started/home',
           label: 'Docs',
         },
         {
@@ -136,15 +136,14 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars-main.js'),
           routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/main',
-          lastVersion: 'legacy',
+          lastVersion: 'current',
           versions: {
             current: {
-              banner: 'unreleased',
-              label: 'Lightning 🚧',
+              label: 'v2 ⚡',
             },
             legacy: {
-              banner: 'none',
-              label: 'Platform (v1)',
+              banner: 'unmaintained',
+              label: 'v1.105',
             },
           },
         },

@@ -7,10 +7,10 @@ title: Writing Workflow Automation Specifications
 
 __The key outputs of the the design process are:__
 
-1. [Functional Workflow diagram](/documentation/next/design/discovery#workflow-requirements-gathering)
-2. [Technical Workflow diagram](/documentation/next/design/discovery#workflow-requirements-gathering)
-3. [Solution Architecture Diagram](/documentation/next/design/discovery#documenting-the-solution-architecture)
-4. [Data element mapping specifications](/documentation/next/design/mapping-specs)
+1. [Functional Workflow diagram](/documentation/design/discovery#workflow-requirements-gathering)
+2. [Technical Workflow diagram](/documentation/design/discovery#workflow-requirements-gathering)
+3. [Solution Architecture Diagram](/documentation/design/discovery#documenting-the-solution-architecture)
+4. [Data element mapping specifications](/documentation/design/mapping-specs)
 
 
 Given these, you’ll be ready to finalize your workflow specifications and hand-off to developers for job-writing!  

@@ -13,7 +13,7 @@ further reading if you want a better understanding of some part of your data
 integration picture.
 
 Note: This glossary is meant to be OpenFn-agnostic. The rest of the docs and
-[Key Concepts page](/documentation/next/get-started/terminology) help you to get a
+[Key Concepts page](/documentation/get-started/terminology) help you to get a
 picture of the parts of OpenFn, what we call them, and why, but this glossary is
 really meant as a prerequisite to all those other things to aid users with no
 experience in this area.
@@ -133,7 +133,7 @@ data to a destination system.
 
 ## Webhook
 
-A [webhook](/documentation/source-apps#standard-webhook-configuration) (also
+A [webhook](/documentation/build/triggers#webhook-event-triggers) (also
 called a web callback or HTTP push API — thanks
 [SendGrid](https://sendgrid.com/blog/whats-webhook/)!) is a feature of an
 application that allows <i>pushing</i>. It's often configured to notify some

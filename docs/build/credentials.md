@@ -18,7 +18,7 @@ Project can choose those credentials for use when defining a job.
 
 You can create a new Credential while configuring a new Step in your Workflow,
 or via the Settings > Credentials page.
-[Read this](/documentation/next/manage-projects/manage-credentials) for more on
+[Read this](/documentation/manage-projects/manage-credentials) for more on
 managing credentials.
 
 ### Understand the app-specific credentials

@@ -21,17 +21,21 @@ real-time event-based automation.
 
 ### Cron Triggers (formerly timers)
 
-`Cron Triggers` run Workflows based on a cron schedule, and are good for repetitive tasks that are time-based (e.g., every day at 8am, sync financial data). 
+`Cron Triggers` run Workflows based on a cron schedule, and are good for
+repetitive tasks that are time-based (e.g., every day at 8am, sync financial
+data).
+
 - These Triggers enable users to “pull” data from connected systems.
-- You can pick a standard schedule (e.g., every day, or every month), or define a custom schedule using cron expressions. 
+- You can pick a standard schedule (e.g., every day, or every month), or define
+  a custom schedule using cron expressions.
 
-These Triggers enable Workflows to be run as frequently as
-once every minutes, or as infrequently as you desire and can be scheuled on very
-specific dates or times. 
+These Triggers enable Workflows to be run as frequently as once every minutes,
+or as infrequently as you desire and can be scheuled on very specific dates or
+times.
 
-Each time a timed job succeeds, its `final_state` will
-be saved and used as the `initial_state` for its next run. See "Managing state"
-and "Keeping a cursor" below for implementation help.
+Each time a timed job succeeds, its `final_state` will be saved and used as the
+`initial_state` for its next run. See "Managing state" and "Keeping a cursor"
+below for implementation help.
 
 ![Cron Trigger](/img/cron_trigger.png)
 
@@ -45,9 +49,9 @@ the OpenFn interface or
 
 #### Managing the size of `state` for Cron Workflows
 
-Since state is passed between each run of a cron Workflow, if your Workflow Step adds
-something new to state each time it runs, it may quickly become too large to be
-practically handled. Imagine if a server response were adding, via
+Since state is passed between each run of a cron Workflow, if your Workflow Step
+adds something new to state each time it runs, it may quickly become too large
+to be practically handled. Imagine if a server response were adding, via
 `array.push(...)`, to `state.references` each time the job ran. OpenFn supports
 up to 50,000 bytes (via Erlang's `byte_size`), though most `final_state` byte
 sizes are between 100 and 1000.

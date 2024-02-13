@@ -100,7 +100,7 @@ platform and our open source project have a symbiotic relationship with one
 another. Open source innovation drives platform innovation and vice versa.
 Crucially, both rely on each other.
 
-With a more robust [open source offering ](/documentation/microservice/home)and
+With a more robust [open source offering ](/documentation/deploy/portability)and
 a heavy investment in documentation, it will be easier than ever for
 organizations to get up and running with OpenFn and then choose whether they
 want to scale their solutions on the platform or deploy them on their own
@@ -140,7 +140,7 @@ system that users can grow and mature with. While our enterprise platform might
 be right for your organization today, 5 years from now, once your organization
 has its own dedicated IT team and server infrastructure, local deployment via
 microservice might make better sense. The good news is that OpenFn integration
-[portability](/documentation/portability) will make these transitions easy. Your
+[portability](/documentation/deploy/portability) will make these transitions easy. Your
 integration will run just as well on your servers as ours.
 
 As the diagram below demonstrates we envision two main pathways for OpenFn
