@@ -117,27 +117,3 @@ appendValues({
   values: state => state.users,
 });
 ```
-
-### Second Step - Sync Users
-
-- Name `Sync Users`
-- Adaptor `googlesheet@latest`
-- Credentials - GoogleSheet OAuth
-  - New Credentials
-  - GoogleSheet OAuth
-  - Login to your gmail
-  - Allow OpenFn
-  - Save your credential
-- Job code - `// Users Data Model fn(state => {
-
-  const users = state.data.map(({ id, name, username, address, phone, website,
-  company }) => [id, name, username, address.city, phone, website,
-  company.name]);
-
-  return { ...state, users } })
-
-// Append User to Sheet appendValues({ spreadsheetId:
-'1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc', range: 'users!A1:G1', values:
-state => state.users, })`
-
-- Input - `Fetch Users Final Output`
