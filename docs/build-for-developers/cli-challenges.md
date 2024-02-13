@@ -4,7 +4,7 @@ sidebar_label: CLI challenges
 slug: /cli-challenges
 ---
 
-#### Solve real-world problems and showcase your command-line skills by participating in our CLI challenges.
+#### Solve real-world problems and showcase your command-line skills by participating in our CLI challenges
 
 :::tip Important Notes
 
@@ -16,7 +16,7 @@ slug: /cli-challenges
   <details>
   <summary>Expand to see bug report template</summary>
 
-  ```
+  ```markdown
 
   Subject: Bug Report - [Brief Description]
 
@@ -93,9 +93,15 @@ Fetch and print the details of the first user from the JSONPlaceholder API.
 
 **Requirements:**
 
-1. Utilize the
+1. Install the latest version of http adaptor.
+
+```bash
+openfn repo install @openfn/language-http
+```
+
+2. Utilize the
    [JSONPlaceholder API](https://jsonplaceholder.typicode.com/users).
-2. Create a file named `getUsers.js` to contain the script.
+3. Create a file named `getUsers.js` to contain the script.
 
 **Tasks:**
 
@@ -119,19 +125,19 @@ Fetch and print the details of the first user from the JSONPlaceholder API.
 
 **Overview:**
 
-Fetch and present COVID-19 metadata using the
-[disease.sh API](https://disease.sh/).
+Fetch and present COVID-19 metadata using
+[The Atlantic's COVID Tracking Project API](https://covidtracking.com/data/api).
 
 **Objective:**
 
-Write a job that retrieves comprehensive COVID-19 data from the API and group it
-by region.
+Write a job that retrieves COVID-19 data from the API and calculate some
+aggregate values across a length of time of your chosing.
 
 **Requirements:**
 
-1.  Install the latest version of http adaptor.
+1. Install the latest version of http adaptor.
 
-```
+```bash
 openfn repo install @openfn/language-http
 ```
 
