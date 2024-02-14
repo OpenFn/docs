@@ -9,7 +9,7 @@ slug: /http-to-googlesheets
 In this tutorial we are going to create a simple workflow that automate users
 data sync between REST API and Google Sheets with OpenFn
 
-### Before you start
+## Before you start
 
 Here are some things to know before you begin this process.
 
@@ -49,19 +49,19 @@ To create a new Workflow in your Project:
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/users) provides a free
 fake API for testing and prototyping. We will be using the
 [Users Rest API](https://jsonplaceholder.typicode.com/users) for extracting
-users data. This involves configuring a job in OpenFn to fetch users data via a
+users data. This involves configuring a step in OpenFn to fetch users data via a
 `GET` HTTP request. Click your first step to set up!, Configurate the step with
 following options
 
 - Name `Fetch Users`
-- Adaptor `Http`
+- Adaptor `http`
 - Version: `6.0.0`
 - Credentials (Optional) -
   `{ "baseUrl": "https://jsonplaceholder.typicode.com/"}`
 - Step operations - `get("users")` If you have setup the credential above
 - Input - `{}`
 
-**Once you are finished configuring and writing your job, save and run it!**
+**Once you are finished configuring and writing your step, save and run it!**
 
 **Check out the `Output & Log` panel to see if your run succeeded.** If it
 succeeded, you should see:
@@ -71,49 +71,62 @@ succeeded, you should see:
 - Input tab has `{}`
 - Output tab has `{ data: [ {...}]}`
 
-## Transforming and loading usets data to Googlesheet
+## Transforming and loading users data to Googlesheet
 
-1. **You should have a Googlesheet created with your google account email for
-   OpenFn to read and write data in your target GoogleSheet rows.** For this
-   demo, we have configured the Googlesheet
-   [like this](https://docs.google.com/spreadsheets/d/1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc/edit?usp=sharing)
-   to capture the users data.
+You should have a Googlesheet created with your google account email for OpenFn
+to read and write data in your target GoogleSheet rows. For this demo, we have
+configured the Googlesheet
+[like this](https://docs.google.com/spreadsheets/d/1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc/edit?usp=sharing)
+to capture the users data.
 
-**Create a new step with the `googlesheet` adaptor for loading the users data
-into your destination GoogleSheet.**
+Create a new step with the `googlesheet` adaptor for loading the users data into
+your destination GoogleSheet. Configure the step with the following options
 
-- Credentials - GoogleSheet OAuth
-  - New Credentials
-  - GoogleSheet OAuth
-  - Login to your gmail
-  - Allow OpenFn
-  - Save your credential
+- Name `Sync Users`
+- Adaptor `googlesheetps`
+- Version: `2.2.2`
+- Credentials: Create new GoogleSheet OAuth credentials and save it
+- Step operations: For this job we will use the `appendValues` operation to add
+  an array of rows to the spreadsheet. Make sure you update the `spreadsheetId`
+  to match the Id of your spreadsheet
 
-**Writing the job:** For this job we will use the `appendValues` operation to
-add an array of rows to the spreadsheet.
+  ```js
+  // Prepare array of users data
+  fn(state => {
+    const users = state.data.map(
+      ({ id, name, username, address, phone, website, company }) => [
+        id,
+        name,
+        username,
+        address.city,
+        phone,
+        website,
+        company.name,
+      ]
+    );
 
-```js
-// Users Data Model
-fn(state => {
-  const users = state.data.map(
-    ({ id, name, username, address, phone, website, company }) => [
-      id,
-      name,
-      username,
-      address.city,
-      phone,
-      website,
-      company.name,
-    ]
-  );
+    return { ...state, users };
+  });
 
-  return { ...state, users };
-});
+  // Append user data to GoogleSheet
+  appendValues({
+    spreadsheetId: '1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc',
+    range: 'users!A1:G1',
+    values: state => state.users,
+  });
+  ```
 
-// Append User to Sheet
-appendValues({
-  spreadsheetId: '1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc',
-  range: 'users!A1:G1',
-  values: state => state.users,
-});
-```
+- Input - `Final output of Fetch Users`
+
+If you have already ran the `Fetch Users` step, you will have initial input to
+test `Sync Users` step. Select the input from the input panel and click
+`Create New Work Order` to run this step.
+
+## Time to test!
+
+1. Select and open inspector for `Fetch Users` step
+2. Create a new empty input `{}`
+3. Click `Create New Work Order` to execute the step
+4. Check results in `Output & Logs` panel and ensure that both steps have passed
+   with status `success`
+5. Finally check your spreadsheet to see the synced users data
