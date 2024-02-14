@@ -1,7 +1,6 @@
 ---
 sidebar_label: HTTP to GoogleSheets
 title: HTTP to GoogleSheets Workflow
-slug: /http-to-googlesheets
 ---
 
 # Create a HTTP to GoogleSheets Workflow
