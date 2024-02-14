@@ -1,7 +1,7 @@
 ---
-title: Adding Webhook Authentication
-sidebar_label: Webhook Authentication
-slug: /webhook-authentication
+title: Webhook Security
+sidebar_label: Webhook Security
+slug: /webhook-security
 ---
 
 This page guides you through the steps of adding an additional layer of security
@@ -20,28 +20,28 @@ Key Authentication using the `x-api-key` request header.
 
 You can add a new Authentication Method under `Webhook Security` of your
 `Project Settings`. The authentication you set up here can then be used in any
-of your Workflows withing this Project.
+of your Workflows within this Project.
 
-//screenshot
+![Project Settings Webhook Security](/img/lightning_auth_project_settings.png)
 
 After clicking `New auth method`, choose the type - Basic HTTP or API Key
 Authentication.
 
-//screenshot choose auth method
+![New Auth Method](/img/lightning_choose_auth_method.png)
 
 #### Basic Auth
 
 For Basic Auth, give it a name, choose a username and password, and hit
 `Create Auth Method`.
 
-// screenshot lightning_basic_auth
+![Basic Auth](/img/lightning_basic_auth.png)
 
 #### API Key
 
 For API Key, just choose a name, and click `Create Auth Method`. An API key is
 generated for you.
 
-//screenshot lightning_api_auth
+![API auth](/img/lightning_api_auth.png)
 
 You can edit or delete your auth methods on this page as well.
 
@@ -50,9 +50,9 @@ You can edit or delete your auth methods on this page as well.
 Once you added an auth method to a webhook, it will show up under
 `Linked Triggers`.
 
-// screenshot linked triggers
+![Linked Triggers](/img/lightning_linked_triggers.png)
 
-// screenshot linked triggers2
+![Linked Triggers](/img/lightning_linked_triggers2.png)
 
 ### Adding Authentication Via a Workflow
 
@@ -67,7 +67,7 @@ these.
 Once you've added an auth method, it will show up in your Webhook Trigger
 configuration.
 
-// screenshot
+![Linked Triggers](/img/lightning_workflow_trigger_added.png)
 
 Only requests using these required auth details will be able to send data to
 your Workflow.
