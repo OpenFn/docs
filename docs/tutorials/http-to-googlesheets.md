@@ -129,3 +129,9 @@ test `Sync Users` step. Select the input from the input panel and click
 4. Check results in `Output & Logs` panel and ensure that both steps have passed
    with status `success`
 5. Finally check your spreadsheet to see the synced users data
+
+Check out the video overview below to learn how to create a HTTP to GoogleSheets
+Workflow
+
+<iframe width="784" height="441" src="https://www.loom.com/embed/55158aedf1f7497687a4e60f21051f40?sid=d76214d6-9952-49b4-a064-1c2ec4b663ff" title="Create a HTTP to GoogleSheets
+Workflow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
