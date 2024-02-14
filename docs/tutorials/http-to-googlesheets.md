@@ -17,7 +17,7 @@ Here are some things to know before you begin this process.
   - [OpenFn Concepts](../get-started/terminology.md)
   - [A glossary for data integration](../get-started/glossary.md)
 - You have a Google Account. We will use it to create GoogleSheets credentials
-- You have a project on [app.openfn.org](app.openfn.org)
+- You have a project on [app.openfn.org](https://app.openfn.org)
 
 ## Getting started
 
