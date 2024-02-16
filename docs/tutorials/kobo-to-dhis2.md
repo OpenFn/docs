@@ -19,27 +19,50 @@ values, and load the results into DHIS2.
 - Kobotoolbox account
 - DHIS2 account
 
-### Step 1: Configure Kobotoolbox Adaptor
+### Step 1: Get Kobo Form Submission
 
-In the OpenFn Inspector Editor, use the following code:
+Create a the first step in workflow convas and give it a name of
+`Get Kobo Form Submission`. In this step we will be fetching submissions for a
+form with an id `aBpweTNdaGJQFb5EBBwUeo`. This step uses the kobotoolbox adaptor
+and we will use the following credential configuration
+
+```json
+{
+  "baseURL": "https://kf.kobotoolbox.org",
+  "username": "openfn_demo",
+  "password": "openfn_demo",
+  "apiVersion": "v2"
+}
+```
+
+Open the OpenFn Inspector Editor and add the following code:
 
 ```javascript
 // Step 1: Fetch Form Submissions from Kobotoolbox
 getSubmissions({ formId: 'aBpweTNdaGJQFb5EBBwUeo' });
 ```
 
-Explanation:
+#### Explanation:
 
 - `getSubmissions`: Fetches form submissions.
 - `{ formId: "aBpweTNdaGJQFb5EBBwUeo" }`: Specify the form ID to retrieve
   submissions.
 
-### Step 2: Transform and Count OPV Dose Given
+#### Testing:
 
-In the OpenFn Inspector Editor, add the following code:
+Create an empty input `{}` then click `Create New Work Order` button to run the
+workflow. The expected output should contain 17 records in `state.data.results`
+
+### Step 2: Count OPV Dose Given
+
+Create a down stream step after `Get Kobo Form Submission` and give it a name of
+`Count OPV Dose Given`. In this step we are going to count all records with
+`"OPV0_dose_given": "yes"`. This step will use `common` adaptor and does not
+require any credentials. Open the OpenFn Inspector and add the following code in
+the editor:
 
 ```javascript
-// Step 2: Transform and Count OPV Dose Given
+// Filter and Count OPV Dose Given
 fn(state => {
   const opvDosesGivenCount = state.data.results.filter(
     r => r['OPV0_dose_given'] === 'yes'
@@ -49,25 +72,34 @@ fn(state => {
 });
 ```
 
-Explanation:
+#### Explanation:
 
-- `fn`: A function in OpenFn to transform data.
+- `fn`: A function in OpenFn for more flexible job writing. It gives you the
+  ability to do something to the state and return transformed data to state;
 - `opvDosesGivenCount`: Counts the occurrences of 'yes' in the `OPV0_dose_given`
   field.
 
+#### Testing:
+
+Select the first step `Get Kobo Form Submission` and `Create New Work Order`
+with an empty input. Both steps should be executed successfully and you should
+see in the final state `opvDosesGivenCount: 3` added
+
 ### Step 3: Map and Load to DHIS2
 
-Set up the DHIS2 adaptor:
+Create a down stream step after `Count OPV Dose Given` and give it a name of
+`Map and Load to DHIS2`. In this step we will create DHIS2 data values to DHIS2.
+We will be using the following credential configuration
 
 ```json
 {
   "hostUrl": "https://play.dhis2.org/dev",
   "username": "admin",
-  "password": "@some(!)Password"
+  "password": "district"
 }
 ```
 
-In the OpenFn Inspector Editor, add the following code:
+Open the OpenFn Inspector, add the following code in the editor:
 
 ```javascript
 // Create completeDate with format YYYY-MM-DD
@@ -85,20 +117,28 @@ create('dataValueSets', state => ({
   orgUnit: 'DiszpKrYNg8', // Ngelehun CHC
   dataValues: [
     {
-      dataElement: 'pikOziyCXbM', // OPV0 doses given dataElement ID
+      categoryOptionCombo: 'HllvX50cXC0',
+      dataElement: 'x3Do5e7g4Qo', // OPV0 doses given dataElement ID
       value: state.opvDosesGivenCount, //# of OPV0 doses given
     },
   ],
 }));
 ```
 
-Explanation:
+#### Explanation:
 
 - `create('dataValueSets', {...})`: This OpenFn function is used to create a new
   datavalueset in DHIS2.
 - `dataSet`, `completeDate`, `period`, `orgUnit`: Details of the datavalueset.
 - `dataValues`: An array containing data elements and their corresponding
   values.
+
+#### Testing
+
+Save your changes then navigate to the first step(Get Kobo Form Submission) and
+create an empty input `{}` then click `Create New Work Order` button to run the
+workflow. All steps should be executed successful and you should see the
+`OPV0 doses given` updated in DHIS2
 
 ### Conclusion
 
