@@ -78,7 +78,7 @@ slug: /cli-walkthrough
 
 Note that our `console.log` statement was printed as `[JOB] Hello world!`. Using
 the console like this is helpful for debugging and/or understanding what's
-happening inside our jobs.
+happening inside our steps.
 
 ### 2. Using adaptor helper functions
 
@@ -351,7 +351,7 @@ fn(state => {
     const existingValue = acc[post.userId] || [];
     return {
       ...acc,
-      [post.userId]:[...existingValue, post]
+      [post.userId]: [...existingValue, post],
     };
   }, {});
 
@@ -366,7 +366,6 @@ fn(state => {
   console.log('Post with userId 1', groupPostsByUserId[1]);
   return state;
 });
-
 ```
 
 </details>
@@ -459,18 +458,18 @@ fn(state => {
 <details>
   <summary>Expected CLI logs</summary>
 
-  ```bash
-  [CLI] ✘ TypeError: path.match is not a function
-      at dataPath (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:258:26)
-      at dataValue (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:262:22)
-      at getPostbyIndex (vm:module(0):5:37)
-      at vm:module(0):18:36
-      at /tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:241:12
-      at file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:288:26
-      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
-      at async run (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:269:18)
-      at async executeHandler (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/dist/process/runner.js:388:20)
-  ```
+```bash
+[CLI] ✘ TypeError: path.match is not a function
+    at dataPath (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:258:26)
+    at dataValue (/tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:262:22)
+    at getPostbyIndex (vm:module(0):5:37)
+    at vm:module(0):18:36
+    at /tmp/openfn/repo/node_modules/@openfn/language-common/dist/index.cjs:241:12
+    at file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:288:26
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async run (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/node_modules/@openfn/runtime/dist/index.js:269:18)
+    at async executeHandler (file:///home/openfn/.asdf/installs/nodejs/18.12.0/lib/node_modules/@openfn/cli/dist/process/runner.js:388:20)
+```
 
 </details>
 
@@ -486,15 +485,15 @@ fix the error by passing a string in dataValue i.e `console.log(dataValue(“1�
 <details>
   <summary>Expected CLI logs</summary>
 
-  ```bash
-  [CLI] ✔ Compiled job from debug.js
-  GET request succeeded with 200 ✓
-  [R/T] ✔ Operation 1 complete in 722ms
-  [JOB] ℹ [Function (anonymous)]
-  [R/T] ✔ Operation 2 complete in 1ms
-  [CLI] ✔ Writing output to tmp/output.json
-  [CLI] ✔ Done in 1.102s ✨
-  ```
+```bash
+[CLI] ✔ Compiled job from debug.js
+GET request succeeded with 200 ✓
+[R/T] ✔ Operation 1 complete in 722ms
+[JOB] ℹ [Function (anonymous)]
+[R/T] ✔ Operation 2 complete in 1ms
+[CLI] ✔ Writing output to tmp/output.json
+[CLI] ✔ Done in 1.102s ✨
+```
 
 </details>
 
@@ -559,35 +558,34 @@ export many functions from `language-common`.
 <details>
   <summary>Expand to see expected CLI logs</summary>
 
-  ```bash
-  [CLI] ✔ Compiled job from getPosts.js
-  GET request succeeded with 200 ✓
-  [R/T] ✔ Operation 1 complete in 730ms
-  [R/T] ✔ Operation 2 complete in 0ms
-  [R/T] ✔ Operation 3 complete in 0ms
-  [JOB] ℹ Posts [
-  // Posts
-  ]
-  [R/T] ✔ Operation 4 complete in 10ms
-  [CLI] ✔ Writing output to tmp/output.json
-  [CLI] ✔ Done in 1.091s! ✨
-  ```
+```bash
+[CLI] ✔ Compiled job from getPosts.js
+GET request succeeded with 200 ✓
+[R/T] ✔ Operation 1 complete in 730ms
+[R/T] ✔ Operation 2 complete in 0ms
+[R/T] ✔ Operation 3 complete in 0ms
+[JOB] ℹ Posts [
+// Posts
+]
+[R/T] ✔ Operation 4 complete in 10ms
+[CLI] ✔ Writing output to tmp/output.json
+[CLI] ✔ Done in 1.091s! ✨
+```
 
 </details>
 
 ### 7. Running Workflows
 
-As of `v0.0.35` the `@openfn/cli` supports running not only jobs, but also
-_workflows_. Running a workflow allows you to define a list of jobs and rules
-for executing them. You can use a workflow to orchestrate the flow of data
-between systems in a structured and automated way.
+Running a workflow allows you to define a list of steps and rules for executing
+them. You can use a workflow to orchestrate the flow of data between systems in
+a structured and automated way.
 
-_For example, if you have two jobs in your workflow (GET users from system A &
-POST users to system B), you can set up your workflow to run all jobs in
+_For example, if you have two steps in your workflow (GET users from system A &
+POST users to system B), you can set up your workflow to run all steps in
 sequence from start to finish. This imitates the
-[flow trigger patterns](https://docs.openfn.org/documentation/build/triggers#flow-triggers)
-on the OpenFn platform where a second job should run after the first one
-succeeds, respectively, using the data returned from the first job. “_
+[flow trigger patterns](/documentation/build/triggers#flow-triggers) on the
+OpenFn platform where a second job should run after the first one succeeds,
+respectively, using the data returned from the first job. “_
 
 :::info tl;dr
 
@@ -599,66 +597,76 @@ initial state.
 
 ##### Workflow
 
-A workflow is the execution plan for running several jobs in a sequence. It is
+A workflow is the execution plan for running several steps in a sequence. It is
 defined as a JSON object that consists of the following properties:
 
 ```json
 {
-  "start": "a", // optionally specify the start node (defaults to jobs[0])
-  "jobs": [
-    {
-      "id": "a",
-      "expression": "fn((state) => state)", // code or a path
-      "adaptor": "@openfn/language-common@1.75", // specifiy the adaptor to use (version optional)
-      "data": {}, // optionally pre-populate the data object (this will be overriden by keys in in previous state)
-      "configuration": {}, // Use this to pass credentials
-      "next": {
-        // This object defines which jobs to call next
-        // All edges returning true will run
-        // If there are no next edges, the workflow will end
-        "b": true,
-        "c": {
-          "condition": "!state.error" // Note that this is an expression, not a function
+  "options": {
+    "start": "a" // optionally specify the start node (defaults to steps[0])
+  },
+  "workflows": {
+    "steps": [
+      {
+        "id": "a",
+        "expression": "fn((state) => state)", // code or a path
+        "adaptor": "@openfn/language-common@1.75", // specifiy the adaptor to use (version optional)
+        "state": {
+          "data": {} // optionally pre-populate the data object (this will be overriden by keys in in previous state)
+        },
+        "configuration": {}, // Use this to pass credentials
+        "next": {
+          // This object defines which steps to call next
+          // All edges returning true will run
+          // If there are no next edges, the workflow will end
+          "b": true,
+          "c": {
+            "condition": "!state.error" // Note that this is an expression, not a function
+          }
         }
       }
-    }
-  ]
+    ]
+  }
 }
 ```
 
 ###### Example of a workflow
 
 <details>
-<summary>Here's an example of a simple workflow that consists of three jobs:</summary>
+<summary>Here's an example of a simple workflow that consists of three steps:</summary>
 
 ```json title="workflow.json"
 {
-  "start": "getPatients",
-  "jobs": [
-    {
-      "id": "getPatients",
-      "adaptor": "http",
-      "expression": "getPatients.js",
-      "configuration": "tmp/http-creds.json",
-      "next": {
-        "getGlobalOrgUnits": true
+  "options": {
+    "start": "getPatients"
+  },
+  "workflows": {
+    "steps": [
+      {
+        "id": "getPatients",
+        "adaptor": "http",
+        "expression": "getPatients.js",
+        "configuration": "tmp/http-creds.json",
+        "next": {
+          "getGlobalOrgUnits": true
+        }
+      },
+      {
+        "id": "getGlobalOrgUnits",
+        "adaptor": "common",
+        "expression": "getGlobalOrgUnits.js",
+        "next": {
+          "createTEIs": true
+        }
+      },
+      {
+        "id": "createTEIs",
+        "adaptor": "dhis2",
+        "expression": "createTEIs.js",
+        "configuration": "tmp/dhis2-creds.json"
       }
-    },
-    {
-      "id": "getGlobalOrgUnits",
-      "adaptor": "common",
-      "expression": "getGlobalOrgUnits.js",
-      "next": {
-        "createTEIs": true
-      }
-    },
-    {
-      "id": "createTEIs",
-      "adaptor": "dhis2",
-      "expression": "createTEIs.js",
-      "configuration": "tmp/dhis2-creds.json"
-    }
-  ]
+    ]
+  }
 }
 ```
 
@@ -669,7 +677,7 @@ defined as a JSON object that consists of the following properties:
 
 ```json title="tmp/http-creds.json"
 {
-  "baseUrl": "https://jsonplaceholder.typicode.com/"
+  "baseUrl": "https://jsonplaceholder.typicode.com"
 }
 ```
 
@@ -680,7 +688,7 @@ defined as a JSON object that consists of the following properties:
 
 ```json title="tmp/dhis2-creds.json"
 {
-  "hostUrl": "https://play.dhis2.org/2.39.1.2",
+  "hostUrl": "https://play.im.dhis2.org/dev",
   "password": "district",
   "username": "admin"
 }
@@ -841,12 +849,11 @@ successful, `getGlobalOrgUnits.js` will run using the final state of
 `getPatients.js`. If `getGlobalOrgUnits.js` is successful, `createTEIs.js` will
 run using the final state of `getGlobalOrgUnits.js`.
 
-Note that without the `-i` flag, you'll need to already have your adaptor
-installed. To execute the workflow with the adaptor autoinstall option run this
-command:
+Note that adaptors specified in the `workflow.json` will be auto-installed when
+you execute the workflow. To execute the workflow run this command:
 
 ```bash
-openfn workflow.json -i -o tmp/output.json
+openfn workflow.json -o tmp/output.json
 ```
 
 On execution, this workflow will first auto-install the adaptors then run the
