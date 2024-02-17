@@ -102,23 +102,15 @@ We will be using the following credential configuration
 Open the OpenFn Inspector, add the following code in the editor:
 
 ```javascript
-// Create completeDate with format YYYY-MM-DD
-fn(state => {
-  const today = new Date().toISOString().slice(0, 10);
-  console.log(state.opvDosesGivenCount, 'opv0 doses given');
-  return { ...state, today };
-});
-
 // Import to DHIS2
 create('dataValueSets', state => ({
   dataSet: 'BfMAe6Itzgt', // Child Health
-  completeDate: state.today, // Today's date in format 'YYYY-MM-DD'
   period: '202402', // Feb 2024
   orgUnit: 'DiszpKrYNg8', // Ngelehun CHC
   dataValues: [
     {
-      categoryOptionCombo: 'HllvX50cXC0',
-      dataElement: 'x3Do5e7g4Qo', // OPV0 doses given dataElement ID
+      categoryOptionCombo: 'Prlt0C1RF0s', //Fixed <1yr
+      dataElement: 'x3Do5e7g4Qo', // OPV0 doses given
       value: state.opvDosesGivenCount, //# of OPV0 doses given
     },
   ],
