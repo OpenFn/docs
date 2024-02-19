@@ -104,6 +104,7 @@ module.exports = {
         'manage-projects/user-roles-permissions',
         'manage-projects/notifications',
         'manage-projects/link-to-gh',
+        'manage-projects/webhook-auth',
       ],
     },
     {

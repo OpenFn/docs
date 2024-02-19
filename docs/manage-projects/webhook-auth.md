@@ -10,8 +10,10 @@ to your webhook.
 ## Adding a Webhook Authentication Method
 
 In your OpenFn projects, you can utilize webhooks to receive data from external
-applications. You can require external applications to authenticate before
-sending your project data for more security.
+applications using a
+[Webhook Trigger](../build/triggers#webhook-event-triggers). When using a
+webhook, you can require external applications to authenticate before sending
+your project data for more security.
 
 OpenFn supports Basic HTTP Authentication using username and password, and API
 Key Authentication using the `x-api-key` request header.

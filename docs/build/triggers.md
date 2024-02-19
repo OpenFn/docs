@@ -19,6 +19,10 @@ real-time event-based automation.
 
 ![Webhook Trigger](/img/webhook_trigger.png)
 
+To learn about how to add an additional layer of security to your Webhook
+Trigger by adding authentication, head over to our
+[Webhook Security](../manage-projects/webhook-auth.md) page.
+
 ### Cron Triggers (formerly timers)
 
 `Cron Triggers` run Workflows based on a cron schedule, and are good for
