@@ -28,11 +28,17 @@ website generator that uses Markdown and Javascript.
 
 ### Installation
 
+#### Unix-like systems
+
 ```console
 asdf install
 corepack enable
 yarn install
 ```
+
+#### Windows
+
+Install [nvm-windows](https://github.com/coreybutler/nvm-windows). Make sure your `node` version matches the one specified in `.tool-versions`. 
 
 ### Starting your docs site server
 
