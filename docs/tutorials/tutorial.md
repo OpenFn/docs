@@ -1,7 +1,6 @@
 ---
-title: QuickStart
+title: Tutorial
 sidebar_label: Workflow QuickStart
-slug: /tutorial
 ---
 # Tutorial: Creating your first workflow
 
