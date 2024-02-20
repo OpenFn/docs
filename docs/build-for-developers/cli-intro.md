@@ -12,8 +12,8 @@ simple to install, works on macOS, Windows, and Linux, and offers a range of
 functionality to enhance your developer experience with OpenFn. You can use the
 OpenFn CLI to:
 
-- Securely run OpenFn jobs and workflows
-- Troubleshoot and debug OpenFn jobs
+- Securely run OpenFn steps and workflows
+- Troubleshoot and debug OpenFn steps
 - Deployment of workflows to OpenFn
 
 ---
@@ -32,8 +32,8 @@ Before you begin with the @openfn/cli, make sure to follow these simple steps:
    [Install Node.js](https://kinsta.com/blog/how-to-install-node-js/) by
    following this guide.
 3. **Understand OpenFn Basics:** Have a basic understanding of OpenFn,
-   particularly jobs and adaptors. Check out the
-   [Intro section](/documentation) on this site.
+   particularly steps and adaptors. Check out the [Intro section](/documentation)
+   on this site.
 
 ---
 
@@ -58,20 +58,24 @@ command.
 
 <details><summary>Expand to see the expected output.</summary>
 
-    [CLI] ℹ Versions:
-            ▸ node.js     18.12.1
-            ▸ cli         0.4.11
-            ▸ runtime     0.2.2
-            ▸ compiler    0.0.38
-    [CLI] ℹ Running test job...
-    [CLI] ℹ Workflow object:
+    [CLI] ♦ Versions:
+         ▸ node.js     18.12.1
+         ▸ cli         1.0.0
+    [CLI] ℹ Running test workflow...
+
+    [CLI] ℹ Execution plan:
     [CLI] ℹ {
-        "start": "start",
-        "jobs": [
+    "options": {
+        "start": "start"
+    },
+    "workflow": {
+        "steps": [
         {
             "id": "start",
+            "state": {
             "data": {
-            "defaultAnswer": 42
+                "defaultAnswer": 42
+            }
             },
             "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
             "next": {
@@ -91,19 +95,18 @@ command.
         }
         ]
     }
+    }
 
-    [CLI] ✔ Compilation complete
-    [R/T] ♦ Starting job start
+    [CLI] ✔ Compiled all expressions in workflow
+    [R/T] ℹ Executing undefined
+    [R/T] ℹ Starting step start
     [JOB] ℹ Starting computer...
-    [R/T] ℹ Operation 1 complete in 0ms
-    [R/T] ✔ Completed job start in 1ms
-    [R/T] ♦ Starting job calculate
+    [R/T] ✔ Completed step start in 1ms
+    [R/T] ℹ Starting step calculate
     [JOB] ℹ Calculating to life, the universe, and everything..
-    [R/T] ℹ Operation 1 complete in 0ms
-    [R/T] ✔ Completed job calculate in 1ms
-    [R/T] ♦ Starting job result
-    [R/T] ℹ Operation 1 complete in 0ms
-    [R/T] ✔ Completed job result in 0ms
+    [R/T] ✔ Completed step calculate in 1ms
+    [R/T] ℹ Starting step result
+    [R/T] ✔ Completed step result in 0ms
     [CLI] ✔ Result: 42
 
 </details>
