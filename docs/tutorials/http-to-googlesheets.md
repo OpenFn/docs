@@ -3,37 +3,46 @@ sidebar_label: HTTP to GoogleSheets
 title: HTTP to GoogleSheets Workflow
 ---
 
-# Create a HTTP to GoogleSheets Workflow
+# Create a Workflow connecting a REST API to Google Sheets
 
-In this tutorial we are going to create a simple workflow that automate users
-data sync between REST API and Google Sheets with OpenFn
+In this tutorial, we are going to walk through how to create a simple OpenFn
+Workflow that automates syncing data between a REST API and Google Sheets, using
+the `http` and `GoogleSheets` [Adaptors](/adaptors).
+
+## Video Walkthrough
+
+Watch the video and follow along with the steps below.
+
+<iframe width="784" height="441" src="https://www.youtube.com/embed/PMj8445gLA4?si=WbJ4tmr_jnKyBfg8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 ## Before you start
 
-Here are some things to know before you begin this process.
+Here are some we assume you've looked over before you begin this process.
 
-- You have checked out our glossary and have an understanding of basic OpenFn
-  and API terminology. Check out the pages below to get started
+- You have checked out our glossary and have an understanding of basic OpenFn &
+  API concepts. Check out the pages below to get started
   - [OpenFn Concepts](../get-started/terminology.md)
   - [A glossary for data integration](../get-started/glossary.md)
-- You have a Google Account. We will use it to create GoogleSheets credentials
-- You have a project on [app.openfn.org](https://app.openfn.org)
+- You have a Google Account. We will use it to create a credential to authorize
+  with Google Sheets.
+- You have access to an OpenFn project (either on a locally installed
+  [OpenFn v2 app](https://github.com/OpenFn/lightning) or on
+  [app.openfn.org](https://app.openfn.org)).
 
 ## Getting started
 
-In this walkthrough, we will be setting up an **automatic data sync between HTTP
-service and a GoogleSheet**. We will be syncing users data coming from a
-JSONPlaceholder Rest API to a GoogleSheet.
+In this walkthrough, we will configure a Workflow to **automatically sync `user`
+data from a web REST API, and import this data to a GoogleSheet**.
 
 **This integration can be broken up into two parts:**
 
-1. Getting data from your source system to OpenFn input so you can inspect the
-   data structure to inform the job design for part two
-2. Transforming and loading this data to your destination system
+1. Get data from the REST API (the "source" app)
+2. Transforming & importing this data to a table in your GoogleSheet (the
+   "destination" app)
 
-… let’s get started!
+Let’s get started!
 
-## Create a new Workflow
+## 1: Create a new Workflow
 
 To create a new Workflow in your Project:
 
@@ -43,7 +52,7 @@ To create a new Workflow in your Project:
 4. Choose your [Trigger](../build/triggers.md)
 5. Edit your first [Step](../build/steps/steps.md)
 
-## Getting data from JSONPlaceholder
+## 2. Configure your first Step to get data from the REST API
 
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/users) provides a free
 fake API for testing and prototyping. We will be using the
@@ -55,12 +64,23 @@ following options
 - Name `Fetch Users`
 - Adaptor `http`
 - Version: `6.0.0`
-- Credentials (Optional) -
+- Credentials (Optional: "Raw JSON" credential) -
   `{ "baseUrl": "https://jsonplaceholder.typicode.com/"}`
-- Step operations - `get("users")` If you have setup the credential above
-- Input - `{}`
+- Job code: Add the operation `get("users")` in the code block if you've
+  configured the "Raw JSON" credential for the jsonplaceholder as the baseURL.
 
-**Once you are finished configuring and writing your step, save and run it!**
+:::tip Need help writing job code?
+
+Check out the docs on the ["http" Adaptor](/adaptors/packages/http-readme),
+[configuring Steps](../build/steps/steps.md), and
+[job-writing](../build/steps/jobs.md).
+
+:::
+
+**Once you are finished configuring and writing your Step, save and run it!**
+
+- See the [Workflows section](../build/workflows.md) for more guidance on
+  building & running Workflows.
 
 **Check out the `Output & Log` panel to see if your run succeeded.** If it
 succeeded, you should see:
@@ -70,24 +90,26 @@ succeeded, you should see:
 - Input tab has `{}`
 - Output tab has `{ data: [ {...}]}`
 
-## Transforming and loading users data to Googlesheet
+## 3. Configure another Step to transform the data & import your GoogleSheet
 
-You should have a Googlesheet created with your google account email for OpenFn
-to read and write data in your target GoogleSheet rows. For this demo, we have
-configured the Googlesheet
+Create a new Googlesheet `Credential` using your Google account's email. (Make
+sure this Google user has edit access to the GoogleSheet you want to integrate
+with.)
+
+For this demo, we have configured the Googlesheet
 [like this](https://docs.google.com/spreadsheets/d/1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc/edit?usp=sharing)
-to capture the users data.
+to store the `users` data.
 
 Create a new step with the `googlesheet` adaptor for loading the users data into
 your destination GoogleSheet. Configure the step with the following options
 
 - Name `Sync Users`
-- Adaptor `googlesheetps`
+- Adaptor `googlesheets`
 - Version: `2.2.2`
-- Credentials: Create new GoogleSheet OAuth credentials and save it
-- Step operations: For this job we will use the `appendValues` operation to add
-  an array of rows to the spreadsheet. Make sure you update the `spreadsheetId`
-  to match the Id of your spreadsheet
+- Credentials: Create new `GoogleSheet OAuth` Credential and save it
+- Step operations: For this job we will use the `appendValues()` operation to
+  add an array of rows to the spreadsheet. Make sure you update the
+  `spreadsheetId` to match the Id of your spreadsheet
 
   ```js
   // Prepare array of users data
@@ -117,11 +139,11 @@ your destination GoogleSheet. Configure the step with the following options
 
 - Input - `Final output of Fetch Users`
 
-If you have already ran the `Fetch Users` step, you will have initial input to
-test `Sync Users` step. Select the input from the input panel and click
-`Create New Work Order` to run this step.
+If you have already ran the `Fetch Users` Step, you will have initial input to
+test `Sync Users` Step. Select the input from the input panel and click
+`Create New Work Order` to run this Step.
 
-## Time to test!
+## 4. Time to test!
 
 1. Select and open inspector for `Fetch Users` step
 2. Create a new empty input `{}`
@@ -130,8 +152,13 @@ test `Sync Users` step. Select the input from the input panel and click
    with status `success`
 5. Finally check your spreadsheet to see the synced users data
 
-Check out the video overview below to learn how to create a HTTP to GoogleSheets
-Workflow
+Encountering errors or getting stuck? Check out the
+[Workflow](../build/workflows.md) or
+[Troubleshooting](../monitor-history/troubleshooting.md) docs.
 
-<iframe width="784" height="441" src="https://www.loom.com/embed/55158aedf1f7497687a4e60f21051f40?sid=d76214d6-9952-49b4-a064-1c2ec4b663ff" title="Create a HTTP to GoogleSheets
-Workflow" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+:::tip Are you blocked? Have questions?
+
+Reminder to [watch the video](#video-walkthrough) or post on the
+[Community](https://community.openfn.org) to ask for help!
+
+:::
