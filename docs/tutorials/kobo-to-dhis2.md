@@ -4,27 +4,53 @@ title: Kobo to DHIS2 Reporting Workflow
 slug: /kobo-to-dhis2
 ---
 
-Workflow Automation Tutorial: Fetching Kobotoolbox Form Submissions, Aggregating
-OPV Dose, and Loading to DHIS2
+# Create a Workflow automating reporting between KoboToolbox & DHIS2
 
-### Overview:
+In this tutorial, we are going to walk through how to create a simple OpenFn
+Workflow that automates reporting from
+[KoboToolbox](https://www.kobotoolbox.org/) (a mobile data collection app) and
+[DHIS2](https://dhis2.org) (a health information system commonly used for
+aggregate reporting on key indicators) using the the `kobotoolbox` and `dhis2`
+[Adaptors](/adaptors).
 
-This tutorial guides you through creating an OpenFn workflow to fetch form
-submissions from Kobotoolbox, transform the data by counting `OPV0_dose_given`
-values, and load the results into DHIS2.
+### Video Walkthrough
+
+:::warning
+
+Coming soon: Video tutorial to guide you through this Workflow configuration.
+
+:::
+
+### Workflow Overview:
+
+This OpenFn Workflow will have 3 Steps:
+
+1. Fetch form submissions from Kobotoolbox
+2. Count the number of `OPV0_dose_given` values recorded across submissions to
+   return an aggregate count of how many beneficiaries have received the OPV0
+   immunication
+3. Import the aggregate results to DHIS2 to report on the # of doses recorded
+   that week
 
 ### Prerequisites:
 
-- OpenFn account
-- Kobotoolbox account
-- DHIS2 account
+- You have an OpenFn Project
+- You have a KoboToolbox account and form to sync (see below for demo
+  credentials to use)
+- Login info for a DHIS2 instance (see below for login info for the "play" DHIS2
+  instance)
 
 ### Step 1: Get Kobo Form Submission
 
-Create a the first step in workflow convas and give it a name of
-`Get Kobo Form Submission`. In this step we will be fetching submissions for a
-form with an id `aBpweTNdaGJQFb5EBBwUeo`. This step uses the kobotoolbox adaptor
-and we will use the following credential configuration
+Create a the first step in Wrkflow convas.
+
+- Name: `Get Kobo Form Submission`
+- Adaptor: `kobotoolbox`
+- Version: `latest`
+- Credential: see belo
+
+This step uses the kobotoolbox adaptor and we will use the following credential
+configuration
 
 ```json
 {
@@ -35,12 +61,23 @@ and we will use the following credential configuration
 }
 ```
 
-Open the OpenFn Inspector Editor and add the following code:
+In this Step we want to be fetch form submissions from this demo form with the
+id `aBpweTNdaGJQFb5EBBwUeo`. To do so, open the
+[Inspector Editor](../build/steps/step-editor.md) and add the following Job
+code:
 
 ```javascript
 // Step 1: Fetch Form Submissions from Kobotoolbox
 getSubmissions({ formId: 'aBpweTNdaGJQFb5EBBwUeo' });
 ```
+
+:::tip Need help writing job code?
+
+Check out the docs on the ["kobotoolbox" Adaptor](/adaptors/kobotoolbox),
+[configuring Steps](../build/steps/steps.md), and
+[job-writing](../build/steps/jobs.md).
+
+:::
 
 #### Explanation:
 
@@ -51,15 +88,23 @@ getSubmissions({ formId: 'aBpweTNdaGJQFb5EBBwUeo' });
 #### Testing:
 
 Create an empty input `{}` then click `Create New Work Order` button to run the
-workflow. The expected output should contain 17 records in `state.data.results`
+workflow. [See docs](../build/workflows.md) for more on running Workflows
+manually.
+
+The expected ` output`` should contain 17 records in  `state.data.results`
 
 ### Step 2: Count OPV Dose Given
 
-Create a down stream step after `Get Kobo Form Submission` and give it a name of
-`Count OPV Dose Given`. In this step we are going to count all records with
-`"OPV0_dose_given": "yes"`. This step will use `common` adaptor and does not
-require any credentials. Open the OpenFn Inspector and add the following code in
-the editor:
+Create a second Step after `Get Kobo Form Submission` as follows:
+
+- Name: `Count OPV Dose Given`
+- Adaptor: `common` (used whenever we want to add custom JavaScript functions)
+- Version: `latest`
+- Credential: none needd
+
+In this step we are going to count all records with `"OPV0_dose_given": "yes"`.
+To add this logic, open the [Inspector](../build/steps/step-editor.md) and add
+the following JOb code in the Editor:
 
 ```javascript
 // Filter and Count OPV Dose Given
@@ -72,6 +117,14 @@ fn(state => {
 });
 ```
 
+::tip Need help writing job code? Or modifying this logic?
+
+Check out the docs on the ["common" Adaptor](/adaptors/packages/common-docs),
+[configuring Steps](../build/steps/steps.md), and
+[job-writing](../build/steps/jobs.md).
+
+:::
+
 #### Explanation:
 
 - `fn`: A function in OpenFn for more flexible job writing. It gives you the
@@ -82,14 +135,18 @@ fn(state => {
 #### Testing:
 
 Select the first step `Get Kobo Form Submission` and `Create New Work Order`
-with an empty input. Both steps should be executed successfully and you should
-see in the final state `opvDosesGivenCount: 3` added
+with an empty input ([see Workflow docs](../build/workflows.md) if you need help
+with running and testing steps). Both steps should be executed successfully and
+you should see in the final state `opvDosesGivenCount: 3` added.
 
 ### Step 3: Map and Load to DHIS2
 
-Create a down stream step after `Count OPV Dose Given` and give it a name of
-`Map and Load to DHIS2`. In this step we will create DHIS2 data values to DHIS2.
-We will be using the following credential configuration
+Create a third Step after `Count OPV Dose Given` as follows:
+
+- Name: `Map and Load to DHIS2`
+- Adaptor: `dhis2`
+- Version: `v4.0.3`
+- Credential: new `dhis2` credential with the following credential configuration
 
 ```json
 {
@@ -99,7 +156,11 @@ We will be using the following credential configuration
 }
 ```
 
-Open the OpenFn Inspector, add the following code in the editor:
+In this Step, we want to add logic to import `dataValues` to DHIS2 to "report"
+on the aggregated OPV0 immunization does count calculated in Step 2.
+
+To do so, open the [Inspector](../build/steps/step-editor.md), add the following
+Job code in the Editor:
 
 ```javascript
 // Import to DHIS2
@@ -117,6 +178,14 @@ create('dataValueSets', state => ({
 }));
 ```
 
+::tip Need help writing job code? Or modifying this logic?
+
+Check out the docs on the ["dhis2" Adaptor](/adaptors/dhis2),
+[configuring Steps](../build/steps/steps.md), and
+[job-writing](../build/steps/jobs.md).
+
+:::
+
 #### Explanation:
 
 - `create('dataValueSets', {...})`: This OpenFn function is used to create a new
@@ -130,11 +199,19 @@ create('dataValueSets', state => ({
 Save your changes then navigate to the first step(Get Kobo Form Submission) and
 create an empty input `{}` then click `Create New Work Order` button to run the
 workflow. All steps should be executed successful and you should see the
-`OPV0 doses given` updated in DHIS2
+`OPV0 doses given` updated in DHIS2. See [Workflow docs](../build/workflows.md)
+if you need help running or testing Workflows.
 
 ### Conclusion
 
 Congratulations! You've successfully created an OpenFn workflow to automate the
-process of fetching form submissions from Kobotoolbox, counting OPV doses given,
-and loading data into DHIS2. Adjustments can be made based on specific
-requirements or system changes.
+process of fetching form submissions from Kobotoolbox, calculated the aggregated
+count of OPV doses given to beneficiaries, and reporting this count as
+`dataValues` to DHIS2.
+
+:::tip Are you blocked? Have questions?
+
+Reminder to watch the video (_coming soon!_) or post on the
+[Community](https://community.openfn.org) to ask for help!
+
+:::
