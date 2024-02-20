@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[97891],{51482:o=>{o.exports=JSON.parse('{"label":"workflow automation","permalink":"/blog/tags/workflow-automation","allTagsPath":"/blog/tags","count":1}')}}]);

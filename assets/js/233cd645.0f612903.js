@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[95155],{34593:s=>{s.exports=JSON.parse('{"label":"case study","permalink":"/blog/tags/case-study","allTagsPath":"/blog/tags","count":15}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[89840],{90613:s=>{s.exports=JSON.parse('{"label":"MySQL","permalink":"/blog/tags/my-sql","allTagsPath":"/blog/tags","count":1}')}}]);

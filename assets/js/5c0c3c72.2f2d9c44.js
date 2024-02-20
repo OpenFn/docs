@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[56960],{46864:e=>{e.exports=JSON.parse('{"label":"child protection","permalink":"/blog/tags/child-protection","allTagsPath":"/blog/tags","count":1}')}}]);
