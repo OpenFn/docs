@@ -3,10 +3,10 @@ title: Support for OpenFn Implementations
 sidebar_label: Support
 ---
 
-## Aask the Community! 
+## Ask the Community! 
 If you need help getting started, have questions, or product feedback, first check out our **[Community](https://community.openfn.org)**. Our core team and other OpenFn implementers monitor all posts to help each other out, share examples, and circulate product updates. 
 
-## Have a private query or issue with your OpenFn SaaS project? 
+## Have a question about your project on OpenFn.org? 
 If you're using the hosted OpenFn platform SaaS, and have a private question about your project, account, or billing, contact our core team at [support@openfn.org](mailto://support@openfn.org). 
 
 ## Need helping hands?
