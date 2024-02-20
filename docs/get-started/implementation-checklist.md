@@ -90,7 +90,7 @@ Key Outputs:
 
 
 
-### (7) Rollout & Support
+## (7) Rollout & Support
 Turn “on” OpenFn workflows to go-live and establish support structures & a governance model for change management.
 
 Key Outputs:
@@ -101,6 +101,8 @@ Key Outputs:
 
 ## Questions or feedback?
 
-If you have any inputs, comments, or questions–please contribute! Submit a pull
-request to this documentation page or leave a comment in
+If you have any inputs, comments, or questions—please contribute! Submit a pull
+request to this documentation page on Github or leave a comment in
 [OpenFn Community](https://community.openfn.org/).
+
+Interested in receiving **training on the OpenFn implementation process**? Contact [partnerships@openfn.org](mailto://partnerships@openfn.org). 
