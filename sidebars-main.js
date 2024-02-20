@@ -29,7 +29,8 @@ module.exports = {
       type: 'category',
       label: 'Tutorials',
       items: [
-        'tutorials/tutorial', 
+        'tutorials/tutorial',
+        'tutorials/http-to-googlesheets',
         'tutorials/kobo-to-dhis2',
         'tutorials/commcare-to-db'
       ],
