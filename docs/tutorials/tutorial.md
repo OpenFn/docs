@@ -3,9 +3,9 @@ title: QuickStart
 sidebar_label: Workflow QuickStart
 slug: /tutorial
 ---
+# Tutorial: Creating your first workflow
 
 # QuickStart: Creating your first workflow
-
 1. Go to your OpenFn Project > `Workflows`
 2. Create a new [Workflow](../build/workflows.md)
 3. Choose your [Trigger type](../build/triggers.md): Webhook Event (for real-time integration) or Cron Expression (for timer/scheduled-based integration)

@@ -10,7 +10,7 @@ module.exports = {
         'get-started/standards',
         'get-started/security-compliance',
         'get-started/security',
-        // 'get-started/implementation-checklist', //TODO: Add back after Aicha's updates
+        'get-started/implementation-checklist' 
       ],
     },
     {
@@ -28,7 +28,12 @@ module.exports = {
     {
       type: 'category',
       label: 'Tutorials',
-      items: ['tutorials/tutorial', 'tutorials/kobo-to-dhis2'],
+      items: [
+        'tutorials/tutorial',
+        'tutorials/http-to-googlesheets',
+        'tutorials/kobo-to-dhis2',
+        'tutorials/commcare-to-db'
+      ],
     },
     {
       type: 'category',
@@ -104,6 +109,7 @@ module.exports = {
         'manage-projects/user-roles-permissions',
         'manage-projects/notifications',
         'manage-projects/link-to-gh',
+        'manage-projects/webhook-auth',
       ],
     },
     {
