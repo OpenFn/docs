@@ -23,7 +23,7 @@ The first step in the discovery process is a business value assessment to determ
 __Questions to ask:__
 
 1. What are the workflow(s) you want to automate? 
-2. How are the workflows currently being managed? 21
+2. How are the workflows currently being managed?
     - Is there an existing manual or semi-automatic business process? 
     - If yes, how much staff time is spent managing these workflows?  
 3. What problem(s) will automation solve for? What efficiencies or benefits to be gained? What is the cost of inaction? 
