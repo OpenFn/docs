@@ -5,12 +5,13 @@ module.exports = {
       label: 'Get Started',
       items: [
         'get-started/home',
+        'get-started/try-out',
         'get-started/terminology',
         'get-started/glossary',
         'get-started/standards',
         'get-started/security-compliance',
         'get-started/security',
-        'get-started/implementation-checklist' 
+        'get-started/implementation-checklist',
       ],
     },
     {
@@ -32,7 +33,7 @@ module.exports = {
         'tutorials/tutorial',
         'tutorials/http-to-googlesheets',
         'tutorials/kobo-to-dhis2',
-        'tutorials/commcare-to-db'
+        'tutorials/commcare-to-db',
       ],
     },
     {
