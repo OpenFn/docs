@@ -20,7 +20,7 @@ module.exports = {
   themeConfig: {
     algolia: {
       appId: 'O729P2PJGT',
-      apiKey: 'f14255f2c5bc17dfd4a4ae99061f7bc6',
+      apiKey: '48a4a6832439f7e5b2f4e44c3c3aa51e',
       indexName: 'openfn',
       contextualSearch: true,
     },
