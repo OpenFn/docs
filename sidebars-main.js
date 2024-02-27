@@ -111,6 +111,7 @@ module.exports = {
         'manage-projects/notifications',
         'manage-projects/link-to-gh',
         'manage-projects/webhook-auth',
+        'manage-projects/workflow-dashboard',
       ],
     },
     {
