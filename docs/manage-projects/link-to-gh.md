@@ -40,8 +40,8 @@ Click `Configure`...
    that use openfn github actions below.
 7. Add `OPENFN_API_KEY` and `OPENFN_PROJECT_ID` repository secrets to your
    Github repo as described below.
-8. Add a `config.json` file to your repository which specifies your endpoint
-   and paths to project spec and state files.
+8. Add a `config.json` file to your repository which specifies your endpoint and
+   paths to project spec and state files.
 9. Click the sync to Github button to initiate a sync from Lightning to GitHub.
 10. Push a change to your selected branch to push changes from Github to
     Lightning.
