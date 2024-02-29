@@ -20,7 +20,7 @@ v1: Message Filters, Cron Triggers, Flow Triggers, and Fail Triggers.
 Setting up a
 [Cron Trigger on v2](documentation/build/triggers#cron-triggers-formerly-timers)
 works just the same as on
-[v1](../../versioned_docs/version-legacy/build/triggers#cron-triggers-formerly-timers):
+[v1](../../versioned_docs/version-legacy/build/triggers.md):
 when you're building a Workflow, select Cron Schedule as Trigger type, and set
 the frequency.
 
