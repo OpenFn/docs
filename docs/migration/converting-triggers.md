@@ -51,8 +51,8 @@ decide whether a subsequent job should be executed or not.
 
 For example, if on v1 you had a Message Filter trigger that looked like this:
 
-![Trigger Example](/lightning_trigger_example.png)
+![Trigger Example](/img/lightning_trigger_example.png)
 
 The matching v2 JavaScript Path Condition would look like this:
 
-![Path Condition Example](/lightning_path_trigger_example.png)
+![Path Condition Example](/img/lightning_path_trigger_example.png)
