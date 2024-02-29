@@ -1,7 +1,7 @@
 ---
-title: Webhook Security
-sidebar_label: Webhook Security
-slug: /webhook-security
+title: Migration Steps
+sidebar_label: Migration Steps
+slug: /migration-steps
 ---
 
 In this article, we walk you through the steps of migrating your project from
@@ -65,7 +65,7 @@ www.community.openfn.org or get in touch at [support@openfn.org](support@openfn.
     Github, must be applied directly to this file. (Unlike the v1 Github sync,
     edits to individual job files will not sync to the OpenFn v2 app. Rather,
     all changes must be made in the project.yaml file or within the linked web
-    app. 
+    app). 
 
 14. You may have other design decisions to make, too. For example, if your
     original v1 workflow uses Inbox in between steps, you might need to adjust
