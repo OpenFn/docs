@@ -139,6 +139,13 @@ module.exports = {
       ],
     },
     {
+      type: 'category',
+      label: 'Migration',
+      items: [
+        'migration/converting-triggers'
+      ],
+    },
+    {
       type: 'link',
       label: 'Community Forum', // The label that should be displayed (string).
       href: 'https://community.openfn.org', // The target URL (string).
