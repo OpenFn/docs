@@ -142,7 +142,8 @@ module.exports = {
       type: 'category',
       label: 'Migration',
       items: [
-        'migration/converting-triggers'
+        'migration/converting-triggers',
+        'migration/migration-steps'
       ],
     },
     {
