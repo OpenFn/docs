@@ -67,13 +67,14 @@ Click `Configure`...
 The workflows that interact with the OpenFn actions will need the repository set
 up with two secrets used in the github actions:
 
-- OPENFN_API_KEY: This is your API Key as generated from Lightning and will be
+- OPENFN_API_KEY: This is your API Key as generated from OpenFn and will be
   needed for authentication
-- OPENFN_PROJECT_ID: This is your Project ID from Lightning this will be used to
-  pull from the lightning instance
+- OPENFN_PROJECT_ID: This is your Project ID from OpenFn this will be used to
+  pull from the OpenFn instance
 
-9. Add a `config.json` file as below to your repository which specifies your endpoint and
-   paths to project spec and state files. Both of these files will be automatically created when you first initiate a sync.
+9. Add a `config.json` file as below to your repository which specifies your
+   endpoint and paths to project spec and state files. Both of these files will
+   be automatically created when you first initiate a sync.
 
 ```json
 {
@@ -83,9 +84,8 @@ up with two secrets used in the github actions:
 }
 ```
 
-10. Click the sync to Github button to initiate a sync from Lightning to GitHub.
-11. Push a change to your selected branch to push changes from Github to
-    Lightning.
+10. Click the sync to Github button to initiate a sync from OpenFn to GitHub.
+11. Push a change to your selected branch to push changes from Github to OpenFn.
 12. Your GitHub connection is now set up!
 
 #### Using Version Control
@@ -100,16 +100,16 @@ representation of your project as code.
 ##### Github to OpenFn
 
 Any time there are changes made to that branch in your Github repo, those
-changes will be pushed to your OpenFn project via `openfn deploy`. Note that
-as your entire project is represented in your `project.yaml` file, you have to
-add all your changes to this file in order for them to be deployed to your
-OpenFn project when syncing.
+changes will be pushed to your OpenFn project via `openfn deploy`. Note that as
+your entire project is represented in your `project.yaml` file, you have to add
+all your changes to this file in order for them to be deployed to your OpenFn
+project when syncing.
 
 #### Github Repository Structure
 
 Here you can do pretty much what you want, so long as you've got a `config.json`
 pointing to your project spec, state, and OpenFn endpoint.
 
-The OpenFn v2 (Lightning) [demo instance](https://demo.openfn.org) is currently connected to
-[this repo](https://Github.com/OpenFn/demo-openhie/). Feel free to play around
-with it.
+The OpenFn v2 (Lightning) [demo instance](https://demo.openfn.org) is currently
+connected to [this repo](https://Github.com/OpenFn/demo-openhie/). Feel free to
+play around with it.
