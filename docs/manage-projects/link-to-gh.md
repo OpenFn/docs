@@ -72,8 +72,17 @@ up with two secrets used in the github actions:
 - OPENFN_PROJECT_ID: This is your Project ID from Lightning this will be used to
   pull from the lightning instance
 
-9. Add a `config.json` file to your repository which specifies your endpoint and
-   paths to project spec and state files.
+9. Add a `config.json` file as below to your repository which specifies your endpoint and
+   paths to project spec and state files. Both of these files will be automatically created when you first initiate a sync.
+
+```json
+{
+  "endpoint": "https://app.openfn.org",
+  "statePath": "./projectState.json",
+  "specPath": "./project.yaml"
+}
+```
+
 10. Click the sync to Github button to initiate a sync from Lightning to GitHub.
 11. Push a change to your selected branch to push changes from Github to
     Lightning.
