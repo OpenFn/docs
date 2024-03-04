@@ -15,10 +15,10 @@ support@openfn.org.
 In this article, we walk you through the steps of migrating your project from
 OpenFn v1 to v2. Some of these steps may require you to make new design
 decisions. For customized migration support, ask your questions on
-www.community.openfn.org or get in touch at [support@openfn.org](support@openfn.org).
+www.community.openfn.org or get in touch at support@openfn.org.
 
 1. Register at https://app.openfn.org/
-2. [Customize your project space](../build/manage-projects/platform-mgmt.md)
+2. [Customize your project space](../manage-projects/platform-mgmt.md)
    with a custom name and description.
 3. Think about how long you want OpenFn to retain your input and output data and
    configure data storage accordingly.
@@ -47,7 +47,7 @@ www.community.openfn.org or get in touch at [support@openfn.org](support@openfn.
 12. Test and iterate.
 13. Project version control/GitHub sync has also gone through some changes. To
     connect your project to GitHub, follow
-    [this guide](../manage-projects/link-to-github.md).
+    [this guide](../manage-projects/link-to-gh.md).
 
     a. Automated migration: It is possible to migrate an entire project from v1
     to v2 in an automated way. You can do this by going to Project Settings on
