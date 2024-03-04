@@ -1,6 +1,6 @@
 ---
 title: Converting Triggers from v1 to v2
-sidebar_label: Converting Triggers
+sidebar_label: Converting v1 Triggers
 slug: /converting-triggers
 ---
 
