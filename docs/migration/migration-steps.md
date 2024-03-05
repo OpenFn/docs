@@ -101,11 +101,10 @@ decisions. For customized migration support, ask your questions on our
 22. Finally, when ready, request to delete your project on v1. To do this, go to
     your v1 `Project Settings` and select the `Delete Project` button.
 
-::: info 
+:::info
 
-The OpenFn v1 platform will be sunsetted in 2025. If you need support
-migrating your project, post on [Community](https://community.openfn.org) or
-contact [support@openfn.org](mailto://support@openfn.org) for paid support
-options.
+The OpenFn v1 platform will be sunsetted in 2025. If you need support migrating
+your project, post on [Community](https://community.openfn.org) or contact
+[support@openfn.org](mailto://support@openfn.org) for paid support options.
 
 :::
