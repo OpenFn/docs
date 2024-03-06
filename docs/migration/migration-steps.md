@@ -17,51 +17,52 @@ decisions. For customized migration support, ask your questions on our
    custom name and description.
 3. Think about how long you want OpenFn to retain your input and output data and
    configure data storage accordingly.
-4. On v2, the jobs you use for automating tasks are organized as
+
+4. **Automated migration**: It is possible to migrate an entire project from v1
+   to v2 in an automated way. You can do this by going to Project Settings on
+   v1, clicking `Export Config` and choosing `Export for v2 (migrate)`. You will
+   receive a `project.yaml` file containing your entire project configuration
+   with jobs and triggers. Set up Github sync for your v2 project following
+   [this guide](../manage-projects/link-to-gh.md). Then, to migrate, commit the
+   exported `project.yaml` file to the Github repo you want to link to your v2
+   project, and iniate a sync. Your v1 project configuration will be deployed to
+   your v2 project.
+
+:::warning
+
+_BUG_: The v1 Export Config feature doesn’t work at the moment. For now, you can
+build your Workflows manually on v2 as described in steps 5-13 below.
+
+:::
+
+5. On v2, the jobs you use for automating tasks are organized as
    [Workflows](../tutorials/tutorial.md), where each Job is 1 "Step" in a
    Workflow. Build out a skeleton to get started: set up
    [Triggers](../build/triggers.md) and the key
    [Steps](https://docs.openfn.org/documentation/build/steps) to get started.
-5. While configuring the Steps in your workflow, consider which _which
+6. While configuring the Steps in your workflow, consider which _which
    conditions_ define when the next Step should execute. On v2, you can define
    [Path conditions](https://docs.openfn.org/documentation/build/paths) to
    configure whether a Step should run "on success", "on failure", or based on
    custom logic. Follow
    [our guide on converting your v1 "triggers" to v2 configuration](../migration/converting-triggers.md)
    to learn more.
-6. Once the basic Steps and Paths are configured, copy your job code from your
+7. Once the basic Steps and Paths are configured, copy your job code from your
    GitHub repository or directly from your v1 project and paste it into each
    Step's Inspector view. Get familiar with the revamped Job Inspector for code
    editing [here](../build/steps/step-editor.md).
-7. Make sure the Adaptor and Adaptor Version match your v1 jobs exactly. See the
+8. Make sure the Adaptor and Adaptor Version match your v1 jobs exactly. See the
    [Steps docs](../build/steps/step-editor.md) for more info on these.
-8. Create [Credentials](../build/credentials.md) for your test and production
+9. Create [Credentials](../build/credentials.md) for your test and production
    systems. **First test your workflows using your "test" or "sandbox"
    credentials.**
-9. Once the Steps are fully configured, add a new custom input and
-   [run your workflow](../build/steps/step-editor.md) to start testing.
-10. Check out the [History](../monitor-history/activity-history.md) page to
+10. Once the Steps are fully configured, add a new custom input and
+    [run your workflow](../build/steps/step-editor.md) to start testing.
+11. Check out the [History](../monitor-history/activity-history.md) page to
     monitor and review your Workflow runs.
-11. Test and iterate.
-12. Once the Workflow is validated, back up your configuration to Github. The
-    OpenFn-Github version control works differently in v2, so
-    [this guide](../manage-projects/link-to-gh.md) to learn how it works.
-
-    - **Automated migration**: It is possible to migrate an entire project from
-      v1 to v2 in an automated way. You can do this by going to Project Settings
-      on v1, clicking `Export Config` and choosing `Export for v2 (migrate)`.
-      You will receive a project.yaml file containing your entire project
-      configuration with jobs and triggers. To migrate, commit this file to the
-      Github repo you want to link to your v2 project, and set up the connection
-      as described in the above guide. Your project configuration will be
-      deployed to your v2 project.
-
-    :::warning
-
-    _BUG_: The v1 Export Config feature doesn’t work at the moment. For now, you
-    can build your Workflows manually on v2 as described in steps 4-12 above.
-
-    :::
+12. Test and iterate.
+13. Once the Workflow is validated, back up your configuration to Github. Follow
+    [this guide](../manage-projects/link-to-gh.md) to learn how it works and set it up.
 
     :::tip
 
@@ -69,36 +70,38 @@ decisions. For customized migration support, ask your questions on our
     the project.yaml file. Therefore, any job changes made via Github, must be
     applied directly to this file. (Unlike the v1 Github sync, edits to
     individual job files will not sync to the OpenFn v2 app. Rather, all changes
-    must be made in the project.yaml file or within the linked web app).
+    must be made in the `project.yaml` file or within the linked web app).
 
     :::
 
-13. You may have other design decisions to make, too. For example, if your
-    original v1 workflow uses Inbox in between steps, you might need to adjust
-    configuration and design so that your jobs are linked together in one
-    Workflow (1 Step for each Job you had in the v1 configuration).
+14. You may have other design decisions to make, too. For example, if your
+    original v1 workflow uses a post request to an OpenFn Inbox in between
+    steps, you should adjust your design so that your jobs are linked together
+    in one Workflow (1 Step for each Job you had in the v1 configuration). (You
+    can still execute another workflow via post request, but this is suboptimal
+    in v2—slower and more costly.)
 
-14. If you’re using a Webhook Trigger, you can add an extra layer of security by
+15. If you’re using a Webhook Trigger, you can add an extra layer of security by
     requiring authentication
     ([see relevant docs](../manage-projects/webhook-auth.md)). Note that if you
     do this, you will need to update the webhook configuration in the external
     app that points to OpenFn.
-15. Fine-tune your security configuration by following our
+16. Fine-tune your security configuration by following our
     [Project Security and Go-Live Checklist](https://docs.google.com/document/d/1XtiiKszeK5MAltPyqvlL4KCjkHC87YYlX8OPh6fZn4c/edit?usp=sharing)
     to consider other v2-specific security features
     ([such as input/output data storage](docs/manage-projects/io-data-storage.md)).
-16. Test some more.
-17. When all workflows run smoothly, update each Step to use a "production"
+17. Test some more.
+18. When all workflows run smoothly, update each Step to use a "production"
     credential to connect to live systems.
-18. If webhooks are used in your source applications, update endpoints in your
+19. If webhooks are used in your source applications, update endpoints in your
     production systems to point to your v2 OpenFn Workflows.
-19. You’re now done with your new v2 setup! You can monitor usage on your
+20. You’re now done with your new v2 setup! You can monitor usage on your
     [Workflows Dashboard](../manage-projects/workflow-dashboard.md). Now time to
     shut down your v1 project.
-20. Turn off your jobs on v1 and remove the GitHub connection there.
-21. If you want to export your v1 data for reference or archival, get in touch
+21. Turn off your jobs on v1 and remove the GitHub connection there.
+22. If you want to export your v1 data for reference or archival, get in touch
     with us at [support@openfn.org](mailto://support@openfn.org).
-22. Finally, when ready, request to delete your project on v1. To do this, go to
+23. Finally, when ready, request to delete your project on v1. To do this, go to
     your v1 `Project Settings` and select the `Delete Project` button.
 
 :::info
