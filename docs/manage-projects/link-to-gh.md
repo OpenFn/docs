@@ -80,6 +80,12 @@ up with two secrets used in the Github actions. On your Github repo, go to
     files appear on your repo.
 11. Your GitHub connection is now set up!
 
+:::info
+
+Make sure you link one Github branch to only one OpenFn project.
+
+:::
+
 #### Using Version Control
 
 ##### OpenFn to Github
