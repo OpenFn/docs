@@ -73,7 +73,7 @@ module.exports = {
         'build-for-developers/cli-usage',
         'build-for-developers/cli-walkthrough',
         'build-for-developers/cli-challenges',
-        'build-for-developers/jobs',
+        // 'build-for-developers/jobs',
         'build-for-developers/build-with-api',
         'build-for-developers/security-for-devs',
       ],
