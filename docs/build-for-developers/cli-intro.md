@@ -7,37 +7,37 @@ slug: /cli
 #### Build and test your automated workflows and integrations via the command line.
 
 The OpenFn CLI is a developer tool to help you build, test, and manage your
-workflows and integration with OpenFn directly from the command line. It’s
+workflows directly from the command line. It’s
 simple to install, works on macOS, Windows, and Linux, and offers a range of
 functionality to enhance your developer experience with OpenFn. You can use the
 OpenFn CLI to:
 
 - Securely run OpenFn steps and workflows
 - Troubleshoot and debug OpenFn steps
-- Deployment of workflows to OpenFn
+- Access adaptor documentation
+- Deploy workflows to OpenFn
 
 ---
 
 ### Before you start
 
-Before you begin with the @openfn/cli, make sure to follow these simple steps:
+Before you begin with the @openfn/cli, make sure to setup some key tooling:
 
 1. **Code Editor:** Ensure you have a code editor installed on your machine. You
    can use popular editors like [VS Code](https://code.visualstudio.com/) or
    [Sublime](https://www.sublimetext.com/).
-2. **Node.js Installation:** Install Node.js (version 18 or later): - For Linux,
+2. **Node.js:** Install Node.js (version 18 or later).  For Linux,
    Windows, or macOS, use a version manager like
    [nvm](https://github.com/nvm-sh/nvm) or
-   [asdf](https://asdf-vm.com/guide/getting-started.html). -
-   [Install Node.js](https://kinsta.com/blog/how-to-install-node-js/) by
+   [asdf](https://asdf-vm.com/guide/getting-started.html). Or [install Node.js directly](https://kinsta.com/blog/how-to-install-node-js/) by
    following this guide.
-3. **Understand OpenFn Basics:** Have a basic understanding of OpenFn,
-   particularly steps and adaptors. Check out the [Intro section](/documentation)
-   on this site.
+
+You should also **understand OpenFn Basic concepts**, particularly steps and adaptors. Check out the [Intro section](/documentation)
+   on this site to get caught up.
 
 ---
 
-### Install the OpenFn CLI
+### Install the CLI
 
 To download the latest version of
 [@openfn/cli](https://www.npmjs.com/package/@openfn/cli), on the command line,
@@ -47,7 +47,7 @@ run the following command.
 npm install -g @openfn/cli
 ```
 
-**Make sure everything works by running the built-in test job**
+Make sure everything works by running the built-in test workflow:
 
 ```bash
 openfn test
@@ -127,7 +127,7 @@ openfn help
 
 ---
 
-### Update the OpenFn CLI
+### Updating the CLI
 
 To install a new version straight on top of your current installation, run the
 following command.
@@ -138,7 +138,7 @@ npm install -g @openfn/cli
 
 ---
 
-### Troubleshoot Installation
+### Troubleshooting
 
 If you encounter installation issues, try uninstalling the current version first
 and then re-installing.
