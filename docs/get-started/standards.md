@@ -3,7 +3,7 @@ sidebar_label: Standards
 title: Standards & OpenFn
 ---
 
-OpenFn’s software follows global standards for open source software and for workflow engine solutions. Read on to learn how OpenFn complies with specific standards.
+OpenFn follows global standards for open source software and for workflow engine solutions. Read on to learn how OpenFn complies with specific standards.
 
 
 ## Digital Public Good

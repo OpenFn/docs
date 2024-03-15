@@ -216,7 +216,7 @@ module.exports = function (context, { apiUrl }) {
           });
           console.log('Done ✓');
 
-          console.log('Creating sidebar paths...');
+          console.log('Creating sidebar paths... !!!!');
 
           fs.writeFileSync(
             './adaptors/packages/publicPaths.json',
