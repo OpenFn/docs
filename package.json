@@ -30,7 +30,8 @@
     "react-flow-renderer": "^9.6.8",
     "react-particles": "^2.5.3",
     "react-player": "^2.9.0",
-    "tsparticles": "^2.5.3"
+    "tsparticles": "^2.5.3",
+    "yarn": "^1.22.22"
   },
   "browserslist": {
     "production": [
