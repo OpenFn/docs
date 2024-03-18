@@ -15,8 +15,9 @@ It's nice and light now, the last drips of African sun filling the empty stairwe
 
 We are in Kenya for our annual company retreat. We try and do this at least once a year: gathering our team from across Europe and Africa and meeting face-to-face, old-school, all-analog baby. We share a week of smiles, playlists, brainstorms and understanding.
 
-<!--some image -->
-![Most of the OpenFn team overlooking the Great Rift Valley](/img/team-kenya.jpg)
+|![Most of the OpenFn team overlooking the Great Rift Valley](/img/team-kenya.jpg)|
+|:--:|
+|Most of the OpenFn team overlooking the Great Rift Valley|
 
 <!--truncate-->
 
@@ -28,7 +29,9 @@ This is grassroots aid, Kenyans helping Kenyans.
 
 Right now, they are bidding to host the [Homeless World Cup](https://www.homelessworldcup.org/stories/more-than-a-game-using-football-to-drive-social-change-in-kenya). I hope they get it - but there's a lot of work to do. We actually came to play some five-a-side - but the pitch was dug up for renovation that very morning.
 
-![CEO Bros Taylor Downs (Openfn) and Enouce Ndeche (VAP)](/img/taylor-enouce.jpeg)
+|![CEO Bros Taylor Downs (Openfn) and Enouce Ndeche (VAP)](/img/taylor-enouce.jpeg)|
+|:--:|
+|CEO bros Taylor Downs (Openfn) and Enouce Ndeche (VAP)|
 
 VAP is one of the reasons we travel all this way, hopping trains and catching planes from London, Lisbon, Riga, Dakar, Budapest, more; why we put up with Murder Birds screaming all night long; why we get the vaccinations and stare down hippos and wonder if we can drink the water and leave behind everyone we love.
 
@@ -38,7 +41,9 @@ And of course, the opportunity to meet each other, to communicate face to face, 
 
 And we talk. The launch of OpenFn v2 (codenamed Lightning) dominates the agenda, of course. We plan how to bring our next-gen open source workflow automation software to market; work out how to talk about it; list what is left to be done.
 
-![OpenFn Team Meal at Lake Naivasha](/img/team-kenya-meal.jpg)
+|![Team Meal at Lake Naivasha](/img/team-kenya-meal.jpg)|
+|:--:|
+|Team Meal at Lake Naivasha|
 
 We discuss ambitious "moonshot" ideas, dreaming about AI-assisted workflows, seamless onboarding, live playgrounds. We recap the mission - not that we really need to - and remind ourselves why what we do matters. We set context for each other, learn about each other.
 
@@ -50,7 +55,9 @@ We somehow packed ourselves and our luggage into a van that can't possibly fit u
 
 We ordered so much Tusker and Stoney that our hotel threw a complimentary cocktail hour for us.
 
-![Loading the van](/img/dixons-van.webp)
+|![Loading the van](/img/dixons-van.webp)|
+|:--:|
+|Loading the van|
 
 Everything is great. Co-working in the real is a joy. Decisions are getting made. Kenya is paradise.
 
@@ -68,7 +75,9 @@ Maybe this is the real reason we're here. We spend our lives fighting inequality
 
 Maybe the only way to understand our impact is to immerse ourselves in places like this. Maybe this is how we understand the mission.
 
-![AkiraChix HQ](/img/akira-chix.jpg)
+|![AkiraChix HQ](/img/akira-chix.jpg)|
+|:--:|
+|AkiraChix HQ|
 
 Hang on, I'm trying to round off this ramble into some kind of point but I haven't even told you about [AkiraChix](https://akirachix.com/) yet - that's the best bit.
 
@@ -90,4 +99,6 @@ Maybe it's not true for everyonem but for me, Kenya is paradise.
 
 Here's to making it a safe, productive and inspiring place for even more people.
 
-![Your writer](/img/kenya-joe.jpg)
+|![Your writer in a silly hat](/img/kenya-joe.jpg)|
+|:--:|
+|Your writer in a silly hat|
