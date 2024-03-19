@@ -14,6 +14,7 @@ module.exports = {
         'get-started/implementation-checklist',
       ],
     },
+    'job-writing-guide',
     {
       type: 'category',
       label: 'Design Workflows',
