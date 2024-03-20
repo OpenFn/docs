@@ -7,10 +7,9 @@ slug: /cli
 #### Build and test your automated workflows and integrations via the command line.
 
 The OpenFn CLI is a developer tool to help you build, test, and manage your
-workflows directly from the command line. It’s
-simple to install, works on macOS, Windows, and Linux, and offers a range of
-functionality to enhance your developer experience with OpenFn. You can use the
-OpenFn CLI to:
+workflows directly from the command line. It’s simple to install, works on
+macOS, Windows, and Linux, and offers a range of functionality to enhance your
+developer experience with OpenFn. You can use the OpenFn CLI to:
 
 - Securely run OpenFn steps and workflows
 - Troubleshoot and debug OpenFn steps
@@ -26,14 +25,15 @@ Before you begin with the @openfn/cli, make sure to setup some key tooling:
 1. **Code Editor:** Ensure you have a code editor installed on your machine. You
    can use popular editors like [VS Code](https://code.visualstudio.com/) or
    [Sublime](https://www.sublimetext.com/).
-2. **Node.js:** Install Node.js (version 18 or later).  For Linux,
-   Windows, or macOS, use a version manager like
-   [nvm](https://github.com/nvm-sh/nvm) or
-   [asdf](https://asdf-vm.com/guide/getting-started.html). Or [install Node.js directly](https://kinsta.com/blog/how-to-install-node-js/) by
-   following this guide.
+2. **Node.js:** Install Node.js (version 18 or later). For Linux, Windows, or
+   macOS, use a version manager like [nvm](https://github.com/nvm-sh/nvm) or
+   [asdf](https://asdf-vm.com/guide/getting-started.html). Or
+   [install Node.js directly](https://kinsta.com/blog/how-to-install-node-js/)
+   by following this guide.
 
-You should also **understand OpenFn Basic concepts**, particularly steps and adaptors. Check out the [Intro section](/documentation)
-   on this site to get caught up.
+You should also **understand OpenFn Basic concepts**, particularly steps and
+adaptors. Check out the [Intro section](/documentation) on this site to get
+caught up.
 
 ---
 

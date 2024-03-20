@@ -5,14 +5,12 @@ sidebar_label: What is OpenFn?
 slug: /
 ---
 
-
 **OpenFn is the leading
 [Digital Public Good](https://digitalpublicgoods.net/digital-public-goods/) for
 workflow automation**.
 
-It is a platform that's been used by 70+ NGOs and government
-ministries to automate and integrate critical business processes and information
-systems.
+It is a platform that's been used by 70+ NGOs and government ministries to
+automate and integrate critical business processes and information systems.
 
 **Connect any app** with OpenFn's library of open-source [Adaptors](/adaptors/)
 (i.e., connectors). From last-mile services to national-level reporting, OpenFn
@@ -21,8 +19,8 @@ interoperability at all levels.
 
 OpenFn can be deployed locally or on the secure
 [cloud-hosted platform](https://openfn.org/pricing). See the
-[Deployment docs](/documentation/deploy/options) for more on deployment options and
-requirements.
+[Deployment docs](/documentation/deploy/options) for more on deployment options
+and requirements.
 
 To support implementers, OpenFn has an online
 [community](https://community.openfn.org), documentation, and
@@ -53,12 +51,15 @@ open-source `OpenFn Integration Toolkit`, which is a **Digital Public Good** (a
 
 The core OpenFn products include:
 
-- **[OpenFn/lightning](https://github.com/OpenFn/lightning)**: our open
-  source data integration & workflow automation platform. This is the "v2" version currently in use.
-- OpenFn/platform: the first version of our platform. Replaced by v2 and due to be sunsetted in 2025
+- **[OpenFn/lightning](https://github.com/OpenFn/lightning)**: our open source
+  data integration & workflow automation platform. This is the "v2" version
+  currently in use.
+- OpenFn/platform: the first version of our platform. Replaced by v2 and due to
+  be sunsetted in 2025
 - [**OpenFn/adaptors**](https://github.com/OpenFn/adaptors): source code for
   adaptors
-- [**OpenFn/kit**](https://github.com/OpenFn/kit): CLI, developer tools and Javascript runtimes
+- [**OpenFn/kit**](https://github.com/OpenFn/kit): CLI, developer tools and
+  Javascript runtimes
 - [**OpenFn/docs**](https://github.com/OpenFn/docs): documentation & source for
   docs.openfn.org
 
@@ -67,15 +68,15 @@ See all products and code at [Github.com/OpenFn](https://github.com/OpenFn).
 ### OpenFn v2: Lightning ⚡
 
 When you hear "OpenFn", think
-[OpenFn/lightning](https://github.com/OpenFn/lightning/).
-v2 is a _fully open source_ workflow automation web application which can be
-deployed and run anywhere. It is designed for governments and NGOs who want
-state-of-the-art workflow automation and data integration/interoperability
-capabilities with fully-fledged user management and auditing capabilities
-through a managed _or_ entirely self-hosted platform.
+[OpenFn/lightning](https://github.com/OpenFn/lightning/). v2 is a _fully open
+source_ workflow automation web application which can be deployed and run
+anywhere. It is designed for governments and NGOs who want state-of-the-art
+workflow automation and data integration/interoperability capabilities with
+fully-fledged user management and auditing capabilities through a managed _or_
+entirely self-hosted platform.
 
-Version 2 leverages the same tried-and-trusted core technology as the OpenFn v1 and
-comes with an improved, visual interface for building integrations.
+Version 2 leverages the same tried-and-trusted core technology as the OpenFn v1
+and comes with an improved, visual interface for building integrations.
 
 ![OpenFn Workflow Canvas](/img/case_referral_workflow.png)
 
