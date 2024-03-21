@@ -614,3 +614,25 @@ import { get } from '@openfn/language-http';
 export * from '@openfn/language-http';
 export default [get('/patients')];
 ```
+
+## Next Steps
+
+The best way to learn how to write OpenFn jobs is to write OpenFn jobs.
+
+You can [get started with CLI](/documentation/cli) and start running jobs
+locally. Then take a look at the [CLI Challenge](/documentation/cli-challenges)
+to really exercise your job writing skills.
+
+If you're ready to start using the app, take a look at this guide to
+[create your first Workflow](documentation/build/workflows).
+
+Workflow design is a non-trivial problem, so you might also like to review the
+Workflow [Design Process docs](documentation/design/design-overview).
+
+:::info Questions?
+
+If you have any job-writing questions, ask on
+[Community](https://community.openfn.org) to seek assistance from the OpenFn
+core team and other implementers.
+
+:::
