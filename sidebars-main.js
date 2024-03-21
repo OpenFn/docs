@@ -40,9 +40,11 @@ module.exports = {
       type: 'category',
       label: 'Write Jobs',
       items: [
-        'job-writing-guide',
-        'build/steps/job-examples',
-        'build/steps/state',
+        'jobs/job-writing-guide',
+        'jobs/state',
+        'jobs/javascript',
+        'jobs/job-examples',
+        'jobs/job-snippets',
       ],
     },
     {
