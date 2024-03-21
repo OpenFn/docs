@@ -4,7 +4,7 @@ sidebar_label: CLI challenges
 slug: /cli-challenges
 ---
 
-#### Solve real-world problems and showcase your command-line skills by participating in our CLI challenges.
+#### Solve real-world problems and showcase your command-line skills by participating in our CLI challenges
 
 :::tip Important Notes
 
@@ -16,27 +16,25 @@ slug: /cli-challenges
   <details>
   <summary>Expand to see bug report template</summary>
 
-  ```
-
+  ```markdown
   Subject: Bug Report - [Brief Description]
 
-  **Description:**
-  [Concise description of the bug.]
+  **Description:** [Concise description of the bug.]
 
   **Steps to Reproduce:**
+
   1.
   2.
   3.
 
   **Environment:**
+
   - OS: [e.g., Windows 10]
   - CLI: [e.g., v0.4.11]
   - Node: [e.g., v 18.17.1]
   - NPM: [e.g., 8.19.2]
 
-  **Attachments:**
-  [Screenshots, error messages, or relevant files.]
-
+  **Attachments:** [Screenshots, error messages, or relevant files.]
   ```
 
   </details>
@@ -93,9 +91,15 @@ Fetch and print the details of the first user from the JSONPlaceholder API.
 
 **Requirements:**
 
-1. Utilize the
+1. Install the latest version of http adaptor.
+
+```bash
+openfn repo install @openfn/language-http
+```
+
+2. Utilize the
    [JSONPlaceholder API](https://jsonplaceholder.typicode.com/users).
-2. Create a file named `getUsers.js` to contain the script.
+3. Create a file named `getUsers.js` to contain the script.
 
 **Tasks:**
 
@@ -119,27 +123,27 @@ Fetch and print the details of the first user from the JSONPlaceholder API.
 
 **Overview:**
 
-Fetch and present COVID-19 metadata using the
-[disease.sh API](https://disease.sh/).
+Fetch and present COVID-19 metadata using
+[The Atlantic's COVID Tracking Project API](https://covidtracking.com/data/api).
 
 **Objective:**
 
-Write a job that retrieves comprehensive COVID-19 data from the API and group it
-by region.
+Write a job that retrieves COVID-19 data from the API and calculate some
+aggregate values across a length of time of your chosing.
 
 **Requirements:**
 
-1.  Install the latest version of http adaptor.
+1. Install the latest version of http adaptor.
 
-```
+```bash
 openfn repo install @openfn/language-http
 ```
 
 **Tasks:**
 
 1. Write an OpenFn operation to pull COVID-19 metadata from the
-   [disease.sh API](https://disease.sh/).
-   - Utilize `https://disease.sh/v3/covid-19/` as your **baseUrl** in
+   [The Atlantic's COVID Tracking Project API](https://covidtracking.com/data/api).
+   - Utilize `https://api.covidtracking.com` as your **baseUrl** in
      `state.configuration`.
 2. Run the job using the OpenFn CLI with the command
    `openfn your_operation_file.js -a http -o tmp/output.json`.
