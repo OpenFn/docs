@@ -325,11 +325,11 @@ an array by the compiler (see bellow), and then excuted by the runtime.
 
 So when your code executes, it's doing something like this:
 
-```
-const getFn = get('/some-data')
-const postFn = post('/some-data', state.data)
+```js
+const getFn = get('/some-data');
+const postFn = post('/some-data', state.data);
 
-return getFn(state).then((nextState) => postFn(nextState))
+return getFn(state).then(nextState => postFn(nextState));
 ```
 
 The point is that when the post operation is created, all we've done is _create_
@@ -359,6 +359,79 @@ using the return as the value.
 
 These lazy functions are incredibly powerful. Using them effectively is the key
 to writing good OpenFn jobs.
+
+## Mapping Objects
+
+A common use-case in OpenFn fn is to map/convert/transform an object from system
+A to the format of system B.
+
+We often do this in multiple Jobs in the same workflow, so that we can use
+different adaptors. But in this example we'll work with three operations in one
+job with the http adaptor: one to fetch data, one to transform, and one to
+upload:
+
+```js
+// Fetch an object from one system
+get('https://www.system-a.com/api/patients/123');
+
+// Transform it
+fn(state => {
+  // Read the data we fetched
+  const obj = state.data;
+
+  // convert it by mapping properties from one object to the o ther
+  state.uploadData = {
+    id: obj.id,
+    name: `${obj.first_name} ${obj.last_name}`,
+    metadata: obj.user_data,
+  };
+
+  // Don't forget to return state!
+  return state;
+});
+
+// Post it elsewhere
+post('https://system-b.com/api/v1/records/123', () => state.uploadData);
+```
+
+:::tip Batch conversions
+
+These examples show a single object being converted - but sometimes we need to
+convert many objects at once.
+
+See the each() example below to see how we can do this with the each operator.
+
+You can also use a Javascript map() or forEach() function inside a callback or
+fn block.
+
+Generally it's easier to spread your job logic across many top-level operations,
+each responsible for one task, rather than having a few deeply nested
+operations.
+
+:::
+
+This is fine - and actually, having lots of operations which each do a small
+task is usually considered a good thing. It makes code more readable and easier
+to reason about when things go wrong.
+
+But every operation argument accepts a function (allowing lazy state references,
+as described above). This gives us the opportunity to the conversion in-line in
+the post operation:
+
+```js
+// Fetch an object from one system
+get('https://www.system-a.com/api/patients/123');
+
+// Transform and post it elsewhere
+post('https://system-b.com/api/v1/records/123', state => ({
+  id: state.data.id,
+  name: `${state.data.first_name} ${state.data.last_name}`,
+  metadata: state.data.user_data,
+}));
+```
+
+Effective use of these lazily-resolved functions is critical to writing good
+OpenFn jobs.
 
 ## Iteration with each()
 

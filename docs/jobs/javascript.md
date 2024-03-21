@@ -10,6 +10,89 @@ might help make your code cleaner. This is not meant to be an exhaustive guide,
 just a pointer to some good techniques on some of the newer aspects of the
 language.
 
+### Variables: var vs let vs const
+
+JavaScript gives you three different ways to declare variables, and this can be
+a bit confusing.
+
+- `var` is a variable that can have its value reassigned. You can re-declare a
+  `var` multiple times.
+- `let` is basically the same as a var, but cannot be redeclared and has subtly
+  different scoping rules.
+- `const` is used for variable whose values do not change.
+
+It doesn't really matter which style you use (except perhaps if you try to
+assign to a `const`).
+
+Most OpenFn jobs are written in quite a functional style anyway - you may find
+you don't even need to declare variables.
+
+<details>
+<summary>What is functional programming?</summary>
+Functional programming is a style of programming, increasingly popular in modern Javascript.
+
+Broadly, the idea is to minimize the usage of control flow statements (like
+`if/else`,`for`) and instead use chains of functions. In functional programming
+we pass data through a pipeline to get the result we want sound familiar?).
+
+```js
+const items = [10, 109, 55];
+
+// Imperative JS
+const transformedItems = [];
+for (const i of items) {
+  if (i < 100) {
+    transformedItems.push(i * 2);
+  }
+}
+
+// Functional js
+const transformedItems = items.filter(x => x > 100).map(x => x * 2);
+```
+
+Functional programming tends to be more terse and condensed than regular,
+imperative programming. This is a good and bad thing - but if you're used to the
+style, it tends to be very readable and translates well across languages.
+
+</details>
+
+Most modern, idiomatic JavaScript is written with `const` and `let`. This can
+actually make your code more readable and intentional, and the rules are
+actually pretty simple:
+
+- Use a `const` if you don't want a variable value to change.
+- Use a `let` if you expect variable value to change.
+
+This can get a little tricky with objects and arrays. We can assign an object to
+a const, but still change the properties of the object. The same for arrays.
+This is all to do with pointers and how JavaScript stores variables - the key to
+it is that you're not assigning a new value to the variable, but you are
+modifying the _contents_ of the variable.
+
+Check these examples:
+
+```js
+// Example 1: Objects
+const data = {};
+
+// We can mutate the object here
+// The data variable is still referencing the same object
+data.name = 'OpenFn';
+
+data = { name: 'Lightning' }; // This throws a runtime error because we are re-assigning the variable!
+
+// Example 2: Arrays
+const ids = [1, 2, 3];
+
+// We can call functions on the ids array, which will mutate the array's contents
+ids.push(4);
+ids.pop();
+
+// But we cannot re-assign the variable
+
+ids = [4, 5, 6]; // This throws a runtime error because we are re-assigning the variable!
+```
+
 ### Optional chaining
 
 JavaScript is an untyped language - which is very conveient for OpenFn jobs and
