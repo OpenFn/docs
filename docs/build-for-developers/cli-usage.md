@@ -4,10 +4,21 @@ sidebar_label: Basic usage
 slug: /cli-usage
 ---
 
-#### Execute a job, run a workflow, adjust logging, maintain adaptors, and save the state.
+This page shows common usage examples for the CLI.
 
-You're probably here to run steps (expressions) or workflows, which the CLI
-makes easy. Keep reading for an outline of the basic usage scenarios of the CLI.
+Execute a job, run a workflow, adjust logging, maintain adaptors, and save the state.
+
+---
+
+### Get help
+
+```bash
+openfn --help
+```
+
+```bash
+openfn deploy --help
+```
 
 ---
 
@@ -17,21 +28,15 @@ To run a single job, you must explicitly specify which adaptor to use. You can
 find the list of publicly available [adaptors here](/adaptors). See examples
 below.
 
-> Adaptors are auto-installed if the specified version is not detected.
+Adaptors are automatically installed if the specified version is not detected.
 
-**Use a shorthand (e.g., `http`):**
+**Run a job with the http adaptor:**
 
 ```bash
 openfn path/to/job.js -a http
 ```
 
-**Use the full package name (e.g., `@openfn/language-http`):**
-
-```bash
-openfn path/to/job.js -a @openfn/language-http
-```
-
-**Add a specific version:**
+**Use a specific adaptor version:**
 
 ```bash
 openfn path/to/job.js -a http@2.0.0
@@ -43,9 +48,19 @@ openfn path/to/job.js -a http@2.0.0
 openfn path/to/job.js -a http=/repo/openfn/adaptors/my-http-build
 ```
 
+**Use the build in the adaptors monoreo:**
+
+```bash
+openfn path/to/job.js -ma http
+```
+
+Set a path to the monorepo with the env var OPENFN_REPO_DIR (eg, `OPENFN_REPO_DIR=~/openfn/repo openfn job.js -ma http`).
+
+Remember to rebuild the adaptor before using it!
+
 ---
 
-### Write resulting state to disk
+### Handle output state
 
 After the job finishes, the CLI writes the resulting state to disk. By default,
 it creates an `output.json` next to the job file.
@@ -55,8 +70,6 @@ it creates an `output.json` next to the job file.
 ```bash
 openfn path/to/job.js -a adaptor-name -o path/to/output.json -s path/to/state.json
 ```
-
-### Return resulting state through stdout
 
 **Use `-O` to return the output through stdout:**
 
@@ -153,3 +166,23 @@ openfn path/to/workflow.json -o tmp/output.json
 
 Check out this detailed [tutorial](cli-walkthrough#7-running-workflows) on
 running workflows via the CLI.
+
+---
+
+### Load adaptor documentation
+
+The CLI can list adaptor documentation in the terminal. Note that it has to download
+the adaptor to the repo (if it's not already there), which can take a moment.
+
+**Print a list of adaptor functions**
+
+```bash
+openfn docs http
+```
+
+
+**Show docs for a specific function**
+
+```bash
+openfn docs http post
+```

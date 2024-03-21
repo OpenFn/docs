@@ -1,21 +1,20 @@
 ---
-sidebar_label: Glossary for Integration
+sidebar_label: Glossary
 title: A glossary for data integration
 ---
 
-Now that we've got a basic understanding of what an integration is, it's
-important to establish some of the foundational concepts we need to press
-forward. This doesn't mean you can't use OpenFn if you don't know what any of
-these words mean prior to reading our documentation, but it does mean that some
-of the most important tasks along the OpenFn journey will assume at least a
-basic understanding of each of these terms. In some cases, we also link to
-further reading if you want a better understanding of some part of your data
-integration picture.
+This glossary establishes some of the foundational concepts and terms used while
+talking about data integration and workflow automation.
 
-Note: This glossary is meant to be OpenFn-agnostic. The rest of the docs and
+This doesn't mean you can't use OpenFn if you don't know what any of these words
+mean prior to reading our documentation - but it does mean that some of the most
+important tasks along the OpenFn journey will assume at least a basic
+understanding of each of these terms.
+
+This glossary is meant to be OpenFn-agnostic. The rest of the docs and
 [Key Concepts page](/documentation/get-started/terminology) help you to get a
-picture of the parts of OpenFn, what we call them, and why, but this glossary is
-really meant as a prerequisite to all those other things to aid users with no
+picture of the parts of OpenFn, what we call them, and why - but this glossary
+is really meant as a prerequisite to all those other things to aid users with no
 experience in this area.
 
 :::tip Something missing?
@@ -133,8 +132,8 @@ data to a destination system.
 
 ## Webhook
 
-A [webhook](/documentation/build/triggers#webhook-event-triggers) (also
-called a web callback or HTTP push API — thanks
+A [webhook](/documentation/build/triggers#webhook-event-triggers) (also called a
+web callback or HTTP push API — thanks
 [SendGrid](https://sendgrid.com/blog/whats-webhook/)!) is a feature of an
 application that allows <i>pushing</i>. It's often configured to notify some
 external URL when an event occurs. A system administrator might create a

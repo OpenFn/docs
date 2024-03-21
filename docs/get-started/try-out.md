@@ -49,8 +49,8 @@ without limits. See our Github repo for developer docs:
 
 :::info Questions?
 
-Don't forget to check out the new docs on specific featurs (see menu sidebar),
-browse the [main docs page](./home.md), or post questions on
-[Community](https://community.openfn.org) if you have any questions.
+Check out these docs for more details on specific features (see menu sidebar),
+browse the [main docs page](./home.md), or post your questions on
+[Community](https://community.openfn.org).
 
 :::
