@@ -7,7 +7,7 @@ find some OpenFn-specific terminology that's important to understand. This page
 is your reference guide—a glossary of the most important _OpenFn-specific_ words
 and what they mean.
 
-:::note Something missing?
+:::tip Something missing?
 
 If you've come across a word, phrase, or concept that you think is missing from
 this page, open an issue on [OpenFn/docs](https://github.com/OpenFn/docs),

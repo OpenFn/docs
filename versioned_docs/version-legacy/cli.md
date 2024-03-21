@@ -39,7 +39,8 @@ to use and understand OpenFn.
 :::caution Looking for a way to execute jobs from OpenFn v1 locally? Use Core!
 
 If you're looking for a way to execute jobs running on the OpenFn v1 platform,
-please see the documentation for **[@openfn/core](https://github.com/OpenFn/core)** and
+please see the documentation for
+**[@openfn/core](https://github.com/OpenFn/core)** and
 [Devtools](https://github.com/OpenFn/devtools).
 
 :::
@@ -217,17 +218,17 @@ openfn test --log debug
 
       <summary>View expected output</summary>
 
-      ```bash
-        [CLI] ⚠ WARNING: No adaptor provided!
-        [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
-                  openfn job.js -a common
-        [CLI] ✔ Compiled from helo.js
-        [R/T] ♦ Starting job job-1
-        [JOB] ℹ Hello World!
-        [R/T] ✔ Completed job job-1 in 1ms
-        [CLI] ✔ State written to tmp/output.json
-        [CLI] ✔ Finished in 17ms ✨
-      ```
+    ```bash
+      [CLI] ⚠ WARNING: No adaptor provided!
+      [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
+                openfn job.js -a common
+      [CLI] ✔ Compiled from helo.js
+      [R/T] ♦ Starting job job-1
+      [JOB] ℹ Hello World!
+      [R/T] ✔ Completed job job-1 in 1ms
+      [CLI] ✔ State written to tmp/output.json
+      [CLI] ✔ Finished in 17ms ✨
+    ```
 
     </details>
 
@@ -511,12 +512,13 @@ of how to set up `state.configuration` for `language-http`.
 
 #### 🏆 Challenge: Fetch Covid-19 metadata
 
-1. Using the [disease.sh API](https://disease.sh/), write an operation that
-   returns all covid-19 metadata.
+1. Using the
+   [The Atlantic's COVID Tracking Project API](https://covidtracking.com/data/api).,
+   write an operation that returns all covid-19 metadata.
 
 :::tip
 
-`https://disease.sh/v3/covid-19/` as your **baseUrl** in `state.configuration`
+`https://api.covidtracking.com` as your **baseUrl** in `state.configuration`
 
 :::
 
@@ -811,9 +813,9 @@ between systems in a structured and automated way.
 _For example, if you have two jobs in your workflow (GET users from system A &
 POST users to system B), you can set up your workflow to run all jobs in
 sequence from start to finish. This imitates the
-[flow trigger patterns](./build/triggers.md#flow-triggers)
-on the OpenFn platform where a second job should run after the first one
-succeeds, respectively, using the data returned from the first job. “_
+[flow trigger patterns](./build/triggers.md#flow-triggers) on the OpenFn
+platform where a second job should run after the first one succeeds,
+respectively, using the data returned from the first job. “_
 
 :::info tl;dr
 

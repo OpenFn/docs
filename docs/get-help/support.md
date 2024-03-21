@@ -1,6 +1,6 @@
 ---
 title: Support for OpenFn Implementations
-sidebar_label: Support
+sidebar_label: Get Help
 ---
 
 ## Ask the Community! 
