@@ -114,8 +114,9 @@ made. Kenya is paradise.
 
 But something is wrong with this picture.
 
-Time and again it strikes me that, busy as we are, the world around us moves at
-a very different pace.
+Time and again it strikes me that, busy as we are - running around, packing
+buses, climbing stairs, cramming meetings - the world around us moves at a very
+different pace.
 
 We drive down red, rocky roads, lined with people just... waiting. No-one
 rushes. Staff at our hotel work dawn to dust and beyond — longer than we do. Our
@@ -126,11 +127,11 @@ When Dave Graeber wrote about
 ["bullshit jobs"](https://www.newyorker.com/books/under-review/the-bullshit-job-boom),
 I don't think this is what he meant.
 
-There seems to be a lot of spare time here. I wonder about that. OpenFn is
-obsessed with a certain kind of efficiency, and yet something about this kind of
-living does not seem iniefficient, or wasteful.
+There seems to be a lot of spare time here. I wonder about that. We at OpenFn
+are obsessed with efficiency - a certain kind of efficiency, anyway. But this
+lifestyle doesn't seem to be _inefficient_. Nor is it wasteful.
 
-If I ever work out what it means, I'll let you know.
+If I ever work out what any of this means, I'll let you know.
 
 Maybe this is the real reason we're here. We spend our lives fighting
 inequality, in our own small, specialised way, reducing inefficiency in parts of
