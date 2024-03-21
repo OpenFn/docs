@@ -5,20 +5,20 @@ title: Job Writing Guide
 
 <!-- TODO: work out where this goes in the nav bar. Top level I think. I probably want to merge my structural changes first. -->
 
-Workflow automation and data integration in Openfn is realised through the
+Workflow automation and data integration in OpenFn is realised through the
 creation of Jobs.
 
 This guide will walk you through key concepts and best practices for job
-writing. It is suitable for new coders and experienced Javascript programmers.
-In fact, even if you're an experienced Javacript Developer, there a number of
+writing. It is suitable for new coders and experienced JavaScript programmers.
+In fact, even if you're an experienced JavaScript Developer, there a number of
 key patterns in the OpenFn ecosystem which it is important to learn.
 
-A Job is a bunch of Javascript code which performs a particular task, like
+A Job is a bunch of JavaScript code which performs a particular task, like
 fetching data from Salesforce or converting some JSON data to FHIR standard.
 
 Each job uses exactly one Adaptor (often called a "connector") to perform its
-task. The Adaptor provides a collection of helper functions which makes it easy
-to communicate with a data source.
+task. The Adaptor provides a collection of helper functions (Operations) which
+makes it easy to communicate with a data source.
 
 This guide applies equally to writing Jobs on the app (Lightning) or through the
 CLI.
@@ -39,14 +39,23 @@ To learn more about workflow design and implementation, see
 
 Every job is a data transformation pipeline.
 
-A job has some input (a Javascript object we call State) and a set of Operations
-(functions) which transform that state in series (ie, one after the other).
-State is passed into, and returned from, each operation in turn until there are
-no more operations left. The output of the final operation is the output of the
-Job.
+It takes some input (a JavaScript object we call State) and executes a set of
+Operations (or functions), which transform that state in series (ie, one after
+the other). The final state object is returned as the output of the pipeline.
 
-![Job Pipeline](/img/guide-job-pipeline.webp) For example, here's how we issue a
-GET request with a http adaptor:
+![Job Pipeline](/img/guide-job-pipeline.webp)
+
+Operations are provided by an Adaptor (connector). Each adaptor exports a list
+of functions designed to interact with a particular data source - for example,
+take a look at the [dhis2](adaptors/packages/dhis2-docs) and
+[salesforce](adaptors/packages/salesforce;-docs) adaptors.
+
+Everything you can achieve in OpenFn can be achieve with existing JavaScript
+libraries or calls to REST APIs. The value of Adaptors is that they provide
+functions to make this stuff easier: taking care of authoristaion, providing
+cleaner syntax, and hiding away implementation details for you.
+
+For example, here's how we issue a GET request with the http adaptor:
 
 ```js
 get('/patients');
@@ -57,31 +66,35 @@ tell the adaptor what base url to use). In this case we're passing a static
 string, but we can also pass a value from state:
 
 ```js
-get(dataValue('endpoint'));
+get(state => state.endpoint);
 ```
 
-The `dataValue` function will read a path from state.data (in this case,
-`state.data.endpoint`) and return it.
-
-Your job code should only contain operations at the top level/scope - you should
-NOT include any other Javascript statements. We'll talk about this more in a
-minute.
-
-<!-- TODO this is half finished -->
 <details>
-<summary>More details for Javascript Developers</summary>
-An operation is actually a factory function. It takes the arguments passed in job code, traps them in a closure, and returns a function which takes state and returns state.
+<summary>Why the arrow function?</summary>
+If you've got some JavaScript experience, you'll notice The example above uses an arrow function to retreive the endpoint key from state.
 
-The Job code is not actually runnable Javascript - we compile it into an array
-of promises, basically, and then execute those promises with an async reducer.
-Compilation affects the top level operations (which get moved into that array of
-promises), but nothing else in the code.
+But why not just do this?
+
+```
+get(state.endpoint);
+```
+
+Well, the problem is that the state value must be resolved lazily (ie, just
+before the get actually runs). Because of how Javascript works, if we just
+inline the value it might read before state.endpoint has been actually been
+assigned.
+
+For more details, jump ahead to [Reading State Lazily](#reading-state-lazily)
 
 </details>
 
+Your job code should only contain Operations at the top level/scope - you should
+NOT include any other JavaScript statements. We'll talk about this more in a
+minute.
+
 ## Callbacks and fn()
 
-Many operations give you access to a callback function.
+Many Operations give you access to a callback function.
 
 Callbacks will be invoked with state, will run whatever code you like, and must
 return the next state. Usually your callback will be invoked as the very last
@@ -92,13 +105,13 @@ operation.
 
 <details>
 <summary>What is a callback?</summary>
-A callback is a common pattern in Javascript.
+A callback is a common pattern in JavaScript.
 
 It's kind of hard to understand in the abstract: a callback is a function which
 you pass into some other function, to be invoked by that function at a
 particular time.
 
-It's best explained with an example. All Javascript arrays have a function
+It's best explained with an example. All JavaScript arrays have a function
 called `map`, which takes a single callback argument.
 
 Array.map will iterate over every item in the array, invoke your callback
@@ -114,7 +127,7 @@ console.log(array); // ['a', 'b', 'c'];
 console.log(result); // ['A', 'B', 'C'];
 ```
 
-Because functions are data in Javascript, we can we-write that code like this
+Because functions are data in JavaScript, we can we-write that code like this
 (which might be a bit more readable)
 
 ```js
@@ -130,7 +143,7 @@ console.log(result); // ['A', 'B', 'C'];
 </details>
 
 The `fn()` function, for example, ONLY allows you define a callback. This is
-useful for running arbitrary code - if you want to drop down to raw Javascript
+useful for running arbitrary code - if you want to drop down to raw JavaScript
 mode, this is how you do it:
 
 ```js
@@ -288,7 +301,7 @@ Can you see the problem?
 
 It happens all the time.
 
-Because of the way Javascript works, `state.data` will be evaluated before the
+Because of the way JavaScript works, `state.data` will be evaluated before the
 `get()` request has finished. So the post will always receive a value of
 `undefined`.
 
@@ -298,8 +311,8 @@ It's something to do with factories, and closures, and synchronous execution.
 What's the simplest explanation though?
 -->
 <details>
-<summary>Okay, how <i>does</i> Javascript work?</summary>
-Javascript, like most languages, will evaluate synchronously, executing code line of code one at a time.
+<summary>Okay, how <i>does</i> JavaScript work?</summary>
+JavaScript, like most languages, will evaluate synchronously, executing code line of code one at a time.
 
 Because each Operation is actually a factory function, it will execute instantly
 and return a function - but that function won't actually be executed yet.
@@ -347,7 +360,7 @@ using the return as the value.
 These lazy functions are incredibly powerful. Using them effectively is the key
 to writing good OpenFn jobs.
 
-## Iteration and each
+## Iteration with each()
 
 A typical use-case in data integration in particular is to convert data from one
 format to another. Usually this involves iterating over an array of items,
@@ -393,23 +406,30 @@ each("$.items[*]", fn(state) => {
 })
 ```
 
-Or we can pass in another operation, like this:
+Or we can pass in another operation, like this Salesforce example:
 
 ```js
 each(
-  '$.items[*]',
-  post('/patients', state => state.data) // we could transform the data in-line if we wanted
+  '$.form.participants[*]',
+  upsert('Person__c', 'Participant_PID__c', state => ({
+    Participant_PID__c: state.pid,
+    First_Name__c: state.participant_first_name,
+    Surname__c: state.participant_surname,
+  }))
 );
 ```
 
-This will post everything in state.items to the patients endpoint.
+Each participant is upserted into Salesforce, with its salesforce fields mapped
+to values in the `participants` array.
 
-:::info
+:::info JSON paths
 
-JSON paths The use of a JSON path string as the first argument to each allows
-the runtime to lazily evaluate the value at that path -
-[See Reading state lazily](#reading-state-lazily). Not all operations support a
-JSON path string - Refer to the adaptor docs.
+The use of a JSON path string as the first argument to `each()` allows the
+runtime to lazily evaluate the value at that path -
+[See Reading state lazily](#reading-state-lazily).
+
+Not all operations support a JSON path string - refer to
+[individual adaptor docs](/adaptors) for guidance.
 
 :::
 
@@ -551,9 +571,9 @@ throw an exception to recognise that the job has failed.
 
 ## Modern JS tips
 
-OpenFn supports the latest Javascript features.
+OpenFn supports the latest JavaScript features.
 
-Here are some genreal Javascript features and operators which might help make
+Here are some genreal JavaScript features and operators which might help make
 your code cleaner. This is not meant to be an exhaustive guide, just a pointer
 to some good techniques.
 
@@ -562,7 +582,7 @@ I would like to document/confirm that this stuff works, but I have a feeling tha
 
 ### async/await
 
-async/await is a pattern which makes asynchronous Javascript easy to handle.
+async/await is a pattern which makes asynchronous JavaScript easy to handle.
 
 If a function
 
@@ -570,7 +590,7 @@ If a function
 
 ### Optional chaining
 
-Javascript is an untyped language - which is very conveient for OpenFn jobs and
+JavaScript is an untyped language - which is very conveient for OpenFn jobs and
 usually makes life easier.
 
 However, a common problem is that when writing long property chains, an
@@ -619,7 +639,7 @@ Arrow functions are used throughout this guide and we expect that most users are
 familiar with their usage.
 
 An arrow function is an alternative way to write a JavaScript function. There
-are a few reasons why they are popular in modern Javascript:
+are a few reasons why they are popular in modern JavaScript:
 
 - They feel lightweight, with less syntax required
 - They do not have a `this` scope - although this is largely irrelevant to
@@ -728,7 +748,7 @@ A deep clone means that all properties in the whole object tree are cloned.
 
 ## Compilation
 
-The code you write isn't technically executable Javascript. You can't just run
+The code you write isn't technically executable JavaScript. You can't just run
 it through node.js. It needs to be transformed or compliled into portable
 vanilla JS code.
 
@@ -740,7 +760,7 @@ direction to help understand how jobs work.
 
 :::
 
-The major differences between openfn code and Javascript are:
+The major differences between openfn code and JavaScript are:
 
 - The top level functions in the code are executed synchronously (in sequence),
   even if they contain asynchronous code
@@ -752,7 +772,7 @@ The major differences between openfn code and Javascript are:
 It shouldn't be necessary to understand compilation in detail, but you should be
 aware that the code you write is not the code you run.
 
-If you're a Javascript developer, understanding some of these changes might help
+If you're a JavaScript developer, understanding some of these changes might help
 you better understand how OpenFn works. Using the CLI, you can run
 `openfn compile path/to/job.ja -a <adaptor-name>` to see compiled code.
 
@@ -764,7 +784,7 @@ This job:
 get('/patients');
 ```
 
-Compiles to this Javascript module:
+Compiles to this JavaScript module:
 
 ```js
 import { get } from '@openfn/language-http';

@@ -1,16 +1,26 @@
 ---
 title: Job Code Examples
-sidebar_label: Job Code Snippets & Examples
+sidebar_label: Snippets & Examples
 ---
 
 ## Snippets and samples
 
-Below you can find some code block for different functions and data
-handling contexts to use in your Jobs. **Also see the [Library Examples](/adaptors/library) for more Job examples for other Adaptors.**
+Below you can find some code block for different functions and data handling
+contexts to use in your Jobs.
+
+:::tip
+
+For example Jobs written by the OpenFn core team and other users, check out the
+[Library](/adaptors/library) or other project repositories under
+[Github.com/OpenFn](https://github.com/OpenFn).
+
+:::
 
 :::info Questions?
 
-If you have any job-writing questions, ask on [Community](https://community.openfn.org) to seek assistance from the OpenFn core team and other implementers. 
+If you have any job-writing questions, ask on
+[Community](https://community.openfn.org) to seek assistance from the OpenFn
+core team and other implementers.
 
 :::
 

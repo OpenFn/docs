@@ -14,7 +14,6 @@ module.exports = {
         'get-started/implementation-checklist',
       ],
     },
-    'job-writing-guide',
     {
       type: 'category',
       label: 'Tutorials',
@@ -37,7 +36,15 @@ module.exports = {
         'design/workflow-specs',
       ],
     },
-
+    {
+      type: 'category',
+      label: 'Write Jobs',
+      items: [
+        'job-writing-guide',
+        'build/steps/job-examples',
+        'build/steps/state',
+      ],
+    },
     {
       type: 'category',
       label: 'Platform App ⚡',
@@ -54,21 +61,9 @@ module.exports = {
             'build/paths',
             'build/credentials',
             'build/limits',
+            'build/editing-locally',
+            'build/working-with-branches',
             'build/troubleshooting',
-            {
-              type: 'category',
-              label: 'Jobs',
-              items: [
-                'build/steps/jobs',
-                'build/steps/job-examples',
-                'build/steps/operations',
-                'build/steps/multiple-operations',
-                'build/steps/state',
-                'build/steps/each',
-                'build/steps/editing-locally',
-                'build/steps/working-with-branches',
-              ],
-            },
           ],
         },
         {
