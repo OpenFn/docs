@@ -23,13 +23,17 @@ to communicate with a data source.
 This guide applies equally to writing Jobs on the app (Lightning) or through the
 CLI.
 
-:::info Workflows Multiple jobs can be chained together in a Workflow. A common
-pattern is to use one job to fetch data from datasource A, one job to convert or
-transform that data to be compatible with datasource B, and a third job to
-upload the transformed data to datasource B.
+:::info Workflows
+
+Multiple jobs can be chained together in a Workflow. A common pattern is to use
+one job to fetch data from datasource A, one job to convert or transform that
+data to be compatible with datasource B, and a third job to upload the
+transformed data to datasource B.
 
 To learn more about workflow design and implementation, see
-[Build & Manage Workflows](/documentation/build/workflows) :::
+[Build & Manage Workflows](/documentation/build/workflows)
+
+:::
 
 ## Operations and State
 
@@ -98,8 +102,8 @@ It's best explained with an example. All Javascript arrays have a function
 called `map`, which takes a single callback argument.
 
 Array.map will iterate over every item in the array, invoke your callback
-function with it, save the result toa new array, and when it's finished, it will
-return that array.
+function with it, save the result to a new array, and when it's finished, it
+will return that array.
 
 ```js
 const array = ['a', 'b', 'c'];
@@ -186,7 +190,11 @@ state!
 Be mindful that some Adaptors will write internal information to state. So you
 should usually `return { ... state }` rather than `return { data: state.data }`.
 
-:::info Remember! Always return state from a callback. :::
+:::tip
+
+Remember! Always return state from a callback.
+
+:::
 
 ## Operations run at the top level
 
@@ -195,7 +203,7 @@ this:
 
 ```js
 get('/patients');
-each('$.data.patients', (item, index) => {
+each('$.data.patients[*]', (item, index) => {
   item.id = `item-${index}`;
 });
 post('/patients', dataValue('patients'));
@@ -208,9 +216,9 @@ If you try to nest an operation inside the callback of another operation, you'll
 quickly run into trouble:
 
 ```js
-get('/patients', state => {
+get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
   // This will fail because it is nested in a callback
-  each('$.data.patients', (item, index) => {
+  each('$.data.patients[*]', (item, index) => {
     item.id = `item-${index}`;
   });
 });
@@ -249,8 +257,8 @@ situation where you absolutely need to use a nested operation, you should pass
 state into it directly, like this:
 
 ```js
-get('/patients', state => {
-  each('$.data.patients', (item, index) => {
+get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
+  each('$.data.patients[*]', (item, index) => {
     item.id = `item-${index}`;
   })(state); // Immediately invoke the Operation and pass state into it. This is naughty!
 });
@@ -322,7 +330,7 @@ What we actually need to do is defer the evaluation of `state.data` until the
 `state.data` at last possible moment.
 
 There are a few ways we can do that. Some jobs use `dataValue`, which is neat if
-a bit verbose (there are many examples in thie guide), and some operations
+a bit verbose (there are many examples in this guide), and some operations
 support JSON path strings. The preferred way in modern OpenFn is to use an
 inline-function:
 
@@ -396,9 +404,14 @@ each(
 
 This will post everything in state.items to the patients endpoint.
 
-:::info JSON paths The use of a JSON path string as the first argument to each
-allows the runtime to lazily evaluate the value at that path - see Reading state
-lazily. Not all operations support a JSON path string - refer to the docs. :::
+:::info
+
+JSON paths The use of a JSON path string as the first argument to each allows
+the runtime to lazily evaluate the value at that path -
+[See Reading state lazily](#reading-state-lazily). Not all operations support a
+JSON path string - Refer to the adaptor docs.
+
+:::
 
 ## Variable initialisation
 
@@ -493,8 +506,12 @@ fn(state => {
 });
 ```
 
-:::info Configuration & Functions OpenFn will automatically scrib the
-`configuration` key and any functions from your final state. :::
+:::info Configuration & Functions
+
+OpenFn will automatically scrub the `configuration` key and any functions from
+your final state.
+
+:::
 
 <!--
 I would like to include this BUT fields is not an operation and so works a bit differently
@@ -584,10 +601,10 @@ but included for completeness):
 const x = a.b?.();
 ```
 
-You can combine optional chaning with the wonderfully named "nullish coalescing"
-operator. This works a bit like a ternary expression or an or - if anything to
-left of the operator returns null or undefined, the value to the right will be
-returned.
+You can combine optional chaning with the wonderfully named **"nullish
+coalescing"** operator. This works a bit like a ternary expression or an or - if
+anything to left of the operator returns `null` or `undefined`, the value to the
+right will be returned.
 
 ```js
 const x = a.b?.c?.d?.e ?? 22;
@@ -640,8 +657,8 @@ with functional programming paradigms.
 The spread or rest operator `...` can be used for several purposes. It can be
 quite complex to understand, but in OpenFn it has a couple of strong uses.
 
-First, you can "spread" or "apply" the properties and value of one (or more)
-objects to a new object. This is a really conveient way to shallow clone
+First, you can **"spread"** or **"apply"** the properties and value of one (or
+more) objects to a new object. This is a really conveient way to shallow clone
 objects.
 
 It works a lot like `Object.assign(obj, first, second, third)`.
@@ -715,9 +732,13 @@ The code you write isn't technically executable Javascript. You can't just run
 it through node.js. It needs to be transformed or compliled into portable
 vanilla JS code.
 
-:::Warning This is advanced stuff more focused at JavaScript developers and the
-technically curious. These docs are not intended to be complete - just a nudge
-in the right direction to help understand how jobs work. :::
+:::warning
+
+This is advanced stuff more focused at JavaScript developers and the technically
+curious. These docs are not intended to be complete - just a nudge in the right
+direction to help understand how jobs work.
+
+:::
 
 The major differences between openfn code and Javascript are:
 
@@ -739,12 +760,14 @@ Here's an example of how a simple job looks in compilation:
 
 This job:
 
-````
-get('/patients')
 ```js
+get('/patients');
+```
+
 Compiles to this Javascript module:
+
 ```js
-import { get } from "@openfn/language-http";
-export * from "@openfn/language-http";
+import { get } from '@openfn/language-http';
+export * from '@openfn/language-http';
 export default [get('/patients')];
-````
+```
