@@ -31,7 +31,7 @@ data to be compatible with datasource B, and a third job to upload the
 transformed data to datasource B.
 
 To learn more about workflow design and implementation, see
-[Build & Manage Workflows](/documentation/build/workflows)
+[Build & Manage Workflows](build/workflows.md)
 
 :::
 
