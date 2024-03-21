@@ -70,7 +70,6 @@ The input state will look something like this:
   request: {
       headers: {} // an object containing the headers of the request
   },
-  configuration: {} // the credential object
 }
 ```
 
@@ -84,8 +83,7 @@ an empty object.
 
 ```js
 {
-  ...finalStateOfLastSuccessfulRun,
-  configuration: credential.body
+  ...(finalStateOfLastSuccessfulRun || {}),
 }
 ```
 
