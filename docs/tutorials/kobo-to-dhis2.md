@@ -74,8 +74,8 @@ getSubmissions({ formId: 'aBpweTNdaGJQFb5EBBwUeo' });
 :::tip Need help writing job code?
 
 Check out the docs on the ["kobotoolbox" Adaptor](/adaptors/kobotoolbox),
-[configuring Steps](../build/steps/steps.md), and
-[job-writing](../jobs/jobs-writing-guide.md).
+[configuring Steps](/documentation/build/steps/steps), and
+[job-writing](/documentation/jobs/job-writing-guide).
 
 :::
 

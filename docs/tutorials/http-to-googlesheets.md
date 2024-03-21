@@ -73,7 +73,7 @@ following options
 
 Check out the docs on the ["http" Adaptor](/adaptors/packages/http-readme),
 [configuring Steps](../build/steps/steps.md), and
-[job-writing](../jobs/jobs-writing-guide.md).
+[job-writing](/documentation/jobs/job-writing-guide).
 
 :::
 
