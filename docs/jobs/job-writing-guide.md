@@ -48,7 +48,7 @@ the other). The final state object is returned as the output of the pipeline.
 Operations are provided by an Adaptor (connector). Each adaptor exports a list
 of functions designed to interact with a particular data source - for example,
 take a look at the [dhis2](adaptors/packages/dhis2-docs) and
-[salesforce](adaptors/packages/salesforce;-docs) adaptors.
+[salesforce](adaptors/packages/salesforce-docs) adaptors.
 
 Everything you can achieve in OpenFn can be achieve with existing JavaScript
 libraries or calls to REST APIs. The value of Adaptors is that they provide

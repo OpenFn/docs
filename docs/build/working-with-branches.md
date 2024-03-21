@@ -3,13 +3,14 @@ title: Manage changes with Github branches
 sidebar_label: Manage changes
 ---
 
-In the [Edit Steps Locally](/documentation/build/steps/editing-locally)
-section, we walked through the process of creating and adding your changes to
-the `main` branch of a project.
+In the [Edit Steps Locally](/documentation/build/editing-locally) section, we
+walked through the process of creating and adding your changes to the `main`
+branch of a project.
 
-However, most code change to workflows involve sharing and reviewing changes before
-deployment. You can do this by creating, testing and sharing your changes on a
-new Github branch, then, once final, merging them into `main` for deployment.
+However, most code change to workflows involve sharing and reviewing changes
+before deployment. You can do this by creating, testing and sharing your changes
+on a new Github branch, then, once final, merging them into `main` for
+deployment.
 
 :::tip
 

@@ -6,6 +6,14 @@ A Step is a specific task or activity in a workflow. Each Step is linked to an
 [Adaptor](/adaptors/) and contains business logic to perform a specific task or
 operation in that target app. Read on to learn more.
 
+:::note
+
+In OpenFn V1, there was no concept of `Workflow Steps`--they were referred to as
+`Jobs`. In V2, we now refer to Jobs as the "job expressions" or "script" that
+define the business logic and transformation rules of individual `Steps`.
+
+:::
+
 ## Create or edit a Step
 
 Via the Workflow Canvas, click the plus `+` icon to create a _new_ Step, or

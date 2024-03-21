@@ -75,7 +75,7 @@ getSubmissions({ formId: 'aBpweTNdaGJQFb5EBBwUeo' });
 
 Check out the docs on the ["kobotoolbox" Adaptor](/adaptors/kobotoolbox),
 [configuring Steps](../build/steps/steps.md), and
-[job-writing](../build/steps/jobs.md).
+[job-writing](../jobs/jobs-writing-guide.md).
 
 :::
 

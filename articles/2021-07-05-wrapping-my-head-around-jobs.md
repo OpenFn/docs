@@ -86,7 +86,7 @@ And for a fail triggered job like this:
 ```
 
 No matter what, jobs start with state. See
-["Initial and final state for runs"](/documentation/build/steps/state/) for a detailed
+["Initial and final state for runs"](/documentation/jobs/state/) for a detailed
 breakdown.
 
 ## It ends with `state` too
