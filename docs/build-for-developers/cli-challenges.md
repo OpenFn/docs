@@ -17,26 +17,24 @@ slug: /cli-challenges
   <summary>Expand to see bug report template</summary>
 
   ```markdown
-
   Subject: Bug Report - [Brief Description]
 
-  **Description:**
-  [Concise description of the bug.]
+  **Description:** [Concise description of the bug.]
 
   **Steps to Reproduce:**
+
   1.
   2.
   3.
 
   **Environment:**
+
   - OS: [e.g., Windows 10]
   - CLI: [e.g., v0.4.11]
   - Node: [e.g., v 18.17.1]
   - NPM: [e.g., 8.19.2]
 
-  **Attachments:**
-  [Screenshots, error messages, or relevant files.]
-
+  **Attachments:** [Screenshots, error messages, or relevant files.]
   ```
 
   </details>
@@ -144,8 +142,8 @@ openfn repo install @openfn/language-http
 **Tasks:**
 
 1. Write an OpenFn operation to pull COVID-19 metadata from the
-   [disease.sh API](https://disease.sh/).
-   - Utilize `https://disease.sh/v3/covid-19/` as your **baseUrl** in
+   [The Atlantic's COVID Tracking Project API](https://covidtracking.com/data/api).
+   - Utilize `https://api.covidtracking.com` as your **baseUrl** in
      `state.configuration`.
 2. Run the job using the OpenFn CLI with the command
    `openfn your_operation_file.js -a http -o tmp/output.json`.

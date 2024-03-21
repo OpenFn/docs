@@ -217,17 +217,17 @@ openfn test --log debug
 
       <summary>View expected output</summary>
 
-      ```bash
-        [CLI] ⚠ WARNING: No adaptor provided!
-        [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
-                  openfn job.js -a common
-        [CLI] ✔ Compiled from helo.js
-        [R/T] ♦ Starting job job-1
-        [JOB] ℹ Hello World!
-        [R/T] ✔ Completed job job-1 in 1ms
-        [CLI] ✔ State written to tmp/output.json
-        [CLI] ✔ Finished in 17ms ✨
-      ```
+    ```bash
+      [CLI] ⚠ WARNING: No adaptor provided!
+      [CLI] ⚠ This job will probably fail. Pass an adaptor with the -a flag, eg:
+                openfn job.js -a common
+      [CLI] ✔ Compiled from helo.js
+      [R/T] ♦ Starting job job-1
+      [JOB] ℹ Hello World!
+      [R/T] ✔ Completed job job-1 in 1ms
+      [CLI] ✔ State written to tmp/output.json
+      [CLI] ✔ Finished in 17ms ✨
+    ```
 
     </details>
 
@@ -511,12 +511,13 @@ of how to set up `state.configuration` for `language-http`.
 
 #### 🏆 Challenge: Fetch Covid-19 metadata
 
-1. Using the [disease.sh API](https://disease.sh/), write an operation that
-   returns all covid-19 metadata.
+1. Using the
+   [The Atlantic's COVID Tracking Project API](https://covidtracking.com/data/api).,
+   write an operation that returns all covid-19 metadata.
 
 :::tip
 
-`https://disease.sh/v3/covid-19/` as your **baseUrl** in `state.configuration`
+`https://api.covidtracking.com` as your **baseUrl** in `state.configuration`
 
 :::
 
