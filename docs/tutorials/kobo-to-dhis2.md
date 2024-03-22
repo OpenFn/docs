@@ -182,7 +182,7 @@ create('dataValueSets', state => ({
 
 Check out the docs on the ["dhis2" Adaptor](/adaptors/dhis2),
 [configuring Steps](../build/steps/steps.md), and
-[job-writing](../build/steps/jobs.md).
+[job-writing](../jobs/job-writing-guide.md).
 
 :::
 
