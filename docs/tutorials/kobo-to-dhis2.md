@@ -121,7 +121,7 @@ fn(state => {
 
 Check out the docs on the ["common" Adaptor](/adaptors/packages/common-docs),
 [configuring Steps](../build/steps/steps.md), and
-[job-writing](../build/steps/jobs.md).
+[job-writing](../jobs/job-writing-guide.md).
 
 :::
 
