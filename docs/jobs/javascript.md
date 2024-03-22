@@ -177,6 +177,21 @@ const getX = () => x;
 This pattern makes arrow functions lightweight and elegant, and aligns nicely
 with functional programming paradigms.
 
+:::tip Problems returning an object?
+
+Always wrap objects in brackets when returning an object from an arrow
+expression:
+
+```
+post('wwww', () => ({ id: 'a', name: 'adam' }))
+```
+
+When Javascript sees a brace `{` after an arrow, it expects to see a block of
+statements, not an object. Wrapping the object in brackets tells Javascript to
+parse an expression instead of a block.
+
+:::
+
 ### Rest and spread operators
 
 The spread or rest operator `...` can be used for several purposes. It can be
