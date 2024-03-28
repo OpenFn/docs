@@ -17,7 +17,7 @@ NGOs worldwide.
 ✓ Build “zero-persistence” data pipelines to fully control where data is store
 
 ✓ Security implementation training & guidance for your project teams
-([read more](/../get-started/security.md))
+([read more](../get-started/security.md))
 
 See our main website to learn more about OpenFn
 [Security & Trust](https://openfn.org/trust).
