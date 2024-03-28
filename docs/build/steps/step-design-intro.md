@@ -8,8 +8,8 @@ Read on for a brief overview.
 
 :::tip
 
-Check out the [Workflow Design](/documentation/design/design-overview) docs
-for more details on solution design and links to templates.
+Check out the [Workflow Design](/documentation/design/design-overview) docs for
+more details on solution design and links to templates.
 
 :::
 
@@ -29,9 +29,9 @@ and consider summarizing your design specifications in a
 
 ### 2: Map your data elements
 
-[See here](/documentation/design/mapping-specs) for detailed guidance on
-mapping data elements or "data dictionaries" between your source and destination
-apps. To get started:
+[See here](/documentation/design/mapping-specs) for detailed guidance on mapping
+data elements or "data dictionaries" between your source and destination apps.
+To get started:
 
 1. Export the metadata (or "form", "field list", or "data elements") of your
    source app (input) & destination app (output).
@@ -63,7 +63,7 @@ apps. To get started:
    - `updateTEI(...)`
    - `upsertTEI(...)`
 
-See example [Job expression](/docs/build/steps/jobs.md) for a Step
+See example [Job expression](/documentation/jobs/job-writing-guide) for a Step
 that will "upsert" (update or insert) records in a SQL database.
 
 ```js

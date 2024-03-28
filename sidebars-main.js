@@ -36,7 +36,17 @@ module.exports = {
         'design/workflow-specs',
       ],
     },
-
+    {
+      type: 'category',
+      label: 'Write Jobs',
+      items: [
+        'jobs/job-writing-guide',
+        'jobs/state',
+        'jobs/javascript',
+        'jobs/job-examples',
+        'jobs/job-snippets',
+      ],
+    },
     {
       type: 'category',
       label: 'Platform App ⚡',
@@ -53,21 +63,9 @@ module.exports = {
             'build/paths',
             'build/credentials',
             'build/limits',
+            'build/editing-locally',
+            'build/working-with-branches',
             'build/troubleshooting',
-            {
-              type: 'category',
-              label: 'Jobs',
-              items: [
-                'build/steps/jobs',
-                'build/steps/job-examples',
-                'build/steps/operations',
-                'build/steps/multiple-operations',
-                'build/steps/state',
-                'build/steps/each',
-                'build/steps/editing-locally',
-                'build/steps/working-with-branches',
-              ],
-            },
           ],
         },
         {
@@ -116,9 +114,6 @@ module.exports = {
         'build-for-developers/cli-usage',
         'build-for-developers/cli-walkthrough',
         'build-for-developers/cli-challenges',
-        // 'build-for-developers/jobs',
-        // 'build-for-developers/build-with-api',
-        // 'build-for-developers/security-for-devs',
       ],
     },
     {
