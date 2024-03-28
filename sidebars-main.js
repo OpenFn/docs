@@ -45,6 +45,7 @@ module.exports = {
         'jobs/javascript',
         'jobs/job-examples',
         'jobs/job-snippets',
+        'build-for-developers/security-for-devs',
       ],
     },
     {
