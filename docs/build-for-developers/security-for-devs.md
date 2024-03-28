@@ -178,5 +178,6 @@ adjusted by the OpenFn super admin.
 
 For more security considerations and best practices for all OpenFn implementers
 (not just developers), be sure to check out the complete
-[OpenFn Security Guidebook](https://docs.openfn.org/documentation/getting-started/security).
+[OpenFn Security Guidebook](../get-started/security.md). For more on job-writing, 
+see the [job-writing guide](../jobs/job-writing-guide.md).
 :::
