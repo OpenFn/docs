@@ -18,12 +18,6 @@ connecting to most commonly used digital public goods and key ICT4D systems.
 You can even run web scraping or browser automation tools with OpenFn. It's
 almost like a universal translator... 🖖
 
-<!-- https://github.com/OpenFn/docs/issues/403 -->
-<!-- See the
-[FAQs](/documentation/faqs#can-openfn-integrate-with-my-custom-app) and
-[Generic Data Sources](/documentation/source-apps) for more info on how to
-connect to systems without custom adaptors. -->
-
 ## What's an adaptor?
 
 An adaptor is an open-source Javascript or Typescript module that provides
@@ -120,18 +114,18 @@ In short, _most_ adaptors follow the naming convention `@openfn/language-xyz`.
 
 <!-- <AdaptorList /> -->
 
-### On the OpenFn platform
+### On OpenFn
 
-When creating or editing a job on platform, you can choose the adaptor to run
+When creating or editing a job step, you can choose the adaptor to run
 the job. This way you "import" the needed operations. Simply open the dropdown
 list of adaptors, and click on one.
 
-<img src="/img/adaptor_choice_openfn.png" width="300" />
+<img src="/img/adaptor-picker.webp" />
 
 ### On npm
 
 Most of our adaptors are also available on
-[npmjs](https://www.npmjs.com/search?q=%40openfn).
+[npmjs.com](https://www.npmjs.com/search?q=%40openfn).
 
 ![Adaptors list in npm](/img/adaptor_npm.png)
 
@@ -152,7 +146,7 @@ be used to run the specified job.
 
 Note that, after this custom installation of the adaptor, `platform` will not
 add this adaptor version to the picklist of recommended adaptors in
-[JobStudio](/documentation/jobs/job-studio), but you are guaranteed that the
+[Inspector](../build/steps/step-editor.md), but you are guaranteed that the
 adaptor will be available to use in any of your jobs as long as you specify it
 via the **Select Unreleased Adaptor** dialog. -->
 
@@ -161,3 +155,7 @@ via the **Select Unreleased Adaptor** dialog. -->
 The source code and technical documentation for developing or extending existing
 adaptors can be found
 [here](https://github.com/OpenFn/adaptors#working-with-adaptors).
+
+:::tip Need Help ?
+See the [Get Help](/documentation/get-help/support) page for more information
+:::
