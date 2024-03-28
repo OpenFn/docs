@@ -48,7 +48,7 @@ state for a Run can be generated differently:
 
 - When creating a work order by hand, you must select or generate your input
   manually (e.g., by creating a custom `Input` on the app or `state.json` file
-  if working locally [in the CLI](/docs/build-for-developers/cli-intro.md)).
+  if working locally [in the CLI](../build-for-developers/cli-intro.md)).
 - When a work order is automatically created via a webhook trigger or cron
   trigger, state will be created as described below.
 
