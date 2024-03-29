@@ -59,3 +59,11 @@ and across the "keys" and "values" of your dataclips.
 Partial string mathcing working best at the start of words, so if you're looking
 for items matching `"newPatient"` it's better to search for `"newPat"` than for
 `"tient"`. (When in doubt, whole words or IDs produce the best results.)
+
+## Search & Filter Results
+
+Even though you can search for text strings that appear in specific run logs or
+dataclips, it's important to remember that the results returned are still **work
+orders**. If the output dataclips of the third step in the first run of work
+order "123" matches your text search, you'll see work order "123" in your
+results.
