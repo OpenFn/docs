@@ -50,7 +50,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Platform App ⚡',
+      label: 'Lightning ⚡',
       items: [
         {
           type: 'category',
