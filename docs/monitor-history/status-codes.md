@@ -25,9 +25,9 @@ Every Run has a status which indicates whether it completed successfully.
 
 | Status    | Chip |      Type      | Abort Run?\* | Description                                                                                                                                                                  |
 | :-------- | :--: | :------------: | :----------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pending   |  ⚪  |                |      No      | The run is waiting for an available worker to begin execution                                                                                                                |
-| Running   |  🔵  |                |      No      | The run is still in progress                                                                                                                                                 |
-| Success   |  🟢  |                |      No      | Either all the steps in this run succeeded _or_ every error was properly handled. Technically, a run is successful if the final step in each branch (the leaf node) succeeds |
+| Pending   |  ⚪  |                |      -       | The run is waiting for an available worker to begin execution                                                                                                                |
+| Running   |  🔵  |                |      -       | The run is still in progress                                                                                                                                                 |
+| Success   |  🟢  |                |      -       | Either all the steps in this run succeeded _or_ every error was properly handled. Technically, a run is successful if the final step in each branch (the leaf node) succeeds |
 | Failed    |  🔴  |    JobError    |      No      | A request failed with status code 404                                                                                                                                        |
 | Failed    |  🔴  |   TypeError    |      No      | Try to reference `state.data.patient.age` when `state.data.patient` is `undefined`                                                                                           |
 | Failed    |  🔴  |   RangeError   |      No      | Calling `state.patients[5]` when only 2 patients exist                                                                                                                       |
@@ -40,6 +40,7 @@ Every Run has a status which indicates whether it completed successfully.
 | Killed    |  🟡  |  TimeoutError  |     Yes      | Took longer than the maximum runtime allowed by the Lightning instance                                                                                                       |
 | Exception |  ⚫  |                |     Yes      | An error occurred that we didn't expect (the instance superuser has been notified)                                                                                           |
 | Lost      |  ⚫  |                |     Yes      | Lightning lost communication with the worker (the instance superuser has been notified)                                                                                      |
+| Rejected  |  ⚪  |                |      -       | The instance administrator won't process this run request because your project has reached its run limit                                                                     |
 
 ### \*Note on error handling within a workflow
 
