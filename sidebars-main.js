@@ -50,7 +50,7 @@ module.exports = {
     },
     {
       type: 'category',
-      label: 'Platform',
+      label: 'Platform ⚡',
       items: [
         {
           type: 'category',
@@ -106,7 +106,7 @@ module.exports = {
         },
       ],
     },
-    
+
     {
       type: 'category',
       label: 'CLI',
@@ -132,7 +132,7 @@ module.exports = {
       label: 'Migrate to v2',
       items: ['migration/migration-steps', 'migration/converting-triggers'],
     },
-   
+
     {
       type: 'category',
       label: 'Contribute',
@@ -147,7 +147,7 @@ module.exports = {
     {
       type: 'link',
       label: 'Community Forum',
-      href: 'https://community.openfn.org'
+      href: 'https://community.openfn.org',
     },
   ],
 };
