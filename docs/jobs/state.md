@@ -59,33 +59,41 @@ control what is returned at the end of all of these operations.
 
 ### Webhook triggered Runs
 
-In the app, when a Run is triggered by a webhook, the input state contains
-important parts of the inbound **http request**.
+On the platform, when a Run is triggered by a webhook event, the input state
+contains important parts of the inbound **http request**.
 
 The input state will look something like this:
 
 ```js
 {
-  data: {}, // the body of the http request
+  data: { // the body of the http request
+    formId: "patient_enrollment",
+    name: "John Doe"
+  },
   request: {
-      headers: {} // an object containing the headers of the request
+    method: "POST",
+    path: ['i', 'your-webhook-url-uuid'] // an ordered array with optional additional paths
+    headers: { "content-type": "application/json" }, // an object containing the headers of the request
+    query_params: {} // an object containig any query parameters
   },
 }
 ```
 
 ### Cron triggered Runs
 
-In the app, when a Run is triggered by a cron job, the input state will the
-final state of the **last succesful run** for this workflow.
-
-If this is the first time the workflow has run, the initial state will simply by
-an empty object.
+On the platform, when a Run is triggered by a cron job, the input state will the
+final output state of the **last succesful run** for this workflow. This allows
+each subsequent run to _know_ about previous runs—i.e., you can pass information
+from one run to another even if they happen days apart.
 
 ```js
 {
-  ...(finalStateOfLastSuccessfulRun || {}),
+  ...finalStateOfLastSuccessfulRun,
 }
 ```
+
+If this is the first time the workflow has run, the initial state will simply by
+an empty Javascript object: `{}`
 
 ## Input & output state for steps
 
@@ -99,7 +107,7 @@ operation.
 
 ```js
 {
-  data: { patients: [ ]},
+  data: { patients: [] },
   references: [1, 2, 3]
 }
 ```
@@ -111,9 +119,11 @@ on state, keyed by the ID of the job that failed.
 
 ```js
 {
-  data: { patients: [ ]},
+  data: { patients: [] },
   references: [1, 2, 3],
-  errors: { jobId: { /* error details */} }
+  errors: {
+    jobId: { /* error details */ }
+  }
 }
 ```
 
