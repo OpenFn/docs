@@ -146,15 +146,27 @@ values (e.g., `M: male, F: female`).
 semicolon-separated strings (e.g.,
 `Services__c: 'Food;Counselling;Medical_Aid`).
 
-
 ### Salesforce Credentials
 
-Salesforce requires a username, password, login URL, and security token to
-authenticate via a user. **Note every time you reset the user's password, the
-security token will reset and you need to update the Credential record used in
-your OpenFn job.**
+Users have two options to connect to Salesforce, via **Oauth2** and via a
+**security token**. We recommend connecting via Oauth2. If this option isn't
+available on your Lightning instance, reach out to the superuser who deployed it
+and ask them to configure a Salesforce Oauth2 client.
 
-![Credentials Menu](/img/credentials.png)
+#### Oauth2
+
+When connecting via Oauth2, choose only the scopes you require.
+([See Salesforce](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_tokens_scopes.htm&type=5)
+for explanations of these options.)
+
+![Salesforce Oauth2](/img/salesforce-oauth2.png)
+
+#### Security Token
+
+If you are not using Oauth2, you'll need to provide a username, password, login
+URL, and security token to authenticate via a user. **Note every time you reset
+the user's password, the security token will reset and you need to update the
+Credential record used in your OpenFn job.**
 
 A "Salesforce" Credential record should include:
 
@@ -167,7 +179,7 @@ A "Salesforce" Credential record should include:
   you have a custom domain `https://domainName.salesforce.com/`). For sandbox
   environments, `https://test.salesforce.com/`.
 
-![Salesforce Cred](/img/salesforce-cred.png)
+![Salesforce Cred](/img/salesforce-old-cred.png)
 
 For use in the CLI, see an example
 [salesforce configuration](/adaptors/packages/salesforce-configuration-schema)
@@ -209,8 +221,12 @@ Please save this `security token` in your OpenFn `Credential`.
    occur when trying to update a Relationship field, for example a Person
    related to a Person's Visit. The field setting `Allow reparenting` on the
    Master-Detail relationship field may need to be turned on .
-9. `UNABLE_TO_LOCK_ROW: unable to obtain exclusive access to this record`: This error occurs when either 1) the OpenFn job tries to update the same record more than once at the same time or 2) the OpenFn job tries to updates a Salesforce record at the same time as someone else in the Salesforce system (this includes any automation that may be running in parallel to the OpenFn jobs).  
-
+9. `UNABLE_TO_LOCK_ROW: unable to obtain exclusive access to this record`: This
+   error occurs when either 1) the OpenFn job tries to update the same record
+   more than once at the same time or 2) the OpenFn job tries to updates a
+   Salesforce record at the same time as someone else in the Salesforce system
+   (this includes any automation that may be running in parallel to the OpenFn
+   jobs).
 
 ## OpenFn Adaptors
 
