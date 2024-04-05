@@ -556,13 +556,26 @@ fn(state => {
 ## Using Cursors
 
 It is common, especially with Cron jobs, to want to maintain a cursor position
-on your backend datasource, ensuring that duplicate data doesn't get processed.
+on your backend datasource, ensuring that duplicate data doesn't get processed
+across several runs.
 
 For example, if your workflow runs every day at midnight, you may want to use a
 date cursor to only query the database since the last query.
 
 The common adaptor provides a `cursor()` operation to help you with this. It
 allows you to set a cursor property on state, which can be used in your job.
+
+<details>
+<summary>Version support</summary>
+The cursor operation was introduced to <code>@openfn/language-common</code> in version
+<code>1.13.0</code> (released April 2024).
+<br />
+<br />
+Any adaptor which uses common <code>1.12.0</code> or less will not support the
+cursor operation. Consider updating to the latest adaptor version to take advantage
+of this functionality.
+
+</details>
 
 To use a cursor, you'll want a line like this at the top of your job:
 
@@ -580,18 +593,19 @@ The `cursor()` function will:
   resolves to Date.now()
 
 Then in your job, you can use `state.cursor` in your queries like any other
-state propery:
+state propery. Here's a fictional example using HTTP:
 
 ```js
-get(`/registrations?since={date.cursor}`);
+get(`/registrations?since=${date.cursor}`);
+fn(/* do something good with your data */);
 ```
 
-You may want to default the cursor at the start of the job, and advance it at
-the end of a job ready for next time:
+You may want to advance the cursor at the end of a job ready, for the next run:
 
 ```js
 cursor(state => state.cursor, { defaultValue: 'today' });
-fn(/* do something */);
+get(`/registrations?since={date.cursor}`);
+fn(/* do something good with your data */);
 cursor('now');
 ```
 
@@ -601,15 +615,27 @@ number or object, or anything you like.
 The second argument to `cursor()` is an options object. You can use this to set
 the `defaultValue` or the `key` the cursor should use (defaults to `cursor`)
 
-If you want to run with a custom or "manual" cursor, you can just run the job
-and supply an input state with whatever cursor key you want.
+When debugging issues or running ad-hoc workflows, you may want to use a custom
+or "manual" cursor. To do this, simply supply an input state with whatever
+cursor value you want.
 
-When setting a cursor key, you can use a date in any format supported by
-Date.parse(). You can also pass in strings like "now", "today", "yesterday", "24
-hours ago" or "start" (ie, the time the job started), which will be converted
-into a time using the system locale. If you're in the CLI that means times will
-be calculated in your local system time, if you're running on Lightning it'll
-use the Lightning time (usually UTC).
+```js
+// Your state.json might look like this:
+{
+  "data": {},
+  "configuration": { /* your credentials */ },
+  "cursor": "today",
+}
+
+// Which you can run through the CLI in a terminal:
+$ openfn job.js -s state.json -a http
+```
+
+When setting a cursor yourself, you can pass in strings like "now", "today",
+"yesterday", "24 hours ago" or "start" (ie, the time the job started), which
+will be converted into a time using the system locale. If you're in the CLI that
+means times will be calculated in your local system time; if you're running on
+Lightning it'll use the Lightning system time (usually UTC).
 
 <details>
 <summary>Cursors on v1</summary>
