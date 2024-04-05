@@ -34,8 +34,8 @@ required. E.g.:
 
 ```json
 {
-  "api_key": "someSecretKey",
-  "base_ur": "https://example.com/api/v2"
+  "apiKey": "someSecretKey",
+  "baseUrl": "https://example.com/api/v2"
 }
 ```
 
@@ -48,12 +48,12 @@ gracefully, when in doubt you should leave it off. For example:
   `http://demo.openmrs.org/openmrs/`,
 - and write `https://play.dhis2.org` rather than `https://play.dhis2.org/`.
 
-### Use Oauth2 credentials
+### Use OAuth2 credentials
 
-If Oauth2 _clients_ have been configured on your OpenFn instance, you can use
-them create Oauth credentials. These all work the same way:
+If OAuth2 _clients_ have been configured on your OpenFn instance, you can use
+them create OAuth credentials. These all work the same way:
 
-1. First you pick an Oauth credential type from the "New Credential" interface.
+1. First you pick an OAuth credential type from the "New Credential" interface.
 2. Then you give it a name.
 3. You optionally select additional "scopes" that you want to use. (See the
    in-app link to third-party documentation on scopes, depending on what
@@ -61,30 +61,31 @@ them create Oauth credentials. These all work the same way:
 4. And then click "Sign in with \_\_\_\_\_\_".
 
 You will be asked by the third-party application to verify your identity and
-that you'd like to use Oauth. Once you accept, back on OpenFn you'll be able to
+that you'd like to use OAuth. Once you accept, back on OpenFn you'll be able to
 save and use your new credential just like any other.
 
 :::tip
 
-If you don't see an Oauth credential type available for your app, contact the
-superuser who deployed your instance of OpenFn and ask them to set up some Oauth
-clients for your app. Users of the OpenFn platform SaaS can post on
+If you're using a deployed instance of OpenFn and can't find the OAuth
+credential type for your app, please contact the superuser responsible for your
+instance setup and request them to set up OAuth clients for your application.
+Users of the hosted OpenFn platform SaaS can post on
 [community.openfn.org](https://community.openfn.org) or send an email to
-[support@openfn.org](support@openfn.org).
+[support@openfn.org](mailto://support@openfn.org).
 
 :::
 
-#### e.g., GoogleSheets Oauth Credential
+#### e.g., GoogleSheets OAuth Credential
 
 Note the credential selects only required scopes for Google Sheets.
 
-![Google Oauth](/img/google-oauth2.png)
+![Google OAuth](/img/google-OAuth2.png)
 
-#### e.g., Salesforce Oauth Credential
+#### e.g., Salesforce OAuth Credential
 
 Note that you can choose which scopes to access on Salesforce.
 
-![Salseforce Oauth](/img/salesforce-oauth2.png)
+![Salseforce OAuth](/img/salesforce-OAuth2.png)
 
 :::tip
 
@@ -97,11 +98,15 @@ credential guidance.
 
 To keep target systems as secure and controlled as possible, we recommend that
 credentials used in the integration be granted API-only access to the target
-application. You _can_ use your personal user as an OpenFn credential for your
-workflow, but we recommend that you create a dedicated "OpenFn" integration user
-or service account user to access your target applications.
+application. 
 
-This might not be available in every target system, but many do offer the
+You _can_ use your personal user as an OpenFn credential for your
+workflow, but we recommend that you create a dedicated "OpenFn" integration user
+or service account user to access your target applications. For example, in
+Salesforce, you can create an API-only user with a special API-only license type
+to perform automated tasks and integrations without requiring full user access.
+
+API-only users might not be available in every target system, but many do offer the
 creation of user roles that have API-only access permissions, and may allow you
 to determine the scopes for which APIs or endpoints users can access.
 
