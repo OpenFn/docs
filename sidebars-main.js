@@ -2,7 +2,7 @@ module.exports = {
   docs: [
     {
       type: 'category',
-      label: 'Getting Started',
+      label: 'Get Started',
       items: [
         'get-started/home',
         'get-started/try-out',
