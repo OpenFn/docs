@@ -79,13 +79,13 @@ Users of the hosted OpenFn platform SaaS can post on
 
 Note the credential selects only required scopes for Google Sheets.
 
-![Google OAuth](/img/google-OAuth2.png)
+![Google OAuth](/img/google-oauth2.png)
 
 #### e.g., Salesforce OAuth Credential
 
 Note that you can choose which scopes to access on Salesforce.
 
-![Salseforce OAuth](/img/salesforce-OAuth2.png)
+![Salseforce OAuth](/img/salesforce-oauth2.png)
 
 :::tip
 
