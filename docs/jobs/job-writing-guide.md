@@ -553,6 +553,80 @@ fn(state => {
 });
 ```
 
+## Using Cursors
+
+It is common, especially with Cron jobs, to want to maintain a cursor position
+on your backend datasource, ensuring that duplicate data doesn't get processed.
+
+For example, if your workflow runs every day at midnight, you may want to use a
+date cursor to only query the database since the last query.
+
+The common adaptor provides a `cursor()` operation to help you with this. It
+allows you to set a cursor property on state, which can be used in your job.
+
+To use a cursor, you'll want a line like this at the top of your job:
+
+```js
+cursor(state => state.cursor, { defaultValue: 'today' });
+```
+
+The `cursor()` function will:
+
+- Set the first argument as the value of the `cursor` key in state (or, if no
+  value is provided, will clear the cursor).
+- If no value is provided but there is a defaultValue option, the default will
+  be used
+- If the value is a string, attempt to convert it into a timesamp (ie, now
+  resolves to Date.now()
+
+Then in your job, you can use `state.cursor` in your queries like any other
+state propery:
+
+```js
+get(`/registrations?since={date.cursor}`);
+```
+
+You may want to default the cursor at the start of the job, and advance it at
+the end of a job ready for next time:
+
+```js
+cursor(state => state.cursor, { defaultValue: 'today' });
+fn(/* do something */);
+cursor('now');
+```
+
+The value of `state.cursor` is arbitrary. You can use a string, a Date, a page
+number or object, or anything you like.
+
+The second argument to `cursor()` is an options object. You can use this to set
+the `defaultValue` or the `key` the cursor should use (defaults to `cursor`)
+
+If you want to run with a custom or "manual" cursor, you can just run the job
+and supply an input state with whatever cursor key you want.
+
+When setting a cursor key, you can use a date in any format supported by
+Date.parse(). You can also pass in strings like "now", "today", "yesterday", "24
+hours ago" or "start" (ie, the time the job started), which will be converted
+into a time using the system locale. If you're in the CLI that means times will
+be calculated in your local system time, if you're running on Lightning it'll
+use the Lightning time (usually UTC).
+
+<details>
+<summary>Cursors on v1</summary>
+Platform v1 does not allow input states to be freely defined, so setting a
+manual cursor is a little more difficult.
+
+You have to hard-code the manual cursor into the run so that the state cursor is
+ignored:
+
+```js
+cursor('2024-03-12');
+```
+
+This line should be commented out in production runs.
+
+</details>
+
 ## Cleaning final state
 
 When your job has completed, the final state object will be "returned" by the
