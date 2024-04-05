@@ -146,7 +146,6 @@ values (e.g., `M: male, F: female`).
 semicolon-separated strings (e.g.,
 `Services__c: 'Food;Counselling;Medical_Aid`).
 
-
 ### Salesforce Credentials
 
 Salesforce requires a username, password, login URL, and security token to
@@ -209,8 +208,20 @@ Please save this `security token` in your OpenFn `Credential`.
    occur when trying to update a Relationship field, for example a Person
    related to a Person's Visit. The field setting `Allow reparenting` on the
    Master-Detail relationship field may need to be turned on .
-9. `UNABLE_TO_LOCK_ROW: unable to obtain exclusive access to this record`: This error occurs when either 1) the OpenFn job tries to update the same record more than once at the same time or 2) the OpenFn job tries to updates a Salesforce record at the same time as someone else in the Salesforce system (this includes any automation that may be running in parallel to the OpenFn jobs).  
+9. `UNABLE_TO_LOCK_ROW: unable to obtain exclusive access to this record`: This
+   error occurs when either 1) the OpenFn job tries to update the same record
+   more than once at the same time or 2) the OpenFn job tries to updates a
+   Salesforce record at the same time as someone else in the Salesforce system
+   (this includes any automation that may be running in parallel to the OpenFn
+   jobs).
 
+## Common Limits
+
+1. `Strings in SOQL WHERE clauses`: 4,000 characters for each string within a
+   WHERE clause.
+2. `Maximum rows returned in SOQL query results`: 2,000 results per request (API
+   v28.0+), 200 results (Previous API versions),Additional limits within Apex
+   classes,See Apex Governor Limits for more information.
 
 ## OpenFn Adaptors
 
