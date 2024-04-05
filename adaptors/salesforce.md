@@ -150,8 +150,14 @@ semicolon-separated strings (e.g.,
 
 Users have two options to connect to Salesforce, via **Oauth2** and via a
 **security token**. We recommend connecting via Oauth2. If this option isn't
-available on your Lightning instance, reach out to the superuser who deployed it
+available on your OpenFn instance, reach out to the superuser who deployed it
 and ask them to configure a Salesforce Oauth2 client.
+
+For better auditability and securiy, we recommend creating a dedicated "openfn"
+integration user (rather than using your personal user). Salesforce provides an
+API-only user license.
+[See Salesforce documentation](https://help.salesforce.com/s/articleView?id=sf.integration_user.htm&type=5)
+to learn how to configure this. API-only users require an Oauth credential.
 
 #### Oauth2
 
@@ -227,13 +233,6 @@ Please save this `security token` in your OpenFn `Credential`.
    Salesforce record at the same time as someone else in the Salesforce system
    (this includes any automation that may be running in parallel to the OpenFn
    jobs).
-
-## OpenFn Adaptors
-
-OpenFn has a robust
-[`language-salesforce`](https://github.com/OpenFn/language-salesforce) adaptor
-with a range of helper functions for common CRUD & upsert operations, and for
-accessing the Salesforce bulk API.
 
 ## Example Implementations
 
