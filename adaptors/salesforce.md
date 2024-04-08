@@ -214,14 +214,20 @@ Please save this `security token` in your OpenFn `Credential`.
    Salesforce record at the same time as someone else in the Salesforce system
    (this includes any automation that may be running in parallel to the OpenFn
    jobs).
+10. `Maximum polling attempt reached`: This error occur when the maximum time
+    allowed for checking the status of a bulk data operation is exceeded, It
+    indicates a delay in processing from salesforce side.
+11. `query(): <h1>Bad Message 414</h1><pre>reason: URI Too Long</pre>`: This
+    error occur when you have exceeded the character limit in a where clause
+    when using a `query()` function
 
 ## Common Limits
 
-1. `Strings in SOQL WHERE clauses`: 4,000 characters for each string within a
+1. `Strings in SOQL WHERE clauses`: `4,000` characters for each string within a
    WHERE clause.
-2. `Maximum rows returned in SOQL query results`: 2,000 results per request (API
-   v28.0+), 200 results (Previous API versions),Additional limits within Apex
-   classes,See Apex Governor Limits for more information.
+2. `Maximum rows returned in SOQL query results`: `2,000` results per request
+   (API v28.0+), `200` results (Previous API
+   versions),[See Search Query Limits for more information](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_soslsoql.htm).
 
 ## OpenFn Adaptors
 
