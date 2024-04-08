@@ -223,10 +223,10 @@ Please save this `security token` in your OpenFn `Credential`.
 
 ## Common Limits
 
-1. `Strings in SOQL WHERE clauses`: `4,000` characters for each string within a
-   WHERE clause.
-2. `Maximum rows returned in SOQL query results`: `2,000` results per request
-   (API v28.0+), `200` results (Previous API
+1. `Strings in SOQL WHERE clauses`: Up to 4,000 characters for each string
+   within a WHERE clause.
+2. `Maximum rows returned in SOQL query results`: 2,000 results per request (API
+   v28.0+), `200` results (Previous API
    versions),[See Search Query Limits for more information](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_soslsoql.htm).
 
 ## OpenFn Adaptors
