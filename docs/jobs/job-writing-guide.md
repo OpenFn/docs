@@ -3,8 +3,6 @@ sidebar_label: Job Writing Guide
 title: Job Writing Guide
 ---
 
-<!-- TODO: work out where this goes in the nav bar. Top level I think. I probably want to merge my structural changes first. -->
-
 Workflow automation and data integration in OpenFn is realised through the
 creation of Jobs.
 
