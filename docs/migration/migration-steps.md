@@ -92,7 +92,7 @@ decisions. For customized migration support, ask your questions on our
     with us at [support@openfn.org](mailto://support@openfn.org).
 23. Finally, when ready, request to delete your project on v1. To do this, go to
     your v1 `Project Settings` and select the `Delete Project` button.
-24. [Here are the migration steps](https://docs.google.com/spreadsheets/d/1pTw5_PZ0RNad-haqw_ydel5ka4ezSxcfF71un7Sga5I/edit?usp=sharing) in checklist form to help you manage the transition. 
+24. [Here are the migration steps](https://docs.google.com/spreadsheets/d/1pTw5_PZ0RNad-haqw_ydel5ka4ezSxcfF71un7Sga5I/edit?usp=sharing) in checklist form you can copy to help you manage the transition. 
 
 :::info
 
