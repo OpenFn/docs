@@ -130,7 +130,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Migrate to v2',
-      items: ['migration/migration-steps', 'migration/converting-triggers'],
+      items: ['migration/migration-steps', 'migration/converting-triggers', 'automated-migration'],
     },
 
     {
