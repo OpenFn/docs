@@ -4,8 +4,8 @@ sidebar_label: Self-Guided Migration
 slug: /self-guided-migration
 ---
 
-You can use our `export and deploy` functionality to automatically migrate your
-existing project from v1 to v2. This guide walks you through the steps.
+You can use our `export and deploy` functionality to self-migrate your existing
+project from v1 to v2. This guide walks you through the steps.
 
 ### Automated Migration Overview
 
