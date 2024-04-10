@@ -19,21 +19,9 @@ decisions. For customized migration support, ask your questions on our
    configure data storage accordingly.
 
 4. **Automated migration**: It is possible to migrate an entire project from v1
-   to v2 in an automated way. You can do this by going to Project Settings on
-   v1, clicking `Export Config` and choosing `Export for v2 (migrate)`. You will
-   receive a `project.yaml` file containing your entire project configuration
-   with jobs and triggers. Set up Github sync for your v2 project following
-   [this guide](../manage-projects/link-to-gh.md). Then, to migrate, commit the
-   exported `project.yaml` file to the Github repo you want to link to your v2
-   project, and iniate a sync. Your v1 project configuration will be deployed to
-   your v2 project.
-
-:::warning
-
-_BUG_: The v1 Export Config feature doesn’t work at the moment. For now, you can
-build your Workflows manually on v2 as described in steps 5-13 below.
-
-:::
+   to v2 in an automated way. Check out our docs on
+   [Self-Guided Migration](../migration/automated-migration.md) to learn more
+   about the process.
 
 5. On v2, the jobs you use for automating tasks are organized as
    [Workflows](../tutorials/tutorial.md), where each Job is 1 "Step" in a
@@ -62,7 +50,8 @@ build your Workflows manually on v2 as described in steps 5-13 below.
     monitor and review your Workflow runs.
 12. Test and iterate.
 13. Once the Workflow is validated, back up your configuration to Github. Follow
-    [this guide](../manage-projects/link-to-gh.md) to learn how it works and set it up.
+    [this guide](../manage-projects/link-to-gh.md) to learn how it works and set
+    it up.
 
     :::tip
 
