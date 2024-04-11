@@ -3,8 +3,6 @@ sidebar_label: Job Writing Guide
 title: Job Writing Guide
 ---
 
-<!-- TODO: work out where this goes in the nav bar. Top level I think. I probably want to merge my structural changes first. -->
-
 Workflow automation and data integration in OpenFn is realised through the
 creation of Jobs.
 
@@ -359,6 +357,118 @@ using the return as the value.
 
 These lazy functions are incredibly powerful. Using them effectively is the key
 to writing good OpenFn jobs.
+
+## The State Operator
+
+The State Operator makes lazy state reading (as outlined above) easier.
+
+:::tip Experimental Feature
+
+The State operator is new to OpenFn since April 2024. It is still considered an
+experimental feature. But it works great, and we encourage you to use it!
+
+If you've got any feedback, issues or suggestions around the State Operator,
+we'd love to hear from you on community! Or you can raise an issue on GitHub.
+:::
+
+Instead of writing `state.data` to access something on state, you can use the
+State Operator, `$`, like this:
+
+```js
+get($.data.url);
+```
+
+If you use the State Operator, you don't need to think about lazy references,
+arrow functions or JSON paths. Just read from `$` like your state object and the
+OpenFn runtime will resolve the value correctly at run-time.
+
+The `$` symbol is really just syntactic sugar for `(state) => state` (in most
+cases, we just do a string replace when compiling your code). These two
+statements behave in exactly the same way:
+
+```js
+get($.data.url);
+get(state => state.data.url);
+```
+
+You can use the State operator when passing an argument to any operation:
+
+```js
+upsert('patient', $.data.patients[0]);
+```
+
+You can use it inside an object (so long as that object is passed to an
+operation):
+
+```js
+create('agent', {
+  name: $.patient.name,
+  country: $.patient.country,
+});
+```
+
+You can use it inside a string template:
+
+```js
+get(`/patients/${$.patient.id}`);
+```
+
+Or inside other expressions, like concatenation:
+
+```js
+create({
+  name: $.patients[0].first_name + ' ' + $.patients[0].last_name,
+});
+```
+
+And you can use it when mapping datastructures:
+
+```js
+create('user', {
+  countryCode: countries[$.location.country],
+});
+```
+
+:::warning $ is read only
+
+The State Operator can only be used to READ from state. It cannot be used to
+assign to state directly.
+
+:::
+
+<details>
+<summary>Compliation rules for advanced users</summary>
+
+How does the State Operator work? The "magic" is in the compiler.
+
+Simply put, whenever the compiler sees `$` in your code, it replaces it with
+`(state) => state`. Like this:
+
+```
+get($.data.url) // compiles to get((state) => state.data.url)
+```
+
+In practice, the rules are a little more complicated than that. When seeing a
+`$` operator, the compiler will first check that `$` hasn't been declared as a
+variable or parameter. If it has, it'll ignore it entirely.
+
+But if the `$` is deemed to be a State Operator, the compiler will first replace
+the `$` symbol with `state`, then find the operation which is being called, then
+wrap the argument in an arrow function (if it isn't already).
+
+```
+get({ url: $.data.url }) // compiles to get((state) => { url: state.data.url })
+```
+
+This "hoisting" of the arrow function enables more complex and interesting
+expressions to be used with lazy state, like templated string literals or
+dynamic object lookups.
+
+If you're curious (or need to troubleshoot something) you can use the
+`openfn compile` command in the CLI to see the compiled code, which will tell
+you how the compiler is treating your State operators.
+
+</details>
 
 ## Mapping Objects
 
