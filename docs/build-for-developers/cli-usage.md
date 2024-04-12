@@ -70,10 +70,22 @@ openfn path/to.job.js --start cf628d9e -s path/to/input.json
 ```
 
 If you have previously cached this workflow's results, the CLI will
-automatically load the cached input if you omit the `-s` argument:
+automatically load the correct input from the cache if you omit the `-s`
+argument:
 
 ```bash
 openfn path/to.job.js --start cf628d9e
+```
+
+You can also pass `--end` to make the workflow exit early.
+
+**Run a single step**
+
+`--only` works just like `--start` and `--end`. You can partially match a step
+name or id, and input will be automatically loaded from the cache.
+
+```bash
+openfn path/to.job.js --only cf628d9e
 ```
 
 ---
@@ -95,7 +107,7 @@ openfn path/to/job.js -a adaptor-name -o path/to/output.json -s path/to/state.js
 openfn path/to/job.js -a adaptor-name -O
 ```
 
-**Save all step results to disk**
+**Save all step results locally**
 
 ```bash
 openfn path/to/workflow.json --cache-steps
@@ -106,7 +118,7 @@ The `.cli-cache` folder will be git-ignored and the cache will be cleared when
 the workflow is re-run with `--cache-steps` enabled.
 
 To _always_ cache, set the `OPENFN_ALWAYS_CACHE_STEPS` env var to `"true"`, and
-pass `--no-cache-steps` to disable it.
+pass `--no-cache-steps` to disable it temporarily.
 
 ---
 
