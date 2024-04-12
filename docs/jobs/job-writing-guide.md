@@ -358,18 +358,19 @@ using the return as the value.
 These lazy functions are incredibly powerful. Using them effectively is the key
 to writing good OpenFn jobs.
 
-## The State Operator
+## The Lazy State Operator
 
-The State Operator makes lazy state reading (as outlined above) easier.
+The Lazy State Operator makes it easier to read from state.
 
 :::tip Experimental Feature
 
-The State operator is new to OpenFn since April 2024. It is still considered an
-experimental feature. But it works great, and we encourage you to use it!
+The Lazy State operator is new to OpenFn since April 2024. It is still
+considered an experimental feature. But it works great, and we encourage you to
+use it!
 
-If you've got any feedback, issues or suggestions around the State Operator,
-we'd love to hear from you on community! Or you can raise an issue on GitHub.
-:::
+If you've got any feedback, issues or suggestions around the Lazy State
+Operator, we'd love to hear from you on community! Or you can raise an issue on
+GitHub. :::
 
 Instead of writing `state.data` to access something on state, you can use the
 State Operator, `$`, like this:
@@ -378,9 +379,9 @@ State Operator, `$`, like this:
 get($.data.url);
 ```
 
-If you use the State Operator, you don't need to think about lazy references,
-arrow functions or JSON paths. Just read from `$` like your state object and the
-OpenFn runtime will resolve the value correctly at run-time.
+If you use the Lazy State Operator, you don't need to think about lazy
+references, arrow functions or JSON paths. Just read from `$` like your state
+object and the OpenFn runtime will resolve the value correctly at run-time.
 
 The `$` symbol is really just syntactic sugar for `(state) => state` (in most
 cases, we just do a string replace when compiling your code). These two
@@ -391,7 +392,7 @@ get($.data.url);
 get(state => state.data.url);
 ```
 
-You can use the State operator when passing an argument to any operation:
+You can use the Lazy State operator when passing an argument to any operation:
 
 ```js
 upsert('patient', $.data.patients[0]);
@@ -429,17 +430,38 @@ create('user', {
 });
 ```
 
-:::warning $ is read only
+:::warning $ is not state
 
-The State Operator can only be used to READ from state. It cannot be used to
-assign to state directly.
+The `$` operator is not an alias for `state`.
+
+It cannot be used in place of the `state` variable. It cannot be assigned to, or
+be on the left hand side of an assignment, and can only be used inside an
+arugment to a function
+
+Tihs also means that Lazy State Operator can only be used to READ from state. It
+cannot be used to assign to state directly.
+
+These examples are all errors:
+
+```
+const url = $.data.url
+get(url)
+
+get(() => $.data.url)
+
+$.data.x = fn();
+
+fn((state) => {
+  $.data.x = 10;
+})
+```
 
 :::
 
 <details>
 <summary>Compliation rules for advanced users</summary>
 
-How does the State Operator work? The "magic" is in the compiler.
+How does the Lazy State Operator work? The "magic" is in the compiler.
 
 Simply put, whenever the compiler sees `$` in your code, it replaces it with
 `(state) => state`. Like this:
