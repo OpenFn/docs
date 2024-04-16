@@ -55,8 +55,8 @@ openfn path/to/job.js -a http=/repo/openfn/adaptors/my-http-build
 openfn path/to/job.js -ma http
 ```
 
-Set a path to the monorepo with the env var OPENFN_REPO_DIR (eg,
-`OPENFN_REPO_DIR=~/openfn/repo openfn job.js -ma http`).
+Set a path to the monorepo with the env var OPENFN_ADAPTORS_REPO (eg,
+`OPENFN_ADAPTORS_REPO=~/openfn/repo openfn job.js -ma http`).
 
 Remember to rebuild the adaptor before using it!
 
