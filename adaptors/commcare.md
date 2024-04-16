@@ -70,7 +70,7 @@ Let's set up a connection to OpenFn and then see how to do each.
 ### Forwarding Individual Forms
 
 1. Click over to "Data Forwarding".
-2. Under "Forward Forms", click "+Add a service to forward to"
+2. Under "Forward Forms", click "+ Add a service to forward to"
 3. Select the connection to forward the forms to set up following the steps
    above
 4. Name it
@@ -81,6 +81,17 @@ Let's set up a connection to OpenFn and then see how to do each.
    Follow
    [this CommCare guide](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143979045/Finding+a+Form+s+XMLNS)
    to find the XMLNS of any form
+
+### Forwarding Case Types
+
+1. Go to "Data Forwarding".
+2. lick "+ Add a service to forward to" under "Forward Cases"
+3. Select the connection to forward the cases to
+4. Name the forwarder
+5. Select "POST" HTTP Request Method
+6. Choose "JSON" as Payload Format
+7. Select which case type(s) you want to forward, for example "patient"
+8. Exclude any (eg. test) users
 
 <!-- Quick instructions:
 
