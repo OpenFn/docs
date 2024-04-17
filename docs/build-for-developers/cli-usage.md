@@ -49,14 +49,21 @@ openfn path/to/job.js -a http@2.0.0
 openfn path/to/job.js -a http=/repo/openfn/adaptors/my-http-build
 ```
 
-**Use the build in the adaptors monoreo:**
+**Use the local adaptors monorepo build:**
 
 ```bash
 openfn path/to/job.js -ma http
 ```
 
-Set a path to the monorepo with the env var OPENFN_ADAPTORS_REPO (eg,
-`OPENFN_ADAPTORS_REPO=~/openfn/repo openfn job.js -ma http`).
+You must set the path to the monorepo in the env var OPENFN_ADAPTORS_REPO. For
+example:
+
+```bash
+OPENFN_ADAPTORS_REPO=~/openfn/adaptors openfn job.js -ma http
+```
+
+You would typically set this in a configuration file like `.profile` or
+`.zshrc`.
 
 Remember to rebuild the adaptor before using it!
 
