@@ -6,7 +6,8 @@ slug: /cli-usage
 
 This page shows common usage examples for the CLI.
 
-Execute a job, run a workflow, adjust logging, maintain adaptors, and save the state.
+Execute a job, run a workflow, adjust logging, maintain adaptors, and save the
+state.
 
 ---
 
@@ -48,15 +49,51 @@ openfn path/to/job.js -a http@2.0.0
 openfn path/to/job.js -a http=/repo/openfn/adaptors/my-http-build
 ```
 
-**Use the build in the adaptors monoreo:**
+**Use the local adaptors monorepo build:**
 
 ```bash
 openfn path/to/job.js -ma http
 ```
 
-Set a path to the monorepo with the env var OPENFN_REPO_DIR (eg, `OPENFN_REPO_DIR=~/openfn/repo openfn job.js -ma http`).
+You must set the path to the monorepo in the env var OPENFN_ADAPTORS_REPO. For
+example:
+
+```bash
+OPENFN_ADAPTORS_REPO=~/openfn/adaptors openfn job.js -ma http
+```
+
+You would typically set this in a configuration file like `.profile` or
+`.zshrc`.
 
 Remember to rebuild the adaptor before using it!
+
+**Run from a specific start step**
+
+You can specify a step as an exact id, or a partial substring from the name or
+id.
+
+```bash
+openfn path/to.job.js --start cf628d9e -s path/to/input.json
+```
+
+If you have previously cached this workflow's results, the CLI will
+automatically load the correct input from the cache if you omit the `-s`
+argument:
+
+```bash
+openfn path/to.job.js --start cf628d9e
+```
+
+You can also pass `--end` to make the workflow exit early.
+
+**Run a single step**
+
+`--only` works just like `--start` and `--end`. You can partially match a step
+name or id, and input will be automatically loaded from the cache.
+
+```bash
+openfn path/to.job.js --only cf628d9e
+```
 
 ---
 
@@ -76,6 +113,19 @@ openfn path/to/job.js -a adaptor-name -o path/to/output.json -s path/to/state.js
 ```bash
 openfn path/to/job.js -a adaptor-name -O
 ```
+
+**Save all step results locally**
+
+```bash
+openfn path/to/workflow.json --cache-steps
+```
+
+Each step will write its output to `./cli-cache/<workflow-name>/<step-id>.json`.
+The `.cli-cache` folder will be git-ignored and the cache will be cleared when
+the workflow is re-run with `--cache-steps` enabled.
+
+To _always_ cache, set the `OPENFN_ALWAYS_CACHE_STEPS` env var to `"true"`, and
+pass `--no-cache-steps` to disable it temporarily.
 
 ---
 
@@ -171,15 +221,15 @@ running workflows via the CLI.
 
 ### Load adaptor documentation
 
-The CLI can list adaptor documentation in the terminal. Note that it has to download
-the adaptor to the repo (if it's not already there), which can take a moment.
+The CLI can list adaptor documentation in the terminal. Note that it has to
+download the adaptor to the repo (if it's not already there), which can take a
+moment.
 
 **Print a list of adaptor functions**
 
 ```bash
 openfn docs http
 ```
-
 
 **Show docs for a specific function**
 
