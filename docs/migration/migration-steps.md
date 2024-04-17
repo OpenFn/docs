@@ -33,17 +33,17 @@ decisions. For customized migration support, ask your questions on our
    monitor and review your Runs to confirm your Workflows are running
    successfully.
 8. Test and iterate.
-9. Once your Workflows are tests, sync your new v2 configuration to Github for
+9. Once your Workflows are tested, sync your new v2 configuration to GitHub for
    version control. Follow [this guide](../manage-projects/link-to-gh.md) to
    learn how it works and set it up.
 
-   :::warning Github sync works differently in v2
+   :::warning GitHub sync works differently in v2
 
-   Once the Github sync is live, consider that all changes will be synced with
-   the `project.yaml` file. Therefore, any job changes made via Github, must be
-   applied directly to this file. (Unlike the v1 Github sync, edits to
+   Once the GitHub sync is live, consider that all changes will be synced with
+   the `project.yaml` file. Therefore, any job changes made via GitHub, must be
+   applied directly to this file. (Unlike the v1 GitHub sync, edits to
    individual job files will not sync to the OpenFn v2 app. Rather, all changes
-   must be made in the `project.yaml` file or within the linked web app).
+   must be made in the `project.yaml` file or within the linked web app.)
 
    :::
 

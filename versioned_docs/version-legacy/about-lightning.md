@@ -264,7 +264,7 @@ To ensure a positive security posture at OpenFn, we:
 
 To ensure best practices in our code we:
 
-- Monitor dependency vulnerabilities via Github’s
+- Monitor dependency vulnerabilities via GitHub’s
   [dependabot](https://github.com/features/security)
 - Perform static code analysis on each commit with
   [Sobelow](https://sobelow.io/)
@@ -327,7 +327,7 @@ integrations, we’ve published a
 ## Get involved
 
 We are building out in the open, follow our progress on
-[Github](https://github.com/OpenFn/lightning) by clicking ‘Watch’ to track
+[GitHub](https://github.com/OpenFn/lightning) by clicking ‘Watch’ to track
 updates and new releases. Ongoing discussions with our Open Source Steering
 Committee about Lightning are documented on our
 [community forum](https://community.openfn.org/c/ossc/15). Your feedback and
