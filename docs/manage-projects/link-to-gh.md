@@ -23,7 +23,7 @@ project on GitHub to OpenFn.
 ![Configure](/img/connect-account-to-github.png)
 
 3. Choose which GitHub Installation to use for this connection or
-   [manage your GitHub installations](#managing-github-instllations).
+   [manage your GitHub installations](#managing-github-permissions).
 
    :::tip
 
