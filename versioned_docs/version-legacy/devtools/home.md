@@ -146,10 +146,10 @@ Check out this example workflow for using devtools in your day-to-day.
 1. `cd` in the folder containing the repo you're working on.
 2. You can keep your job scripts anywhere, but store `state.json` and
    `output.json` in a `tmp` folder. In our repos we always add the `tmp`
-   directory in our `.gitignore` file that tells Github to ignore the specified
+   directory in our `.gitignore` file that tells GitHub to ignore the specified
    paths. Make sure you have your `.gitignore` file and you know what's tracked
-   by Github and what's not. `state` and `config` may contain sensitive
-   configuration information and project data so never upload them to Github!
+   by GitHub and what's not. `state` and `config` may contain sensitive
+   configuration information and project data so never upload them to GitHub!
 3. The devtools command is a mouthful. You can search your command line history
    with `Ctl-r` and typing core to pull it up the devtools command. Notice that
    it’s got line breaks and a flag for all the important bits… `-l` for
@@ -252,7 +252,7 @@ Here's how to build and release adaptors:
    `openfn-devtools release .` to build, tag, and push to
    [npm](https://www.npmjs.com/).
 3. Run `openfn-devtools package-release .` to package everything with production
-   dependencies and push to [Github](https://github.com/openfn).
+   dependencies and push to [GitHub](https://github.com/openfn).
 
 Depending on how you've configured your local environment and your VSCode
 installation, you might encounter access issues preventing connections to NPM
@@ -341,11 +341,11 @@ check it if it's unchecked.
 
 ![vscode settings](/img/vscode-settings.png)
 
-### Github token sharing
+### GitHub token sharing
 
 Our release process relies on a `GH_TOKEN` variable. Set up an
 [access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
-in Github.
+in GitHub.
 
 In your `~/.bash_profile` or `~/.zshrc` file, export the newly created token by
 adding this line:

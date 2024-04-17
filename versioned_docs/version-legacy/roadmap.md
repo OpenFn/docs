@@ -6,7 +6,7 @@ title: Documentation Roadmap
 
 We're constantly working to improve the documentation on OpenFn, particularly
 around the open source integration toolkit. Visit the documentation roadmap on
-Github to see what we're working on.
+GitHub to see what we're working on.
 
 :::tip
 
@@ -15,7 +15,7 @@ Visit
 to view the documentation roadmap.
 
 Below is merely a static list that will be updated far less frequently than the
-actual docs issues on Github.
+actual docs issues on GitHub.
 
 :::
 

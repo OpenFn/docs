@@ -214,7 +214,7 @@ jobs.
 If your project is leveraging an OpenFn adaptor (e.g., `language-dhis2`), you
 have access to pre-built helper functions (e.g., `getPatient`, `update`) so that
 you don’t need to write custom code, and rather can use OpenFn documentation or
-existing job scripts to write your own job. See OpenFn Github for inspiration
+existing job scripts to write your own job. See OpenFn GitHub for inspiration
 and open-source job code shared by OpenFn users. You’ll notice that these
 functions work in the same way that functions do in Excel… `sum(A1, A2, A3)`
 

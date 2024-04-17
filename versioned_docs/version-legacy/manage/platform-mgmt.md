@@ -122,7 +122,7 @@ follow the steps below:
 
 ### Job change history and reverting changes
 
-If your job is linked to a Github repo, changes made to a job expression can be
+If your job is linked to a GitHub repo, changes made to a job expression can be
 reverted to a given git commit. To revert changes made to a job expression,
 follow the steps below:
 
@@ -880,7 +880,7 @@ more quickly and easily if you enable this setting.
 
 - Note also that, while on the **Account Settings** page, you can access
   additional features such as _Changing Email_, _Changing Password_, _connecting
-  and disconnecting to Github_, _Billing Management_, and _Deleting Account_.
+  and disconnecting to GitHub_, _Billing Management_, and _Deleting Account_.
 - To access these additional features, open the sub-menu by clicking on the
   **three dots** on the top-right corner of the **Account Settings** page.
 
@@ -997,42 +997,42 @@ to get going.
 
 2. If a job's **expression** or **GitHub filepath** is modified on the platform,
 
-   ✅ OpenFn platform will automatically push a **commit** to your Github repo,
+   ✅ OpenFn platform will automatically push a **commit** to your GitHub repo,
    updating the linked file to match the expression.
 
 :::
 
 Note that if you change a file on GitHub that's _not_ related to any OpenFn
 jobs, no update will be made on OpenFn. Likewise, if you edit a job on OpenFn
-but _don't_ make any changes to the **expression** or **Github filepath**, no
+but _don't_ make any changes to the **expression** or **GitHub filepath**, no
 commit will be made on GitHub.
 
 :::warning
 
 As soon as you enter a valid filepath for a job in a project with a connected
-Github repo, all modifications made to that job on OpenFn will appear as Github
+GitHub repo, all modifications made to that job on OpenFn will appear as GitHub
 commits on that branch in that repo.
 
-Likewise, as soon as you make a commit on Github with a change to a file that is
+Likewise, as soon as you make a commit on GitHub with a change to a file that is
 linked to a job on OpenFn, the contents of that file will overwrite the existing
 job on OpenFn.
 
-⚠️ **PLEASE note** that _before_ you connect Github, there is no version history
+⚠️ **PLEASE note** that _before_ you connect GitHub, there is no version history
 for OpenFn jobs on the platform. If you commit something you don't want (like an
-empty file) to Github, `autodeploy` is on, and that file is linked to an OpenFn
+empty file) to GitHub, `autodeploy` is on, and that file is linked to an OpenFn
 job, you will **erase your existing job** and you may not be able to retrieve
 it. ⚠️
 
 For this reason, and because [**OpenFn/cli**](../cli.md) provides a
 free, open-source, offline testing environment, it's recommended to create your
-jobs using a Github repo and test them on your own machine _before_ linking them
+jobs using a GitHub repo and test them on your own machine _before_ linking them
 to a project on OpenFn.
 
 :::
 
 ### Setup Steps
 
-#### Linking your OpenFn account to your Github account
+#### Linking your OpenFn account to your GitHub account
 
 1. OpenFn: [User Settings](https://www.openfn.org/account): Click the
    three-button "action menu" (top right corner of the account card) and select
@@ -1042,9 +1042,9 @@ to a project on OpenFn.
 3. OpenFn: Once redirected to OpenFn you may be asked to re-authenticate
    depending on the domain you originally used to connect to OpenFn.
 4. OpenFn: Ensure all changes you've made to your account are saved, and verify
-   that you see a bright blue check next to "Github OAuth".
+   that you see a bright blue check next to "GitHub OAuth".
 
-#### Linking projects and jobs to Github repos and files
+#### Linking projects and jobs to GitHub repos and files
 
 1. OpenFn: Project -> Version Control: Specify the repository owner, repository
    name and branch for automatic deploys. You can also select to turn on or off

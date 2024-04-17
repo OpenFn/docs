@@ -37,7 +37,7 @@ If you're a new OpenFn user and want to build or test jobs for Lighting (v2) and
 ## How do I use it?
 
 Check out the official documentation on
-[Github](https://github.com/OpenFn/core).
+[GitHub](https://github.com/OpenFn/core).
 
 The tl;dr: is that you execute jobs from the command line by passing in an
 expression, state, and the path to an adaptor.

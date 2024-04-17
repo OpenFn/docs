@@ -307,32 +307,32 @@ Project found.
 [CLI] ♦ Deployed.
 ```
 
-### Automated Version Control with Github and Lightning
+### Automated Version Control with GitHub and Lightning
 
 Representations of projects as code and pull/deploy functionality allows you to
-check your whole project into a version control system such as Github.
+check your whole project into a version control system such as GitHub.
 
-Lightning comes with a Github App that enables user to sync projects from an
-instance to Github using the `openfn pull` command and to do the vice versa
+Lightning comes with a GitHub App that enables user to sync projects from an
+instance to GitHub using the `openfn pull` command and to do the vice versa
 using `openfn deploy`.
 
 To set up version control:
 
 1. Create a project repo connection to a github repository in **Project Settings
-   -> Sync to Github**.
-2. Follow the instructions to install the Lightning Github app in your desired
+   -> Sync to GitHub**.
+2. Follow the instructions to install the Lightning GitHub app in your desired
    repository.
 3. Once you have created a a connection, set up `pull` and `deploy` workflows
    that use openfn github actions below.
 4. Add `OPENFN_API_KEY` and `OPENFN_PROJECT_ID` repository secrets to your
-   Github repo as described below.
+   GitHub repo as described below.
 5. Add a `.config.json` file to your repository which specifies your endpoint
    and paths to project spec and state files.
-6. Click the sync to Github button to initiate a sync from Lightning to GitHub.
-7. Push a change to your selected branch to push changes from Github to
+6. Click the sync to GitHub button to initiate a sync from Lightning to GitHub.
+7. Push a change to your selected branch to push changes from GitHub to
    Lightning.
 
-#### Github Repository Secrets
+#### GitHub Repository Secrets
 
 The workflows that interact with the OpenFn actions will need the repository set
 up with two secrets used in the github actions:
@@ -342,7 +342,7 @@ up with two secrets used in the github actions:
 - OPENFN_PROJECT_ID: This is your Project ID from Lightning this will be used to
   pull from the lightning instance
 
-#### Github Repository Structure
+#### GitHub Repository Structure
 
 Here you can do pretty much what you want, so long as you've got a `config.json`
 pointing to your project spec, state, and Lightning endpoint.
@@ -406,7 +406,7 @@ branch, you can sync changes to GitHub by pressing the "Initiate Sync" button on
 the version control page and the Lightning GitHub app will run a `openfn pull`
 action to update the versioned representation of your project as code.
 
-##### Github to Lightning
+##### GitHub to Lightning
 
 Assuming you've configured a deploy action, any time there are changes made to
 that branch in your GitHub repo, those changes will be pushed to your Lightning
