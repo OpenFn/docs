@@ -53,7 +53,7 @@ governments and international NGOs prefer open source software because of
 customization and data residency requirements. Since our founding in 2014 OpenFn
 has been committed to open-source software development and the source code for
 most of the products we’ve built is freely available on
-[Github](https://github.com/OpenFn).
+[GitHub](https://github.com/OpenFn).
 
 Notably, even though open source software is “free” the cost of deploying it and
 maintaining it carries costs that are sometimes comparable to commercial
@@ -140,8 +140,8 @@ system that users can grow and mature with. While our enterprise platform might
 be right for your organization today, 5 years from now, once your organization
 has its own dedicated IT team and server infrastructure, local deployment via
 microservice might make better sense. The good news is that OpenFn integration
-[portability](/documentation/deploy/portability) will make these transitions easy. Your
-integration will run just as well on your servers as ours.
+[portability](/documentation/deploy/portability) will make these transitions
+easy. Your integration will run just as well on your servers as ours.
 
 As the diagram below demonstrates we envision two main pathways for OpenFn
 integrations. The tech savvy project manager will configure their workflows via

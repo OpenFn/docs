@@ -67,17 +67,17 @@ The XLS version of this template can be found [here](https://docs.google.com/spr
 - [ ] Workflow assumptions updated to include any technical considerations 
 - [ ] Test scenarios updated to include any technical considerations
 - [ ] Project Security Configuration Checklist drafted to capture data security & compliance considerations
-- [ ] Github repository created
+- [ ] GitHub repository created
 - [ ] Job specifications written for developers 
 
 ## (4) Build
 
 - [ ] OpenFn platform: project space created & relevant users invited
 - [ ] OpenFn platform: Jobs, triggers, and credentials configured 
-- [ ] OpenFn platform: Version control configured to connect Github repo
-- [ ] Jobs written & pushed to branch on Github
-- [ ] Job code review complete and merged to main branch on Github
-- [ ] OpenFn platform: Github paths updated on each job to link to source file
+- [ ] OpenFn platform: Version control configured to connect GitHub repo
+- [ ] Jobs written & pushed to branch on GitHub
+- [ ] Job code review complete and merged to main branch on GitHub
+- [ ] OpenFn platform: GitHub paths updated on each job to link to source file
 - [ ] Test data created (if needed)
 - [ ] Engineer updates mapping specifications (if needed)
 

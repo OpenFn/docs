@@ -119,7 +119,7 @@ module.exports = {
               to: 'https://www.openfn.org',
             },
             {
-              label: 'Github',
+              label: 'GitHub',
               href: 'https://github.com/openfn',
             },
           ],

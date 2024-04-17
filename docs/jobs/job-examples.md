@@ -10,7 +10,7 @@ contexts to use in your Jobs.
 
 For example Jobs written by the OpenFn core team and other users, check out the
 [Library](/adaptors/library) or other project repositories under
-[Github.com/OpenFn](https://github.com/OpenFn).
+[GitHub.com/OpenFn](https://github.com/OpenFn).
 
 :::
 

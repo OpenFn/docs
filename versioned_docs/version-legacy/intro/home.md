@@ -93,7 +93,7 @@ and developing [adaptors](https://github.com/openfn/adaptors).
 
 You can view the technical documentation and source code for OpenFn's FOSS
 integration tools and adaptors in their respective repositories at
-[Github.com/OpenFn](https://github.com/openfn) or see
+[GitHub.com/OpenFn](https://github.com/openfn) or see
 [Deploy](../deploy/options.md) section for an overview of the FOSS
 options and additional docs.
 

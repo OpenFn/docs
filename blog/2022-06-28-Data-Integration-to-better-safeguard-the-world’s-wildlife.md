@@ -42,7 +42,7 @@ OpenFn’s solution saves ConSoSci partners time and money, enabling researchers
 
 Thanks to the OpenFn Integration Toolkit, WCS has the digital infrastructure to efficiently scale its data collection, analysis, and sharing solutions to enhance interoperability across its programs and partners. OpenFn automatically syncs hundreds of records across dozens of WCS sites daily, enabling the WCS Conservation Technology Team to redirect its focus to its core work–empowering researchers working to mitigate continued environmental damage. WCS believes that “by discovering how to save nature, we can inspire the world to protect it”, and OpenFn is committed to helping conservation stakeholders automate this discovery process worldwide.
 
-To explore WCS and ConSoSci OpenFn solutions, check out the open-source code on Github (github.com/OpenFn/consosci). Next up for WCS are integrations between Kobo ToolBox and Asana. Stay tuned for more!
+To explore WCS and ConSoSci OpenFn solutions, check out the open-source code on GitHub (github.com/OpenFn/consosci). Next up for WCS are integrations between Kobo ToolBox and Asana. Stay tuned for more!
 
 ### Call to Action
 If you have questions about our WCS partnership or integration toolkit, head to [community.openfn.org](https://community.openfn.org) to connect and talk to like-minded social-sector integrators and OpenFn staff. We hope to see you soon!
