@@ -24,4 +24,7 @@ jobs:
         run: |
           yarn generate-library
           yarn generate-adaptors
+          yarn --version
+          yarn why cytoscape
+          yarn info cytoscape --recursive
           yarn build
