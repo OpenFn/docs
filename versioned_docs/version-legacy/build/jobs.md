@@ -171,7 +171,7 @@ values in the `patient_names` array from our source message.
 ## Available Javascript Globals
 
 For security reasons, users start with access to the following standard
-Javascript globals, and can request more by opening an issue on Github:
+Javascript globals, and can request more by opening an issue on GitHub:
 
 - [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 - [`console`](https://nodejs.org/api/console.html)

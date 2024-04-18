@@ -1,5 +1,5 @@
 ---
-title: Manage changes with Github branches
+title: Manage changes with GitHub branches
 sidebar_label: Manage changes
 ---
 
@@ -9,7 +9,7 @@ project.
 
 However, most code change to workflows involve sharing and reviewing changes
 before deployment. You can do this by creating, testing and sharing your changes
-on a new Github branch, then, once final, merging them into `main` for
+on a new GitHub branch, then, once final, merging them into `main` for
 deployment.
 
 :::tip

@@ -93,7 +93,7 @@ with the features they need to communicate with a particular system's API. Some
 examples are [dhis](/adaptors/dhis2), [`postgresql`](/adaptors/postgresql), and
 [`http`](/adaptors/packages/http-docs) etc. There are more than 70 active
 adaptors at the moment, and anyone is free to build or enhance them. See
-[Github/Adaptors](https://github.com/OpenFn/adaptors) for the source code.
+[GitHub/Adaptors](https://github.com/OpenFn/adaptors) for the source code.
 
 ### Credential
 

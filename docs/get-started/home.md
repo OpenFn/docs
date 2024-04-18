@@ -63,7 +63,7 @@ The core OpenFn products include:
 - [**OpenFn/docs**](https://github.com/OpenFn/docs): documentation & source for
   docs.openfn.org
 
-See all products and code at [Github.com/OpenFn](https://github.com/OpenFn).
+See all products and code at [GitHub.com/OpenFn](https://github.com/OpenFn).
 
 ### OpenFn v2: Lightning ⚡
 
@@ -110,7 +110,7 @@ tools for writing & testing workflows, managing OpenFn projects, and developing
 
 You can view the technical documentation and source code for OpenFn's fully open
 source ("FOSS") integration tools and adaptors in their respective repositories
-at [Github.com/OpenFn](https://github.com/openfn) or see
+at [GitHub.com/OpenFn](https://github.com/openfn) or see
 [Deploy](/documentation/deploy/options) section for an overview of the FOSS
 options and additional docs.
 

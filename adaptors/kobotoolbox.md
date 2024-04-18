@@ -221,5 +221,5 @@ also be implemented to send GET/POST/PUT requests to the Kobo APIs.
 
 ## Integration Examples
 
-See the `ConSoSci` Github repo for several example Kobo-to-database jobs:
+See the `ConSoSci` GitHub repo for several example Kobo-to-database jobs:
 https://github.com/OpenFn/consosci
