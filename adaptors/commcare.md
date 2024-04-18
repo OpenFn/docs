@@ -41,28 +41,82 @@ CommCare has different APIs for reading vs. updating data. Some helpful links:
 - [Data APIs](https://confluence.dimagi.com/display/commcarepublic/Data+APIs)
 - [Bulk Case Upload API to mass update case records](https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data)
 
-### Webhook: Forward cases and/or forms from CommCare to OpenFn using REST service
+## Webhook: Forward cases and/or forms from CommCare to OpenFn using REST service
 
 See
 [CommCare docs](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128)
 on how to configure this webhook to "push" data to an external system like
 OpenFn. This option is great for _real-time_ data forwarding.
 
-Quick instructions:
+In order to connect CommCare with OpenFn v2, you'll often need to set up
+CommCare data forwarding for individual forms, and for specific case types.
+Let's set up a connection to OpenFn and then see how to do each.
+
+### Creating a Connection
 
 1. Go to "Project Settings".
-2. Click "Data Forwarding".
-3. "Add a forwarding location" for Cases, Forms, or both.
-4. Specify JSON, using your OpenFn inbox URL as the target. See the
-   [CommCare documentation](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128).
-5. Create a
-   [message-filter trigger like this](/documentation/build/triggers#match-a-message-with-a-fragment-inside-another-object-called-form).
-6. Set up a `job` running on that filter to process CommCare submissions or case
-   updates.
+2. Click "Connection Settings".
+3. Choose "Add Connection Settings" at the bottom
+4. Give the connection a name, and indicate email address(es) to send failure
+   notifications to.
+   [See the CommCare docs for more on this.](<https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications>).
+5. Paste the URL of the OpenFn
+   [webhook](https://docs.openfn.org/documentation/build/triggers#webhook-event-triggers)
+   you want to forward data to
+6. If you have [webhook authentication](../docs/manage-projects/webhook-auth.md)
+   set up on OpenFn, add the authentication type, the username and password here
+7. You can test the connection, then save it
 
-We recommend updating the `Connection Settings` to list emails that should be
-alerted if there is a data forwarding error.
-[See the CommCare docs for more on this.](<https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications>).
+![Connection](/img/commecare_connection_settings.png)
+
+### Forwarding Individual Forms
+
+1. Click over to "Data Forwarding".
+2. Under "Forward Forms", click "+ Add a service to forward to"
+3. Select the connection to forward the forms to set up following the steps
+   above
+4. Name it
+5. Select "POST" HTTP Request Method
+6. Choose "JSON" as Payload Format
+7. Exclude any (eg. test) users - forms submitted by them won't be forwarded
+8. "XMLNSes of forms to include" lets you select which form(s) to forward by
+   adding the XMLNSes of the required forms. Follow
+   [this CommCare guide](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143979045/Finding+a+Form+s+XMLNS)
+   to find the XMLNS of any form. To add multiple, separate them with commas,
+   spaces or newlines. Leave empty to forward all forms.
+9. Hit "Start Forwarding" to save and activate
+
+![Forms](/img/commecare_forward_forms.png)
+
+### Forwarding Specific Case Types
+
+1. Go to "Data Forwarding".
+2. lick "+ Add a service to forward to" under "Forward Cases"
+3. Select the connection to forward the cases to
+4. Name the forwarder
+5. Select "POST" HTTP Request Method
+6. Choose "JSON" as Payload Format
+7. Select which case type(s) you want to forward, for example "patient"
+8. Exclude any (eg. test) users
+
+![Cases](/img/commcare_forward_cases.png)
+
+## Data Forwarding and OpenFn Workflow Design
+
+A clean way and efficient way of designing CommCare
+[webhook](../docs/build/triggers.md) workflows on OpenFn v2 is to have a
+separate workflow handling each form and case type. As each of your OpenFn
+webhook workflows has a unique URL, you'll need to set up a separate CommCare
+connection for each, then use that connection to forward the relevant form or
+case type to OpenFn. So your CommCare Data Forwarding overview might look like
+this:
+
+![Data Forwarding Overview](/img/commcare_data_forwarding_overview.png)
+
+While on OpenFn, you can set up one or multiple jobs to handle the form or case
+type received.
+
+![Form Workflow](/img/form_workflow.png)
 
 ## App Setup & Integration Tips
 
@@ -96,8 +150,8 @@ integration and mapping data elements.
   case (i.e. person, event, etc) search by `case id`.  
   ![image](https://user-images.githubusercontent.com/80456839/128649444-04f371ea-80b1-4c28-8d42-1591c0a96758.png)
 
-- In the OpenFn [message](/documentation/get-started/terminology#message):
-  `id` is the unique identifier for the form submission
+- In the OpenFn [message](/documentation/get-started/terminology#message): `id`
+  is the unique identifier for the form submission
   ![image](https://user-images.githubusercontent.com/80456839/128649481-83b3f7ee-c6a6-42f8-8752-2f4e96b7fa1f.png)
 
 - `case_id` is the unique identifier for the case being updated by the form. For
