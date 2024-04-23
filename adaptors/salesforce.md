@@ -234,8 +234,7 @@ how to monitor your API usage.
 
 ## OpenFn Adaptors
 
-OpenFn has a robust
-[`language-salesforce`](https://github.com/OpenFn/language-salesforce) adaptor
+OpenFn supports a robust `salesforce` adaptor ([see adaptor source code](https://github.com/OpenFn/adaptors/blob/main/packages/salesforce/src/Adaptor.js))
 with a range of helper functions for common CRUD & upsert operations, and for
 accessing the Salesforce bulk API.
 
@@ -245,3 +244,4 @@ accessing the Salesforce bulk API.
   https://github.com/OpenFn/miracle-feet
 - Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
 - GRS CommCare - Salesforce sync: https://github.com/OpenFn/grassroot-soccer
+- MailChimp-Salesforce sync: https://github.com/OpenFn/gife
