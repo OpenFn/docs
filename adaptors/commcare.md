@@ -118,6 +118,15 @@ type received.
 
 ![Form Workflow](/img/form_workflow.png)
 
+## Pulling Data From CommCare
+
+You can also fetch data from CommCare initiated from an OpenFn workflow, by
+sending a GET request to one of
+[CommCare's data APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143957366/Data+APIs).
+You could use our [http adaptor](../adaptors/packages/http-docs.md) to achieve
+this. Fetching can be done on a scheduled basis, as a daily or monthly sync.
+This design also lends itself well to processing data in bulk.
+
 ## App Setup & Integration Tips
 
 ### App installation and configuration
