@@ -242,11 +242,11 @@ state, and will return state.
 
 <details>
 <summary>What is a factory function?</summary>
-Factory functions are quite a hard pattern to understand. Like many programming concepts, it makes more sense when you've used it a bit.
+Factory functions are quite a hard pattern to understand. Like many programming concepts, it makes more sense after some hands-on experience.
 
-Luckily, you don't really need to understand the pattern to understand openfn.
+Luckily, you don't need to deeply understand the pattern to understand OpenFn.
 
-Simply put, a factory function doesn't really do anything. It instead returns a
+Simply put, a factory function doesn't really do anything. It simply returns a
 function to do something.
 
 Factory functions are useful for deferred execution (declaring behaviour NOW to
@@ -381,10 +381,10 @@ get('/some-data');
 post('/some-other-data', (state) => state.data);
 ```
 
-This passes a _function_ into the `post` operator, instead of a value.
+This passes a _function_ into the `post` operator, instead of a value
 
 When the `post()` call actually executes, the first thing it'll do is resolve
-any function into arguments into values. It does this by calling the function
+any function into arguments into values. It does this by calling the function,
 passing in the latest state, and using the return as the value.
 
 These lazy functions are incredibly powerful. Using them effectively is the key
