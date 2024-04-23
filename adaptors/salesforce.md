@@ -221,13 +221,16 @@ Please save this `security token` in your OpenFn `Credential`.
     error occur when you have exceeded the character limit in a where clause
     when using a `query()` function
 
-## Common Limits
+## Salesforce Limits
 
-1. `Strings in SOQL WHERE clauses`: Up to 4,000 characters for each string
-   within a WHERE clause.
-2. `Maximum rows returned in SOQL query results`: 2,000 results per request (API
-   v28.0+), `200` results (Previous API
-   versions),[See Search Query Limits for more information](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_soslsoql.htm).
+1. If using the `bulk()` adaptor functions, [see Salesforce docs](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm) on Bulk API Limits. 
+2. If using the standard `query()` function (_not_ bulk API), note the [Salesforce SOQL query limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_soslsoql.htm) for maximum rows returned per 
+request (e.g., max `2,000` rows returned per query request) and the string character limit (e.g., `100,000` string character limit for regular SOQL queries, and `4,000` character limit if using `WHERE` clause in your query). 
+3. [See Apex Governor limits](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm) for standard DML limits (e.g., you can only process
+`10,000` rows per transaction if using standard insert/update/upsert operations and not bulk) and other limits for Salesforce automation and Apex that might be triggered
+by your OpenFn workflow. 
+4. [See here](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_limits.htm) for how to query your org's specific limits, and [this article](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) for 
+how to monitor your API usage. 
 
 ## OpenFn Adaptors
 
