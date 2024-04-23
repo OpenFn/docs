@@ -44,7 +44,7 @@ keep.
 ## 3. Install OpenFn/lightning locally
 
 Install the OpenFn v2 locally to access the open source software and explore
-without limits. See our Github repo for developer docs:
+without limits. See our GitHub repo for developer docs:
 [github.com/OpenFn/lightning](https://github.com/OpenFn/lightning).
 
 :::info Questions?

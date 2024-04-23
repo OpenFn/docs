@@ -16,8 +16,8 @@ slug: /cli-walkthrough
    directory called `tmp` within your `devchallenge` folder: `mkdir tmp`
 
 3. Since `state.json` and `output.json` may contain sensitive configuration
-   information and project data, it's important to never upload them to Github.
-   To ensure that Github ignores these files, add the `tmp` directory to your
+   information and project data, it's important to never upload them to GitHub.
+   To ensure that GitHub ignores these files, add the `tmp` directory to your
    `.gitignore` file: `echo "tmp" >> .gitignore`
 4. (Optional) Use the `tree` command to check that your directory structure
    looks correct. Running `tree -a` in your `devchallenge` folder should display

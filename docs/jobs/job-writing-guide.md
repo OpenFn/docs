@@ -3,8 +3,6 @@ sidebar_label: Job Writing Guide
 title: Job Writing Guide
 ---
 
-<!-- TODO: work out where this goes in the nav bar. Top level I think. I probably want to merge my structural changes first. -->
-
 Workflow automation and data integration in OpenFn is realised through the
 creation of Jobs.
 
@@ -244,19 +242,22 @@ state, and will return state.
 
 <details>
 <summary>What is a factory function?</summary>
-Factory functions are quite a hard pattern to understand, although you get used it.
+Factory functions are quite a hard pattern to understand. Like many programming concepts, it makes more sense after some hands-on experience.
 
-Luckily, you don't really need to understand the pattern to understand openfn.
+Luckily, you don't need to deeply understand the pattern to understand OpenFn.
 
-Simply put, a factory function doesn't really do anything. It instead returns a
+Simply put, a factory function doesn't really do anything. It simply returns a
 function to do something.
 
-Factory functions are useful for deferred execution, lazy loading, constructor
-functions, and scope binding.
+Factory functions are useful for deferred execution (declaring behaviour NOW to
+run LATER), lazy loading (fetching data from a server at the last moment, just
+before you need it), constructor functions (for instantiating classes into
+objects), and scope binding (for trapping local variables in a scope and
+re-using them later).
 
-They're used by us in open function for deferred execution: our runtime converts
-each factory into an actual operation function, saves all the functions into an
-array, then iterates over each one and passes in state.
+They're used in OpenFn for deferred execution. Our runtime converts each factory
+into an actual function, saves all the functions into an array, and calls them
+sequentially, passing in the latest state object to each one.
 
 </details>
 
@@ -299,66 +300,273 @@ to send it somewhere else.
 
 Can you see the problem?
 
-It happens all the time.
+The value of `state.data` in the post call will resolve to `undefined` and so
+the post will fail.
 
-Because of the way JavaScript works, `state.data` will be evaluated before the
-`get()` request has finished. So the post will always receive a value of
-`undefined`.
+This is because Operations are
+[factory functions](#operations-run-at-the-top-level). They declare behaviour to
+be executed later, and provide parameters to calibrate that behaviour. But they
+don't actually go off and do the work immediately.
 
-<!--
-Ok wise guy, how are we gonna explain this?
-It's something to do with factories, and closures, and synchronous execution.
-What's the simplest explanation though?
--->
+Those parameters will be resolved to values when the module loads (load-time),
+before any code has run (run-time), and before `state.data` has been assigned a
+value.
+
 <details>
-<summary>Okay, how <i>does</i> JavaScript work?</summary>
-JavaScript, like most languages, will evaluate synchronously, executing code line of code one at a time.
+<summary>More details about job execution and parameter resolution</summary>
+Let's try to explain a bit more about what's happening.
 
-Because each Operation is actually a factory function, it will execute instantly
-and return a function - but that function won't actually be executed yet.
+When your job runs, it will be evaluated in a Javascript engine and follow the
+usual rules of Javsacript. That is to say: each statement will be executed in
+sequence (forget about asynchronous functions for a moment!).
 
-The returned function will have the original arguments in scope (trapped as
-closures), and be executed later against the latest state object.
+The first statement, `get('/some-data)`, calls OpenFn's `get` function and
+passes it a string. `get` then returns another function which will be executed
+later.
 
-The example above will synchronously create two functions, which are added into
-an array by the compiler (see bellow), and then excuted by the runtime.
+The second statement, `post('/some-other-data', state.data)` does something
+similar. It calls the `post` function, passing in a string and whatever sits on
+`state.data`, and returns a function to be executed later. But the two arguments
+have already been resolved to values.
 
-So when your code executes, it's doing something like this:
+Calling an operation is a bit like declaring a contract: you specify what you
+want to happen, and in what order, and what the terms of the contact are. Then
+OpenFn will go off and fulfill the terms of that contract for you.
 
-```js
-const getFn = get('/some-data');
-const postFn = post('/some-data', state.data);
+The problem is that when you specify the terms of the contract, you don't have
+all the values to hand. We don't know what `state.data` is yet. So we need to
+say "WHEN you run this function, check the value of `state.data`, and use
+whatever it says.
 
-return getFn(state).then(nextState => postFn(nextState));
-```
+The "when you run" this function bit is key: how do we ensure that the value of
+`state.data` is resolved at the right time? JavaScript itself isn't smart enough
+to do that - it'll just return the value when we read it (and remember, we read
+it at load-time, not at run-time).
 
-The point is that when the post operation is created, all we've done is _create_
-the `get` function - we haven't actually _run_ it. And so state.data is
-basically uninitialised.
+There are two good JavaScript-y solutions to the problem:
+
+1. Pass a string which represents a path on state, and resolve that path inside
+   the actual post function when it runs.
+2. Pass a function (or a Promise) which returns some value form state, and call
+   that function inside the actual post function when it runs.
+
+Mostly our adaptors support the second pattern. In fact, if you look in some of
+our
+[adaptor source code](https://github.com/OpenFn/adaptors/blob/1fdca7d130146a0c7acbb870ec2902d6e8063dc2/packages/mailchimp/src/Adaptor.js#L357),
+you'll see that the first thing we do is to "expand references" - that means
+look at the arguments, see if any of them are functions (or contain) functions,
+and "expand" them by calling the functions and saving out the values.
+
+This whole Lazy State discussion is about definining a bunch of behaviours NOW,
+but reading data values LATER.
 
 </details>
 
-What we actually need to do is defer the evaluation of `state.data` until the
-`post` operation actually runs. In other words, we work out the value of
-`state.data` at last possible moment.
+In other words, by the time the post operation is created and we read from
+`state.data`, all we've done is _create_ the `get` function - we haven't
+actually _run_ it.
 
-There are a few ways we can do that. Some jobs use `dataValue`, which is neat if
-a bit verbose (there are many examples in this guide), and some operations
-support JSON path strings. The preferred way in modern OpenFn is to use an
-inline-function:
+What we need to do is _defer_ the evaluation of `state.data` until the `get`
+function has finished and the `post` operation actually runs.
 
+There are a few ways we can do that (including the new
+[Lazy State operator](#the-lazy-state-operator), see below). Some jobs use
+`dataValue`, which is neat if a bit verbose (there are many examples in this
+guide), and some operations support JSON path strings. The preferred way in
+modern OpenFn is to use an inline-function:
+
+<!-- prettier-ignore -->
 ```js
 get('/some-data');
-post('/some-other-data', state => state.data);
+post('/some-other-data', (state) => state.data);
 ```
 
-This passes a function into the `post` operator. When the `post()` call actually
-executes, the first thing it'll do is resolve any function into arguments into
-values. It does this by calling the function passing in the latest state, and
-using the return as the value.
+This passes a _function_ into the `post` operator, instead of a value
+
+When the `post()` call actually executes, the first thing it'll do is resolve
+any function into arguments into values. It does this by calling the function,
+passing in the latest state, and using the return as the value.
 
 These lazy functions are incredibly powerful. Using them effectively is the key
 to writing good OpenFn jobs.
+
+## The Lazy State Operator
+
+:::tip Experimental Feature
+
+The Lazy State operator is new to OpenFn as of April 2024. It is still
+considered an experimental feature. But it works great, and we encourage you to
+use it!
+
+If you've got any feedback, issues or suggestions around the Lazy State
+Operator, we'd love to hear from you on
+[Community](https://community.openfn.org)! Or you can raise an issue on
+[GitHub](https://github.com/openfn/kit/issues).
+
+:::
+
+The Lazy State Operator is a shorthand syntax that makes it easier to read state
+when passing data into an operation.
+
+Instead of writing `state.data` to access something on state, you can use `$`,
+like this:
+
+```js
+get($.data.url);
+```
+
+The `$` ensures that the value passed to the operation will be resolved at the
+correct time. Think of it like passing a path to some part of state, rather than
+passing the value of that path.
+
+What's nice about this is that you can basically ignore the previous chapter
+entirely and not think too much about state evaluation. Just read from `$` like
+your state object and the OpenFn runtime will resolve the value correctly at
+run-time.
+
+The `$` symbol is really just syntactic sugar for `(state) => state` (in most
+cases, we just do a string replace when compiling your code). These two
+statements behave in exactly the same way:
+
+<!-- prettier-ignore -->
+```js
+get($.data.url);
+get((state) => state.data.url);
+```
+
+We call it "lazy state" because the reference will be resolved by the runtime
+engine immediately before its used. This bypasses a lot of the aysnchronicity
+problems of Javascript which are disccused in
+[Reading State Lazily](#reading-state-lazily)
+
+:::tip $ Only works within Operations
+
+`$` only works when used inside an expression that's passed to an operation. In
+other words, you can only use it when you could write `(state) => state` instead
+(like the example above).
+
+:::
+
+### Usage Examples
+
+The following short code snippets show some examples of how the Lazy State
+Operator can be used. Each example can be re-written without `$`, but with it
+the syntax is shorter, more readable and more expressive.
+
+Basic usage is simply to pass state into an operation:
+
+```js
+upsert('patient', $.data.patients[0]);
+```
+
+You can use it inside an object (so long as that object is passed to an
+operation):
+
+```js
+create('agent', {
+  name: $.patient.name,
+  country: $.patient.country,
+});
+```
+
+You can use it inside a string template:
+
+```js
+get(`/patients/${$.patient.id}`);
+```
+
+Or inside other expressions, like concatenation:
+
+```js
+create({
+  name: $.patients[0].first_name + ' ' + $.patients[0].last_name,
+});
+```
+
+Or mathematics:
+
+```js
+create({
+  profit: $.report.revenue - $.report.expenses,
+});
+```
+
+You can use it when mapping datastructures:
+
+```js
+create('user', {
+  countryCode: countries[$.location.country],
+});
+```
+
+And you can use it in nested operations like, with `each()`:
+
+<!-- prettier-ignore -->
+```js
+each($.data.patients,
+  post(`patients/${$.data.patient.id}`, $.data.patient)
+);
+```
+
+### $ is not state
+
+The `$` operator is **not** an alias for `state`.
+
+It cannot be used in place of the `state` variable. It cannot be assigned to, or
+be on the left hand side of an assignment, and can only be used inside an
+arugment to a function
+
+This also means that Lazy State Operator can only be used to READ from state. It
+cannot be used to assign to state directly.
+
+These examples are all errors:
+
+```js
+❌ const url = $.data.url;
+get(url);
+
+❌ get(() => $.data.url);
+
+❌ $.data.x = fn();
+
+❌ fn(state => {
+  $.data.x = 10;
+});
+```
+
+<details>
+<summary>Compliation rules for advanced users</summary>
+
+How does the Lazy State Operator work? The "magic" is in the compiler.
+
+Simply put, whenever the compiler sees `$` in your code, it replaces it with
+`(state) => state`. Like this:
+
+```
+get($.data.url) // compiles to get((state) => state.data.url)
+```
+
+In practice, the rules are a little more complicated than that. When seeing a
+`$` operator, the compiler will first check that `$` hasn't been declared as a
+variable or parameter. If it has, it'll ignore it entirely.
+
+But if the `$` is deemed to be a State Operator, the compiler will first replace
+the `$` symbol with `state`, then find the operation which is being called, then
+wrap the argument in an arrow function (if it isn't already).
+
+```
+get({ url: $.data.url }) // compiles to get((state) => { url: state.data.url })
+```
+
+This "hoisting" of the arrow function enables more complex and interesting
+expressions to be used with lazy state, like templated string literals or
+dynamic object lookups.
+
+If you're curious (or need to troubleshoot something) you can use the
+`openfn compile` command in the CLI to see the compiled code, which will tell
+you how the compiler is treating your State operators.
+
+</details>
 
 ## Mapping Objects
 
@@ -551,6 +759,160 @@ fn(state => {
   // Only return the results array as output from the job
   return { result: state.results };
 });
+```
+
+## Using Cursors
+
+Sometimes it is useful to maintain a rolling cursor position on the backend
+datasource. This can be used in a cron-based workflow, for example, to query the
+database for new records since the last run.
+
+In a cron workflow, OpenFn will pass the previous state into the next state - so
+state persists across runs. We can take advantage of that to pick up where we
+left off.
+
+You can use the [`cursor()`](adaptors/packages/common-docs#cursor) operation,
+which is built-in to most adaptors, to make cursor management easier.
+
+<details>
+<summary>Version support</summary>
+The cursor operation was introduced to <code>@openfn/language-common</code> in version
+<code>1.13.0</code> (released April 2024).
+<br />
+<br />
+Any adaptor which uses common <code>1.12.0</code> or less will not support the
+cursor operation. Consider updating to the latest adaptor version to take advantage
+of this functionality.
+
+</details>
+
+### Setting the cursor value
+
+To use a cursor from a fixed date, just add a line like this to the top of your
+job:
+
+```js
+cursor('2024-04-08T12:00:00.0000');
+```
+
+This will set the cursor to _always_ use the date you provided.
+
+If you are using a date cursor, you can also pass in natural language strings
+like "now", "today", "yesterday", "24 hours ago" or "start" (ie, the time the
+job started).
+
+:::tip Timezones
+
+Relative dates like "today" will be converted into a Javascript Date using the
+system locale.
+
+If you're in the CLI that means times will be calculated in your local system
+time; or if you're running on Lightning it'll use the Lightning system time
+(usually UTC).
+
+The cursor function will log the exact time, including the time zone, it is
+using.
+
+:::
+
+To use a rolling or manual cursor, you should pass the cursor value from state.
+You might want to include a default value too:
+
+```js
+cursor(state => state.cursor, { defaultValue: '2024-04-08T12:00:00.0000' });
+```
+
+### Using the cursor
+
+To use the cursor in your job, just use `state.cursor` in your queries like any
+other state propery.
+
+The usage will be different depending on the adaptor you're using. Here's how
+you might build a URL with query paramters with the HTTP adaptor:
+
+```js
+get(state => `/registrations?since=${state.cursor}`);
+fn(/* do something good with your data */);
+```
+
+This will read the cursor value off the state object, insert it into a string,
+and pass it into a HTTP query.
+
+Or perhaps you want to build the cursor into an object:
+
+```js
+get('registrations', state => {
+  query: {
+    fromdate: state.cursor;
+  }
+});
+```
+
+The actual value of a cursor is arbitrary. You can use a string, a Date, a page
+number or object, or anything you like.
+
+You may want to advance the cursor at the end of a job ready, for the next run:
+
+```js
+cursor(state => state.cursor, { defaultValue: 'today' });
+get(`/registrations?since={date.cursor}`);
+fn(/* do something good with your data */);
+cursor('now');
+```
+
+### Manual Cursors
+
+It's often useful to manually set the cursor position - usually when testing or
+debugging. Maybe yesterday's run failed and you want to repeat it, or maybe
+you're testing out some new functionality and you want to experiment with
+different cursors.
+
+You can do this by setting a cursor value on input state, like this:
+
+```js
+{
+  "cursor": "today",
+}
+```
+
+You can do this by triggering a maual run in the platform's
+[Job Inspector](documentation/build/steps/step-editor), or you can pass the
+state as input to the CLI:
+
+```bash
+$ openfn job.js -s state.json -a http
+```
+
+<details>
+<summary>Manual cursors on v1</summary>
+Platform v1 does not allow input states to be freely defined, so setting a
+manual cursor is a little more difficult.
+
+You have to hard-code the manual cursor into the run so that the state cursor is
+ignored:
+
+```js
+cursor('2024-03-12');
+```
+
+This line should be commented out in production runs.
+
+Alternatively, you can use the defaultValue option. This will work so long you
+run without any initial state:
+
+```js
+cursor(state => state.cursor, { defaultValue: '2024-03-12' });
+```
+
+</details>
+
+### Cursor Options
+
+The second argument to `cursor()` is an options object. You can use this to set
+the `defaultValue` or the `key` the cursor should use (defaults to `cursor`)
+
+```js
+cursor(state => state.cursor, { defaultValue: '2024-03-12', key: 'page' });
 ```
 
 ## Cleaning final state

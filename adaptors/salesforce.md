@@ -148,12 +148,31 @@ semicolon-separated strings (e.g.,
 
 ### Salesforce Credentials
 
-Salesforce requires a username, password, login URL, and security token to
-authenticate via a user. **Note every time you reset the user's password, the
-security token will reset and you need to update the Credential record used in
-your OpenFn job.**
+Users have two options to connect to Salesforce, via **Oauth2** and via a
+**security token**. We recommend connecting via Oauth2. If this option isn't
+available on your OpenFn instance, reach out to the superuser who deployed it
+and ask them to configure a Salesforce Oauth2 client.
 
-![Credentials Menu](/img/credentials.png)
+For better auditability and securiy, we recommend creating a dedicated "openfn"
+integration user (rather than using your personal user). Salesforce provides an
+API-only user license.
+[See Salesforce documentation](https://help.salesforce.com/s/articleView?id=sf.integration_user.htm&type=5)
+to learn how to configure this. API-only users require an Oauth credential.
+
+#### Oauth2
+
+When connecting via Oauth2, choose only the scopes you require.
+([See Salesforce](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_tokens_scopes.htm&type=5)
+for explanations of these options.)
+
+![Salesforce Oauth2](/img/salesforce-oauth2.png)
+
+#### Security Token
+
+If you are not using Oauth2, you'll need to provide a username, password, login
+URL, and security token to authenticate via a user. **Note every time you reset
+the user's password, the security token will reset and you need to update the
+Credential record used in your OpenFn job.**
 
 A "Salesforce" Credential record should include:
 
@@ -166,7 +185,7 @@ A "Salesforce" Credential record should include:
   you have a custom domain `https://domainName.salesforce.com/`). For sandbox
   environments, `https://test.salesforce.com/`.
 
-![Salesforce Cred](/img/salesforce-cred.png)
+![Salesforce Cred](/img/salesforce-old-cred.png)
 
 For use in the CLI, see an example
 [salesforce configuration](/adaptors/packages/salesforce-configuration-schema)
