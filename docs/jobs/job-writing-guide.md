@@ -242,19 +242,22 @@ state, and will return state.
 
 <details>
 <summary>What is a factory function?</summary>
-Factory functions are quite a hard pattern to understand, although you get used it.
+Factory functions are quite a hard pattern to understand. Like many programming concepts, it makes more sense when you've used it a bit.
 
 Luckily, you don't really need to understand the pattern to understand openfn.
 
 Simply put, a factory function doesn't really do anything. It instead returns a
 function to do something.
 
-Factory functions are useful for deferred execution, lazy loading, constructor
-functions, and scope binding.
+Factory functions are useful for deferred execution (declaring behaviour NOW to
+run LATER), lazy loading (fetching data from a server at the last moment, just
+before you need it), constructor functions (for instantiating classes into
+objects), and scope binding (for trapping local variables in a scope and
+re-using them later).
 
-They're used by us in open function for deferred execution: our runtime converts
-each factory into an actual operation function, saves all the functions into an
-array, then iterates over each one and passes in state.
+They're used in OpenFn for deferred execution. Our runtime converts each factory
+into an actual function, saves all the functions into an array, and calls them
+sequentially, passing in the latest state object to each one.
 
 </details>
 
@@ -297,48 +300,80 @@ to send it somewhere else.
 
 Can you see the problem?
 
-The value of `state.data` in the post call will resolve to `undefined`.
+The value of `state.data` in the post call will resolve to `undefined` and so
+the post will fail.
 
-Because of the way JavaScript works, `state.data` will be evaluated _before_ the
-`get()` request has finished. So the post will always receive a value of
-`undefined`, and the post will not behave as expected.
+This is because Operations are
+[factory functions](#operations-run-at-the-top-level). They declare behaviour to
+be executed later, and provide parameters to calibrate that behaviour. But they
+don't actually go off and do the work immediately.
+
+Those parameters will be resolved to values when the module loads (load-time),
+before any code has run (run-time), and before `state.data` has been assigned a
+value.
 
 <details>
-<summary>Okay, how <i>does</i> JavaScript work?</summary>
-JavaScript, like most languages, will evaluate synchronously, executing code line of code one at a time.
+<summary>More details about job execution and parameter resolution</summary>
+Let's try to explain a bit more about what's happening.
 
-Because each Operation is actually a factory function, it will execute instantly
-and return a function - but that function won't actually be executed yet.
+When your job runs, it will be evaluated in a Javascript engine and follow the
+usual rules of Javsacript. That is to say: each statement will be executed in
+sequence (forget about asynchronous functions for a moment!).
 
-The returned function will have the original arguments in scope (trapped as
-closures), and be executed later against the latest state object.
+The first statement, `get('/some-data)`, calls OpenFn's `get` function and
+passes it a string. `get` then returns another function which will be executed
+later.
 
-The example above will synchronously create two functions, which are added into
-an array by the compiler (see bellow), and then excuted by the runtime.
+The second statement, `post('/some-other-data', state.data)` does something
+similar. It calls the `post` function, passing in a string and whatever sits on
+`state.data`, and returns a function to be executed later. But the two arguments
+have already been resolved to values.
 
-So when your code executes, it's doing something like this:
+Calling an operation is a bit like declaring a contract: you specify what you
+want to happen, and in what order, and what the terms of the contact are. Then
+OpenFn will go off and fulfill the terms of that contract for you.
 
-```js
-const getFn = get('/some-data');
-const postFn = post('/some-data', state.data);
+The problem is that when you specify the terms of the contract, you don't have
+all the values to hand. We don't know what `state.data` is yet. So we need to
+say "WHEN you run this function, check the value of `state.data`, and use
+whatever it says.
 
-return getFn(state).then(nextState => postFn(nextState));
-```
+The "when you run" this function bit is key: how do we ensure that the value of
+`state.data` is resolved at the right time? JavaScript itself isn't smart enough
+to do that - it'll just return the value when we read it (and remember, we read
+it at load-time, not at run-time).
 
-The point is that when the post operation is created, all we've done is _create_
-the `get` function - we haven't actually _run_ it. And so state.data is
-basically uninitialised.
+There are two good JavaScript-y solutions to the problem:
+
+1. Pass a string which represents a path on state, and resolve that path inside
+   the actual post function when it runs.
+2. Pass a function (or a Promise) which returns some value form state, and call
+   that function inside the actual post function when it runs.
+
+Mostly our adaptors support the second pattern. In fact, if you look in some of
+our
+[adaptor source code](https://github.com/OpenFn/adaptors/blob/1fdca7d130146a0c7acbb870ec2902d6e8063dc2/packages/mailchimp/src/Adaptor.js#L357),
+you'll see that the first thing we do is to "expand references" - that means
+look at the arguments, see if any of them are functions (or contain) functions,
+and "expand" them by calling the functions and saving out the values.
+
+This whole Lazy State discussion is about definining a bunch of behaviours NOW,
+but reading data values LATER.
 
 </details>
 
-What we actually need to do is _defer_ the evaluation of `state.data` until the
-`post` operation actually runs. In other words, we work out the value of
-`state.data` at last possible moment.
+In other words, by the time the post operation is created and we read from
+`state.data`, all we've done is _create_ the `get` function - we haven't
+actually _run_ it.
 
-There are a few ways we can do that. Some jobs use `dataValue`, which is neat if
-a bit verbose (there are many examples in this guide), and some operations
-support JSON path strings. The preferred way in modern OpenFn is to use an
-inline-function:
+What we need to do is _defer_ the evaluation of `state.data` until the `get`
+function has finished and the `post` operation actually runs.
+
+There are a few ways we can do that (including the new
+[Lazy State operator](#the-lazy-state-operator), see below). Some jobs use
+`dataValue`, which is neat if a bit verbose (there are many examples in this
+guide), and some operations support JSON path strings. The preferred way in
+modern OpenFn is to use an inline-function:
 
 <!-- prettier-ignore -->
 ```js
