@@ -233,6 +233,29 @@ Please save this `security token` in your OpenFn `Credential`.
    Salesforce record at the same time as someone else in the Salesforce system
    (this includes any automation that may be running in parallel to the OpenFn
    jobs).
+10. `Maximum polling attempt reached`: This error occur when the maximum time
+    allowed for checking the status of a bulk data operation is exceeded, It
+    indicates a delay in processing from salesforce side.
+11. `query(): <h1>Bad Message 414</h1><pre>reason: URI Too Long</pre>`: This
+    error occur when you have exceeded the character limit in a where clause
+    when using a `query()` function
+
+## Salesforce Limits
+
+1. If using the `bulk()` adaptor functions, [see Salesforce docs](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm) on Bulk API Limits. 
+2. If using the standard `query()` function (_not_ bulk API), note the [Salesforce SOQL query limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_soslsoql.htm) for maximum rows returned per 
+request (e.g., max `2,000` rows returned per query request) and the string character limit (e.g., `100,000` string character limit for regular SOQL queries, and `4,000` character limit if using `WHERE` clause in your query). 
+3. [See Apex Governor limits](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm) for standard DML limits (e.g., you can only process
+`10,000` rows per transaction if using standard insert/update/upsert operations and not bulk) and other limits for Salesforce automation and Apex that might be triggered
+by your OpenFn workflow. 
+4. [See here](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_limits.htm) for how to query your org's specific limits, and [this article](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) for 
+how to monitor your API usage. 
+
+## OpenFn Adaptors
+
+OpenFn supports a robust `salesforce` adaptor ([see adaptor source code](https://github.com/OpenFn/adaptors/blob/main/packages/salesforce/src/Adaptor.js))
+with a range of helper functions for common CRUD & upsert operations, and for
+accessing the Salesforce bulk API.
 
 ## Example Implementations
 
@@ -240,3 +263,4 @@ Please save this `security token` in your OpenFn `Credential`.
   https://github.com/OpenFn/miracle-feet
 - Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
 - GRS CommCare - Salesforce sync: https://github.com/OpenFn/grassroot-soccer
+- MailChimp-Salesforce sync: https://github.com/OpenFn/gife
