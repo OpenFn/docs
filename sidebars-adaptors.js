@@ -4,7 +4,10 @@ const fs = require('fs');
 // generate-adaptors code has not yet been run. This if/else is not very elegent
 // but does the trick.
 let list = [];
-if (fs.existsSync('./adaptors/packages/publicPaths.json')) {
+if (
+  fs.existsSync('./adaptors/packages/publicPaths.json') &&
+  fs.existsSync('./adaptors/library/jobs/auto/publicPaths.json')
+) {
   const adaptorsFile = fs.readFileSync('./adaptors/packages/publicPaths.json');
   const adaptors = JSON.parse(adaptorsFile);
 
@@ -89,6 +92,19 @@ if (fs.existsSync('./adaptors/packages/publicPaths.json')) {
 
   list = [...items, ...extras].sort((a, b) => a.label.localeCompare(b.label));
 } else {
+  console.log('Skipping adaptor sidebar because artifact generation failed:');
+  console.log(
+    "  Adaptors 'publicPaths.json':",
+    fs.existsSync('./adaptors/packages/publicPaths.json')
+      ? 'found'
+      : 'NOT FOUND! (Maybe `yarn generate-adaptors` failed.)'
+  );
+  console.log(
+    "  Job Library 'publicPaths.json':",
+    fs.existsSync('./adaptors/library/jobs/auto/publicPaths.json')
+      ? 'found'
+      : 'NOT FOUND! (Maybe `yarn generate-library` failed or has not been run.)'
+  );
   list = [];
 }
 
