@@ -6,22 +6,31 @@ const versions = [];
 async function listVersions(next) {
   const url = next || `https://api.github.com/repos/OpenFn/adaptors/tags`;
 
-  return axios.get(url).then(response => {
-    const { headers, data } = response;
+  return axios
+    .get(url)
+    .then(response => {
+      const { headers, data } = response;
 
-    versions.push(...data);
+      versions.push(...data);
 
-    const { link } = headers;
-    const nextLink = link.split(',').find(link => link.includes('next'));
+      const { link } = headers;
+      const nextLink = link.split(',').find(link => link.includes('next'));
 
-    if (nextLink) {
-      const newUrl = nextLink.substring(
-        nextLink.indexOf('<') + 1,
-        nextLink.lastIndexOf('>')
+      if (nextLink) {
+        const newUrl = nextLink.substring(
+          nextLink.indexOf('<') + 1,
+          nextLink.lastIndexOf('>')
+        );
+        return listVersions(newUrl);
+      }
+    })
+    .catch(function (error) {
+      console.log(`Request to ${url} failed`, error);
+      console.log(
+        'Failed to list versions. (Maybe you got rate limited?) Returning an empty array for now.'
       );
-      return listVersions(newUrl);
-    }
-  });
+      return [];
+    });
 }
 
 async function loadAdaptorsDocs() {
@@ -29,17 +38,26 @@ async function loadAdaptorsDocs() {
     'https://raw.githubusercontent.com/OpenFn/adaptors/docs/docs/docs.json';
 
   console.log('Loading adaptors docs from OpenFn/adaptors');
-  return axios.get(apiUrl).then(function (response) {
-    console.log('Done ✓');
-    const docs = response.data;
+  return axios
+    .get(apiUrl)
+    .then(function (response) {
+      console.log('Done ✓');
+      const docs = response.data;
 
-    console.log(
-      'Producing docs for:',
-      docs.map(x => x.name)
-    );
+      console.log(
+        'Producing docs for:',
+        docs.map(x => x.name)
+      );
 
-    return docs;
-  });
+      return docs;
+    })
+    .catch(function (error) {
+      console.log(`Request to ${url} failed`, error);
+      console.log(
+        'Failed to list adaptors. (Maybe you got rate limited?) Returning an empty array for now.'
+      );
+      return [];
+    });
 }
 
 const filePaths = [];
