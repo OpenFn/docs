@@ -170,7 +170,7 @@ module.exports = {
     [
       path.resolve(__dirname, 'generate-library'),
       {
-        apiUrl: 'https://www.openfn.org/api/public',
+        apiUrl: 'https://v1.openfn.org/api/public',
       },
     ],
     [path.resolve(__dirname, 'generate-adaptors'), {}],
