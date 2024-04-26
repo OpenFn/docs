@@ -155,3 +155,61 @@ project UUID on OpenFn, so you'll see files that look like this:
   "statePath": "openfn-fdfdf286-aa8e-4c9e-a1d2-89c1e6928a2a-state.json"
 }
 ```
+
+Below, here are three common patterns used to structure OpenFn projects inside
+git repositories:
+
+### Standard
+
+Use this approach if you've got one OpenFn project connected to one git
+repository.
+
+```
+your-git-repo
+├── config.json
+├── projectState.json
+└── projectSpec.yaml
+```
+
+### Production & Test
+
+Use this approach if you've got two OpenFn projects that use the _same
+worklows_. Here, you're connecting two projects (prod and test) to a single git
+repo and a single `project.yaml` file.
+
+This will allow you to keep two projects in sync when changes are merged from
+one branch to another. You might choose to sync:
+
+- Your production project with the `main` branch
+- Your test project with the `staging` branch
+
+After a merge, your repo would look like this:
+
+```
+your-git-repo
+├── projectSpec.yaml ## works both
+│
+├── prod-config.json
+├── prod-projectState.json
+│
+├── test-config.json
+└── test-projectState.json
+```
+
+### Monorepo
+
+Sometimes, it's helpful to have multiple OpenFn projects all stored in the same
+repo, even if they don't use the same workflows (i.e., even if they don't share
+a `project.yaml` file.)
+
+```
+your-git-monorepo
+├── project-a
+│    ├── config.json
+│    ├── projectState.json
+│    └── projectSpec.yaml
+└── project-b
+     ├── config.json
+     ├── projectState.json
+     └── projectSpec.yaml
+```
