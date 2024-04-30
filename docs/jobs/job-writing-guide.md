@@ -50,7 +50,7 @@ take a look at the [dhis2](adaptors/packages/dhis2-docs) and
 
 Everything you can achieve in OpenFn can be achieve with existing JavaScript
 libraries or calls to REST APIs. The value of Adaptors is that they provide
-functions to make this stuff easier: taking care of authoristaion, providing
+functions to make this stuff easier: taking care of authorisation, providing
 cleaner syntax, and hiding away implementation details for you.
 
 For example, here's how we issue a GET request with the http adaptor:
@@ -69,7 +69,7 @@ get(state => state.endpoint);
 
 <details>
 <summary>Why the arrow function?</summary>
-If you've got some JavaScript experience, you'll notice The example above uses an arrow function to retreive the endpoint key from state.
+If you've got some JavaScript experience, you'll notice The example above uses an arrow function to retrieve the endpoint key from state.
 
 But why not just do this?
 
@@ -151,7 +151,7 @@ fn(state => {
     /* ... */
   };
 
-  // Map data into a new format with native Javsacript functions
+  // Map data into a new format with native Javascript functions
   state.transformed = state.data.map(convertToFhir);
 
   // Always return the state
@@ -357,7 +357,7 @@ you'll see that the first thing we do is to "expand references" - that means
 look at the arguments, see if any of them are functions (or contain) functions,
 and "expand" them by calling the functions and saving out the values.
 
-This whole Lazy State discussion is about definining a bunch of behaviours NOW,
+This whole Lazy State discussion is about defining a bunch of behaviours NOW,
 but reading data values LATER.
 
 </details>
@@ -435,8 +435,8 @@ get((state) => state.data.url);
 ```
 
 We call it "lazy state" because the reference will be resolved by the runtime
-engine immediately before its used. This bypasses a lot of the aysnchronicity
-problems of Javascript which are disccused in
+engine immediately before its used. This bypasses a lot of the asynchronicity
+problems of Javascript which are discussed in
 [Reading State Lazily](#reading-state-lazily)
 
 :::tip $ Only works within Operations
@@ -491,7 +491,7 @@ create({
 });
 ```
 
-You can use it when mapping datastructures:
+You can use it when mapping data structures:
 
 ```js
 create('user', {
@@ -514,7 +514,7 @@ The `$` operator is **not** an alias for `state`.
 
 It cannot be used in place of the `state` variable. It cannot be assigned to, or
 be on the left hand side of an assignment, and can only be used inside an
-arugment to a function
+argument to a function
 
 This also means that Lazy State Operator can only be used to READ from state. It
 cannot be used to assign to state directly.
@@ -535,7 +535,7 @@ get(url);
 ```
 
 <details>
-<summary>Compliation rules for advanced users</summary>
+<summary>Compilation rules for advanced users</summary>
 
 How does the Lazy State Operator work? The "magic" is in the compiler.
 
@@ -825,10 +825,10 @@ cursor(state => state.cursor, { defaultValue: '2024-04-08T12:00:00.0000' });
 ### Using the cursor
 
 To use the cursor in your job, just use `state.cursor` in your queries like any
-other state propery.
+other state property.
 
 The usage will be different depending on the adaptor you're using. Here's how
-you might build a URL with query paramters with the HTTP adaptor:
+you might build a URL with query parameters with the HTTP adaptor:
 
 ```js
 get(state => `/registrations?since=${state.cursor}`);
@@ -875,7 +875,7 @@ You can do this by setting a cursor value on input state, like this:
 }
 ```
 
-You can do this by triggering a maual run in the platform's
+You can do this by triggering a manual run in the platform's
 [Job Inspector](documentation/build/steps/step-editor), or you can pass the
 state as input to the CLI:
 
@@ -956,7 +956,7 @@ Or use the rest operator:
 
 ```js
 fn(state => {
-  const { usename, password, secrets, ...rest } = state;
+  const { username, password, secrets, ...rest } = state;
   return rest;
 });
 ```
@@ -975,7 +975,7 @@ I would like to include this BUT fields is not an operation and so works a bit d
 
 Another common pattern is to have to transform one object to another.
 
-The `fields()` operator is a conveient way to do this. `fields()` will assemble an object based on the keys and values you provide. It composes well witth other operations.
+The `fields()` operator is a convenient way to do this. `fields()` will assemble an object based on the keys and values you provide. It composes well with other operations.
 -->
 
 ## Error Handling
@@ -999,7 +999,7 @@ so it should be easy to find and identify the cause.
 It is common practice in a Workflow to let a Job error, and then perform some
 task - like emailing a system admin that there was a problem.
 
-When processing batches of data, you might want to catch errors occuring on
+When processing batches of data, you might want to catch errors occurring on
 individual items and write them to state. That way one bad item won't ruin a
 whole batch, and you know which items succeeded and which failed. You can then
 throw an exception to recognise that the job has failed.
@@ -1007,7 +1007,7 @@ throw an exception to recognise that the job has failed.
 ## Compilation
 
 The code you write isn't technically executable JavaScript. You can't just run
-it through node.js. It needs to be transformed or compliled into portable
+it through node.js. It needs to be transformed or compiled into portable
 vanilla JS code.
 
 :::warning
