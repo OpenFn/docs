@@ -18,8 +18,8 @@ to our [Portability](../deploy/portability.md) page.
 
 In order to be able to deploy the project, you need to have at least `admin`
 access to the v2 project you're deploying to. In addition, make sure you have
-the right [pricing plan](https://www.openfn.org/pricing) to accomodate your
-workflows.
+the right [pricing plan](https://www.openfn.org/pricing) to accomodate the 
+number of workflows, runs, and features you desire for your v2 project. 
 
 ### Exporting Your v1 Project
 
