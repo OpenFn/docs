@@ -72,19 +72,23 @@ decisions. For customized migration support, ask your questions on our
     adjusted your Project Settings.
 14. When all Workflows run successfully, update each Step in your Workflows to
     use a "production" Credential to connect to live systems.
-15. If webhooks are used in your source applications, update the webhook
+15. While you're testing, you may be using [Path Conditions](../build/paths.md) to allow
+    only test data, such as `test_case == yes`. If you then want to exclude test
+    data from your production systems, don't forget to update edge conditions,
+    eg. `test_case == no`. Check out [this guide(https://docs.openfn.org/documentation/converting-triggers#converting-message-filters)] for a specific example.
+16. If webhooks are used in your source applications, update the webhook
     configurations in these apps to point to your v2 OpenFn Workflows (you can
     locate your Workflow's new webhook endpoint URL by clicking n the Trigger).
-16. You’re now done with your new v2 Project setup! You can "turn on" your
+17. You’re now done with your new v2 Project setup! You can "turn on" your
     Workflows and monitor usage on your
     [Workflows Dashboard](../manage-projects/workflow-dashboard.md). Now time to
     shut down your v1 project.
-17. Turn "off" your Jobs on v1 and delete the GitHub connection in your v1
+18. Turn "off" your Jobs on v1 and delete the GitHub connection in your v1
     Project Settings to disable version control.
-18. If you want to export your v1 data (incl. `Messages` and `Run History`) for
+19. If you want to export your v1 data (incl. `Messages` and `Run History`) for
     reference or archival, visit the `Exports` page in Project Settings or get
     in touch with us at [support@openfn.org](mailto://support@openfn.org).
-19. Finally, when ready, request to delete your project on v1. To do this, go to
+20. Finally, when ready, request to delete your project on v1. To do this, go to
     your v1 `Project Settings` and select the `Delete Project` button.
 
 :::tip
@@ -109,8 +113,8 @@ v2 Projects.
    Workflow. Build out a skeleton to get started: set up
    [Triggers](../build/triggers.md) and the key
    [Steps](https://docs.openfn.org/documentation/build/steps) to get started.
-2. While configuring the Steps in your workflow, consider which _which
-   conditions_ define when the next Step should execute. On v2, you can define
+2. While configuring the Steps in your workflow, consider _which conditions_
+   define when the next Step should execute. On v2, you can define
    [Path conditions](https://docs.openfn.org/documentation/build/paths) to
    configure whether a Step should run "on success", "on failure", or based on
    custom logic. Follow
