@@ -34,52 +34,80 @@ Example user story:
 
 ## Integration Options
 
-SurveyCTO provides in-built capability to integrate with a some third party
-applications such as [Zapier](https://zapier.com/),
-[Google Sheets](https://www.google.com/sheets/about/) and
-[OpenFN](https://www.openfn.org/). Additionally, SurveyCTO has REST APIs and
-configurable webhooks to receive data in real time in CSV or JSON format.
+SurveyCTO provides a REST API which can be accessed via the OpenFn `surveycto`
+adaptor. In SurveyCTO, admins can also configure webhooks to push data to
+OpenFn/other external systems in real-time in CSV or JSON format.
 
-1. ** Webhooks (Real time) **: SurveyCTO has a
-   [webhooks service](https://docs.surveycto.com/05-exporting-and-publishing-data/03-publishing-data-to-the-cloud/05.forms-to-webhooks.html)
-   which allows you to publish data to your OpenFn workflow(or any endpoint
-   URL). Note that as submissions come in to the server, SurveyCTO will
-   automatically publish your selected fields to your chosen webhook but there
-   will be a brief delay of up to ten minutes from the time the submission
-   occurs and the time SurveyCTO sends this data to OpenFn.
+![openfn-trigger-options](/img/openfn_surveycto_trigger.png)
 
-To setup the webhooks:
+### 1. Webhooks (for real-time integration):
 
-- Login to SurveyCTO and navigate to the export section of the form setup
-- Scroll down to "Your data" section and make sure "Advanced Mode" is enabled
-- Click the _Configure_ button and _Add Webhook_
-- Add a _Name_ for the webhook and the OpenFn _Webhook URL_
-- Select the fields you want to publish and click on _Save_
+SurveyCTO has a
+[webhooks service](https://docs.surveycto.com/05-exporting-and-publishing-data/03-publishing-data-to-the-cloud/05.forms-to-webhooks.html)
+which allows you to publish data to your OpenFn workflow (or any endpoint URL).
+Note that as submissions come in to the server, SurveyCTO will automatically
+publish your selected fields to your chosen webhook but there will be a brief
+delay of up to ten minutes from the time the submission occurs and the time
+SurveyCTO sends this data to OpenFn. (Therefore this integration is _near_
+real-time, depending on how quickly SurveyCTO forwards the data.)
 
-2. ** APIs ** : SurveyCTO has
-   [RESTful APIs](https://support.surveycto.com/hc/en-us/articles/360033156894-REST-API-documentation)
-   that we can use to pull data. For connectng with these APIs, OpenFb has
-   developed an API adaptor for a quicker integation setup - see
-   ['language-surveycto'](https://github.com/OpenFn/adaptors/tree/main/packages/surveycto)
+To configure a webhook to push data to OpenFn:
 
-We can download data using REST APIs in JSON or CSV formats. Important APIs:
-https://_servername_.surveycto.com/api/v1/forms/files/csv/formid
+1. Login to SurveyCTO and navigate to the export section of the form setup
+2. Scroll down to "Your data" section and make sure "Advanced Mode" is enabled
+3. Click the `Configure` button and `Add Webhook`
+4. Add a `Name` for the webhook and paste your OpenFn `Webhook URL` (copied from
+   your OpenFn Workflow trigger)
+5. Select the fields you want to publish/forward to OpenFn and click on `Save`
 
-https://_servername_.surveycto.com/api/v2/forms/data/wide/json/formid?date=[D]
+[See this docs page](https://docs.surveycto.com/05-exporting-and-publishing-data/03-publishing-data-to-the-cloud/05.forms-to-webhooks.html)
+for more on SurveyCTO webooks.
 
-- JSON is the desirable format for API-to-API integration
-- Replace **formId** with the **formId** that we are using and the **date**
-  starting from which we want to fetch the data or set it as _0_ to fetch all
-  data
+![Configuraing the webhook for OpenFn](/img/surveycto_webhook_config.png)
+
+### 2. API integration (for scheduled and/or bulk data integration):
+
+SurveyCTO provides
+[RESTful APIs](https://support.surveycto.com/hc/en-us/articles/360033156894-REST-API-documentation)
+that we can use to pull data on a scheduled basis using OpenFn `cron triggers`.
+For connectng with these APIs, OpenFb has developed an API adaptor for a quicker
+integation setup - see
+[the `surveycto' adaptor source](https://github.com/OpenFn/adaptors/tree/main/packages/surveycto).
+
+Via the REST API, data can be extracted in JSON or CSV formats. Example APIs
+endpoints include:
+
+`https://_servername_.surveycto.com/api/v1/forms/files/csv/formid`
+
+`https://_servername_.surveycto.com/api/v2/forms/data/wide/json/formid?date=[D]`
+
+- JSON is the desirable format for API-to-API integration and when working with
+  OpenFn
+- Replace the `formId` parameter with the **formId** of the survey you want to
+  extract
+- If you want to filter form submissions by the survey submission `date`,
+  replace the `[D]` parameter with the survey submission date value you want to
+  filter by and see SurveyCTO docs on data format requirements
+
+When using the OpenFn `surveycto` adaptor to connect with the `/formid` API
+endpoint, your job expression might look as follows. See the `functions` and
+`examples` in the sidebar for more.
 
 ```js
 fetchSubmissions(
-  'test', //the form id
+  'form123', //replace with the form id
   {
-    date: 'Apr 18, 2024 6:26:21 AM', // the initial "after" date, if not specified, the function will fetch submissions from all times
-    status: 'approved|rejected', // filtering by status, if not specified, the function will fetch submissions of all status
+    date: 'Apr 18, 2024 6:26:21 AM', //if submission date filter not specified, the function will fetch submissions from ALL-TIME
+    status: 'approved|rejected', // add to filter by status; if not specified, the function will fetch submissions of ALL statuses
   }
 );
 ```
 
-##
+## Configuring a Credential with API Access
+
+To authenticate with the SurveyCTO API, your OpenFn Workflow will require a user
+credential where the setting `Allow server API access` has been enabled. This
+setting controls whether or not users in a given role can use the API to fetch
+forms and data from the server.
+[See SurveyCTO docs](https://docs.surveycto.com/04-monitoring-and-management/01-the-basics/00b.managing-user-roles.html)
+on managing user roles.
