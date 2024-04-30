@@ -63,7 +63,7 @@ Let's set up a connection to OpenFn and then see how to do each.
 5. Paste the URL of the OpenFn
    [webhook](https://docs.openfn.org/documentation/build/triggers#webhook-event-triggers)
    you want to forward data to
-6. If you have [webhook authentication](../docs/manage-projects/webhook-auth.md)
+6. If you have [webhook authentication]https://docs.openfn.org/documentation/webhook-security)
    set up on OpenFn, add the authentication type, the username and password here
 7. You can test the connection, then save it
 
@@ -104,7 +104,7 @@ Let's set up a connection to OpenFn and then see how to do each.
 ## Data Forwarding and OpenFn Workflow Design
 
 A clean way and efficient way of designing CommCare
-[webhook](../docs/build/triggers.md) workflows on OpenFn v2 is to have a
+[webhook](https://docs.openfn.org/documentation/build/triggers#webhook-event-triggers) workflows on OpenFn v2 is to have a
 separate workflow handling each form and case type. As each of your OpenFn
 webhook workflows has a unique URL, you'll need to set up a separate CommCare
 connection for each, then use that connection to forward the relevant form or
