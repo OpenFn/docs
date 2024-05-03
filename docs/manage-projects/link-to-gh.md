@@ -114,6 +114,79 @@ project is represented in your `project.yaml` file. In order to deploy any
 changes to OpenFn, you have to add them to this file in order for them to be
 deployed when syncing.
 
+Note: This means if you make any changes to individual jobs files, you must copy them to the “jobs” section of the Project.yaml file for them to be synced to the OpenFn platform. **Any job changes made to files other than the project.yaml file will not be synced to the OpenFn platform.** See sample project.yaml file below.
+
+```yaml
+name: openhie-project
+description: Some sample
+# credentials:
+# globals:
+workflows:
+  OpenHIE-Workflow:
+    name: OpenHIE Workflow
+    jobs:
+      FHIR-standard-Data-with-change:
+        name: FHIR-standard-Data-with-change
+        adaptor: '@openfn/language-http@latest'
+        enabled: true
+        # credential:
+        # globals:
+        body: |
+          fn(state => {
+            console.log("hello github integration")
+            return state
+        });
+
+      Send-to-OpenHIM-to-route-to-SHR:
+        name: Send-to-OpenHIM-to-route-to-SHR
+        adaptor: '@openfn/language-http@latest'
+        enabled: true
+        # credential:
+        # globals:
+        body: |
+          fn(state => state);
+
+      Notify-CHW-upload-successful:
+        name: Notify-CHW-upload-successful
+        adaptor: '@openfn/language-http@latest'
+        enabled: true
+        # credential:
+        # globals:
+        body: |
+          fn(state => state);
+
+      Notify-CHW-upload-failed:
+        name: Notify-CHW-upload-failed
+        adaptor: '@openfn/language-http@latest'
+        enabled: true
+        # credential:
+        # globals:
+        body: |
+          fn(state => state);
+
+    triggers:
+      webhook:
+        type: webhook
+    edges:
+      webhook->FHIR-standard-Data-with-change:
+        source_trigger: webhook
+        target_job: FHIR-standard-Data-with-change
+        condition: always
+      FHIR-standard-Data-with-change->Send-to-OpenHIM-to-route-to-SHR:
+        source_job: FHIR-standard-Data-with-change
+        target_job: Send-to-OpenHIM-to-route-to-SHR
+        condition: on_job_success
+      Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-successful:
+        source_job: Send-to-OpenHIM-to-route-to-SHR
+        target_job: Notify-CHW-upload-successful
+        condition: on_job_success
+      Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-failed:
+        source_job: Send-to-OpenHIM-to-route-to-SHR
+        target_job: Notify-CHW-upload-failed
+        condition: on_job_failure
+```
+
+
 ## How It Works
 
 Your whole OpenFn project can be represented as a `project.yaml` file.
