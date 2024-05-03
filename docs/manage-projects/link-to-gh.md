@@ -114,7 +114,7 @@ project is represented in your `project.yaml` file. In order to deploy any
 changes to OpenFn, you have to add them to this file in order for them to be
 deployed when syncing.
 
-Note: This means if you make any changes to individual jobs files, you must copy them to the “jobs” section of the Project.yaml file for them to be synced to the OpenFn platform. **Any job changes made to files other than the project.yaml file will not be synced to the OpenFn platform.** See sample project.yaml file below.
+Note: This means if you make any changes to individual jobs files, you must copy them to the “jobs” section of the `project.yaml` file for them to be synced to the OpenFn platform. **Any job changes made to files other than the `project.yaml` file will not be synced to the OpenFn platform.** See sample `project.yaml` file below.
 
 ```yaml
 name: openhie-project
