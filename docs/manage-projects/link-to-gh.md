@@ -114,7 +114,10 @@ project is represented in your `project.yaml` file. In order to deploy any
 changes to OpenFn, you have to add them to this file in order for them to be
 deployed when syncing.
 
-Note: This means if you make any changes to individual jobs files, you must copy them to the “jobs” section of the `project.yaml` file for them to be synced to the OpenFn platform. **Any job changes made to files other than the `project.yaml` file will not be synced to the OpenFn platform.** See sample `project.yaml` file below.
+#### Considerations for Change Management on Github
+With the OpenFn v2 Github sync, if you make any changes to individual job expression files (e.g., `getPatients.js`), you must copy them to the `jobs` section of the `project.yaml` file for them to be synced to the OpenFn app. **Any job changes made to individual `.js` files will not be auto-synced. Only changes to the `project.yaml` file will be synced to the OpenFn app.** 
+
+For example, see the sample `project.yaml` file below. If you wanted to make a change to the code for job `FHIR-standard-Data-with-change`, you would need to paste your updated job code after that job's `body:` key.
 
 ```yaml
 name: openhie-project
@@ -131,7 +134,7 @@ workflows:
         enabled: true
         # credential:
         # globals:
-        body: |
+        body: | //TODO: PASTE UPDATED JOB CODE IN THE BODY KEY HERE
           fn(state => {
             console.log("hello github integration")
             return state
