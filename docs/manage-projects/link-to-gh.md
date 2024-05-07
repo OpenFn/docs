@@ -41,7 +41,7 @@ project on GitHub to OpenFn.
 
 ![Configure](/img/github-options.png)
 
-6. **_Optionally_** add a filepath to an existing project `config.json` file.
+6. **_Optionally_**, if you _first want to sync from GitHub to OpenFn and already have config file_, add a filepath to an existing project `config.json` file.
 
    :::caution Most users leave "Path to config" blank.
 
