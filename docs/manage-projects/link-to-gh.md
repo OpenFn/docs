@@ -97,34 +97,49 @@ interface. After clicking that link, you can follow the steps below:
    the connection lists with the the 🔄 button next to the drop down list of
    available installations.
 
-## Using Version Control
+## Using Version Control & Managing Changes
 
 ### OpenFn to GitHub Sync
 
-Each time you want to sync between your project and GitHub, click the
-`Initiate Sync to Branch` button on the `Version Control` page in **Project
-Settings** and the OpenFn GitHub app will run a `openfn pull` action to update
-the versioned representation of your project as code.
+Each time you want to sync changes between your OpenFn project and GitHub:
+
+1. Go to the Project where you made edits to your Workflow(s), and then navigate
+   to the `Project Settings` page
+2. Go to the `Version Control` page
+3. Click the button `Initiate Sync to Branch` to trigger a sync to the connected
+   Github repository
+
+This will trigger a `openfn pull` action on your connected Github repository,
+which will pull the latest configuration from the OpenFn app and save it as code
+in the `project.yaml` file on your repo (the file that contains the versioned
+representation of your OpenFn project configuration as code.)
 
 ### GitHub to OpenFn Sync
 
-Any time there are changes made to the specified branch in your GitHub repo,
-those changes will be pushed to your OpenFn project. Note that your entire
-project is represented in your `project.yaml` file. In order to deploy any
-changes to OpenFn, you have to add them to this file in order for them to be
-deployed when syncing.
+When you first configure the Github Sync in your OpenFn project, you will
+specify the connected Github branch.
 
-#### Considerations for Change Management on Github
+Note that your entire project is represented in your `project.yaml` file. Any
+time you edit this file on the branch that is linked to your OpenFn project,
+these changes will be auto-deployed to the OpenFn app.
 
-With the OpenFn v2 Github sync, if you make any changes to individual job
-expression files (e.g., `getPatients.js`), you must copy them to the `jobs`
-section of the `project.yaml` file for them to be synced to the OpenFn app.
-**Any job changes made to individual `.js` files will not be auto-synced. Only
-changes to the `project.yaml` file will be synced to the OpenFn app.**
+Therefore, be sure to update the project `.yaml` file in order to push changes
+from Github to your OpenFn app.
 
-For example, see the sample `project.yaml` file below. If you wanted to make a
-change to the code for job `FHIR-standard-Data-with-change`, you would need to
-paste your updated job code after that job's `body:` key.
+::: warning Considerations for syncing Github changes to OpenFn
+
+If you make any changes to individual job expression files (e.g.,
+`getPatients.js`), so that you can test individual steps in the OpenFn CLI, note
+that you must copy these to the `project.yaml` file for them to be synced to the
+OpenFn app. **Any job changes made to individual job `.js` files will not be
+auto-synced. Only changes to the `project.yaml` file will be synced to the
+OpenFn app.**
+
+For example, check out the sample `project.yaml` file below. If you wanted to
+make a change to the code for job `FHIR-standard-Data-with-change`, you would
+need to paste your updated job expression code after that job's `body:` key.
+
+:::
 
 ```yaml
 name: openhie-project
