@@ -97,7 +97,7 @@ interface. After clicking that link, you can follow the steps below:
    the connection lists with the the 🔄 button next to the drop down list of
    available installations.
 
-## Using Version Control
+## Using Version Control & Managing Changes
 
 ### OpenFn to GitHub Sync
 
