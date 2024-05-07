@@ -99,14 +99,14 @@ interface. After clicking that link, you can follow the steps below:
 
 ## Using Version Control
 
-### OpenFn to GitHub
+### OpenFn to GitHub Sync
 
 Each time you want to sync between your project and GitHub, click the
-**"Initiate Sync to Branch"** button on the version control page and the OpenFn
-GitHub app will run a `openfn pull` action to update the versioned
-representation of your project as code.
+`Initiate Sync to Branch` button on the `Version Control` page in **Project
+Settings** and the OpenFn GitHub app will run a `openfn pull` action to update
+the versioned representation of your project as code.
 
-### GitHub to OpenFn
+### GitHub to OpenFn Sync
 
 Any time there are changes made to the specified branch in your GitHub repo,
 those changes will be pushed to your OpenFn project. Note that your entire
@@ -115,9 +115,16 @@ changes to OpenFn, you have to add them to this file in order for them to be
 deployed when syncing.
 
 #### Considerations for Change Management on Github
-With the OpenFn v2 Github sync, if you make any changes to individual job expression files (e.g., `getPatients.js`), you must copy them to the `jobs` section of the `project.yaml` file for them to be synced to the OpenFn app. **Any job changes made to individual `.js` files will not be auto-synced. Only changes to the `project.yaml` file will be synced to the OpenFn app.** 
 
-For example, see the sample `project.yaml` file below. If you wanted to make a change to the code for job `FHIR-standard-Data-with-change`, you would need to paste your updated job code after that job's `body:` key.
+With the OpenFn v2 Github sync, if you make any changes to individual job
+expression files (e.g., `getPatients.js`), you must copy them to the `jobs`
+section of the `project.yaml` file for them to be synced to the OpenFn app.
+**Any job changes made to individual `.js` files will not be auto-synced. Only
+changes to the `project.yaml` file will be synced to the OpenFn app.**
+
+For example, see the sample `project.yaml` file below. If you wanted to make a
+change to the code for job `FHIR-standard-Data-with-change`, you would need to
+paste your updated job code after that job's `body:` key.
 
 ```yaml
 name: openhie-project
@@ -188,7 +195,6 @@ workflows:
         target_job: Notify-CHW-upload-failed
         condition: on_job_failure
 ```
-
 
 ## How It Works
 
