@@ -101,10 +101,13 @@ interface. After clicking that link, you can follow the steps below:
 
 ### OpenFn to GitHub Sync
 
-Each time you want to sync between your project and GitHub, click the
-`Initiate Sync to Branch` button on the `Version Control` page in **Project
-Settings** and the OpenFn GitHub app will run a `openfn pull` action to update
-the versioned representation of your project as code.
+Each time you want to sync between your project and GitHub: 
+1. Go to the Project where you made edits to your Workflow(s), and then navigate to the `Project Settings` page
+2. Go to the `Version Control` page
+3. Click the button `Initiate Sync to Branch` to trigger a sync to the connected Github repository
+
+This will trigger a `openfn pull` action on your connected Github repore to update the `project.yaml` file on your repo (the file that contains the versioned representation of your OpenFn project configuration as code.)
+
 
 ### GitHub to OpenFn Sync
 
