@@ -121,13 +121,11 @@ local deployment of the v2), you can also leverage the OpenFn
 sure you have the latest version of the CLI installed
 ([see CLI basic docs](../docs/build-for-developers/cli-intro.md)).
 
-::: info v2-to-v2 Migration Guide coming soon! 
+:::info v2-to-v2 Migration Guide coming soon! 
 
 A detailed guide on how to
 migrate projects between two instances of OpenFn v2
-([lightning](https://github.com/OpenFn/lightning)) is coming soon.
-
-To learn more about OpenFn deployment, be sure to check out our
+([lightning](https://github.com/OpenFn/lightning)) is coming soon. To learn more about OpenFn deployment, be sure to check out our
 [planning guide](https://docs.openfn.org/documentation/deploy/options) and
 [technical guidelines](https://docs.openfn.org/documentation/deploy/options#technical-guidelines).
 
