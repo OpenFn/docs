@@ -85,9 +85,9 @@ decisions. For customized migration support, ask your questions on our
     shut down your v1 project.
 18. Turn "off" your Jobs on v1 and delete the GitHub connection in your v1
     Project Settings to disable version control.
-19. If you want to export your v1 data (incl. `Messages` and `Run History`) for
-    reference or archival, visit the `Exports` page in Project Settings or get
-    in touch with us at [support@openfn.org](mailto://support@openfn.org).
+19. You have the option to export some of your v1 data: `Messages` and `Run History` for
+    reference or archival. To do this, visit the `Downloads` page. Your most recent downloadable `receipts archives` and `runs archives` are at the bottom of the export list. You can also get
+    in touch with us at [support@openfn.org](mailto://support@openfn.org) for help.
 20. Finally, when ready, request to delete your project on v1. To do this, go to
     your v1 `Project Settings` and select the `Delete Project` button.
 
