@@ -104,9 +104,9 @@ proven, and you're ready to scale it up.
 ## Technical Guidelines
 
 For detailed deployment documentation instructions, head to the Lightning
-[developer docs page](https://openfn.github.io/Lightning/readme.html), paying
+[developer docs page](https://openfn.github.io/lightning/readme.html), paying
 special attention to several sections:
 
-1. [Getting Started](https://openfn.github.io/Lightning/readme.html#getting-started)
-2. [Deployment Considerations](https://openfn.github.io/Lightning/deployment.html)
-3. [Benchmarking](https://openfn.github.io/Lightning/benchmarking.html)
+1. [Getting Started](https://openfn.github.io/lightning/readme.html#getting-started)
+2. [Deployment Considerations](https://openfn.github.io/lightning/deployment.html)
+3. [Benchmarking](https://openfn.github.io/lightning/benchmarking.html)
