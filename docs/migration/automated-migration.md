@@ -35,7 +35,7 @@ workflows, runs, and features you desire for your v2 project.
 
 #### Setup and Deployment to v2
 
-4. In a code editor, create a new `config.json` file with the following content:
+4. In a code editor on your computer, create a new `config.json` file with the following content:
 
 - `apiKey`: Specify your API Key/ Personal Access Token from your v2 user
   account. See [this page](../manage-users/api-tokens.md) for how to to create
@@ -125,8 +125,10 @@ sure you have the latest version of the CLI installed
    `Settings`, and under `Setup` click `Export project`. Your `project.yaml`
    file will be automatically downloaded.
 2. Follow the steps for
-   [Setup and Deployment to v2](https://docs.openfn.org/documentation/migration/automated-migration#setup-and-deployment-to-v2)
-   above.
+   [Setup and Deployment to v2](../docs/migration/automated-migration#setup-and-deployment-to-v2)
+   in the section above.
+
+:::info More on local deployment
 
 To learn more about OpenFn deployment, be sure to check out our
 [planning guide](https://docs.openfn.org/documentation/deploy/options) and
