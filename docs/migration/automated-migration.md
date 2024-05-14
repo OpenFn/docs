@@ -125,7 +125,7 @@ sure you have the latest version of the CLI installed
    `Settings`, and under `Setup` click `Export project`. Your `project.yaml`
    file will be automatically downloaded.
 2. Follow the steps for
-   [Setup and Deployment to v2](../docs/migration/automated-migration#setup-and-deployment-to-v2)
+   [Setup and Deployment to v2](#setup-and-deployment-to-v2)
    in the section above.
 
 :::info More on local deployment
