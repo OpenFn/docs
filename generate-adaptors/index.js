@@ -118,11 +118,14 @@ ${JSON.parse(a.readme)}`;
 }
 
 const sampleConfiguration = json => {
-  let { properties } = json;
+  let { properties, required } = json;
 
   const conf = {};
-  if (properties) {
-    Object.keys(properties).forEach((key, index) => {
+  if (typeof required === 'undefined') {
+    return '```\n No required property \n```';
+  }
+  if (properties && required) {
+    required.forEach((key, index) => {
       conf[key] = 'Someting';
       conf[key] =
         Array.isArray(properties[key]['examples']) &&
