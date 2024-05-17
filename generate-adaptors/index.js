@@ -129,7 +129,7 @@ const sampleConfiguration = json => {
       conf[key] = 'Someting';
       conf[key] =
         Array.isArray(properties[key]['examples']) &&
-        `${properties[key]['examples'][0]}`;
+        properties[key]['examples'][0];
 
       return conf;
     });
