@@ -157,3 +157,4 @@ function getReportData() {
      - Importing data from CRM systems into Google Sheets for sales analysis.
      - Updating inventory levels in a Google Sheets spreadsheet from an e-commerce platform.
      - Automatically populating project management data from task tracking systems into Google Sheets for reporting purposes.
+A step by step guide is found [in this tutorial](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets) that shows us how to get data via a REST API and push it to Google Sheet.
