@@ -915,6 +915,47 @@ the `defaultValue` or the `key` the cursor should use (defaults to `cursor`)
 cursor(state => state.cursor, { defaultValue: '2024-03-12', key: 'page' });
 ```
 
+### Formatting the value
+
+If you're using a service which doesn't use standard date formats, or you wish
+to map a number of input formats into a consistent standard, you can use the
+`format` option.
+
+`format` takes a function which accepts the current cursor value as an argument,
+and returns a formatted or updated value. This is called just before the cursor
+is assigned to state.
+
+For example, to use a Javascript Date as your cursor:
+
+```js
+cursor('today', { format: c => new Date(c) });
+```
+
+The formatter will run after any natural-language processing, so you can
+intercept and convert the value to whatever you need.
+
+You can combine this with
+[`dateFns.format`](https://date-fns.org/v3.6.0/docs/format) to use a custom
+timestamp:
+
+```js
+cursor('today', { format: c => dateFns.format(new Date(c), 'dd/mm/yyyy') });
+```
+
+You can add as much logic as you wish to your formatter - it's just a regular
+Javascript function
+
+```js
+cursor('today', {
+  format: c => {
+    if (typeof c === 'number') {
+      return { page: c, count: 20 };
+    }
+    return c;
+  },
+});
+```
+
 ## Cleaning final state
 
 When your job has completed, the final state object will be "returned" by the
