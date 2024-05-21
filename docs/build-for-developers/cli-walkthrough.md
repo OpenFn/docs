@@ -605,7 +605,7 @@ defined as a JSON object that consists of the following properties:
   "options": {
     "start": "a" // optionally specify the start node (defaults to steps[0])
   },
-  "workflows": {
+  "workflow": {
     "steps": [
       {
         "id": "a",
@@ -640,7 +640,7 @@ defined as a JSON object that consists of the following properties:
   "options": {
     "start": "getPatients"
   },
-  "workflows": {
+  "workflow": {
     "steps": [
       {
         "id": "getPatients",
