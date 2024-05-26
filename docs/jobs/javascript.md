@@ -10,6 +10,20 @@ might help make your code cleaner. This is not meant to be an exhaustive guide,
 just a pointer to some good techniques on some of the newer aspects of the
 language.
 
+### Using the `fn(...)` operation from the common adaptor
+
+We recommend using the `fn(...)` operation to manipulate state and apply custom
+JavaScript to transform, manipulate, and clean data before sending to target
+applications.
+
+```js
+fn(state => {
+  //call state to edit
+  //add your custom javascript here to manipulate state
+  return state; //always return state
+});
+```
+
 ### Variables: var vs let vs const
 
 JavaScript gives you three different ways to declare variables, and this can be
@@ -265,3 +279,47 @@ b.y = 20' // a.y is unchanged
 A deep clone means that all properties in the whole object tree are cloned.
 
 </details>
+
+### Implementing mapping rules and global variables
+
+For scenarios where you have a global list of variables or mapping rules that
+you would like to reference throughout your workflows, you can add these to your
+job as a constant that can be referenced repeatedly throughout the job
+expression. See the documentation on
+[mapping specifications](../design/mapping-specs.md) for more information on
+globals.
+
+```js
+//Workflow step 1
+//First we use fn() to tranform, map & clean our data
+fn(state => {
+
+    //Global mapping rules you want to implement in your workflow
+    const locationMap = {
+        //location_id from source app: location value in destination app
+        01: 'Western Cape',
+        02: 'Eastern Cape',
+        03: 'Gauteng'
+    }
+
+    // Here we build the payload of our http request body...
+    // We assume the input is an array of records
+    const payload = state.data.map(record => ({
+        location: locationMap[record.location_id] //translate location_id to the mapped value
+        external_id: record.case_id
+    }));
+
+    return {...state, payload};
+});
+
+//Workflow step 2
+//Then we post the payload built in the prior operation to create a record
+post('/api/myEndpoint', {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: (state) => state.payload
+});
+```
+
+
