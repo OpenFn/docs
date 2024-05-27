@@ -41,8 +41,8 @@ You can document data elements, mappings, and rules using the OpenFn mapping
 specification template. This
 [template](https://docs.google.com/spreadsheets/d/19sPRLP4zeFgFbtOL1wKh-rc7D0KPMu3etmOOG_x5t68/edit#gid=1275153608)
 was created by the OpenFn team as a result of lessons learned from implementing
-data integrations solutions for NGOs and government partners around the world.
-It is used on all OpenFn projects and is maintained by the OpenFn team.
+data integration solutions for NGOs and government partners around the world. It
+is used on all OpenFn projects and is maintained by the OpenFn team.
 
 ## Mapping Considerations
 
@@ -92,7 +92,7 @@ snippet.
 
 ```js
 //Workflow step 1
-//First we use fn() to tranform, map & clean our data
+//First we use fn() to transform, map & clean our data
 fn(state => {
 
     //Global mapping rules you want to implement in your workflow
@@ -143,7 +143,7 @@ second step in the workflow is dedicated to querying this list of global
 mappings from the app in which they're stored to dynamically fetch the latest
 globals every time the workflow is run.
 
-![ocl-workflow-example](/img/workflow-ocl-example.png)    
+![ocl-workflow-example](/img/workflow-ocl-example.png)
 
 :::tip
 
