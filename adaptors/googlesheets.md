@@ -4,18 +4,25 @@ title: Google Forms/Google Sheets
 
 ## Google Sheets Adaptor Overview
 
-Google Sheets adaptor provides seamless integration between Google Forms, Google Sheets, and the OpenFn platform, enabling robust data flow management. There are two primary ways to utilize this adaptor, each catering to specific use cases:
+Google Sheets adaptor provides seamless integration between Google Forms, Google
+Sheets, and the OpenFn platform, enabling robust data flow management. There are
+two primary ways to utilize this adaptor, each catering to specific use cases:
 
 ### 1. Pushing Data to OpenFn:
-With this method, data from Google Forms or Google Sheets is automatically pushed to an OpenFn webhook trigger workflow whenever new entries are made. This real-time approach ensures that your data processing pipelines are continuously fed with the latest information. 
 
-**Use Cases:**
-     - Monitoring survey responses in real-time.
-     - Triggering immediate actions based on form submissions.
-     - Enabling timely data synchronization between Google Forms/Sheets and external systems.
-     
-To push data to Openfn in real-time we will have to configure a _trigger_ on a Google App Script as demonstrated in the example below.
+With this method, data from Google Forms or Google Sheets is automatically
+pushed to an OpenFn webhook trigger workflow whenever new entries are made. This
+real-time approach ensures that your data processing pipelines are continuously
+fed with the latest information.
+
+**Use Cases:** - Monitoring survey responses in real-time. - Triggering
+immediate actions based on form submissions. - Enabling timely data
+synchronization between Google Forms/Sheets and external systems.
+
+To push data to Openfn in real-time we will have to configure a _trigger_ on a
+Google App Script as demonstrated in the example below.
 ![image](https://github.com/OpenFn/docs/assets/167166847/4680c12b-ad57-497e-9073-37e287624f42)
+
 ```js
 function sendToOpenFn(data) {
   var payload = JSON.stringify(data);
@@ -31,40 +38,51 @@ function sendToOpenFn(data) {
 
 function onFormSubmit(e) {
   var headers = Object.keys(e.namedValues); // Get column headers from form responses
-  
+
   // Create the survey form entry object dynamically
   var surveyFormEntry = { formId: 'surveyForm', data: {} };
 
   // Iterate over each row of form responses
-  for (var i = 1; i < e.values.length; i++) { // Start from index 1 to skip header row
+  for (var i = 1; i < e.values.length; i++) {
+    // Start from index 1 to skip header row
     var formData = {};
 
     // Iterate over each column header and assign corresponding value from form response
     for (var j = 0; j < headers.length; j++) {
-      var value = e.namedValues[headers[j]][i - 1] ? e.namedValues[headers[j]][i - 1].toString() : ''; // Convert value to string, handle empty values
-      if (value.trim() !== '') { // Check if the value is not empty
+      var value = e.namedValues[headers[j]][i - 1]
+        ? e.namedValues[headers[j]][i - 1].toString()
+        : ''; // Convert value to string, handle empty values
+      if (value.trim() !== '') {
+        // Check if the value is not empty
         formData[headers[j]] = value;
       }
     }
     if (Object.keys(formData).length > 0) {
       surveyFormEntry.data = formData;
-       // Send the survey form entry to OpenFn and log the workorder id back on Google sheet
+      // Send the survey form entry to OpenFn and log the workorder id back on Google sheet
       sendToOpenFn(surveyFormEntry); // Sending data to OpenFn and getting the response
-
     }
-  } 
+  }
 }
 ```
-### 2. Pulling Data from Google Sheets:
-Alternatively, you can pull data from Google Sheets at specific intervals or on-demand using a `cron` workflow in OpenFn, allowing for more controlled data retrieval processes. This method is particularly useful when you need to fetch historical data or perform periodic data updates.
 
-**Use Cases:**
-     - Aggregating data for periodic reporting or analysis.
-     - Implementing batch processing for efficiency and resource optimization.
-     
-The example below shows how to configure a trigger on Google sheets that sends data to Openfn on the first day of the monthas well as a code snippet showing how to retrieve report data from a Google Sheets spreadsheet and send it to Openfn. By customizing these functions to suit your specific requirements, you can effectively manage data flow between Google Sheets and Openfn.
+### 2. Pulling Data from Google Sheets:
+
+Alternatively, you can pull data from Google Sheets at specific intervals or
+on-demand using a `cron` workflow in OpenFn, allowing for more controlled data
+retrieval processes. This method is particularly useful when you need to fetch
+historical data or perform periodic data updates.
+
+**Use Cases:** - Aggregating data for periodic reporting or analysis. -
+Implementing batch processing for efficiency and resource optimization.
+
+The example below shows how to configure a trigger on Google sheets that sends
+data to Openfn on the first day of the monthas well as a code snippet showing
+how to retrieve report data from a Google Sheets spreadsheet and send it to
+Openfn. By customizing these functions to suit your specific requirements, you
+can effectively manage data flow between Google Sheets and Openfn.
 ![Screenshot 2024-05-20 at 20 34 52](https://github.com/OpenFn/docs/assets/167166847/61ccd374-44bb-4634-b66a-556396914e87)
-     
+
 ```js
 // Function to send the data to OpenFn using a POST request
 function sendToOpenFn(e) {
@@ -155,12 +173,18 @@ function getReportData() {
   sendToOpenFn(bookReportData);
 }
 ```
-### 3. Pushing Data to Google Sheets:
-The Google Sheets adaptor can also be used to push data to Google Sheets from other systems via OpenFn. This allows for seamless integration between external applications and Google Sheets, leveraging OpenFn as the integrator.
 
-**Use Cases:**
-     - Importing data from CRM systems into Google Sheets for sales analysis.
-     - Updating inventory levels in a Google Sheets spreadsheet from an e-commerce platform.
-     - Automatically populating project management data from task tracking systems into Google Sheets for reporting purposes.
-     
-A step by step guide is found [in this tutorial](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets) that shows us how to get data via a REST API and push it to Google Sheet.
+### 3. Pushing Data to Google Sheets:
+
+The Google Sheets adaptor can also be used to push data to Google Sheets from
+other systems via OpenFn. This allows for seamless integration between external
+applications and Google Sheets, leveraging OpenFn as the integrator.
+
+**Use Cases:** - Importing data from CRM systems into Google Sheets for sales
+analysis. - Updating inventory levels in a Google Sheets spreadsheet from an
+e-commerce platform. - Automatically populating project management data from
+task tracking systems into Google Sheets for reporting purposes.
+
+A step by step guide is found
+[in this tutorial](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets)
+that shows us how to get data via a REST API and push it to Google Sheet.
