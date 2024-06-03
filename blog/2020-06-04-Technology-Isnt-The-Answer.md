@@ -57,7 +57,7 @@ barriers to successful implementations:
 
 Figuring out the people and the processes, that’s always going to be the hardest
 part to get right — whether or not the technical work presents a barrier.
-Openfn.org’s first objective is to knock down the technical hurdles so that
+OpenFn.org’s first objective is to knock down the technical hurdles so that
 organizations can focus on that important contextual stuff.
 
 ![](/img/techpic.jpg)

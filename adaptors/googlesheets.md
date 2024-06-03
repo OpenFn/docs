@@ -19,7 +19,7 @@ fed with the latest information.
 immediate actions based on form submissions. - Enabling timely data
 synchronization between Google Forms/Sheets and external systems.
 
-To push data to Openfn in real-time we will have to configure a _trigger_ on a
+To push data to OpenFn in real-time we will have to configure a _trigger_ on a
 Google App Script as demonstrated in the example below.
 ![image](https://github.com/OpenFn/docs/assets/167166847/4680c12b-ad57-497e-9073-37e287624f42)
 
@@ -77,10 +77,10 @@ historical data or perform periodic data updates.
 Implementing batch processing for efficiency and resource optimization.
 
 The example below shows how to configure a trigger on Google sheets that sends
-data to Openfn on the first day of the monthas well as a code snippet showing
+data to OpenFn on the first day of the month as well as a code snippet showing
 how to retrieve report data from a Google Sheets spreadsheet and send it to
-Openfn. By customizing these functions to suit your specific requirements, you
-can effectively manage data flow between Google Sheets and Openfn.
+OpenFn. By customizing these functions to suit your specific requirements, you
+can effectively manage data flow between Google Sheets and OpenFn.
 ![Screenshot 2024-05-20 at 20 34 52](https://github.com/OpenFn/docs/assets/167166847/61ccd374-44bb-4634-b66a-556396914e87)
 
 ```js

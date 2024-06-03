@@ -1,5 +1,5 @@
 ---
-title: What is Openfn?
+title: What is OpenFn?
 id: home
 sidebar_label: What is OpenFn?
 slug: /

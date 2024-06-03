@@ -91,7 +91,7 @@ proven, and you're ready to scale it up.
 
 ### A user journey for locally deployed OpenFn
 
-1. Build and test your workflows on [Openfn.org](https://www.openfn.org).
+1. Build and test your workflows on [OpenFn.org](https://www.openfn.org).
 2. Export your OpenFn project _as code_ using the "export" button or deployment
    CLI.
 3. Deploy your local instance of OpenFn/Lightning.
