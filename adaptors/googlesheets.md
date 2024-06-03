@@ -8,7 +8,7 @@ Google Sheets adaptor provides seamless integration between Google Forms, Google
 Sheets, and the OpenFn platform, enabling robust data flow management. There are
 two primary ways to utilize this adaptor, each catering to specific use cases:
 
-### 1. Pushing Data to OpenFn:
+### 1. Pushing Data to OpenFn
 
 With this method, data from Google Forms or Google Sheets is automatically
 pushed to an OpenFn webhook trigger workflow whenever new entries are made. This
@@ -66,7 +66,7 @@ function onFormSubmit(e) {
 }
 ```
 
-### 2. Pulling Data from Google Sheets:
+### 2. Pulling Data from Google Sheets
 
 Alternatively, you can pull data from Google Sheets at specific intervals or
 on-demand using a `cron` workflow in OpenFn, allowing for more controlled data
@@ -174,7 +174,7 @@ function getReportData() {
 }
 ```
 
-### 3. Pushing Data to Google Sheets:
+### 3. Pushing Data to Google Sheets
 
 The Google Sheets adaptor can also be used to push data to Google Sheets from
 other systems via OpenFn. This allows for seamless integration between external
