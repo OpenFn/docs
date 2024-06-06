@@ -1,5 +1,6 @@
 const axios = require('axios');
 const fs = require('fs');
+const path = require('path');
 
 const versions = [];
 
@@ -33,7 +34,7 @@ async function listVersions(next) {
     });
 }
 
-async function loadAdaptorsDocs() {
+async function loadAdaptorsDocsFromGithub() {
   const apiUrl =
     'https://raw.githubusercontent.com/OpenFn/adaptors/docs/docs/docs.json';
 
@@ -58,6 +59,34 @@ async function loadAdaptorsDocs() {
       );
       return [];
     });
+}
+
+async function loadAdaptorsDocsFromMonorepo() {
+  // TODO first we need to know where the monorepo is
+  // load from env I guess
+  // use OPENFN_ADAPTORS_REPO, same as CLI
+  const baseDir = process.env.OPENFN_ADAPTORS_REPO;
+  console.log('Loading adaptors docs from adaptors monorepo at ', baseDir);
+
+  try {
+    const raw = fs.readFileSync(path.resolve(baseDir, 'tmp/docs.json'));
+    return JSON.parse(raw);
+  } catch (e) {
+    console.error('Error loading adaptor docs from monerepo');
+    console.error(e);
+    return [];
+  }
+}
+
+async function loadAdaptorsDocs() {
+  // TODO add a switch here
+  // maybe npm generate-adaptors --local
+  // maybe npm generate-adaptors --monorepo
+  // TODO will the build override this though? Is it an env var maybe? Yeah it's an env var
+  if (process.env.OPENFN_ADAPTORS_REPO) {
+    return loadAdaptorsDocsFromMonorepo();
+  }
+  return loadAdaptorsDocsFromGithub();
 }
 
 const filePaths = [];
@@ -129,7 +158,7 @@ const sampleConfiguration = json => {
   }
   if (properties && required) {
     required.forEach((key, index) => {
-      conf[key] = properties[key].examples?.[0];
+      conf[key] = properties[key]?.examples?.[0];
       return conf;
     });
   }
@@ -212,36 +241,45 @@ module.exports = function (context, { apiUrl }) {
           console.log('Generating adaptors docs via JSDoc...');
 
           adaptors.map(a => {
-            const docsBody = generateJsDoc(a);
-            const readmeBody = generateReadme(a);
-            const changelogBody = generateChangelog(a);
+            try {
+              const docsBody = generateJsDoc(a);
+              const readmeBody = generateReadme(a);
+              const changelogBody = generateChangelog(a);
 
-            const configurationSchemaBody = generateConfigurationSchema(a);
+              const configurationSchemaBody = generateConfigurationSchema(a);
 
-            pushToPaths(a.name);
+              pushToPaths(a.name);
 
-            fs.writeFileSync(`./adaptors/packages/${a.name}-docs.md`, docsBody);
-            fs.writeFileSync(
-              `./adaptors/packages/${a.name}-readme.md`,
-              readmeBody
-            );
-            fs.writeFileSync(
-              `./adaptors/packages/${a.name}-changelog.md`,
-              changelogBody
-            );
-            fs.writeFileSync(
-              `./adaptors/packages/${a.name}-configuration-schema.md`,
-              configurationSchemaBody
-            );
+              fs.writeFileSync(
+                `./adaptors/packages/${a.name}-docs.md`,
+                docsBody
+              );
+              fs.writeFileSync(
+                `./adaptors/packages/${a.name}-readme.md`,
+                readmeBody
+              );
+              fs.writeFileSync(
+                `./adaptors/packages/${a.name}-changelog.md`,
+                changelogBody
+              );
+              fs.writeFileSync(
+                `./adaptors/packages/${a.name}-configuration-schema.md`,
+                configurationSchemaBody
+              );
+              console.log('Done ✓');
+
+              console.log('Creating sidebar paths...');
+
+              fs.writeFileSync(
+                './adaptors/packages/publicPaths.json',
+                JSON.stringify(filePaths, null, 2)
+              );
+            } catch (e) {
+              console.error('Error generating for ', a.name);
+              console.log(e);
+              throw e;
+            }
           });
-          console.log('Done ✓');
-
-          console.log('Creating sidebar paths...');
-
-          fs.writeFileSync(
-            './adaptors/packages/publicPaths.json',
-            JSON.stringify(filePaths, null, 2)
-          );
 
           console.log('Done ✓');
         });
