@@ -61,12 +61,14 @@ async function loadAdaptorsDocsFromGithub() {
     });
 }
 
-async function loadAdaptorsDocsFromMonorepo() {
-  // TODO first we need to know where the monorepo is
-  // load from env I guess
-  // use OPENFN_ADAPTORS_REPO, same as CLI
-  const baseDir = process.env.OPENFN_ADAPTORS_REPO;
+async function loadAdaptorsDocsFromMonorepo(baseDir) {
   console.log('Loading adaptors docs from adaptors monorepo at ', baseDir);
+
+  if (!baseDir) {
+    throw new Error(`ERROR: monorepo path not found.
+    
+Make sure OPENFN_ADAPTORS_REPO is set in your env`);
+  }
 
   try {
     // Read from tmp not from docs, because otherwise the adaptor
@@ -78,17 +80,6 @@ async function loadAdaptorsDocsFromMonorepo() {
     console.error(e);
     return [];
   }
-}
-
-async function loadAdaptorsDocs() {
-  // TODO add a switch here
-  // maybe npm generate-adaptors --local
-  // maybe npm generate-adaptors --monorepo
-  // TODO will the build override this though? Is it an env var maybe? Yeah it's an env var
-  if (process.env.OPENFN_ADAPTORS_REPO) {
-    return loadAdaptorsDocsFromMonorepo();
-  }
-  return loadAdaptorsDocsFromGithub();
 }
 
 const filePaths = [];
@@ -224,21 +215,43 @@ module.exports = function (context, { apiUrl }) {
       cli
         .command('generate-adaptors')
         .description('Generate documentation for OpenFn adaptors')
-        .action(async () => {
+        .option(
+          '-m',
+          '--monorepo <path>',
+          'use the adaptors monorepo to load docs metadata'
+        )
+        .action(async cmd => {
           fs.existsSync('./adaptors/packages') ||
             fs.mkdirSync('./adaptors/packages');
 
-          console.log('Getting version list...');
-          await listVersions();
+          let useMonorepo = false;
 
-          console.log(`Found ${versions.length} monorepo versions.`);
+          // the monorepo option is suppposed to be written to cmd
+          // ... but it's not.
+          // This is a total hack but it works
+          const last = process.argv.at(-1);
+          if (last === '-m' || last === '--monorepo') {
+            useMonorepo = true;
+          }
 
-          fs.writeFileSync(
-            './adaptors/packages/versions.json',
-            JSON.stringify(versions, null, 2)
-          );
+          // TODO if using the monorepo, what do we do about versions?
+          if (useMonorepo) {
+            console.log('Getting version list...');
+            await listVersions();
 
-          const adaptors = await loadAdaptorsDocs();
+            console.log(`Found ${versions.length} monorepo versions.`);
+
+            fs.writeFileSync(
+              './adaptors/packages/versions.json',
+              JSON.stringify(versions, null, 2)
+            );
+          } else {
+            console.warning('Skipping version list as loading from monorepo');
+          }
+
+          const adaptors = await (useMonorepo
+            ? loadAdaptorsDocsFromMonorepo(process.env.OPENFN_ADAPTORS_REPO)
+            : loadAdaptorsDocsFromGithub());
 
           console.log('Generating adaptors docs via JSDoc...');
 
