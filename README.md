@@ -38,7 +38,8 @@ yarn install
 
 #### Windows
 
-Install [nvm-windows](https://github.com/coreybutler/nvm-windows). Make sure your `node` version matches the one specified in `.tool-versions`. 
+Install [nvm-windows](https://github.com/coreybutler/nvm-windows). Make sure
+your `node` version matches the one specified in `.tool-versions`.
 
 ### Starting your docs site server
 
@@ -68,6 +69,25 @@ yarn generate-library
 
 This command pulls public job data from OpenFn.org to create a local "job
 library".
+
+### Building the adaptors docs from the monorepo
+
+```
+yarn start:dev
+```
+
+Or, if the server is running:
+
+```
+yarn generate-adaptors -m
+```
+
+Ensure that the OPENFN_ADAPTORS_REPO env var is set and points to the local
+monorepo.
+
+See
+(github.com/OpenFn/adaptors/wiki/How-to-test-docs-changes)[https://github.com/OpenFn/adaptors/wiki/How-to-test-docs-changes]
+for more details
 
 ### Build and serve for full-featured testing
 
