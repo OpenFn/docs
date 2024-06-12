@@ -246,7 +246,7 @@ module.exports = function (context, { apiUrl }) {
               JSON.stringify(versions, null, 2)
             );
           } else {
-            console.warning('Skipping version list as loading from monorepo');
+            console.warn('Skipping version list as loading from monorepo');
           }
 
           const adaptors = await (useMonorepo
