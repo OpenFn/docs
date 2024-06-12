@@ -241,6 +241,10 @@ module.exports = function (context, { apiUrl }) {
           console.log('Generating adaptors docs via JSDoc...');
 
           adaptors.map(a => {
+            if (!a.name) {
+              console.warn('WARNING: No name for ', a);
+              return;
+            }
             try {
               const docsBody = generateJsDoc(a);
               const readmeBody = generateReadme(a);
