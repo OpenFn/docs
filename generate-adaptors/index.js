@@ -234,8 +234,7 @@ module.exports = function (context, { apiUrl }) {
             useMonorepo = true;
           }
 
-          // TODO if using the monorepo, what do we do about versions?
-          if (useMonorepo) {
+          if (!useMonorepo) {
             console.log('Getting version list...');
             await listVersions();
 
