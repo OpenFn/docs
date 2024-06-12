@@ -69,6 +69,8 @@ async function loadAdaptorsDocsFromMonorepo() {
   console.log('Loading adaptors docs from adaptors monorepo at ', baseDir);
 
   try {
+    // Read from tmp not from docs, because otherwise the adaptor
+    // build script won't work properly
     const raw = fs.readFileSync(path.resolve(baseDir, 'tmp/docs.json'));
     return JSON.parse(raw);
   } catch (e) {
@@ -245,47 +247,38 @@ module.exports = function (context, { apiUrl }) {
               console.warn('WARNING: No name for ', a);
               return;
             }
-            try {
-              const docsBody = generateJsDoc(a);
-              const readmeBody = generateReadme(a);
-              const changelogBody = generateChangelog(a);
 
-              const configurationSchemaBody = generateConfigurationSchema(a);
+            const docsBody = generateJsDoc(a);
+            const readmeBody = generateReadme(a);
+            const changelogBody = generateChangelog(a);
 
-              pushToPaths(a.name);
+            const configurationSchemaBody = generateConfigurationSchema(a);
 
-              fs.writeFileSync(
-                `./adaptors/packages/${a.name}-docs.md`,
-                docsBody
-              );
-              fs.writeFileSync(
-                `./adaptors/packages/${a.name}-readme.md`,
-                readmeBody
-              );
-              fs.writeFileSync(
-                `./adaptors/packages/${a.name}-changelog.md`,
-                changelogBody
-              );
-              fs.writeFileSync(
-                `./adaptors/packages/${a.name}-configuration-schema.md`,
-                configurationSchemaBody
-              );
-              console.log('Done ✓');
+            pushToPaths(a.name);
 
-              console.log('Creating sidebar paths...');
+            fs.writeFileSync(`./adaptors/packages/${a.name}-docs.md`, docsBody);
+            fs.writeFileSync(
+              `./adaptors/packages/${a.name}-readme.md`,
+              readmeBody
+            );
+            fs.writeFileSync(
+              `./adaptors/packages/${a.name}-changelog.md`,
+              changelogBody
+            );
+            fs.writeFileSync(
+              `./adaptors/packages/${a.name}-configuration-schema.md`,
+              configurationSchemaBody
+            );
 
-              fs.writeFileSync(
-                './adaptors/packages/publicPaths.json',
-                JSON.stringify(filePaths, null, 2)
-              );
-            } catch (e) {
-              console.error('Error generating for ', a.name);
-              console.log(e);
-              throw e;
-            }
+            fs.writeFileSync(
+              './adaptors/packages/publicPaths.json',
+              JSON.stringify(filePaths, null, 2)
+            );
+
+            console.log(`Done ${a.name} ✓`);
           });
 
-          console.log('Done ✓');
+          console.log('Done all adaptors ✓');
         });
     },
   };
