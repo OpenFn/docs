@@ -54,13 +54,12 @@ To add this existing user:
 :::note
 
 A project can have exactly _one_ owner and you will not be able to assign an
-owner role to a collaborator.
+owner role to another collaborator.
 
 :::
 
 ### Removing a collaborator
 
-To remove a collaborator from a project, a collaborator owner, editor or admin
-can click the `Remove Collaborator` button on the `Collaboration` page in the
-project `Settings` and confirm the removal through the pop up window. The owner
+To remove a collaborator from a project, a collaborator owner or admin
+can click the `Remove Collaborator` button on the `Collaboration` page and confirm the removal through the pop up window. The owner
 of a project cannot be removed.
