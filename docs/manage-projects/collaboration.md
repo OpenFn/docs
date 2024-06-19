@@ -26,7 +26,7 @@ below:
 | Viewer | A user with access to a project but only limited to viewing the project settings and artifacts.                                                                                |
 
 You can learn more about the permissions of each role
-[here](https://docs.openfn.org/documentation/manage-projects/user-roles-permissions).
+[here](../manage-projects/user-roles-permissions.md)
 
 ### Adding a collaborator
 
@@ -60,6 +60,10 @@ owner role to another collaborator.
 
 ### Removing a collaborator
 
-To remove a collaborator from a project, a collaborator owner or admin
+To remove a collaborator from a project, an owner or admin
 can click the `Remove Collaborator` button on the `Collaboration` page and confirm the removal through the pop up window. The owner
 of a project cannot be removed.
+
+:::tip
+It is also through this page where you can set receiving failure alerts and digests for your projects. Learn more about it [in this guide](../manage-projects/notifications.md).
+:::
