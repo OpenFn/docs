@@ -29,7 +29,7 @@ table below for the permissions available to each role.
 | Settings  | View Project Credentials, type, and owner                           | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | "   |
 | Settings  | Add/remove webhook authentication method for Project                | :heavy_check_mark: | :heavy_check_mark: |        :x:         |        :x:         | "   |
 | Settings  | Change MFA requirement for Project                                  | :heavy_check_mark: | :heavy_check_mark: |        :x:         |        :x:         | "   |
-| Settings  | Add/remove Project Collaborator                                            | :heavy_check_mark: | :heavy_check_mark: |        :x:         |        :x:         | "   |
+| Settings  | Add/remove Project Collaborator                                     | :heavy_check_mark: | :heavy_check_mark: |        :x:         |        :x:         | "   |
 | Settings  | View Project Collaborators (project_users, role, digest and alerts) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | "   |
 | Settings  | Edit digest and alerts for themselves                               | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | "   |
 | Settings  | Edit digest and alerts for others                                   |        :x:         |        :x:         |        :x:         |        :x:         | "   |
@@ -37,3 +37,17 @@ table below for the permissions available to each role.
 | Settings  | Change History retention period                                     | :heavy_check_mark: | :heavy_check_mark: |        :x:         |        :x:         | "   |
 | Settings  | Update GitHub project/repo connection                               | :heavy_check_mark: | :heavy_check_mark: |        :x:         |        :x:         | "   |
 | Settings  | Initiate GitHub sync                                                | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |        :x:         | "   |
+
+### Super User privileges
+
+Every OpenFn instance has a user with a Super User role that enables them to
+have full administrative control of the platform. This includes User management,
+Project management, Audit trailing and Authentication, with the below Super User
+privileges:
+
+| Aspect             | Description                                             | Features/Permissions                                             |
+| ------------------ | ------------------------------------------------------- | ---------------------------------------------------------------- |
+| User Management    | The management of users on an OpenFn instance           | Creating, editing, removing users                               |
+| Project Management | How projects are created and managed on the instance    | Create, delete, edit a project, assign users                     |
+| Authentication     | Third party Access Management for users on the instance | Set up OpenID Auth for the instance                              |
+| Audit Trailing     | Auditability and change management                      | View history of relevant user actions on the instance for audits |
