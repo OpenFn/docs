@@ -7,7 +7,7 @@
     "generate-library": "docusaurus generate-library",
     "generate-adaptors": "docusaurus generate-adaptors",
     "start": "docusaurus generate-adaptors && docusaurus start",
-    "start:dev": "docusaurus generate-adaptors -m && docusaurus start",
+    "start:dev": "docusaurus generate-adaptors -w && docusaurus start",
     "start-offline": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
@@ -52,6 +52,7 @@
     "@types/react": "^17.0.0",
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.7",
+    "chokidar": "^3.6.0",
     "typescript": "^4.1.3"
   },
   "resolutions": {
