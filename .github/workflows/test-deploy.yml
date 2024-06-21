@@ -22,6 +22,7 @@ jobs:
         run: yarn install
       - name: Test build website
         run: |
+          corepack enable
           yarn generate-library
           yarn generate-adaptors
           yarn build
