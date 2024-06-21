@@ -41,13 +41,16 @@ table below for the permissions available to each role.
 ### Super User privileges
 
 Every OpenFn instance has a user with a Super User role that enables them to
-have full administrative control of the platform. This includes User management,
-Project management, Audit trailing and Authentication, with the below Super User
+have full administrative control of the platform. This includes management of users,
+projects, audit trail, and third-party authentication, with the below Super User
 privileges:
 
 | Aspect             | Description                                             | Features/Permissions                                             |
 | ------------------ | ------------------------------------------------------- | ---------------------------------------------------------------- |
 | User Management    | The management of users on an OpenFn instance           | Creating, editing, removing users                               |
 | Project Management | How projects are created and managed on the instance    | Create, delete, edit a project, assign users                     |
-| Authentication     | Third party Access Management for users on the instance | Set up OpenID Auth for the instance                              |
+| Authentication     | Third-party access management for users on the instance | Set up OpenID Auth for the instance                              |
 | Audit Trailing     | Auditability and change management                      | View history of relevant user actions on the instance for audits |
+
+If you're using the hosted OpenFn platform (e.g., app.openfn.org), contact [support@openfn.org](mailto:support@openfn.org) 
+if you need to get in touch with the super user to request new projects or configuration changes. 
