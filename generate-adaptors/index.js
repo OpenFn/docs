@@ -1,5 +1,6 @@
 const axios = require('axios');
 const fs = require('fs');
+const path = require('path');
 
 const versions = [];
 
@@ -33,7 +34,7 @@ async function listVersions(next) {
     });
 }
 
-async function loadAdaptorsDocs() {
+async function loadAdaptorsDocsFromGithub() {
   const apiUrl =
     'https://raw.githubusercontent.com/OpenFn/adaptors/docs/docs/docs.json';
 
@@ -58,6 +59,27 @@ async function loadAdaptorsDocs() {
       );
       return [];
     });
+}
+
+async function loadAdaptorsDocsFromMonorepo(baseDir) {
+  console.log('Loading adaptors docs from adaptors monorepo at ', baseDir);
+
+  if (!baseDir) {
+    throw new Error(`ERROR: monorepo path not found.
+    
+Make sure OPENFN_ADAPTORS_REPO is set in your env`);
+  }
+
+  try {
+    // Read from tmp not from docs, because otherwise the adaptor
+    // build script won't work properly
+    const raw = fs.readFileSync(path.resolve(baseDir, 'tmp/docs.json'));
+    return JSON.parse(raw);
+  } catch (e) {
+    console.error('Error loading adaptor docs from monerepo');
+    console.error(e);
+    return [];
+  }
 }
 
 const filePaths = [];
@@ -129,7 +151,7 @@ const sampleConfiguration = json => {
   }
   if (properties && required) {
     required.forEach((key, index) => {
-      conf[key] = properties[key].examples?.[0];
+      conf[key] = properties[key]?.examples?.[0];
       return conf;
     });
   }
@@ -193,25 +215,51 @@ module.exports = function (context, { apiUrl }) {
       cli
         .command('generate-adaptors')
         .description('Generate documentation for OpenFn adaptors')
-        .action(async () => {
+        .option(
+          '-m',
+          '--monorepo <path>',
+          'use the adaptors monorepo to load docs metadata'
+        )
+        .action(async cmd => {
           fs.existsSync('./adaptors/packages') ||
             fs.mkdirSync('./adaptors/packages');
 
-          console.log('Getting version list...');
-          await listVersions();
+          let useMonorepo = false;
 
-          console.log(`Found ${versions.length} monorepo versions.`);
+          // the monorepo option is suppposed to be written to cmd
+          // ... but it's not.
+          // This is a total hack but it works
+          const last = process.argv.at(-1);
+          if (last === '-m' || last === '--monorepo') {
+            useMonorepo = true;
+          }
 
-          fs.writeFileSync(
-            './adaptors/packages/versions.json',
-            JSON.stringify(versions, null, 2)
-          );
+          if (!useMonorepo) {
+            console.log('Getting version list...');
+            await listVersions();
 
-          const adaptors = await loadAdaptorsDocs();
+            console.log(`Found ${versions.length} monorepo versions.`);
+
+            fs.writeFileSync(
+              './adaptors/packages/versions.json',
+              JSON.stringify(versions, null, 2)
+            );
+          } else {
+            console.warn('Skipping version list as loading from monorepo');
+          }
+
+          const adaptors = await (useMonorepo
+            ? loadAdaptorsDocsFromMonorepo(process.env.OPENFN_ADAPTORS_REPO)
+            : loadAdaptorsDocsFromGithub());
 
           console.log('Generating adaptors docs via JSDoc...');
 
           adaptors.map(a => {
+            if (!a.name) {
+              console.warn('WARNING: No name for ', a);
+              return;
+            }
+
             const docsBody = generateJsDoc(a);
             const readmeBody = generateReadme(a);
             const changelogBody = generateChangelog(a);
@@ -233,17 +281,16 @@ module.exports = function (context, { apiUrl }) {
               `./adaptors/packages/${a.name}-configuration-schema.md`,
               configurationSchemaBody
             );
+
+            fs.writeFileSync(
+              './adaptors/packages/publicPaths.json',
+              JSON.stringify(filePaths, null, 2)
+            );
+
+            console.log(`Done ${a.name} ✓`);
           });
-          console.log('Done ✓');
 
-          console.log('Creating sidebar paths...');
-
-          fs.writeFileSync(
-            './adaptors/packages/publicPaths.json',
-            JSON.stringify(filePaths, null, 2)
-          );
-
-          console.log('Done ✓');
+          console.log('Done all adaptors ✓');
         });
     },
   };

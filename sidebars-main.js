@@ -93,7 +93,9 @@ module.exports = {
             'manage-projects/link-to-gh',
             'manage-projects/webhook-auth',
             'manage-projects/workflow-dashboard',
+            'manage-projects/collaboration',
             'manage-projects/oauth',
+
 
           ],
         },
