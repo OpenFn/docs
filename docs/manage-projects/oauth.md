@@ -43,5 +43,5 @@ Oauth clients can be set up either on the [project credentials page](../manage-p
 ### Creating an OAuth client 
 
 :::note
-Currently only users with super user privilege can create OAuth clients.
+Currently only users with [super user privileges](https://docs.openfn.org/documentation/manage-projects/user-roles-permissions#super-user-privileges) can create OAuth clients.
 ::: 
