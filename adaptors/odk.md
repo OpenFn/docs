@@ -40,7 +40,7 @@ Every time this job runs it will get the metadata of all submissions.
 
 If instead of submission metadata, you want to get the submission content as JSON, you can use ODK's [OData Data Document endpoint](https://docs.getodk.org/central-api-odata-endpoints/#data-document). The OData endpoint supports filtering by submission date and be used to get windows of data.
 
-OpenFn's `request` method can be used to connect to the OData endpoint.
+OpenFn's `odk` adaptor has a `request` method that can be used to connect to the OData endpoint. 
 
 ```js
 request("GET", '/v1/projects/{projectId}/forms/{xmlFormId}.svc/Submissions');
