@@ -67,60 +67,66 @@ third party application. :::
 ### Sharing OAuth Clients
 
 A super user has the privilege to share OAuth clients with projects in two ways:
+
 1. Making a client global
-2. Sharing with specific projects 
+2. Sharing with specific projects
 
- They can do this either when creating the client, or via editing it.
+They can do this in the OAuth client configuration window either when creating
+the client, or via editing it.
 
+![OAuth edit](/img/oauth_client_edit.png)
 
 #### Making OAuth clients global
 
- to make an OAuth client global so that all users
-in the instance can have access to the client and can create credentials from
-the clients.
+When an OAuth client is global, users in the instance can have access to it and
+can create credentials from it.
 
-// screenshot - edit oauth_client_edit.png
-
-In the OAuth client configuration window scroll down to `Manage Project Access`
-section and select the checkbox
+To make a client global, scroll down to `Manage Project Access` section in the
+OAuth client configuration window and select the checkbox
 `Make client global (allow any project in this instance to use this client)` and
 save changes. All projects on the instance can now access the client and users
 with owner, admin and editor rights on these projects can now create credentials
 from the client.
 
-//screenshot
+![OAuth project access](/img/manage_project_access.png)
 
 #### Sharing OAuth clients with projects
 
-To share OAuth clients with projects, open the client configuration model and
-scroll to the Manage Project Access section. Select the project dropdown and
-select a project and click the add button to grant the project access to the
-generated OAuth client.
+To share an OAuth client with specific projects, scroll down to
+`Manage Project Access` section in the OAuth client configuration window. Select
+the project dropdown and select a project and click the add button to grant the
+project access to the client.
+
+![Share OAuth client](/img/share_oauth_client.png)
 
 ### Creating a credential from an OAuth client
 
 Every client requires an authentication token to authenticate requests made to
 the application on behalf of the user. On OpenFn, these tokens are created as
-credentials and are associated with clients. To create a credential from an
-Oauth client, Click on create a new credential or use click on the button as
-show below:
+credentials and are associated with clients.
+
+1. To create a credential from an Oauth client, click on create a new credential
+   or click on the button as show below:
+
+![Create new cred](/img/create_new_cred.png)
+
+![New credential](/img/new_cred.png)
 
 :::tip Unlike for OAuth clients, project owners or admins can also create
 credentials, not only super users. :::
 
-//image
-
-In the credential type window, find and select the Oauth client to use for
-creating the OAuth credential. This will open a new modal for you to configure
-the credential by providing the name, scopes/permissions required and API
-version. When you’ve filled the form, click on the Sign in with {OAuth Client
-Name} button to authorize the Oauth client. Clicking this button will open a new
-tab for you to grant OpenFn an authorization token to authenticate your
-requests.
+2. Then, in the credential type window, find and select the Oauth client to use
+   for creating the OAuth credential. This will open a new modal for you to
+   configure the credential by providing the name, scopes/permissions required
+   and API version.
+3. When you’ve filled the form, click on the
+   `Sign in with [your OAuth Client name]` button to authorize the Oauth client.
+   Clicking this button will open a new tab for you to grant OpenFn an
+   authorization token to authenticate your requests.
 
 :::note When you have siged in, you will be required to grant OpenFn access by
-clicking "Allow" on the permissions modal. Please note that this might be
-different for different application but the intent is to grant OpenFn
+clicking `Allow` on the permissions window. Please note that this might look
+different for different applications but the intent is to grant OpenFn
 perimission to carry out certain actions to the application on your behalf. The
 user authenticating OAuth clients should have the required permissions in the
 application. :::
