@@ -66,23 +66,38 @@ third party application. :::
 
 ### Sharing OAuth Clients
 
-There are two ways OAuth Clients can be share in an instance: Making OAuth
-clients global (for all projects) Sharing OAuth clients with projects A
-superuser has the privilege to make an OAuth client global so that all users in
-the instance can have access to the client and can create credentials from the
-clients. To make an OAuth client global, Open the OAuth client configuration
-modal, scroll down to `Manage Project Access` section and select the checkbox
-behind “Make client global (allow any project in this instance to use this
-client)”. Checking the box, hides the Project dropdown as all projects can now
-access the client and users with owner, admin and editor rights on these
-projects can now create credentials from the client.
+A super user has the privilege to share OAuth clients with projects in two ways:
+1. Making a client global
+2. Sharing with specific projects 
+
+ They can do this either when creating the client, or via editing it.
+
+
+#### Making OAuth clients global
+
+ to make an OAuth client global so that all users
+in the instance can have access to the client and can create credentials from
+the clients.
+
+// screenshot - edit oauth_client_edit.png
+
+In the OAuth client configuration window scroll down to `Manage Project Access`
+section and select the checkbox
+`Make client global (allow any project in this instance to use this client)` and
+save changes. All projects on the instance can now access the client and users
+with owner, admin and editor rights on these projects can now create credentials
+from the client.
+
+//screenshot
+
+#### Sharing OAuth clients with projects
 
 To share OAuth clients with projects, open the client configuration model and
 scroll to the Manage Project Access section. Select the project dropdown and
 select a project and click the add button to grant the project access to the
 generated OAuth client.
 
-### Create a credential from an OAuth client
+### Creating a credential from an OAuth client
 
 Every client requires an authentication token to authenticate requests made to
 the application on behalf of the user. On OpenFn, these tokens are created as
