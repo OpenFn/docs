@@ -1,54 +1,72 @@
 ---
-title: Open Data Kit (ODK)
+title: ODK
 ---
 
-## Open Data Kit (ODK) Collect
+In order to fetch data from ODK Central, you must run a scheduled job with a cron trigger using the `odk` adaptor.
 
-To bypass ODK Aggregate and submit forms directly to OpenFn make the following
-changes in your ODK Collect app.
+Here's an example of a job that gets submission metadata.
 
-1. Select `General Settings`.
-2. Select `Server Settings`.
-3. Under `Type`, select `Other`.
-4. Under `URL`, enter `https://www.openfn.org
-5. Under `Submission path`, enter `/inbox/your-unique-inbox-url` (you can copy
-   this from your OpenFn Inbox).
-6. Optional: If you have enabled auth methods on your inbox, enter your
-   `username` and `password` on this same screen.
+```js
+getSubmissions({
+  projectId: 1,
+  xmlFormId: 'my-form',
+});
+```
 
-Note that you cannot load forms from OpenFn. Forms must be loaded directly via
-[ODK's direct method](https://docs.opendatakit.org/collect-forms/#loading-forms-directly),
-which allows you to send forms as files via email/Whatsapp. Users can then
-choose to download the files and save them in the `odk/ forms` folder on their
-mobile.
+Every time this job runs it will get the metadata of all submissions.
 
-Note that if you want to reverse this setup and configure ODK Collect to
-re-connect to your Aggregate instance again:`
+```json
+[
+  {
+    "instanceId": "uuid:85cb9aff-005e-4edd-9739-dc9c1a829c44",
+    "submitterId": 23,
+    "deviceId": "imei:123456",
+    "userAgent": "Enketo/3.0.4",
+    "reviewState": "approved",
+    "createdAt": "2018-01-19T23:58:03.395Z",
+    "updatedAt": "2018-03-21T12:45:02.312Z",
+    "currentVersion": {
+      "instanceId": "uuid:85cb9aff-005e-4edd-9739-dc9c1a829c44",
+      "instanceName": "village third house",
+      "submitterId": 23,
+      "deviceId": "imei:123456",
+      "userAgent": "Enketo/3.0.4",
+      "createdAt": "2018-01-19T23:58:03.395Z",
+      "current": true
+    }
+  }
+]
+```
 
-1. Go back to `General Settings`.
-2. Select `Server Settings`.
-3. Under `Type`, select `ODK Aggregate`.
-4. Under `URL`, enter `Your Aggregate URL`
-5. Under `Submission path`, enter `/submissions`.
-6. Enter your ODK Aggregate `username` and `password` on this same screen.
+If instead of submission metadata, you want to get the submission content as JSON, you can use ODK's [OData Data Document endpoint](https://docs.getodk.org/central-api-odata-endpoints/#data-document). The OData endpoint supports filtering by submission date and be used to get windows of data.
 
-## Open Data Kit (ODK) Aggregate
+OpenFn's `odk` adaptor has a `request` method that can be used to connect to the OData endpoint. 
 
-1. To new submissions from ODK in real-time, click the "Form Management" tab at
-   the top of your Aggregate interface.
-2. Click "Publish" next to the form you'd like to publish to OpenFn.
-3. A dialogue box will open.
-4. In the "Publish To:" picklist, select `Z-ALPHA JSON Server`.
-5. Choose which data to publish in the "Data to Publish:" picklist. You may:
-   **"Upload Existing Data ONLY"** (ideal for migrations of finished data sets),
-   **"Stream New Submission Data ONLY"** (ideal for new projects), or **"BOTH
-   Upload Existing & Stream New Submission Data"** (ideal for connecting ongoing
-   projects which are already running).
-6. In the "URL to publish to:" text box, enter your OpenFn Inbox UUID. (e.g.,
-   `https://www.openfn.org/inbox/8ad63a29-mUCh-sEcRET-cODes-wOW`)
-7. Leave "Authorization token:" blank.
-8. Leave "Include Media as:" set to "Links(URLs) to Media".
-9. Click "Publish" and enter your email address in the dialogue box.
-10. Click the "Published Data" tab under "Form Management" and select your form
-    to view the status of your publisher. You can also now check your OpenFn
-    inbox to see ODK submissions arrive.
+```js
+request("GET", '/v1/projects/{projectId}/forms/{xmlFormId}.svc/Submissions');
+```
+
+This request would return JSON like this:
+
+```json
+{
+  "@odata.context": "https://your.odk.server/v1/projects/7/forms/simple.svc/$metadata#Submissions",
+  "value": [
+    {
+      "__id": "uuid:85cb9aff-005e-4edd-9739-dc9c1a829c44",
+      "age": 25,
+      "meta": {
+        "instanceID": "uuid:85cb9aff-005e-4edd-9739-dc9c1a829c44"
+      },
+      "name": "Bob"
+    },
+    {
+      "__id": "uuid:297000fd-8eb2-4232-8863-d25f82521b87",
+      "age": 30,
+      "meta": {
+        "instanceID": "uuid:297000fd-8eb2-4232-8863-d25f82521b87"
+      },
+      "name": "Alice"
+    }
+  ]
+}
