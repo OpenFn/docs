@@ -1,0 +1,151 @@
+---
+title: OAuth Authentication
+sidebar_label: OAuth Authentication
+slug: /oauth
+---
+
+Some applications require OAuth as an authentication method for connecting with
+third party applications making requests via their APIs. This guide walks you
+through how to set up and manage OAuth clients.
+
+### OAuth Authentication
+
+Some applications require [OAuth](https://oauth.net/2/) as an authentication
+method for connecting with third-party applications and making requests via
+their APIs. OpenFn allows you to connect with applications using their OAuth
+authentication. To use this feature in your OpenFn workflows, you need to set up
+OAuth clients and credentials for your instances or projects. This guide walks
+you through the management of OAuth clients and credentials.
+
+### Setting up an OAuth client
+
+#### What is an OAuth client and when do I need it?
+
+By setting up OAuth for an application, you authorize OpenFn to connect and
+interact with this application within a set of scopes defined by you. For
+example, you might set up an OAuth authorization for OpenFn to connect to your
+Google Sheets account to read and track changes on your behalf. In this example,
+you need to set up an OpenFn client that will represent an instance of OpenFn on
+Google and will hold all the permissions OpenFn needs on your behalf. All API
+requests and responses are managed through the OpenFn client and authorized by
+an authorization token stored by the client.
+
+In most cases, one client setup might be sufficient for one application but
+depending on the project requirements and organization policy, several clients
+might be set up for one application. These clients might be owned by the same or
+different OpenFn users and accessible to different projects.
+
+For every application you need to connect to OpenFn, you need to set up at least
+one client for your project(s).
+
+Oauth clients can be set up either on the
+[project credentials page](../manage-projects/manage-credentials.md) or the
+[user credentials page](../manage-users/user-credentials.md).
+
+### Creating an OAuth client (Super Users)
+
+:::note Currently only users with
+[super user privileges](https://docs.openfn.org/documentation/manage-projects/user-roles-permissions#super-user-privileges)
+can create and manage OAuth clients. :::
+
+If you have not created a client before or a superuser has not created a client
+for the projects/users in the deployment, you will see an empty block with a
+button prompting you to create a client as shown below.
+
+![New client](/img/create_new_oauth_client.png)
+
+Alternatively, you will see the list of existing OAuth clients you have access
+to. In this case click on the `New credential` button and select
+`OAuth client [Advanced]` in the dropdown.
+
+![OAuth dropdown](/img/oauth_dropdown.png)
+
+:::note Make sure you add https://app.openfn.org/authenticate/callback as the
+callback URL for the application when enabling OAuth authentication for the
+third party application. :::
+
+### Sharing OAuth Clients
+
+A super user has the privilege to share OAuth clients with projects in two ways:
+
+1. Making a client global
+2. Sharing with specific projects
+
+They can do this in the OAuth client configuration window either when creating
+the client, or via editing it.
+
+![OAuth edit](/img/oauth_client_edit.png)
+
+#### Making OAuth clients global
+
+When an OAuth client is global, users in the instance can have access to it and
+can create credentials from it.
+
+To make a client global, scroll down to `Manage Project Access` section in the
+OAuth client configuration window and select the checkbox
+`Make client global (allow any project in this instance to use this client)` and
+save changes. All projects on the instance can now access the client and users
+with owner, admin and editor rights on these projects can now create credentials
+from the client.
+
+![OAuth project access](/img/manage_project_access.png)
+
+#### Sharing OAuth clients with projects
+
+To share an OAuth client with specific projects, scroll down to
+`Manage Project Access` section in the OAuth client configuration window. Select
+the project dropdown and select a project and click the add button to grant the
+project access to the client.
+
+![Share OAuth client](/img/share_oauth_client.png)
+
+### Creating a credential from an OAuth client
+
+Every client requires an authentication token to authenticate requests made to
+the application on behalf of the user. On OpenFn, these tokens are created as
+credentials and are associated with clients.
+
+1. To create a credential from an Oauth client, click on create a new credential
+   or click on the button as show below:
+
+![Create new cred](/img/create_new_cred.png)
+
+![New credential](/img/new_cred.png)
+
+:::tip Unlike for OAuth clients, project owners or admins can also create
+credentials, not only super users. :::
+
+2. Then, in the credential type window, find and select the Oauth client to use
+   for creating the OAuth credential. This will open a new modal for you to
+   configure the credential by providing the name, scopes/permissions required
+   and API version.
+3. When you’ve filled the form, click on the
+   `Sign in with [your OAuth Client name]` button to authorize the Oauth client.
+   Clicking this button will open a new tab for you to grant OpenFn an
+   authorization token to authenticate your requests.
+
+:::note When you have siged in, you will be required to grant OpenFn access by
+clicking `Allow` on the permissions window. Please note that this might look
+different for different applications but the intent is to grant OpenFn
+perimission to carry out certain actions to the application on your behalf. The
+user authenticating OAuth clients should have the required permissions in the
+application. :::
+
+### Deleting Clients and Credentials
+
+To delete a credential/client, simply click the Delete action on the same row
+with the item to delete it. When you click on Delete, a confirmation message
+will be displayed in a modal for you to confirm your action.
+
+As soon as you confirm that you want to delete a credential, you will receive an
+email to notify you that the credential has been scheduled for deletion.
+
+The scheduled deletion date is set by a grace period configured by your instance
+administrator with variable PURGE_DELETED_AFTER_DAYS in the instance environment
+variable.
+
+A credential scheduled for deletion will be displayed with 3 options: Edit,
+Cancel deletion and Delete now. As shown in the screenshot below.
+
+Users have the option to revert the deletion by clicking `Cancel deletion` or
+can choose to override the scheduled deletion by choosing `Delete now`.
