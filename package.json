@@ -58,5 +58,6 @@
     "trim": "^0.0.3",
     "got": "^11.8.5",
     "cytoscape": "3.28.1"
-  }
+  },
+  "packageManager": "yarn@4.3.1"
 }
