@@ -109,4 +109,4 @@ special attention to several sections:
 
 1. [Getting Started](https://openfn.github.io/lightning/readme.html#getting-started)
 2. [Deployment Considerations](https://openfn.github.io/lightning/deployment.html)
-3. [Benchmarking](https://openfn.github.io/lightning/benchmarking.html)
+3. [Benchmarking](https://openfn.github.io/lightning/benchmarking.md.html#run-benchmarking-tests-against-the-demo-webhook)
