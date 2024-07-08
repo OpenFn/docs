@@ -27,7 +27,7 @@ open the list of applications that have been registered
 On the app registration page, click on the All Applications tab to see all the
 applications you have access to.
 
-![App Registration 2](/img/app_reg.png)
+![App Registration 2](/img/app_reg2.png)
 
 Click on the preferred application from the list to see the application
 overview. From the menu, click on Certificates & secrets and select the Client
