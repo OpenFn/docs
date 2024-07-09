@@ -1,8 +1,16 @@
 ---
-title: ODK
+title: Open Data Kit (ODK)
 ---
 
-In order to fetch data from ODK Central, you must run a scheduled job with a
+# App Overview
+
+[ODK](https://getodk.org) is a data collection platform used by researchers,
+field teams, and other professionals to collect they data they need wherever it
+is.
+
+# Integration Options
+
+In order to fetch data from an ODK Central, you must run a scheduled job with a
 cron trigger using the `odk` adaptor.
 
 Here's an example of a job that gets submission data.
@@ -12,7 +20,7 @@ getSubmissions($.projectId, $.xmlFormId);
 ```
 
 Every time this job runs it will get of all submissions and write them to
-state.data, leaving your state object looking like this:
+`state.data`, leaving your state object looking like this:
 
 ```json
 {
