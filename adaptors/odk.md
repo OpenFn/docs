@@ -1,5 +1,5 @@
 ---
-title: Open Data Kit (ODK)
+title: ODK
 ---
 
 # App Overview
