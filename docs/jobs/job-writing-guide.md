@@ -90,7 +90,129 @@ Your job code should only contain Operations at the top level/scope - you should
 NOT include any other JavaScript statements. We'll talk about this more in a
 minute.
 
+## Promise-like Operations
+
+:::tip
+
+Promise support is new to the openfn since July 2024, introduced in
+`compiler@version` and `runtime@version`
+
+:::
+
+Operations behave like Javascript Promises in that they have `.then()` and
+`.catch()` functions. This is useful for creating your own callbacks and error
+handling
+
+### Callback with then()
+
+`then()` is available on every operation. It accepts the state as its argument
+and MUST return a state object to be passed to the _next_ operation.
+
+```js
+fn().then(state => {
+  console.log(state);
+  return state; // always remember to return state!
+});
+```
+
+:::info Note for developers
+
+Support for .then() is added by the compiler. Operations technically don't
+return a Promise, they return a function, but the compiler will modify the job
+code and wrap the operation in a deferred promise call.
+
+:::
+
+Most operations, when they run, will take your state object as an input, modify
+it, and return it. The changed state will either be passed to the next
+operation, or returned as the output of the job.
+
+Sometimes it's useful to compose operations together, like this:
+
+```js
+each($.items, post(`patient/${$.data.id}`, $.data));
+```
+
+The `each` function will take an array and, for each item, invoke a callback
+with a scoped state. This means it takes your state object and sets the item
+under iteration to `state.data`. In order words,in the callback `state.data` is
+scoped to each item in the array.
+
+```js
+each($.items, state => {
+  console.log(state.data); // each item in the items array
+  console.log(state.index); // the current index of iteration
+  return state;
+});
+```
+
+So in the example above, every item in state.items will be passed to a HTTP
+`post()` function, where the id will be embedded in a URL and the item itself
+will be uploaded to the server.
+
+But what if you want to do something with the scoped state AFTER the request?
+Maybe you want to check the status code and log an error, or maybe you want to
+mutate the data before writing it back to state.
+
+You can use `operation().then()` for this:
+
+```js
+each(
+  $.items,
+  post(`patient/${$.data.id}`, $.data).then(state => {
+    state.completed.push(state.data);
+    return state;
+  })
+);
+```
+
+Now this expression will:
+
+- Iterate over each item in `state.items`
+- Call the post operation with scoped state (ie, the item in `state.data`)
+- Once the post is complete, pass the result as scoped state into the `.then()`
+  callback
+
+### Error handling with catch()
+
+Most adaptors will throw an error when something goes wrong, which may result in
+the job (and maybe even workflow) ending early.
+
+Because every operation has a `catch()`, you have the opportunity in your job
+code to intercept and even suppress the error.
+
+```js
+get('patients').catch((error, state) => {
+  state.error = error;
+  return state;
+});
+```
+
+The error callback is passed two arguments: the error thrown by the adaptor, and
+the state object.
+
+If you want to continue execution, you should return the state object from the
+catch. This state will then be passed into the next operation.
+
+If you _do_ want to terminate execution, perhaps with some logging for debugging
+or with a different error, you should throw from inside the catch handler.
+
+```js
+get('patients').catch((error, state) => {
+  console.log('Error ocurred faithing patients', error);
+  throw error;
+});
+```
+
 ## Callbacks and fn()
+
+:::caution
+
+As of July 2024, callbacks are going to be phased out of the adaptor APIs. See
+[Promise-like Operations](#promise-like-operations) for tips on how to use
+callbacks with adaptors APIs that don't explicitly support them.
+
+:::
 
 Many Operations give you access to a callback function.
 
@@ -214,8 +336,9 @@ this:
 
 ```js
 get('/patients');
-each('$.data.patients[*]', (item, index) => {
+each('$.data.patients[*]', state => {
   item.id = `item-${index}`;
+  return state;
 });
 post('/patients', dataValue('patients'));
 ```
@@ -1048,8 +1171,8 @@ throw an exception to recognise that the job has failed.
 ## Compilation
 
 The code you write isn't technically executable JavaScript. You can't just run
-it through node.js. It needs to be transformed or compiled into portable
-vanilla JS code.
+it through node.js. It needs to be transformed or compiled into portable vanilla
+JS code.
 
 :::warning
 
