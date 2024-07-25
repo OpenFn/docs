@@ -46,8 +46,9 @@ Oauth clients can be set up either on the
 
 :::note
  Currently only users with
-[super user privileges](https://docs.openfn.org/documentation/manage-projects/user-roles-permissions#super-user-privileges)
-can create and manage OAuth clients. 
+[super user privileges](../manage-projects/user-roles-permissions#super-user-privileges)
+can create and manage OAuth clients. If you're using the OpenFn cloud-hosted platform SaaS, 
+contact [support@openfn.org](support@openfn.org) for assistance adding a new Oauth client.
 :::
 
 If you have not created a client before or a superuser has not created a client
@@ -152,4 +153,8 @@ email to notify you that the credential has been scheduled for deletion.
 
 The scheduled deletion date is set by a grace period configured by your instance
 administrator. On the [OpenFn hosted instance](https://app.openfn.org/), it will be permanently deleted after 7 days.
+
+### More on Managing Credentials
+Go to the docs on [managing user credentials](../manage-users/user-credentials.md) to learn more 
+about credential management for the applications you are integrating with on OpenFn. 
 
