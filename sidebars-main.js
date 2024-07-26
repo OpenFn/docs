@@ -57,6 +57,7 @@ module.exports = {
           label: 'Build & Manage Workflows',
           items: [
             'build/workflows',
+            'build/configurable-concurrency',
             'build/triggers',
             'build/steps/steps',
             'build/steps/step-editor',
