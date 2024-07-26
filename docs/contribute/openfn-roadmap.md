@@ -1,19 +1,50 @@
 ---
-title: OpenFn Roadmap
-sidebar_label: OpenFn Roadmap
+title: Roadmap and Product Management
+sidebar_label: Roadmap
 ---
 
-:::warning Under construction
+### Introduction 
 
-This docs page is under construction. Check back later for the complete docs, or
-check out the Docs Version "Platform (v1)".
+This page details the planned roadmaps for the key products in the OpenFn
+product suite. This includes Lightning, Adaptors, and Docs. We periodically
+review the roadmap to keep it reaser up to date with the development status 
+of the features highlighted on the roadmap.
+
+
+### Our approach to product development
+At OpenFn, we have adopted [ShapeUp methodology](https://basecamp.com/shapeup) to help our 
+small product and engineeting team build products faster without compomising 
+on quality. With ShapeUp in place, we typcially commit to _projects_ that can be delivered 
+in a 4-6 weeks period with multiple releases based on QA approval within the building cycle. 
+We also proiritize feedback and feature requests from our users over features in the backlog. 
+
+### Feature Requests
+We use [Canny](https://openfn.canny.io/feature-requests) to receive, track, engage and manage 
+new feature requests from the community of users of OpenFn globally whilst giving users the 
+ability to the upvote their favoritie and mission critical feature request.
+
+#### How to request a new feature
+1. Go to [https://openfn.canny.io](https://openfn.canny.io/feature-requests)
+2. Provide a very clear, concise and descriptive title for the feature e.g. Make roadmap avaialble in French
+3. Describe this feature in detail
+4. Share this new feature request on the OpenFn community and across your professional network for upvotes
+
+:::info Tip
+
+When describing the feature, it is very helpful to help us understand the problem, proposed solution 
+(if any) and similar solutions we might glean insights from _if they exist_.
 
 :::
 
-## OpenFn Roadmap
+#### How to upvote features
+1. Go to [https://openfn.canny.io](https://openfn.canny.io/feature-requests)
+2. Scroll down or use the filter and search features to see existing feature requests  
+3. Click on the (^) beside the request to upvote. _Upvoted feature requests are prioritized for development_
+4. If you want more upvotes for this feature request, you can also share across your network 
 
-This page details the planned roadmaps for the key products in the OpenFn
-product suite. This includes OpenFn/`Lightning`, `Adaptors`, and `Docs`.
+### What are we currently working on?
+Interested in keeping up with our work? Visit our [Current Cycle GitHub board](https://github.com/orgs/OpenFn/projects/3/views/1) 
+to see what we are currently busy with and what's coming in the current cycle.
 
 ### Key for the Roadmap `Status` Values
 
@@ -80,9 +111,9 @@ workflow engine, enable automated workflows that cut across digital systems.
 | 5. Template Shared Health Record Workflows                  | Not started  | 2024                | [See OpenHIE docs](https://guides.ohie.org/arch-spec/introduction/shared-health-record); to be hosted on demo.openfn.org                      | To demonstrate how OpenFn can allow external systems to automatically save and retrieve information from the HIE (from the OpenHIE standard spec)                                                                                                                  |
 | 6. Template Aggregate Reporting Workflows                   | Not started  | 2024                | [See OpenHIE docs](https://guides.ohie.org/arch-spec/introduction/aggregate-reporting-workflows); to be hosted on demo.openfn.org             | To demonstrate how OpenFn can support aggregate data exchange of health indicators, leveraging the [ADX](https://wiki.ihe.net/index.php/Aggregate_Data_Exchange) data standard                                                                                     |
 
-### Questions? Feedback? Ideas?
+### Have questions, feedback or found a bug?
 
-Post on the OpenFn Community at
-[community.openfn.org](https://community.openfn.org), or consider contributing
-to the OpenFn software, adaptors, or documentation (learn more in the
-[Contributing section](./writing-code.md)).
+We encourage users to post their questions on the OpenFn Community at
+[community.openfn.org](https://community.openfn.org), or consider creating 
+issues for bugs via product repository. You can also independetly start contributing
+to the OpenFn software, adaptors, or documentation by getting started [here](./writing-code.md)).
