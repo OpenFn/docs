@@ -3,47 +3,60 @@ title: Roadmap and Product Management
 sidebar_label: Roadmap
 ---
 
-### Introduction 
+### Introduction
 
 This page details the planned roadmaps for the key products in the OpenFn
 product suite. This includes Lightning, Adaptors, and Docs. We periodically
-review the roadmap to keep it reaser up to date with the development status 
-of the features highlighted on the roadmap.
-
+review the roadmap to keep it reaser up to date with the development status of
+the features highlighted on the roadmap.
 
 ### Our approach to product development
-At OpenFn, we have adopted [ShapeUp methodology](https://basecamp.com/shapeup) to help our 
-small product and engineeting team build products faster without compomising 
-on quality. With ShapeUp in place, we typcially commit to _projects_ that can be delivered 
-in a 4-6 weeks period with multiple releases based on QA approval within the building cycle. 
-We also proiritize feedback and feature requests from our users over features in the backlog. 
+
+At OpenFn, we have adopted [ShapeUp methodology](https://basecamp.com/shapeup)
+to help our small product and engineeting team build products faster without
+compomising on quality. With ShapeUp in place, we typcially commit to _projects_
+that can be delivered in a 4-6 weeks period with multiple releases based on QA
+approval within the building cycle. We also proiritize feedback and feature
+requests from our users over features in the backlog.
 
 ### Feature Requests
-We use [Canny](https://openfn.canny.io/feature-requests) to receive, track, engage and manage 
-new feature requests from the community of users of OpenFn globally whilst giving users the 
-ability to the upvote their favoritie and mission critical feature request.
+
+We use [Canny](https://openfn.canny.io/feature-requests) to receive, track,
+engage and manage new feature requests from the community of users of OpenFn
+globally whilst giving users the ability to the upvote their favoritie and
+mission critical feature request.
 
 #### How to request a new feature
+
 1. Go to [https://openfn.canny.io](https://openfn.canny.io/feature-requests)
-2. Provide a very clear, concise and descriptive title for the feature e.g. Make roadmap avaialble in French
+2. Provide a very clear, concise and descriptive title for the feature e.g. Make
+   roadmap avaialble in French
 3. Describe this feature in detail
-4. Share this new feature request on the OpenFn community and across your professional network for upvotes
+4. Share this new feature request on the OpenFn community and across your
+   professional network for upvotes
 
 :::info Tip
 
-When describing the feature, it is very helpful to help us understand the problem, proposed solution 
-(if any) and similar solutions we might glean insights from _if they exist_.
+When describing the feature, it is very helpful to help us understand the
+problem, proposed solution (if any) and similar solutions we might glean
+insights from _if they exist_.
 
 :::
 
 #### How to upvote features
+
 1. Go to [https://openfn.canny.io](https://openfn.canny.io/feature-requests)
-2. Scroll down or use the filter and search features to see existing feature requests  
-3. Click on the (^) beside the request to upvote. _Upvoted feature requests are prioritized for development_
-4. If you want more upvotes for this feature request, you can also share across your network 
+2. Scroll down or use the filter and search features to see existing feature
+   requests
+3. Click on the (^) beside the request to upvote. _Upvoted feature requests are
+   prioritized for development_
+4. If you want more upvotes for this feature request, you can also share across
+   your network
 
 ### What are we currently working on?
-Interested in keeping up with our work? Visit our [Current Cycle GitHub board](https://github.com/orgs/OpenFn/projects/3/views/1) 
+
+Interested in keeping up with our work? Visit our
+[Current Cycle GitHub board](https://github.com/orgs/OpenFn/projects/3/views/1)
 to see what we are currently busy with and what's coming in the current cycle.
 
 ### Key for the Roadmap `Status` Values
@@ -60,28 +73,27 @@ OpenFn/Lightning is the fully open-source workflow automation platform at the
 core of the OpenFn Digital Public Good (learn more about the product
 [here](/documentation#openfn-v2-lightning-)).
 
-| **Feature**                                                            | **`Status`** | **Target Timeline** | **Related Links**                                                                                                                                                                   | **Description**                                                                                                                                                                                                                                        |
-| ---------------------------------------------------------------------- | ------------ | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 1. Extend workflow canvas to allow branch merging                      | Delivered    | Q2 '24              | [Issue 2008](https://github.com/OpenFn/lightning/issues/2008)                                                                                                                       | Allow users to be able to skip steps and also merge two steps to one downstream step in a workflow                                                                                                                                                     |
-| 2. Implement Generic OAuth credential type                             | Delivered    | Q2 '24              | [Issue 1900](https://github.com/OpenFn/lightning/issues/1900)                                                                                                                       | Generic OAuth client and credential support for adaptors. Users can configure their own OAuth applications and credentials for OpenFn.                                                                                                                 |
-| 3. Add path params in  webhook triggers URL                            | Delivered    | Q2 '24              | [Issue 1954](https://github.com/OpenFn/lightning/issues/1954)                                                                                                                       | Support path params in wenhook URL for workflows.                                                                                                                                                                                                      |
-| 4. Automatic GitHub version control                                    | Delivered    | Q2 '24              | [Issue 970](https://github.com/OpenFn/lightning/issues/970)                                                                                                                         | Use GitHub Version Control to track and review changes to your workflow. Sync an OpenFn project and workflows to a specified GitHub repository github and allow users to be able to update OpenFn projects with GitHub versions.                       |
-| 5. Configurable data clips and history retention period                | Delivered    | Q2 '24              | [Issue 1760](https://github.com/OpenFn/lightning/issues/1760)                                                                                                                       | Allow project administrators to configure how long they want OpenFn to retain data clips and other artifacts related to a workorders in their projects                                                                                                 |
-| 6. Enable workflow snapshotting                                        | Delivered    | Q3 '24              | [Issue 1680](https://github.com/OpenFn/lightning/issues/1680)                                                                                                                       | Keep a snapshot of a snapshot based on a run or saved changes of the workflow. Allow users to be able to view snapshot and switch to the latest version of the workflow from a snapshot mode.                                                          |
-| 7. Enable configurable concurrency by workflow                         | Delivered    | Q3 '24              | [Issue 2002](https://github.com/OpenFn/lightning/issues/2022)                                                                                                                       | Allow users to control the limit of concurrent runs  per workflow in a project.                                                                                                                                                                        |
-| 8. New workflow triggers (Kafka)                                       | Delivered    | Q3 '24              | [Issue 1801](https://github.com/OpenFn/lightning/issues/1801)                                                                                                                       | Enable a new trigger type that allows users to run workflows based on messages from a Kafka cluster.                                                                                                                                                   |
-| 9. AI-enabled assitants                                                | Delivered    | Q3 '24              | [Issue 2193](https://github.com/OpenFn/lightning/issues/2193)                                                                                                                       | LLM based AI assitant that supports users with job writing, debugging and co-piloting their workflow design process.                                                                                                                                   |
-| 10. Invite new users as collaborators                                  | Delivered    | Q3 '24              | [Issue 1835](https://github.com/OpenFn/lightning/issues/1835)                                                                                                                       | Invite users who do not have OpenFn accounts to projects as collaborators.                                                                                                                                                                             |
-| 11. Allow users to create projects                                     | In dev       | Q3 '24              | [Issue 1700](https://github.com/OpenFn/Lightning/issues/1700)                                                                                                                       | All users to create new projects from their dashboard.                                                                                                                                                                                                 |
-| 12. Control log outputs                                                | Planned      | Q3 '24              | [Issue 1755](https://github.com/OpenFn/Lightning/issues/1755)                                                                                                                       | Control what is printed in run logs by specifying log levels and allow users to disable printing console.logs, for data privacy once workflows are handling production data.                                                                           |
-| 13. Allow users to export workorder history                            | Planned      | Q3 '24              | [Issue 1698](https://github.com/OpenFn/lightning/issues/1698)                                                                                                                       | Allow project users to be able to export workorder history. The workorder history contains ALL logs and data clips (Input and Output) associated with runs in a workorder.                                                                             |
-| 14. Enable manual workflow triggers                                    | Not started  | Q4 '24              | [Issue 2155](https://github.com/OpenFn/lightning/issues/2155)                                                                                                                       | Enable users to manually trigger workflow with JSON/CSV data as input data clip                                                                                                                                                                        |
-| 15. Project datastores and buffers                                     | Not started  | Q4 '24              | [Issue 2190](https://github.com/OpenFn/lightning/issues/2190)                                                                                                                       | Allow users to configure a data store or buffer that allows temporary of storage of data that can be used in a workflow.                                                                                                                               |
-| 16. Redesign workflow canvas and inspector interface                   | Not started  | Q4 '24              | [Issue 2021](https://github.com/OpenFn/lightning/issues/2021)                                                                                                                       | Make workflow design better to help user build workflow faster and easier.                                                                                                                                                                             |
-| 17. Improved workorder history page filter                             | Not started  | Q4 '24              | [Issue 1791](https://github.com/OpenFn/lightning/issues/1791)                                                                                                                       | Extend workorder history page and enable cascading filtering. This is useful for debuging, failure recovery and auditability of the workflow.                                                                                                          |
-| 18. Workflow Monitoring                                                | Not started  | Q4 '24              | [Issue 608](https://github.com/OpenFn/kit/issues/608)                                                                                                                               | Give users better visibility of what's happening on inside the worker, especially when an error occurs during run execution.                                                                                                                           |
-| 19. Expanded Audit Trail and Node Authentication (ATNA) functionality  | Not started  | Q1 '25              | [Issue 271](https://github.com/OpenFn/Lightning/issues/271)                                                                                                                         | Extend audit trail functionality to cover more aspects of ATNA, reference [OpenHIE IOL requirement IOLWF-1](https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-interoperability-layer-iol#openhie-iol-workflow-requirements).|
-
+| **Feature**                                                           | **`Status`** | **Target Timeline** | **Related Links**                                             | **Description**                                                                                                                                                                                                                                         |
+| --------------------------------------------------------------------- | ------------ | ------------------- | ------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. Extend workflow canvas to allow branch merging                     | Delivered    | Q2 '24              | [Issue 2008](https://github.com/OpenFn/lightning/issues/2008) | Allow users to be able to skip steps and also merge two steps to one downstream step in a workflow                                                                                                                                                      |
+| 2. Implement Generic OAuth credential type                            | Delivered    | Q2 '24              | [Issue 1900](https://github.com/OpenFn/lightning/issues/1900) | Generic OAuth client and credential support for adaptors. Users can configure their own OAuth applications and credentials for OpenFn.                                                                                                                  |
+| 3. Add path params in webhook triggers URL                            | Delivered    | Q2 '24              | [Issue 1954](https://github.com/OpenFn/lightning/issues/1954) | Support path params in wenhook URL for workflows.                                                                                                                                                                                                       |
+| 4. Automatic GitHub version control                                   | Delivered    | Q2 '24              | [Issue 970](https://github.com/OpenFn/lightning/issues/970)   | Use GitHub Version Control to track and review changes to your workflow. Sync an OpenFn project and workflows to a specified GitHub repository github and allow users to be able to update OpenFn projects with GitHub versions.                        |
+| 5. Configurable data clips and history retention period               | Delivered    | Q2 '24              | [Issue 1760](https://github.com/OpenFn/lightning/issues/1760) | Allow project administrators to configure how long they want OpenFn to retain data clips and other artifacts related to a workorders in their projects                                                                                                  |
+| 6. Enable workflow snapshotting                                       | Delivered    | Q3 '24              | [Issue 1680](https://github.com/OpenFn/lightning/issues/1680) | Keep a snapshot of a snapshot based on a run or saved changes of the workflow. Allow users to be able to view snapshot and switch to the latest version of the workflow from a snapshot mode.                                                           |
+| 7. Enable configurable concurrency by workflow                        | Delivered    | Q3 '24              | [Issue 2002](https://github.com/OpenFn/lightning/issues/2022) | Allow users to control the limit of concurrent runs per workflow in a project.                                                                                                                                                                          |
+| 8. New workflow triggers (Kafka)                                      | Delivered    | Q3 '24              | [Issue 1801](https://github.com/OpenFn/lightning/issues/1801) | Enable a new trigger type that allows users to run workflows based on messages from a Kafka cluster.                                                                                                                                                    |
+| 9. AI-enabled assitants                                               | Delivered    | Q3 '24              | [Issue 2193](https://github.com/OpenFn/lightning/issues/2193) | LLM based AI assitant that supports users with job writing, debugging and co-piloting their workflow design process.                                                                                                                                    |
+| 10. Invite new users as collaborators                                 | Delivered    | Q3 '24              | [Issue 1835](https://github.com/OpenFn/lightning/issues/1835) | Invite users who do not have OpenFn accounts to projects as collaborators.                                                                                                                                                                              |
+| 11. Allow users to create projects                                    | In dev       | Q3 '24              | [Issue 1700](https://github.com/OpenFn/Lightning/issues/1700) | All users to create new projects from their dashboard.                                                                                                                                                                                                  |
+| 12. Control log outputs                                               | Planned      | Q3 '24              | [Issue 1755](https://github.com/OpenFn/Lightning/issues/1755) | Control what is printed in run logs by specifying log levels and allow users to disable printing console.logs, for data privacy once workflows are handling production data.                                                                            |
+| 13. Allow users to export workorder history                           | Planned      | Q3 '24              | [Issue 1698](https://github.com/OpenFn/lightning/issues/1698) | Allow project users to be able to export workorder history. The workorder history contains ALL logs and data clips (Input and Output) associated with runs in a workorder.                                                                              |
+| 14. Enable manual workflow triggers                                   | Not started  | Q4 '24              | [Issue 2155](https://github.com/OpenFn/lightning/issues/2155) | Enable users to manually trigger workflow with JSON/CSV data as input data clip                                                                                                                                                                         |
+| 15. Project datastores and buffers                                    | Not started  | Q4 '24              | [Issue 2190](https://github.com/OpenFn/lightning/issues/2190) | Allow users to configure a data store or buffer that allows temporary of storage of data that can be used in a workflow.                                                                                                                                |
+| 16. Redesign workflow canvas and inspector interface                  | Not started  | Q4 '24              | [Issue 2021](https://github.com/OpenFn/lightning/issues/2021) | Make workflow design better to help user build workflow faster and easier.                                                                                                                                                                              |
+| 17. Improved workorder history page filter                            | Not started  | Q4 '24              | [Issue 1791](https://github.com/OpenFn/lightning/issues/1791) | Extend workorder history page and enable cascading filtering. This is useful for debuging, failure recovery and auditability of the workflow.                                                                                                           |
+| 18. Workflow Monitoring                                               | Not started  | Q4 '24              | [Issue 608](https://github.com/OpenFn/kit/issues/608)         | Give users better visibility of what's happening on inside the worker, especially when an error occurs during run execution.                                                                                                                            |
+| 19. Expanded Audit Trail and Node Authentication (ATNA) functionality | Not started  | Q1 '25              | [Issue 271](https://github.com/OpenFn/Lightning/issues/271)   | Extend audit trail functionality to cover more aspects of ATNA, reference [OpenHIE IOL requirement IOLWF-1](https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-interoperability-layer-iol#openhie-iol-workflow-requirements). |
 
 _You can follow Lightning's progress and track delivered features in the
 [Lightning Changelog](https://github.com/OpenFn/Lightning/blob/main/CHANGELOG.md)._
@@ -114,6 +126,7 @@ workflow engine, enable automated workflows that cut across digital systems.
 ### Have questions, feedback or found a bug?
 
 We encourage users to post their questions on the OpenFn Community at
-[community.openfn.org](https://community.openfn.org), or consider creating 
-issues for bugs via product repository. You can also independetly start contributing
-to the OpenFn software, adaptors, or documentation by getting started [here](./writing-code.md)).
+[community.openfn.org](https://community.openfn.org), or consider creating
+issues for bugs via product repository. You can also independetly start
+contributing to the OpenFn software, adaptors, or documentation by getting
+started [here](./writing-code.md)).
