@@ -94,7 +94,6 @@ module.exports = {
             'manage-projects/webhook-auth',
             'manage-projects/workflow-dashboard',
             'manage-projects/collaboration',
-
           ],
         },
         {
@@ -132,7 +131,11 @@ module.exports = {
     {
       type: 'category',
       label: 'Migrate to v2',
-      items: ['migration/migration-steps', 'migration/converting-triggers', 'migration/automated-migration'],
+      items: [
+        'migration/migration-steps',
+        'migration/converting-triggers',
+        'migration/automated-migration',
+      ],
     },
 
     {
