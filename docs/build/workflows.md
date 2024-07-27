@@ -3,16 +3,16 @@ title: Workflows
 sidebar_label: Workflows
 ---
 
-`Workflows` are automated processes or sets of instructions that accomplish a
+**Workflows** are automated processes or sets of instructions that accomplish a
 task. In OpenFn configuration, a Workflow consists of a Trigger, Steps, and
 Paths that define automation logic. Read on to learn how to configure Workflows.
 
-## Create a new Workflow
+## Create Workflows
 
 To create a new Workflow in your Project:
 
-1. Go to the `Workflows` page.
-2. Click `Create new workflow` button.
+1. Go to the **Workflows** page.
+2. Click the **Create new workflow** button.
 3. Give your Workflow a descriptive `Name` (e.g., `Register patients`,
    `Refer cases`, `Monthly payroll`).
 4. Choose your [Trigger](../build/triggers.md)
@@ -40,5 +40,53 @@ To "turn off" or disable a Workflow:
 
 1. Open the Workflow
 2. Click on the Trigger
-3. Select the `Disable this trigger` checkbox
-4. Select `Save` to save your changes
+3. Select the **Disable this trigger** checkbox
+4. Select **Save** to save your changes
+
+## Limit Concurrency
+
+Workflow **concurrency** is the number pf runs will be allowed for a given
+workflow **_at the same time_**. In OpenFn, project administrators and editors
+are able to limit the maximum number of the runs that can be executed at the
+same time for a workflow. You might do this to ensure "one at a time" serial
+processing or to keep a fast OpenFn workflow from overwhelming the API rate
+limit of some other connected system.
+
+:::info
+
+Note that this setting allows administrators to _limit_ the maximum concurrency
+for a workflow, but the **global maximum** (i.e., the highest concurrency that
+can be reached if a workflow is _not_ limited by a project administrator) will
+be controlled by your OpenFn instance superuser. This global maximum will be
+determined by the computing power and throughput made available to your
+installation.
+
+:::
+
+### What happens when concurrency limit is set on a workflow?
+
+When concurrency limit is configured for a workflow, the maximum number of runs
+that are executed concurrently will not exceed the number that has been set for
+the workflow. For example:
+
+- **Concurrency not set (or = 0)**: There's no artificial limit applied, and
+  this workflow will only be limited by the total computing power available
+  across your OpenFn installation.
+- **Concurrency = 1**: Runs for this workflow will only take place 1-at-a-time.
+  Each run must _finish_ before the next run can start.
+- **Concurrency = 2**: No more than 2 runs for this workflow can be executed at
+  a time and other runs will have stay `enqueued`. If runs "A", "B", and "C" are
+  all enqueued, "A" and "B" will start executing. Once "A" finishes, "C" will
+  start. (No more than 2-at-a-time.)
+
+### Setting Concurrency for a workflow
+
+Concurrency limits can be set via the workflow settings modal on the workflow
+canvas.
+
+1. Click on the settings icon beside the save button on your workflow to open
+   the workflow settings
+2. In the modal, enter the maximum concurrency limit
+3. Click save.
+
+![Configuring Concurrency](/img/configuring-concurrency.png)
