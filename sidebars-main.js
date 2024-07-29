@@ -105,6 +105,7 @@ module.exports = {
             'manage-users/api-tokens',
           ],
         },
+        'hosted/overview',
       ],
     },
 
