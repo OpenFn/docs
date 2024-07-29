@@ -46,9 +46,9 @@ Oauth clients can be set up either on the
 
 :::note
  Currently only users with
-[super user privileges](../manage-projects/user-roles-permissions#super-user-privileges)
+[super user privileges](https://docs.openfn.org/documentation/manage-projects/user-roles-permissions#super-user-privileges)
 can create and manage OAuth clients. If you're using the OpenFn cloud-hosted platform SaaS, 
-contact [support@openfn.org](support@openfn.org) for assistance adding a new Oauth client.
+contact [support@openfn.org](mailto://support@openfn.org) for assistance adding a new Oauth client.
 :::
 
 If you have not created a client before or a superuser has not created a client
