@@ -648,7 +648,7 @@ You can read more about the `each()` operation in
 
 The `each` function will take an array and, for each item, invoke a callback
 with a scoped state. This means it takes your state object and sets the item
-under iteration to `state.data`. In order words, `state.data` inside the
+under iteration to `state.data`. In other words, `state.data` inside the
 callback is _scoped_ to each item in the array.
 
 ```js
