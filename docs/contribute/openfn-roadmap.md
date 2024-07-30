@@ -50,7 +50,7 @@ immediate roadmap.
 
 ### See [**_Epics_**](https://github.com/orgs/OpenFn/projects/3/views/7) 🤔 for a list of projects that we're considering, roughly-prioritized
 
-### See [**_Bugs_**](https://github.com/orgs/OpenFn/projects/3/views/7) 🐞 for reported bugs
+### See [**_Bugs_**](https://github.com/orgs/OpenFn/projects/3/views/22) 🐞 for reported bugs
 
 We will update this site periodically (ideally after each cycle, typically
 lasting between 2-6 weeks) to reflect our progress on major items. You can also
