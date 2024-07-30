@@ -10,7 +10,7 @@ enterprise mobility + security services, windows services, and Dynamics 365 Busi
 The MS Graph Rest API also allows authorized users to build new applications that deliver value to 
 users within and outside the organization. 
 
-MSGraph OpenFn Adaptors allows you to seamlessly authenticate and integrate with the Microsoft 365 
+OpenFn Adaptor for MS Graph allows users to seamlessly authenticate and integrate with the Microsoft 365 
 platform to access data or perform specific workflow-driven operations on behalf of a tenant or a 
 user within the Microsoft 365 instance.  For example, the MSgraph Adaptor allows users to build 
 OpenFn workflows to access documents stored in SharePoint, create or update files, and manage 
@@ -18,97 +18,34 @@ permissions. Another use case is building a workflow to connect with a Microsoft
 calendar, and contacts to read and manage specific information directly.
 
 
-### Adding an MS Graph client
+### Authentication and Authorization
 
-OpenID configuration:
-https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
+This adaptor requires OAuth authorization to connect with the MS Graph. This authorization can be achieved 
+by a user or organization admin consenting to an OAuth client to access resources. Users can request 
+authorization via the default OpenFn Microsoft OAuth client or choose to Add new (generic) OAuth client(s) 
+for their account and projects. To create an OAuth based credential for MS Graph read our documentation on 
+[using OAuth credentials](documentation/build/credentials#use-oauth2-credentials). 
 
-Obtain a Client ID and Secret To create an MS Graph Client, you need to have an
-application registered. This can be an existing application or a new application
-that can be registered in a few minutes.
+:::info 
+Setting up your own generic OAuth client requires that you have an OAuth application set up. 
+Please refer to Microsoft's documentation to [configure an OAuth App](https://learn.microsoft.com/en-us/entra/identity/saas-apps/openidoauth-tutorial)
+via the entra app gallery.
+:::
 
-Obtaining Client ID and secret for an existing application: Open Azure portal:
-https://portal.azure.com From the dashboard click App services to open the
-default directory or overview page. On the left menu, click App registrations to
-open the list of applications that have been registered
+#### Permissions (Scopes)
+Permissions and access in an OAuth instance are defined by scopes which are named differently by providers based 
+on their functions within their platform. For MS Graph, there are two types of scopes: Delegated permission and 
+Application Scopes. 
 
-![App Registration 1](/img/app_reg1.png)
+Delegated scopes are used by applications that sign in a user and act on behalf of the signed-in user. These 
+permissions require the user to consent and are subject to the same data access restrictions as the user 
+within the organization. Application scopes, on the other hand, are used by applications that run without a 
+signed-in user. They require admin consent and provide access to all data for an organization, typically 
+used by background services or daemons. 
 
-On the app registration page, click on the All Applications tab to see all the
-applications you have access to.
+OpenFn workflows and generic OAuth setup are compatible with the delegated and application scopes. 
 
-![App Registration 2](/img/app_reg.png)
-
-Click on the preferred application from the list to see the application
-overview. From the menu, click on Certificates & secrets and select the Client
-secrets tab to manage client secrets for your application. To create a new one,
-click on the New client secret button.
-
-#### Registering a new application to obtain client secret and ID
-
-Go to the Azure portal: https://portal.azure.com On the dashboard,
-
-1. Click “App Registrations” or if that’s not available, click App Services then
-   “App Registrations” to add as a new resource
-
-![App Registration 3](/img/app_reg3.png)
-
-2. To create a new application: Provide the name of the application Select the
-   account type (depending on the use case) Set the redirect URI to web and
-   https://app.openfn.org/authenticate/callback Click register to create the
-   application
-
-![App Registration 4](/img/app_reg4.png)
-
-From the default directory, click on App registrations on the side menu to the
-list of applications you have registered.
-
-![App Registration 5](/img/app_reg5.png)
-
-From the list, select the application you have just registered to open it in
-detail.
-
-![App Registration 6](/img/app_reg6.png)
-
-From the menu, click on Certificates & secrets and select the Client secrets tab
-to manage client secrets for your application. To create a new one, click on the
-New client secret button.
-
-![App Registration 7](/img/app_reg7.png)
-
-Copy your client secret and client ID to create a new OAuth client on OpenFn.
-
-Set API Permissions for scopes required by the application Setting API
-permissions is a crucial step in registering an application because it helps to
-define the resources the application can access and what actions it can perform
-on behalf of users or the organization. To set API permissions, click on API
-permission on the left menu on the overview page.
-
-![App Registration 8](/img/app_reg8.png)
-
-On the API permissions page, click Add a permission to open the interface to
-select an API.
-
-![App Registration 9](/img/app_reg9.png)
-
-On this interface, you can select any of the available APIs provided by
-Microsoft but in this case, select Microsoft Graph.
-
-Select permission type: depending on your application needs, you can choose
-between designated permissions and application permissions. Application
-permissions require admin consent while designated permissions require only user
-consent.
-
-![App Registration 10](/img/app_reg10.png)
-
-When you have selected the permission type, search and check the boxes to add
-the scopes you need.
-
-![App Registration 11](/img/app_reg11.png)
-
-When you’re done, click Add Permissions to complete.
-
-Scopes:
+Below here is a list of commonly used OAuth MS Scopes for your reference. 
 
 1. _User scopes_:
    - `User.Read` (Read user profile)
@@ -143,3 +80,7 @@ Scopes:
 9. _Other scopes_:
    - `offline_access` (Access resources even when the user is offline)
    - `openid` (Authenticate with OpenID Connect)
+
+### Helpful links
+- [MS Graph Overview](https://learn.microsoft.com/en-us/graph/overview)
+- [MS Graph OAuth Scopes](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc)
