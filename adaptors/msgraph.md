@@ -5,8 +5,8 @@ title: MS Graph
 ### Overview
 
 MS Graph is a REST API that allows you to access data and insights from data stored within an 
-Organization’s Microsoft 365 instance with access across domains such as Microsoft core services, 
-enterprise mobility + security services, windows services, and Dynamics 365 Business Central services. 
+Organization’s Microsoft 365 instance with access across domains such as Microsoft Core Services, 
+Enterprise Mobility + Security Services, Windows Services, and Dynamics 365 Business Central services. 
 The MS Graph Rest API also allows authorized users to build new applications that deliver value to 
 users within and outside the organization. 
 
@@ -23,8 +23,8 @@ calendar, and contacts to read and manage specific information directly.
 This adaptor requires OAuth authorization to connect with the MS Graph. This authorization can be achieved 
 by a user or organization admin consenting to an OAuth client to access resources. Users can request 
 authorization via the default OpenFn Microsoft OAuth client or choose to Add new (generic) OAuth client(s) 
-for their account and projects. To create an OAuth based credential for MS Graph read our documentation on 
-[using OAuth credentials](documentation/build/credentials#use-oauth2-credentials). 
+for their account and projects. To authorize MS Graph for your OpenFn workflows read our documentation on
+[using OAuth credentials](/documentation/build/credentials#use-oauth2-credentials). 
 
 :::info 
 Setting up your own generic OAuth client requires that you have an OAuth application set up. 
