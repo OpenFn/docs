@@ -94,6 +94,8 @@ module.exports = {
             'manage-projects/webhook-auth',
             'manage-projects/workflow-dashboard',
             'manage-projects/collaboration',
+            'manage-projects/oauth',
+
           ],
         },
         {
