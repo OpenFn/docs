@@ -93,3 +93,40 @@ fn(state => {
   return state;
 });
 ```
+
+## Kafka Triggers
+
+The Kafka trigger allows OpenFn users to build workflows triggered by messages 
+published by a Kafka cluster. The triggers make use of Kafka consumer groups that are 
+set up on-demand to  receive messages from the cluster and pass them to an OpenFn pipleine 
+that transforms the message into dataclips that used to initialize a workorder. 
+
+![Configuring Kafka Trigger](/img/configuring-kafka.png)
+
+### how to configure a Kafka trigger
+1. Create a new workflow or Ooen an existing workflow
+2. Click on the trigger step and change the trigger type to Kafka Consumer in the Trigger type dropdown
+3. Fill out the required connection details: 
+  - Hosts: Provide the URL of the host(s) your trigger should listen to for message.
+  - Topics: What specific topics should the Kafka consumers subscribe to. You need at 
+  least one topic for a successful connection
+  - Some Kafka cluster require SSL connection. If you are connecting to an environment 
+  that requires SSL connection, select `Enable SSL`
+  - Select the type of Authentication and provide the username and password for 
+  connecting to the instance. (see tip below for more information on authenticating Kafka)
+  - Set the initial offset policy. The intial offset dictates where the consumer starts 
+  reading messages from a topic when it subscribes for the first time. There are three 
+  possible options here : `earliest`, `latest` or specific `timestamp` *for example: 1721889238000*.
+  - Set the Connect timeout. The connect timeout specified in secs is the duraiton of time 
+  the consumer can wait before timing out when attempting to connect with a Kafka cluster.
+4. If you have not completed budiling your workflow or you're not ready to start receiving messages 
+from the Kafka cluster, please disable the trigger until you're ready.  
+
+:::warning Disable the trigger during workflw design
+Once the required connection information is provided via the modal, the triggest start attempting to connect to the 
+cluster. We advice that you disable the workflow until your workflow is ready to consumer data from cluster. To stop 
+the trigger from receiving and processing messages, disable the trigger.
+:::
+
+Learn how a Kafka trigger workflow's initial `state` gets built from a webhook trigger
+[here](../jobs/state#kafka-triggered-runs).

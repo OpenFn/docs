@@ -57,7 +57,7 @@ operation. Remember that job expressions are a series of operations: they each
 take state and return state, after creating any number of side effects. You can
 control what is returned at the end of all of these operations.
 
-### Webhook triggered Runs
+### Webhook triggered runs
 
 On the platform, when a Run is triggered by a webhook event, the input state
 contains important parts of the inbound **http request**.
@@ -79,7 +79,46 @@ The input state will look something like this:
 }
 ```
 
-### Cron triggered Runs
+### Kafka triggered runs 
+
+When a kafka message is received by the trigger, the input state contains important information for 
+auditing or recovering from any loss of connection or failure of the workorder. 
+
+The input state looks like this: 
+
+```js
+{
+  data: { // the body of the kafka message request
+    body: {
+      formId: "patient_enrollment",
+      name: "John Doe"
+    },
+  headers: {
+      "X-Forwarded-For": "41.90.69.203",
+      "X-Forwarded-Host": "ec2-13-244-108-204.af-south-1.compute.amazonaws.com:5001",
+      "X-OpenHIM-ClientID": "test",
+      "X-OpenHIM-TransactionID": "66a1f1d4c81081a1e6809484",
+      "accept": "application/fhir+json",
+      "content-length": "20592",
+      "content-type": "application/fhir+json",
+      "user-agent": "k6/0.49.0 (https://k6.io/)"
+    },
+    method: "POST",
+    path: "/kafka",
+    pattern: "^/kafka$"
+  },
+  request: {
+    "headers": [],
+    "key": "",
+    "offset": 168321,
+    "partition": 1,
+    "topic": "fhir-data-pipes",
+    "ts": 1721889238000
+  }
+}
+```
+
+### Cron triggered runs
 
 On the platform, when a Run is triggered by a cron job, the input state will the
 final output state of the **last succesful run** for this workflow. This allows
