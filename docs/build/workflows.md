@@ -34,7 +34,7 @@ The workflow builder allows branch merging and skipping steps. To merge two or m
 3. Click on the link icon and drag to create a path
 4. Drop the new path on the desired step in your workflow
 
-![Merging](/img/workflow_builder_merging.gif
+![Merging](/img/workflow_builder_merging.gif)
 
 :::note
 Looping workflows are not supported so you have to connect paths to downstream steps.
