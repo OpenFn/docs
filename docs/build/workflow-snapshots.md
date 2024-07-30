@@ -4,7 +4,7 @@ sidebar_label: Workflow Snapshots
 slug: /workflow-snapshots
 ---
 
-Workflow snapshots capture and store the state of a workflow and jobs at a specific point in time based on a save operation and/or run. Snapshots are help with debugging, auditing, and improving overall workflow performance.
+Workflow snapshots capture and store the state of a workflow and job code at a specific point in time based on a save operation and/or run. Snapshots are helpful with debugging, auditing, and improving overall workflow performance.
 
 ### When is a snapshot made?
 Snapshots are created in 2 ways:
@@ -22,11 +22,11 @@ From the expanded history view, there are two ways to visualize snapshots:
 
 #### Viewing a snapshot by inspecting a step in the run
 
-Click on the inspect icon in front of the step you’d like to view. 
+Click on the inspect icon in front of the step you would like to view. 
 
 ![Inspect](/img/inspect.png)
 
-This will open the inspector screen for that step in the run with all associated artifacts: logs and I/O data. On the inspector, you'll notice that you're in a read-only mode, and hovering on the workflow snapshot ID chip, you’ll see a message that reads “You are viewing a snapshot of this workflow that was taken on ….”
+This will open the inspector screen for that step in the run with all associated artifacts: logs and input/output data. On the inspector, you'll notice that you're in a read-only mode, and hovering on the workflow snapshot ID chip, you’ll see a message that reads “You are viewing a snapshot of this workflow that was taken on ….”
 
 ![Snapshot2](/img/snapshots2.png)
 
@@ -54,5 +54,4 @@ When you switch to the latest version, the snapshot ID tag will change to blue c
 ![Snapshot6](/img/snapshots6.png)
 
 ### Retrying a Snapshot
-
 When retrying a run with a snapshot, the retry will be executed with the latest version of the workflow and job code. 
