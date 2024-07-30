@@ -67,6 +67,7 @@ module.exports = {
             'build/editing-locally',
             'build/working-with-branches',
             'build/troubleshooting',
+            'build/workflow-snapshots',
           ],
         },
         {
