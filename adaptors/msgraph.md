@@ -4,9 +4,19 @@ title: MS Graph
 
 ### Overview
 
-MS Graph is a REST API that allows you to access Microsoft Cloud products. After
-you register your app and get authentication tokens for a user or service, you
-can make requests to the MS Graph API.
+MS Graph is a REST API that allows you to access data and insights from data stored within an 
+Organization’s Microsoft 365 instance with access across domains such as Microsoft core services, 
+enterprise mobility + security services, windows services, and Dynamics 365 Business Central services. 
+The MS Graph Rest API also allows authorized users to build new applications that deliver value to 
+users within and outside the organization. 
+
+MSGraph OpenFn Adaptors allows you to seamlessly authenticate and integrate with the Microsoft 365 
+platform to access data or perform specific workflow-driven operations on behalf of a tenant or a 
+user within the Microsoft 365 instance.  For example, the MSgraph Adaptor allows users to build 
+OpenFn workflows to access documents stored in SharePoint, create or update files, and manage 
+permissions. Another use case is building a workflow to connect with a Microsoft users emails, 
+calendar, and contacts to read and manage specific information directly.
+
 
 ### Adding an MS Graph client
 
