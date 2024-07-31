@@ -45,7 +45,7 @@ To "turn off" or disable a Workflow:
 
 ## Limit Concurrency
 
-Workflow **concurrency** is the number pf runs will be allowed for a given
+Workflow **concurrency** is the number of runs that will be allowed for a given
 workflow **_at the same time_**. In OpenFn, project administrators and editors
 are able to limit the maximum number of the runs that can be executed at the
 same time for a workflow. You might do this to ensure "one at a time" serial
