@@ -4,16 +4,16 @@ title: MS Graph
 
 ### Overview
 
-MS Graph is a REST API that allows you to access data and insights from data stored within an 
+[Microsoft Graph](https://learn.microsoft.com/en-us/graph/overview) or "MS Graph" is a REST API that allows you to access data and insights from data stored within an 
 Organization’s Microsoft 365 instance with access across domains such as Microsoft Core Services, 
 Enterprise Mobility + Security Services, Windows Services, and Dynamics 365 Business Central services. 
-The MS Graph Rest API also allows authorized users to build new applications that deliver value to 
+The MS Graph Rest API also allows authorized users to connect and build new applications that deliver value to 
 users within and outside the organization. 
 
 The OpenFn Adaptor for MS Graph allows users to seamlessly authenticate and integrate with the Microsoft 365 
 platform to access data or perform specific workflow-driven operations on behalf of a tenant or a 
 user within the Microsoft 365 instance.  For example, the MSgraph Adaptor allows users to build 
-OpenFn workflows to access documents stored in SharePoint, create or update files, and manage 
+OpenFn Workflows to extract documents stored in SharePoint, create or update files, and manage 
 permissions. Another use case is building a workflow to connect with a Microsoft user's emails, 
 calendar, and contacts to read and manage specific information directly.
 
@@ -45,7 +45,9 @@ used by background services or daemons.
 
 OpenFn workflows and generic OAuth setup are compatible with both the delegated and application scopes. 
 
-Below is a list of commonly used OAuth MS Scopes for your reference. 
+Below is a list of commonly used OAuth MS Scopes for your reference. **The scopes required will depend on your
+use case, so please refer to the MS Graph documentation on [OAuth Scopes](https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc)), 
+and/or consult with your system administrator.**
 
 1. _User scopes_:
    - `User.Read` (Read user profile)
