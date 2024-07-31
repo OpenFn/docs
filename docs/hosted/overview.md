@@ -14,14 +14,14 @@ accounts and subscription management here.
 
 ## User Registration
 
-When you create a cloud user account via OpenFn.org/signup, you are instantly
+When you create a cloud user account via [OpenFn.org](https://www.openfn.org/register), you are instantly
 given access to a single project on the free tier and we create a personal
 billing account (see [below](#billing-accounts)) which you can later use to
 purchase additional project spaces or upgrade from the free plan.
 
 If you've been invited to join OpenFn.org as a collaborator for another user's
 project, you won't yet have your own personal billing account but may request
-one by writing to support@openfn.org.
+one by writing to [support@openfn.org](mailto:support@openfn.org).
 
 ## Billing Accounts
 
@@ -44,7 +44,7 @@ billing account users but cannot modify any of them.
 ### Payment Methods
 
 In order to upgrade your project subscription, you need an approved payment
-method. Both "invoice" and "credit card" payment methods are allowed.
+method. Both invoice and credit card payment methods are allowed.
 
 #### Invoice Payment
 
