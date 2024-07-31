@@ -10,11 +10,11 @@ Enterprise Mobility + Security Services, Windows Services, and Dynamics 365 Busi
 The MS Graph Rest API also allows authorized users to build new applications that deliver value to 
 users within and outside the organization. 
 
-OpenFn Adaptor for MS Graph allows users to seamlessly authenticate and integrate with the Microsoft 365 
+The OpenFn Adaptor for MS Graph allows users to seamlessly authenticate and integrate with the Microsoft 365 
 platform to access data or perform specific workflow-driven operations on behalf of a tenant or a 
 user within the Microsoft 365 instance.  For example, the MSgraph Adaptor allows users to build 
 OpenFn workflows to access documents stored in SharePoint, create or update files, and manage 
-permissions. Another use case is building a workflow to connect with a Microsoft users emails, 
+permissions. Another use case is building a workflow to connect with a Microsoft user's emails, 
 calendar, and contacts to read and manage specific information directly.
 
 
