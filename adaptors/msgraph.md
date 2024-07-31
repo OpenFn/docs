@@ -37,15 +37,15 @@ Permissions and access in an OAuth instance are defined by scopes which are name
 on their functions within their platform. For MS Graph, there are two types of scopes: Delegated permission and 
 Application Scopes. 
 
-Delegated scopes are used by applications that sign in a user and act on behalf of the signed-in user. These 
+Delegated permissions are used by applications that sign in a user and act on behalf of the signed-in user. These 
 permissions require the user to consent and are subject to the same data access restrictions as the user 
 within the organization. Application scopes, on the other hand, are used by applications that run without a 
 signed-in user. They require admin consent and provide access to all data for an organization, typically 
 used by background services or daemons. 
 
-OpenFn workflows and generic OAuth setup are compatible with the delegated and application scopes. 
+OpenFn workflows and generic OAuth setup are compatible with both the delegated and application scopes. 
 
-Below here is a list of commonly used OAuth MS Scopes for your reference. 
+Below is a list of commonly used OAuth MS Scopes for your reference. 
 
 1. _User scopes_:
    - `User.Read` (Read user profile)
