@@ -1,5 +1,5 @@
 ---
-title: MS Graph
+title: Microsoft Graph
 ---
 
 ### Overview
