@@ -35,7 +35,7 @@ different OpenFn users and accessible to different projects.
 For every application you need to connect to OpenFn, you need to set up at least
 one client for your project(s).
 
-Oauth clients can be set up either on the
+OAuth clients can be set up either on the
 [project credentials page](../manage-projects/manage-credentials.md) or the
 [user credentials page](../manage-users/user-credentials.md).
 
@@ -45,7 +45,7 @@ Oauth clients can be set up either on the
  Currently only users with
 [super user privileges](https://docs.openfn.org/documentation/manage-projects/user-roles-permissions#super-user-privileges)
 can create and manage OAuth clients. If you're using the OpenFn cloud-hosted platform SaaS, 
-contact [support@openfn.org](mailto://support@openfn.org) for assistance adding a new Oauth client.
+contact [support@openfn.org](mailto:support@openfn.org) for assistance adding a new Oauth client.
 :::
 
 If you have not created a client before or a superuser has not created a client
