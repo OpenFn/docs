@@ -4,18 +4,15 @@ sidebar_label: OAuth Authentication
 slug: /oauth
 ---
 
-Some applications require OAuth as an authentication method for connecting with
-third party applications making requests via their APIs. This guide walks you
-through how to set up and manage OAuth clients.
+Some applications require [OAuth](https://oauth.net/2/) as an authentication method for connecting with
+third party applications making requests via their APIs. OpenFn allows you to connect with applications using their OAuth
+authentication. This guide walks you
+through how to set up and manage OAuth clients and credentials.
 
 ### OAuth Authentication
 
-Some applications require [OAuth](https://oauth.net/2/) as an authentication
-method for connecting with third-party applications and making requests via
-their APIs. OpenFn allows you to connect with applications using their OAuth
-authentication. To use this feature in your OpenFn workflows, you need to set up
-OAuth clients and credentials for your instances or projects. This guide walks
-you through the management of OAuth clients and credentials.
+To use the OAuth authentication feature in your OpenFn workflows, you need to set up
+OAuth clients and credentials for your instances or projects.
 
 ### Setting up an OAuth client
 
