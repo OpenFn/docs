@@ -79,12 +79,13 @@ The input state will look something like this:
 }
 ```
 
-### Kafka triggered runs 
+### Kafka triggered runs
 
-When a kafka message is received by the trigger, the input state contains important information for 
-auditing or recovering from any loss of connection or failure of the workorder. 
+When a kafka message is received by the trigger, the input state contains
+important information for auditing or recovering from any loss of connection or
+failure of the workorder.
 
-The input state looks like this: 
+The input state looks like this:
 
 ```js
 {
