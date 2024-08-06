@@ -98,46 +98,45 @@ fn(state => {
 
 The Kafka trigger allows OpenFn users to build workflows triggered by messages
 published by a Kafka cluster. The triggers make use of Kafka consumer groups
-that are set up on-demand to receive messages from the cluster and pass them to
-an OpenFn pipleine that transforms the message into dataclips that used to
-initialize a workorder.
+that are set up on-demand to receive messages from a defined cluster then
+converts them to dataclips that used to initialize a work order.
 
 ![Configuring Kafka Trigger](/img/configuring-kafka.png)
 
-### how to configure a Kafka trigger
+### Configuring a Kafka trigger for your workflow
 
-1. Create a new workflow or Ooen an existing workflow
-2. Click on the trigger step and change the trigger type to Kafka Consumer in
-   the Trigger type dropdown
+1. Create a new workflow or Open an existing workflow
+2. Click on the workflow trigger and change the trigger type to Kafka Consumer
+   in the `Trigger type` dropdown.
 3. Fill out the required connection details:
 
-- Hosts: Provide the URL of the host(s) your trigger should listen to for
+- **Hosts**: Provide the URL of the host(s) your trigger should listen to for
   message.
-- Topics: What specific topics should the Kafka consumers subscribe to. You need
-  at least one topic for a successful connection
-- Some Kafka cluster require SSL connection. If you are connecting to an
-  environment that requires SSL connection, select `Enable SSL`
-- Select the type of Authentication and provide the username and password for
-  connecting to the instance. (see tip below for more information on
-  authenticating Kafka)
-- Set the initial offset policy. The intial offset dictates where the consumer
+- **Topics**: Enter the topics your Kafka consumers should subscribe to. You
+  need at least one topic for a successful connection.
+- **SSL**: Some Kafka cluster require SSL connection. If you are connecting to
+  an environment that requires SSL connection, select `Enable SSL`.
+- **Authentication**: Select the type of Authentication required for the Kafka
+  cluster.
+- **Initial offset policy**: The intial offset dictates where the consumer
   starts reading messages from a topic when it subscribes for the first time.
-  There are three possible options here : `earliest`, `latest` or specific
-  `timestamp` _for example: 1721889238000_.
-- Set the Connect timeout. The connect timeout specified in secs is the duraiton
-  of time the consumer can wait before timing out when attempting to connect
+  There are three possible options: `earliest`, `latest` or specific `timestamp` 
+  _for example: 1721889238000_.
+- **Connect timeout**: The connect timeout specified in seconds represents how
+  long the consumer should wait before timing out when attempting to connect
   with a Kafka cluster.
 
-4. If you have not completed budiling your workflow or you're not ready to start
+4. If you have not finished designing your workflow or you're not ready to start
    receiving messages from the Kafka cluster, please disable the trigger until
    you're ready.
 
 :::warning Disable the trigger during workflow design
 
-Once the required connection information is provided via the modal, the triggest
-start attempting to connect to the cluster. We advice that you disable the
-workflow until your workflow is ready to consumer data from cluster. To stop the
-trigger from receiving and processing messages, disable the trigger.
+Once the required connection information is provided via the modal, the trigger
+start attempting to connect to the Kafka cluster. We advice that the trigger is
+dsiabled until your workflow is ready to receive data from the cluster for
+processing. To stop the trigger from receiving and processing messages, disable
+the trigger.
 
 :::
 

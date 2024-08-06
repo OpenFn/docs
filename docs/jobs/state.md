@@ -110,7 +110,7 @@ The input state looks like this:
   },
   request: {
     "headers": [],
-    "key": "",
+    "key": "", //optional and nullable
     "offset": 168321,
     "partition": 1,
     "topic": "fhir-data-pipes",
