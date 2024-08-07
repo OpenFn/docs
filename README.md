@@ -76,10 +76,21 @@ library".
 yarn start:dev
 ```
 
-Or, if the server is running:
+This will first generate adaptors from your monorepo, then launch the server.
+
+You can trigger a rebuild with:
 
 ```
 yarn generate-adaptors -m
+```
+
+Where `-m` means "build from the monorepo.
+
+To automatically rebuild whenever docs.json changes, run `generate-adaptors`
+with watch mode:
+
+```
+yarn generate-adaptors -w
 ```
 
 Ensure that the OPENFN_ADAPTORS_REPO env var is set and points to the local
