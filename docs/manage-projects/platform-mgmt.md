@@ -7,6 +7,37 @@ title: Project Management
 A `Project` on OpenFn is a shared workspace for a team or organization that
 contains their Workflows, Credentials and Collaborators scoped to that project.
 
+## Managing projects
+
+We introduced Project table in `v2.7.14` to help users manage their OpenFn
+projects in a table view. This is the new page that you'll see everytime your
+login to your OpenFn account. On the project table, you can see the list of
+projects where you have been granted a collaborator access.
+
+![Project Table](/img/projects-table.png)
+
+## Creating a new project
+
+To create a new project, follow the following steps:
+
+1. Log in into your OpenFn account or navigate to projects table by clicking
+   `Projects` on the breadcrumb if you're in a different project.
+2. On the projects table, click on `Create project`. This will open a modal for
+   you to provide the details of the project.
+3. Enter the `name` and `description` of the new project.
+4. For users on cloud-hosted OpenFn, you'll be required to select a
+   `billing account` your new project should be billed to.
+
+:::info For cloud hosted users
+
+1. Projects in a billing account should have unique names.
+2. New projects CANNOT be on a free plan.
+
+:::
+
+![Create a project modal](/img/create-project-modal.png)
+
+
 ## Updating Project Information
 
 You can access your Project's information under `Settings` (see app menu
@@ -17,3 +48,4 @@ sidebar). Setup allows you to view or edit the project name and description.
 You can also export your entire project "as code" - either to save it, or to
 edit your project locally. You can learn more about this feature on our
 [Portability page](/documentation/deploy/portability).
+
