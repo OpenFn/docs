@@ -30,7 +30,7 @@ Lightning.
 
 ### The project "spec"
 
-The project specification (or "spec") is often saved as a `project.yaml` file.
+The project specification (or "spec") is often saved as a `project.yaml` file. This spec now supports 2 ways of defining job bodies: inline, or as an object referencing an external file.
 
 ```yaml
 name: openhie-project
@@ -68,8 +68,8 @@ workflows:
         enabled: true
         # credential:
         # globals:
-        body: |
-          fn(state => state);
+        body:
+          path: ./job-bodies/notify-success.js
 
       Notify-CHW-upload-failed:
         name: Notify-CHW-upload-failed
@@ -77,8 +77,8 @@ workflows:
         enabled: true
         # credential:
         # globals:
-        body: |
-          fn(state => state);
+        body:
+          path: ./job-bodies/notify-failure.j
 
     triggers:
       webhook:
@@ -101,6 +101,20 @@ workflows:
         target_job: Notify-CHW-upload-failed
         condition: on_job_failure
 ```
+
+In this spec, you can see the two different ways to define a job's body:
+
+1. Inline body:
+Used in the `FHIR-standard-Data-with-change` and `Send-to-OpenHIM-to-route-to-SHR` job. The body is directly written in the YAML file.
+
+2. External file reference:
+Used in both Notify-CHW-upload-successful and Notify-CHW-upload-failed jobs. The body is stored in separate files, referenced by the path key. This allows for better organization of complex job logic.
+
+When using file paths:
+
+- Paths are relative to the location of the `project.yaml` file.
+- Ensure that the referenced files exist and contain valid job body code.
+- This method is particularly useful for complex jobs or when you want to reuse job bodies across different projects.
 
 ### The project "state"
 
