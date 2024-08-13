@@ -96,7 +96,6 @@ module.exports = {
             'manage-projects/workflow-dashboard',
             'manage-projects/collaboration',
             'manage-projects/oauth',
-
           ],
         },
         {
@@ -125,12 +124,7 @@ module.exports = {
     {
       type: 'category',
       label: 'Deployment',
-      items: [
-        'deploy/options',
-        'deploy/requirements',
-        'deploy/portability',
-        'deploy/portability-versions',
-      ],
+      items: ['deploy/options', 'deploy/requirements', 'deploy/portability'],
     },
     {
       type: 'category',
