@@ -11,8 +11,9 @@ domains such as Microsoft Core Services, Enterprise Mobility + Security
 Services, Windows Services, and Dynamics 365 Business Central services. The MS
 Graph Rest API also allows authorized users to connect and build new
 applications that deliver value to users within and outside the organization.
-The OpenFn Adaptor for MS Graph allows users to seamlessly authenticate and
-integrate with the Microsoft 365 platform to access data or perform specific
+
+This MS Graph Adaptors allows OpenFn users to seamlessly authenticate and
+integrate with the Microsoft 265 platform to access data or perform specific
 workflow-driven operations on behalf of a tenant or a user within the Microsoft
 365 instance. For example, the MSgraph Adaptor allows users to build OpenFn
 Workflows to extract documents stored in SharePoint, create or update files, and
