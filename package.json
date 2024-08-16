@@ -60,5 +60,5 @@
     "got": "^11.8.5",
     "cytoscape": "3.28.1"
   },
-  "packageManager": "yarn@3.8.3"
+  "packageManager": "yarn@3.2.3"
 }
