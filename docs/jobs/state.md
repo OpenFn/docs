@@ -81,40 +81,27 @@ The input state will look something like this:
 
 ### Kafka triggered runs
 
-When a kafka message is received by the trigger, the input state contains
-important information for auditing or recovering from any loss of connection or
-failure of the workorder.
+When a Kafka message is fetched by the trigger, the input state contains the
+message body and information that can be used for auditing or recovery if
+connections are lost or workorders fail.
 
 The input state looks like this:
 
 ```js
 {
-  data: { // the body of the kafka message request
-    body: {
-      formId: "patient_enrollment",
-      name: "John Doe"
-    },
-  headers: {
-      "X-Forwarded-For": "41.90.69.203",
-      "X-Forwarded-Host": "ec2-13-244-108-204.af-south-1.compute.amazonaws.com:5001",
-      "X-OpenHIM-ClientID": "test",
-      "X-OpenHIM-TransactionID": "66a1f1d4c81081a1e6809484",
-      "accept": "application/fhir+json",
-      "content-length": "20592",
-      "content-type": "application/fhir+json",
-      "user-agent": "k6/0.49.0 (https://k6.io/)"
-    },
-    method: "POST",
-    path: "/kafka",
-    pattern: "^/kafka$"
+  data: { // the message value
+    formId: "patient_enrollment",
+    name: "John Doe"
   },
   request: {
-    "headers": [],
-    "key": "", //optional and nullable
+    "headers": [
+      // kafka headers can be used to provide additional metadata
+    ],
+    "key": "", // the key assigned to the message by the publisher
     "offset": 168321,
     "partition": 1,
     "topic": "fhir-data-pipes",
-    "ts": 1721889238000
+    "ts": 1721889238000 // the kafka message timestamp
   }
 }
 ```
