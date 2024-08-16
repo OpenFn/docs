@@ -59,7 +59,6 @@ credentials:
   jane-smith@test.com-HAPI-FHIR:
     owner: jane-smith@test.com
     name: HAPI FHIR
-# globals:
 workflows:
   OpenHIE-Workflow:
     name: OpenHIE Workflow
@@ -69,7 +68,6 @@ workflows:
         adaptor: '@openfn/language-http@latest'
         enabled: true
         credential: null
-        # globals:
         body:
           path: ./jobs/my-fancy-script.js
 
@@ -78,7 +76,6 @@ workflows:
         adaptor: '@openfn/language-http@latest'
         enabled: true
         credential: jane-smith@test.com-HAPI-FHIR
-        # globals:
         body: |
           fn(state => {
             console.log("hello github integration")
@@ -90,7 +87,6 @@ workflows:
         adaptor: '@openfn/language-http@latest'
         enabled: true
         credential: null
-        # globals:
         body: fn(state => state);
 
       Notify-CHW-upload-failed:
@@ -98,7 +94,6 @@ workflows:
         adaptor: '@openfn/language-http@latest'
         enabled: true
         credential: null
-        # globals:
         body:
           path: ./jobs/notify-failure.js
 
