@@ -2571,6 +2571,7 @@ __metadata:
     "@types/react": ^17.0.0
     "@types/react-helmet": ^6.1.0
     "@types/react-router-dom": ^5.1.7
+    chokidar: ^3.6.0
     clsx: ^1.1.1
     compare-versions: ^5.0.1
     date-fns: 2.21.3
@@ -4194,7 +4195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chokidar@npm:^3.4.2, chokidar@npm:^3.5.3":
+"chokidar@npm:^3.4.2, chokidar@npm:^3.5.3, chokidar@npm:^3.6.0":
   version: 3.6.0
   resolution: "chokidar@npm:3.6.0"
   dependencies:

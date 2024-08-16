@@ -1,6 +1,7 @@
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
+const chokidar = require('chokidar');
 
 const versions = [];
 
@@ -61,19 +62,11 @@ async function loadAdaptorsDocsFromGithub() {
     });
 }
 
-async function loadAdaptorsDocsFromMonorepo(baseDir) {
-  console.log('Loading adaptors docs from adaptors monorepo at ', baseDir);
-
-  if (!baseDir) {
-    throw new Error(`ERROR: monorepo path not found.
-    
-Make sure OPENFN_ADAPTORS_REPO is set in your env`);
-  }
+async function loadAdaptorsDocsFromMonorepo(monorepoPath) {
+  console.log('Loading adaptors docs from adaptors monorepo', monorepoPath);
 
   try {
-    // Read from tmp not from docs, because otherwise the adaptor
-    // build script won't work properly
-    const raw = fs.readFileSync(path.resolve(baseDir, 'tmp/docs.json'));
+    const raw = fs.readFileSync(monorepoPath, 'utf8');
     return JSON.parse(raw);
   } catch (e) {
     console.error('Error loading adaptor docs from monerepo');
@@ -208,6 +201,48 @@ function displaySchemaFullSchema(schema) {
   return '```json \n' + JSON.stringify(schema, null, 4) + '\n```';
 }
 
+async function buildAdaptors(monorepoPath) {
+  const adaptors = await (monorepoPath
+    ? loadAdaptorsDocsFromMonorepo(monorepoPath)
+    : loadAdaptorsDocsFromGithub());
+
+  console.log('Generating adaptors docs via JSDoc...');
+  adaptors.map(a => {
+    if (!a.name) {
+      console.warn('WARNING: No name for ', a);
+      return;
+    }
+
+    const docsBody = generateJsDoc(a);
+    const readmeBody = generateReadme(a);
+    const changelogBody = generateChangelog(a);
+
+    const configurationSchemaBody = generateConfigurationSchema(a);
+
+    pushToPaths(a.name);
+
+    fs.writeFileSync(`./adaptors/packages/${a.name}-docs.md`, docsBody);
+    fs.writeFileSync(`./adaptors/packages/${a.name}-readme.md`, readmeBody);
+    fs.writeFileSync(
+      `./adaptors/packages/${a.name}-changelog.md`,
+      changelogBody
+    );
+    fs.writeFileSync(
+      `./adaptors/packages/${a.name}-configuration-schema.md`,
+      configurationSchemaBody
+    );
+
+    fs.writeFileSync(
+      './adaptors/packages/publicPaths.json',
+      JSON.stringify(filePaths, null, 2)
+    );
+
+    console.log(`Done ${a.name} ✓`);
+  });
+
+  console.log('Done all adaptors ✓');
+}
+
 module.exports = function (context, { apiUrl }) {
   return {
     name: 'adaptors',
@@ -220,18 +255,23 @@ module.exports = function (context, { apiUrl }) {
           '--monorepo <path>',
           'use the adaptors monorepo to load docs metadata'
         )
+        .option('-w', '--watch', 'watch the monorepo docs file for changes')
         .action(async cmd => {
           fs.existsSync('./adaptors/packages') ||
             fs.mkdirSync('./adaptors/packages');
 
           let useMonorepo = false;
+          let watchMonorepo = false;
 
           // the monorepo option is suppposed to be written to cmd
-          // ... but it's not.
-          // This is a total hack but it works
-          const last = process.argv.at(-1);
-          if (last === '-m' || last === '--monorepo') {
-            useMonorepo = true;
+          // ... but it's not. So we do it ourselves
+          for (const a of process.argv) {
+            if (/(-m|--monorepo)/.test(a)) {
+              useMonorepo = true;
+            } else if (/(-w|--watch)/.test(a)) {
+              useMonorepo = true;
+              watchMonorepo = true;
+            }
           }
 
           if (!useMonorepo) {
@@ -248,49 +288,36 @@ module.exports = function (context, { apiUrl }) {
             console.warn('Skipping version list as loading from monorepo');
           }
 
-          const adaptors = await (useMonorepo
-            ? loadAdaptorsDocsFromMonorepo(process.env.OPENFN_ADAPTORS_REPO)
-            : loadAdaptorsDocsFromGithub());
-
-          console.log('Generating adaptors docs via JSDoc...');
-
-          adaptors.map(a => {
-            if (!a.name) {
-              console.warn('WARNING: No name for ', a);
-              return;
+          let monorepoPath = false;
+          if (useMonorepo) {
+            if (process.env.OPENFN_ADAPTORS_REPO) {
+              monorepoPath = path.resolve(
+                process.env.OPENFN_ADAPTORS_REPO,
+                // Read from tmp not from docs, because otherwise the adaptor
+                // build script won't work properly
+                'tmp/docs.json'
+              );
+            } else {
+              if (!monorepoPath) {
+                throw new Error(`ERROR: monorepo path not found.
+                
+Make sure OPENFN_ADAPTORS_REPO is set in your env`);
+              }
             }
+          }
 
-            const docsBody = generateJsDoc(a);
-            const readmeBody = generateReadme(a);
-            const changelogBody = generateChangelog(a);
-
-            const configurationSchemaBody = generateConfigurationSchema(a);
-
-            pushToPaths(a.name);
-
-            fs.writeFileSync(`./adaptors/packages/${a.name}-docs.md`, docsBody);
-            fs.writeFileSync(
-              `./adaptors/packages/${a.name}-readme.md`,
-              readmeBody
-            );
-            fs.writeFileSync(
-              `./adaptors/packages/${a.name}-changelog.md`,
-              changelogBody
-            );
-            fs.writeFileSync(
-              `./adaptors/packages/${a.name}-configuration-schema.md`,
-              configurationSchemaBody
-            );
-
-            fs.writeFileSync(
-              './adaptors/packages/publicPaths.json',
-              JSON.stringify(filePaths, null, 2)
-            );
-
-            console.log(`Done ${a.name} ✓`);
-          });
-
-          console.log('Done all adaptors ✓');
+          await buildAdaptors(monorepoPath);
+          if (watchMonorepo) {
+            const watcher = chokidar.watch(monorepoPath, {
+              persistent: true,
+            });
+            watcher.on('change', () => {
+              // change may fire before the write has fully finished
+              setTimeout(() => {
+                buildAdaptors(monorepoPath);
+              }, 500);
+            });
+          }
         });
     },
   };
