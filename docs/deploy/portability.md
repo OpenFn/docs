@@ -18,25 +18,47 @@ If you're interested in contributing to the specification, reach out to OpenFn
 via the [community forum](https://community.openfn.org), write to us, or suggest
 changes by submitting a pull request here.
 
-## "Projects as code"
+## Projects "as code"
 
-The portability specification v4 defines how entire projects (groups of
-workflows with their associated triggers, edges, credentials and jobs) can be
-represented as code. It improves the OpenFn developer experience, allowing
-workflows to be built and tested locally; (b) enables project version control
-and an audit trail of project changes; and (c) allows users to port existing
-workflows from OpenFn v1 to v2, as well as between instances or deployments of
-Lightning.
+Entire projects (groups of workflows with their associated triggers, edges,
+credentials and jobs) can be represented as code. This improves the OpenFn
+developer experience by (a) allowing workflows to be built and tested locally;
+(b) enabling project version control and an audit trail of project changes; and
+(c) allowing users to port existing projects between different instances (i.e.,
+deployments) of Lightning.
 
-### The project "spec"
+### Directory structure
+
+Many users keep OpenFn projects in git repositories, and this is a common
+structure:
+
+```
+myProject/
+├── workflow-a/
+│   ├── job-1.js
+│   ├── job-2.js
+│   └── job-3.js
+├── workflow-b/
+│   └── job-4.js
+├── project.yaml
+├── projectState.json
+└── config.json
+```
+
+### The project **_spec_**
 
 The project specification (or "spec") is often saved as a `project.yaml` file.
+While most of the spec is written inline, many developers prefer to track their
+job bodies in separate `.js` files and they then reference them with a relative
+path.
 
 ```yaml
 name: openhie-project
 description: Some sample
-# credentials:
-# globals:
+credentials:
+  jane-smith@test.com-HAPI-FHIR:
+    owner: jane-smith@test.com
+    name: HAPI FHIR
 workflows:
   OpenHIE-Workflow:
     name: OpenHIE Workflow
@@ -45,40 +67,35 @@ workflows:
         name: FHIR-standard-Data-with-change
         adaptor: '@openfn/language-http@latest'
         enabled: true
-        # credential:
-        # globals:
-        body: |
-          fn(state => {
-            console.log("hello github integration")
-            return state
-        });
+        credential: null
+        body:
+          path: ./jobs/my-fancy-script.js
 
       Send-to-OpenHIM-to-route-to-SHR:
         name: Send-to-OpenHIM-to-route-to-SHR
         adaptor: '@openfn/language-http@latest'
         enabled: true
-        # credential:
-        # globals:
+        credential: jane-smith@test.com-HAPI-FHIR
         body: |
-          fn(state => state);
+          fn(state => {
+            console.log("hello github integration")
+            return state
+          });
 
       Notify-CHW-upload-successful:
         name: Notify-CHW-upload-successful
         adaptor: '@openfn/language-http@latest'
         enabled: true
-        # credential:
-        # globals:
-        body: |
-          fn(state => state);
+        credential: null
+        body: fn(state => state);
 
       Notify-CHW-upload-failed:
         name: Notify-CHW-upload-failed
         adaptor: '@openfn/language-http@latest'
         enabled: true
-        # credential:
-        # globals:
-        body: |
-          fn(state => state);
+        credential: null
+        body:
+          path: ./jobs/notify-failure.js
 
     triggers:
       webhook:
@@ -102,7 +119,25 @@ workflows:
         condition: on_job_failure
 ```
 
-### The project "state"
+In this spec, you can see the different ways of defining a job's body:
+
+1. Inline body: Used in the `FHIR-standard-Data-with-change` and
+   `Send-to-OpenHIM-to-route-to-SHR` jobs. The body is directly written in the
+   YAML file.
+
+2. External file reference: Used in both `Notify-CHW-upload-successful` and
+   `Notify-CHW-upload-failed` jobs. The body is stored in separate files,
+   referenced by the path key. This allows for better organization of complex
+   job logic.
+
+When using file paths:
+
+- Paths are relative to the location of the `project.yaml` file.
+- Ensure that the referenced files exist and contain valid job body code.
+- This method is particularly useful for complex jobs or when you want to reuse
+  job bodies across different projects.
+
+### The project **_state_**
 
 The project state is a representation of a particular project as _on a specific
 Lightning instance_. It is often saved as `projectState.json` and contains UUIDs
@@ -110,6 +145,20 @@ for resources on a particular Lightning deployment.
 
 ```json
 {
+  "id": "8deff39d-8189-4bd7-9dc7-f9f08e7f2c60",
+  "name": "openhie-project",
+  "description": null,
+  "inserted_at": "2023-08-25T08:57:31",
+  "updated_at": "2023-08-25T08:57:31",
+  "scheduled_deletion": null,
+  "requires_mfa": false,
+  "project_credentials": {
+    "jane-smith@test.com-HAPI-FHIR": {
+      "id": "25f48989-d349-4eb8-99c3-923ebba5b116",
+      "name": "HAPI FHIR",
+      "owner": "jane-smith@test.com"
+    }
+  },
   "workflows": {
     "OpenHIE-Workflow": {
       "id": "27ae2937-0959-48b8-a597-b1646aae8c14",
@@ -205,13 +254,11 @@ for resources on a particular Lightning deployment.
         }
       }
     }
-  },
-  "id": "8deff39d-8189-4bd7-9dc7-f9f08e7f2c60",
-  "name": "openhie-project"
+  }
 }
 ```
 
-### Using the CLI to deploy or describe projects projects as code
+## Using the CLI interact with projects
 
 The project spec and project state can be used for a variety of reasons, e.g.
 one could generate the state and spec as backups of the project or one could
@@ -219,7 +266,9 @@ generate these files and use them for auditing and record keeping, etc. The
 OpenFn [CLI](https://github.com/OpenFn/kit/tree/main/packages/cli) comes with
 commands that can be used to pull project configurations down from a running
 Lightning server, and to deploy or push updates to existing projects on a
-Lightning server. To learn more about automated version control via pull and deploy, head over to our [Version Control](../manage-projects/link-to-gh.md) docs.
+Lightning server. To learn more about automated version control via pull and
+deploy, head over to our [Version Control](../manage-projects/link-to-gh.md)
+docs.
 
 :::info Don't have the CLI yet?
 
@@ -256,7 +305,7 @@ Or through a `config.json` file:
 More details on the CLI can be found
 [here](https://github.com/OpenFn/kit/tree/main/packages/cli#basic-usage).
 
-### `openfn pull` to generate a project spec and state
+### `openfn pull` to generate spec & state
 
 To generate the spec and state files for an existing project, use:
 
@@ -267,7 +316,7 @@ openfn pull {YOUR-PROJECT-UUID} -c ./config.json
 This command will save (or overwrite) a project spec and state file based on the
 path you've set in your configuration.
 
-### `openfn deploy` to create a project on a Lightning instance
+### `openfn deploy` to create new projects
 
 To deploy a new project to a Lightning instance from a project spec (without a
 project state) file use:
@@ -276,7 +325,7 @@ project state) file use:
 openfn deploy -c config.json
 ```
 
-### `openfn deploy` to update an existing project
+### `openfn deploy` to update existing projects
 
 With a valid project state defined in your `config.json`, the same
 `openfn deploy` command will beam up your changes as described by a difference
@@ -307,7 +356,7 @@ Project found.
 [CLI] ♦ Deployed.
 ```
 
-### Getting Help with the cli
+## Getting Help with the cli
 
 The cli package comes with an inbuilt `help`. Adding `--help` to a command such
 as `openfn deploy --help` will result in a help message describing the command
@@ -333,8 +382,5 @@ Options:
 
 ## Other Versions
 
-- [Portability Proposal v4](portability-versions#proposal-v4)
-- [Portability Proposal v3](portability-versions#proposal-v3)
-- [Portability Proposal v2](portability-versions#proposal-v2) (`@latest` for
-  platform-app/microservice compatibility.)
-- [Portability Proposal v1](portability-versions#proposal-v1)
+- [Portability Spec v2](portability-versions#v2)
+- [Portability Spec v1](portability-versions#v1)

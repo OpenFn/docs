@@ -31,8 +31,8 @@ workflow configuration & history. Projects have an owner and one or more
 Collaborators.
 
 In local deployment and development, Project also corresponds to a
-[`project.yaml`](/documentation/deploy/portability-versions#proposal-v2)
-file, which defines a project' configuration.
+[`project.yaml`](/documentation/deploy/portability-versions#v2) file, which
+defines a project' configuration.
 
 In either case, a Project contains Workflows, Triggers, Credentials, and
 everything you need to automate and integrate with OpenFn.
@@ -49,11 +49,10 @@ A Workflow is a collection of a Trigger, Steps, Paths, and custom logic
 connected together to automate a specific business process or task. A Workflow
 is configured via the Canvas in the web app, or locally (via code).
 
-OpenFn automation centers around
-[Workflows](/documentation/build/workflows), which may have one or multiple
-Steps. Workflows can be run in real-time (based on an event -e.g., new patient
-registration), on a scheduled basis (e.g., every day at 8am), or manually
-on-demand.
+OpenFn automation centers around [Workflows](/documentation/build/workflows),
+which may have one or multiple Steps. Workflows can be run in real-time (based
+on an event -e.g., new patient registration), on a scheduled basis (e.g., every
+day at 8am), or manually on-demand.
 
 Think of workflow as a set of instructions you might give a staff member (e.g.,
 please create a new Patient record in OpenMRS when a form containing a newly
@@ -103,12 +102,11 @@ Credentials are the **"how to log in"** part of automation!
 
 :::
 
-A Credential is used
-to authenticate with a destination app (e.g., Database username, password &
-login URL) so that a Workflow Step can run. Via OpenFn's security model,
-Credentials are separated from the Workflows themselves to ensure that stored
-usernames and passwords (which are all encrypted) do not get leaked or accessed
-by the wrong people.
+A Credential is used to authenticate with a destination app (e.g., Database
+username, password & login URL) so that a Workflow Step can run. Via OpenFn's
+security model, Credentials are separated from the Workflows themselves to
+ensure that stored usernames and passwords (which are all encrypted) do not get
+leaked or accessed by the wrong people.
 
 ## Trigger
 
@@ -245,7 +243,9 @@ Inputs may be created automatically by a webhook event (e.g., a message
 forwarded or JSON payload posted to OpenFn) or another Workflow Step, or
 manually by an OpenFn user.
 
-Example Input from a form submission from a mobile data collection app (e.g., Kobo, ODK, CommCare):
+Example Input from a form submission from a mobile data collection app (e.g.,
+Kobo, ODK, CommCare):
+
 ```json
 {
   "data": {
@@ -275,18 +275,18 @@ according to the business logic defined in the Step's job expression. Outputs
 are either passed to the next Step in the workflow and/or to the connected
 destination app.
 
-Example Output if that form submission example (see above section) was mapped to a connected case management app: 
+Example Output if that form submission example (see above section) was mapped to
+a connected case management app:
+
 ```json
 {
   "data": {
-    "patient":{
+    "patient": {
       "full_name": "John Doe",
       "age_at_enrollment": 16,
       "type": "new",
       "source": "mobile-app"
-      }
     }
+  }
 }
 ```
-
-
