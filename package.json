@@ -19,6 +19,7 @@
     "@babel/helper-module-transforms": "^7.17.7",
     "@docusaurus/core": "2.4.3",
     "@docusaurus/plugin-google-gtag": "2.4.3",
+    "@docusaurus/plugin-google-tag-manager": "^3.5.2",
     "@docusaurus/preset-classic": "2.4.3",
     "@docusaurus/theme-mermaid": "2.4.3",
     "@mdx-js/react": "^1.6.21",

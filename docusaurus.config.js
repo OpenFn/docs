@@ -160,6 +160,9 @@ module.exports = {
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
+        googleTagManager: {
+          containerId: 'GTM-5RNRM5NC',
+        },
         gtag: {
           trackingID: 'G-TFLLYHHM0C',
         },
