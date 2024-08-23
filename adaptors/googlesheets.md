@@ -5,10 +5,54 @@ title: Google Forms/Google Sheets
 ## Google Sheets Adaptor Overview
 
 Google Sheets adaptor provides seamless integration between Google Forms, Google
-Sheets, and the OpenFn platform, enabling robust data flow management. There are
-two primary ways to utilize this adaptor, each catering to specific use cases:
+Sheets, and the OpenFn platform, enabling robust data flow management.
 
-### 1. Pushing Data to OpenFn
+### Authentication and Authorization
+
+This adaptor requires OAuth authorization to connect with Google Sheets. This
+authorization can be achieved by a user or organization admin consenting to an
+OAuth client to access resources. Users can request authorization via the
+default OpenFn Google OAuth client or choose to
+`Add new (generic) OAuth client(s)` for their account and projects.
+
+To authorize Google Sheets for your OpenFn workflows, read our documentation on
+[using OAuth credentials](/documentation/build/credentials#use-oauth2-credentials).
+
+:::info Google Oauth Client Setup Tips for Super Users
+
+Setting up your own generic OAuth client requires that you have an OAuth
+application set up. If you are a super user configuring a new Google OAuth
+client for your OpenFn deployment, then please refer to Google's documentation
+to
+[configure an OAuth Client ID](https://developers.google.com/identity/protocols/oauth2/javascript-implicit-flow),
+as well as see the standard
+[openid-configuration](https://accounts.google.com/.well-known/openid-configuration)
+for how to complete the OAuth Client Setup form on OpenFn.
+
+:::
+
+#### Permissions (Scopes)
+
+Permissions and access in an OAuth instance are defined by scopes which are
+named differently by providers based on their functions within their platform.
+
+For GoogleSheets, your super user will likely need to add the following scopes
+to the Oauth Client Setup configured for Google in your OpenFn deployment. That said,
+please refer to
+[Google's documentation on Oauth scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
+for the latest information.
+
+- `openid`
+- `email`
+- `profile`
+- `https://www.googleapis.com/auth/spreadsheets`
+
+### Integration Options
+
+There are a couple of primary ways to integrate with this app, each catering to
+different use cases.
+
+#### 1. Pushing Data to OpenFn via Google App Scripts
 
 With this method, data from Google Forms or Google Sheets is automatically
 pushed to an OpenFn webhook trigger workflow whenever new entries are made. This
@@ -66,115 +110,21 @@ function onFormSubmit(e) {
 }
 ```
 
-### 2. Pulling Data from Google Sheets
+#### 2. Pulling Data from Google Sheets using OpenFn
 
 Alternatively, you can pull data from Google Sheets at specific intervals or
 on-demand using a `cron` workflow in OpenFn, allowing for more controlled data
 retrieval processes. This method is particularly useful when you need to fetch
 historical data or perform periodic data updates.
 
+Check out the docs on available [functions](./packages/googlesheets-docs) to
+learn how to configure a workflow step to use this OpenFn adaptor to
+`getValues()` and fetch data from a target Google Sheet.
+
 **Use Cases:** - Aggregating data for periodic reporting or analysis. -
 Implementing batch processing for efficiency and resource optimization.
 
-The example below shows how to configure a trigger on Google sheets that sends
-data to OpenFn on the first day of the month as well as a code snippet showing
-how to retrieve report data from a Google Sheets spreadsheet and send it to
-OpenFn. By customizing these functions to suit your specific requirements, you
-can effectively manage data flow between Google Sheets and OpenFn.
-![Screenshot 2024-05-20 at 20 34 52](https://github.com/OpenFn/docs/assets/167166847/61ccd374-44bb-4634-b66a-556396914e87)
-
-```js
-// Function to send the data to OpenFn using a POST request
-function sendToOpenFn(e) {
-  // Convert the event object to a JSON string
-  var payload = JSON.stringify(e);
-  // The URL of the OpenFn Webhook where data will be sent
-  var url = 'https://www.openfn.org/i/webhook-id-here';
-  // Options for the UrlFetchApp.fetch method
-  var options = {
-    method: 'post',
-    contentType: 'application/json',
-    payload: payload,
-  };
-  // Send the POST request with the payload to the specified URL
-  var response = UrlFetchApp.fetch(url, options);
-}
-
-// Function to check if a value is a valid Date object
-function isDate(v) {
-  // Check if the value is a Date object
-  if (Object.prototype.toString.call(v) === '[object Date]') {
-    // Check if the Date object is valid
-    if (isNaN(v.getTime())) {
-      return false; // Invalid date
-    } else {
-      return true; // Valid date
-    }
-  } else {
-    return false; // Not a Date object
-  }
-}
-
-// Function to check if a value is a Number
-function isNumber(v) {
-  // Check if the value is a Number object
-  if (Object.prototype.toString.call(v) === '[object Number]') {
-    return true; // It's a number
-  } else {
-    return false; // It's not a number
-  }
-}
-
-// Function to get report data from the active Google Sheet and send it to OpenFn
-function getReportData() {
-  // Initialize an object to hold the form ID and data
-  var bookReportData = { formId: 'bookReport', data: [] };
-  // Get all data from the active sheet as a 2D array
-  var data = SpreadsheetApp.getActiveSheet().getDataRange().getValues();
-
-  // Initialize variables to store page count and book rating
-  var pageCount = 0;
-  var bookRating = 0;
-
-  // Loop through each row in the data
-  for (i in data) {
-    // Check if the first cell in the row is a valid date (to ignore the header line)
-    if (isDate(data[i][0])) {
-      // If the page count column (index 3) is a number, store its value
-      if (isNumber(data[i][3])) {
-        pageCount = data[i][3];
-      }
-
-      // If the rating column (index 6) is a number, store its value
-      if (isNumber(data[i][6])) {
-        bookRating = data[i][6];
-      }
-
-      // Push the row data as an object to the bookReportData array
-      bookReportData.data.push({
-        Timestamp: data[i][0], // Timestamp of the report
-        Title: data[i][1], // Title of the book
-        Author: data[i][2], // Author of the book
-        NumberOfPages: pageCount, // Number of pages in the book
-        Summary: data[i][4], // Summary of the book
-        Protagonist: data[i][5], // Protagonist of the book
-        Rating: bookRating, // Rating given to the book
-        EmailTeacher: data[i][7], // Teacher's email
-        EmailStudent: data[i][8], // Student's email
-        SendStatus: data[i][9], // Status of the data sending
-      });
-    }
-  }
-
-  // Log the bookReportData object for debugging (optional)
-  // Logger.log(bookReportData);
-
-  // Send the collected data to OpenFn
-  sendToOpenFn(bookReportData);
-}
-```
-
-### 3. Pushing Data to Google Sheets
+#### 3. Pushing Data to Google Sheets via OpenFn
 
 The Google Sheets adaptor can also be used to push data to Google Sheets from
 other systems via OpenFn. This allows for seamless integration between external
@@ -188,3 +138,7 @@ task tracking systems into Google Sheets for reporting purposes.
 A step by step guide is found
 [in this tutorial](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets)
 that shows us how to get data via a REST API and push it to Google Sheet.
+
+### API Docs
+- [Google Sheets API Overview](https://developers.google.com/sheets/api/guides/concepts)
+- OpenFn Workflow Tutorial: [HTTP-to-GoogleSheets](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets)
