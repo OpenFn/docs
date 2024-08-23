@@ -3,7 +3,7 @@ title: Code Snippets
 sidebar_label: Code Snippets
 ---
 
-This section includes a numner of useful JavaScript code snippets which you can
+This section includes a number of useful JavaScript code snippets which you can
 use in your jobs.
 
 Most snippets are implemented as callbacks to other operations.
