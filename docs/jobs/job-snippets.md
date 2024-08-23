@@ -10,6 +10,8 @@ Most snippets are implemented as callbacks to other operations.
 
 You can copy these callbacks and adapt them to suit your own code.
 
+## General
+
 ### Custom replacer
 
 ```js
@@ -24,7 +26,7 @@ This will replace all "cats" with "dogs" in the string that lives at
 > **NOTE:** The JavaScript `replace()` function only replaces the first instance
 > of whatever argument you specify. If you're looking for a way to replace all
 > instances, we suggest you use a regex like we did in the
-> [example](#custom-concatenation-of-null-values) below.
+> [example](#concatenation-of-null-values) below.
 
 ### Custom arrayToString
 
@@ -84,6 +86,8 @@ See how instead of taking the id of the "last" thing that was created in
 Salesforce, you're taking the id of the 1st thing, or 2nd thing if you replace
 "length-1" with "length-2".
 
+## Salesforce
+
 ### Convert date string to standard ISO date for Salesforce
 
 ```js
@@ -108,7 +112,7 @@ array.map(item => {
 });
 ```
 
-### Bulk upsert with an external ID in salesforce
+### Bulk upsert with an external ID in Salesforce
 
 ```js
 bulk(
