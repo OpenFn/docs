@@ -251,7 +251,7 @@ state, and will return state.
 
 <details>
 <summary>What is a factory function?</summary>
-Factory functions are cann be a difficult pattern to understand deeply. However, like many programming concepts, it makes more sense after some hands-on experience. Luckily, you don't need to deeply understand the pattern to understand OpenFn.
+Factory functions are can be a difficult pattern to understand deeply. However, like many programming concepts, it makes more sense after some hands-on experience. Luckily, you don't need to deeply understand the pattern to understand OpenFn.
 
 Simply put, a factory function doesn't really do anything when executed. It simply returns a
 function to do something later.
@@ -344,10 +344,12 @@ OpenFn will go off and fulfill the terms of that contract for you.
 The problem is that when you specify the terms of the contract, you don't have
 all the values to hand. We don't know what `state.data` is yet. So we need to
 say "WHEN you run this function, check the value of `state.data`, and use
-whatever it says". "WHEN you run this function" is the key portion: how do we
-ensure that the value of `state.data` is resolved at the right time? JavaScript
-itself isn't built to do that - it'll just return the value when we read it (and
-remember, we read it at load-time, not at run-time).
+whatever it says".
+
+"WHEN you run this function" is the key portion: how do we ensure that the value
+of `state.data` is resolved at the right time? JavaScript itself isn't built to
+do that - it'll just return the value when we read it (and remember, we read it
+at load-time, not at run-time).
 
 There are two good JavaScript-y solutions to the problem:
 
@@ -1128,7 +1130,7 @@ fn(state => {
 });
 ```
 
-You could use the _spread_ operator to override some keys:
+You could use the spread operator to override some keys:
 
 ```js
 fn(state => {
