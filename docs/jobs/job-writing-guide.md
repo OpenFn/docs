@@ -8,8 +8,8 @@ creation of Jobs.
 
 This guide will walk you through key concepts and best practices for job
 writing. It is suitable for new coders and experienced JavaScript programmers.
-In fact, even if you're an experienced JavaScript Developer, there a number of
-key patterns in the OpenFn ecosystem which it is important to learn.
+In fact, even if you're an experienced JavaScript developer, there are a number
+of key patterns in the OpenFn ecosystem which it is important to learn.
 
 A Job is a bunch of JavaScript code which performs a particular task, like
 fetching data from Salesforce or converting some JSON data to FHIR standard.
@@ -45,15 +45,15 @@ the other). The final state object is returned as the output of the pipeline.
 
 Operations are provided by an Adaptor (connector). Each adaptor exports a list
 of functions designed to interact with a particular data source - for example,
-take a look at the [dhis2](adaptors/packages/dhis2-docs) and
-[salesforce](adaptors/packages/salesforce-docs) adaptors.
+take a look at the [dhis2](/adaptors/packages/dhis2-docs) and
+[salesforce](/adaptors/packages/salesforce-docs) adaptors.
 
 Everything you can achieve in OpenFn can be achieve with existing JavaScript
 libraries or calls to REST APIs. The value of Adaptors is that they provide
 functions to make this stuff easier: taking care of authorisation, providing
 cleaner syntax, and hiding away implementation details for you.
 
-For example, here's how we issue a GET request with the http adaptor:
+For example, here's how simply we issue a GET request with the http adaptor:
 
 ```js
 get('/patients');
@@ -69,7 +69,7 @@ get(state => state.endpoint);
 
 <details>
 <summary>Why the arrow function?</summary>
-If you've got some JavaScript experience, you'll notice The example above uses an arrow function to retrieve the endpoint key from state.
+If you've got some JavaScript experience, you'll notice the example above uses an arrow function to retrieve the endpoint key from state.
 
 But why not just do this?
 
@@ -251,12 +251,10 @@ state, and will return state.
 
 <details>
 <summary>What is a factory function?</summary>
-Factory functions are quite a hard pattern to understand. Like many programming concepts, it makes more sense after some hands-on experience.
+Factory functions are can be a difficult pattern to understand deeply. However, like many programming concepts, it makes more sense after some hands-on experience. Luckily, you don't need to deeply understand the pattern to understand OpenFn.
 
-Luckily, you don't need to deeply understand the pattern to understand OpenFn.
-
-Simply put, a factory function doesn't really do anything. It simply returns a
-function to do something.
+Simply put, a factory function doesn't really do anything when executed. It simply returns a
+function to do something later.
 
 Factory functions are useful for deferred execution (declaring behaviour NOW to
 run LATER), lazy loading (fetching data from a server at the last moment, just
@@ -271,13 +269,14 @@ sequentially, passing in the latest state object to each one.
 </details>
 
 The OpenFn runtime knows how to handle an operation at the top scope, it can run
-it as part of the pipeline and handle state appropriately. But it does not know
-how to deal with a nested operation like this.
+it as part of the pipeline and handle state appropriately. However, the runtime
+does not know how to deal with a nested operation like above.
 
-You should actually never need to nest an operation anyway. Just bring it to the
-top level and lean in to the pipeline idea. But if you ever find yourself in a
-situation where you absolutely need to use a nested operation, you should pass
-state into it directly, like this:
+Best practices dictate you should build each discrete operation of the pipeline
+at the top-level, passing state between them naturally via the pipeline. This
+means you should never need to nest an operation. However, if you ever find
+yourself in a situation where you absolutely need to use a nested operation,
+you should pass state into it directly, for example:
 
 ```js
 get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
@@ -303,7 +302,7 @@ get('/some-data');
 post('/some-other-data', state.data);
 ```
 
-What it's trying to do is call the GET method on some REST service, save the
+The code attempts to call the GET method on some REST API service, save the
 result to `state.data`, and then pass that `state.data` value into a post call
 to send it somewhere else.
 
@@ -313,9 +312,9 @@ The value of `state.data` in the post call will resolve to `undefined` and so
 the post will fail.
 
 This is because Operations are
-[factory functions](#operations-run-at-the-top-level). They declare behaviour to
-be executed later, and provide parameters to calibrate that behaviour. But they
-don't actually go off and do the work immediately.
+[factory functions](#operations-run-at-the-top-level) (See: `What is a factory function?`
+above). They declare behaviour to be executed later, and provide parameters to
+calibrate that behaviour. But they don't actually go off and do the work immediately.
 
 Those parameters will be resolved to values when the module loads (load-time),
 before any code has run (run-time), and before `state.data` has been assigned a
@@ -345,19 +344,19 @@ OpenFn will go off and fulfill the terms of that contract for you.
 The problem is that when you specify the terms of the contract, you don't have
 all the values to hand. We don't know what `state.data` is yet. So we need to
 say "WHEN you run this function, check the value of `state.data`, and use
-whatever it says.
+whatever it says".
 
-The "when you run" this function bit is key: how do we ensure that the value of
-`state.data` is resolved at the right time? JavaScript itself isn't smart enough
-to do that - it'll just return the value when we read it (and remember, we read
-it at load-time, not at run-time).
+"WHEN you run this function" is the key portion: how do we ensure that the value
+of `state.data` is resolved at the right time? JavaScript itself isn't built to
+do that - it'll just return the value when we read it (and remember, we read it
+at load-time, not at run-time).
 
 There are two good JavaScript-y solutions to the problem:
 
 1. Pass a string which represents a path on state, and resolve that path inside
-   the actual post function when it runs.
-2. Pass a function (or a Promise) which returns some value form state, and call
-   that function inside the actual post function when it runs.
+   the actual function when it runs.
+2. Pass a function (or a Promise) which returns some value from state, and call
+   that function inside the actual function when it runs.
 
 Mostly our adaptors support the second pattern. In fact, if you look in some of
 our
@@ -428,7 +427,7 @@ The `$` ensures that the value passed to the operation will be resolved at the
 correct time. Think of it like passing a path to some part of state, rather than
 passing the value of that path.
 
-What's nice about this is that you can basically ignore the previous chapter
+What's nice about this is that you can basically ignore the previous section
 entirely and not think too much about state evaluation. Just read from `$` like
 your state object and the OpenFn runtime will resolve the value correctly at
 run-time.
@@ -446,7 +445,7 @@ get((state) => state.data.url);
 We call it "lazy state" because the reference will be resolved by the runtime
 engine immediately before its used. This bypasses a lot of the asynchronicity
 problems of Javascript which are discussed in
-[Reading State Lazily](#reading-state-lazily)
+[Reading State Lazily](#reading-state-lazily).
 
 :::tip $ Only works within Operations
 
@@ -601,8 +600,8 @@ code and wrap the operation in a deferred promise call.
 
 ### Callback with then()
 
-`then()` is available on every operation, and contains a callback to be executed
-once the operation has completed.
+Chaining `then()` is available on every operation, and contains a callback to
+be executed once the operation has completed.
 
 The callback will receive the state returned by the operation, and must return
 the state object to be passed to the _next_ operation.
@@ -663,11 +662,11 @@ So in the example above, every item in `state.items` will be passed to a HTTP
 `post()` function, where the id will be embedded in a URL and the item itself
 will be uploaded to the server.
 
-But what if you want to do something with the scoped state AFTER the request?
+What if you want to do something with the scoped state AFTER the request?
 Maybe you want to check the status code and log an error, or maybe you want to
 mutate the data before writing it back to state.
 
-You can use `operation().then()` for this:
+You can chain `operation().then()` for this:
 
 ```js
 each(
@@ -768,12 +767,12 @@ operations.
 :::
 
 This is fine - and actually, having lots of operations which each do a small
-task is usually considered a good thing. It makes code more readable and easier
-to reason about when things go wrong.
+task is best practices. It makes code more readable and testable, as well as easier
+to reason about and debug when things go wrong.
 
-But every operation argument accepts a function (allowing lazy state references,
-as described above). This gives us the opportunity to the conversion in-line in
-the post operation:
+However, every operation argument accepts a function (allowing lazy state references,
+as described above) giving us the opportunity to perform the conversion in-line in
+the post operation, for example:
 
 ```js
 // Fetch an object from one system
@@ -792,7 +791,7 @@ OpenFn jobs.
 
 ## Iteration with each()
 
-A typical use-case in data integration in particular is to convert data from one
+A very common use-case in data integration is to convert data from one
 format to another. Usually this involves iterating over an array of items,
 converting the values, and mapping them into a new array.
 
@@ -805,13 +804,12 @@ each(
 );
 ```
 
-`each()` takes a JSON path string as its first argument, which points to some
-part of state. In JSON path, we use `$` to refer to the root, and dot notation
-to chain a path, and `[*]` to "select" an array of items.
-
-The second argument is an Operation, which will receive each item at the end of
-the json path as `state.data`, but otherwise will receive the rest of the state
-object.
+The `each()` operator takes a JSON path string as its first argument,
+which points to some part of state. In JSON path, we use `$` to refer to
+the root, and dot notation to chain a path, and `[*]` to "select" an array
+of items. The second argument is an Operation, which will receive each item
+at the end of the json path as `state.data`, but otherwise will receive the
+rest of the state object.
 
 So we can iterate over each item and write it back to state, like this:
 
@@ -876,7 +874,7 @@ These could be static values to use later, functions to be called multiple times
 through the job, or bits of state that we want to return at the end.
 
 It is considered best practice to use an `fn()` block to do this at the start of
-the job, writing all values to state.
+the job, creating custom properties on state, for example:
 
 ```js
 fn(state => {
@@ -944,7 +942,8 @@ job:
 cursor('2024-04-08T12:00:00.0000');
 ```
 
-This will set the cursor to _always_ use the date you provided.
+Using a string value like this will set the cursor to _always_ use the date you
+provided.
 
 If you are using a date cursor, you can also pass in natural language strings
 like "now", "today", "yesterday", "24 hours ago" or "start" (ie, the time the
@@ -1120,8 +1119,8 @@ It's often desirable to clean up your final state so that any unused information
 is removed. This reduces the size of your saved data, but could also be an
 important security consideration.
 
-The best way to do this is with a closing `fn()` block which returns just the
-keys you want (this is usually best):
+The best practice is to use a closing `fn()` block which returns just the keys
+you need:
 
 ```js
 fn(state => {
@@ -1142,7 +1141,7 @@ fn(state => {
 });
 ```
 
-Or use the rest operator:
+Or use the _rest_ operator:
 
 ```js
 fn(state => {
@@ -1208,10 +1207,10 @@ direction to help understand how jobs work.
 
 :::
 
-The major differences between openfn code and JavaScript are:
+The major differences between OpenFn code and JavaScript are:
 
-- The top level functions in the code are executed synchronously (in sequence),
-  even if they contain asynchronous code
+- The top-level functions in the code are executed synchronously (in sequence),
+  even if they contain asynchronous code.
 - OpenFn code does not contain import statements (although technically it can).
   These are compiled in.
 - Compiled code is a JavaScript ESM module which default-exports an array of
