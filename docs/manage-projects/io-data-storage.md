@@ -7,7 +7,7 @@ you'd like OpenFn to do with the actual _data_ (`Inputs` and `Outputs`) that are
 processed (or produced) by your workflow runs.
 
 Users may configure OpenFn to temporarily store data (e.g., forms fetched from
-CommCare mobile app) so that transactions can be easily troubleshooted and
+CommCare mobile app) so that transactions can be easily troubleshot and
 rectified in case of errors (e.g., destination DHIS2 system is down, or a
 database constraint/validation blocks a data import). Data retention periods
 have a default time period set by the OpenFn super admin, but can be modified
