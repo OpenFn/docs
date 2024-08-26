@@ -45,23 +45,19 @@ the OpenFn interface or
 
 :::
 
-Cron Triggers enable Workflows to be run as frequently as once every minutes, or
+Cron Triggers enable Workflows to be run as frequently as once every minute, or
 as infrequently as you desire and can be scheduled on very specific dates or
 times.
 
-Each time a timed job succeeds, its `final_state` will be saved and used as the
-input state for its next run.
-[Webhook Security](../manage-projects/webhook-auth.md) page.
-
 Learn how a workflow's initial `state` gets built from a cron trigger
-[here](../jobs/state#cron-triggered-runs).
+[here](/documentation/jobs/state#cron-triggered-runs).
 
 You can use a Cursor to help build input state when the workflow is triggered:
-see the [Job Writing Guide](../jobs/job-writing-guide#using-cursors) for more
-details.
+see the [Job Writing Guide](/documentation/jobs/job-writing-guide#using-cursors)
+for more details.
 
-Learn how `state` gets built from a cron trigger
-[here](../jobs/state#cron-triggered-runs).
+Each time a timed job succeeds, its `final_state` will be saved and used as the
+input state for its next run.
 
 ### Managing the size of `state` for Cron Workflows
 
@@ -80,10 +76,11 @@ was < 50,000 bytes.)
 
 ### A quick fix for final state bloat
 
-Most often, final state bloat is due to improper handling of `state.references`
-or `state.data`. This can be fixed by adding the following lines _either_ to the
-callback of your language-package's operation (if it allows for one) or by
-appending an `fn(...)` operation after your operation.
+Most often, final `state` bloat is due to improper handling of `state.references`
+or `state.data`. This can be fixed by cleaning up your final `state` by adding
+and customizing the following lines _either_ to the callback of your
+language-package's operation (if it allows for one) or by appending a `fn(...)`
+operation after your final operation.
 
 ```js
 fn(state => {
@@ -113,18 +110,17 @@ to learn more.
 
 ### Configuring a Kafka trigger for your workflow
 
-1. Create a new Workflow or open an existing Workflow in your Project
-2. Click on the workflow's Trigger and change the trigger type to `Kafka Consumer`
-   in the `Trigger type` dropdown.
+1. Create a new Workflow or open an existing Workflow in your Project.
+2. Select `Kafka Consumer` from the `Trigger type` dropdown.
 3. Fill out the required connection details:
 
 - **Hosts**: Provide the URL of the host(s) your trigger should listen to for
-  message.
+  messages.
 - **Topics**: Enter the topics your Kafka consumers should subscribe to. You
   need at least one topic for a successful connection.
-- **SSL**: Some Kafka cluster require SSL connection. If you are connecting to
+- **SSL**: Some Kafka clusters require an SSL connection. If you are connecting to
   an environment that requires SSL connection, select `Enable SSL`.
-- **SSL Authentication**: Select the type of Authentication required for the Kafka
+- **SSL Authentication**: Select the type of authentication required for the Kafka
   cluster.
 - **Initial offset policy**: The intial offset dictates where the consumer
   starts reading messages from a topic when it subscribes for the first time.
