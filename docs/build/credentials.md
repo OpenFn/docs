@@ -2,8 +2,6 @@
 title: Credentials
 ---
 
-## Credentials
-
 Credentials are used to authorize connections to external systems. Some Adaptors
 will use credentials to fetch meta-data from source and destination applications
 and make the job writing process easier.
