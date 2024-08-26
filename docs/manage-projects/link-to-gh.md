@@ -4,7 +4,7 @@ sidebar_label: Version Control (GitHub Sync)
 slug: /link-to-GitHub
 ---
 
-The version control (GitHub Sync) feature lets users to track and manage changes
+The version control (GitHub Sync) feature lets users track and manage changes
 to their OpenFn projects in GitHub. GitHub Sync enables a 2-way sync between
 your OpenFn project and your GitHub repository. By 2-way sync, we mean that you
 can **sync changes made to your project on OpenFn to GitHub**, and you can
