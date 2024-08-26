@@ -4,16 +4,30 @@ sidebar_label: Version Control (GitHub Sync)
 slug: /link-to-GitHub
 ---
 
-You can link your OpenFn projects to GitHub to benefit from industry-standard
-best-practices for version control and code promotion. This article walks you
-through the configuration steps.
+The version control (GitHub Sync) feature lets users track and manage changes
+to their OpenFn projects in GitHub. GitHub Sync enables a 2-way sync between
+your OpenFn project and your GitHub repository. By 2-way sync, we mean that you
+can **sync changes made to your project on OpenFn to GitHub**, and you can
+**deploy changes you've made to your project on GitHub to OpenFn**.
 
-### Setting up your GitHub connection
+:::info For Cloud Hosted OpenFn Users
 
-You can connect your OpenFn project to a GitHub repository that you have
-administrator access to. This enables a 2-way sync: you can sync changes made to
-your project on OpenFn to GitHub, and you can deploy changes you've made to your
-project on GitHub to OpenFn.
+GitHub Sync is only available in projects that are subscribed to Core, Growth,
+Scale or Custom plans on Cloud Hosted OpenFn. Users can however connect their
+OpenFn account to GitHub by authenticating OpenFn to access their GitHub account
+by navigating to `User Profile` page and clicking ` Connect your GitHub
+Account".
+
+:::
+
+### Configuring your project to use GitHub Sync
+
+Users are able to configure their projects to have access to one or more
+repositories on GitHub. To enable sync, the OpenFn project requires a repository
+where a GitHub OpenFn application is installed and users are required to have
+administrative access to the repositiory.
+
+To configure your project to use Github sync, follow the following steps:
 
 1. Navigate to `Project Settings > Sync to GitHub` .
 
@@ -22,26 +36,31 @@ project on GitHub to OpenFn.
 
 ![Configure](/img/connect-account-to-github.png)
 
-3. Choose which GitHub Installation to use for this connection or
-   [manage your GitHub installations](#managing-github-instllations).
+3. Choose which GitHub installation to use for your project or follow tip below
+   to update your installations.
 
    :::tip
 
    If you don't see any installations, or those installations don't have access
    to the repositories you want, click the **"Create/update GitHub installations
    or modify permissions"** link to manage the OpenFn Installation on GitHub.
+   This would require you to grant permissions for OpenFn App to access your
+   GitHub account and repository. See
+   [Managing Github permissions](#managing-github-permissions) for help.
+
    When you're done, you can come back here and refresh the lists with the 🔄
    button next to the dropdown lists.
 
    :::
 
-4. Choose which repository you'd like to connect.
-
-5. Choose which branch you'd like to connect.
+4. Choose your preferred repository and branch you'd like to connect your
+   project
 
 ![Configure](/img/github-options.png)
 
-6. **_Optionally_**, if you _first want to sync from GitHub to OpenFn and already have config file_, add a filepath to an existing project `config.json` file.
+5. **_Optionally_**, if you _first want to sync from GitHub to OpenFn and
+   already have config file_, add a filepath to an existing project
+   `config.json` file.
 
    :::caution Most users leave "Path to config" blank.
 
@@ -53,7 +72,7 @@ project on GitHub to OpenFn.
 
    :::
 
-7. Choose the **direction** of the very _first_ sync action. I.e., when this
+6. Choose the **direction** of the very _first_ sync action. I.e., when this
    connection is established, do you want the integration to _first_ send a copy
    of your OpenFn project to GitHub, or _first_ overwrite your existing OpenFn
    project with an existing `project.yaml` from GitHub?
@@ -70,7 +89,7 @@ project on GitHub to OpenFn.
 
    :::
 
-8. Click **"Connect Branch & Initiate First Sync"** to finish. When you've done
+7. Click **"Connect Branch & Initiate First Sync"** to finish. When you've done
    this, you can head over to GitHub (via the link provided) to view (and start
    working with) your OpenFn project as code.
 
@@ -99,45 +118,60 @@ interface. After clicking that link, you can follow the steps below:
 
 ## Using Version Control & Managing Changes
 
-### OpenFn to GitHub Sync
+The `Sync to GitHub` feature makes use of GitHub actions to automatically deploy
+(after a commit on GitHub) or pull (when **"Initiate Sync to Branch"** button is
+clicked on OpenFn) project changes to keep a repository in sync with your OpenFn
+project.
 
-Each time you want to sync changes between your OpenFn project and GitHub:
+### Sync from OpenFn to GitHub
+
+This sync pushes changes from your OpenFn project to GitHub. This sync operation
+will trigger a `openfn pull` action workflow on your connected Github repository
+, which will pull the latest configuration from the OpenFn app and save it as
+code in the `project.yaml` file on your repository.
+
+:::info
+
+Your OpenFn project can be represented as code and packaged as project.yaml
+which is called the prokect spec. See the
+[portability documentation](/documentation/deploy/portability) to learn more.
+
+::: To configure your project to sync to GitHub, follow these steps:
 
 1. Go to the Project where you made edits to your Workflow(s), and then navigate
    to the `Project Settings` page
-2. Go to the `Version Control` page
+2. From the project settings, navigate to the `Version Control` page by clicking
+   on `Sync to GitHub`
 3. Click the button `Initiate Sync to Branch` to trigger a sync to the connected
    Github repository
 
-This will trigger a `openfn pull` action on your connected Github repository,
-which will pull the latest configuration from the OpenFn app and save it as code
-in the `project.yaml` file on your repo (the file that contains the versioned
-representation of your OpenFn project configuration as code.)
+![Initiating Sync to Github](/img/sync_to_github.png)
 
-### GitHub to OpenFn Sync
+### Sync from GitHub to OpenFn
 
-When you first configure the Github Sync in your OpenFn project, you will
-specify the connected Github branch.
+Use this sync method when you want to pull a version of your priject from GitHub
+into OpenFn. When this sync is triggered, `openfn-deploy` action is executed on
+GitHub and your project spec _(file ending with `.yaml`)_ will be auto-deployed
+to OpenFn.
 
-Note that your entire project is represented in your `project.yaml` file. Any
-time you edit this file on the branch that is linked to your OpenFn project,
-these changes will be auto-deployed to the OpenFn app.
+:::tip Considerations for syncing Github changes to OpenFn
 
-Therefore, be sure to update the project `.yaml` file in order to push changes
-from Github to your OpenFn app.
+From v2.7.19, OpenFn deploy and pull actions now support the use of relative
+paths in project spec. Consequently, projects with directory structure that uses
+relative paths for job code in project spec, automatically gets packaged and
+deployed without the user having to copy changes into the projct spec. This new
+approach gives developers more flexibility to better manage their job code in
+individual files
 
-::: warning Considerations for syncing Github changes to OpenFn
+To put this in context, check out the sample `project.yaml` file below. We
+updated the job named `FHIR-standard-Data-with-change` by writing the job
+updated job code in the boody section whilst we updated job
+`Notify-CHW-upload-successful` in a different file named
+`Notify-CHW-upload-successful.js` which is referenced in the body section as
+well. For this project, when you run OpenFn deploy, all your changes will be
+bundled and deployed together.
 
-If you make any changes to individual job expression files (e.g.,
-`getPatients.js`), so that you can test individual steps in the OpenFn CLI, note
-that you must copy these to the `project.yaml` file for them to be synced to the
-OpenFn app. **Any job changes made to individual job `.js` files will not be
-auto-synced. Only changes to the `project.yaml` file will be synced to the
-OpenFn app.**
-
-For example, check out the sample `project.yaml` file below. If you wanted to
-make a change to the code for job `FHIR-standard-Data-with-change`, you would
-need to paste your updated job expression code after that job's `body:` key.
+Learn more on [portability documentation](/documentation/deploy/portability).
 
 :::
 
@@ -156,9 +190,10 @@ workflows:
         enabled: true
         # credential:
         # globals:
-        body: | //TODO: PASTE UPDATED JOB CODE IN THE BODY KEY HERE
+        body: |
           fn(state => {
             console.log("hello github integration")
+            console.log("this is an update")
             return state
         });
 
@@ -178,7 +213,7 @@ workflows:
         # credential:
         # globals:
         body: |
-          fn(state => state);
+          path: ./workflow/Notify-CHW-upload-successful.js
 
       Notify-CHW-upload-failed:
         name: Notify-CHW-upload-failed
@@ -211,28 +246,16 @@ workflows:
         condition: on_job_failure
 ```
 
-## How It Works
+## Structuring your GitHub Repository
 
-Your whole OpenFn project can be represented as a `project.yaml` file.
+:::warning This is an Advanced Configuration :::
 
-The `Sync to GitHub` feature makes use of GitHub actions to automatically deploy
-(after a commit on GitHub) or pull (when **"Initiate Sync to Branch"** button is
-clicked on OpenFn) to keep a repository in sync with your OpenFn project.
-
-Using our Command Line Interface, the [@openfn/cli](../deploy/portability.md)
-you can pull a project config from OpenFn to a folder or repo on your computer,
-and you can deploy a change in your `project.yaml` file from that directory or
-repo to OpenFn.
-
-For more detailed information on representing your project as code and using the
-@openfn/cli, head over to our documentation on
-[Portability](../deploy/portability.md).
-
-## Repository Structure (Advanced Configuration)
-
-Here you can do pretty much what you want, so long as you've got a `config.json`
-pointing to your project spec, state, and OpenFn endpoint. That config file
-looks like this:
+When you initiate the connection between OpenFn and your GitHub repository, a
+config.json file is automatically created with reference to your project spec
+and project state files, and the endpoint of your OpenFn deployment. Users have
+the flexibility to edit their config.json files so long it is pointing to the
+right project spec, state, and OpenFn endpoint. A standard config file looks
+like this:
 
 ```json
 {
@@ -253,8 +276,8 @@ project UUID on OpenFn, so you'll see files that look like this:
 }
 ```
 
-Below, here are three common patterns used to structure OpenFn projects inside
-git repositories:
+There are three common patterns used to structure OpenFn projects inside git
+repositories. See them below:
 
 ### Standard
 
