@@ -13,10 +13,10 @@ can **sync changes made to your project on OpenFn to GitHub**, and you can
 :::info For Cloud Hosted OpenFn Users
 
 GitHub Sync is only available in projects that are subscribed to Core, Growth,
-Scale or Custom plans on [Cloud Hosted OpenFn](www.openfn.org/pricing). Users
-can however connect their OpenFn account to GitHub by authenticating OpenFn to
-access their GitHub account by navigating to `User Profile` page and clicking `
-Connect your GitHub Account".
+Scale or Custom plans on Cloud Hosted OpenFn. Users can however connect their
+OpenFn account to GitHub by authenticating OpenFn to access their GitHub account
+by navigating to `User Profile` page and clicking ` Connect your GitHub
+Account".
 
 :::
 
