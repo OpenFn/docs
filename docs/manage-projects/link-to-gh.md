@@ -248,16 +248,14 @@ workflows:
 
 ## Structuring your GitHub Repository
 
-:::warning
-This is an Advanced Configuration
-:::
+:::warning This is an Advanced Configuration :::
 
 When you initiate the connection between OpenFn and your GitHub repository, a
 config.json file is automatically created with reference to your project spec
 and project state files, and the endpoint of your OpenFn deployment. Users have
 the flexibility to edit their config.json files so long it is pointing to the
-right project spec, state, and OpenFn endpoint. A standard config file looks like
-this:
+right project spec, state, and OpenFn endpoint. A standard config file looks
+like this:
 
 ```json
 {
@@ -278,8 +276,8 @@ project UUID on OpenFn, so you'll see files that look like this:
 }
 ```
 
-There are three common patterns used to structure OpenFn projects inside
-git repositories. See them below:
+There are three common patterns used to structure OpenFn projects inside git
+repositories. See them below:
 
 ### Standard
 
