@@ -41,7 +41,8 @@ to be uploaded to destination system"** section.
 These logs can help admins verify that the source data and the data being
 uploaded to the destination system is correct. For example, seeing in the logs
 that a unique identifier is being mapped to `undefined` in the destination
-system can help you understand this Salesforce error message:
+system can help you understand the root cause of an error. For example this Salesforce error
+message might be caused by an `undefined` mapping:
 
 `METHOD_NOT_ALLOWED: HTTP Method 'PATCH' not allowed. Allowed are GET,HEAD,POST at HttpApi.getError`.
 
