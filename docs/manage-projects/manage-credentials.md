@@ -56,4 +56,6 @@ ask on [Community](https://community.openfn.org).
 
 ### Share Credentials
 
-If you own a Credential, you can choose which Project has access to it. To update which Projects your Credential is shared with, follow the steps on the User Credentials docs page.
+If you own a Credential, you can choose which Project has access to it. To update
+which Projects your Credential is shared with, follow the steps on the
+[User Credentials docs page](https://docs.openfn.org/documentation/user-credentials).
