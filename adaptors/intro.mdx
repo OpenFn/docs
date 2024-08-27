@@ -34,7 +34,18 @@ preferred way of communicating about adaptors is as follows:
 
 In short, _most_ adaptors follow the naming convention `@openfn/language-xyz`.
 
-## Where to find them
+## Adaptors vs. Workflows
+
+Adaptors are reusable components that make connecting with a specific app
+easier, whereas [Workflows](/documentation/get-started/terminology#workflow) are
+the project-specific processes that you want to automate. OpenFn users will
+always leverage Adaptors to better understand how to work with specific APIs, to
+access Adaptor helper functions (or "shortcuts") to more quickly build
+Workflows, and to handle authenticatio. See the below diagram.
+
+![workflows-adaptors-compare](/img/workflows-v-adaptors.png)
+
+## Where to find Adaptors
 
 <div>
   Here's a list of the {generateList().length} publicly supported OpenFn
@@ -116,9 +127,9 @@ In short, _most_ adaptors follow the naming convention `@openfn/language-xyz`.
 
 ### On OpenFn
 
-When creating or editing a job step, you can choose the adaptor to run
-the job. This way you "import" the needed operations. Simply open the dropdown
-list of adaptors, and click on one.
+When creating or editing a job step, you can choose the adaptor to run the job.
+This way you "import" the needed operations. Simply open the dropdown list of
+adaptors, and click on one.
 
 <img src="/img/adaptor-picker.webp" />
 
@@ -156,6 +167,5 @@ The source code and technical documentation for developing or extending existing
 adaptors can be found
 [here](https://github.com/OpenFn/adaptors#working-with-adaptors).
 
-:::tip Need Help ?
-See the [Get Help](/documentation/get-help/support) page for more information
-:::
+:::tip Need Help ? See the [Get Help](/documentation/get-help/support) page for
+more information :::
