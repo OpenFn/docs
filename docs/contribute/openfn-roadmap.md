@@ -12,7 +12,7 @@ progress [here](#what-are-we-currently-working-on).
 
 ## Our approach to product development
 
-At OpenFn, we follw the [Shape Up approach](https://basecamp.com/shapeup) to
+At OpenFn, we follow the [Shape Up approach](https://basecamp.com/shapeup) to
 help our small engineering team build _meaningul_ products and features faster
 without compomising on quality. With Shape Up in place, we typcially commit to
 _projects_ that can be delivered in a 4-6 week period with multiple releases
