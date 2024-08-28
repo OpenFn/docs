@@ -37,8 +37,8 @@ Permissions and access in an OAuth instance are defined by scopes which are
 named differently by providers based on their functions within their platform.
 
 For GoogleSheets, your super user will likely need to add the following scopes
-to the Oauth Client Setup configured for Google in your OpenFn deployment. That said,
-please refer to
+to the Oauth Client Setup configured for Google in your OpenFn deployment. That
+said, please refer to
 [Google's documentation on Oauth scopes](https://developers.google.com/identity/protocols/oauth2/scopes)
 for the latest information.
 
@@ -139,6 +139,8 @@ A step by step guide is found
 [in this tutorial](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets)
 that shows us how to get data via a REST API and push it to Google Sheet.
 
-### API Docs
+### Helpful Resources
+
 - [Google Sheets API Overview](https://developers.google.com/sheets/api/guides/concepts)
-- OpenFn Workflow Tutorial: [HTTP-to-GoogleSheets](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets)
+- OpenFn Workflow Tutorial:
+  [HTTP-to-GoogleSheets](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets)
