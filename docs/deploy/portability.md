@@ -388,6 +388,42 @@ Options:
   -s, --state-path             Path to the state file
 ```
 
+## Troubleshooting
+
+This section covers solutions to some errors you might come across when using
+OpenFn pull or deploy in your projects.
+
+### Extraneous Workflow ID
+
+#### Description 
+
+This error occurs when you run `openfn deploy` and there is a mismatch between
+between IDs of workflows in your projectSpec and your OpenFn instance. When this
+occurs, the error will be written out in an error object as shown below:
+
+```
+[CLI] ✘ Failed to deploy project openfn-data-buffers-prototype:
+{
+  "errors": {
+    "workflows": {
+      "1-ingest-messages": {
+        "base": [
+          "extraneous parameters: workflow_id"
+        ]
+      },
+      "2-calculate-indicators": {
+        "base": [
+          "extraneous parameters: workflow_id"
+        ]
+      }
+    }
+  }
+```
+#### Solution
+
+Run `openfn pull` to update your local instance and keep IDs in sync,
+incorporate your changes and run `openfn deploy` again.
+
 ## Other Versions
 
 - [Portability Spec v2](portability-versions#v2)
