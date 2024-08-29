@@ -104,7 +104,7 @@ converts them to `Input` dataclips that are used to initialize a Work Order.
 :::info For Self Hosted OpenFn
 
 Instance administrators have to enable Kafka for their instance by setting
-setting `KAFKA_TRIGGERS_ENABLED=yes` in the environment variable.
+ `KAFKA_TRIGGERS_ENABLED=yes` in the environment variable.
 
 :::
 
