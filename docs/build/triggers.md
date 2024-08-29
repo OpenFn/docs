@@ -101,21 +101,29 @@ published by a Kafka cluster. The triggers make use of Kafka consumer groups
 that are set up on-demand to receive messages from a defined cluster then
 converts them to `Input` dataclips that are used to initialize a Work Order.
 
+:::info For Self Hosted OpenFn
+
+Instance administrators have to enable Kafka for their instance by setting
+setting `KAFKA_TRIGGERS_ENABLED=yes` in the environment variable.
+
+:::
+
 ![Configuring Kafka Trigger](/img/configuring-kafka.png)
 
 :::info What is Kafka?
 
-Apache Kafka® is an event streaming platform designed to handle high volumes 
-of data. Check out [Kafka Docs](https://kafka.apache.org/documentation/#gettingStarted) 
-to learn more.
+Apache Kafka® is an event streaming platform designed to handle high volumes of
+data. Check out
+[Kafka Docs](https://kafka.apache.org/documentation/#gettingStarted) to learn
+more.
 
 :::
 
 ### Configuring a Kafka trigger for your workflow
 
 1. Create a new Workflow or open an existing Workflow in your Project
-2. Click on the workflow's Trigger and change the trigger type to `Kafka Consumer`
-   in the `Trigger type` dropdown.
+2. Click on the workflow's Trigger and change the trigger type to
+   `Kafka Consumer` in the `Trigger type` dropdown.
 3. Fill out the required connection details:
 
 - **Hosts**: Provide the URL of the host(s) your trigger should listen to for
@@ -124,29 +132,31 @@ to learn more.
   need at least one topic for a successful connection.
 - **SSL**: Some Kafka cluster require SSL connection. If you are connecting to
   an environment that requires SSL connection, select `Enable SSL`.
-- **SSL Authentication**: Select the type of Authentication required for the Kafka
-  cluster.
+- **SSL Authentication**: Select the type of Authentication required for the
+  Kafka cluster.
 - **Initial offset policy**: The intial offset dictates where the consumer
   starts reading messages from a topic when it subscribes for the first time.
-  There are three possible options: `earliest` messages available, `latest` 
-  messages available, or messages with a specific `timestamp` (e.g., `1721889238000`). 
-- **Connect timeout**: The connect timeout specified in seconds (e.g., `30`) represents how
-  long the consumer should wait before timing out when attempting to connect
-  with a Kafka cluster.
+  There are three possible options: `earliest` messages available, `latest`
+  messages available, or messages with a specific `timestamp` (e.g.,
+  `1721889238000`).
+- **Connect timeout**: The connect timeout specified in seconds (e.g., `30`)
+  represents how long the consumer should wait before timing out when attempting
+  to connect with a Kafka cluster.
 
 4. If you have not finished designing your Workflow or you're not ready to start
-   receiving messages from the Kafka cluster, please check the box to **disable 
+   receiving messages from the Kafka cluster, please check the box to **disable
    the trigger** until you're ready for message ingestion to begin.
 
 :::warning Disable the trigger during workflow design
 
 Once the required connection information is provided via the modal, the trigger
-will *immediately* start attempting to connect to the Kafka cluster. We advise that 
-the trigger is disabled until your workflow is ready to receive data from the cluster for
-processing. **To stop the trigger from receiving and processing messages, check the `Disable
-this trigger` checkbox at the bottom of the trigger configuration modal.**
+will _immediately_ start attempting to connect to the Kafka cluster. We advise
+that the trigger is disabled until your workflow is ready to receive data from
+the cluster for processing. **To stop the trigger from receiving and processing
+messages, check the `Disable this trigger` checkbox at the bottom of the trigger
+configuration modal.**
 
 :::
 
-Learn how the initial `state` (and `Input`) for Kafka-triggered Workflows gets built 
-[here](../jobs/state#kafka-triggered-runs).
+Learn how the initial `state` (and `Input`) for Kafka-triggered Workflows gets
+built [here](../jobs/state#kafka-triggered-runs).
