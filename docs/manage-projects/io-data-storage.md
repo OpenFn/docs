@@ -49,3 +49,54 @@ storage and solution architectures that rely on OpenFn "zero-persistence" data
 pipelines.
 
 :::
+
+### Export History
+
+Users can also export all work orders and their associated artefacts (runs,
+steps, runsteps, input and output data clips) in a project. Work order
+history export is managed at a project level and available to all collaborators (viewer,
+editor, admin, owner) in a project.
+
+#### How to export workorder history
+
+To export work order history for your project, open the project and click on
+`History` on the side menu. On the history page, scroll to the bottom of the
+work order history table and click on the cloud icon. (see image below)
+
+![History Page](/img/history_page_cloud.png)
+
+Clicking on the download icon will prompt a confirmation modal for the export.
+If confirmed, a background process will be initiated for the export.
+
+![Confirm export](/img/confirm_export.png)
+
+When export is complete an email is sent to the email address your OpenFn is
+registered with.
+
+:::info FOR LOCAL DEPLOYMENTS
+
+For local deployments, OpenFn uses Swoosh as a mailbox service for development
+purposes and can access the mailbox via http://localhost:4000/dev/mailbox. You
+can substitute localhost:4000 to match the port hsoting your OpenFn instance.
+
+:::
+
+#### Managing Exports
+
+Managing Exports Users can view all history exports via the `History Exports`
+page in the project settings. Click on `Settings` on the side menu and click on
+`History Exports` to see the list of work order exports in your project.
+
+On the History exports page, you will see the list of exports showing your
+latest request and previous requests with the other information such as
+filename, date of export, user who requested the export and the status.
+
+![List of history exports ](/img/history_exports_page.png)
+
+:::caution Configuring storage for exports
+
+Instance administrators can configure the storage for work order exports for
+local deployments. OpenFn currently supports local storage and Google Cloud
+Storage as destinations for exporting work orders.
+
+:::
