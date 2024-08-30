@@ -4,11 +4,11 @@ sidebar_label: Version Control (GitHub Sync)
 slug: /link-to-GitHub
 ---
 
-The version control (GitHub Sync) feature lets users track and manage changes
-to their OpenFn projects in GitHub. GitHub Sync enables a 2-way sync between
-your OpenFn project and your GitHub repository. By 2-way sync, we mean that you
-can **sync changes made to your project on OpenFn to GitHub**, and you can
-**deploy changes you've made to your project on GitHub to OpenFn**.
+The version control (GitHub Sync) feature lets users track and manage changes to
+their OpenFn projects in GitHub. GitHub Sync enables a 2-way sync between your
+OpenFn project and your GitHub repository. By 2-way sync, we mean that you can
+**sync changes made to your project on OpenFn to GitHub**, and you can **deploy
+changes you've made to your project on GitHub to OpenFn**.
 
 :::info For Cloud Hosted OpenFn Users
 
@@ -212,7 +212,7 @@ workflows:
         enabled: true
         # credential:
         # globals:
-        body: |
+        body:
           path: ./workflow/Notify-CHW-upload-successful.js
 
       Notify-CHW-upload-failed:
@@ -248,7 +248,7 @@ workflows:
 
 ## Structuring your GitHub Repository
 
-:::warning This is an Advanced Configuration :::
+:::warning This is an Advanced Configuration
 
 When you initiate the connection between OpenFn and your GitHub repository, a
 config.json file is automatically created with reference to your project spec
@@ -333,3 +333,49 @@ your-git-monorepo
      ├── projectState.json
      └── projectSpec.yaml
 ```
+
+:::
+
+:::info Important Considerations
+
+#### Syncing Changes from OpenFn to GitHub
+
+- When you sync changes from OpenFn to GitHub, the `projectSpec.yaml` file will
+  be updated with the changes made to the project in OpenFn.
+
+#### Job file deletion
+
+- If you delete a file from your project, make sure you update the
+  `projectSpec.yaml` file accordingly.
+- If you delete a job from your project in OpenFn, the `projectSpec.yaml` file
+  will be updated automatically. But the job file will not be deleted from the
+  GitHub repository. Make sure you delete the job file from the GitHub
+  repository as well.
+
+#### Job file renaming
+
+- If you rename a file in your project, make sure you update the
+  `projectSpec.yaml` file accordingly.
+- If you rename a job in your project in OpenFn, the `projectSpec.yaml` file
+  will be updated automatically. But the job file will not be renamed in the
+  GitHub repository.
+
+#### Job file addition
+
+- If you add a file to your project, make sure you update the `projectSpec.yaml`
+  file accordingly.
+- If you add a job to your project in OpenFn, the `projectSpec.yaml` file will
+  be updated with the job code content for the newly added job. To add the new
+  job as a file path in `projectSpec.yaml`, make sure you pull down the changes
+  from GitHub and add the code into a file then update `projectSpec.yaml` file
+  to use the new file path.
+
+#### New workflow
+
+- If you add a new workflow to your project in OpenFn, the `projectSpec.yaml`
+  file will be updated with the workflow code content for the newly added
+  workflow. To add the new workflow as a file path in `projectSpec.yaml`, make
+  sure you pull down the changes from GitHub and add the code into a file then
+  update `projectSpec.yaml` file to use the new file path.
+
+:::
