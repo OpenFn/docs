@@ -49,24 +49,24 @@ To get started:
 
 ## 3. Define your methods (GET, POST...) and/or operations (insert, update, upsert...)
 
-1. Determine usable existing or create the unique identifiers for  your data. Unique
-   identifiers are used to insert and update specific records in your data (e.g.,
-   uuid, form_id, patient_id, etc.).
-3. Determine the HTTP methods (e.g., GET, POST, PUT) or database operations
+1. Determine usable existing or create the unique identifiers for your data.
+   Unique identifiers are used to insert and update specific records in your
+   data (e.g., uuid, form_id, patient_id, etc.).
+2. Determine the HTTP methods (e.g., GET, POST, PUT) or database operations
    (e.g. insert, update, delete) you want to perform in the target app
-4. Check the Adaptor for helper functions.
+3. Check the Adaptor for helper functions.
    - Example from [language-postgresql](/adaptors/packages/postgresql-docs)
      - `insert(...)`, `insertMany(...)`
      - `update(...)`, `updateMany(...)`
-     - `upsert(...)`, `upsertMany(...)`  → update if record exists or insert if it
-       doesn’t; references an external Id b. Example from
+     - `upsert(...)`, `upsertMany(...)`  → update if record exists or insert if
+       it doesn’t; references an external Id b. Example from
        [language-dhis2](/adaptors/packages/dhis2-docs) using Tracked Entity
        Instances (TEI)
      - `updateTEI(...)`
      - `upsertTEI(...)`
 
-See the below example `Job expression` for a Step that will "upsert" (update or insert)
-records in a SQL database.
+See the below example `Job expression` for a Step that will "upsert" (update or
+insert) records in a SQL database.
 
 ```js
 upsert('mainDataTable', 'AnswerId', {
@@ -78,4 +78,6 @@ upsert('mainDataTable', 'AnswerId', {
   ...
 });
 ```
-See [Job Writing Guide](/documentation/jobs/job-writing-guide) for further information.
+
+See [Job Writing Guide](/documentation/jobs/job-writing-guide) for further
+information.
