@@ -40,8 +40,7 @@ schedule using cron expressions.
 :::tip Help with cron expressions
 
 The best way to learn about `cron`, if you're not already familiar, is through
-the OpenFn interface or
-<a href="https://crontab.guru" target="_blank">crontab.guru</a>.
+the OpenFn interface or <a href="https://crontab.guru" target="_blank">crontab.guru</a>.
 
 :::
 
