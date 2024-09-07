@@ -40,7 +40,8 @@ schedule using cron expressions.
 :::tip Help with cron expressions
 
 The best way to learn about `cron`, if you're not already familiar, is through
-the OpenFn interface or <a href="https://crontab.guru" target="_blank">crontab.guru</a>.
+the OpenFn interface or
+<a href="https://crontab.guru" target="_blank">crontab.guru</a>.
 
 :::
 
@@ -75,11 +76,11 @@ was < 50,000 bytes.)
 
 ### A quick fix for final state bloat
 
-Most often, final `state` bloat is due to improper handling of `state.references`
-or `state.data`. This can be fixed by cleaning up your final `state` by adding
-and customizing the following lines _either_ to the callback of your
-language-package's operation (if it allows for one) or by appending a `fn(...)`
-operation after your final operation.
+Most often, final `state` bloat is due to improper handling of
+`state.references` or `state.data`. This can be fixed by cleaning up your final
+`state` by adding and customizing the following lines _either_ to the callback
+of your language-package's operation (if it allows for one) or by appending a
+`fn(...)` operation after your final operation.
 
 ```js
 fn(state => {
@@ -101,9 +102,10 @@ converts them to `Input` dataclips that are used to initialize a Work Order.
 
 :::info What is Kafka?
 
-Apache Kafka® is an event streaming platform designed to handle high volumes 
-of data. Check out [Kafka Docs](https://kafka.apache.org/documentation/#gettingStarted) 
-to learn more.
+Apache Kafka® is an event streaming platform designed to handle high volumes of
+data. Check out
+[Kafka Docs](https://kafka.apache.org/documentation/#gettingStarted) to learn
+more.
 
 :::
 
@@ -117,31 +119,33 @@ to learn more.
   messages.
 - **Topics**: Enter the topics your Kafka consumers should subscribe to. You
   need at least one topic for a successful connection.
-- **SSL**: Some Kafka clusters require an SSL connection. If you are connecting to
-  an environment that requires SSL connection, select `Enable SSL`.
-- **SSL Authentication**: Select the type of authentication required for the Kafka
-  cluster.
+- **SSL**: Some Kafka clusters require an SSL connection. If you are connecting
+  to an environment that requires SSL connection, select `Enable SSL`.
+- **SSL Authentication**: Select the type of authentication required for the
+  Kafka cluster.
 - **Initial offset policy**: The intial offset dictates where the consumer
   starts reading messages from a topic when it subscribes for the first time.
-  There are three possible options: `earliest` messages available, `latest` 
-  messages available, or messages with a specific `timestamp` (e.g., `1721889238000`). 
-- **Connect timeout**: The connect timeout specified in seconds (e.g., `30`) represents how
-  long the consumer should wait before timing out when attempting to connect
-  with a Kafka cluster.
+  There are three possible options: `earliest` messages available, `latest`
+  messages available, or messages with a specific `timestamp` (e.g.,
+  `1721889238000`).
+- **Connect timeout**: The connect timeout specified in seconds (e.g., `30`)
+  represents how long the consumer should wait before timing out when attempting
+  to connect with a Kafka cluster.
 
 4. If you have not finished designing your Workflow or you're not ready to start
-   receiving messages from the Kafka cluster, please check the box to **disable 
+   receiving messages from the Kafka cluster, please check the box to **disable
    the trigger** until you're ready for message ingestion to begin.
 
 :::warning Disable the trigger during workflow design
 
 Once the required connection information is provided via the modal, the trigger
-will *immediately* start attempting to connect to the Kafka cluster. We advise that 
-the trigger is disabled until your workflow is ready to receive data from the cluster for
-processing. **To stop the trigger from receiving and processing messages, check the `Disable
-this trigger` checkbox at the bottom of the trigger configuration modal.**
+will _immediately_ start attempting to connect to the Kafka cluster. We advise
+that the trigger is disabled until your workflow is ready to receive data from
+the cluster for processing. **To stop the trigger from receiving and processing
+messages, check the `Disable this trigger` checkbox at the bottom of the trigger
+configuration modal.**
 
 :::
 
-Learn how the initial `state` (and `Input`) for Kafka-triggered Workflows gets built 
-[here](../jobs/state#kafka-triggered-runs).
+Learn how the initial `state` (and `Input`) for Kafka-triggered Workflows gets
+built [here](../jobs/state#kafka-triggered-runs).
