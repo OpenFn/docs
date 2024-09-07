@@ -25,9 +25,8 @@ etc.).
 
 1. Click on the `New Credential` button, and choose the type of app you want to
    connect.
-   
 2. If your app is not listed, choose "Raw JSON" to create your own custom
-credential or "configuration" input. For example:
+   credential or "configuration" input. For example:
 
 ```json
 { "loginUrl": "https://random-app.com", "username": "test", "password": "pwd" }
@@ -56,4 +55,6 @@ ask on [Community](https://community.openfn.org).
 
 ### Share Credentials
 
-If you own a Credential, you can choose which Project has access to it. To update which Projects your Credential is shared with, follow the steps on the User Credentials docs page.
+If you own a Credential, you can choose which Project has access to it. To
+update which Projects your Credential is shared with, follow the steps on the
+User Credentials docs page.
