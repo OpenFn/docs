@@ -485,9 +485,10 @@ to troubleshoot this you can go to the documentation for **dataValue ->
 [docs.openfn.org/adaptors/packages/common-docs/#datavaluepath--operation](/adaptors/packages/common-docs/#datavaluepath--operation)
 **
 
-According to the docs, dataValue takes a path as inputt, which is of the string type. But in our
-operation we were passing an integer, that’s why we have a _TypeError_. You can
-fix the error by passing a string in dataValue i.e `console.log(dataValue(“1”))`
+According to the docs, dataValue takes a path as input, which is of the string
+type. But in our operation we were passing an integer, that’s why we have a
+_TypeError_. You can fix the error by passing a string in dataValue i.e
+`console.log(dataValue(“1”))`
 
 <details>
   <summary>Expected CLI logs</summary>
@@ -591,8 +592,8 @@ For example, if you have two steps in your workflow (GET users from system A &
 POST users to system B), you can set up your workflow to run all steps in
 sequence from start to finish. This imitates the
 [flow trigger patterns](/documentation/build/triggers#flow-triggers) on the
-OpenFn platform where a second job should run after the first one succeeds, using
-the data returned from the first job.
+OpenFn platform where a second job should run after the first one succeeds,
+using the data returned from the first job.
 
 :::info tl;dr
 
@@ -885,8 +886,8 @@ outlined below:
     },
    ```
 
-2. Data Key: In case you need to pass initial data to your job, specify a path to
-   a gitignored data file
+2. Data Key: In case you need to pass initial data to your job, specify a path
+   to a gitignored data file
    ```json
    {
    ...
