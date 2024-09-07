@@ -24,8 +24,9 @@ OpenFn Workflows are executed as follows:
    action.
 2. This creates a `Work Order` - a request to run a Workflow with a given input
    (e.g, a new form submission or patient record that needs to be processed).
-   For a `Work Order` to be completed, it should reach an ending Step succesfully
-   (without errors) - this ensures that the processing has been completed.
+   For a `Work Order` to be completed, it should reach an ending Step
+   succesfully (without errors) - this ensures that the processing has been
+   completed.
 3. A `Run` is then executed to try to complete the Workflow successfully. This
    Run will have a [status code](/documentation/monitor-history/status-codes),
    indicating whether the Workflow Steps were successfully processed.
