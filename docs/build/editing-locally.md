@@ -42,14 +42,14 @@ for more info.)
 5. For this tutorial, we assume you're making changes on the `main` or `master`
    branch: the one that is deployed as your production system to OpenFn.
 
-6. To edit your steps, use a code editor such as
+6. To edit your steps, use a code editor. We recommend
    [Visual Studio Code](https://code.visualstudio.com/download).
 
 ![VS Code](/img/edit_job_vscode.png)
 
-7. Make sure you install the
+7. When using VS Code, make sure you install the
    [Prettier VSCode Extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-   and set is as default formatter in Settings as seen below. This will apply
+   and set it as the default formatter in Settings as seen below. This will apply
    the correct code formatting to the files you change.
 
 ![Prettier](/img/prettier.png)
