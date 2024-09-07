@@ -38,9 +38,10 @@ valuable outcomes to be used to monitor success.
 
 **Example:**
 
-1. I want to automate syncing case data from KoboToolBox to DHIS2 Tracker.
+1. I want to automate the syncing of case data from KoboToolBox to DHIS2
+   Tracker.
 2. Our team currently spends 3 hours a week manually exporting the Kobo Data and
-   inputting it to DHIS2.
+   entering it into DHIS2.
 3. This automation will eliminate the risk of human error in manually entering
    the data, save us money and time, and enable us to work with more patients.
 
