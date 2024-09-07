@@ -57,7 +57,7 @@ search is applied. This method of searching allows you to find work orders
 quickly and allows for partial string matches across all text in the run logs
 and across the "keys" and "values" of your dataclips.
 
-Partial string matching worka best at the start of words, so if you're looking
+Partial string matching works best at the start of words, so if you're looking
 for items matching `"newPatient"` it's better to search for `"newPat"` than for
 `"tient"`. (When in doubt, whole words or IDs produce the best results.)
 
