@@ -31,9 +31,10 @@ on the `Learn more about AI Assistant` above the button.
 
 ## How to access the AI Assistant
 
-The AI Assistant is located in the IDE/Inspector as a new tab in the Input panel. To use the Assistant,
-click on the `AI Assistant` tab. If it is your first time, this will open an introductory screen with
-a button that says `Get Started with the AI Assistant`.
+The AI Assistant is located in the IDE/Inspector as a new tab in the Input
+panel. To use the Assistant, click on the `AI Assistant` tab. If it is your
+first time, this will open an introductory screen with a button that says
+`Get Started with the AI Assistant`.
 
 ![Assistant Introductory Screen](/img/ai-assistant-intro.png)
 
@@ -51,9 +52,9 @@ the `Send` button to send your question to the AI Assistant. The assistant will
 return a respond in a few seconds in the chat interface as shown below.
 ![Chat Interface](/img/ai-assistant-engage.png)
 
-You can close a chat session by clicking the `(X)` button on the top right of the
-chat interface. This will close the chat interface and you will see the list of
-previous chat sessions including your most recent chat session.
+You can close a chat session by clicking the `(X)` button on the top right of
+the chat interface. This will close the chat interface and you will see the list
+of previous chat sessions including your most recent chat session.
 
 You can always start a new session by typing a new prompt in the text area and
 clicking on the `Send` button.
