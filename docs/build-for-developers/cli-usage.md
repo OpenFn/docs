@@ -4,7 +4,7 @@ sidebar_label: Basic usage
 slug: /cli-usage
 ---
 
-This page shows examples for some of the most common usages of the CLI, such as:
+This page shows examples for some of the most common usages of the CLI, including:
 
 - get help
 - run a job
@@ -30,8 +30,7 @@ openfn deploy --help
 
 ### Run a job
 
-To run a single job, you must explicitly specify which adaptor to use.
-[Publicly available adaptors](/adaptors). See examples below.
+To run a single job, you must explicitly specify which adaptor to use - see the [publicly available adaptors](/adaptors).
 
 Adaptors are automatically installed if the specified version is not detected.
 
@@ -177,8 +176,8 @@ openfn repo clean
 
 ### Run a workflow
 
-<details open>
-  <summary>A workflow has a structure like this:</summary>
+<details>
+  <summary>Click to view an example workflow's JSON structure</summary>
 
 ```json
 {
