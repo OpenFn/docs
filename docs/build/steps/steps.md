@@ -17,7 +17,7 @@ define the business logic and transformation rules of individual `Steps`_.
 ## Create or edit a Step
 
 Via the Workflow Canvas, click the plus `+` icon to create a _new_ Step, or
-click on ann existing Step to view or configure its key components.
+click on an existing Step to view or configure its key components.
 
 ## Configure the Step
 
