@@ -4,7 +4,7 @@ sidebar_label: Paths
 ---
 
 A Path is both a visual and functional indication defining the sequence of Steps
-the Workflow follows when executed. Read on more on the different types of Paths
+the Workflow follows when executed. Read on for more about the different types of Paths
 and configuration tips.
 
 ## Path Conditions
