@@ -2,15 +2,13 @@
 title: Credentials
 ---
 
-## Credentials
-
 Credentials are used to authorize connections to external systems. Some Adaptors
 will use credentials to fetch meta-data from source and destination applications
 and make the job writing process easier.
 
-Credentials can only be viewed, or edited by a single user — their "owner" (or
-the person that created that credential). All the collaborators on a particular
-Project can choose those credentials for use when defining a job.
+A Credentials' values can only be viewed or edited by a single user — their "owner"
+(the user that created that credential). All the collaborators on a Project can
+choose from all credentials for the Project when defining a job.
 
 ![Credentials Page](/img/settings_credentials.png)
 
@@ -51,7 +49,7 @@ gracefully, when in doubt you should leave it off. For example:
 ### Use OAuth2 credentials
 
 If OAuth2 _clients_ have been configured on your OpenFn instance, you can use
-them create OAuth credentials. These all work the same way:
+them create OAuth credentials:
 
 1. First you pick an OAuth credential type from the "New Credential" interface.
 2. Then you give it a name.
@@ -108,19 +106,22 @@ to perform automated tasks and integrations without requiring full user access.
 
 API-only users might not be available in every target system, but many do offer the
 creation of user roles that have API-only access permissions, and may allow you
-to determine the scopes for which APIs or endpoints users can access.
+to determine the scopes for which APIs or endpoints users can access. Even when an
+API only user is not available in the target system, best practices dictate that an
+integration/service user is used for all automation tasks to maintain a secure audit
+trail.
 
-API-only access minimizes risk of data breach. This helps with:
+API-only access minimizes the risks of data breaches by:
 
-- **Traceability**: Accessing with an integration user provides an audit trail
-  of who logged in when and what changes were made. For example, if you used
+- **Ensuring Traceability**: Accessing with an integration user provides an audit
+  trail of who logged in when and what changes were made. For example, if you used
   your personal user login for a system in an integration implementation, it
   would be hard to know if it was YOU, a human, who made a change vs. an
   automated system action via the API user.
 
-- **Minimizing breach impact**: The user can be deactivated if user is
-  compromised, and no one can log in through the frontend with API credential if
-  it’s breached.
+- **Minimizing breach impact**: The user can be deactivated if compromised, and log
+  in to the frontend with the breached API credential is automatically disallowed,
+  limiting attack vectors.
 
 - **Ensuring the principle of least privilege**: Each integration user need only
   have access to the subset of data supporting its specific use case.

@@ -11,8 +11,8 @@ contains their Workflows, Credentials and Collaborators scoped to that project.
 
 We introduced a `Projects` table in `v2.7.14` to help users manage their OpenFn
 projects in a table view. This is the new page that you'll see everytime your
-login to your OpenFn account. When users click `Projects` in the meanu sidebar, 
-you will see the list of projects where you have been granted a collaborator access.
+login to your OpenFn account. When users click `Projects` in the menu sidebar, 
+you will see the list of projects where you have been granted collaborator access.
 
 ![Project Table](/img/projects-table.png)
 

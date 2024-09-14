@@ -40,7 +40,7 @@ slug: /cli-walkthrough
 
     <details>
       <summary>What is a job?</summary>
-      A job is Javascript code which follows a particular set of conventions.
+      An OpenFn job is Javascript code which follows a particular set of conventions.
       Typically a job has one or more <i>operations</i> which perform a particular
       task (like pulling information from a database, creating a record, etc.) and
       return state for the next operation to use.
@@ -49,7 +49,7 @@ slug: /cli-walkthrough
     <details>
       <summary>What is console.log?</summary>
       <code>console.log</code> is a core JavaScript language function which lets
-      us send messages to the terminal window.
+      us output messages to the terminal window.
     </details>
 
 2.  Run the job using the CLI
@@ -82,7 +82,8 @@ happening inside our steps.
 
 ### 2. Using adaptor helper functions
 
-Adaptors are Javascript or Typescript modules that provide OpenFn users with a
+Adaptors are Javascript or [Typescript](https://www.typescriptlang.org/) (a
+strongly typed super-set of JavaScript) modules that provide OpenFn users with a
 set of helper functions for simplifying communication with a specific external
 system. Learn more about adaptors here: [docs.openfn.org/adaptors](/adaptors/)
 
@@ -92,14 +93,6 @@ Let’s use
 [@openfn/language-http](https://www.npmjs.com/package/@openfn/language-http)
 adaptor to fetch a list of forms from
 [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
-
-:::info Understanding CLI arguments
-
-Use `-a` to specify the adaptor; use `-i` to auto-install the necessary adaptor
-
-Run `openfn help` to see the full list of CLI arguments.
-
-:::
 
 #### Tasks:
 
@@ -118,6 +111,14 @@ Run `openfn help` to see the full list of CLI arguments.
 ```bash
 openfn getPosts.js -i -a http -o tmp/output.json
 ```
+
+:::info Understanding CLI arguments
+
+Use `-a` to specify the adaptor; use `-i` to auto-install the necessary adaptor
+
+Run `openfn help` to see the full list of CLI arguments.
+
+:::
 
 Since it is our first time using the `http` adaptor, we are installing the
 adaptor using `-i` argument
@@ -382,11 +383,13 @@ the sum of all the elements in an array:
 
 ```
 
+// 0 + 1 + 2 + 3 + 4
 const array1 = [1, 2, 3, 4];
-
-// 0 + 1 + 2 + 3 + 4 const initialValue = 0; const sumWithInitial =
-array1.reduce( (accumulator, currentValue) => accumulator + currentValue,
-initialValue );
+const initialValue = 0;
+const sumWithInitial = array1.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  initialValue
+);
 
 console.log(sumWithInitial); // Expected output: 10
 
@@ -404,10 +407,14 @@ You can learn more about `array.reduce` from
 
 ```
 
-[CLI] ✔ Compiled job from getPosts.js GET request succeeded with 200 ✓ [R/T] ✔
-Operation 1 complete in 825ms [R/T] ✔ Operation 2 complete in 0ms [JOB] ℹ Post
-with userId 1 [ //All of posts for userId 1 ] [R/T] ✔ Operation 3 complete in
-12ms [CLI] ✔ Writing output to tmp/output.json [CLI] ✔ Done in 1.239s! ✨
+[CLI] ✔ Compiled job from getPosts.js
+GET request succeeded with 200 ✓
+[R/T] ✔ Operation 1 complete in 825ms
+[R/T] ✔ Operation 2 complete in 0ms
+[JOB] ℹ Post with userId 1 [ //All of posts for userId 1 ]
+[R/T] ✔ Operation 3 complete in 12ms
+[CLI] ✔ Writing output to tmp/output.json
+[CLI] ✔ Done in 1.239s! ✨
 
 ```
 
@@ -415,8 +422,8 @@ with userId 1 [ //All of posts for userId 1 ] [R/T] ✔ Operation 3 complete in
 
 ### 5. Debugging errors
 
-When debugging, it’s interesting to use log to have a visual representation of
-the content of the manipulated objects (such as state).
+When debugging, it’s interesting and helpful to use console.log to have a visual
+representation of the content of the manipulated objects (such as state).
 
 When you want to inspect the content of state in between operations, add an
 `fn()` block with a `console.log`:
@@ -474,13 +481,14 @@ fn(state => {
 </details>
 
 As you can see from our logs that helper function `dataValue` has a TypeError,
-To troubleshoot this you can go to the documentation for **dataValue ->
+to troubleshoot this you can go to the documentation for **dataValue ->
 [docs.openfn.org/adaptors/packages/common-docs/#datavaluepath--operation](/adaptors/packages/common-docs/#datavaluepath--operation)
 **
 
-According to the docs, dataValue take path which is a string type. But in our
-operation we were passing an integer, that’s why we have a _TypeError_. You can
-fix the error by passing a string in dataValue i.e `console.log(dataValue(“1”))`
+According to the docs, dataValue takes a path as input, which is of the string
+type. But in our operation we were passing an integer, that’s why we have a
+_TypeError_. You can fix the error by passing a string in dataValue i.e
+`console.log(dataValue(“1”))`
 
 <details>
   <summary>Expected CLI logs</summary>
@@ -497,8 +505,8 @@ GET request succeeded with 200 ✓
 
 </details>
 
-If you need more information for debugging you can pass -l debug which will give
-all information about the run
+If you need more information for debugging you can pass `-l debug`. This sets
+the log level to _debug_, which logs all information about the run.
 
 i.e `openfn debug.js -a http -l debug`
 
@@ -550,10 +558,10 @@ each('posts[*]', state => {
 
 Notice how this code uses the `each` function, a helper function defined in
 [language-common](/adaptors/packages/common-docs/#eachdatasource-operation--operation)
-but accessed from this job that is using language-http. Most adaptors import and
-export many functions from `language-common`.
+but accessed from this job that is using `language-http`. Most adaptors import
+many functions from `language-common`.
 
-##### Run **openfn getPosts.js -a http -s tmp/state.json -o tmp/output.json**
+Run **openfn getPosts.js -a http -s tmp/state.json -o tmp/output.json**
 
 <details>
   <summary>Expand to see expected CLI logs</summary>
@@ -580,12 +588,12 @@ Running a workflow allows you to define a list of steps and rules for executing
 them. You can use a workflow to orchestrate the flow of data between systems in
 a structured and automated way.
 
-_For example, if you have two steps in your workflow (GET users from system A &
+For example, if you have two steps in your workflow (GET users from system A &
 POST users to system B), you can set up your workflow to run all steps in
 sequence from start to finish. This imitates the
 [flow trigger patterns](/documentation/build/triggers#flow-triggers) on the
 OpenFn platform where a second job should run after the first one succeeds,
-respectively, using the data returned from the first job. “_
+using the data returned from the first job.
 
 :::info tl;dr
 
@@ -822,7 +830,8 @@ Run `openfn [path/to/workflow.json]` to execute the workflow.
 
 <details>
 <summary>
-For example if you created <code>workflow.json</code> in the root of your project directory, This is how your project will look like
+For example, if you created <code>workflow.json</code> in the root of your
+project directory, this would be the project structure:
 </summary>
 
 ```bash
@@ -877,8 +886,8 @@ outlined below:
     },
    ```
 
-2. Data Key: Incase you need to pass initial data to your job, specify a path to
-   a gitignored data file
+2. Data Key: In case you need to pass initial data to your job, specify a path
+   to a gitignored data file
    ```json
    {
    ...

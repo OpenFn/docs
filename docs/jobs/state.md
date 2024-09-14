@@ -39,14 +39,14 @@ non serialisable keys.
 
 Adaptors will occasionally write extra information to state during a run - for
 example, database Adaptors tend to write a `client` key to state, used to track
-the database connection. These will eb removed at the end of a Job.
+the database connection. These will be removed at the end of a Job.
 
 ## Input & output state for runs
 
-Depending on whether you're running Workflows locally or on the app, the input
-state for a Run can be generated differently:
+Depending on whether you're running Workflows locally via the CLI or on the app, the input
+state for a Run must be generated differently:
 
-- When creating a work order by hand, you must select or generate your input
+- When manually creating a work order, you must select or generate your input
   manually (e.g., by creating a custom `Input` on the app or `state.json` file
   if working locally [in the CLI](../build-for-developers/cli-intro.md)).
 - When a work order is automatically created via a webhook trigger or cron
@@ -54,8 +54,46 @@ state for a Run can be generated differently:
 
 The final state of a Run is determined by what's returned from the last
 operation. Remember that job expressions are a series of operations: they each
-take state and return state, after creating any number of side effects. You can
-control what is returned at the end of all of these operations.
+take state and return state, after creating any number of side effects. The final returned
+state controls what is output by the run at the end of all of these operations.
+
+Best practice is to include a final state cleanup step that removes any data
+that should not persist between runs or be output (like PII), for example:
+
+    // get data from a data source
+    get('https://jsonplaceholder.typicode.com/users')
+
+    // store retrieved data in state for use later in job
+    fn(state => {
+        state.users = state.data;
+      return state;
+    });
+
+    // get more data from another data source
+    get('https://jsonplaceholder.typicode.com/posts')
+
+    // store additional retrieved data in state for use later in job
+    fn(state => {
+      state.posts = state.data;
+      return state;
+    });
+
+    // compare data
+    fn(state => {
+      if (state.users.length > state.posts.length) {
+        // do something based on the comparison
+      }
+      return state;
+    });
+
+    // cleanup state at the end before finshing job
+    fn(state => {
+      state.data = null
+      state.users = null
+      state.posts = null
+   
+      return state;
+    });
 
 ### Webhook triggered runs
 

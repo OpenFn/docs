@@ -2,9 +2,9 @@
 title: Design your Step
 ---
 
-Before you can configure your Step, you'll need to design the Workflow and
-consider which specific tasks, activities, or business logic will be executed.
-Read on for a brief overview.
+Before you can configure an individual Workflow Step, you'll need to design the
+entire Workflow and consider which specific tasks, activities, or business logic
+will be executed by the individual Step. Read on for a brief overview.
 
 :::tip
 
@@ -13,13 +13,13 @@ more details on solution design and links to templates.
 
 :::
 
-In short, to design a Workflow Step, you will need to follow the below actions,
-and consider summarizing your design specifications in a
+In short, to design a Workflow Step, you will need to follow the below list of
+actions, and consider summarizing your design specifications in a
 [workflow diagram](/documentation/design/design-workflow).
 
 ![Example Workflow](/img/example-workflow-state.png)
 
-### 1: Determine your Inputs/Outputs
+## 1. Determine your Inputs/Outputs
 
 1. What is the Input for this Workflow Step? Consider what is the initial state
    or data _before_ the Step begins.
@@ -27,7 +27,7 @@ and consider summarizing your design specifications in a
    executed)? Consider what you want to send to the target app and/or pass onto
    the next Step in the Workflow.
 
-### 2: Map your data elements
+## 2. Map your data elements
 
 [See here](/documentation/design/mapping-specs) for detailed guidance on mapping
 data elements or "data dictionaries" between your source and destination apps.
@@ -40,31 +40,33 @@ To get started:
 ![Sample mapping sheet](/img/data-element-mapping.png)
 
 3. Map the source and destinationdata elements & define rules for data cleaning
-   and transformation Consider:
+   and transformation. Consider:
 
 - How should the data collected be translated into your destination system’s
   data model?
-- Does your destination system have data input & validation requirements?
+- Does your destination system have data input or validation requirements?
+- Does the data require transformation or cleaning to satisfy the above answers?
 
 ## 3. Define your methods (GET, POST...) and/or operations (insert, update, upsert...)
 
-1. Find out or create the unique identifiers you will use to insert and update
+1. Determine usable existing or create the unique identifiers for your data.
+   Unique identifiers are used to insert and update specific records in your
    data (e.g., uuid, form_id, patient_id, etc.).
 2. Determine the HTTP methods (e.g., GET, POST, PUT) or database operations
    (e.g. insert, update, delete) you want to perform in the target app
-3. Check the Adaptor for helper functions. a. Example from
-   [language-postgresql](/adaptors/packages/postgresql-docs)
-   - `insert(...)`, `insertMany(...)`
-   - `update(...)`, `updateMany(...)`
-   - `upsert(...)`, `upsertMany(...)`  → update if record exists or insert if it
-     doesn’t; references an external Id b. Example from
-     [language-dhis2](/adaptors/packages/dhis2-docs) using Tracked Entity
-     Instances (TEI)
-   - `updateTEI(...)`
-   - `upsertTEI(...)`
+3. Check the Adaptor for helper functions.
+   - Example from [language-postgresql](/adaptors/packages/postgresql-docs)
+     - `insert(...)`, `insertMany(...)`
+     - `update(...)`, `updateMany(...)`
+     - `upsert(...)`, `upsertMany(...)`  → update if record exists or insert if
+       it doesn’t; references an external Id b. Example from
+       [language-dhis2](/adaptors/packages/dhis2-docs) using Tracked Entity
+       Instances (TEI)
+     - `updateTEI(...)`
+     - `upsertTEI(...)`
 
-See example [Job expression](/documentation/jobs/job-writing-guide) for a Step
-that will "upsert" (update or insert) records in a SQL database.
+See the below example `Job expression` for a Step that will "upsert" (update or
+insert) records in a SQL database.
 
 ```js
 upsert('mainDataTable', 'AnswerId', {
@@ -76,3 +78,6 @@ upsert('mainDataTable', 'AnswerId', {
   ...
 });
 ```
+
+See [Job Writing Guide](/documentation/jobs/job-writing-guide) for further
+information.

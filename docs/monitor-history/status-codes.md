@@ -23,7 +23,7 @@ the "status" for that Work Order will be "success".
 
 Every Run has a status which indicates whether it completed successfully.
 
-| Status    | Chip |      Type      | Abort Run?\* | Description                                                                                                                                                                  |
+| Status    | Chip |      Type      | Abort Run?\* | Description/Example                                                                                                                                                                  |
 | :-------- | :--: | :------------: | :----------: | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pending   |  ⚪  |                |      -       | The run is waiting for an available worker to begin execution                                                                                                                |
 | Running   |  🔵  |                |      -       | The run is still in progress                                                                                                                                                 |
