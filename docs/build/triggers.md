@@ -101,7 +101,7 @@ published by a Kafka cluster. The triggers make use of Kafka consumer groups
 that are set up on-demand to receive messages from a defined cluster then
 converts them to `Input` dataclips that are used to initialize a Work Order.
 
-:::info For Self Hosted OpenFn
+:::info For self-hosted OpenFn deployments
 
 Instance administrators have to enable Kafka for their instance by setting
  `KAFKA_TRIGGERS_ENABLED=yes` in the environment variable.
