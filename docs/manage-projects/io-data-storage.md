@@ -57,11 +57,11 @@ steps, runsteps, input and output data clips) in a project. Work order
 history export is managed at a project level and available to all collaborators (viewer,
 editor, admin, owner) in a project.
 
-#### How to export workorder history
+#### How to export work order history
 
-To export work order history for your project, open the project and click on
-`History` on the side menu. On the history page, scroll to the bottom of the
-work order history table and click on the cloud icon. (see image below)
+To export Work Order history for your project, open the project and click on
+`History` on the side menu. On the History page, scroll to the bottom of the
+work order history table and click on the cloud icon (see image below).
 
 ![History Page](/img/history_page_cloud.png)
 
@@ -70,8 +70,8 @@ If confirmed, a background process will be initiated for the export.
 
 ![Confirm export](/img/confirm_export.png)
 
-When export is complete an email is sent to the email address your OpenFn is
-registered with.
+When the export is complete, an email will be sent to your OpenFn user's associated 
+email address.
 
 :::info FOR LOCAL DEPLOYMENTS
 
@@ -83,11 +83,11 @@ can substitute localhost:4000 to match the port hsoting your OpenFn instance.
 
 #### Managing Exports
 
-Managing Exports Users can view all history exports via the `History Exports`
+Users can view all history exports via the `History Exports`
 page in the project settings. Click on `Settings` on the side menu and click on
 `History Exports` to see the list of work order exports in your project.
 
-On the History exports page, you will see the list of exports showing your
+On the `History Export`s page, you will see the list of exports showing your
 latest request and previous requests with the other information such as
 filename, date of export, user who requested the export and the status.
 
@@ -95,7 +95,7 @@ filename, date of export, user who requested the export and the status.
 
 :::caution Configuring storage for exports
 
-Instance administrators can configure the storage for work order exports for
+OpenFn instance administrators can configure the storage for work order exports for
 local deployments. OpenFn currently supports local storage and Google Cloud
 Storage as destinations for exporting work orders.
 
