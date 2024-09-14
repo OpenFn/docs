@@ -98,6 +98,13 @@ published by a Kafka cluster. The triggers make use of Kafka consumer groups
 that are set up on-demand to receive messages from a defined cluster then
 converts them to `Input` dataclips that are used to initialize a Work Order.
 
+:::info For self-hosted OpenFn deployments
+
+Instance administrators have to enable Kafka for their instance by setting
+ `KAFKA_TRIGGERS_ENABLED=yes` in the environment variable.
+
+:::
+
 ![Configuring Kafka Trigger](/img/configuring-kafka.png)
 
 :::info What is Kafka?
@@ -111,17 +118,18 @@ more.
 
 ### Configuring a Kafka trigger for your workflow
 
-1. Create a new Workflow or open an existing Workflow in your Project.
-2. Select `Kafka Consumer` from the `Trigger type` dropdown.
+1. Create a new Workflow or open an existing Workflow in your Project
+2. Click on the workflow's Trigger and change the trigger type to
+   `Kafka Consumer` in the `Trigger type` dropdown.
 3. Fill out the required connection details:
 
 - **Hosts**: Provide the URL of the host(s) your trigger should listen to for
   messages.
 - **Topics**: Enter the topics your Kafka consumers should subscribe to. You
   need at least one topic for a successful connection.
-- **SSL**: Some Kafka clusters require an SSL connection. If you are connecting
-  to an environment that requires SSL connection, select `Enable SSL`.
-- **SSL Authentication**: Select the type of authentication required for the
+- **SSL**: Some Kafka clusters require SSL connection. If you are connecting to
+  an environment that requires SSL connection, select `Enable SSL`.
+- **SSL Authentication**: Select the type of Authentication required for the
   Kafka cluster.
 - **Initial offset policy**: The intial offset dictates where the consumer
   starts reading messages from a topic when it subscribes for the first time.
