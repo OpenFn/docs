@@ -15,9 +15,11 @@ aggregate reporting on key indicators) using the the `kobotoolbox` and `dhis2`
 
 ### Video Walkthrough
 
-:::warning
+:::tip Introduction to Workflows and History tutorial
 
-Coming soon: Video tutorial to guide you through this Workflow configuration.
+Watch this
+[Introduction to Workflows and History tutorial](https://youtu.be/hae8eM0iYnM?si=LGbv1TK0W9L9y12u)
+to guide you through this Workflow configuration.
 
 :::
 
