@@ -42,7 +42,7 @@ This OpenFn Workflow will have 3 Steps:
 
 ### Step 1: Get Kobo Form Submission
 
-Create a the first step in Wrkflow convas.
+Create a the first step in Workflow convas.
 
 - Name: `Get Kobo Form Submission`
 - Adaptor: `kobotoolbox`
@@ -71,7 +71,7 @@ code:
 getSubmissions({ formId: 'aBpweTNdaGJQFb5EBBwUeo' });
 ```
 
-:::tip Need help writing job code?
+::: tip Need help writing job code?
 
 Check out the docs on the ["kobotoolbox" Adaptor](/adaptors/kobotoolbox),
 [configuring Steps](../build/steps/steps.md), and
@@ -91,7 +91,7 @@ Create an empty input `{}` then click `Create New Work Order` button to run the
 workflow. [See docs](../build/workflows.md) for more on running Workflows
 manually.
 
-The expected ` output`` should contain 17 records in  `state.data.results`
+The expected ` output` should contain 17 records in `state.data.results`
 
 ### Step 2: Count OPV Dose Given
 
@@ -117,7 +117,7 @@ fn(state => {
 });
 ```
 
-::tip Need help writing job code? Or modifying this logic?
+:::tip Need help writing job code? Or modifying this logic?
 
 Check out the docs on the ["common" Adaptor](/adaptors/packages/common-docs),
 [configuring Steps](../build/steps/steps.md), and
@@ -178,7 +178,7 @@ create('dataValueSets', state => ({
 }));
 ```
 
-::tip Need help writing job code? Or modifying this logic?
+:::tip Need help writing job code? Or modifying this logic?
 
 Check out the docs on the ["dhis2" Adaptor](/adaptors/dhis2),
 [configuring Steps](../build/steps/steps.md), and
@@ -211,7 +211,9 @@ count of OPV doses given to beneficiaries, and reporting this count as
 
 :::tip Are you blocked? Have questions?
 
-Reminder to watch the video (_coming soon!_) or post on the
-[Community](https://community.openfn.org) to ask for help!
+Watch this
+[Introduction to Workflows and History tutorial](https://youtu.be/hae8eM0iYnM?si=LGbv1TK0W9L9y12u)
+or post your questions on the [Community](https://community.openfn.org) to get
+help!
 
 :::
