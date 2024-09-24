@@ -25,7 +25,6 @@ month or 90-days) to reduce data storage costs or to limit their data footprint.
 
 ### What happens when old work orders, runs, logs, or dataclips get removed?
 
-You can
-[export your work order history and associated data](https://docs.openfn.org/documentation/manage-projects/io-data-storage?_gl=1*1x5ctqh*_gcl_au*MTE3Njc2MDkyMC4xNzI0MjQzMTAwLjY0NTI0ODAyMC4xNzI3MTY5OTM5LjE3MjcxNjk5NDA.#export-history)
-and you'll still be able to access your history in those CSVs, but all history
-will be removed from the OpenFn platform, and no new history will be saved.
+All history is removed from OpenFn and cannot be accessible on the platform. If you have previously 
+requested [work order history exports,](https://docs.openfn.org/documentation/manage-projects/io-data-storage?_gl=1*1x5ctqh*_gcl_au*MTE3Njc2MDkyMC4xNzI0MjQzMTAwLjY0NTI0ODAyMC4xNzI3MTY5OTM5LjE3MjcxNjk5NDA.#export-history)
+you'll still be able to access exported CSVs via the history export page in project settings.
