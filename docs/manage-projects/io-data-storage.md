@@ -46,7 +46,7 @@ pipelines.
 ### Export History
 
 Users can also export all work orders and their associated artefacts (runs,
-steps, runsteps, input and output data clips) in a project. Work Order history
+steps, runsteps, input and output data clips) in a project. Work order history
 export is managed at a project level and available to all collaborators (viewer,
 editor, admin, owner) in a project.
 
