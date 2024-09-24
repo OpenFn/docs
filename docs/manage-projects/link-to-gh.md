@@ -163,18 +163,18 @@ deployed without the user having to copy changes into the projct spec. This new
 approach gives developers more flexibility to better manage their job code in
 individual files rather than having all the code in the `projectSpec.yaml` file.
 
-Learn more on relative paths and directory structure in
+Learn more about relative paths and directory structure in
 [portability documentation](/documentation/deploy/portability#directory-structure).
 
 :::
 
 ## What is in your GitHub Repository?
 
-When you initiate the connection between OpenFn and your GitHub repository, a
-config.json file is automatically created with reference to your project spec
-and project state files, and the endpoint of your OpenFn deployment. By default,
-OpenFn will name all your files with your project UUID on OpenFn, so you'll see
-files that look like this:
+When you initiate a connection between OpenFn and your GitHub repository, a
+config.json file containing reference to your project spec and project state
+files, and the endpoint of your OpenFn deployment is automatically created in
+your specified branch. By default, OpenFn will name all your files with your
+project UUID on OpenFn, so you'll see files that look like this:
 
 ```json
 {
@@ -272,5 +272,4 @@ When you keep job code in relative file paths, ensure to update the
 `projectSpec.yaml` file based on changes to the files or paths in your project
 repository. A GitHub action is automatically triggered to push changes to OpenFn
 ensuring that future syncs are not affected. Changes can include adding,
-renaming, deleting a file or updating a file path.
-:::
+renaming, deleting a file or updating a file path. :::
