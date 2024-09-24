@@ -161,112 +161,20 @@ paths in project spec. Consequently, projects with directory structure that uses
 relative paths for job code in project spec, automatically gets packaged and
 deployed without the user having to copy changes into the projct spec. This new
 approach gives developers more flexibility to better manage their job code in
-individual files
+individual files rather than having all the code in the `projectSpec.yaml` file.
 
-To put this in context, check out the sample `project.yaml` file below. We
-updated the job named `FHIR-standard-Data-with-change` by writing the job
-updated job code in the boody section whilst we updated job
-`Notify-CHW-upload-successful` in a different file named
-`Notify-CHW-upload-successful.js` which is referenced in the body section as
-well. For this project, when you run OpenFn deploy, all your changes will be
-bundled and deployed together.
-
-Learn more on [portability documentation](/documentation/deploy/portability).
+Learn more on relative paths and directory structure in
+[portability documentation](/documentation/deploy/portability#directory-structure).
 
 :::
 
-```yaml
-name: openhie-project
-description: Some sample
-# credentials:
-# globals:
-workflows:
-  OpenHIE-Workflow:
-    name: OpenHIE Workflow
-    jobs:
-      FHIR-standard-Data-with-change:
-        name: FHIR-standard-Data-with-change
-        adaptor: '@openfn/language-http@latest'
-        enabled: true
-        # credential:
-        # globals:
-        body: |
-          fn(state => {
-            console.log("hello github integration")
-            console.log("this is an update")
-            return state
-        });
-
-      Send-to-OpenHIM-to-route-to-SHR:
-        name: Send-to-OpenHIM-to-route-to-SHR
-        adaptor: '@openfn/language-http@latest'
-        enabled: true
-        # credential:
-        # globals:
-        body: |
-          fn(state => state);
-
-      Notify-CHW-upload-successful:
-        name: Notify-CHW-upload-successful
-        adaptor: '@openfn/language-http@latest'
-        enabled: true
-        # credential:
-        # globals:
-        body:
-          path: ./workflow/Notify-CHW-upload-successful.js
-
-      Notify-CHW-upload-failed:
-        name: Notify-CHW-upload-failed
-        adaptor: '@openfn/language-http@latest'
-        enabled: true
-        # credential:
-        # globals:
-        body: |
-          fn(state => state);
-
-    triggers:
-      webhook:
-        type: webhook
-    edges:
-      webhook->FHIR-standard-Data-with-change:
-        source_trigger: webhook
-        target_job: FHIR-standard-Data-with-change
-        condition: always
-      FHIR-standard-Data-with-change->Send-to-OpenHIM-to-route-to-SHR:
-        source_job: FHIR-standard-Data-with-change
-        target_job: Send-to-OpenHIM-to-route-to-SHR
-        condition: on_job_success
-      Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-successful:
-        source_job: Send-to-OpenHIM-to-route-to-SHR
-        target_job: Notify-CHW-upload-successful
-        condition: on_job_success
-      Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-failed:
-        source_job: Send-to-OpenHIM-to-route-to-SHR
-        target_job: Notify-CHW-upload-failed
-        condition: on_job_failure
-```
-
-## Structuring your GitHub Repository
-
-:::warning This is an Advanced Configuration
+## What is in your GitHub Repository?
 
 When you initiate the connection between OpenFn and your GitHub repository, a
 config.json file is automatically created with reference to your project spec
-and project state files, and the endpoint of your OpenFn deployment. Users have
-the flexibility to edit their config.json files so long it is pointing to the
-right project spec, state, and OpenFn endpoint. A standard config file looks
-like this:
-
-```json
-{
-  "endpoint": "https://app.openfn.org",
-  "statePath": "./path-to-project-state.json",
-  "specPath": "./path-to-project.yaml"
-}
-```
-
-By default, OpenFn will name all your synchronization artifacts with your
-project UUID on OpenFn, so you'll see files that look like this:
+and project state files, and the endpoint of your OpenFn deployment. By default,
+OpenFn will name all your files with your project UUID on OpenFn, so you'll see
+files that look like this:
 
 ```json
 {
@@ -275,6 +183,21 @@ project UUID on OpenFn, so you'll see files that look like this:
   "statePath": "openfn-fdfdf286-aa8e-4c9e-a1d2-89c1e6928a2a-state.json"
 }
 ```
+
+Users have the flexibility to edit the config.json file to suit their folder
+structure so long it is pointing to the right project spec, state, and OpenFn
+endpoint. See example config.json file below with a custom name for the project
+spec and project state.
+
+```json
+{
+  "endpoint": "https://app.openfn.org",
+  "statePath": "./custom-name-for-project-state.json",
+  "specPath": "./custom-name-for-project-spec.yaml"
+}
+```
+
+## Structuring OpenFn projects in git repositories
 
 There are three common patterns used to structure OpenFn projects inside git
 repositories. See them below:
@@ -334,48 +257,20 @@ your-git-monorepo
      └── projectSpec.yaml
 ```
 
-:::
-
-:::info Important Considerations
+:::tip A sync in time, saves nine
 
 #### Syncing Changes from OpenFn to GitHub
 
-- When you sync changes from OpenFn to GitHub, the `projectSpec.yaml` file will
-  be updated with the changes made to the project in OpenFn.
+When you sync changes from OpenFn to GitHub, the `projectSpec.yaml` file in your
+repository will be updated with the changes made to the project in OpenFn. For a
+project with a directory structure that uses relative paths for job code, OpenFn
+will respect the structure when syncing changes for backup. All job code will be
+written into their respective files. Newer ones will be kept inline (in the
+body) of the `projectSpec.yaml` file.
 
-#### Job file deletion
-
-- If you delete a file from your project, make sure you update the
-  `projectSpec.yaml` file accordingly.
-- If you delete a job from your project in OpenFn, the `projectSpec.yaml` file
-  will be updated automatically. But the job file will not be deleted from the
-  GitHub repository. Make sure you delete the job file from the GitHub
-  repository as well.
-
-#### Job file renaming
-
-- If you rename a file in your project, make sure you update the
-  `projectSpec.yaml` file accordingly.
-- If you rename a job in your project in OpenFn, the `projectSpec.yaml` file
-  will be updated automatically. But the job file will not be renamed in the
-  GitHub repository.
-
-#### Job file addition
-
-- If you add a file to your project, make sure you update the `projectSpec.yaml`
-  file accordingly.
-- If you add a job to your project in OpenFn, the `projectSpec.yaml` file will
-  be updated with the job code content for the newly added job. To add the new
-  job as a file path in `projectSpec.yaml`, make sure you pull down the changes
-  from GitHub and add the code into a file then update `projectSpec.yaml` file
-  to use the new file path.
-
-#### New workflow
-
-- If you add a new workflow to your project in OpenFn, the `projectSpec.yaml`
-  file will be updated with the workflow code content for the newly added
-  workflow. To add the new workflow as a file path in `projectSpec.yaml`, make
-  sure you pull down the changes from GitHub and add the code into a file then
-  update `projectSpec.yaml` file to use the new file path.
-
+When you keep job code in relative file paths, ensure to update the
+`projectSpec.yaml` file based on changes to the files or paths in your project
+repository. A GitHub action is automatically triggered to push changes to OpenFn
+ensuring that future syncs are not affected. Changes can include adding,
+renaming, deleting a file or updating a file path.
 :::
