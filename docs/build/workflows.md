@@ -59,6 +59,8 @@ To "turn off" or disable a Workflow:
 3. Select the **Disable this trigger** checkbox 
 4. Select **Save** to save your changes and turn off / disable your workflow
 
+![disable-wf](/img/disable-wf.png)
+
 ## Limit Concurrency
 
 Workflow **concurrency** is the number pf runs will be allowed for a given
