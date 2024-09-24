@@ -50,14 +50,14 @@ workflow manually.
 
 <iframe width="784" height="441" src="https://www.youtube.com/embed/dssixE3Sukc?si=n3Jpdiu_aiBLXuHb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Turn off Workflows
+## Turn off or disable Workflows
 
 To "turn off" or disable a Workflow:
 
 1. Open the Workflow
 2. Click on the Trigger
-3. Select the **Disable this trigger** checkbox
-4. Select **Save** to save your changes
+3. Select the **Disable this trigger** checkbox 
+4. Select **Save** to save your changes and turn off / disable your workflow
 
 ## Limit Concurrency
 
