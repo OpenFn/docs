@@ -6,20 +6,13 @@ In the "Data Storage" section of your Project `Settings`, you can configure what
 you'd like OpenFn to do with the actual _data_ (`Inputs` and `Outputs`) that are
 processed (or produced) by your workflow runs.
 
-Users may configure OpenFn to temporarily store data (e.g., forms fetched from
-CommCare mobile app) so that transactions can be easily troubleshot and
-rectified in case of errors (e.g., destination DHIS2 system is down, or a
-database constraint/validation blocks a data import). Data retention periods
-have a default time period set by the OpenFn super admin, but can be modified
-according to a specific project's requirements.
-
 ### Why would I store input/output data along with run logs?
 
 Users may configure OpenFn to temporarily store data (e.g., forms fetched from
 CommCare mobile app) so that transactions can be easily troubleshooted and
 rectified in case of errors (e.g., destination DHIS2 system is down, or a
 database constraint/validation blocks a data import). Data retention periods
-have a default time period set by the OpenFn super admin, but can be modified
+have a default time period set by the OpenFn instance administrator, but can be modified
 according to a specific project's requirements.
 
 One of the most powerful features of the platform is the ability to "replay"
@@ -52,16 +45,16 @@ pipelines.
 
 ### Export History
 
-Users can also export all work orders and their associated artefacts (runs,
-steps, runsteps, input and output data clips) in a project. Work order
+Users can also export all Work Orders and their associated artefacts (runs,
+steps, runsteps, input and output data clips) in a project. Work Order
 history export is managed at a project level and available to all collaborators (viewer,
 editor, admin, owner) in a project.
 
-#### How to export work order history
+#### How to export Work Order history
 
 To export Work Order history for your project, open the project and click on
 `History` on the side menu. On the History page, scroll to the bottom of the
-work order history table and click on the cloud icon (see image below).
+Work Order history table and click on the cloud icon (see image below).
 
 ![History Page](/img/history_page_cloud.png)
 
@@ -77,7 +70,7 @@ email address.
 
 For local deployments, OpenFn uses Swoosh as a mailbox service for development
 purposes and can access the mailbox via http://localhost:4000/dev/mailbox. You
-can substitute localhost:4000 to match the port hsoting your OpenFn instance.
+can substitute localhost:4000 to match the port hosting your OpenFn instance.
 
 :::
 
@@ -85,7 +78,7 @@ can substitute localhost:4000 to match the port hsoting your OpenFn instance.
 
 Users can view all history exports via the `History Exports`
 page in the project settings. Click on `Settings` on the side menu and click on
-`History Exports` to see the list of work order exports in your project.
+`History Exports` to see the list of Work Order exports in your project.
 
 On the `History Export`s page, you will see the list of exports showing your
 latest request and previous requests with the other information such as
@@ -95,7 +88,7 @@ filename, date of export, user who requested the export and the status.
 
 :::caution Configuring storage for exports
 
-OpenFn instance administrators can configure the storage for work order exports for
+OpenFn instance administrators can configure the storage for Work Order exports for
 local deployments. OpenFn currently supports local storage and Google Cloud
 Storage as destinations for exporting work orders.
 
