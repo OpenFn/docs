@@ -45,23 +45,19 @@ the OpenFn interface or
 
 :::
 
-Cron Triggers enable Workflows to be run as frequently as once every minutes, or
+Cron Triggers enable Workflows to be run as frequently as once every minute, or
 as infrequently as you desire and can be scheduled on very specific dates or
 times.
 
-Each time a timed job succeeds, its `final_state` will be saved and used as the
-input state for its next run.
-[Webhook Security](../manage-projects/webhook-auth.md) page.
-
 Learn how a workflow's initial `state` gets built from a cron trigger
-[here](../jobs/state#cron-triggered-runs).
+[here](/documentation/jobs/state#cron-triggered-runs).
 
 You can use a Cursor to help build input state when the workflow is triggered:
-see the [Job Writing Guide](../jobs/job-writing-guide#using-cursors) for more
-details.
+see the [Job Writing Guide](/documentation/jobs/job-writing-guide#using-cursors)
+for more details.
 
-Learn how `state` gets built from a cron trigger
-[here](../jobs/state#cron-triggered-runs).
+Each time a timed job succeeds, its `final_state` will be saved and used as the
+input state for its next run.
 
 ### Managing the size of `state` for Cron Workflows
 
@@ -80,10 +76,11 @@ was < 50,000 bytes.)
 
 ### A quick fix for final state bloat
 
-Most often, final state bloat is due to improper handling of `state.references`
-or `state.data`. This can be fixed by adding the following lines _either_ to the
-callback of your language-package's operation (if it allows for one) or by
-appending an `fn(...)` operation after your operation.
+Most often, final `state` bloat is due to improper handling of
+`state.references` or `state.data`. This can be fixed by cleaning up your final
+`state` by adding and customizing the following lines _either_ to the callback
+of your language-package's operation (if it allows for one) or by appending a
+`fn(...)` operation after your final operation.
 
 ```js
 fn(state => {
@@ -101,52 +98,62 @@ published by a Kafka cluster. The triggers make use of Kafka consumer groups
 that are set up on-demand to receive messages from a defined cluster then
 converts them to `Input` dataclips that are used to initialize a Work Order.
 
+:::info For self-hosted OpenFn deployments
+
+Instance administrators have to enable Kafka for their instance by setting
+ `KAFKA_TRIGGERS_ENABLED=yes` in the environment variable.
+
+:::
+
 ![Configuring Kafka Trigger](/img/configuring-kafka.png)
 
 :::info What is Kafka?
 
-Apache Kafka® is an event streaming platform designed to handle high volumes 
-of data. Check out [Kafka Docs](https://kafka.apache.org/documentation/#gettingStarted) 
-to learn more.
+Apache Kafka® is an event streaming platform designed to handle high volumes of
+data. Check out
+[Kafka Docs](https://kafka.apache.org/documentation/#gettingStarted) to learn
+more.
 
 :::
 
 ### Configuring a Kafka trigger for your workflow
 
 1. Create a new Workflow or open an existing Workflow in your Project
-2. Click on the workflow's Trigger and change the trigger type to `Kafka Consumer`
-   in the `Trigger type` dropdown.
+2. Click on the workflow's Trigger and change the trigger type to
+   `Kafka Consumer` in the `Trigger type` dropdown.
 3. Fill out the required connection details:
 
 - **Hosts**: Provide the URL of the host(s) your trigger should listen to for
-  message.
+  messages.
 - **Topics**: Enter the topics your Kafka consumers should subscribe to. You
   need at least one topic for a successful connection.
-- **SSL**: Some Kafka cluster require SSL connection. If you are connecting to
+- **SSL**: Some Kafka clusters require SSL connection. If you are connecting to
   an environment that requires SSL connection, select `Enable SSL`.
-- **SSL Authentication**: Select the type of Authentication required for the Kafka
-  cluster.
+- **SSL Authentication**: Select the type of Authentication required for the
+  Kafka cluster.
 - **Initial offset policy**: The intial offset dictates where the consumer
   starts reading messages from a topic when it subscribes for the first time.
-  There are three possible options: `earliest` messages available, `latest` 
-  messages available, or messages with a specific `timestamp` (e.g., `1721889238000`). 
-- **Connect timeout**: The connect timeout specified in seconds (e.g., `30`) represents how
-  long the consumer should wait before timing out when attempting to connect
-  with a Kafka cluster.
+  There are three possible options: `earliest` messages available, `latest`
+  messages available, or messages with a specific `timestamp` (e.g.,
+  `1721889238000`).
+- **Connect timeout**: The connect timeout specified in seconds (e.g., `30`)
+  represents how long the consumer should wait before timing out when attempting
+  to connect with a Kafka cluster.
 
 4. If you have not finished designing your Workflow or you're not ready to start
-   receiving messages from the Kafka cluster, please check the box to **disable 
+   receiving messages from the Kafka cluster, please check the box to **disable
    the trigger** until you're ready for message ingestion to begin.
 
 :::warning Disable the trigger during workflow design
 
 Once the required connection information is provided via the modal, the trigger
-will *immediately* start attempting to connect to the Kafka cluster. We advise that 
-the trigger is disabled until your workflow is ready to receive data from the cluster for
-processing. **To stop the trigger from receiving and processing messages, check the `Disable
-this trigger` checkbox at the bottom of the trigger configuration modal.**
+will _immediately_ start attempting to connect to the Kafka cluster. We advise
+that the trigger is disabled until your workflow is ready to receive data from
+the cluster for processing. **To stop the trigger from receiving and processing
+messages, check the `Disable this trigger` checkbox at the bottom of the trigger
+configuration modal.**
 
 :::
 
-Learn how the initial `state` (and `Input`) for Kafka-triggered Workflows gets built 
-[here](../jobs/state#kafka-triggered-runs).
+Learn how the initial `state` (and `Input`) for Kafka-triggered Workflows gets
+built [here](../jobs/state#kafka-triggered-runs).

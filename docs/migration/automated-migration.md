@@ -1,10 +1,10 @@
 ---
-title: Automate Migration
-sidebar_label: Automate Migration
+title: Automated Migration
+sidebar_label: Automated Migration
 ---
 
-You can use our `export and deploy` functionality to self-migrate your existing
-OpenFn project configuration from v1 to v2, or between two different v2
+You can use our **export** and **deploy** functionality to self-migrate your
+existing OpenFn project configuration from v1 to v2, or between two different v2
 instances. This guide walks you through the steps.
 
 ### v1-to-v2: Automating migration of your OpenFn v1 Project to v2
@@ -13,15 +13,15 @@ You can export your existing project configuration containing the jobs and
 triggers from v1, then use the OpenFn
 [CLI](https://github.com/OpenFn/kit/tree/main/packages/cli) tool to deploy it to
 your v2 project space. To start, make sure you have the latest version of the
-CLI installed ([see CLI basic docs](../docs/build-for-developers/cli-intro.md)).
-To learn more about the project configuration as code, head over to our
-[Portability](../deploy/portability.md) page.
+CLI installed ([see CLI docs](/documentation/cli)). To learn more about the
+project configuration as code, head over to our
+[Portability](/documentation/deploy/portability) page.
 
 In order to be able to deploy the project, you need to have at least `admin`
 access to the v2 project you're deploying to. In addition, if you're migrating
 to a project on the OpenFn-hosted platform (on
 [app.openfn.org](https://app.openfn.org)) make sure you have the right
-[pricing plan](https://www.openfn.org/pricing) to accomodate the number of
+[pricing plan](https://www.openfn.org/pricing) to accommodate the number of
 workflows, runs, and features you desire for your v2 project.
 
 #### Exporting Your v1 Project
@@ -35,11 +35,11 @@ workflows, runs, and features you desire for your v2 project.
 
 #### Setup and Deployment to v2
 
-4. In a code editor on your computer, create a new `config.json` file with the following content:
+4. In a code editor on your computer, create a new `config.json` file with the
+   following content:
 
 - `apiKey`: Specify your API Key/ Personal Access Token from your v2 user
-  account. See [this page](../manage-users/api-tokens.md) for how to to create
-  one.
+  account. See [this page](/documentation/api-tokens) for how to to create one.
 - `specPath`: Specify the path to the `project.yaml` file exported from your v1
   project (wherever you saved it on your computer - e.g.,
   `/usr/rita/Downloads/my_downloaded_project.yaml` file).
@@ -51,26 +51,21 @@ See below example `config.json` file to use as a template.
 
 ```json
 {
-
-    "apiKey": {"your-v2-api key"},
-
-    "specPath": "4474_2024045092123Z_v2_project.yaml",
-
-    "statePath": ".state.json",
-
-    "endpoint": "https://app.openfn.org"
+  "apiKey": {"your-v2-api key"},
+  "specPath": "4474_2024045092123Z_v2_project.yaml",
+  "statePath": ".state.json",
+  "endpoint": "https://app.openfn.org"
 }
-
 ```
 
-5. Next open up the OpenFn CLI. First, you need to pull the config of your v2
+1. Next open up the OpenFn CLI. First, you need to pull the config of your v2
    project. Start by copying the project ID from the URL of your v2 project like
    so:
 
 ![Project ID](/img/projectid.png)
 
-6. Then run the `openfn pull` CLI commmand below with the project ID and the
-   path to your `config.json` file created above.
+6. Then run the `openfn pull` CLI command below with the project ID and the path
+   to your `config.json` file created above.
 
 ```
 openfn pull {your-project-id} -c config.json
@@ -108,7 +103,7 @@ When prompted, confirm you want to deploy by typing `y` ("yes").
 
 Ask on [Community](https://community.openfn.org) if you run into issues or
 questions. For an overview of all the recommended v1-to-v2 migration steps,
-check out the [Migration Steps docs](../migration/migration-steps.md).
+check out the [Migration Steps docs](/documentation/migration-steps).
 
 :::
 
@@ -116,22 +111,21 @@ check out the [Migration Steps docs](../migration/migration-steps.md).
 
 If you want to migrate a project from one instance of OpenFn v2 (e.g., the
 cloud-hosted [app.openfn.org](https://app.openfn.org)) to another (e.g., your
-local deployment of the v2), you can also leverage the OpenFn
-[CLI](https://github.com/OpenFn/kit/tree/main/packages/cli) tool. To start, make
-sure you have the latest version of the CLI installed
-([see CLI basic docs](../docs/build-for-developers/cli-intro.md)).
+local deployment of the v2), you can also leverage the OpenFn CLI. To start,
+make sure you have the latest version of the CLI installed
+([see CLI docs](/documentation/cli)).
 
 1. Export the project you want to migrate from your v2 instance. Go to
    `Settings`, and under `Setup` click `Export project`. Your `project.yaml`
    file will be automatically downloaded.
 2. Follow the steps for
-   [Setup and Deployment to v2](#setup-and-deployment-to-v2)
-   in the section above.
+   [Setup and Deployment to v2](#setup-and-deployment-to-v2) in the section
+   above.
 
 :::info More on local deployment
 
 To learn more about OpenFn deployment, be sure to check out our
-[planning guide](https://docs.openfn.org/documentation/deploy/options) and
-[technical guidelines](https://docs.openfn.org/documentation/deploy/options#technical-guidelines).
+[planning guide](/documentation/deploy/options) and
+[technical guidelines](/documentation/deploy/options#technical-guidelines).
 
 :::

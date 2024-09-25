@@ -253,8 +253,8 @@ state, and will return state.
 <summary>What is a factory function?</summary>
 Factory functions are can be a difficult pattern to understand deeply. However, like many programming concepts, it makes more sense after some hands-on experience. Luckily, you don't need to deeply understand the pattern to understand OpenFn.
 
-Simply put, a factory function doesn't really do anything when executed. It simply returns a
-function to do something later.
+Simply put, a factory function doesn't really do anything when executed. It
+simply returns a function to do something later.
 
 Factory functions are useful for deferred execution (declaring behaviour NOW to
 run LATER), lazy loading (fetching data from a server at the last moment, just
@@ -275,8 +275,8 @@ does not know how to deal with a nested operation like above.
 Best practices dictate you should build each discrete operation of the pipeline
 at the top-level, passing state between them naturally via the pipeline. This
 means you should never need to nest an operation. However, if you ever find
-yourself in a situation where you absolutely need to use a nested operation,
-you should pass state into it directly, for example:
+yourself in a situation where you absolutely need to use a nested operation, you
+should pass state into it directly, for example:
 
 ```js
 get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
@@ -312,9 +312,10 @@ The value of `state.data` in the post call will resolve to `undefined` and so
 the post will fail.
 
 This is because Operations are
-[factory functions](#operations-run-at-the-top-level) (See: `What is a factory function?`
-above). They declare behaviour to be executed later, and provide parameters to
-calibrate that behaviour. But they don't actually go off and do the work immediately.
+[factory functions](#operations-run-at-the-top-level) (See:
+`What is a factory function?` above). They declare behaviour to be executed
+later, and provide parameters to calibrate that behaviour. But they don't
+actually go off and do the work immediately.
 
 Those parameters will be resolved to values when the module loads (load-time),
 before any code has run (run-time), and before `state.data` has been assigned a
@@ -600,8 +601,8 @@ code and wrap the operation in a deferred promise call.
 
 ### Callback with then()
 
-Chaining `then()` is available on every operation, and contains a callback to
-be executed once the operation has completed.
+Chaining `then()` is available on every operation, and contains a callback to be
+executed once the operation has completed.
 
 The callback will receive the state returned by the operation, and must return
 the state object to be passed to the _next_ operation.
@@ -662,9 +663,9 @@ So in the example above, every item in `state.items` will be passed to a HTTP
 `post()` function, where the id will be embedded in a URL and the item itself
 will be uploaded to the server.
 
-What if you want to do something with the scoped state AFTER the request?
-Maybe you want to check the status code and log an error, or maybe you want to
-mutate the data before writing it back to state.
+What if you want to do something with the scoped state AFTER the request? Maybe
+you want to check the status code and log an error, or maybe you want to mutate
+the data before writing it back to state.
 
 You can chain `operation().then()` for this:
 
@@ -767,12 +768,12 @@ operations.
 :::
 
 This is fine - and actually, having lots of operations which each do a small
-task is best practices. It makes code more readable and testable, as well as easier
-to reason about and debug when things go wrong.
+task is best practices. It makes code more readable and testable, as well as
+easier to reason about and debug when things go wrong.
 
-However, every operation argument accepts a function (allowing lazy state references,
-as described above) giving us the opportunity to perform the conversion in-line in
-the post operation, for example:
+However, every operation argument accepts a function (allowing lazy state
+references, as described above) giving us the opportunity to perform the
+conversion in-line in the post operation, for example:
 
 ```js
 // Fetch an object from one system
@@ -791,9 +792,9 @@ OpenFn jobs.
 
 ## Iteration with each()
 
-A very common use-case in data integration is to convert data from one
-format to another. Usually this involves iterating over an array of items,
-converting the values, and mapping them into a new array.
+A very common use-case in data integration is to convert data from one format to
+another. Usually this involves iterating over an array of items, converting the
+values, and mapping them into a new array.
 
 In OpenFn, we can use the `each()` operator to do this.
 
@@ -804,12 +805,12 @@ each(
 );
 ```
 
-The `each()` operator takes a JSON path string as its first argument,
-which points to some part of state. In JSON path, we use `$` to refer to
-the root, and dot notation to chain a path, and `[*]` to "select" an array
-of items. The second argument is an Operation, which will receive each item
-at the end of the json path as `state.data`, but otherwise will receive the
-rest of the state object.
+The `each()` operator takes a JSON path string as its first argument, which
+points to some part of state. In JSON path, we use `$` to refer to the root, and
+dot notation to chain a path, and `[*]` to "select" an array of items. The
+second argument is an Operation, which will receive each item at the end of the
+json path as `state.data`, but otherwise will receive the rest of the state
+object.
 
 So we can iterate over each item and write it back to state, like this:
 
@@ -1024,7 +1025,7 @@ You can do this by setting a cursor value on input state, like this:
 ```
 
 You can do this by triggering a manual run in the platform's
-[Job Inspector](documentation/build/steps/step-editor), or you can pass the
+[Job Inspector](/documentation/build/steps/step-editor), or you can pass the
 state as input to the CLI:
 
 ```bash
@@ -1248,10 +1249,10 @@ locally. Then take a look at the [CLI Challenge](/documentation/cli-challenges)
 to really exercise your job writing skills.
 
 If you're ready to start using the app, take a look at this guide to
-[create your first Workflow](documentation/build/workflows).
+[create your first Workflow](/documentation/build/workflows).
 
 Workflow design is a non-trivial problem, so you might also like to review the
-Workflow [Design Process docs](documentation/design/design-overview).
+Workflow [Design Process docs](/documentation/design/design-overview).
 
 :::info Questions?
 

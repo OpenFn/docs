@@ -22,10 +22,11 @@ OpenFn Workflows are executed as follows:
 
 1. A Workflow `Trigger` is activated by a webhook event, cron timer, or manual
    action.
-2. This creates a `Work Order`--a request to run a Workflow with a given input
+2. This creates a `Work Order` - a request to run a Workflow with a given input
    (e.g, a new form submission or patient record that needs to be processed).
-   For a Work Order to be cpmpleted, it should reach an ending Step succesfully
-   (without errors) - this ensures that the processing of has been completed.
+   For a `Work Order` to be completed, it should reach an ending Step
+   succesfully (without errors) - this ensures that the processing has been
+   completed.
 3. A `Run` is then executed to try to complete the Workflow successfully. This
    Run will have a [status code](/documentation/monitor-history/status-codes),
    indicating whether the Workflow Steps were successfully processed.
@@ -56,7 +57,7 @@ search is applied. This method of searching allows you to find work orders
 quickly and allows for partial string matches across all text in the run logs
 and across the "keys" and "values" of your dataclips.
 
-Partial string mathcing working best at the start of words, so if you're looking
+Partial string matching works best at the start of words, so if you're looking
 for items matching `"newPatient"` it's better to search for `"newPat"` than for
 `"tient"`. (When in doubt, whole words or IDs produce the best results.)
 

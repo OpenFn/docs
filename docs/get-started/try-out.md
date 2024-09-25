@@ -31,7 +31,7 @@ Visit [demo.openfn.org](https://demo.openfn.org) and use the following
 credentions to log in and explore the platform:
 
 - username: `demo@openfn.org`
-- password: `welcome123`
+- password: `welcome12345`
 
 :::warning
 

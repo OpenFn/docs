@@ -257,6 +257,7 @@ your-git-monorepo
      └── projectSpec.yaml
 ```
 
+
 :::tip A sync in time, saves nine
 
 #### Syncing Changes from OpenFn to GitHub
@@ -273,3 +274,51 @@ When you keep job code in relative file paths, ensure to update the
 repository. A GitHub action is automatically triggered to push changes to OpenFn
 ensuring that future syncs are not affected. Changes can include adding,
 renaming, deleting a file or updating a file path. :::
+
+
+## Troubleshooting
+
+### Github Sync Error: Unexpected inputs provided: ["snapshots"]
+
+If you installed GitHub sync before July 17th, 2024 you may need to update your `.github/workflows/openfn-pull.yml` file to match:
+
+```
+on:
+  workflow_dispatch:
+    inputs:
+      projectId:
+        description: 'OpenFN Project ID'
+        required: true
+      apiSecretName:
+        description: 'OpenFN API Key secret name i.e OPENFN_project_API_KEY'
+        required: true
+      pathToConfig:
+        description: 'Path to config.json'
+        required: true
+      branch:
+        description: 'Branch to commit the project state and spec'
+        required: true
+      commitMessage:
+        description: 'Commit message for project state and spec'
+        required: true
+      snapshots:
+        description: 'IDs of snapshots separated by spaces'
+        required: false
+
+jobs:
+  pull-from-lightning:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    name: A job to pull changes from Lightning
+    steps:
+      - name: openfn pull and commit
+        uses: openfn/cli-pull-action@v1.1.0
+        with:
+          secret_input: ${{ secrets[inputs.apiSecretName] }}
+          project_id_input: ${{ inputs.projectId }}
+          config_path_input: ${{ inputs.pathToConfig }}
+          branch_input: ${{ inputs.branch }}
+          commit_message_input: ${{ inputs.commitMessage }}
+          snapshots_input: ${{ inputs.snapshots }}
+```

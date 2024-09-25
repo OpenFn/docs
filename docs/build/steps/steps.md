@@ -4,24 +4,24 @@ title: Configure Steps
 
 A Step is a specific task or activity in a workflow. Each Step is linked to an
 [Adaptor](/adaptors/) and contains business logic to perform a specific task or
-operation in that target app. Read on to learn more.
+operation in that target app.
 
 :::note
 
 In OpenFn V1, there was no concept of `Workflow Steps`--they were referred to as
-`Jobs`. In V2, we now refer to Jobs as the "job expressions" or "script" that
-define the business logic and transformation rules of individual `Steps`.
+`Jobs`. In V2, `Jobs` now are defined as _the job expressions or script that
+define the business logic and transformation rules of individual `Steps`_.
 
 :::
 
 ## Create or edit a Step
 
 Via the Workflow Canvas, click the plus `+` icon to create a _new_ Step, or
-click on existing Step to view or configure its key components.
+click on an existing Step to view or configure its key components.
 
 ## Configure the Step
 
-When configuring a Step, you must understand its basic anatomy.
+To properly configure a Step, you must understand its basic anatomy.
 
 ![Step Anatomy](/img/anatomy_of_step.png)
 
@@ -31,8 +31,8 @@ A Step includes these key components:
 - `Adaptor` - The selected [Adaptor](/adaptors/) that is used to provide
   app-specific functionality for this Step (e.g., `dhis2` or `commcare`).
 - `Adaptor Version` - The version of the selected Adaptor, which determines
-  which API endpoints and Adaptor functions are available. See below section to
-  learn more.
+  which API endpoints and Adaptor functions are available. See below section
+  `Choose an Adaptor Version` to learn more.
 - `Credentials` - The Credential used to authorize connections to the target app
   related to this Step.
 - `Job` - The custom code that defines the business logic and/or sequence of
@@ -116,12 +116,12 @@ Versions for run f470a3da-8b90-480e-a94f-6dd982c91afe:
 
 While it may be beneficial to upgrade as part of your routine maintenance, these
 upgrades should be carefully tested. Most often, customers upgrade to a new
-adaptor version for an existing step when they are making business-drives
+adaptor version for an existing step when they are already making business-driven
 changes to that step. Some business-driven changes may actually _require_
 upgrading the version in order to use a new feature from the adaptor. Even if
-those changes don't require and upgrade, if the technical team must spend time
-testing step-specific changes anyway, it may be an ideal opportunity to test
-also test an upgrade.
+those changes don't require an upgrade, if the technical team must spend time
+testing step-specific changes anyway, it may be an ideal opportunity to also test
+an upgrade of the adaptor version.
 
 Adaptors follow [SEMVER](https://semver.org/) so you can be reasonably assured
 that upgrading from `x.1.z` to `x.2.z` will not lead to existing step code

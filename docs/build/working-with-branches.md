@@ -57,5 +57,6 @@ repo to your local folder.
    with `git checkout main` and hit `git pull` to pull any changes.
 
 9. If you're still working on your separate branch while `main` has been
-   updated, use `git checkout {branch_name}` followed by `git merge main` to
-   copy over new changes from `main` to your branch.
+   updated remotely and want integrate the remote changes, use `git checkout main`,
+   then `git pull`, then `git checkout {working_branch_name}` followed by
+   `git merge main` to merge changes from `main` into your working branch.
