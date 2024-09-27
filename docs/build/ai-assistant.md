@@ -11,6 +11,15 @@ understand the capabilities of the platform.
 
 ![AI Assistant](/img/ai-assistant.png)
 
+:::caution Assistant Unavailable?
+
+The AI Assistant must be configured before it can be used. If it's not available on your deployment, contact your system administrator.
+
+The Assistant is available on app.openfn.org, with usage credits subject your organization's plan.
+
+:::
+
+
 ## About the Assistant
 
 The AI Assistant is built on the Claude 3.5 Sonnet model from
