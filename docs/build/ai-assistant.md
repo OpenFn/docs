@@ -9,7 +9,7 @@ build workflows.
 You can use it to draft, proofread and debug job code, diagnose errors, and
 understand the capabilities of the platform.
 
-![AI Assistant](/img/ai-chat-empty.png)
+![AI Assistant](/img/ai-assistant.png)
 
 ## About the Assistant
 
@@ -26,14 +26,6 @@ new chat session at any time, or open an old one.
 Input data and run-time job logs not sent to to the model. But we do include
 your step code so that the Assistant can provide a contextually relevant answer.
 
-:::caution
-
-Before you start, we recommend that you take a moment to read our more about the
-AI Assistant and
-[Responsible AI principles](https://www.openfn.org/responsible-ai/) by clicking
-on the `Learn more about AI Assistant` above the button.
-
-:::
 
 ## A Note on Responsible AI Usage
 
