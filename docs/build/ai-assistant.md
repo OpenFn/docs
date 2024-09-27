@@ -1,6 +1,6 @@
 ---
-title: Using OpenFn with AI Assistant
-sidebar_label: Using AI Assistant
+title: Using the AI Assistant
+sidebar_label: AI Assistant
 ---
 
 :::warning
