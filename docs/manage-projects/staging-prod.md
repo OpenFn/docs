@@ -19,15 +19,15 @@ It's a safe and efficient practice to use separate production and staging/testin
 
 5. When you connected the branches to your projects in step 3 above, there was a `spec.yaml` file automatically created on the branch after the first sync (along with two other configuration files). Open these files on GitHub, and locate your job in the file. Replace the contents of `body` with: `path:  {path to the related js file}`. Do this on both your `main` and `staging` branches.
 
-![Configure](/img/path_main.png)
-![Configure](/img/path_staging.png)
+![Spec Main](/img/path_main.png)
+![Spec Staging](/img/path_staging.png)
 
 6. You're now all set up!  
 7. To sync a change from your staging project to production, go to your staging project on OpenFn and make edits to your job.
 8. Then go to Settings > Synch to GitHub, and click Initiate Sync to Branch
 9. Head over to GitHub. On your staging branch you'll see an update that there have been recent changes. Click `Compare & pull request`
 
-![Configure](/img/staging_pushes.png)
+![Create Pull Request](/img/staging_pushes.png)
 
- from staging to prod: make change, create PR with only the js
-8. Your changes are deployed automatically to your OpenFn prod project when the Pull Request is merged on GitHub.
+10. Create a Pull Request with only the updates of the contents of your .js file, not any other files. //Ask Mtuchi how to do this
+11. Your changes are deployed automatically to your OpenFn prod project when the Pull Request is merged on GitHub.
