@@ -29,5 +29,11 @@ It's a safe and efficient practice to use separate production and staging/testin
 
 ![Create Pull Request](/img/staging_pushes.png)
 
-10. Create a Pull Request with only the updates of the contents of your .js file, not any other files. //Ask Mtuchi how to do this
-11. Your changes are deployed automatically to your OpenFn prod project when the Pull Request is merged on GitHub.
+10. Create a Pull Request. This will automatically include all changes that happened to the files on the staging branch.
+
+![Save Pull Request](/img/create_pr.png)
+
+
+11. According to your team workflow, have someone to approve and merge the Pull Request, or click `Merge pull request`.
+
+12. Your changes will now be automatically deployed to your OpenFn prod project.
