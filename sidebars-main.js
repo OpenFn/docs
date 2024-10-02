@@ -96,6 +96,7 @@ module.exports = {
             'manage-projects/workflow-dashboard',
             'manage-projects/collaboration',
             'manage-projects/oauth',
+            'manage-projects/staging-prod',
           ],
         },
         {
