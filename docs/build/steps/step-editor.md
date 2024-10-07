@@ -6,6 +6,12 @@ sidebar_label: Edit & Test Steps
 This page outlines how to edit and test Steps in your Workflow using the
 Inspector interface.
 
+:::tip
+
+If you're writing jobs on the platform app (Lightning), you can use the [AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in the Inspector.
+
+:::
+
 ## Edit & Test Steps via the Inspector
 
 Use the `Inspector` interface on the platform to create, edit, and test Steps.

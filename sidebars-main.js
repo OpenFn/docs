@@ -61,6 +61,7 @@ module.exports = {
             'build/steps/steps',
             'build/steps/step-editor',
             'build/steps/step-design-intro',
+            'build/ai-assistant',
             'build/paths',
             'build/credentials',
             'build/limits',
