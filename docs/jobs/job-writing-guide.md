@@ -1105,6 +1105,13 @@ cursor('today', {
 });
 ```
 
+## Referencing credential secrets
+
+If developing locally, you may 
+
+When you want to reference a secret from your creden job has completed, the final state object will be "returned" by the
+openfn runtime.
+
 ## Cleaning final state
 
 When your job has completed, the final state object will be "returned" by the
@@ -1151,12 +1158,28 @@ fn(state => {
 });
 ```
 
-:::info Configuration & Functions
+## Referencing credential secrets in your job code
+
+If you want to reference any credential secrets in your job code, you can still map keys from your `state.configuration`. See example below that will dynamically map the username and password from your `configuration` (or "credential" if using the app) into your http request body. 
+
+```js
+post('/api/v1/auth/login', {
+   body: {
+    username: $.configuration.username, //map the UN from credential
+    password: $.configuration.password //map the PW from credential
+   },
+   headers: {'content-type': 'application/json'},
+ })
+```
+
+:::info OpenFn scrubs Configuration & Functions from final state
 
 OpenFn will automatically scrub the `configuration` key and any functions from
-your final state.
+your final state, as well as from logs if running workflows on the app. This is to help ensure that your credential secrets are kept secure and won't be leaked into History.
 
 :::
+
+
 
 <!--
 I would like to include this BUT fields is not an operation and so works a bit differently
