@@ -1105,13 +1105,6 @@ cursor('today', {
 });
 ```
 
-## Referencing credential secrets
-
-If developing locally, you may 
-
-When you want to reference a secret from your creden job has completed, the final state object will be "returned" by the
-openfn runtime.
-
 ## Cleaning final state
 
 When your job has completed, the final state object will be "returned" by the
