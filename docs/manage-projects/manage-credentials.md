@@ -59,7 +59,7 @@ If you own a Credential, you can choose which Project has access to it. To
 update which Projects your Credential is shared with, follow the steps on the
 [User Credentials docs page](/documentation/user-credentials).
 
-### `Raw JSON` Credentials for custom credentials
+### `Raw JSON` Credentials
 
 Raw credentials are valid JSON documents which are passed into a job's runtime
 state. Note that owners of these credentials will be able to view them, in their
@@ -75,6 +75,10 @@ API requires a `client_id` instead of a `username`, then my `configuration`
 schema might look like the below code snippet. Because `client_id` isn't an
 option in the default `Http` credential form, I can create my own custom credential
 using the `Raw JSON` type.
+
+:::
+
+Example Raw JSON credential body or `configuration`:
 
 ```json
 {
