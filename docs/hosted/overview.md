@@ -80,7 +80,7 @@ details. Your card will be verified by Stripe.com immediately and you can use
 the card to upgrade your subscription or create a new project subscription.
 
 If you are not able to successfully add your card, please contact us at
-support@openfn.org with the error.
+support@openfn.org with the error(if any).
 
 :::
 
