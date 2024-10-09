@@ -42,15 +42,47 @@ billing account users but cannot modify any of them.
 In order to upgrade your project subscription, you need an approved payment
 method. Both "invoice" and "credit card" payment methods are allowed.
 
+To manage your payment methods, click on the `Billing Account` menu (if you are
+on the projects list or user profile page) or the `Subscription` menu (if you
+are on the project/workflow page). From there, you can click on the
+`Payment Methods` on the side menu.
+
 #### Invoice Payment
 
 When you add an invoice payment method you must wait for it to be approved by
 the OpenFn.org team before you can use it.
 
+:::tip Adding an Invoice Payment Method
+
+To add an invoice payment method, click "Add a new invoice method" button on the
+payment methods page. This will open a form that you can fill out and submit.
+When you have successfully submitted the form, your invoice payment request will
+listed and marked as `pending`.
+
+Someone from OpenFn billing team will contact you to verify the provided
+information before approving the payment method.
+
+_Please note that you can only have ONE pending invoice payment method at a
+time._
+
+:::
+
 #### Credit Card Payment
 
 When adding credit card payment methods, the card details will be verified by
 Stripe.com immediately and you can upgrade you subscriptions right away.
+
+:::tip Adding a Credit Card Payment Method
+
+To add a credit card payment method, click "Add a new card" button on the
+payment methods page. This will open a form that you can fill out your card
+details. Your card will be verified by Stripe.com immediately and you can use
+the card to upgrade your subscription or create a new project subscription.
+
+If you are not able to successfully add your card, please contact us at
+support@openfn.org with the error.
+
+:::
 
 ## Plans & Limits
 
@@ -59,14 +91,23 @@ The full list of plans and limits are available at
 
 ### Upgrading your subscription
 
-To upgrade you subscription:
+:::warning You need a valid payment method
+
+Please ensure you have a valid payment method before trying to upgrade your
+subscription. Check out the [Payment Methods](#payment-methods) section for more
+details.
+
+:::
+
+To upgrade you subscription;
 
 1. Click "Subscription" from your project dashboard
-2. Ensure that you have an approved payment method under the "Payment Methods"
-   section.
-3. Click "Manage Subscription"
-4. Select a new plan and/or additional runs.
-5. Review your subscription changes in the box at the bottom of the screen.
+2. Click "Manage Subscription"
+3. Select a card from the list to pick a new plan and scroll down to add
+   additional runs if the base runs in your plan are not enough for your
+   project. _(We recommend using the slider to set the value)_
+4. Select a payment method to pay for the upgrade.
+5. Scroll to the bottom of the page to review your subscription changes.
 6. Click "Update subscription"
 
 For upgrades, you will be billed immediately for the _difference_ between your
