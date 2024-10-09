@@ -103,9 +103,9 @@ To upgrade you subscription;
 
 1. Click "Subscription" from your project dashboard
 2. Click "Manage Subscription"
-3. Select a card from the list to pick a new plan and scroll down to add
-   additional runs if the base runs in your plan are not enough for your
-   project. _(We recommend using the slider to set the value)_
+3. Select a plan from the list and scroll down to add additional runs if the
+   base runs in your plan are not enough for your project. _(We recommend using
+   the slider to set the value)_
 4. Select a payment method to pay for the upgrade.
 5. Scroll to the bottom of the page to review your subscription changes.
 6. Click "Update subscription"
