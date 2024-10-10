@@ -136,7 +136,7 @@ forms. Here's how you can configure CommCare to forward a case type to OpenFn.
 We recommend a 1-to-1 relationship between workflows and data forwarding rules
 on CommCare. This approached offers a clean and efficient way of updading and
 editing your workflows without impacting other forms. When doing this, note that
-every workflows with a webhook trigger has a unique webhook URL consequently
+every workflow with a webhook trigger has a unique webhook URL consequently
 requiring you to set up a separate CommCare connection for each workflow.
 
 :::
