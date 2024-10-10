@@ -181,7 +181,7 @@ When filling in the CommCare credential on OpenFn, here are a few things to note
 :::
 
 You can also use the raw JSON option to configure your CommCare credential (for
-use in the CLI or when inspecting `state.configuration`) is defined in the
+use in the CLI or when inspecting `state.configuration`) which is defined in the
 [CommCare Configuration](/adaptors/packages/commcare-configuration-schema)
 section.
 
