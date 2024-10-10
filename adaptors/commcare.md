@@ -152,7 +152,7 @@ to run your workflow on schedule with the Cron trigger.
 :::tip CommCare data export tool
 
 CommCare also offers a data export tool that can be used to export data from
-CommCare to a database.This might be ideal for a one-time export of data to a
+CommCare to a database. This might be ideal for a one-time export of data to a
 database. To learn more about the data export tool, see the
 [CommCare docs](https://confluence.dimagi.com/display/commcarepublic/Data+Exports).
 
