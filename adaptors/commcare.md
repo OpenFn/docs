@@ -145,7 +145,7 @@ requiring you to set up a separate CommCare connection for each workflow.
 
 You can also fetch data from CommCare into your OpenFn workflow with the a
 [GET](/adaptors/packages/commcare-docs#get) and
-[bulk](/adaptors/packages/commcare-docs#get) functions. You can use this
+[bulk](/adaptors/packages/commcare-docs#bulk) functions. You can use this
 approach if CommCare is not the first step in your workflow or you are planning
 to run your workflow on schedule with the Cron trigger.
 
