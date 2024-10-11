@@ -39,9 +39,9 @@ synchronization and integration scenarios.
 
 #### Some use cases include:
 
-- Syncing data from CommCare to DHIS2: This integration allows for seamless
-  transfer of health data collected in CommCare to DHIS2 for comprehensive
-  analysis, visualization and reporting.
+- Syncing data from CommCare to a Shared Health Repository: Health facilities
+  that use CommCare as an EMR can integrate with national shared health
+  repositories to send individual patient data.
 
 - Fetch patient list from OpenMRS and sync to CommCare for case management and
   tracking: With OpenFn, you can facilitate the retrieval of patient information
@@ -166,17 +166,26 @@ Let's set up a connection to OpenFn and then see how to do each.
 
 CommCare requires users to authenticate API requests via a basic authentication
 interface that requires the user's username, password, appID and the CommCare
-deployment URL.
-You can create a CommCare credential to be used by your project or across the projects that you own/have admin access to. See documentation [on managing credentials](/documentation/manage-projects/manage-credentials) for more information.
+deployment URL. You can create a CommCare credential to be used by your project
+or across the projects that you own/have admin access to. See documentation
+[on managing credentials](/documentation/manage-projects/manage-credentials) for
+more information.
 
 ![CommCare Cred](/img/commcare_credential_edit.png)
 
-:::tip 
+:::tip
 
-When filling in the CommCare credential on OpenFn, here are a few things to note: 
+When filling in the CommCare credential on OpenFn, here are a few things to
+note:
+
 1. The username is your full email address
-2. The `appId` is the UUID which designates your CommCare project as different from everyone elses. It can be found in the URL of your application when you first enter it from the project screen. i.e., the last part of this URL: `https://www.commcarehq.org/a/YOUR_PROJECT/apps/view/YOUR_APP_ID/`
-3. The `deploymentUrl` is the URL of your CommCareHQ instance. For example, if your project is hosted at `https://commcarehq.org`, then your `deploymentUrl` is `https://commcarehq.org`. 
+2. The `appId` is the UUID which designates your CommCare project as different
+   from everyone elses. It can be found in the URL of your application when you
+   first enter it from the project screen. i.e., the last part of this URL:
+   `https://www.commcarehq.org/a/YOUR_PROJECT/apps/view/YOUR_APP_ID/`
+3. The `deploymentUrl` is the URL of your CommCareHQ instance. For example, if
+   your project is hosted at `https://commcarehq.org`, then your `deploymentUrl`
+   is `https://commcarehq.org`.
 
 :::
 
@@ -191,7 +200,7 @@ section.
 
 - [Case management](https://confluence.dimagi.com/display/commcarepublic/CommCare+Fundamentals+-+Case+Management)
 - [Form and case data in CommCare](https://confluence.dimagi.com/display/commcarepublic/CommCare+Fundamentals+-+Data+in+CommCare)
-  
+
 #### Using the Web API
 
 CommCare has different APIs for reading vs. updating data. Some helpful links:
