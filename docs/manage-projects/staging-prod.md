@@ -4,20 +4,20 @@ sidebar_label: Version Control for Staging and Production Projects
 slug: /staging-prod
 ---
 
-It's a safe and efficient practice to use separate production and staging/testing projects to build out and test your workflows before starting to use them in production. This can be made seamless using Version Control. This guide walks you through how to set up your OpenFn projects and GitHub repo and gives you two examples of how to manage your Staging > Production workflow: one for new projects, and one for existing projects where you want to add a staging project and branch.
+It's a safe and efficient practice to use separate production and staging/testing projects to build out and test your workflows before starting to use them in production. This can be made seamless using [Version Control]((../manage-projects/link-to-gh.md). This guide walks you through how to set up your OpenFn projects and GitHub repo and gives you two examples of how to manage your `Staging > Production` workflow: one for new projects, and one for existing projects where you want to add a staging project and branch.
 
 ### Setup for new projects
 
-1. First, create a Production and a Staging project on OpenFn
+1. First, create a `Production` and a `Staging` project on OpenFn (2 projects)
 
 ![Prod and Staging Projects](/img/openfn_prod_staging.png)
 
-2. Choose/create a GitHub repo for your project, and create a staging branch
+2. Choose/create a GitHub repo for your project, and create a `staging` branch
 
 ![Prod and Main Branches](/img/staging_prod_branches_gh.png)
 
-3. Connect your projects to the main and staging respectively - use [this guide](../manage-projects/link-to-gh.md) to set up the connection 
-4. In each repo, create an empty .js file for your job. Make sure they have the same name and path on each repo (e.g. `upsert-contacts.js`). These will store the code for the job they'll be linked to in the next step.
+3. Connect your projects to the `main` and `staging` respectively - use [this guide](../manage-projects/link-to-gh.md) to set up the connection 
+4. In each repo, create an empty `.js` file for your job. Make sure they have the same name and path on each repo (e.g. `upsert-contacts.js`). These will store the code for the job they'll be linked to in the next step.
 
 5. When you connected the branches to your projects in step 3 above, there was a `spec.yaml` file automatically created on the branch after the first sync (along with two other configuration files). Open these files on GitHub, and locate your job in the file. Replace the contents of `body` with: `path:  {path to the related js file}`. Do this on both your `main` and `staging` branches.
 
@@ -25,9 +25,9 @@ It's a safe and efficient practice to use separate production and staging/testin
 ![Spec Staging](/img/path_staging.png)
 
 6. You're now all set up!  
-7. To sync a change from your staging project to production, go to your staging project on OpenFn and make edits to your job.
-8. Then go to Settings > Synch to GitHub, and click Initiate Sync to Branch
-9. Head over to GitHub. On your staging branch you'll see an update that there have been recent changes. Click `Compare & pull request`
+7. To sync a change from your Staging project to Production **using the OpenFn app**, go to your `Staging` project on OpenFn and make edits to your job. Then go to your project's `Settings` > Sync to `GitHub`, and click `Initiate Sync to Branch`.
+8. Alternatively, you can make edits directly to the job code on Github, and commit them to the `staging` branch on Github. 
+9. Once you've committed edits to your `staging` branch, on Github you'll see an update that there have been recent changes. Click `Compare & pull request`. 
 
 ![Create Pull Request](/img/staging_pushes.png)
 
@@ -36,9 +36,9 @@ It's a safe and efficient practice to use separate production and staging/testin
 ![Save Pull Request](/img/create_pr.png)
 
 
-11. According to your team workflow, have someone to approve and merge the Pull Request, or click `Merge pull request`.
+11. Depending on your team's Github workflow, either have someone to approve and merge the Pull Request, or click `Merge pull request`.
 
-12. Your changes will now be automatically deployed to your OpenFn prod project.
+12. Your changes will now be automatically deployed to your OpenFn `Production` project (linked to the `main` Github branch).
 
 ### Setup for existing projects
 
@@ -59,7 +59,7 @@ Notify-CHW-upload-successful:
 
 You can find more information on this setup in our [Github docs](../manage-projects/link-to-gh.md#sync-from-github-to-openfn).
 
-2. When this is set up, create a new staging branch on Github based on your existing main branch that stores your current project. To do this, on your Github repo click into `Branches` (where it show `1 Branch` in the screenshot below).
+2. When this is set up, create a new `staging` branch on Github based on your existing production `main` branch that stores your current project. To do this, on your Github repo click into `Branches` (where it show `1 Branch` in the screenshot below).
 
 ![Branches](/img/1_branch.png)
 
@@ -67,14 +67,14 @@ You can find more information on this setup in our [Github docs](../manage-proje
 
 ![New Branche](/img/new_branch.png)
 
-4. Navigate over to your new staging branch. Here comes an important step. Note how the new branch now contains the 3 configurations files (`config.json`, `spec.yaml` and `state.json`) that were present on the main branch. Delete these from the staging branch. New ones specific to the staging branch will be created in the subsequent steps.
+4. Navigate over to your new `staging` branch. **Here comes an important step. Note how the new branch now contains the 3 configurations files (`config.json`, `spec.yaml` and `state.json`) that were present on the main branch. Delete these from the `staging` branch.** New ones specific to the staging branch will be created in the subsequent steps.
 
-5. Now head over to OpenFn, and create a new, staging project.
+5. Now head over to OpenFn, and create a new `Staging` project.
 
-6. Following [this guide](../manage-projects/link-to-gh.md), set up Github connection with your staging branch, and initiate a sync. This will create the necessary config files 
+6. Following [this guide](../manage-projects/link-to-gh.md), set up Github connection with your `staging` branch, and click `Initiate a sync` (via the project `Settings > Sync to Github` page). This will create the necessary config files in the Github branch.
 
-7. In the newly generated `spec.yaml` file on the staging branch on Github, link your job `.js` files as explained in Step 1. 
+7. In the newly generated `spec.yaml` file on the `staging` branch on Github, link your job `.js` files as explained in Step 1. 
 
-8. When you initiate a new sync from OpenFn, the job code should be synced to your OpenFn jobs.
+8. When you initiate a new sync from OpenFn, the job code from the workflows configured in the app will be synced to the individual OpenFn job files on Github.
 
-9. To start using your new Staging > Production workflow, check out steps 7-12. in the `Setup for new projects` part of this guide above.
+9. To make future changes to your "Staging" project, see steps #7-12 above in the `Setup for new projects` section of this guide.
