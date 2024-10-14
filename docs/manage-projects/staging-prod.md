@@ -4,7 +4,7 @@ sidebar_label: Version Control for Staging and Production Projects
 slug: /staging-prod
 ---
 
-It's a safe and efficient practice to use separate production and staging/testing projects to build out and test your workflows before starting to use them in production. This can be made seamless using [Version Control]((../manage-projects/link-to-gh.md). This guide walks you through how to set up your OpenFn projects and GitHub repo and gives you two examples of how to manage your `Staging > Production` workflow: one for new projects, and one for existing projects where you want to add a staging project and branch.
+It's a safe and efficient practice to use separate production and staging/testing projects to build out and test your workflows before starting to use them in production. This can be made seamless using [Version Control](../manage-projects/link-to-gh.md). This guide walks you through how to set up your OpenFn projects and GitHub repo and gives you two examples of how to manage your `Staging > Production` workflow: one for new projects, and one for existing projects where you want to add a staging project and branch.
 
 ### Setup for new projects
 
