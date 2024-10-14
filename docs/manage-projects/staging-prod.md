@@ -1,6 +1,6 @@
 ---
 title: Version Control for Staging and Production Projects
-sidebar_label: Version Control for Staging and Production Projects
+sidebar_label: Staging and Production Projects
 slug: /staging-prod
 ---
 
