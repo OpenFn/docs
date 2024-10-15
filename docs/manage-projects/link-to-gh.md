@@ -4,11 +4,11 @@ sidebar_label: Version Control (GitHub Sync)
 slug: /link-to-GitHub
 ---
 
-The version control (GitHub Sync) feature lets users track and manage changes
-to their OpenFn projects in GitHub. GitHub Sync enables a 2-way sync between
-your OpenFn project and your GitHub repository. By 2-way sync, we mean that you
-can **sync changes made to your project on OpenFn to GitHub**, and you can
-**deploy changes you've made to your project on GitHub to OpenFn**.
+The version control (GitHub Sync) feature lets users track and manage changes to
+their OpenFn projects in GitHub. GitHub Sync enables a 2-way sync between your
+OpenFn project and your GitHub repository. By 2-way sync, we mean that you can
+**sync changes made to your project on OpenFn to GitHub**, and you can **deploy
+changes you've made to your project on GitHub to OpenFn**.
 
 :::info For Cloud Hosted OpenFn Users
 
@@ -248,7 +248,9 @@ workflows:
 
 ## Structuring your GitHub Repository
 
-:::warning This is an Advanced Configuration :::
+:::warning This is an Advanced Configuration
+
+:::
 
 When you initiate the connection between OpenFn and your GitHub repository, a
 config.json file is automatically created with reference to your project spec
@@ -338,7 +340,8 @@ your-git-monorepo
 
 ### Github Sync Error: Unexpected inputs provided: ["snapshots"]
 
-If you installed GitHub sync before July 17th, 2024 you may need to update your `.github/workflows/openfn-pull.yml` file to match:
+If you installed GitHub sync before July 17th, 2024 you may need to update your
+`.github/workflows/openfn-pull.yml` file to match:
 
 ```
 on:
