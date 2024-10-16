@@ -164,23 +164,20 @@ Let's set up a connection to OpenFn and then see how to do each.
 
 ## Authentication
 
-CommCare supports two primary authentication methods - _Basic Authentication_ and
-_API key authentication_.
+CommCare supports two primary authentication methods - _Basic Authentication_
+and _API key authentication_.
 
-- **Basic authentication** requires users to specify their `username` and `password`
-  to connect their OpenFn account.
+- **Basic authentication** requires users to specify their `username` and
+  `password` to connect their OpenFn account.
 - **API key authentication** on the other hand requires users to specify their
   `API key` and `username`.
 
-Apart from the API key, username and password, users are required to
-provide some more information about their CommCare application and account as
-shown in the image of CommCare credential configuration form below.
+Apart from the API key, username and password, users are required to provide
+some more information about their CommCare application and account as shown in
+the image of CommCare credential configuration form below.
 
-<img 
-  src="/img/commcare_credential_edit.png" 
-  alt="CommCare Cred" 
-  style={{height: '900px', width: 'auto'}}
-/>
+<img src="/img/commcare_credential_edit.png" alt="CommCare Cred"
+style={{height: '900px', width: 'auto'}} />
 
 With OpenFn, you can set up a credential through the CommCare credential
 configuration form or through a raw JSON option. To learn how to set up or
@@ -214,10 +211,17 @@ note:
 3. The `hostURL` is the URL of your CommCareHQ instance. For example, if your
    project is hosted at `https://commcarehq.org`, then your `hostURL` is
    `https://commcarehq.org`.
+4. If you have two factor authentication enabled in your CommCare account,
+   consider using API key authentication method. See more
+   [details here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview#Two-Factor-authentication).
 
 :::
 
 ### Helpful Links
+
+#### Authentication
+
+- [CommCare API Authentication](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview)
 
 #### About Forms, case and data management
 
