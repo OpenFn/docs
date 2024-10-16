@@ -164,28 +164,56 @@ Let's set up a connection to OpenFn and then see how to do each.
 
 ## Authentication
 
-CommCare requires users to authenticate API requests via a basic authentication
-interface that requires the user's username, password, appID and the CommCare
-deployment URL. You can create a CommCare credential to be used by your project
-or across the projects that you own/have admin access to. See documentation
+CommCare supports two primary authentication methods - _Basic Authentication_ and
+_API key authentication_.
+
+- **Basic authentication** requires users to specify their `username` and `password`
+  to connect their OpenFn account.
+- **API key authentication** on the other hand requires users to specify their
+  `API key` and `username`.
+
+Apart from the API key, username and password, users are required to
+provide some more information about their CommCare application and account as
+shown in the image of CommCare credential configuration form below.
+
+<img 
+  src="/img/commcare_credential_edit.png" 
+  alt="CommCare Cred" 
+  style={{height: '900px', width: 'auto'}}
+/>
+
+With OpenFn, you can set up a credential through the CommCare credential
+configuration form or through a raw JSON option. To learn how to set up or
+manage your credential, see documentation
 [on managing credentials](/documentation/manage-projects/manage-credentials) for
 more information.
 
-![CommCare Cred](/img/commcare_credential_edit.png)
+If you're using the raw JSON option, your configuration should look like this:
+
+```json
+{
+  "hostURL": "your-app-id", // e.g. https://www.commcarehq.org
+  "domain": "your-deployment-url", // e.g. demo-project
+  "appId": "your-app-id", // e.g. 1234567890
+  "username": "your-commcare-email", // e.g. user@example.com
+  "password": "your-password", // Don't add password if you're using API key auth
+  "apiKey": "your-api-key" // Don't add apiKey if you're using basic auth
+}
+```
 
 :::tip
 
 When filling in the CommCare credential on OpenFn, here are a few things to
 note:
 
-1. The username is your full email address
+1. The username is your full email address registered with CommCare
 2. The `appId` is the UUID which designates your CommCare project as different
    from everyone elses. It can be found in the URL of your application when you
    first enter it from the project screen. i.e., the last part of this URL:
    `https://www.commcarehq.org/a/YOUR_PROJECT/apps/view/YOUR_APP_ID/`
-3. The `deploymentUrl` is the URL of your CommCareHQ instance. For example, if
-   your project is hosted at `https://commcarehq.org`, then your `deploymentUrl`
-   is `https://commcarehq.org`.
+3. The `hostURL` is the URL of your CommCareHQ instance. For example, if your
+   project is hosted at `https://commcarehq.org`, then your `hostURL` is
+   `https://commcarehq.org`.
 
 :::
 
