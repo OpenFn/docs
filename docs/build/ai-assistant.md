@@ -13,12 +13,15 @@ understand the capabilities of the platform.
 
 :::caution Assistant Unavailable?
 
-The AI Assistant must be configured before it can be used. If it's not available on your deployment, contact your system administrator.
+For local deployments, the instance administrator needs to configure the AI
+Assistant before it is available. See
+[deployment docs](https://github.com/OpenFn/lightning/blob/main/DEPLOYMENT.md#ai-chat)
+here for help.
 
-The Assistant is available on app.openfn.org, with usage credits subject your organization's plan.
+The Assistant is available on app.openfn.org, with usage credits subject your
+project's plan.
 
 :::
-
 
 ## About the Assistant
 
@@ -32,9 +35,8 @@ versions of the assistant may be rolled out to other pages.
 All chat sessions are shared between all users of the project. You can start a
 new chat session at any time, or open an old one.
 
-Input data and run-time job logs not sent to to the model. But we do include
+Input data and run-time job logs not sent to the model. But we do include
 your step code so that the Assistant can provide a contextually relevant answer.
-
 
 ## A Note on Responsible AI Usage
 
