@@ -33,6 +33,7 @@ website generator that uses Markdown and Javascript.
 ```console
 asdf install
 corepack enable
+asdf reshim nodejs
 yarn install
 ```
 
