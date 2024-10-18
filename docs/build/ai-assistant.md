@@ -11,15 +11,16 @@ understand the capabilities of the platform.
 
 ![AI Assistant](/img/ai-assistant.png)
 
-:::caution Assistant Unavailable?
+:::caution Assistant Unavailable? Can't find it? 
 
-For local deployments, the instance administrator needs to configure the AI
+For local deployments of OpenFn, the instance administrator needs to configure the AI
 Assistant before it is available. See
 [deployment docs](https://github.com/OpenFn/lightning/blob/main/DEPLOYMENT.md#ai-chat)
-here for help.
+here for help or contact the super user of your instance.
 
 The Assistant is available on app.openfn.org, with usage credits subject your
-project's plan.
+project's plan. See [openfn.org/pricing](openfn.org/pricing) or contact [support@openfn.org](support@openfn.org) 
+for more information on paid plans for usage of OpenFn's cloud-hosted platform.
 
 :::
 
@@ -66,3 +67,10 @@ return a respond in a few seconds in the chat interface.
 You can close a chat session by clicking the `(X)` button on the top right of
 the chat interface, which will take you back to the list of sessions for this
 step.
+
+:::caution Feedback or Questions about the Assistant?  
+
+We welcome your questions or feedback on [community.openfn.org](https://community.openfn.org/), 
+or contact [support@openfn.org](support@openfn.org) with private queries. 
+
+:::
