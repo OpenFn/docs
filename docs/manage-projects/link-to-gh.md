@@ -4,11 +4,11 @@ sidebar_label: Version Control (GitHub Sync)
 slug: /link-to-GitHub
 ---
 
-The version control (GitHub Sync) feature lets users track and manage changes
-to their OpenFn projects in GitHub. GitHub Sync enables a 2-way sync between
-your OpenFn project and your GitHub repository. By 2-way sync, we mean that you
-can **sync changes made to your project on OpenFn to GitHub**, and you can
-**deploy changes you've made to your project on GitHub to OpenFn**.
+The version control (GitHub Sync) feature lets users track and manage changes to
+their OpenFn projects in GitHub. GitHub Sync enables a 2-way sync between your
+OpenFn project and your GitHub repository. By 2-way sync, we mean that you can
+**sync changes made to your project on OpenFn to GitHub**, and you can **deploy
+changes you've made to your project on GitHub to OpenFn**.
 
 :::info For Cloud Hosted OpenFn Users
 
@@ -161,111 +161,19 @@ paths in project spec. Consequently, projects with directory structure that uses
 relative paths for job code in project spec, automatically gets packaged and
 deployed without the user having to copy changes into the projct spec. This new
 approach gives developers more flexibility to better manage their job code in
-individual files
+individual files rather than having all the code in the `projectSpec.yaml` file.
 
-To put this in context, check out the sample `project.yaml` file below. We
-updated the job named `FHIR-standard-Data-with-change` by writing the job
-updated job code in the boody section whilst we updated job
-`Notify-CHW-upload-successful` in a different file named
-`Notify-CHW-upload-successful.js` which is referenced in the body section as
-well. For this project, when you run OpenFn deploy, all your changes will be
-bundled and deployed together.
-
-Learn more on [portability documentation](/documentation/deploy/portability).
+Learn more about relative paths and directory structure in
+[portability documentation](/documentation/deploy/portability#directory-structure).
 
 :::
 
-```yaml
-name: openhie-project
-description: Some sample
-# credentials:
-# globals:
-workflows:
-  OpenHIE-Workflow:
-    name: OpenHIE Workflow
-    jobs:
-      FHIR-standard-Data-with-change:
-        name: FHIR-standard-Data-with-change
-        adaptor: '@openfn/language-http@latest'
-        enabled: true
-        # credential:
-        # globals:
-        body: |
-          fn(state => {
-            console.log("hello github integration")
-            console.log("this is an update")
-            return state
-        });
+## What is in your GitHub Repository?
 
-      Send-to-OpenHIM-to-route-to-SHR:
-        name: Send-to-OpenHIM-to-route-to-SHR
-        adaptor: '@openfn/language-http@latest'
-        enabled: true
-        # credential:
-        # globals:
-        body: |
-          fn(state => state);
-
-      Notify-CHW-upload-successful:
-        name: Notify-CHW-upload-successful
-        adaptor: '@openfn/language-http@latest'
-        enabled: true
-        # credential:
-        # globals:
-        body: |
-          path: ./workflow/Notify-CHW-upload-successful.js
-
-      Notify-CHW-upload-failed:
-        name: Notify-CHW-upload-failed
-        adaptor: '@openfn/language-http@latest'
-        enabled: true
-        # credential:
-        # globals:
-        body: |
-          fn(state => state);
-
-    triggers:
-      webhook:
-        type: webhook
-    edges:
-      webhook->FHIR-standard-Data-with-change:
-        source_trigger: webhook
-        target_job: FHIR-standard-Data-with-change
-        condition: always
-      FHIR-standard-Data-with-change->Send-to-OpenHIM-to-route-to-SHR:
-        source_job: FHIR-standard-Data-with-change
-        target_job: Send-to-OpenHIM-to-route-to-SHR
-        condition: on_job_success
-      Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-successful:
-        source_job: Send-to-OpenHIM-to-route-to-SHR
-        target_job: Notify-CHW-upload-successful
-        condition: on_job_success
-      Send-to-OpenHIM-to-route-to-SHR->Notify-CHW-upload-failed:
-        source_job: Send-to-OpenHIM-to-route-to-SHR
-        target_job: Notify-CHW-upload-failed
-        condition: on_job_failure
-```
-
-## Structuring your GitHub Repository
-
-:::warning This is an Advanced Configuration :::
-
-When you initiate the connection between OpenFn and your GitHub repository, a
-config.json file is automatically created with reference to your project spec
-and project state files, and the endpoint of your OpenFn deployment. Users have
-the flexibility to edit their config.json files so long it is pointing to the
-right project spec, state, and OpenFn endpoint. A standard config file looks
-like this:
-
-```json
-{
-  "endpoint": "https://app.openfn.org",
-  "statePath": "./path-to-project-state.json",
-  "specPath": "./path-to-project.yaml"
-}
-```
-
-By default, OpenFn will name all your synchronization artifacts with your
+When you initiate a connection between OpenFn and your GitHub repository, a
+config.json file containing reference to your project spec and project state
+files, and the endpoint of your OpenFn deployment is automatically created in
+your specified branch. By default, OpenFn will name all your files with your
 project UUID on OpenFn, so you'll see files that look like this:
 
 ```json
@@ -275,6 +183,21 @@ project UUID on OpenFn, so you'll see files that look like this:
   "statePath": "openfn-fdfdf286-aa8e-4c9e-a1d2-89c1e6928a2a-state.json"
 }
 ```
+
+Users have the flexibility to edit the config.json file to suit their folder
+structure so long it is pointing to the right project spec, state, and OpenFn
+endpoint. See example config.json file below with a custom name for the project
+spec and project state.
+
+```json
+{
+  "endpoint": "https://app.openfn.org",
+  "statePath": "./custom-name-for-project-state.json",
+  "specPath": "./custom-name-for-project-spec.yaml"
+}
+```
+
+## Structuring OpenFn projects in git repositories
 
 There are three common patterns used to structure OpenFn projects inside git
 repositories. See them below:
@@ -333,6 +256,25 @@ your-git-monorepo
      ├── projectState.json
      └── projectSpec.yaml
 ```
+
+
+:::tip A sync in time, saves nine
+
+#### Syncing Changes from OpenFn to GitHub
+
+When you sync changes from OpenFn to GitHub, the `projectSpec.yaml` file in your
+repository will be updated with the changes made to the project in OpenFn. For a
+project with a directory structure that uses relative paths for job code, OpenFn
+will respect the structure when syncing changes for backup. All job code will be
+written into their respective files. Newer ones will be kept inline (in the
+body) of the `projectSpec.yaml` file.
+
+When you keep job code in relative file paths, ensure to update the
+`projectSpec.yaml` file based on changes to the files or paths in your project
+repository. A GitHub action is automatically triggered to push changes to OpenFn
+ensuring that future syncs are not affected. Changes can include adding,
+renaming, deleting a file or updating a file path. :::
+
 
 ## Troubleshooting
 
