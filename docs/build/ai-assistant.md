@@ -19,7 +19,7 @@ Assistant before it is available. See
 here for help or contact the super user of your instance.
 
 The Assistant is available on app.openfn.org, with usage credits subject your
-project's plan. See [openfn.org/pricing](openfn.org/pricing) or contact [support@openfn.org](support@openfn.org) 
+project's plan. See [openfn.org/pricing](https://www.openfn.org/pricing) or contact [support@openfn.org](mailto:support@openfn.org) 
 for more information on paid plans for usage of OpenFn's cloud-hosted platform.
 
 :::
@@ -71,6 +71,6 @@ step.
 :::caution Feedback or Questions about the Assistant?  
 
 We welcome your questions or feedback on [community.openfn.org](https://community.openfn.org/), 
-or contact [support@openfn.org](support@openfn.org) with private queries. 
+or contact [support@openfn.org](mailto:support@openfn.org) with private queries. 
 
 :::
