@@ -11,6 +11,12 @@ writing. It is suitable for new coders and experienced JavaScript programmers.
 In fact, even if you're an experienced JavaScript developer, there are a number
 of key patterns in the OpenFn ecosystem which it is important to learn.
 
+:::tip
+
+If you're writing jobs on the platform app (Lightning), you can use the [AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in the Inspector.
+
+:::
+
 A Job is a bunch of JavaScript code which performs a particular task, like
 fetching data from Salesforce or converting some JSON data to FHIR standard.
 
