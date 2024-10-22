@@ -22,9 +22,19 @@ almost like a universal translator... 🖖
 
 An adaptor is an open-source Javascript or Typescript module that provides
 OpenFn users with a clean set of helper functions that help communicate with a
-specific external system. In the past, we often referred to them as "language
-packages" and the two terms are sometimes used interchangeably, but the
-preferred way of communicating about adaptors is as follows:
+specific external system.
+
+An adaptor sits between the OpenFn platform (ie, app.openfn.org) and some
+backing service or system (e.g., DHIS2, Salesforce, Postgres).
+
+Its job is to provide a clean, high-level JavaScript interface to uses writing
+workflows in OpenFn. Users who write OpenFn job code are usually inexperienced
+programmers, and rarely experts in all the systems that a workflow has to
+connect with. A good adaptor will make that user's journey easier.
+
+In the past, we often referred to them as "language packages" and the two terms
+are sometimes used interchangeably, but the preferred way of communicating about
+adaptors is as follows:
 
 - "What _**adaptor**_ is that job using?" ("That job is using
   `language-dhis2`.")
@@ -45,7 +55,7 @@ Workflows, and to handle authenticatio. See the below diagram.
 
 ![workflows-adaptors-compare](/img/workflows-v-adaptors.png)
 
-## Where to find Adaptors
+## Where to find adaptors
 
 <div>
   Here's a list of the {generateList().length} publicly supported OpenFn
@@ -140,11 +150,28 @@ Most of our adaptors are also available on
 
 ![Adaptors list in npm](/img/adaptor_npm.png)
 
+## Don't see an adaptor for your app?
+
+Explore our "universal" adaptors that support a wide variety of protocols, such
+as:
+
+- [HTTP](/adaptors/packages/http-docs)
+- [SFTP](/adaptors/packages/sftp-docs)
+
+Or build your own (see below)!
+
 ## Building and extending adaptors
 
-The source code and technical documentation for developing or extending existing
-adaptors can be found
-[here](https://github.com/OpenFn/adaptors#working-with-adaptors).
+See the [Github Adaptors wiki](https://github.com/OpenFn/adaptors/wiki) for the
+technical guide to developing adaptors.
 
-:::tip Need Help ? See the [Get Help](/documentation/get-help/support) page for
-more information :::
+Adaptors' source code and technical documentation for developing or extending
+existing adaptors can be found on this linked repository:
+https://github.com/OpenFn/adaptors
+
+:::info Questions or Adaptor Requests?
+
+Head to [community.openfn.org](https://community.openfn.org) to collaborate with
+others or to provide adaptors feedback.
+
+:::
