@@ -234,7 +234,7 @@ for a detailed description of the types of data.
 > time through a CommCare form. Ultimately form data is the source of all case
 > data, but not all form data is case data.
 
-![CommCare-data-model](/img/commecare-data-model.png)
+![CommCare-data-model](/img/commcare-data-model.png)
 
 ### Mapping CommCare Metadata to External Systems
 Use the [CommCare App Summary](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143956371/App+Summary) to view and export case or form metadata to XLS. This will help you discover what data is available to be mapped to an external system. 
