@@ -11,6 +11,7 @@ This adaptor is typically used for transforming data in OpenFn workflows that
 automate "ETL" (extract, transform, load) processes. See below examples.
 
 ```js
+//use fn() to write your own functions
 fn(state => {
   // write javascript...
   // ...to do some things to state
@@ -20,7 +21,7 @@ fn(state => {
 ```
 
 ```js
-//use each() to create an account for multiple forms
+//use each() to create 1 account for each form
 each(
   $.forms,
   create('Account', {
