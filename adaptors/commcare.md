@@ -32,23 +32,6 @@ projects with the Pro Plan or above include API access
 - Government: Collects data for public services, such as health enrollment,
   school enrollment, and census data.
 
-### CommCare Data Model
-
-When integrating with CommCare, generally there are options to read or modify
-`forms`, `cases`, or `lookup tables`. Most often, OpenFn users opt to integrate
-`cases`, as these records typically contain the latest information about the
-entities being managed in CommCare (e.g., patients, households, groups).
-
-[See CommCare docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954460/Metadata+Glossary#Types-of-Data-in-CommCare)
-for a detailed description of the types of data.
-
-> In the CommCare data model, a case is anything that we track over time, while
-> form data is any information collected about a case at a specific point in
-> time through a CommCare form. Ultimately form data is the source of all case
-> data, but not all form data is case data.
-
-![CommCare-data-model](/img/commecare-data-model.png)
-
 ## Integration Options
 
 CommCare supports 2 primary integration options:
@@ -230,6 +213,43 @@ note:
 4. If you have two factor authentication enabled in your CommCare account,
    consider using API key authentication method. See more
    [details here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview#Two-Factor-authentication).
+
+:::
+
+
+## Integration Design Tips
+
+### CommCare Data Model
+
+When integrating with CommCare, generally there are options to read or modify
+`forms`, `cases`, or `lookup tables`. Most often, OpenFn users opt to integrate
+`cases`, as these records typically contain the latest information about the
+entities being managed in CommCare (e.g., patients, households, groups).
+
+[See CommCare docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954460/Metadata+Glossary#Types-of-Data-in-CommCare)
+for a detailed description of the types of data.
+
+> In the CommCare data model, a case is anything that we track over time, while
+> form data is any information collected about a case at a specific point in
+> time through a CommCare form. Ultimately form data is the source of all case
+> data, but not all form data is case data.
+
+![CommCare-data-model](/img/commecare-data-model.png)
+
+### Mapping CommCare Metadata to External Systems
+Use the [CommCare App Summary](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143956371/App+Summary) to view and export case or form metadata to XLS. This will help you discover what data is available to be mapped to an external system. 
+
+### Unique Identifiers
+
+- As CommCare data is stored in forms and cases, there are two types of UIDs in
+  CommCare: `case_id` & form `id`. 
+- You can search for a particular case or form submission in CommCare by using the `Find Data by ID` feature [here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955380/Find+Data+by+ID).
+- [See docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143946126/Generating+a+Unique+ID+for+beneficiaries) for more on generating custom unique IDs.
+
+:::tip Embedding External IDs and Hidden Values in Forms
+
+If integrating with CommCare `forms`, you may need to make sure that any unique identifiers or external IDs you want to reference in your integration are configured in your forms. You may consider using
+[hidden values](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954117/Hidden+Values+Tutorial+Part+1+Adding+Two+Questions+Using+a+Hidden+Value) to capture external IDs in form data, without affecting the end user experience.
 
 :::
 
