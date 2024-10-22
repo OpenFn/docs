@@ -137,7 +137,7 @@ requiring you to set up a separate CommCare connection for each workflow.
 
 ## How to Extract or Modify CommCare Data
 
-**See the available [helper functions](adaptors/packages/commcare-docs)** for a
+**See the available [helper functions](/adaptors/packages/commcare-docs)** for a
 full list of functions supported by this adaptor for extracting and/or modifying
 CommCare data.
 
