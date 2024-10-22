@@ -1,224 +1,278 @@
 ---
-title: CommCare
+title: CommCare Adaptor
 ---
 
-## App Overview
+## About CommCare
 
-[CommCare](https://www.dimagi.com/commcare/) is a powerful data collection
-platform developed by Dimagi. It is an open-source platform, and is primarily
-best for mobile case management.
+[CommCare](https://www.dimagi.com/commcare/) is an open mobile digital platform
+for data collection, case management, and service delivery, primarily used by
+organizations working in low-resource settings. CommCare provides a no-code
+interface that allows non-technical users to build customized mobile
+applications for various purposes, including surveys, client tracking, decision
+support for frontline workers, and service delivery monitoring.
 
-### Data Model
+CommCare is an open source Digital Public Good built by
+[Dimagi](https://www.dimagi.com), which also offers paid options for use of its
+CommCare cloud-hosted platform SaaS.
 
-CommCare data is primarily stored in **forms** and **cases**. Forms are the
-building blocks of applications and cases are used to track data on objects,
-usually people. Learn more about CommCare forms and cases at the links below.
+:::warning CommCare API Access
 
-- Case management:  
-  https://confluence.dimagi.com/display/commcarepublic/CommCare+Fundamentals+-+Case+Management
-- Form and case data in CommCare:
-  https://confluence.dimagi.com/display/commcarepublic/CommCare+Fundamentals+-+Data+in+CommCare
+If using CommCare SaaS, as of October '24, only 
+projects with the Pro Plan or above include API access
+([see CommCare docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143958022/API+Access)).
 
-## Integration Use Cases
+:::
 
-Example user stories:
+### CommCare Use Cases
 
-- As a community health worker I want to store patient data that was collected
-  in rural areas with no internet access in Salesforce so I can better analyze
-  the data being collected and make more informed recommendations.
-- As a teacher I want to set up automatic message alerts to my students in order
-  to increase participation.
+- Community Health Worker: Registers patients and collects data, manages cases
+  over time, and provides health care and education.
+- NGO: Collectes surveys and feedback, registers beneficiaries, and monitors
+  field activities.
+- Government: Collects data for public services, such as health enrollment,
+  school enrollment, and census data.
 
-## APIs & Integration Options
+## Integration Options
 
-CommCare offers a number of integration options for extracting and/or loading
-data to and from CommCare HQ.
+CommCare supports 2 primary integration options:
 
-### Web API
+1. **Webhook or
+   [Data Forwarding](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143945549/Enabling+Data+Integration+Form+and+Case+Forwarding)**
+   to _push_ `cases` and `forms` data from CommCare to external systems. This
+   option is suited for _real-time_, event-based data integration.
 
-CommCare has different APIs for reading vs. updating data. Some helpful links:
+2. **[REST APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143958022/API+Access)**
+   that enable external services like OpenFn to _pull_ data from CommCare, or
+   push data from external apps to CommCare. This option is suited for
+   _scheduled, bulk syncs_ or workflows that must update data in CommCare with
+   external information.
 
-- [Data APIs](https://confluence.dimagi.com/display/commcarepublic/Data+APIs)
-- [Bulk Case Upload API to mass update case records](https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data)
+This OpenFn adaptor is designed for option #2
+[CommCare's APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview).
+Read on for how to configure the CommCare webhook (option #1) to trigger OpenFn
+workflows based on CommCare form or case updates.
 
-## Webhook: Forward cases and/or forms from CommCare to OpenFn using REST service
+## Webhook or Data Forwarding Setup (CommCare-to-OpenFn)
 
-See
-[CommCare docs](https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128)
-on how to configure this webhook to "push" data to an external system like
-OpenFn. This option is great for _real-time_ data forwarding.
-
-In order to connect CommCare with OpenFn v2, you'll often need to set up
-CommCare data forwarding for individual forms, and for specific case types.
-Let's set up a connection to OpenFn and then see how to do each.
+Forward `cases` and/or `forms` from CommCare to OpenFn using a https webhook
+service. To use webhoooks, you'll need to set up a CommCare connection and data
+forwarding on the forms you want to forward. See
+[CommCare docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143945549/Enabling+Data+Integration+Form+and+Case+Forwarding)
+or below OpenFn-tailored instructions.
 
 ### Creating a Connection
 
-1. Go to "Project Settings".
-2. Click "Connection Settings".
-3. Choose "Add Connection Settings" at the bottom
+To set up a connection, in CommCareHQ you'll need to:
+
+1. Go to `Project Settings`.
+2. Click `Connection Settings`.
+3. Choose `Add Connection Settings` at the bottom
 4. Give the connection a name, and indicate email address(es) to send failure
-   notifications to.
-   [See the CommCare docs for more on this.](<https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications>).
+   notifications to
+   [See the CommCare docs for more on this](<https://confluence.dimagi.com/pages/viewpage.action?pageId=12224128#EnablingDataIntegration(FormandCaseForwarding)-Errornotifications>).
 5. Paste the URL of the OpenFn
    [webhook](https://docs.openfn.org/documentation/build/triggers#webhook-event-triggers)
-   you want to forward data to
-6. If you have [webhook authentication]https://docs.openfn.org/documentation/webhook-security)
+   or the desintation for the data you want to forward
+6. If you have [webhook](https://docs.openfn.org/documentation/webhook-security)
    set up on OpenFn, add the authentication type, the username and password here
 7. You can test the connection, then save it
 
 ![Connection](/img/commecare_connection_settings.png)
 
-### Forwarding Individual Forms
+### Data Forwarding Options
+
+There are two options for forwarding data from CommCare to an external platform:
+
+- Forward `forms` on submission (if desired, you can filter by form id)
+- Forward `cases` on create _or_ update (if desired, you can filter by case
+  type)
+
+#### Forwarding Individual Forms
+
+Forwarding individual forms is useful when you want to forward a specific form.
+Here's how you can configure CommCare to forward a form to OpenFn.
 
 1. Click over to "Data Forwarding".
-2. Under "Forward Forms", click "+ Add a service to forward to"
+2. Go to the "Forward Forms" section and click "Add a service to forward to"
 3. Select the connection to forward the forms to set up following the steps
-   above
-4. Name it
+   above or add a new connection
+4. Enter the name of the forwarder e.g. _Forward Visit Forms to OpenFn_
 5. Select "POST" HTTP Request Method
 6. Choose "JSON" as Payload Format
 7. Exclude any (eg. test) users - forms submitted by them won't be forwarded
-8. "XMLNSes of forms to include" lets you select which form(s) to forward by
-   adding the XMLNSes of the required forms. Follow
+8. if you want to forward all your forms, leave the "XMLNSes of forms to
+   include" box empty or enter the XLMN of the form(s) to be forwarded and
+   separate them with commas, spaces or newlines. Follow
    [this CommCare guide](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143979045/Finding+a+Form+s+XMLNS)
-   to find the XMLNS of any form. To add multiple, separate them with commas,
-   spaces or newlines. Leave empty to forward all forms.
-9. Hit "Start Forwarding" to save and activate
+   to find the XMLNS of any form.
+9. Click "Start Forwarding" to save and activate
 
 ![Forms](/img/commecare_forward_forms.png)
 
-### Forwarding Specific Case Types
+#### Forwarding Specific Case Types
 
-1. Go to "Data Forwarding".
-2. lick "+ Add a service to forward to" under "Forward Cases"
+In some cases, you may want to forward a specific case type rather than all
+forms. Here's how you can configure CommCare to forward a case type to OpenFn.
+
+1. Go to `Data Forwarding`.
+2. Navigate to `Forward Cases` and click `Add a service to forward to`
 3. Select the connection to forward the cases to
 4. Name the forwarder
-5. Select "POST" HTTP Request Method
-6. Choose "JSON" as Payload Format
-7. Select which case type(s) you want to forward, for example "patient"
+5. Select `POST` HTTP Request Method
+6. Choose `JSON` as Payload Format
+7. Select which case type(s) you want to forward, for example `patient`
 8. Exclude any (eg. test) users
 
 ![Cases](/img/commcare_forward_cases.png)
 
-## Data Forwarding and OpenFn Workflow Design
+:::tip Data Forwarding and OpenFn Workflow Design
 
-A clean way and efficient way of designing CommCare
-[webhook](https://docs.openfn.org/documentation/build/triggers#webhook-event-triggers) workflows on OpenFn v2 is to have a
-separate workflow handling each form and case type. As each of your OpenFn
-webhook workflows has a unique URL, you'll need to set up a separate CommCare
-connection for each, then use that connection to forward the relevant form or
-case type to OpenFn. So your CommCare Data Forwarding overview might look like
-this:
+We recommend a 1-to-1 relationship between workflows and data forwarding rules
+on CommCare. This approached offers a clean and efficient way of updading and
+editing your workflows without impacting other forms. When doing this, note that
+every workflow with a webhook trigger has a unique webhook URL consequently
+requiring you to set up a separate CommCare connection for each workflow.
 
-![Data Forwarding Overview](/img/commcare_data_forwarding_overview.png)
+:::
 
-While on OpenFn, you can set up one or multiple jobs to handle the form or case
-type received.
+## How to Extract or Modify CommCare Data
 
-![Form Workflow](/img/form_workflow.png)
+**See the available [helper functions](adaptors/packages/commcare-docs)** for a
+full list of functions supported by this adaptor for extracting and/or modifying
+CommCare data.
 
-## Pulling Data From CommCare
+To fetch data from CommCare via OpenFn, you can:
 
-You can also fetch data from CommCare initiated from an OpenFn workflow, by
-sending a GET request to one of
-[CommCare's data APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143957366/Data+APIs).
-You could use our [http adaptor](../adaptors/packages/http-docs.md) to achieve
-this. Fetching can be done on a scheduled basis, as a daily or monthly sync.
-This design also lends itself well to processing data in bulk.
+1. Configure a new workflow with a "cron" trigger and define the frequency of
+   your workflow (e.g., daily at 8:00AM)
+2. Add a "Get data" step linked to this CommCare adaptor
+3. Edit the Step and open the Inspector (`</>`) to write a basic job using this
+   adaptor's [GET](/adaptors/packages/commcare-docs#get) or
+   [bulk](/adaptors/packages/commcare-docs#bulk) helper functions to specify
+   which data you want to extract or "pull" from CommCare
 
-## App Setup & Integration Tips
+See [platform docs](/documentation/build/workflows) for more guidance on
+building workflows.
 
-### App installation and configuration
+:::tip CommCare data export tool for spreadsheet extracts
 
-- CommCare docs on installing the mobile app:
-  https://confluence.dimagi.com/display/commcarepublic/Install+CommCare+for+Android+Smartphones
+CommCare also offers a data export tool that can be used to export data from
+CommCare to a spreadsheet. This might be ideal for a one-time export of data. To
+learn more about the data export tool, see the
+[CommCare docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954661/Data+Exports).
 
-#### App Versioning
+:::
 
-Ensure that you are always using the latest app version when testing, by
-updating your app and checking that the version matches the latest version in
-CommCare HQ.
+## Authentication
 
-### Exporting Metadata
+[See CommCare docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143946031/Authentication)
+for the latest on supported authentication methods.
 
-Use this
-[link](https://confluence.dimagi.com/display/commcarepublic/Export+Form+Contents)
-to **export form contents**. This will give you access to all the `question ids`
-and `labels` in the CommCare form that are helpful for designing your
-integration and mapping data elements.
+When integrating with CommCare via OpenFn, there are 2 primary authentication
+methods supported:
+
+1. Basic authentication (requires username + password), or
+2. API Key (requires username + api key created in CommCareHQ)
+
+**See this adaptor's
+[Configuration docs](/adaptors/packages/commcare-configuration-schema) for more
+on required authentication parameters.**
+
+See platform docs [on managing credentials](/documentation/manage-projects/manage-credentials) for
+how to configure a credential in OpenFn and see the below CommCare credential
+example.
+
+![CommCare Cred](/img/commcare_credential_edit.png)
+
+If you're using the `Raw JSON` credential type, your configuration may look like this:
+
+```json
+{
+  "hostURL": "your-app-id", // e.g. https://www.commcarehq.org
+  "domain": "your-deployment-url", // e.g. demo-project
+  "appId": "your-app-id", // e.g. 1234567890
+  "username": "your-commcare-email", // e.g. user@example.com
+  "password": "your-password", // Don't add password if you're using API key auth
+  "apiKey": "your-api-key" // Don't add apiKey if you're using basic auth
+}
+```
+
+:::tip Tips for configuring your credential
+
+When filling in the CommCare credential on OpenFn, here are a few things to
+note:
+
+1. The username is your full email address registered with CommCare
+2. The `appId` is the UUID which designates your CommCare project as different
+   from everyone elses. It can be found in the URL of your application when you
+   first enter it from the project screen. i.e., the last part of this URL:
+   `https://www.commcarehq.org/a/YOUR_PROJECT/apps/view/YOUR_APP_ID/`
+3. The `hostURL` is the URL of your CommCareHQ instance. For example, if your
+   project is hosted at `https://commcarehq.org`, then your `hostURL` is
+   `https://commcarehq.org`.
+4. If you have two factor authentication enabled in your CommCare account,
+   consider using API key authentication method. See more
+   [details here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview#Two-Factor-authentication).
+
+:::
+
+
+## Integration Design Tips
+
+### CommCare Data Model
+
+When integrating with CommCare, generally there are options to read or modify
+`forms`, `cases`, or `lookup tables`. Most often, OpenFn users opt to integrate
+`cases`, as these records typically contain the latest information about the
+entities being managed in CommCare (e.g., patients, households, groups).
+
+[See CommCare docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954460/Metadata+Glossary#Types-of-Data-in-CommCare)
+for a detailed description of the types of data.
+
+> In the CommCare data model, a case is anything that we track over time, while
+> form data is any information collected about a case at a specific point in
+> time through a CommCare form. Ultimately form data is the source of all case
+> data, but not all form data is case data.
+
+![CommCare-data-model](/img/commcare-data-model.png)
+
+### Mapping CommCare Metadata to External Systems
+Use the [CommCare App Summary](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143956371/App+Summary) to view and export case or form metadata to XLS. This will help you discover what data is available to be mapped to an external system. 
 
 ### Unique Identifiers
 
 - As CommCare data is stored in forms and cases, there are two types of UIDs in
-  CommCare: `case_id` & `form id`. You can search for a particular case or form
-  submission in CommCare by using the `Find Data by ID` feature here:
-  https://confluence.dimagi.com/display/commcarepublic/Find+Data+by+ID. For
-  example, if you received a submission in the OpenFn inbox that you would like
-  to find in CommCare, search by `form id`. If you'd like to find a particular
-  case (i.e. person, event, etc) search by `case id`.  
-  ![image](https://user-images.githubusercontent.com/80456839/128649444-04f371ea-80b1-4c28-8d42-1591c0a96758.png)
+  CommCare: `case_id` & form `id`. 
+- You can search for a particular case or form submission in CommCare by using the `Find Data by ID` feature [here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955380/Find+Data+by+ID).
+- [See docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143946126/Generating+a+Unique+ID+for+beneficiaries) for more on generating custom unique IDs.
 
-- In the OpenFn [message](/documentation/get-started/terminology#message): `id`
-  is the unique identifier for the form submission
-  ![image](https://user-images.githubusercontent.com/80456839/128649481-83b3f7ee-c6a6-42f8-8752-2f4e96b7fa1f.png)
+:::tip Embedding External IDs and Hidden Values in Forms
 
-- `case_id` is the unique identifier for the case being updated by the form. For
-  example, the `case_id` can be the UID for a person.
-  ![image](https://user-images.githubusercontent.com/80456839/128649509-098a5418-4b72-4cec-a4d2-47c8bedaac25.png)
+If integrating with CommCare `forms`, you may need to make sure that any unique identifiers or external IDs you want to reference in your integration are configured in your forms. You may consider using
+[hidden values](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954117/Hidden+Values+Tutorial+Part+1+Adding+Two+Questions+Using+a+Hidden+Value) to capture external IDs in form data, without affecting the end user experience.
 
-**N.B.** Unique identifiers and `hidden fields` in CommCare forms: Make sure
-that unique identifiers for forms and objects are always in the form. If the
-unique identifier isn't relevant for the user, it can be added to the form as a
-`hidden field`. Learn more about `hidden fields` here:
-https://confluence.dimagi.com/display/commcarepublic/Hidden+Value+Calculations+Tutorial
+:::
 
-### Data Element Mapping Notes
 
-`Labels` are generally not mapped in an integration because they represent text
-that is displayed to the CommCare user to facilitate easy use of the
-application. `Ids` however, represent actual data that should be mapped.
+## Helpful Links
 
-- When mapping `multiple choice` questions, make sure to consider how the answer
-  choices should map to the source/destination system.
+### About Forms, case and data management
 
-## CommCare Credentials
+- [Case management overview](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955170/Case+Management+Overview)
+- [Form and case data in CommCare](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954460/Metadata+Glossary)
 
-To connect to CommCare you'll need a username, password, host URL, and the
-"appId".
+### CommCare API Docs
 
-![CommCare Credentials Menu](/img/commcare_credential.png)
+CommCare has different APIs for reading vs. modifying data. Some helpful links:
 
-The username is your full email address and the "appId" is the UUID which
-designates your CommCare project as different from everyone elses. It can be
-found in the URL of your application when you first enter it from the project
-screen. I.e., the last part of this URL:
-`https://www.commcarehq.org/a/YOUR_PROJECT/apps/view/YOUR_APP_ID/`
+- [Data APIs](https://confluence.dimagi.com/display/commcarepublic/Data+APIs)
+- [API Explorer](https://commcare-api-explorer.dimagi.com/)
+- [Bulk Case Upload API to mass update case records](https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data)
 
-![CommCare Cred](/img/commcare_credential_edit.png)
+### Implementation Examples
 
-The raw JSON of your credential (for use in the CLI or when inspecting
-`state.configuration`) is defined in the
-[CommCare Configuration](/adaptors/packages/commcare-configuration-schema)
-section.
-
-## Common Errors
-
-```
-Docs in progress!
-```
-
-## OpenFn Adaptors
-
-OpenFn implementations can leverage both the
-[`HTTP`](https://github.com/OpenFn/language-http) and
-[`CommCare`](https://github.com/OpenFn/language-commcare) adaptors to connect
-with the CommCare API.
-
-## Implementation Examples
-
+- Mercy Corps Kenya (CommCare-Azure SQL DB): https://github.com/OpenFn/mercycorps-kenya
 - MiracleFeet (CommCare-to-Salesforce sync):
   https://github.com/OpenFn/miracle-feet
 - Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
-- Grassroot Soccer (CommCare-to-Salesforce sync):
-  https://github.com/OpenFn/grassroot-soccer
+- myAgrto (CommCare-Salesforce): https://github.com/OpenFn/myagro-commcare-sf
