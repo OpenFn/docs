@@ -151,7 +151,7 @@ To fetch data from CommCare via OpenFn, you can:
    [bulk](/adaptors/packages/commcare-docs#bulk) helper functions to specify
    which data you want to extract or "pull" from CommCare
 
-See [platform docs](/documentation/build/workflows.md) for more guidance on
+See [platform docs](/documentation/build/workflows) for more guidance on
 building workflows.
 
 :::tip CommCare data export tool for spreadsheet extracts
