@@ -189,60 +189,50 @@ When integrating with CommCare via OpenFn, there are 2 primary authentication
 methods supported:
 
 1. Basic authentication (requires username + password), or
-2. API Key (keys can be created in CommCareHQ)
+2. API Key (requires username + api key created in CommCareHQ)
 
 **See this adaptor's
 [Configuration docs](/adaptors/packages/commcare-configuration-schema) for more
 on required authentication parameters.**
 
-See platform docs
-[on managing credentials](/documentation/manage-projects/manage-credentials) for
+See platform docs [on managing credentials](/documentation/manage-projects/manage-credentials) for
 how to configure a credential in OpenFn and see the below CommCare credential
 example.
 
 ![CommCare Cred](/img/commcare_credential_edit.png)
+
+If you're using the `Raw JSON` credential type, your configuration may look like this:
+
+```json
+{
+  "hostURL": "your-app-id", // e.g. https://www.commcarehq.org
+  "domain": "your-deployment-url", // e.g. demo-project
+  "appId": "your-app-id", // e.g. 1234567890
+  "username": "your-commcare-email", // e.g. user@example.com
+  "password": "your-password", // Don't add password if you're using API key auth
+  "apiKey": "your-api-key" // Don't add apiKey if you're using basic auth
+}
+```
 
 :::tip Tips for configuring your credential
 
 When filling in the CommCare credential on OpenFn, here are a few things to
 note:
 
-1. The username is your full email address
+1. The username is your full email address registered with CommCare
 2. The `appId` is the UUID which designates your CommCare project as different
    from everyone elses. It can be found in the URL of your application when you
    first enter it from the project screen. i.e., the last part of this URL:
    `https://www.commcarehq.org/a/YOUR_PROJECT/apps/view/YOUR_APP_ID/`
-3. The `deploymentUrl` is the URL of your CommCareHQ instance. For example, if
-   your project is hosted at `https://commcarehq.org`, then your `deploymentUrl`
-   is `https://commcarehq.org`.
+3. The `hostURL` is the URL of your CommCareHQ instance. For example, if your
+   project is hosted at `https://commcarehq.org`, then your `hostURL` is
+   `https://commcarehq.org`.
+4. If you have two factor authentication enabled in your CommCare account,
+   consider using API key authentication method. See more
+   [details here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview#Two-Factor-authentication).
 
 :::
 
-Note: You can also use the `Raw JSON` credential type to configure your CommCare
-credential (for use in the CLI or when inspecting `state.configuration`) which
-is defined in the
-[CommCare Configuration](/adaptors/packages/commcare-configuration-schema)
-section.
-
-## Integration Use Cases
-
-- **Syncing data from CommCare to a Shared Health Repository**: Health
-  facilities that use CommCare as an EMR can integrate with national shared
-  health repositories to send individual patient data.
-
-- **Fetch patient list from OpenMRS and sync to CommCare for field case management and tracking:** With OpenFn, you can facilitate the retrieval of
-  patient information from OpenMRS which can then be synchronised with CommCare
-  for efficient case management. In a community setting, health workers can
-  retrieve up-to-date patient data from the EMR to their mobile devices,
-  enabling better continuity of care and follow-up.
-
-- **Sync data from CommCare to M&E platform**: Transfer data collected in
-  CommCare to a central M&E platform for global monitoring of field workers and
-  activities. This  
-  way, organizations can combine field-level data with their broader
-  organizational data, summarize and aggregate individual-level data to report
-  on key indicstors, and provide a more comprehensive view of their operations
-  and beneficiaries across location.
 
 ## Helpful Links
 
