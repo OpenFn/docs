@@ -15,7 +15,7 @@ CommCare is an open source Digital Public Good built by
 [Dimagi](https://www.dimagi.com), which also offers paid options for use of its
 CommCare cloud-hosted platform SaaS.
 
-:::warning CommCare API Access
+:::info CommCare API Access
 
 If using CommCare SaaS, as of October '24, only 
 projects with the Pro Plan or above include API access
@@ -137,7 +137,7 @@ requiring you to set up a separate CommCare connection for each workflow.
 
 ## How to Extract or Modify CommCare Data
 
-**See the available [helper functions](adaptors/packages/commcare-docs)** for a
+**See the available [helper functions](/adaptors/packages/commcare-docs)** for a
 full list of functions supported by this adaptor for extracting and/or modifying
 CommCare data.
 
