@@ -6,11 +6,24 @@ sidebar_label: Subscriptions (OpenFn.org)
 
 ## Overview
 
-OpenFn.org provides a secure, stable, scalable cloud-hosted OpenFn offering that
-provides a more economical option than local hosting. You can learn more about
-our specific plans & offerings at
-[openfn.org/pricing](https://www.openfn.org/pricing) and learn about billing
-accounts and subscription management here.
+[OpenFn.org](https://www.openfn.org) provides a secure, stable, scalable
+cloud-hosted deployment of OpenFn as a turnkey, on-demand SaaS option that may
+be more cost effective than managing your own local deployment.
+
+Go to **[openfn.org/pricing](https://www.openfn.org/pricing)** to learn more
+about our specific plans & service offerings, or read on for how to manage
+billing accounts and subscriptions.
+
+:::tip Need OpenFn on _Your_ Servers?
+
+OpenFn can be deployed anywhere. Check out the
+[Deployment docs](documentation/deploy/options) to learn about supported options
+and the "do-it-yourself" local deployment pathway. If you seek expert help to
+manage your local deployment, check out the
+[managed deployment services](https://www.openfn.org/pricing?hostingType=selfHosted)
+offered by the OpenFn core team.
+
+:::
 
 ## User Registration
 
@@ -36,6 +49,13 @@ invite other **managers** to add of modify payment methods and change the
 subscription for a project. You can also add other **viewers** who can see the
 project subscriptions in your account, the payment methods, and the other
 billing account users but cannot modify any of them.
+
+## Manage Subscriptions and Payment Methods
+
+Read on or watch the below video for instructions on how to manage your
+subscriptions and payment methods.
+
+<iframe width="784" height="395" src="https://www.loom.com/embed/1d2ba366ee5f4d9e872e275dadc3cd52?sid=84eadb4b-64dd-4dad-8a2d-b282c70cb99e" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 ### Payment Methods
 
@@ -84,7 +104,7 @@ support@openfn.org with the error(if any).
 
 :::
 
-## Plans & Limits
+### Plans & Limits
 
 The full list of plans and limits are available at
 [openfn.org/pricing](https://www.openfn.org/pricing).
