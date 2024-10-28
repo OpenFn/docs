@@ -17,7 +17,7 @@ billing accounts and subscriptions.
 :::tip Need OpenFn on _Your_ Servers?
 
 OpenFn can be deployed anywhere. Check out the
-[Deployment docs](documentation/deploy/options) to learn about supported options
+[Deployment docs](/documentation/deploy/options) to learn about supported options
 and the "do-it-yourself" local deployment pathway. If you seek expert help to
 manage your local deployment, check out the
 [managed deployment services](https://www.openfn.org/pricing?hostingType=selfHosted)
