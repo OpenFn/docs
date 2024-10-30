@@ -2,7 +2,7 @@
 
 A one or two-sentence description of what this PR does.
 
-Fixes #
+Closes #<issue>
 
 ## Details
 
