@@ -8,7 +8,84 @@ title: Satusehat Adaptor
 is a health data exchange ecosystem that connects information systems or
 applications from all members of the Indonesian digital health ecosystem
 including health facilities, regulators, guarantors, and digital service
-providers
+providers.
+
+SATUSEHAT uses HL7 [FHIR](https://www.hl7.org/fhir/) (Fast Healthcare Interoperability Resources) in implementing standard data models and Application Programming Interfaces (APIs).
+
+:::info FHIR
+
+FHIR (Fast Healthcare Interoperability Resources) is a global (international) standard that defines the data format and its elements (called " resources ") and an application programming interface (API ) standard for information exchange
+
+:::
+
+Here is an example of how a POST HTTP request for creating an `Encounter` resource looks like in Satusehat with the FHIR format:
+
+
+```json
+{
+    "resourceType": "Encounter",
+    "status": "arrived",
+    "class": {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "AMB",
+        "display": "ambulatory"
+    },
+    "subject": {
+        "reference": "Patient/100000030009",
+        "display": "Budi Santoso"
+    },
+    "participant": [
+        {
+            "type": [
+                {
+                    "coding": [
+                        {
+                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                            "code": "ATND",
+                            "display": "attender"
+                        }
+                    ]
+                }
+            ],
+            "individual": {
+                "reference": "Practitioner/N10000001",
+                "display": "Dokter Bronsig"
+            }
+        }
+    ],
+    "period": {
+        "start": "2022-06-14T07:00:00+07:00"
+    },
+    "location": [
+        {
+            "location": {
+                "reference": "Location/b017aa54-f1df-4ec2-9d84-8823815d7228",
+                "display": "Ruang 1A, Poliklinik Bedah Rawat Jalan Terpadu, Lantai 2, Gedung G"
+            }
+        }
+    ],
+    "statusHistory": [
+        {
+            "status": "arrived",
+            "period": {
+                "start": "2022-06-14T07:00:00+07:00"
+            }
+        }
+    ],
+    "serviceProvider": {
+        "reference": "Organization/{{Org_id}}"
+    },
+    "identifier": [
+        {
+            "system": "http://sys-ids.kemkes.go.id/encounter/{{Org_id}}",
+            "value": "P20240001"
+        }
+    ]
+}
+
+```
+
+Checkout Satusehat's [Postman Collection](https://satusehat.kemkes.go.id/platform/docs/id/postman-workshop/) for more examples and resources.
 
 ## Integration Options
 
