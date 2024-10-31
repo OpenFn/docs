@@ -94,6 +94,15 @@ post('Encounter',
 
 Checkout Satusehat's [Postman Collection](https://satusehat.kemkes.go.id/platform/docs/id/postman-workshop/) for more examples and resources.
 
+The Satusehat functions also support the use of HTTP helpers. The HTTP helpers take a path to a FHIR resource, relative to the baseURL in the configuration file, and a list of query parameters. Some helpers also take a FHIR resource as a JSON object.
+
+So if we wanted to make a request to /Encounter to search for something, like [THIS POSTMAN EXAMPLE](https://warped-resonance-634630.postman.co/workspace/New-Team-Workspace~b16d6cb8-2e46-4ec6-badf-96904909f286/request/34069873-57222e41-9ddb-41ee-a12d-4515ba9e11c5?action=share&creator=34069873&ctx=documentation), we would pass the path as the first argument, and the query parameters as the second. Like this:
+
+```
+get('Encounter', {subject: 100000030009})
+
+```
+
 ## Integration Options
 
 1. **[REST APIs](https://satusehat.kemkes.go.id/platform/docs/id/postman-workshop/)**
