@@ -106,10 +106,7 @@ get('Encounter', {subject: 100000030009})
 ## Integration Options
 
 1. **[REST APIs](https://satusehat.kemkes.go.id/platform/docs/id/postman-workshop/)**
-   that enable external services like OpenFn to _pull_ data from Satusehat, or
-   push data from external apps to Satusehat. This option is suited for
-   \_scheduled or workflows that must update data in Satusehat with external
-   information.
+   enable external services like OpenFn to pull data from Satusehat or push data to Satusehat from external apps. This option is suitable for scheduled workflows or those that need to update data in Satusehat with external information.
 
 ## How to Extract or Modify Satusehat Data
 
