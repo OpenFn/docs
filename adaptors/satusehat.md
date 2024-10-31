@@ -21,7 +21,10 @@ FHIR (Fast Healthcare Interoperability Resources) is a global (international) st
 Here is an example of how a POST HTTP request for creating an `Encounter` resource looks like in Satusehat with the FHIR format:
 
 
-```json
+```
+
+// The data below is an example as stated in the postman collection
+post('Encounter',
 {
     "resourceType": "Encounter",
     "status": "arrived",
@@ -73,15 +76,19 @@ Here is an example of how a POST HTTP request for creating an `Encounter` resour
         }
     ],
     "serviceProvider": {
-        "reference": "Organization/{{Org_id}}"
+        "reference": "Organization/aewertyur34rg343t4v34r"
     },
     "identifier": [
         {
-            "system": "http://sys-ids.kemkes.go.id/encounter/{{Org_id}}",
+            "system": "http://sys-ids.kemkes.go.id/encounter/aewertyur34rg343t4v34r",
             "value": "P20240001"
         }
     ]
 }
+
+ )
+
+
 
 ```
 
