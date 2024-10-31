@@ -10,98 +10,117 @@ applications from all members of the Indonesian digital health ecosystem
 including health facilities, regulators, guarantors, and digital service
 providers.
 
-SATUSEHAT uses HL7 [FHIR](https://www.hl7.org/fhir/) (Fast Healthcare Interoperability Resources) in implementing standard data models and Application Programming Interfaces (APIs).
+SATUSEHAT uses HL7 [FHIR](https://www.hl7.org/fhir/) (Fast Healthcare
+Interoperability Resources) in implementing standard data models and Application
+Programming Interfaces (APIs).
 
 :::info FHIR
 
-FHIR (Fast Healthcare Interoperability Resources) is a global (international) standard that defines the data format and its elements (called " resources ") and an application programming interface (API ) standard for information exchange
+FHIR (Fast Healthcare Interoperability Resources) is a global (international)
+standard that defines the data format and its elements (called " resources ")
+and an application programming interface (API ) standard for information
+exchange
 
 :::
 
-Here is an example of how a POST HTTP request for creating an `Encounter` resource looks like in Satusehat with the FHIR format:
+The following example shows a HTTP POST request to creating an `Encounter` FHIR
+resource. Data was taken from the
+[Satusehate Postman Collection](https://www.postman.com/satusehat/satusehat-public/request/56uan96/encounter-create)
 
-
+```js
+post('Encounter', {
+  resourceType: 'Encounter',
+  status: 'arrived',
+  class: {
+    system: 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+    code: 'AMB',
+    display: 'ambulatory',
+  },
+  subject: {
+    reference: 'Patient/100000030009',
+    display: 'Budi Santoso',
+  },
+  participant: [
+    {
+      type: [
+        {
+          coding: [
+            {
+              system:
+                'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+              code: 'ATND',
+              display: 'attender',
+            },
+          ],
+        },
+      ],
+      individual: {
+        reference: 'Practitioner/N10000001',
+        display: 'Dokter Bronsig',
+      },
+    },
+  ],
+  period: {
+    start: '2022-06-14T07:00:00+07:00',
+  },
+  location: [
+    {
+      location: {
+        reference: 'Location/b017aa54-f1df-4ec2-9d84-8823815d7228',
+        display:
+          'Ruang 1A, Poliklinik Bedah Rawat Jalan Terpadu, Lantai 2, Gedung G',
+      },
+    },
+  ],
+  statusHistory: [
+    {
+      status: 'arrived',
+      period: {
+        start: '2022-06-14T07:00:00+07:00',
+      },
+    },
+  ],
+  serviceProvider: {
+    reference: 'Organization/{{Org_id}}',
+  },
+  identifier: [
+    {
+      system: 'http://sys-ids.kemkes.go.id/encounter/{{Org_id}}',
+      value: 'P20240001',
+    },
+  ],
+});
 ```
 
-// The data below is an example as stated in the postman collection
-post('Encounter',
-{
-    "resourceType": "Encounter",
-    "status": "arrived",
-    "class": {
-        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
-        "code": "AMB",
-        "display": "ambulatory"
-    },
-    "subject": {
-        "reference": "Patient/100000030009",
-        "display": "Budi Santoso"
-    },
-    "participant": [
-        {
-            "type": [
-                {
-                    "coding": [
-                        {
-                            "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
-                            "code": "ATND",
-                            "display": "attender"
-                        }
-                    ]
-                }
-            ],
-            "individual": {
-                "reference": "Practitioner/N10000001",
-                "display": "Dokter Bronsig"
-            }
-        }
-    ],
-    "period": {
-        "start": "2022-06-14T07:00:00+07:00"
-    },
-    "location": [
-        {
-            "location": {
-                "reference": "Location/b017aa54-f1df-4ec2-9d84-8823815d7228",
-                "display": "Ruang 1A, Poliklinik Bedah Rawat Jalan Terpadu, Lantai 2, Gedung G"
-            }
-        }
-    ],
-    "statusHistory": [
-        {
-            "status": "arrived",
-            "period": {
-                "start": "2022-06-14T07:00:00+07:00"
-            }
-        }
-    ],
-    "serviceProvider": {
-        "reference": "Organization/aewertyur34rg343t4v34r"
-    },
-    "identifier": [
-        {
-            "system": "http://sys-ids.kemkes.go.id/encounter/aewertyur34rg343t4v34r",
-            "value": "P20240001"
-        }
-    ]
-}
+Checkout Satusehat's
+[Postman Collection](https://www.postman.com/satusehat/satusehat-public/overview)
+for more examples and resources.
 
- )
+## Mapping Satusehat URLs to Adaptor Functions
 
+The Satusehat adaptor functions provide convenient HTTP method helpers - like
+[`get()`](/adaptors/packages/satusehat-docs#get).
 
+Each takes a path to a FHIR resource, relative to the baseURL in the
+configuration file, and a list of query parameters. Some helpers (like `post`)
+also take a FHIR resource as a JSON object.
+
+For example, a request to find an
+[encounter by subject](https://www.postman.com/satusehat/satusehat-public/request/ef2ilan/encounter-by-subject)
+requires a URL like this:
 
 ```
-
-Checkout Satusehat's [Postman Collection](https://satusehat.kemkes.go.id/platform/docs/id/postman-workshop/) for more examples and resources.
-
-The Satusehat functions also support the use of HTTP helpers. The HTTP helpers take a path to a FHIR resource, relative to the baseURL in the configuration file, and a list of query parameters. Some helpers also take a FHIR resource as a JSON object.
-
-So if we wanted to make a request to /Encounter to search for something, like [THIS POSTMAN EXAMPLE](https://warped-resonance-634630.postman.co/workspace/New-Team-Workspace~b16d6cb8-2e46-4ec6-badf-96904909f286/request/34069873-57222e41-9ddb-41ee-a12d-4515ba9e11c5?action=share&creator=34069873&ctx=documentation), we would pass the path as the first argument, and the query parameters as the second. Like this:
-
+https://api-satusehat-dev.dto.kemkes.go.id/fhir-r4/v1/Encounter?subject=100000030009
 ```
-get('Encounter', {subject: 100000030009})
 
+In OpenFn, we would use the `get` function, pass the path as the first argument,
+and the query parameters as the second. Like this:
+
+```js
+get('Encounter', { subject: '100000030009' });
 ```
+
+The result will be written to `state.data`.
 
 ## Integration Options
 
