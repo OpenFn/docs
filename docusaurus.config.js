@@ -43,16 +43,6 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'articles',
-          label: 'Articles',
-          position: 'left',
-        },
-        {
-          to: 'blog',
-          label: 'Blog',
-          position: 'left',
-        },
-        {
           type: 'docsVersionDropdown',
           position: 'right',
         },
@@ -83,14 +73,6 @@ module.exports = {
             {
               to: 'adaptors',
               label: 'Adaptors',
-            },
-            {
-              to: 'articles',
-              label: 'Articles',
-            },
-            {
-              to: 'blog',
-              label: 'Blog',
             },
           ],
         },
@@ -147,16 +129,6 @@ module.exports = {
             },
           },
         },
-        blog: {
-          showReadingTime: true,
-          editUrl: 'https://github.com/openfn/docs/edit/main',
-          blogSidebarCount: 6,
-          feedOptions: {
-            type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
-            title: 'The OpenFn Blog',
-          },
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -181,22 +153,6 @@ module.exports = {
         path: 'adaptors',
         routeBasePath: 'adaptors',
         sidebarPath: require.resolve('./sidebars-adaptors.js'),
-      },
-    ],
-    [
-      '@docusaurus/plugin-content-blog',
-      {
-        id: 'articles',
-        routeBasePath: 'articles',
-        path: 'articles',
-        blogSidebarCount: 6,
-        showReadingTime: true,
-        editUrl: 'https://github.com/openfn/docs/edit/main',
-        feedOptions: {
-          type: 'all',
-          copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
-          title: 'OpenFn Help Articles',
-        },
       },
     ],
   ],

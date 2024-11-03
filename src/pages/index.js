@@ -44,7 +44,7 @@ const features = [
   },
   {
     title: 'Blog',
-    link: 'blog',
+    link: 'https://www.openfn.org/blog',
     imageUrl: 'img/undraw_reading_time_gvg0.svg',
     description: (
       <>
