@@ -8,6 +8,24 @@ import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
 import styles from './styles.module.css';
 
+const highlights = [
+  {
+    title: 'Job Writing Guide',
+    link: 'documentation/jobs/job-writing-guide',
+    description: 'Writing a job for OpenFn? Start here',
+  },
+  {
+    title: 'CLI Usage Examples',
+    link: 'documentation/cli-usage',
+    description: 'See what the CLI can do at a glance',
+  },
+  {
+    title: 'JavaScript Tips & Tricks',
+    link: 'documentation/cli-usage',
+    description: 'Level up your code',
+  },
+];
+
 const features = [
   {
     title: 'Docs',
@@ -31,40 +49,17 @@ const features = [
       </>
     ),
   },
-  {
-    title: 'Articles',
-    link: 'articles',
-    imageUrl: 'img/undraw_Portfolio_update_re_jqnp.svg',
-    description: (
-      <>
-        How to prepare for data integration? How to structure external IDs? How
-        to...
-      </>
-    ),
-  },
-  {
-    title: 'Blog',
-    link: 'https://www.openfn.org/blog',
-    imageUrl: 'img/undraw_reading_time_gvg0.svg',
-    description: (
-      <>
-        We help the world's most promising social impact interventions achieve
-        scale through automation, data integration, and interoperability. These
-        are their stories.
-      </>
-    ),
-  },
-  {
-    title: 'Enterprise',
-    link: 'https://www.openfn.org',
-    imageUrl: 'img/undraw_secure_server_s9u8.svg',
-    description: (
-      <>
-        Check out the enterprise-grade OpenFn integration-platform-as-a-service
-        (iPaaS), offering free-forever plans and affordable pathways to scale.
-      </>
-    ),
-  },
+  // {
+  //   title: 'Enterprise',
+  //   link: 'https://www.openfn.org',
+  //   imageUrl: 'img/undraw_secure_server_s9u8.svg',
+  //   description: (
+  //     <>
+  //       Check out the enterprise-grade OpenFn integration-platform-as-a-service
+  //       (iPaaS), offering free-forever plans and affordable pathways to scale.
+  //     </>
+  //   ),
+  // },
 ];
 
 function Feature({ imageUrl, title, description, link }) {
@@ -293,6 +288,19 @@ function Home() {
           </section>
         )}
       </main>
+      <div className="container" style={{ marginTop: '30px' }}>
+        <h1 style={{ textAlign: 'center' }}>✨Documentation Highlights✨</h1>
+        <div className="highlights-wrapper">
+          {highlights.map(h => (
+            <div className="highlight-card">
+              <h3>
+                <a href={h.link}>{h.title}</a>
+              </h3>
+              <p>{h.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 }
