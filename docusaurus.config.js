@@ -43,6 +43,11 @@ module.exports = {
           position: 'left',
         },
         {
+          to: 'articles',
+          label: 'Articles',
+          position: 'left',
+        },
+        {
           type: 'docsVersionDropdown',
           position: 'right',
         },
@@ -70,6 +75,10 @@ module.exports = {
             //   docId: 'intro',
             //   label: 'Docs',
             // },
+            {
+              to: 'articles',
+              label: 'Articles',
+            },
             {
               to: 'adaptors',
               label: 'Adaptors',
@@ -153,6 +162,22 @@ module.exports = {
         path: 'adaptors',
         routeBasePath: 'adaptors',
         sidebarPath: require.resolve('./sidebars-adaptors.js'),
+      },
+    ],
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        id: 'articles',
+        routeBasePath: 'articles',
+        path: 'articles',
+        blogSidebarCount: 6,
+        showReadingTime: true,
+        editUrl: 'https://github.com/openfn/docs/edit/main',
+        feedOptions: {
+          type: 'all',
+          copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
+          title: 'OpenFn Help Articles',
+        },
       },
     ],
   ],
