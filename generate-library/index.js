@@ -150,21 +150,25 @@ module.exports = function (context, { apiUrl }) {
           console.log('Done ✓');
 
           console.log('Parsing public jobs API data...');
-          jobs.map(j => {
-            const uniqueName = `${j.name.trim()}-${hDate(j.inserted_at)}`
-              .replace(/[^a-z0-9_-]/gi, '-')
-              .replace(/-{2,}/g, '-')
-              .replace(/^[-,\[]/, '');
+          jobs
+            .filter(j => {
+              return j.expression && j.expression !== '// Your job goes here.';
+            })
+            .map(j => {
+              const uniqueName = `${j.name.trim()}-${hDate(j.inserted_at)}`
+                .replace(/[^a-z0-9_-]/gi, '-')
+                .replace(/-{2,}/g, '-')
+                .replace(/^[-,\[]/, '');
 
-            const keywords = getKeywords(j.expression);
-            const body = generateBody(j, uniqueName, keywords);
+              const keywords = getKeywords(j.expression);
+              const body = generateBody(j, uniqueName, keywords);
 
-            pushToPaths(j, uniqueName);
-            fs.writeFileSync(
-              `./adaptors/library/jobs/auto/${uniqueName}.md`,
-              body
-            );
-          });
+              pushToPaths(j, uniqueName);
+              fs.writeFileSync(
+                `./adaptors/library/jobs/auto/${uniqueName}.md`,
+                body
+              );
+            });
           console.log('Done ✓');
 
           console.log('Creating sidebar paths...');
