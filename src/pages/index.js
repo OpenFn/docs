@@ -49,17 +49,6 @@ const features = [
       </>
     ),
   },
-  // {
-  //   title: 'Enterprise',
-  //   link: 'https://www.openfn.org',
-  //   imageUrl: 'img/undraw_secure_server_s9u8.svg',
-  //   description: (
-  //     <>
-  //       Check out the enterprise-grade OpenFn integration-platform-as-a-service
-  //       (iPaaS), offering free-forever plans and affordable pathways to scale.
-  //     </>
-  //   ),
-  // },
 ];
 
 function Feature({ imageUrl, title, description, link }) {
