@@ -1,5 +1,15 @@
 [
   {
+    "expressionPath": "jobs/commcare-asri-submitxls",
+    "adaptor": "commcare",
+    "name": "Update visit case with satusehat-id and case-id"
+  },
+  {
+    "expressionPath": "jobs/commcare-asri-bulk-upload",
+    "adaptor": "commcare",
+    "name": "Bulk upload obat lookup-table"
+  },
+  {
     "expressionPath": "jobs/getKoboData",
     "adaptor": "http",
     "adaptor_version": "v3.1.7",
