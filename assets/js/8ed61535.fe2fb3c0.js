@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[66886],{25235:s=>{s.exports=JSON.parse('{"label":"MSSQL","permalink":"/blog/tags/mssql","allTagsPath":"/blog/tags","count":1}')}}]);

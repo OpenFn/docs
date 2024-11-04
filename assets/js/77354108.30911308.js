@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[55528],{48217:s=>{s.exports=JSON.parse('{"label":"OSCaR","permalink":"/blog/tags/os-ca-r","allTagsPath":"/blog/tags","count":1}')}}]);
