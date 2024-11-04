@@ -49,6 +49,40 @@ const features = [
       </>
     ),
   },
+  {
+    title: 'Articles',
+    link: 'articles',
+    imageUrl: 'img/undraw_Portfolio_update_re_jqnp.svg',
+    description: (
+      <>
+        How to prepare for data integration? How to structure external IDs? How
+        to...
+      </>
+    ),
+  },
+  {
+    title: 'Blog',
+    link: 'https://openfn.org/blog',
+    imageUrl: 'img/undraw_reading_time_gvg0.svg',
+    description: (
+      <>
+        We help the world's most promising social impact interventions achieve
+        scale through automation, data integration, and interoperability. These
+        are their stories.
+      </>
+    ),
+  },
+  {
+    title: 'Enterprise',
+    link: 'https://www.openfn.org',
+    imageUrl: 'img/undraw_secure_server_s9u8.svg',
+    description: (
+      <>
+        Check out the enterprise-grade OpenFn integration-platform-as-a-service
+        (iPaaS), offering free-forever plans and affordable pathways to scale.
+      </>
+    ),
+  },
 ];
 
 function Feature({ imageUrl, title, description, link }) {
