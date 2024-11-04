@@ -13,10 +13,9 @@ connect _any system_.
 ##### Leveraging the tech powering the field-tested enterprise OpenFn platform...
 
 Lightning brings together the tried and tested technology which we have been
-using since 2015 (the OpenFn
-[Integration Toolkit](/documentation#our-products)) to
-manage the orchestration and execution of integrations in a stable, scalable and
-secure way.
+using since 2015 (the OpenFn [Integration Toolkit](/documentation#our-products))
+to manage the orchestration and execution of integrations in a stable, scalable
+and secure way.
 
 ##### ...and providing a fully open source web app with a user-friendly web interface.
 
@@ -87,9 +86,9 @@ integrations to make sure no request goes unprocessed.
 
 ## Roadmap
 
-See the [Lightning Roadmap](./openfn-roadmap.md) for a detailed list
-of features that are in the backlog, planned, and/or in development for the
-OpenFn Digital Public Good.
+See the [Lightning Roadmap](./openfn-roadmap.md) for a detailed list of features
+that are in the backlog, planned, and/or in development for the OpenFn Digital
+Public Good.
 
 _You can follow our progress and track delivered features in our
 [changelog](https://github.com/OpenFn/Lightning/blob/main/CHANGELOG.md)._
@@ -114,7 +113,7 @@ You have 3 options for exploring OpenFn/Lightning:
    [github README](https://github.com/OpenFn/Lightning).
 
 Go through the
-[self-paced user interview](/blog/2023/04/13/lightning-beta#take-15-minutes-to-carry-out-our-user-test)
+[self-paced user interview](https://www.openfn.org/blog/2023-04-13-lightning-beta)
 to learn how OpenFn Lightning works _and_ help us out with feedback in just 15
 minutes.
 
@@ -377,11 +376,11 @@ features in our roadmap (we’re still in beta).
 
 Later: nothing - if a feature has proven important to our platform users, it
 will be available in Lightning. If there is any feature you require in Lightning
-to be able to switch over to it, speak up! You can reach out to our team via the 
+to be able to switch over to it, speak up! You can reach out to our team via the
 [OpenFn Community](https://community.openfn.org/).
 
 #### When will Lightning Beta be ready?
 
 Lightning is currently in Beta. You can register for an account on
-[app.openfn.org](https://app.openfn.org/). Lightning will be released
-in Q4 2023.
+[app.openfn.org](https://app.openfn.org/). Lightning will be released in
+Q4 2023.

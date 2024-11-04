@@ -23,7 +23,7 @@ designing your data integration. These include:
 <!--truncate-->
 
 For a
-[recent project in Cambodia](/blog/2021/02/09/interoperability_for_case_referrals),
+[recent project in Cambodia](https://www.openfn.org/spotlight/2021-02-09-interoperability-for-case-referrals),
 OpenFn is being used by social workers to automate case referrals between the
 software systems Primero and OSCaR. In the design phase, we evaluated these two
 syncing options. Below, we'll explain what each one is, the differences between

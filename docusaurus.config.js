@@ -48,11 +48,6 @@ module.exports = {
           position: 'left',
         },
         {
-          to: 'blog',
-          label: 'Blog',
-          position: 'left',
-        },
-        {
           type: 'docsVersionDropdown',
           position: 'right',
         },
@@ -81,16 +76,12 @@ module.exports = {
             //   label: 'Docs',
             // },
             {
-              to: 'adaptors',
-              label: 'Adaptors',
-            },
-            {
               to: 'articles',
               label: 'Articles',
             },
             {
-              to: 'blog',
-              label: 'Blog',
+              to: 'adaptors',
+              label: 'Adaptors',
             },
           ],
         },
@@ -145,16 +136,6 @@ module.exports = {
               banner: 'unmaintained',
               label: 'v1.105',
             },
-          },
-        },
-        blog: {
-          showReadingTime: true,
-          editUrl: 'https://github.com/openfn/docs/edit/main',
-          blogSidebarCount: 6,
-          feedOptions: {
-            type: 'all',
-            copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
-            title: 'The OpenFn Blog',
           },
         },
         theme: {

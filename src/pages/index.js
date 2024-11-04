@@ -8,6 +8,24 @@ import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
 import styles from './styles.module.css';
 
+const highlights = [
+  {
+    title: 'Job Writing Guide',
+    link: 'documentation/jobs/job-writing-guide',
+    description: 'Writing a job for OpenFn? Start here',
+  },
+  {
+    title: 'CLI Usage Examples',
+    link: 'documentation/cli-usage',
+    description: 'See what the CLI can do at a glance',
+  },
+  {
+    title: 'JavaScript Tips & Tricks',
+    link: 'documentation/cli-usage',
+    description: 'Level up your code',
+  },
+];
+
 const features = [
   {
     title: 'Docs',
@@ -44,7 +62,7 @@ const features = [
   },
   {
     title: 'Blog',
-    link: 'blog',
+    link: 'https://openfn.org/blog',
     imageUrl: 'img/undraw_reading_time_gvg0.svg',
     description: (
       <>
@@ -293,6 +311,19 @@ function Home() {
           </section>
         )}
       </main>
+      <div className="container" style={{ marginTop: '30px' }}>
+        <h1 style={{ textAlign: 'center' }}>✨Documentation Highlights✨</h1>
+        <div className="highlights-wrapper">
+          {highlights.map(h => (
+            <div className="highlight-card">
+              <h3>
+                <a href={h.link}>{h.title}</a>
+              </h3>
+              <p>{h.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </Layout>
   );
 }
