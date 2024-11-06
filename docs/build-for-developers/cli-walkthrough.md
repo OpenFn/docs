@@ -460,7 +460,7 @@ fn(state => {
 
 </details>
 
-##### Run **openfn debug.js -a http**
+##### Run **openfn debug.js -a http -s tmp/state.json**
 
 <details>
   <summary>Expected CLI logs</summary>
