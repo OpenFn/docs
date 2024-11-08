@@ -4,8 +4,8 @@ title: Collections Adaptor
 
 ## Collections Overview
 
-The Collections API is a key/value storage solution. It is designed for high
-performance over a large volume of data.
+The Collections API provides access to a secure key/value store on the OpenFn
+Platform. It is designed for high performance over a large volume of data.
 
 Use-cases include:
 
@@ -13,22 +13,55 @@ Use-cases include:
 - Buffering and aggregating high volumes of incoming data
 - Caching and sharing state between workflows
 
-A Collection is bound to a project. Collections can only be accessed with a
-token associated with that project. When running on the app, a workflow is
-automatically granted access to all collections on the same project. When
-running in the CLI, a Personal Access Token can be used (generated from the app
-at /profile/tokens).
+Collections are secure, private datastores which are visible only to Workflows
+within a particular OpenFn Project. They can be created, managed and destroyed
+from the OpenFn Admin page.
+
+When running in the CLI, a Personal Access Token can be used to get access to
+the collection (generated from the app at /profile/tokens).
 
 ## The Collections Adaptor
 
-The Collections adaptor is a special adaptor. Uniquely, the Collections adaptor
-is designed to be run _alongside_ other adaptors, and is injected for you by the
-platform.
+The Collections adaptor is a special kind of adaptor.
 
-This makes the Collections API available to every step in a workflow, regardless
+Uniquely, it is designed to be run _alongside_ other adaptors, and is injected
+for you by the platform.
+
+This makes the Collections API available to every step in a Workflow, regardless
 of which adaptor it is using.
 
 ## Usage Guide
+
+All values in a Collection are stored under a string key. Values are stored as
+Strings, but the Collections API will automatically serialized and de-serialize
+JSON objects to strings for you (so, in effect, you can treat keys as strings
+and value as objects).
+
+Collections can be manipulated using a single key a pattern - where a pattern is
+a string with a wildcard. So the key-pattern `mr-benn` will only match a single
+value under the key `mr-benn`, but the pattern `2024*` will match all keys which
+start with `2024` but have any other characters afterwards. The pattern
+`2024*mr-benn*` will match keys starting with 2024, then having some values plus
+the string `mr-benn`, plus any other sequence of characters (in other words,
+fetch all keys which relate to Mr Benn in 2024).
+
+The Collections API gives you four functions to read, write and remove data from
+a collection.
+
+- Use [`collections.get()`](adaptors/packages/collections-docs#collections_get)
+  to fetch a single value, or batch-download a range of values.
+- Use
+  [`collections.each()`](adaptors/packages/collections-docs#collections_each) to
+  efficiently iterate over a range of items in a collection. Recommended for
+  large data sets.
+- Use [`collections.set()`](adaptors/packages/collections-docs#collections_set)
+  to upload one or more values to a collection. `set()` is always an "upsert":
+  if a key already exists, it's value will be replaced by the new value
+- Use
+  [`collections.remove()`](adaptors/packages/collections-docs#collections_remove)
+  to remove one or more values.
+
+Detailed usage examples are provided below.
 
 ### Set some data in a collection
 
