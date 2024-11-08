@@ -121,8 +121,8 @@ technique creates keys that are easily sorted by date.
 
 ### Getting data from a collection
 
-To retrieving multiple items from a Collection, we recommend using the `each()`
-function.
+To retrieve multiple items from a Collection, we generally recommend using the
+`each()` function.
 
 `each()` will stream each value individually, greatly reducing the memory
 overhead of downloading a large amount of data to the client.
@@ -163,7 +163,7 @@ each('my-collection', { key: '2024*', limit: 1000 }, (state, value, key) => {
 ```
 
 You can fetch items individually with `get()`, which will be written to
-state.data
+state.data:
 
 ```js
 collections.get('my-collection', 'commcare-fhir-value-mappings').then(state => {
@@ -207,6 +207,14 @@ You can also use the same query options as `get()` and `each()` to bulk delete:
 ```js
 collections.remove('my-collection', { createdBefore: '20240601' });
 ```
+
+## Date Filters
+
+-TODO-
+
+## Limits & Cursors
+
+-TODO-
 
 ## Collection Administration
 
