@@ -35,7 +35,56 @@ of which adaptor it is using.
 The Collection API allows you to set a JSON object (or any primitive JS value)
 under a given key:
 
-You can also pass an array of items for a batch-set.
+```js
+collections.set('my-collection', 'commcare-fhir-value-mappings', {
+  current_smoker: {
+    system: 'http://snomed.info/sct',
+    code: '77176002',
+    display: 'Smoker',
+  },
+  /* ... */
+});
+```
+
+You can also pass an array of items for a batch-set. When setting multiple
+values, you need to set a key generator function to calculate a key for each
+item, like this:
+
+```js
+collections.set('my-favourite-footballer', value => value.id, [
+  {
+    id: 'player01',
+    name: 'Lamine Yamal',
+    /* other patient details */
+  },
+  {
+    id: 'player02',
+    name: 'Aitana Bonmati',
+    /* other patient details */
+  },
+  /* More patients {}, {} */
+]);
+```
+
+The key generator is a function which receives each of the values in the
+supplied values array as an id (so, in the example above, it gets called with
+the `player01` object, then the `player02` object, and so on). For each value,
+it should return a string key, under which it will be saved in the collection.
+
+You can use Javascript template literals to easily generate key values which
+include a mixture of static and dynamic values:
+
+```js
+collections.set(
+  'my-favourite-footballer',
+  value => `${value.createdDate}-${value.region}-${value.name}`
+  $.data
+),
+```
+
+In this example, the `createdDate`, `region` and `name` properties will be read
+from each value and assembled into a key-string, separated by dashes. This
+technique creates keys that are easily sorted by date.
 
 ### Getting data from a collection
 
