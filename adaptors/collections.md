@@ -7,12 +7,6 @@ title: Collections Adaptor
 The Collections API provides access to a secure key/value store on the OpenFn
 Platform. It is designed for high performance over a large volume of data.
 
-Use-cases include:
-
-- Storing mapping objects for use in workflows
-- Buffering and aggregating high volumes of incoming data
-- Caching and sharing state between workflows
-
 Collections are secure, private datastores which are visible only to Workflows
 within a particular OpenFn Project. They can be created, managed and destroyed
 from the OpenFn Admin page.
@@ -20,15 +14,29 @@ from the OpenFn Admin page.
 When running in the CLI, a Personal Access Token can be used to get access to
 the collection (generated from the app at /profile/tokens).
 
+See the [Collections](documentation/build/collections) Platform Docs to learn
+more about Collections.
+
+:::caution
+
+Collections must be created in the platform Admin page before they can be used.
+
+Refer to the [Collections Docs](documentation/build/collections) for details
+
+:::
+
 ## The Collections Adaptor
 
-The Collections adaptor is a special kind of adaptor.
+The Collections API is inserted into all Steps through a special kind of
+adaptor.
 
-Uniquely, it is designed to be run _alongside_ other adaptors, and is injected
-for you by the platform.
+Uniquely, the Collections adaptor it is designed to be run _alongside_ other
+adaptors, not by itself. It is injected into the runtime environment for you for
+you by OpenFn. This makes the Collections API available to every Step in a
+Workflow, regardless of which adaptor it is using.
 
-This makes the Collections API available to every step in a Workflow, regardless
-of which adaptor it is using.
+If using the CLI run a workflow with Collections, refer to the
+[CLI Usage](#cli-usage) guide below.
 
 ## Usage Guide
 
@@ -63,7 +71,7 @@ a collection.
 
 Detailed usage examples are provided below.
 
-### Set some data in a collection
+### Set some data in a Collection
 
 The Collection API allows you to set a JSON object (or any primitive JS value)
 under a given key:
@@ -119,7 +127,7 @@ In this example, the `createdDate`, `region` and `name` properties will be read
 from each value and assembled into a key-string, separated by dashes. This
 technique creates keys that are easily sorted by date.
 
-### Getting data from a collection
+### Getting data from a Collection
 
 To retrieve multiple items from a Collection, we generally recommend using the
 `each()` function.
@@ -128,7 +136,7 @@ To retrieve multiple items from a Collection, we generally recommend using the
 overhead of downloading a large amount of data to the client.
 
 ```js
-each('my-collection', '2024*', (state, value, key) => {
+collections.each('my-collection', '2024*', (state, value, key) => {
   console.log(value);
   // No need to return state here
 });
@@ -139,7 +147,7 @@ pattern, or an object including different query strings. Check the API reference
 for a full listing.
 
 ```js
-each(
+collections.each(
   'my-collection',
   { key: '2024*', created_after: '20240601' },
   (state, value, key) => {
@@ -153,13 +161,15 @@ there are returned values on the server, a `cursor` key will be written to
 `state.data`.
 
 ```js
-each('my-collection', { key: '2024*', limit: 1000 }, (state, value, key) => {
-  console.log(value);
-}).then(state => {
-  state.nextCursor = state.data.cursor;
-  // state.data.cursor now contains the cursor position
-  return state;
-});
+collections
+  .each('my-collection', { key: '2024*', limit: 1000 }, (state, value, key) => {
+    console.log(value);
+  })
+  .then(state => {
+    state.nextCursor = state.data.cursor;
+    // state.data.cursor now contains the cursor position
+    return state;
+  });
 ```
 
 You can fetch items individually with `get()`, which will be written to
@@ -170,7 +180,7 @@ collections.get('my-collection', 'commcare-fhir-value-mappings').then(state => {
   state.mappings = state.data;
   return state;
 });
-each($.inputs, state => {
+collecions.each($.inputs, state => {
   const mappedString = state.mappings[state.data.diagnosis];
   state.resources ??= {};
   state.resources[state.data.id] = mappedString;
@@ -194,35 +204,63 @@ collections.get('my-collection', '2024*').then(state => {
 });
 ```
 
-### Remove data from a collection
+### Remove data from a Collection
 
-You can remove an individual item by key:
+You can remove an individual value by key:
 
 ```js
 collections.remove('my-collection', 'commcare-fhir-value-mappings');
 ```
 
-You can also use the same query options as `get()` and `each()` to bulk delete:
+You can also use patterns to delete multiple values at a time:
 
 ```js
-collections.remove('my-collection', { createdBefore: '20240601' });
+collections.remove('my-collection', '2024*');
 ```
 
-## Date Filters
+## Filters, Limits & Cursors
 
--TODO-
+As well as filtering keys with patterns, you can filter by created date:
 
-## Limits & Cursors
+```js
+collections.each(
+  'my-collection',
+  { key: '2024*', createdAfter: '20240601' },
+  (state, value, key) => {
+    console.log(value);
+  }
+);
+```
 
--TODO-
+You can use `createdBefore` and `createdAfter` dates, which must be ISO 1806
+formatted strings. The `createdBefore` timestamp will match all dates less than
+or equal to (<=) the _start_ of the provided date. Conversely, `createdAfter`
+will match dates greater than or equal to the _end_ of the provided date.
 
-## Collection Administration
+By default, all matching values will be returned to you, but you can limit how
+many items are returned in a single call:
 
-Collections must be created in the platform Admin page before they can be used.
+If a limit is set and there are more values waiting on the server, a `cursor`
+will be written to `state.data`. You can pass this cursor back to the server in
+the next query to resume from that position.
 
-Collections can be removed from the Admin page.
+```js
+// request 10k values from the cursor position
+collections.get('my-collection', { key: '*', limit: 10e3, cursor: $.cursor });
+fn(state => {
+  // Write the cursor (if any) back to state for next time
+  state.cursor = state.data.cursor;
+  return state;
+});
+```
 
 ## CLI usage
+
+:::info
+
+Improved Collections support is coming to the CLI soon.
+
+:::
 
 Collections are designed for close integration with the platform app, but can be
 used from the CLI too.

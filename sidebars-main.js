@@ -64,6 +64,7 @@ module.exports = {
             'build/ai-assistant',
             'build/paths',
             'build/credentials',
+            'build/collections',
             'build/limits',
             'build/editing-locally',
             'build/working-with-branches',
