@@ -137,14 +137,14 @@ A Collection must be created in the admin interface before it can be used.
 
 The Collections API provides four basic verbs:
 
-- [`collections.get()`](adaptors/packages/collections-docs#collections_get)
+- [`collections.get()`](/adaptors/packages/collections-docs#collections_get)
   downloads values matching a key or key pattern.
-- [`collections.each()`](adaptors/packages/collections-docs#collections_each)
+- [`collections.each()`](/adaptors/packages/collections-docs#collections_each)
   efficiently iterates over a range of items in a collection.
-- [`collections.set()`](adaptors/packages/collections-docs#collections_set)
+- [`collections.set()`](/adaptors/packages/collections-docs#collections_set)
   uploads values to a collection.
-- [`collections.remove()`](adaptors/packages/collections-docs#collections_remove)
+- [`collections.remove()`](/adaptors/packages/collections-docs#collections_remove)
   will remove values by key or key pattern.
 
 The Collection API is backed by a special adaptor: see the
-[Collections Adaptor API](adaptors/collections) for more details.
+[Collections Adaptor API](/adaptors/collections) for more details.
