@@ -42,31 +42,35 @@ Oauth clients can be set up either on the
 [project credentials page](../manage-projects/manage-credentials.md) or the
 [user credentials page](../manage-users/user-credentials.md).
 
-### Creating an OAuth client
+### Creating an OAuth client (Super Users)
 
-If you do not have an OAuth client already set up for your project, you will see
-an empty section with a button prompting you to create a client as shown below.
+:::note Currently only users with
+[super user privileges](https://docs.openfn.org/documentation/manage-projects/user-roles-permissions#super-user-privileges)
+can create and manage OAuth clients. If you're using the OpenFn cloud-hosted
+platform SaaS, contact [support@openfn.org](mailto://support@openfn.org) for
+assistance adding a new Oauth client. :::
+
+If you have not created a client before or a superuser has not created a client
+for the projects/users in the deployment, you will see an empty block with a
+button prompting you to create a client as shown below.
 
 ![New client](/img/create_new_oauth_client.png)
 
 Alternatively, you will see the list of existing OAuth clients you have access
-to. To create a new client, click the `Add new` button and select
+to. In this case click on the `New credential` button and select
 `OAuth client [Advanced]` in the dropdown.
 
 ![OAuth dropdown](/img/oauth_dropdown.png)
 
-:::tip
-
-Make sure you add https://app.openfn.org/authenticate/callback as the callback
-URL for the application when enabling OAuth authentication for the third party
-application. (Note: You should substitue `https://app.openfn.org/` with _your_
-OpenFn's deployment base URL if you're not using app.openfn.org.)
-
-For app-specific guidance (e.g., how to set up an Oauth Client
-[for Google Sheets](./adaptors/googlesheets)), refer to the relevant
-[Adaptor documentation](./adaptors) for app-specific guidance
-
+:::note Make sure you add https://app.openfn.org/authenticate/callback as the
+callback URL for the application when enabling OAuth authentication for the
+third party application. (Note: You should substitue `https://app.openfn.org/`
+with _your_ OpenFn's deployment base URL if you're not using app.openfn.org.)
 :::
+
+:::tip For app-specific guidance (e.g., how to set up an Oauth Client
+[for Google Sheets](./adaptors/googlesheets)), refer to the relevant
+[Adaptor documentation](./adaptors) for app-specific guidance :::
 
 ### Sharing OAuth Clients
 
@@ -109,13 +113,15 @@ Every client requires an authentication token to authenticate requests made to
 the application on behalf of the user. On OpenFn, these tokens are created as
 credentials and are associated with clients.
 
-1. To create a credential from an Oauth client, click on "Add new" button and
-   select `Credential` from the dropdown or click on the
-   `create a new credential` button.
-
-![New credential](/img/oauth_dropdown.png)
+1. To create a credential from an Oauth client, click on create a new credential
+   or click on the button as show below:
 
 ![Create new cred](/img/create_new_cred.png)
+
+![New credential](/img/new_cred.png)
+
+:::tip Unlike for OAuth clients, project owners or admins can also create
+credentials, not only super users. :::
 
 2. Then, in the credential type modal, find and select the Oauth client to use
    for creating the OAuth credential. This will open a new modal for you to
@@ -126,15 +132,12 @@ credentials and are associated with clients.
    Clicking this button will open a new tab for you to grant OpenFn an
    authorization token to authenticate your requests.
 
-:::note
-
-When you have signed in, you will be required to grant OpenFn access by clicking
-`Allow` on the permissions modal. Please note that this might look different for
-different applications but the intent is to grant OpenFn perimission to carry
-out certain actions to the application on your behalf. The user authenticating
-OAuth clients should have the required permissions in the application.
-
-:::
+:::note When you have siged in, you will be required to grant OpenFn access by
+clicking `Allow` on the permissions modal. Please note that this might look
+different for different applications but the intent is to grant OpenFn
+perimission to carry out certain actions to the application on your behalf. The
+user authenticating OAuth clients should have the required permissions in the
+application. :::
 
 ### Deleting Clients and Credentials
 
