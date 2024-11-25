@@ -3,7 +3,7 @@ title: openLMIS Adaptor
 ---
 
 ## About openLMIS
-[openLMIS]([https://openlmis.org/]) is an open source, cloud-based electronic logistics management information system (LMIS) purpose-built to manage health commodity supply chains. . 
+[openLMIS](https://openlmis.org/) is an open source, cloud-based electronic logistics management information system (LMIS) purpose-built to manage health commodity supply chains. . 
 
 **Example:**
 [openLMIS]([https://mojatax.com/](https://openlmis.org/)]) is a logistics management solution with multiple modules for cold chain equipment (CCE), requisitions (orders), inventory management, analytics and vaccine management amongst others.
