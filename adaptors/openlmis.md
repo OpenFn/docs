@@ -12,23 +12,17 @@ openLMIS 3.0.1 has an available
 [REST API](https://documenter.getpostman.com/view/5385860/2s93RMVao6#intro](https://docs.openlmis.org/en/rel-3.0.1/api/index.html ). See
 the documentation for the [CCE](https://test.openlmis.org/cce/docs/) and [auth](https://test.openlmis.org/auth/docs/) modules. 
 
-### Webhook Setup
-_Optional_ section to provide additional info on how to configure the webhook to 
-point to an OpenFn webhook url, if needed. 
-
 ## Authentication
-What type(s) of authentication are supported and do we have a recommended method? 
-(e.g., basic auth, api key, oauth) Link to important app documentation. 
+The [Auth Service](https://docs.openlmis.org/en/rel-3.7.0/components/authServiceDesign.html) in OpenLMIS v3 is a stand-alone micro-service that implements OAuth 2. This is used by other OpenLMIS micro-services as well as by the Reference UI AngularJS application. It is also available for use by other mobile apps or web apps that may integrate with OpenLMIS.
+
+The Auth Service provides API endpoints to generate or check a token as well as to handle user password resets (a forgot password workflow). 
 
 **Example:**
-Users must specify a Mojatax Business `client_id` and `password` to generate an
+Users must specify an openLMIS `username` and `password` to generate an
 `access_token`, which can be sent as a **Bearer Token** to access other API
 endpoints.
-[See Mojatax docs](https://documenter.getpostman.com/view/5385860/2s93RMVao6#e4d5c554-0224-4705-9094-b565c82b1f26)
+[See openLMIS docs](https://docs.openlmis.org/en/rel-3.7.0/components/authServiceDesign.html)
 for detailed guidance.
-
-OpenFn users can use the `Mojatax` credential type when
-[creating a credential](/documentation/manage-projects/manage-credentials).
 
 See this adaptor's
 [Configuration docs](/adaptors/packages/mojatax-configuration-schema) for
