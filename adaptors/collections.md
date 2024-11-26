@@ -14,14 +14,14 @@ from the OpenFn Admin page.
 When running in the CLI, a Personal Access Token can be used to get access to
 the collection (generated from the app at /profile/tokens).
 
-See the [Collections](documentation/build/collections) Platform Docs to learn
+See the [Collections](/documentation/build/collections) Platform Docs to learn
 more about Collections.
 
 :::caution
 
 Collections must be created in the platform Admin page before they can be used.
 
-Refer to the [Collections Docs](documentation/build/collections) for details
+Refer to the [Collections Docs](/documentation/build/collections) for details
 
 :::
 
