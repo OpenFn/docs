@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useLocation } from '@docusaurus/router';
 
 
-const APOLLO_URL = 'http://localhost:3001/services/echo'
+const APOLLO_URL = 'http://localhost:3001/services/docsite_explainer'
 
 // Explain some text
 async function explain(text) {
@@ -26,7 +26,7 @@ async function explain(text) {
 
     const json = await response.json()
     console.log(json)
-    return json.text
+    return json.answer
   } catch (e) {
       console.error(e)
   }
