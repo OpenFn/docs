@@ -102,7 +102,7 @@ export default function Root({ children }) {
 
           icon.title = "Explain this with AI"
           icon.className = 'ai-helper-icon';
-          icon.innerHTML = '<button class="sparkle-button">✨</button>';
+          icon.innerHTML = '<button class="sparkle-button">🤖</button>';
           
           icon.onclick = () => {
             for (const n of document.querySelectorAll('p.explained').values()) {
@@ -112,12 +112,11 @@ export default function Root({ children }) {
             paragraph.classList.toggle('explained', true)
             setHelp(true);
             explain(paragraph.textContent).then(x => {
-              console.log({ x })
               setHelp(x);
             })
           }
 
-          paragraph.append(icon);
+          paragraph.insertBefore( icon, paragraph.firstChild);
         }
       });
     });

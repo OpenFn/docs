@@ -80,10 +80,20 @@ html[data-theme='dark'] .header-github-link:before {
 
 /* Initially hide the emoji */
 .ai-helper-icon {
-  margin-left: 8px;
+  display: inline-block;
+  border: solid 1px transparent;
+  background: rgba(0, 155, 229, 0.4);
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+
   opacity: 0;
-  transition: opacity 0.8s ease;
+  transition: opacity 0.4s ease;
   text-align: center;
+
+  position: relative;
+  float: left;
+  margin-left: -48px;
 }
 
 /* Show the emoji when the paragraph is hovered */
@@ -92,39 +102,45 @@ p:hover .ai-helper-icon {
 }
 
 article p {
-  border: solid 2px transparent;
-  border-radius: 4px;
+  border-left: solid 4px transparent;
+  transition: border 0.4s ease;
+  padding-left: 4px;
+  padding-right: 8px;
 }
+
 article p:hover {
-  background-color: #f6feff;
+  border-color: rgba(0, 155, 229, 0.2)
 }
 
 article p.explained {
-  border-color:  rgb(215 230 248);
+  border-color:  rgb(0, 155, 229)
 }
 
 .sparkle-button {
-  background: #ffffff; /* Light grey/white background */
+  border: none;
+  background: transparent;
+
   display: inline-block; /* Inline-block to flow with text */
   vertical-align: middle; /* Align with text on the same line */
-  border: 1px solid rgba(0, 0, 0, 0.1); /* Very faint border */
+  /* border: 1px solid rgba(0, 0, 0, 0.1); */
   color: #ffd700; /* Gold color for the sparkle emoji */
   font-size: 0.8rem; /* Smaller size */
   padding: 0.2em 0.4em; /* Compact padding */
-  border-radius: 8px; /* Slightly rounded edges */
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  border-radius: 8px;
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); */
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease,
-    background-color 0.3s ease;
+  /* transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.3s ease; */
+  margin-right: 6px;
 }
 
-.sparkle-button:hover {
-  background: #f0f0f0; /* Slightly darker on hover */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+/* .sparkle-button:hover {
+  background: #f0f0f0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
   transform: translateY(-2px);
-}
+} */
 
-.sparkle-button:active {
+/* .sparkle-button:active {
   transform: translateY(1px);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-}
+} */
