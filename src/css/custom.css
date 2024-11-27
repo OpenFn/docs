@@ -71,9 +71,48 @@ html[data-theme='dark'] .header-github-link:before {
 
   margin-bottom: 20px;
   padding-top: 12px;
-  text-align:  center;
+  text-align: center;
   border: solid 1px #c0c0c0;
   border-radius: 8px;
   min-width: 300px;
   max-width: 400px;
+}
+
+/* Initially hide the emoji */
+.ai-helper-icon {
+  margin-left: 8px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+  text-align: center;
+}
+
+/* Show the emoji when the paragraph is hovered */
+p:hover .ai-helper-icon {
+  opacity: 1;
+}
+
+.sparkle-button {
+  background: #ffffff; /* Light grey/white background */
+  display: inline-block; /* Inline-block to flow with text */
+  vertical-align: middle; /* Align with text on the same line */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Very faint border */
+  color: #ffd700; /* Gold color for the sparkle emoji */
+  font-size: 0.8rem; /* Smaller size */
+  padding: 0.2em 0.4em; /* Compact padding */
+  border-radius: 8px; /* Slightly rounded edges */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease,
+    background-color 0.3s ease;
+}
+
+.sparkle-button:hover {
+  background: #f0f0f0; /* Slightly darker on hover */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+  transform: translateY(-2px);
+}
+
+.sparkle-button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
