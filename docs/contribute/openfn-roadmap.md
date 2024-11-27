@@ -13,7 +13,7 @@ progress [here](#what-are-we-currently-working-on).
 ## Our approach to product development
 
 At OpenFn, we follow the [Shape Up approach](https://basecamp.com/shapeup) to
-help our small engineering team build _meaningul_ products and features faster
+help our small engineering team build _meaningful_ products and features faster
 without compomising on quality. With Shape Up in place, we typcially commit to
 _projects_ that can be delivered in a 4-6 week period with multiple releases
 based on QA approval within the building cycle. We also proiritize feedback and
@@ -59,28 +59,31 @@ keep track of all new features, changes, and bug fixes in our
 
 ## How to **get involved**
 
-We use [Canny](https://openfn.canny.io/feature-requests) to receive, track,
-engage and manage new feature requests from the community of users of OpenFn
-globally whilst giving users the ability to the upvote their favoritie and
-mission critical feature request.
+We collect feedback and new feature requests via our
+[Community](https://community.openfn.org/c/feature-requests/) site. This allows
+OpenFn core team and users to track, engage by upvoting their favorite and
+mission critical feature requests.
 
 ### Upvote features 👍
 
-1. Go to [openfn.canny.io](https://openfn.canny.io/feature-requests)
+1. Go to the community
+   [feature request board](https://community.openfn.org/c/feature-requests/)
 2. Scroll down or use the filter and search features to see existing feature
    requests
-3. Click on the (^) beside the request to upvote
+3. Click on the (Vote) button beside the title of the request to upvote
 4. If you want more upvotes for this feature request, share a link to the
    feature with your network
 
 ### Request a new feature 💡
 
-1. Go to [openfn.canny.io](https://openfn.canny.io/feature-requests)
-2. Provide a very clear, concise and descriptive title for the feature (e.g.,
+1. Go to the community
+   [feature request board](https://community.openfn.org/c/feature-requests/)
+2. Click on `+ New Topic` to create a new request.
+3. Provide a very clear, concise and descriptive title for the feature (e.g.,
    "Make the new workflow button green")
-3. Describe the feature request in detail and why it's important to you
-4. Share the feature request on the OpenFn community and across your
-   professional network for upvotes
+4. Describe the feature request in detail and why it's important to you. Helpful
+   if you can add reference images and links.
+5. Share the feature request on across your professional network for upvotes
 
 :::info Tip
 
@@ -145,7 +148,7 @@ workflow engine, enable automated workflows that cut across digital systems.
 
 | **Feature**                                                                                       | **`Status`** | **Target Timeline** | **Related Links**                                                                                             | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | ------------------------------------------------------------------------------------------------- | ------------ | ------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 1. Develop an [`OpenLMIS`](https://openlims.org/) adaptor                                          | Delivered    | Q3 2024             | [Issue 533](https://github.com/OpenFn/adaptors/issues/533)                                                | Enable users to build workflows that interface with OpenLIMS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| 1. Develop an [`OpenLMIS`](https://openlims.org/) adaptor                                         | Delivered    | Q3 2024             | [Issue 533](https://github.com/OpenFn/adaptors/issues/533)                                                    | Enable users to build workflows that interface with OpenLIMS                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | 3. Enhancements to [`FHIR`](http://www.hl7.org/fhir/) & [`OpenHIM`](http://openhim.org/) adaptors | Delivered    | Q3 2024             | See existing adaptors for [FHIR](/adaptors/packages/fhir-docs) and [OpenHIM](/adaptors/packages/openhim-docs) | To rebuild the existing 2021 [OpenFn Instant-OpenHIE reference demo](/documentation/get-started/standards#openhie-standard-architecture) to highlight the exchange of data between existing non-FHIR digital health tools and a HAPI FHIR server. (OpenFn Lightning is OpenHIE-compliant and can be used as a workflow engine for the OpenHIE Interoperability layer - [learn more here](/documentation#openfn-v2-lightning-#standards-and-compliance-matter).) We also want to demonstrate data exchange between existing non-FHIR digital health tools and key components of Google's [Open Health Stack](https://developers.google.com/open-health-stack) and [Cloud Healthcare API](https://cloud.google.com/healthcare-api/docs/concepts/fhir) |
 | 4. Enhancements to the [`OCL`](https://openconceptlab.org/) adaptor                               | Tracked      | Q1 2025             | [See existing adaptor docs](/adaptors/packages/ocl-readme)                                                    | To ensure that mappings stored in OCLs can be more easily access and processed as inputs in OpenFn/Lightning workflows                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | 5. Implement [MOSIP](https://mosip.io/#1) Adaptor                                                 | Tracked      | Q1 2025             | [Issue 737](https://github.com/OpenFn/adaptors/issues/737)                                                    | Add an adaptor that enables users to integrate with MOSIP for identity management use cases across countries.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
