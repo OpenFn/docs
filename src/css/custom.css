@@ -91,6 +91,18 @@ p:hover .ai-helper-icon {
   opacity: 1;
 }
 
+article p {
+  border: solid 2px transparent;
+  border-radius: 4px;
+}
+article p:hover {
+  background-color: #f6feff;
+}
+
+article p.explained {
+  border-color:  rgb(215 230 248);
+}
+
 .sparkle-button {
   background: #ffffff; /* Light grey/white background */
   display: inline-block; /* Inline-block to flow with text */

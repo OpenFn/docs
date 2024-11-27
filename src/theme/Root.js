@@ -56,7 +56,7 @@ const HelpDialog = ({ children, close }) => {
   return (<div id="ai-help" style={outerStyle}>
     <div style={innerStyle}>
     <div style={{ textAlign: 'center', borderBottom: 'solid 1px #c0c0c0', marginBottom: '6px'}}>
-      <b>Super friendly not evil AI Helper</b>
+      <b>Super friendly not evil AI Helper 😃</b>
       <div style={{ float: 'right', cursor: 'pointer' }} onClick={() => close()}>X</div>
     </div>
     {children}
@@ -105,6 +105,11 @@ export default function Root({ children }) {
           icon.innerHTML = '<button class="sparkle-button">✨</button>';
           
           icon.onclick = () => {
+            for (const n of document.querySelectorAll('p.explained').values()) {
+              n.classList.remove('explained')
+            }
+
+            paragraph.classList.toggle('explained', true)
             setHelp(true);
             explain(paragraph.textContent).then(x => {
               console.log({ x })
