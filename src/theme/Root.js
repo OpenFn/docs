@@ -33,21 +33,34 @@ async function explain(text) {
 }
 
 const HelpDialog = ({ children, close }) => {
-  const style = {
-    position: 'absolute',
-    width: '400px',
-    height: '200px',
-    border: 'solid 1px black',
-    right: 40,
-    bottom: 40,
+  const outerStyle = {
+    position: 'sticky',
+    width: '100%',
+    minHeight: '200px',
+    right: 10,
+    bottom: 10,
+    padding: '2px',
+  };
+  const innerStyle = {
     backgroundColor: 'white',
+    width: '30vw',
+    maxWidth: '1000px',
+    border: 'double 4px rgb(158 195 238)',
+    padding: '10px 20px',
+    borderRadius: '4px',
+    float: 'right',
+    marginRight: '10px',
+    boxShadow: 'rgb(158, 158, 158) -3px 3px 6px -2px'
+
   }
-  return (<div id="ai-help" style={style}>
-    <div style={{ textAlign: 'center'}}>
+  return (<div id="ai-help" style={outerStyle}>
+    <div style={innerStyle}>
+    <div style={{ textAlign: 'center', borderBottom: 'solid 1px #c0c0c0', marginBottom: '6px'}}>
       <b>Super friendly not evil AI Helper</b>
       <div style={{ float: 'right', cursor: 'pointer' }} onClick={() => close()}>X</div>
     </div>
     {children}
+    </div>
   </div>)
 
 }
@@ -57,6 +70,9 @@ const Help = ({ text, close }) => {
     if (text === true) {
       return <HelpDialog close={close}>
         Googling Frantically...
+        <div style={{ textAlign: 'center'}}>
+          <img width="250" src="img/riker2-1.png"></img>
+        </div>
       </HelpDialog>
     }
     return <HelpDialog  close={close}>
