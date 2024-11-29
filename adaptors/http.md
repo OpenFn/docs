@@ -2,15 +2,16 @@
 title: HTTP Adaptor
 ---
 
-## About HTTP
+## About the HTTP "universal" adaptor
 
-[HTTP (HyperText Transfer Protocol)](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/) is a protocol used for transferring data over the web. It defines how messages are formatted and transmitted, and how web servers and browsers should respond to various commands. 
+Communicate with web apps using [HTTP (HyperText Transfer Protocol)](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/). 
+This adaptor enables out-of-box integration with any REST API! 
 
 ## Integration Options
 
-**1. Rest API:** HTTP supports standard methods like `GET`, `POST`, `PUT`, and `DELETE` for interacting with web resources. This option is suited for scheduled, bulk syncs or workflows that must update data with external information. See [functions](https://docs.openfn.org/adaptors/packages/http-docs) for more on how to use this adaptor to work with the API. Note: This adaptor can be used to communicate w/ any API that supports HTTP. 
+Use this adaptor to communicate with **any REST API** or any other app that can communicate via HTTP. 
 
-**2. Webhook:** HTTP enables real-time communication via webhooks. Check if your source system offers this feature. 
+**Note that OpenFn also supports Webhooks, but that is a workflow trigger type ([see docs](/documentation/build/triggers#webhook-event-triggers)), not an adaptor.**
 
 ## Authentication
 
