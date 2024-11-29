@@ -15,9 +15,9 @@ Use this adaptor to communicate with **any REST API** or any other app that can 
 
 ## Authentication
 
-HTTP itself does not enforce authentication, but many applications that use HTTP implement security mechanisms to control access. Common methods that can be used when integrating with OpenFn include Basic Authentication, API Keys and OAuth. See this adaptor's [Configuration docs](https://docs.openfn.org/adaptors/packages/http-configuration-schema) for more on the required authentication parameters.
+HTTP itself does not enforce authentication, but many applications that use HTTP implement security mechanisms to control access. Common methods that can be used when integrating with OpenFn include Basic Authentication, API Keys and OAuth. See this adaptor's [Configuration docs](/adaptors/packages/http-configuration-schema) for more on the required authentication parameters.
 
-See platform docs on [managing credentials](https://github.com/OpenFn/docs/blob/main/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
+See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
 
 ```
 {
