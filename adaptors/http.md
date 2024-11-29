@@ -8,7 +8,7 @@ title: HTTP Adaptor
 
 ## Integration Options
 
-**1. Rest API:** HTTP supports standard methods like `GET`, `POST`, `PUT`, and `DELETE` for interacting with web resources. This option is suited for scheduled, bulk syncs or workflows that must update data with external information. See [functions](https://docs.openfn.org/adaptors/packages/http-docs) for more on how to use this adaptor to work with the API.
+**1. Rest API:** HTTP supports standard methods like `GET`, `POST`, `PUT`, and `DELETE` for interacting with web resources. This option is suited for scheduled, bulk syncs or workflows that must update data with external information. See [functions](https://docs.openfn.org/adaptors/packages/http-docs) for more on how to use this adaptor to work with the API. Note: This adaptor can be used to communicate w/ any API that supports HTTP. 
 
 **2. Webhook:** HTTP enables real-time communication via webhooks. Check if your source system offers this feature. 
 
