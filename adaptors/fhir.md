@@ -6,6 +6,12 @@ title: FHIR Adaptor
 
 [FHIR](https://www.hl7.org/fhir/overview.html) stands for Fast Healthcare Interoperability Resources. It is a standard for representing and exchanging healthcare data electronically. 
 
+::: info New adaptor coming soon! 
+
+FHIR version-specific adaptors (e.g., `fhir-r4`) with enhanced functionality are coming soon to fast-track integration setup with more helper functions, templates, and docs than this simple adaptor. See the [Adaptors Wiki](https://github.com/OpenFn/adaptors/wiki/Generating-Fhir-Adaptors) for how to build an adaptor specific to your FHIR Implementation Guide. 
+
+:::
+
 ## Integration Options
 
 **1. Rest API:** The FHIR specification includes a REST API that enables external services like OpenFn to pull data from the FHIR server, or push data from external apps to FHIR servers. This option is suited for scheduled, bulk syncs or workflows that must update data with external information. See [functions](https://docs.openfn.org/adaptors/packages/fhir-docs) for more on how to use this adaptor to work with the API.
@@ -18,7 +24,7 @@ The FHIR standard does not directly prescribe authentication and authorization m
 
 See this adaptor's [Configuration docs](https://docs.openfn.org/adaptors/packages/fhir-configuration-schema) for more on the required authentication parameters.
 
-See platform docs on [managing credentials](https://github.com/OpenFn/docs/blob/main/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
+See platform docs on [managing credentials](https://github.com/OpenFn/docs/blob/main/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this to define your target endpoint and FHIR version:
 
 ```
 {
@@ -30,11 +36,7 @@ See platform docs on [managing credentials](https://github.com/OpenFn/docs/blob/
 ### Helpful Links
 
 1. [API documentation](https://www.hl7.org/fhir/http.html)
-
-### Implementation Examples
-
-1. Health in Harmony and ASRI Indonesia- CommCare -> Satusehat sync: [https://github.com/OpenFn/asri](https://github.com/OpenFn/asri)
-
+2. [Digital Square on FHIR](https://digitalsquare.org/resourcesrepository/digital-square-on-fhir-4c78p)
 
 
 
