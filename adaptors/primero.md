@@ -63,7 +63,7 @@ See the examples section more sample Primero jobs.
 ### Integration tips
 
 - Data forwarding can be enabled in Primero. There is a webhook that can forward
-  case information to a designated URL endpoint (e.g., OpenFn Inbox). This data
+  case information to a designated URL endpoint (e.g., OpenFn Inbox). This feature requires a backend configuration update that the Primero support team can help with. The data
   forwarding can happen automatically on insert of a new case, as well as
   on-demand when a user clicks the `Sync` button (which may be added to the page
   layout if this feature is in use).
