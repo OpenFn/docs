@@ -33,7 +33,7 @@ See platform docs on [managing credentials](https://github.com/OpenFn/docs/blob/
 
 ### Implementation Examples
 
-1. Health in Harmony and ASRI Indonesia- CommCare -> Satusehat sync: [https://openfn.github.io/ConSoSci/arsi/](https://github.com/OpenFn/asri)
+1. Health in Harmony and ASRI Indonesia- CommCare -> Satusehat sync: [https://github.com/OpenFn/asri](https://github.com/OpenFn/asri)
 
 
 
