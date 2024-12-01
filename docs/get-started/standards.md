@@ -147,20 +147,28 @@ OpenFn solutions are:
 
 OpenFn is used by health organizations to connect multiple FHIR- and non-FHIR compliant systems in a secure, stable, and scalable manner. OpenFn can facilitate 2 categories of FHIR workflows:
 
-### 1. Non-FHIR to FHIR
+### 1. Non-FHIR to FHIR Data Exchange
 
-OpenFn users can configure Workflows to convert non-FHIR data to FHIR-compliant formats, and then route to FHIR systems. 
+OpenFn users can configure workflows to convert non-FHIR data to FHIR-compliant formats, and then route to FHIR systems. 
 
 For example, get data from CommCare mobile app, convert to FHIR, and send to national health system's FHIR store. 
 ![nonFHIR Workflow](/img/workflow_nonfhir_fhir.png)
 
-### 2.FHIR to FHIR
+### 2. FHIR to FHIR Data Exchange
 
 OpenFn users can also configure Workflows to automate the exchange and routing of _already_ FHIR-compliant data to other FHIR-compliant systems. 
 
 For example, get data from OpenMRS's FHIR API, and forward to the national health system's FHIR store (no data transformation needed).
 
 ![FHIR Workflow](/img/workflow_fhir_fhir.png)
+
+## FHIR Adaptors
+OpenFn [adaptors](/adaptors) aim to fast-track integration setup with target applications (including FHIR endpoints!). The core team is currently working on a suite of FHIR-specific adaptors to enable interoperability with FHIR systems. 
+
+- See [existing adaptors](/adaptors/fhir)
+- See [Adaptors Wiki](https://github.com/OpenFn/adaptors/wiki/Generating-Fhir-Adaptors) for how to build your own FHIR adpator specific to your target FHIR Implementation Guide
+
+Version-specific adaptors (fhir-r4, fhir-r5) are coming soon!
 
 ## Other Data Standards
 
