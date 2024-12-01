@@ -2,7 +2,7 @@
 title: FHIR-NDR-ET IG Adaptor
 ---
 
-## Custom FHIR Adaptor: fhir-fr
+## Custom FHIR Adaptor: fhir-ndr-et
 Note❗: This is a custom adaptor generated from this Implementation Guide `Ethiopia FHIR Implementation Guide - HIV Treatment & Care Services` authored by Jembi Health Systems: https://build.fhir.org/ig/jembi/ethiopia-hiv/branches/master/index.html
 
 Custom FHIR adaptors generate a suite of helper functions specific to their source Implementation Guides.
