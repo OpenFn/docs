@@ -15,8 +15,7 @@ destroyed from the OpenFn Admin page.
 When running in the CLI, a Personal Access Token can be used to get access to
 the collection (generated from the app at /profile/tokens).
 
-See the [Collections](/documentation/build/collections) Platform Docs to learn
-more about Collections.
+Learn more about collections and common use cases [here](/documentation/build/collections).
 
 :::caution
 
