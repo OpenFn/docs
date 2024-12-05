@@ -4,12 +4,13 @@ title: Collections Adaptor
 
 ## Collections Overview
 
-The Collections API provides access to a secure key/value store on the OpenFn
-Platform. It is designed for high performance over a large volume of data.
+The Collections API provides access to a secure key/value store that allows
+users to store, update and reuse data across workflows in their OpenFn projects.
+It is designed for high performance over a large volume of data.
 
-Collections are secure, private datastores which are visible only to Workflows
-within a particular OpenFn Project. They can be created, managed and destroyed
-from the OpenFn Admin page.
+Collections are secure, private datastores which are only accessible to
+Workflows within a particular OpenFn Project. They can be created, managed and
+destroyed from the OpenFn Admin page.
 
 When running in the CLI, a Personal Access Token can be used to get access to
 the collection (generated from the app at /profile/tokens).
@@ -31,9 +32,9 @@ The Collections API is inserted into all Steps through a special kind of
 adaptor.
 
 Uniquely, the Collections adaptor it is designed to be run _alongside_ other
-adaptors, not by itself. It is injected into the runtime environment for you for
-you by OpenFn. This makes the Collections API available to every Step in a
-Workflow, regardless of which adaptor it is using.
+adaptors, not by itself. It is automatically injected into the runtime
+environment making the Collections API available to every Step in a Workflow,
+regardless of which adaptor it is using.
 
 If using the CLI run a workflow with Collections, refer to the
 [CLI Usage](#cli-usage) guide below.
