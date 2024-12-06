@@ -258,7 +258,7 @@ fn(state => {
 
 :::info
 
-Improved Collections support is coming to the CLI soon.
+Improved Collections support is coming to the CLI soon!
 
 :::
 
@@ -290,7 +290,7 @@ You'll need to set configuration on the state.json:
 {
   "configuration": {
     "collections_endpoint": "http://localhost:4000/collections",
-    "collections_token": "...paste the token from the app..."
+    "collections_token": "...paste your Personal Access Token..."
   }
 }
 ```
@@ -306,7 +306,7 @@ If you're using `workflow.json`, set the token and endpoint on
     "steps": [ ... ],
     "credentials": {
       "collections_endpoint": "http://localhost:4000/collections",
-      "collections_token": "...paste the token from the app..."
+      "collections_token": "...paste your Personal Access Token..."
     }
   }
 }
