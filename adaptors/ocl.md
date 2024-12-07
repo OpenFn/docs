@@ -6,7 +6,7 @@ title: OCL Adaptor
 
 [OCL (Open Concept Lab)](https://openconceptlab.org/) is an open-source platform that provides a collaborative environment for creating, managing, and sharing standardized healthcare terminologies, dictionaries, and value sets.
 
-Relationships between concepts are defined in OCL as `mappings`. The API supports searching and editing concepts and mappings, building `sources`, and logically grouping concepts and mappings into `collections`. [See OCL docs]()https://docs.openconceptlab.org/en/latest/oclapi/overview.html#overview to learn more, access the [Swagger API](https://api.openconceptlab.org/swagger/), and to learn more about the cloud instance available at [https://openconceptlab.org](https://openconceptlab.org).
+Relationships between concepts are defined in OCL as `mappings`. The API supports searching and editing concepts and mappings, building `sources`, and logically grouping concepts and mappings into `collections`. [See OCL docs](https://docs.openconceptlab.org/en/latest/oclapi/overview.html#overview) to learn more, access the [Swagger API](https://api.openconceptlab.org/swagger/), and to learn more about the cloud instance available at [https://openconceptlab.org](https://openconceptlab.org).
 
 ## Integration Options
 
