@@ -12,11 +12,11 @@ Mailchimp supports two primary integration options:
 
 **1. Rest API:** Mailchimp offers a REST API that enables external applications to interact with its services. This option is ideal for applications requiring scheduled or bulk synchronization with OpenMRS. Refer to the Mailchimp REST API [documentation](https://mailchimp.com/developer/marketing/api/) for detailed guidelines on endpoints and payload formats.
 
-**2. Webhook:** Webhook or Data Forwarding to push data from MailChimp to external systems. This option is suited for real-time, event-based data integration.
+**2. Webhook:** Webhook or Data Forwarding to push data from MailChimp to external systems ([see docs](https://mailchimp.com/developer/transactional/docs/webhooks/)). This option is suited for real-time, event-based data integration.
 
 ## Authentication
 
-When integrating with Mailchimp via OpenFn, authentication via **API Key** is supported. See this adaptor's [Configuration docs](/adaptors/packages/mailchimp-configuration-schema) for more on the required authentication parameters.
+When integrating with Mailchimp via OpenFn, authentication via **API Key** is supported ([see MC docs](https://mailchimp.com/developer/marketing/docs/fundamentals/#connecting-to-the-api). See this adaptor's [Configuration docs](/adaptors/packages/mailchimp-configuration-schema) for more on the required authentication parameters.
 
 See platform docs on [managing credentials](documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
 
