@@ -6,6 +6,7 @@ title: SFTP Adaptor
 
 [SFTP (Secure File Transfer Protocol)](https://www.techtarget.com/searchcontentmanagement/definition/Secure-File-Transfer-Protocol-SSH-File-Transfer-Protocol) is a secure method for transferring files between systems over an encrypted SSH connection. It is widely used for securely uploading, downloading, and managing files on remote servers.
 
+Using this adaptor, you can read and write files (e.g., `csv`, `xls`, `json` files) saved on a SFTP server. 
 
 ## Integration Options
 
@@ -13,7 +14,7 @@ title: SFTP Adaptor
 
 ## Authentication
 
-When integrating with an SFTP server via OpenFn,  **password authentication** is supported. See this adaptor's [Configuration docs](/adaptors/packages/sftp-configuration-schema) for more on the required authentication parameters.
+When integrating with a SFTP server via OpenFn, you can provide a `username` and `password` for an authorized user to authenticate. See this adaptor's [Configuration docs](/adaptors/packages/sftp-configuration-schema) for more on the required authentication parameters.
 
 See platform docs on [managing credentials](documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
 
