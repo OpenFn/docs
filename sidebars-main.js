@@ -122,6 +122,7 @@ module.exports = {
         'build-for-developers/cli-usage',
         'build-for-developers/cli-walkthrough',
         'build-for-developers/cli-challenges',
+        'build-for-developers/cli-collections',
       ],
     },
     {
