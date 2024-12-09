@@ -59,12 +59,12 @@
   {
     "expressionPath": "jobs/DHIS2-DataValues-API",
     "adaptor": "dhis2",
-    "name": "Add data values"
+    "name": "Create data values"
   },
   {
     "expressionPath": "jobs/DHIS2-Events-API",
     "adaptor": "dhis2",
-    "name": "Add events"
+    "name": "Create new events"
   },
   {
     "expressionPath": "jobs/ODK-Create-Many-Records-Moving-In-And-Out-Of-Repeat-Blocks",
