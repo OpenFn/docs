@@ -43,9 +43,8 @@ for detauls
 ## Getting a PAT
 
 Data inside Collections is securely stored under a Project, and access is
-strictly only allowed to users with access to that Project.
-
-So if you want to access a Collection, you have to tell the server who you are.
+strictly only allowed to users with access to that Project. So if you want to
+access a Collection, you have to tell the server who you are.
 
 We do this using Personal Access Tokens. See
 [Create and Manage API Tokens](/documentation/api-tokens#about-api-tokens) for
@@ -97,16 +96,15 @@ openfn collections get my-collection \*
 Including \* in a pattern string should still work:
 
 ```
-openfn collections get my-collection 2024\*
+openfn collections get my-collection 2024*
 ```
 
 :::
 
 Collections are saved as strings, but will be serialized to JSON in the output.
 
-By default the CLI will log returned values to stdout in your shell. To write to
-disk, pass `--output` or `-o` with a file path relative to your working
-directory:
+By default the CLI will log downloaded values to your shell. To write to disk,
+pass `--output` or `-o` with a file path relative to your working directory:
 
 ```bash
 openfn collections get my-collection \* -o /tmp/my_collection.json
@@ -115,15 +113,14 @@ openfn collections get my-collection \* -o /tmp/my_collection.json
 It's important to understand that the output works a bit differently if you're
 getting one item, or potentially getting many items with a pattern.
 
-A single always returns its value verbatim, without the key.
-
-So this:
+A single key always returns its value "raw" or "verbatim", without the key
+attached. So for a key `item-1` which holds a JSON object as a value, then this:
 
 ```bash
 openfn collections get my-collection item-1
 ```
 
-Returns something like this:
+Will download and save something like this:
 
 ```js
 {
@@ -133,12 +130,18 @@ Returns something like this:
 ```
 
 If you use a key-pattern to retrieve data, the value is output in multi-item
-mode, which is a JSON object where the key is the item's key, and the value is
+mode: which is a JSON object where the key is the item's key, and the value is
 the item's value:
 
-```
-$ openfn collections get my-collection item-1*
+So if we get all items whose key starts with `item-`:
 
+```bash
+$ openfn collections get my-collection item-1*
+```
+
+The resulting data will look like this:
+
+```json
 {
   "item-1": {
     "id": "item-1"
@@ -147,14 +150,14 @@ $ openfn collections get my-collection item-1*
   "item-10": {
     "id": "item-10"
     /* ... other properties of the value */
-  },
+  }
 }
 ```
 
 ## Uploading items
 
 You can use the collections command to upload data to a collection. When
-uploading, values always from from a file on disk. In this example we'll use
+uploading, values always come from a file on disk. In this example we'll use
 JSON files, but if you're uploading a single value it doesn't have to be valid
 JSON.
 
@@ -164,7 +167,7 @@ The `set` command has two modes. To upload a single item, use:
 openfn collections set <collection-name> <key> <path/to/value.json>
 ```
 
-This will read the data in path/to/value.json as a string, and upsert it under
+This will read the data in `path/to/value.json` as a string, and upsert it under
 the provided key. Key patterns are not supported.
 
 To bulk upsert multiple values, use:
@@ -174,7 +177,7 @@ openfn collections set <collection-name> --items <path/to/items.json>
 ```
 
 The `items.json` file must contain a JSON object where the keys are item keys
-and the values are item values (just like the multi-get command returns):
+and the values are item values (just like the multi-item get command returns):
 
 ```json
 {
