@@ -2,7 +2,7 @@
 title: MSSQL Adaptor
 ---
 
-## About Asana
+## About MSSQL
 
 [Microsoft SQL Server](https://learn.microsoft.com/en-us/sql/?view=sql-server-ver16) (MSSQL) is a relational database management system (RDBMS) developed by Microsoft. It supports a wide variety of applications, including data warehousing, transaction processing, and business intelligence. It can be accessed and manipulated using SQL to extract or load data.
 
