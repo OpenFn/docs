@@ -7,7 +7,7 @@
     "generate-library": "docusaurus generate-library",
     "generate-adaptors": "docusaurus generate-adaptors",
     "start": "docusaurus generate-adaptors & docusaurus start",
-    "start:dev": "docusaurus generate-adaptors -m && docusaurus start",
+    "start:dev": "docusaurus generate-adaptors -m && docusaurus generate-library && docusaurus start",
     "start-offline": "docusaurus start",
     "build": "docusaurus build",
     "swizzle": "docusaurus swizzle",
