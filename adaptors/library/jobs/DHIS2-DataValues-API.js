@@ -1,20 +1,25 @@
 // ----
 // Add data to data value sets in DHIS2 using a generic JSON message, submitted
-// by Taylor Downs @ OpenFn.
+// by Taylor Downs @ OpenFn. Co-authored by @mtuchi
 // ---
 
-dataValueSet(
-  fields(
-    field('dataSet', 'pBOMPrpg1QX'),
-    field('orgUnit', 'DiszpKrYNg8'),
-    field('period', '201401'),
-    field('completeData', dataValue('form.date')),
-    field('dataValues', function (state) {
-      return [
-        dataElement('qrur9Dvnyt5', dataValue('form.prop_a')(state)),
-        dataElement('oZg33kd9taw', dataValue('form.prop_b')(state)),
-        dataElement('msodh3rEMJa', dataValue('form.prop_c')(state)),
-      ];
-    })
-  )
-);
+create('dataValueSets', {
+  dataSet: 'pBOMPrpg1QX',
+  completeDate: $.form.date,
+  period: '201401',
+  orgUnit: 'DiszpKrYNg8',
+  dataValues: [
+    {
+      dataElement: 'f7n9E0hX8qk',
+      value: $.form.prop_a,
+    },
+    {
+      dataElement: 'Ix2HsbDMLea',
+      value: $.form.prop_b,
+    },
+    {
+      dataElement: 'eY5ehpbEsB7',
+      value: $.form.prop_c,
+    },
+  ],
+});
