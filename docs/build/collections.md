@@ -55,10 +55,20 @@ uploaded to a collection using the CLI.
 
 ## Collections Basics
 
-Data is stored in Collections as key-value pairs, where the key is a unique
-identifier for some data (like a UUID, or timestamp). The value is always a
-string - although JSON objects will be automatically serialized to a string
-using the Collections API.
+:::tip
+
+The Collections API is automatically available to all Workflows and does not
+require any credentials. Authentication with the OpenFn platform is managed for
+you.
+
+You can use the Collections API with any adaptor.
+
+:::
+
+Data is stored in as key-value pairs, where the key is a unique identifier for
+some data (like a UUID, or timestamp). The value is always saved as a string
+(although you can pass JSON-compatible objects directly, which will be
+automatically serialized by the Collections API).
 
 Keys can be fetched in bulk and filtered by _pattern_. For example, the pattern
 `2024*` will match all keys which start with `2024`. Designing keys to have an
@@ -73,6 +83,8 @@ collections.get('openfn-patient-registrations', '2024*').then(state => {
   return state;
 });
 ```
+
+TODO explain the returned data shape
 
 Every key permanently saves its creation date, so as well as fetching by
 key-pattern, you can also filter keys by date. This example fetches all keys
@@ -114,6 +126,8 @@ collections.set('openfn-demo', 'commcare-fhir-value-mappings', {
   /* ... */
 });
 ```
+
+TODO bulk set TODO bulk set with state keygen
 
 ## Managing Collections
 
