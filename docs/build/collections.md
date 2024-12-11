@@ -74,6 +74,8 @@ collections.get('openfn-patient-registrations', '2024*').then(state => {
 });
 ```
 
+TODO explain the returned data shape
+
 Every key permanently saves its creation date, so as well as fetching by
 key-pattern, you can also filter keys by date. This example fetches all keys
 created before 30th September 2024:
@@ -114,6 +116,8 @@ collections.set('openfn-demo', 'commcare-fhir-value-mappings', {
   /* ... */
 });
 ```
+
+TODO bulk set TODO bulk set with state keygen
 
 ## Managing Collections
 
