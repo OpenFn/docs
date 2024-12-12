@@ -5,7 +5,16 @@ slug: /collections-cli
 ---
 
 The OpenFn CLI includes support for reading from and writing to
-[Collections](/documentation/build/collections)
+[Collections](/documentation/build/collections): a key/value store built into
+OpenFn.
+
+:::caution Versions
+
+Collections support was added to the CLI in version 1.9.0.
+
+Run `npm install -g @openfn/cli` to update or install.
+
+:::
 
 You can use the CLI to:
 
@@ -29,11 +38,11 @@ need to ensure a collection has been created before you can read or write to
 it - see
 [Managing Collections](http://localhost:3000/documentation/build/collections#managing-collections)
 
-:::info Want to use Collections in a CLI workflow?
+:::info Trying to use Collections in a CLI workflow?
 
 These docs explain how to use the `openfn collections` CLI command.
 
-If you're running an expression or workflow from the CLI, you need to use the
+If you're running an expression or workflow through the CLI, you need to use the
 collections adaptor - check out the
 [Collections Adaptor Docs](http://localhost:3000/adaptors/collections#cli-usage)
 for detauls
@@ -65,6 +74,33 @@ openfn collections get my-collection \* --token $MY_OPENFN_PAT
 The rest of this guide assumes that the `OPENFN_PAT` env var has been set. So
 long as it has, as you're using a server which has a `my-collection` collection,
 all examples will work.
+
+:::
+
+## Setting a server
+
+By default, the CLI will all out to our primary platform at
+https://app.openfn.org.
+
+If you're running from open source or using a different deployment, you'll also
+need to tell the CLI which Collections server to use.
+
+You can do this by passing `--lightning` directly:
+
+```bash
+openfn collections get my-collection \* --lightning http://localhost:4000
+```
+
+Or by setting the `OPENFN_ENDPOINT` environment variable.
+
+:::tip
+
+To see which server the CLI is using, ask for debug-level logging in your
+output:
+
+```bash
+openfn collections get my-collection \* --log debug
+```
 
 :::
 
@@ -110,8 +146,15 @@ pass `--output` or `-o` with a file path relative to your working directory:
 openfn collections get my-collection \* -o /tmp/my_collection.json
 ```
 
+To format the output to make it easier to read, add the `--pretty` flag for
+pretty-printing:
+
+```bash
+openfn collections get my-collection \* -o /tmp/my_collection.json --pretty
+```
+
 It's important to understand that the output works a bit differently if you're
-getting one item, or potentially getting many items with a pattern.
+getting one specific item with or getting many items with a key-pattern.
 
 A single key always returns its value "raw" or "verbatim", without the key
 attached. So for a key `item-1` which holds a JSON object as a value, then this:
@@ -198,7 +241,7 @@ Remember that Collections always uses an _upsert_ strategy when uploading new
 items.
 
 This means that if a key does not exist, it will be created and assigned a
-value. If it already exists, its value will be updated. :::
+value. If it already exists, its value will be updated.
 
 :::
 
