@@ -256,20 +256,21 @@ fn(state => {
 
 ## CLI usage
 
-:::info
+Workflows which use Collections can be run through the CLI. You will need to:
 
-Improved Collections support is coming to the CLI soon.
+- Get a Personal Access Token (PAT)
+- Update the `workflow.json` with your PAT and the OpenFn endpoint
+- Set the step to use the Collections adaptor
+
+:::tip
+
+You can also call the Collections API directly from the CLI. See the
+[CLI Collections Guide](/documentation/collections-cli)
 
 :::
 
 Collections are designed for close integration with the platform app, but can be
 used from the CLI too.
-
-You will need to:
-
-- Set the job to use two adaptors
-- Pass a Personal Access Token
-- Set the Collections endpoint
 
 You can get a Personal Access Token from any v2 deployment.
 
