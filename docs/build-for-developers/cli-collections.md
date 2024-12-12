@@ -199,7 +199,7 @@ The resulting data will look like this:
 
 ## Uploading items
 
-You can use the collections command to upload data to a collection. When
+You can use the `collections` command to upload data to a collection. When
 uploading, values always come from a file on disk. In this example we'll use
 JSON files, but if you're uploading a single value it doesn't have to be valid
 JSON.
