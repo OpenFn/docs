@@ -154,7 +154,7 @@ openfn collections get my-collection \* -o /tmp/my_collection.json --pretty
 ```
 
 It's important to understand that the output works a bit differently if you're
-getting one specific item with or getting many items with a key-pattern.
+getting one specific item with a single key or getting many items with a key-pattern.
 
 A single key always returns its value "raw" or "verbatim", without the key
 attached. So for a key `item-1` which holds a JSON object as a value, then this:
