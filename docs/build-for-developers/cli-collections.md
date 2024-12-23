@@ -79,7 +79,7 @@ all examples will work.
 
 ## Setting a server
 
-By default, the CLI will all out to our primary platform at
+By default, the CLI will point to our primary platform at
 https://app.openfn.org.
 
 If you're running from open source or using a different deployment, you'll also
@@ -129,7 +129,7 @@ you want to get all items, you have to escape it or quote it:
 openfn collections get my-collection \*
 ```
 
-Including \* in a pattern string should still work:
+Including `*` in a pattern string should still work:
 
 ```
 openfn collections get my-collection 2024*
