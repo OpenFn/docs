@@ -12,30 +12,34 @@ Collections are secure, private datastores which are only accessible to
 Workflows within a particular OpenFn Project. They can be created, managed and
 destroyed from the OpenFn Admin page.
 
+The Collections Adaptor provides an interface to workflows to use the
+Collections API.
+
 When running in the CLI, a Personal Access Token can be used to get access to
 the collection (generated from the app at /profile/tokens).
 
-Learn more about collections and common use cases [here](/documentation/build/collections).
+Learn more about Collections and common use cases in the
+[Collections Docs](/documentation/build/collections).
 
 :::caution
 
-Collections must be created in the platform Admin page before they can be used.
-
-Refer to the [Collections Docs](/documentation/build/collections) for details
+Collections must be created in the
+[Platform Admin page](https://docs.openfn.org/documentation/build/collections#managing-collections)
+before they can be used.
 
 :::
 
 ## The Collections Adaptor
 
-The Collections API is inserted into all Steps through a special kind of
-adaptor.
+The Collections API is inserted into all each Step of a Workflow through a
+special kind of adaptor.
 
 Uniquely, the Collections adaptor it is designed to be run _alongside_ other
 adaptors, not by itself. It is automatically injected into the runtime
 environment making the Collections API available to every Step in a Workflow,
 regardless of which adaptor it is using.
 
-If using the CLI run a workflow with Collections, refer to the
+If using the CLI the use Collections locally, refer to the
 [CLI Usage](#cli-usage) guide below.
 
 ## Usage Guide
