@@ -84,7 +84,35 @@ collections.get('openfn-patient-registrations', '2024*').then(state => {
 });
 ```
 
-TODO explain the returned data shape
+Returned items are written to state.data as an array of `[{ key, value }]`
+pairs:
+
+```js
+{
+  "data": {
+    "20240102-5901257": {
+      "name": "Tom Waits",
+      "id": "5901257",
+    },
+    "20240213-0183216": {
+      "name": "Billie Holiday",
+      "id": "0183216",
+    }
+  }
+}
+```
+
+If fetching a single item (ie, no `*` in the key), it will be written directly
+to `state.data` with no key:
+
+```js
+{
+  "data": {
+    "name": "Billie Holiday",
+    "id": "0183216",
+  }
+}
+```
 
 Every key permanently saves its creation date, so as well as fetching by
 key-pattern, you can also filter keys by date. This example fetches all keys
@@ -127,7 +155,15 @@ collections.set('openfn-demo', 'commcare-fhir-value-mappings', {
 });
 ```
 
-TODO bulk set TODO bulk set with state keygen
+If setting multiple values at once, pass a key generator function instead of an
+id to generate a key for each item. For example, if several value are saved in
+an array on `state.data`:
+
+```js
+collections.set('openfn-demo', (patient, state) => patient.id, $.patients);
+```
+
+The key generator will be called with each value and must return a string key.
 
 ## Managing Collections
 
