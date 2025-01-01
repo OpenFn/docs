@@ -65,7 +65,7 @@ You can use the Collections API with any adaptor.
 
 :::
 
-Data is stored in as key-value pairs, where the key is a unique identifier for
+Data is stored as key-value pairs, where the key is a unique identifier for
 some data (like a UUID, or timestamp). The value is always saved as a string
 (although you can pass JSON-compatible objects directly, which will be
 automatically serialized by the Collections API).
