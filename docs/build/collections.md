@@ -102,7 +102,7 @@ pairs:
 }
 ```
 
-If fetching a single item (ie, no `*` in the key), it will be written directly
+If fetching a single item (i.e. no `*` in the key), it will be written directly
 to `state.data` with no key:
 
 ```js
