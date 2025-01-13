@@ -182,8 +182,10 @@ A "Salesforce" Credential record should include:
   you cannot find "security token" in your inbox, see below for how to reset
   it.)
 - Login URL: If a production system, use `https://login.salesforce.com/` (unless
-  you have a custom domain `https://domainName.salesforce.com/`). For sandbox
-  environments, `https://test.salesforce.com/`.
+  you have a custom domain `https://domainName.my.salesforce.com/`). For sandbox
+  environments, `https://test.salesforce.com/` (or
+  `https://domainName.sandbox.my.salesforce.com` if you have a custom domain).
+  [See instructions here](https://help.salesforce.com/s/articleView?id=sf.domain_name_url_format_changes_enable_enhanced.htm&type=5)
 
 ![Salesforce Cred](/img/salesforce-old-cred.png)
 
@@ -242,18 +244,29 @@ Please save this `security token` in your OpenFn `Credential`.
 
 ## Salesforce Limits
 
-1. If using the `bulk()` adaptor functions, [see Salesforce docs](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm) on Bulk API Limits. 
-2. If using the standard `query()` function (_not_ bulk API), note the [Salesforce SOQL query limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_soslsoql.htm) for maximum rows returned per 
-request (e.g., max `2,000` rows returned per query request) and the string character limit (e.g., `100,000` string character limit for regular SOQL queries, and `4,000` character limit if using `WHERE` clause in your query). 
-3. [See Apex Governor limits](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm) for standard DML limits (e.g., you can only process
-`10,000` rows per transaction if using standard insert/update/upsert operations and not bulk) and other limits for Salesforce automation and Apex that might be triggered
-by your OpenFn workflow. 
-4. [See here](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_limits.htm) for how to query your org's specific limits, and [this article](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) for 
-how to monitor your API usage. 
+1. If using the `bulk()` adaptor functions,
+   [see Salesforce docs](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_bulkapi.htm)
+   on Bulk API Limits.
+2. If using the standard `query()` function (_not_ bulk API), note the
+   [Salesforce SOQL query limits](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_soslsoql.htm)
+   for maximum rows returned per request (e.g., max `2,000` rows returned per
+   query request) and the string character limit (e.g., `100,000` string
+   character limit for regular SOQL queries, and `4,000` character limit if
+   using `WHERE` clause in your query).
+3. [See Apex Governor limits](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_gov_limits.htm)
+   for standard DML limits (e.g., you can only process `10,000` rows per
+   transaction if using standard insert/update/upsert operations and not bulk)
+   and other limits for Salesforce automation and Apex that might be triggered
+   by your OpenFn workflow.
+4. [See here](https://developer.salesforce.com/docs/atlas.en-us.api_rest.meta/api_rest/dome_limits.htm)
+   for how to query your org's specific limits, and
+   [this article](https://developer.salesforce.com/docs/atlas.en-us.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm)
+   for how to monitor your API usage.
 
 ## OpenFn Adaptors
 
-OpenFn supports a robust `salesforce` adaptor ([see adaptor source code](https://github.com/OpenFn/adaptors/blob/main/packages/salesforce/src/Adaptor.js))
+OpenFn supports a robust `salesforce` adaptor
+([see adaptor source code](https://github.com/OpenFn/adaptors/blob/main/packages/salesforce/src/Adaptor.js))
 with a range of helper functions for common CRUD & upsert operations, and for
 accessing the Salesforce bulk API.
 
