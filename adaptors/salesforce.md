@@ -181,11 +181,9 @@ A "Salesforce" Credential record should include:
 - Security Token (Salesforce will email you this when you set your password. If
   you cannot find "security token" in your inbox, see below for how to reset
   it.)
-- Login URL: If a production system, use `https://login.salesforce.com/` (unless
-  you have a custom domain `https://domainName.my.salesforce.com/`). For sandbox
-  environments, `https://test.salesforce.com/` (or
-  `https://domainName.sandbox.my.salesforce.com` if you have a custom domain).
-  [See instructions here](https://help.salesforce.com/s/articleView?id=sf.domain_name_url_format_changes_enable_enhanced.htm&type=5)
+- Login URL: For a production system, use `https://login.salesforce.com`. For
+  sandbox environments, use `https://test.salesforce.com`. For custom domains,
+  use `<my-domain>.my.salesforce.com`
 
 ![Salesforce Cred](/img/salesforce-old-cred.png)
 
