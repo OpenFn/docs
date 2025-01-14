@@ -55,10 +55,20 @@ uploaded to a collection using the CLI.
 
 ## Collections Basics
 
-Data is stored in Collections as key-value pairs, where the key is a unique
-identifier for some data (like a UUID, or timestamp). The value is always a
-string - although JSON objects will be automatically serialized to a string
-using the Collections API.
+:::tip
+
+The Collections API is automatically available to all Workflows and does not
+require any credentials. Authentication with the OpenFn platform is managed for
+you.
+
+You can use the Collections API with any adaptor.
+
+:::
+
+Data is stored as key-value pairs, where the key is a unique identifier for
+some data (like a UUID, or timestamp). The value is always saved as a string
+(although you can pass JSON-compatible objects directly, which will be
+automatically serialized by the Collections API).
 
 Keys can be fetched in bulk and filtered by _pattern_. For example, the pattern
 `2024*` will match all keys which start with `2024`. Designing keys to have an
@@ -72,6 +82,36 @@ collections.get('openfn-patient-registrations', '2024*').then(state => {
   state.registrationsThisYear = state.data;
   return state;
 });
+```
+
+Returned items are written to state.data as an array of `[{ key, value }]`
+pairs:
+
+```js
+{
+  "data": {
+    "20240102-5901257": {
+      "name": "Tom Waits",
+      "id": "5901257",
+    },
+    "20240213-0183216": {
+      "name": "Billie Holiday",
+      "id": "0183216",
+    }
+  }
+}
+```
+
+If fetching a single item (i.e. no `*` in the key), it will be written directly
+to `state.data` with no key:
+
+```js
+{
+  "data": {
+    "name": "Billie Holiday",
+    "id": "0183216",
+  }
+}
 ```
 
 Every key permanently saves its creation date, so as well as fetching by
@@ -117,6 +157,15 @@ collections.set('openfn-demo', 'commcare-fhir-value-mappings', {
 });
 ```
 
+If setting multiple values at once, pass a key generator function instead of an
+id to generate a key for each item. For example, if several value are saved in
+an array on `state.data`:
+
+```js
+collections.set('openfn-demo', (patient, state) => patient.id, $.patients);
+```
+
+The key generator will be called with each value and must return a string key.
 
 ## Managing Collections
 

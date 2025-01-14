@@ -4,38 +4,42 @@ title: Collections Adaptor
 
 ## Collections Overview
 
-The Collections API provides access to a secure key/value store on the OpenFn
-Platform. It is designed for high performance over a large volume of data.
+The Collections API provides access to a secure key/value store that allows
+users to store, update and reuse data across workflows in their OpenFn projects.
+It is designed for high performance over a large volume of data.
 
-Collections are secure, private datastores which are visible only to Workflows
-within a particular OpenFn Project. They can be created, managed and destroyed
-from the OpenFn Admin page.
+Collections are secure, private datastores which are only accessible to
+Workflows within a particular OpenFn Project. They can be created, managed and
+destroyed from the OpenFn Admin page.
+
+The Collections Adaptor provides an interface to workflows to use the
+Collections API.
 
 When running in the CLI, a Personal Access Token can be used to get access to
 the collection (generated from the app at /profile/tokens).
 
-See the [Collections](documentation/build/collections) Platform Docs to learn
-more about Collections.
+Learn more about Collections and common use cases in the
+[Collections Docs](/documentation/build/collections).
 
 :::caution
 
-Collections must be created in the platform Admin page before they can be used.
-
-Refer to the [Collections Docs](documentation/build/collections) for details
+Collections must be created in the
+[Platform Admin page](https://docs.openfn.org/documentation/build/collections#managing-collections)
+before they can be used.
 
 :::
 
 ## The Collections Adaptor
 
-The Collections API is inserted into all Steps through a special kind of
-adaptor.
+The Collections API is inserted into all each Step of a Workflow through a
+special kind of adaptor.
 
 Uniquely, the Collections adaptor it is designed to be run _alongside_ other
-adaptors, not by itself. It is injected into the runtime environment for you for
-you by OpenFn. This makes the Collections API available to every Step in a
-Workflow, regardless of which adaptor it is using.
+adaptors, not by itself. It is automatically injected into the runtime
+environment making the Collections API available to every Step in a Workflow,
+regardless of which adaptor it is using.
 
-If using the CLI run a workflow with Collections, refer to the
+If using the CLI the use Collections locally, refer to the
 [CLI Usage](#cli-usage) guide below.
 
 ## Usage Guide
@@ -256,20 +260,21 @@ fn(state => {
 
 ## CLI usage
 
-:::info
+Workflows which use Collections can be run through the CLI. You will need to:
 
-Improved Collections support is coming to the CLI soon!
+- Get a Personal Access Token (PAT)
+- Update the `workflow.json` with your PAT and the OpenFn endpoint
+- Set the step to use the Collections adaptor
+
+:::tip
+
+You can also call the Collections API directly from the CLI. See the
+[CLI Collections Guide](/documentation/collections-cli)
 
 :::
 
 Collections are designed for close integration with the platform app, but can be
 used from the CLI too.
-
-You will need to:
-
-- Set the job to use two adaptors
-- Pass a Personal Access Token
-- Set the Collections endpoint
 
 You can get a Personal Access Token from any v2 deployment.
 
