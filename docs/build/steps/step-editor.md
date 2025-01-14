@@ -8,7 +8,9 @@ Inspector interface.
 
 :::tip
 
-If you're writing jobs on the platform app (Lightning), you can use the [AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in the Inspector.
+If you're writing jobs on the platform app (Lightning), you can use the
+[AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in
+the Inspector.
 
 :::
 
@@ -49,3 +51,9 @@ include `Logs` and an `Output`.
 See [Writing Jobs docs](/documentation/jobs/job-writing-guide) for more on
 writing custom logic, and see [this article](/documentation/jobs/state) for more
 on the concept of "state" when writing Jobs and building OpenFn Workflows.
+
+## Keyboard Shortcuts
+
+From the inspector you can perform certain common actions (e.g., save, run, sync
+to github) using keystrokes. Check out the full list of keyboard shortcuts
+[here](/documentation/keyboard-shortcuts).
