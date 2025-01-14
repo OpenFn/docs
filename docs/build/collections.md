@@ -142,7 +142,9 @@ collections.each(
 );
 ```
 
-New values are uploaded to a collection through `collections.set`:
+Values are uploaded to a collection through `collections.set`. All sets are "upserts" - meaning that new keys will be created for values that don't exist, and values will be updated for keys that _do_ exist. 
+
+The example below sets a single item:
 
 ```js
 collections.set('openfn-demo', 'commcare-fhir-value-mappings', {
