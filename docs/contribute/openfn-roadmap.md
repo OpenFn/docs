@@ -14,15 +14,15 @@ progress [here](#what-are-we-currently-working-on).
 
 At OpenFn, we follow the [Shape Up approach](https://basecamp.com/shapeup) to
 help our small engineering team build _meaningful_ products and features faster
-without compomising on quality. With Shape Up in place, we typcially commit to
+without compromising on quality. With Shape Up in place, we typically commit to
 _projects_ that can be delivered in a 4-6 week period with multiple releases
-based on QA approval within the building cycle. We also proiritize feedback and
+based on QA approval within the building cycle. We also prioritize feedback and
 feature requests from our users over features in the backlog.
 
 :::success Transparency and building what matters
 
 Note that it's fairly rare for us to commit to delivering a specific feature
-more than 2 or 3 months in the future. We are committed to constantly evluating
+more than 2 or 3 months in the future. We are committed to constantly evaluating
 what our user base needs most and spending the few resources we have to deliver
 value to them—we simply can't guarantee that what sounds like the "7th most
 important feature to build" now will still be on our list in 6 months.
@@ -162,6 +162,6 @@ workflow engine, enable automated workflows that cut across digital systems.
 
 We encourage users to post their questions on the OpenFn Community at
 [community.openfn.org](https://community.openfn.org), or consider creating
-issues for bugs via product repository. You can also independetly start
+issues for bugs via product repository. You can also independently start
 contributing to the OpenFn software, adaptors, or documentation by getting
 started [here](./writing-code.md).
