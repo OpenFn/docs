@@ -37,9 +37,11 @@ more steps into one step or to skip some steps:
 
 ![Merging](/img/workflow_builder_merging.gif)
 
-:::note Looping workflows are not supported so you have to connect paths to
+:::note 
+Looping workflows are not supported so you have to connect paths to
 downstream steps. When using branching and skipping paths, you can use edge
-conditions like with any other step. :::
+conditions like with any other step. 
+:::
 
 ## Run Workflows
 
