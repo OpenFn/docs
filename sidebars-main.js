@@ -111,6 +111,7 @@ module.exports = {
           ],
         },
         'hosted/overview',
+        'keyboard-shortcuts',
       ],
     },
 
