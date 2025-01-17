@@ -51,6 +51,7 @@ A Workflow has the following structure:
   "project_id": "79efba60-072a-4d4f-8d6c-22dfd3852176",
   "edges": [
     {
+      "id": "759fe475-ed23-4914-8a6d-155968bc0aa1"
       "condition_type": "always",
       "enabled": true,
       "source_job_id": null,
@@ -83,9 +84,11 @@ When creating a new Workflow, the server will generate UUIDs for the workflow
 and all steps and edges. You can use any id string you like in the creation of
 new nodes and edges - so long as id usage is consistent.
 
-When matching a PUT or PATCH request, new steps and edges must be given UUIDs.
+When matching a PUT or PATCH request, new steps and edges MUST be assigned
+UUIDs. If using the `http` adaptor, you can use `util.uuid()` for this (see the
+example below).
 
-You MUST ensure that all steps and triggers referenced by an edge are defined
+You MUST ensure that any steps and triggers referenced by an edge are defined
 within the same workflow.
 
 ## HTTP Adaptor Examples
@@ -96,7 +99,7 @@ Access Token (PAT) and `baseUrl` set to your OpenFn instance (ie,
 
 Create new Workflow:
 
-```
+```js
 post(`/api/projects/${$.projectId}/workflows`, {
   body: {
     name: 'My Workflow',
@@ -128,18 +131,20 @@ post(`/api/projects/${$.projectId}/workflows`, {
 ```
 
 The resulting workflow with updated UUIDs and metadata will be written to
-state.data.workflow
+`state.data.workflow`.
 
-Add a new step to an existing Workflow:
+Add a new step and edge to an existing Workflow:
 
-```
-fn((state) => {
-  const jobId = util.uuid()
+```js
+fn(state => {
+  const jobId = util.uuid();
   state.diff = {
     edges: [
       {
+        id: util.uuid(),
         source_job_id: 'c79ce46c-ab0f-4f5b-bf2d-fed52aef2a41',
         target_job_id: jobId,
+        condition_type: 'always',
       },
     ],
     jobs: [
@@ -149,12 +154,13 @@ fn((state) => {
         adaptor: '@openfn/language-common@latest',
       },
     ],
-  }
+  };
   return state;
-})
+});
 patch(`/api/projects/${$.projectId}/workflows/${$.workflowId}`, {
   body: $.diff,
   headers: { 'content-type': 'application/json' },
 });
-
 ```
+
+The resulting workflow will be written to `state.data.workflow`.
