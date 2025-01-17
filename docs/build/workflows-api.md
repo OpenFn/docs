@@ -79,10 +79,11 @@ A Workflow has the following structure:
 }
 ```
 
-When creating a new Workflow, a UUID will be created by the server.
+When creating a new Workflow, the server will generate UUIDs for the workflow
+and all steps and edges. You can use any id string you like in the creation of
+new nodes and edges - so long as id usage is consistent.
 
-When creating new steps or triggers (including when creating a whole new
-workflow), ids will be replaced by the server with UUIDs.
+When matching a PUT or PATCH request, new steps and edges must be given UUIDs.
 
 You MUST ensure that all steps and triggers referenced by an edge are defined
 within the same workflow.
@@ -96,53 +97,64 @@ Access Token (PAT) and `baseUrl` set to your OpenFn instance (ie,
 Create new Workflow:
 
 ```
-post(
-  `/api/projects/${$.projectId}/workflows`,
-  {
-    "name": "My Workflow",
-    "edges": [
+post(`/api/projects/${$.projectId}/workflows`, {
+  body: {
+    name: 'My Workflow',
+    edges: [
       {
-        "source_trigger_id": "c79ce46c-ab0f-4f5b-bf2d-fed52aef2a41",
-        "target_job_id": "26304a1e-267b-4bc9-940f-171db1905885",
-      }
+        source_trigger_id: 'trigger-1',
+        target_job_id: 'job-1',
+        condition_type: 'always',
+      },
     ],
-    "jobs": [
+    jobs: [
       {
-        "id": "26304a1e-267b-4bc9-940f-171db1905885",
-        "body": "/* job code goes here */",
-        "adaptor": "@openfn/language-common@latest",
-      }
+        id: 'job-1',
+        name: 'My Job',
+        body: '/* job code goes here */',
+        adaptor: '@openfn/language-common@latest',
+      },
     ],
-    "triggers": [
+    triggers: [
       {
-        "id": "c79ce46c-ab0f-4f5b-bf2d-fed52aef2a41",
-        "type": "webhook",
-        "enabled": true
-      }
+        id: 'trigger-1',
+        type: 'webhook',
+        enabled: true,
+      },
     ],
-  }
-)
+  },
+  headers: { 'content-type': 'application/json' },
+});
 ```
+
+The resulting workflow with updated UUIDs and metadata will be written to
+state.data.workflow
 
 Add a new step to an existing Workflow:
 
 ```
-patch(
-  `/api/projects/${$.projectId}/workflows/${$.workflowId}`,
-  {
-    "edges": [
+fn((state) => {
+  const jobId = util.uuid()
+  state.diff = {
+    edges: [
       {
-        "source_job_id": "c79ce46c-ab0f-4f5b-bf2d-fed52aef2a41",
-        "target_job_id": "new-job",
-      }
+        source_job_id: 'c79ce46c-ab0f-4f5b-bf2d-fed52aef2a41',
+        target_job_id: jobId,
+      },
     ],
-    "jobs": [
+    jobs: [
       {
-        "id": "new-job",
-        "body": "/* job code goes here */",
-        "adaptor": "@openfn/language-common@latest",
-      }
+        id: jobId,
+        body: '/* job code goes here */',
+        adaptor: '@openfn/language-common@latest',
+      },
     ],
   }
-)
+  return state;
+})
+patch(`/api/projects/${$.projectId}/workflows/${$.workflowId}`, {
+  body: $.diff,
+  headers: { 'content-type': 'application/json' },
+});
+
 ```
