@@ -7,6 +7,12 @@ The Workflows API allows you to programmatically create and modify Workflows.
 
 You can use the Workflows API with the `http` adaptor or curl.
 
+:::info Version Compatibility
+
+The Workflows API was introduced in version 2.10.10, January 2025
+
+:::
+
 ## Authentication
 
 All requests must be Authenticated.
