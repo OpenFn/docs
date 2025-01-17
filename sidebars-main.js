@@ -70,6 +70,7 @@ module.exports = {
             'build/working-with-branches',
             'build/troubleshooting',
             'build/workflow-snapshots',
+            'build/workflows-api',
           ],
         },
         {
