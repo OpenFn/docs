@@ -133,10 +133,25 @@ code in the `project.yaml` file on your repository.
 :::info
 
 Your OpenFn project can be represented as code and packaged as project.yaml
-which is called the prokect spec. See the
+which is called the project spec. See the
 [portability documentation](/documentation/deploy/portability) to learn more.
 
-::: To configure your project to sync to GitHub, follow these steps:
+::: 
+
+After successfully setting up your project connection to GitHub as detailed [above](#managing-github-permissions), you can intiate subsequent syncs either via the Canvas, Inspector or the version control page in the project settings.
+
+To intiate a sync via the Canvas or Inspector, press `⌘+Shift+s` (Mac) or `Ctrl+Shift+s` (Linux/Windows). You can also click the dropdown icon beside the save button to select `Save and Sync`.
+When you attempt to Save and Sync your changes, you'll see a confirmation modal with an option for you to customize the commit message.
+
+![Initiating Save and Sync](/img/save-and-sync.png)
+
+:::info
+When you trigger `Save and Sync` in a workflow, your  new changes and _previous_ uncommited changes (if any) will be comitted to GitHub. If there are other, uncommitted changes by either you or someone else to other workflows in the project, they’ll also show up in that sync also.
+
+:::
+
+
+To configure your project to sync to GitHub via the project settings:
 
 1. Go to the Project where you made edits to your Workflow(s), and then navigate
    to the `Project Settings` page
