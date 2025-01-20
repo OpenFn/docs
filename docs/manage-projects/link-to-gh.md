@@ -139,21 +139,26 @@ which is called the project spec. See the
 :::
 
 After successfully setting up your project connection to GitHub as detailed
-[above](#managing-github-permissions), you can intiate subsequent syncs either
-via the Canvas, Inspector or the version control page in the project settings.
+[above](#managing-github-permissions), you can initiate subsequent syncs either
+via the Canvas, the Inspector or the version control page in the project
+settings.
 
-To intiate a sync via the Canvas or Inspector, press `⌘+Shift+s` (Mac) or
-`Ctrl+Shift+s` (Linux/Windows). You can also click the dropdown icon beside the
-save button to select `Save and Sync`. When you attempt to Save and Sync your
-changes, you'll see a confirmation modal with an option for you to customize the
-commit message.
+To initiate a sync via the Canvas or Inspector, press `Ctrl+Shift+s`. (Or
+`⌘+Shift+s` on Mac; see
+[keyboard shortcuts](/documentation/keyboard-shortcuts).) You can also click the
+dropdown icon beside the save button to select `Save & Sync`. When you click
+Save & Sync, you'll see a confirmation modal with an option for you to customize
+the commit message.
 
-![Initiating Save and Sync](/img/save-and-sync.png)
+![Initiating Save & Sync](/img/save-and-sync.png)
 
-:::info When you trigger `Save and Sync` in a workflow, your new changes and
-_previous_ uncommited changes (if any) will be comitted to GitHub. If there are
-other, uncommitted changes by either you or someone else to other workflows in
-the project, they’ll also show up in that sync also.
+:::info Sync is a "project level" action
+
+When you trigger `Save & Sync` in a workflow, your new changes and _previous_
+uncommitted changes (if any) to your project's resources (including other
+workflows) will be committed to GitHub. I.e., if there are other, uncommitted
+changes by either you or someone else to other workflows in the project, they’ll
+also show up in that sync also.
 
 :::
 
