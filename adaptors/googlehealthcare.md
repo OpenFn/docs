@@ -8,7 +8,7 @@ The [Google Cloud Healthcare API](https://cloud.google.com/healthcare-api) is a 
 
 ## Integration Options
 
-**1. Rest API:**  Google Cloud Healthcare offers a REST API that enables external applications to interact with its database and perform bulk operations. This option is ideal for applications requiring scheduled or bulk synchronization with Google Cloud Healthcare. The API supports the [HL7® FHIR®](https://www.hl7.org/fhir/overview.html) (Fast Healthcare Interoperability Resources) standard. Refer to the Google Cloud Healthcare REST API [documentation](https://cloud.google.com/healthcare-api) for detailed guidelines on endpoints and payload formats.
+**1. Rest API:**  Google Cloud Healthcare offers a REST API that enables external applications to interact with its database and perform bulk operations. This option is ideal for applications requiring scheduled or bulk synchronization with Google Cloud Healthcare. The API supports the [HL7® FHIR®](https://www.hl7.org/fhir/overview.html) (Fast Healthcare Interoperability Resources) standard. See [functions](/adaptors/packages/googlehealthcare-docs) for more on how to use this adaptor to work with the API.
 
 **2. Webhook:** The Google Cloud Healthcare API does not natively support webhooks as part of its core functionality. However, you can implement webhook-like behavior using other Google Cloud services and tools in combination with the Healthcare API.
 
