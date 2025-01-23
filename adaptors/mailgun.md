@@ -4,7 +4,7 @@ title: Mailgun Adaptor
 
 ## About Mailgun
 
-Mailgun is an email delivery service designed for developers and provides APIs for sending, receiving, and tracking emails.
+[Mailgun](https://www.mailgun.com/) is an email delivery service designed for developers and provides APIs for sending, receiving, and tracking emails.
 
 ## Integration Options
 
