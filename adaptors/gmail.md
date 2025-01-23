@@ -31,6 +31,7 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 ### Helpful Links
 
 1. [API documentation](https://developers.google.com/gmail/api/guides)
+2. [Community Support](https://support.google.com/mail/)
 
 ### Implementation Examples
 
