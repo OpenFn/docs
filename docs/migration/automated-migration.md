@@ -87,9 +87,28 @@ project configuration, including any Workflows already configured on v2).
 
 ![Workflows Added](/img/migration_workflow_pasted.png)
 
-9. Finally, once you're happy with your new v2 `project.yaml` file, it's time to
-   deploy the new config to your v2. Run the following command in the CLI to
-   _deploy_.
+9. You may want to disable all of your workflows at this point, so that when
+   they're deployed to v2 they are in a disabled state by default. This also
+   allows you to import all of your workflows regardless of how many active
+   workflows your v2 subscription allows for. To do this, find all the
+   `triggers` in your `project.yaml` (by default, they will be set to `true`),
+   and set them to `false`:
+
+```yaml
+workflows:
+  Sample-Workflow:
+    name: Sample Workflow
+    jobs:
+
+    triggers:
+      webhook:
+        type: webhook
+        enabled: false
+```
+
+10. Finally, once you're happy with your new v2 `project.yaml` file, it's time
+    to deploy the new config to your v2 project. Run the following command in
+    the CLI to _deploy_.
 
 ```
 openfn deploy -c config.json
@@ -97,7 +116,7 @@ openfn deploy -c config.json
 
 When prompted, confirm you want to deploy by typing `y` ("yes").
 
-10. If successfully, verify the new Project config on your v2 app.
+10. If successful, verify the new Project config on your v2 app.
 
 :::tip Questions?
 
