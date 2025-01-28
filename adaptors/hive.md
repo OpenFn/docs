@@ -31,6 +31,9 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 1. [Hive documentation](https://hive.apache.org/)
 
 
+### Implementation Examples
+
+_Comming soon!_
 
 
 
