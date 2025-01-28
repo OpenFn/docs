@@ -33,7 +33,7 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 
 ### Implementation Examples
 
-_Comming soon!_
+_Coming soon!_
 
 
 
