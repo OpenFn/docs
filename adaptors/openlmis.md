@@ -17,7 +17,7 @@ OpenLMIS supports 2 primary integration options with OpenFn:
 
 ## Authentication
 
-1. See [OpeLMIS docs](https://openlmis.github.io/openlmis-api/) for the latest on supported authentication methods.
+1. See [OpenLMIS docs](https://openlmis.github.io/openlmis-api/) for the latest on supported authentication methods.
 2. When integrating with OpenLMIS via OpenFn, there is one primary authentication method that is supported: **Basic Authentication**. See this adaptor's [Configuration docs](/adaptors/packages/openlmis-configuration-schema) for more on the required authentication parameters.
 
 See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
