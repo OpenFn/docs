@@ -15,7 +15,7 @@ Azure Storage supports 2 primary integration options with OpenFn:
 ## Authentication
 
 1. See [Azure Storage docs](https://learn.microsoft.com/en-us/azure/storage/) for the latest on supported authentication methods.
-2. When integrating with Azure Storage via OpenFn, there is one primary authentication method that is supported: **API Key**. See this adaptor's [Configuration docs](/adaptors/packages/azure-stroage-configuration-schema) for more on the required authentication parameters.
+2. When integrating with Azure Storage via OpenFn, there is one primary authentication method that is supported: **API Key**. See this adaptor's [Configuration docs](/adaptors/packages/azure-storage-configuration-schema) for more on the required authentication parameters.
 
 See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
 
