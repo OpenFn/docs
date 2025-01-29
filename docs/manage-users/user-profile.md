@@ -39,8 +39,9 @@ Your User Profile is also the place where you can delete your OpenFn account.
 
 ![Delete Account](/img/lightning_delete_account_cropped.png)
 
-To delete your account, click on the `Delete my account` button. You will be asked
-to confirm the deletion by entering your email address and clicking `Delete Account`.
+To delete your account, click on the `Delete my account` button. You will be
+asked to confirm the deletion by entering your email address and clicking
+`Delete Account`.
 
 When you confirm your intent to delete your account, your account will be
 scheduled for deletion based on the grace period that your instance
@@ -53,8 +54,7 @@ the deletion before your account is actually deleted. Default is 7 days.
 
 :::
 
-:::tip Deletion might be blocked for you
-Please note that deletion is blocked for users who have project activities
-(runs, workorders, github connections etc.) or have projects with active
-subscriptions (for users on https://app.openfn.org).
-:::
+:::tip Deletion might be blocked for you Please note that deletion is blocked
+for users who have project activities (runs, workorders, github connections
+etc.) or have projects with active subscriptions (for users on
+https://app.openfn.org). :::
