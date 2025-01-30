@@ -304,6 +304,9 @@ renaming, deleting a file or updating a file path.
 
 ## Troubleshooting
 
+### Extraneous paramaters
+
+
 ### Github Sync Error: Unexpected inputs provided: ["snapshots"]
 
 If you installed GitHub sync before July 17th, 2024 you may need to update your
