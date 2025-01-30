@@ -298,7 +298,9 @@ When you keep job code in relative file paths, ensure to update the
 `projectSpec.yaml` file based on changes to the files or paths in your project
 repository. A GitHub action is automatically triggered to push changes to OpenFn
 ensuring that future syncs are not affected. Changes can include adding,
-renaming, deleting a file or updating a file path. :::
+renaming, deleting a file or updating a file path.
+
+:::
 
 ## Troubleshooting
 
