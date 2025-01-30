@@ -36,7 +36,7 @@ Get started with the Collections API with `openfn collections --help`
 You'll need a Personal Access Token (PAT) to access a collection. You'll also
 need to ensure a collection has been created before you can read or write to
 it - see
-[Managing Collections](http://localhost:3000/documentation/build/collections#managing-collections)
+[Managing Collections](/documentation/build/collections#managing-collections)
 
 :::info Trying to use Collections in a CLI workflow?
 
@@ -44,8 +44,7 @@ These docs explain how to use the `openfn collections` CLI command.
 
 If you're running an expression or workflow through the CLI, you need to use the
 collections adaptor - check out the
-[Collections Adaptor Docs](http://localhost:3000/adaptors/collections#cli-usage)
-for detauls
+[Collections Adaptor Docs](/adaptors/collections#cli-usage) for detauls
 
 :::
 
@@ -154,7 +153,8 @@ openfn collections get my-collection \* -o /tmp/my_collection.json --pretty
 ```
 
 It's important to understand that the output works a bit differently if you're
-getting one specific item with a single key or getting many items with a key-pattern.
+getting one specific item with a single key or getting many items with a
+key-pattern.
 
 A single key always returns its value "raw" or "verbatim", without the key
 attached. So for a key `item-1` which holds a JSON object as a value, then this:
