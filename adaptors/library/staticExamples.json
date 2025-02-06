@@ -107,7 +107,7 @@
     "name": "Using findValue with an array of data"
   },
   {
-    "expressionPath": "jobs/kobotoolbox-create-asset",
+    "expressionPath": "jobs/kobotoolbox-get-suspected-patients",
     "adaptor": "kobotoolbox",
     "name": "Create an asset in KoboToolbox"
   },
