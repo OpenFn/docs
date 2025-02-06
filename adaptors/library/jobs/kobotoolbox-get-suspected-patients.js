@@ -1,5 +1,5 @@
 // Get all submissions of a specific form/asset and get the percentage of patients suspected of having covid-19
-http.get('/assets/aDReHdA7UuNBYsiCXQBr43/data/');
+getSubmissions('aDReHdA7UuNBYsiCXQBr43');
 
 fn(state => {
   const results = state.data?.results;
