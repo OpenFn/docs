@@ -1,9 +1,11 @@
 //Get all submissions of a specific form/asset that were submitted after a specific time
-fn(state => {
-  state.formId = state.data.formId;
-  return state;
-});
+cursor($.cursor, { defaultValue: 'today' });
 
-getSubmissions($.formId, {
-  query: `{"_submission_time":{"$gte":"${$.cursor}"}}`,
-});
+getForms();
+
+each(
+  $.data,
+  getSubmissions($.data.uid, {
+    query: `{"_submission_time":{"$gte":"${$.cursor}"}}`,
+  })
+);
