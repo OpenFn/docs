@@ -4,8 +4,6 @@ fn(state => {
   return state;
 });
 
-http.get(`/assets/${$.formId}/data/`, {
-  query: {
-    query: `{"_submission_time":{"$gte":"${$.cursor}"}}`,
-  },
+getSubmissions($.formId, {
+  query: `{"_submission_time":{"$gte":"${$.cursor}"}}`,
 });
