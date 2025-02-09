@@ -1,4 +1,5 @@
-//Get all submissions of a specific form/asset that were submitted after a specific time
+//Get all Kobo forms/projects, and then get form submissions
+//that were submitted after a specific time
 cursor($.cursor, { defaultValue: 'today' });
 
 getForms();
