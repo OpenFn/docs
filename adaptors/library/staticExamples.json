@@ -105,5 +105,15 @@
     "expressionPath": "jobs/async-findValue",
     "adaptor": "postgresql",
     "name": "Using findValue with an array of data"
+  },
+  {
+    "expressionPath": "jobs/kobotoolbox-get-suspected-patients",
+    "adaptor": "kobotoolbox",
+    "name": "Create an asset in KoboToolbox"
+  },
+  {
+    "expressionPath": "jobs/kobotoolbox-get-submissions",
+    "adaptor": "kobotoolbox",
+    "name": "Extract submissions from KoboToolbox"
   }
 ]
