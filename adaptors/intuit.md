@@ -2,7 +2,7 @@
 title: Intuit Adaptor (QuickBooks)
 ---
 
-## About Intuit
+## About Intuit (QuickBooks)
 
 [Intuit](https://www.intuit.com/) provides financial, accounting, and tax management solutions for businesses and individuals, including **QuickBooks**, **TurboTax**, and **Mint**. 
 
@@ -10,7 +10,7 @@ title: Intuit Adaptor (QuickBooks)
 
 Intuit supports 2 primary integration options:
 
-1. **Rest API**: Intuit has an available REST API that enables external services like OpenFn to pull data from Intuit, or push data from external apps to Intuit. This option is suited for scheduled, bulk syncs or workflows that must update data in Intuit with external information. See [functions](/adaptors/packages/intuit-docs) for more on how to use this adaptor to work with the API.
+1. **Rest API**: Intuit has an available [REST API](https://developer.intuit.com/app/developer/qbo/docs/api/accounting/all-entities/account#the-account-object) that enables external services like OpenFn to pull data from Intuit, or push data from external apps to Intuit. This option is suited for scheduled, bulk syncs or workflows that must update data in Intuit with external information. See [functions](/adaptors/packages/intuit-docs) for more on how to use this adaptor to work with the API.
 
 2. **Webhook**: Intuit also has a [Webhook or Data Forwarding](https://developer.intuit.com/app/developer/qbo/docs/api/webhooks) to push data from Intuit to external systems. This option is suited for real-time, event-based data integration. Check out the Intuit [developer documentation](https://developer.intuit.com/app/developer/qbo/docs/api/webhooks) to learn how to set up a webhook to push data to OpenFn.
 
@@ -24,7 +24,7 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 
 ```
 {
-  "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6IjlGWERwYmZNRlQyU3ZRdVhoODQ2WVR3RUlCdyIsI",
+  "access_token": "your-qpi-token-JSUzI1NiIsIng1dCI6IjlGW",
   "baseUrl": "https://sandbox-quickbooks.api.intuit.com"
 }
 ```
@@ -33,10 +33,3 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 
 1. [API Documentation](https://developer.intuit.com/)
 2. [Webhook Configuration Documentation](https://developer.intuit.com/app/developer/qbo/docs/api/webhooks)
-
-### Implementation Examples
-
-_Coming soon!_
-
-
-
