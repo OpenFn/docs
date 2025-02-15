@@ -4,7 +4,7 @@ title: Intuit Adaptor (QuickBooks)
 
 ## About Intuit
 
-[Intuit](https://www.intuit.com/) provides financial, accounting, and tax management solutions for businesses and individuals, including QuickBooks, TurboTax, and Mint. 
+[Intuit](https://www.intuit.com/) provides financial, accounting, and tax management solutions for businesses and individuals, including **QuickBooks**, **TurboTax**, and **Mint**. 
 
 ## Integration Options
 
