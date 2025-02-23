@@ -57,6 +57,19 @@ search is applied. This method of searching allows you to find work orders
 quickly and allows for partial string matches across all text in the run logs
 and across the "keys" and "values" of your dataclips.
 
+:::caution Very large/complex input dataclips may not be indexed
+
+It's not currently possible to create `ts_vector` indexes larger than 1MB, and
+as a result very large or complex input dataclips may not appear in search
+results. This typically won't happen until you're nearing 10MB of JSON, but the
+number of distinct lexemes & positions in your JSON will impact the final index
+size.
+
+More at the Postgres
+["text search limitations" docs page](https://www.postgresql.org/docs/current/textsearch-limitations.html).
+
+:::
+
 Partial string matching works best at the start of words, so if you're looking
 for items matching `"newPatient"` it's better to search for `"newPat"` than for
 `"tient"`. (When in doubt, whole words or IDs produce the best results.)
