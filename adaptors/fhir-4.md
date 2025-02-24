@@ -1,28 +1,133 @@
 ---
-title: Fhir r4 Adaptor
+title: FHIR r4 Adaptor
 ---
 
 Language support for FHIR version 4. This adaptor is compatible with any FHIR r4
 compliant server.
 
-The fhir-4 adpator is implemented in TypeScript and comes complete with a full
-range of TypeScript definitions.
+The FHIR 4 adaptor is implemented in TypeScript and comes complete with full
+TypeScript definitions.
 
 ## About FHIR
 
+[FHIR](https://www.hl7.org/fhir/overview.html) stands for Fast Healthcare
+Interoperability Resources. It is a standard for representing and exchanging
+healthcare data electronically.
+
+## Authentication
+
+The FHIR standard does not directly prescribe authentication and authorization
+methods. Instead, it provides security guidelines and leaves the choice of
+implementation to the developers of FHIR servers and clients. See the FHIR
+[docs](https://www.hl7.org/fhir/security.html) for the latest security-related
+recommendations. Depending on the FHIR systems being integrated via OpenFn, you
+might employ a Basic Auth, API key, or OAuth authentication scheme.
+
+See this adaptor's
+[Configuration docs](/adaptors/packages/fhir-4-configuration-schema) for more on
+the required authentication parameters.
+
+See platform docs on
+[managing credentials](/documentation/manage-projects/manage-credentials) for
+how to configure a credential in OpenFn. If working locally or if using a Raw
+JSON credential type, then your configuration will look something like this to
+define your target endpoint and FHIR version:
+
+```
+{
+  "baseUrl": "https://hapi.fhir.org", //fhir endpoint
+  "apiPath": "baseR4" //fhir version
+}
+```
+
+## Code Assist
+
+The OpenFn Inspector provides full code-assist and code-complete for all FHIR
+resource types.
+
+Pressing `ctrl + space` will open up the Suggestions list, which provides
+contextual auto-completion. Use this to more easily create FHIR resources.
+
+Note that code assist will only provide suggestions for commonly used
+properties, but custom properties can also be passed directly and will be
+written to the new resource
+
+## Bundles
+
+The FHIR-4 adaptor provides support for bundles.
+
+You can create resources and add them to a bundle:
+
+```js
+addToBundle($.resource);
+```
+
+Where `$.resource` is a FHIR resource, or an array of resources, on the state
+object.
+
+This will add the resources to a bundle resource, under the `entry` key, on
+state under a key called `bundle`. To save the bundle under a different key,
+pass a string as the second argument:
+
+```js
+addToBundle($.resource, 'patients-bundle');
+```
+
+Each item in the bundle will be given a `request` object with the `PUT` method
+and a URL. For example:
+
+```js
+addToBundle({
+  id: 'x',
+  resourceType: 'Patient',
+});
+```
+
+Will create a state object like this:
+
+```json
+{
+  "bundle": {
+    "resourceType": "bundle",
+    "entry": [
+      {
+        "resource": {
+          "id": "x",
+          "resourceType": "Patient"
+        },
+        "request": {
+          "method": "PUT",
+          "url": "Patient/x"
+        }
+      }
+    ]
+  }
+}
+```
+
+To send the Bundle to the FHIR server defined in `state.configuration.baseURL`,
+call `uploadBundle()`.
+
+You can pass the name of a key on state to upload a specific bundle:
+
+```js
+uploadBundle('patients-bundle');
+```
+
+Or you can pass your own bundle object in directly:
+
+```js
+uploadBundle($.bundle);
+```
+
 ## Builder Functions
 
-The fhir-4 adaptor provides builder functions which make it easier to define
+The FHIR-4 adaptor provides builder functions which make it easier to define
 FHIR resources.
 
 Builders provide short-hand properties and default values, reducing the
 boiler-plate needed to create FHIR resources. They also enable code-assist to be
 provided by code editors.
-
-## Creating Resources
-
-Because FHIR resources can be verbose and difficult to author, OpenFn provides a
-suite of builder libraries.
 
 The basic pattern is something like this:
 
@@ -57,7 +162,7 @@ your OpenFn expression.
 
 Every resource in FHIR should have a corresponding builder function on the `b.`
 namespace (check the reference for details): for example, `b.patient()`,
-`b.observation`, `b.encounter` and `b.invoice`.
+`b.observation()`, `b.encounter()` and `b.invoice()`.
 
 The first argument for the builder is an object with properties corresponding to
 FHIR json:
@@ -66,6 +171,15 @@ FHIR json:
 b.patient({
   identifier: $.data.patientId,
 });
+```
+
+Which will generate the following data structure:
+
+```json
+{
+  "resourceType": "Patient"
+  "id": "123",
+}
 ```
 
 You don't have to use builder functions - you can just write our your FHIR
@@ -97,36 +211,120 @@ fn(state => {
 });
 ```
 
-### Builder API
+## DataTypes Builders
 
-The builders have a basic structure like this:
+The builders have special handling and helpers for FHIR datatypes, like
+`identifier` and `coding`.
 
+Like resource builders, they exist on the `b.` or `builders.` namespace. Unlike
+the other builders, they are hand-written and not auto-generated from the spec.
+This means they have a slightly different API.
+
+The most important datatype builders are detailed below.
+
+:::tip
+
+When you pass an object into a builder, internally that object will be passed to
+a datatype builder.
+
+So you can either pass a reference directly:
+
+```js
+b.patient({
+  identifier: {
+    value: 'abc',
+  },
+});
 ```
-b.resource(props)
+
+Or use a builder explicitly:
+
+```js
+b.patient({
+  identifier: b.id('abc'),
+});
 ```
 
-For example,to create a Patient, use the patient builder like this:
+You may want to use a builder to pass an extension.
 
-```
-b.patient({ id: state.data.id })
+```js
+b.patient({
+  identifier: b.identifier('abc', {
+    url: 'http://hospital.example.org/fhir/StructureDefinition/identifier-issuingDepartment',
+    value: 'Emergency Department',
+  }),
+});
 ```
 
-Which will generate the following data structure:
+:::
+
+### Identifiers
+
+Use `b.identifier(id, ...extensions)` or its shorthand,
+`b.id(id, ...extensions)`, to create an Identifier object.
+
+You can pass a single string value to create an identifier without a system:
+
+```js
+b.identifier('ip_request1.1');
+```
+
+More commonly, you'll pass a `{ value, system }` pair:
+
+```js
+b.identifier({
+  system: 'http://moh.gov.et/fhir/hiv/identifier/MRN',
+  value: 'MRN12345671',
+});
+```
+
+Any additional arguments will be treated as extensions:
+
+```js
+b.identifier(
+  {
+    system: 'http://moh.gov.et/fhir/hiv/identifier/MRN',
+    value: 'MRN12345671',
+  },
+  {
+    url: 'http://hospital.example.org/fhir/StructureDefinition/identifier-issuingDepartment',
+    valueString: 'Emergency Department',
+  },
+  {
+    url: 'http://hospital.example.org/fhir/StructureDefinition/identifier-issuedDate',
+    valueDateTime: '2023-06-15T14:30:00Z',
+  }
+);
+```
+
+Resulting in the following JSON structure:
 
 ```json
 {
-  "id": "123",
-  "resourceType": "Patient"
+  "resourceType": "Patient",
+  "identifier": [
+    {
+      "system": "http://moh.gov.et/fhir/hiv/identifier/MRN",
+      "value": "MRN12345671",
+      "extension": [
+        {
+          "url": "http://hospital.example.org/fhir/StructureDefinition/identifier-issuingDepartment",
+          "valueString": "Emergency Department"
+        },
+        {
+          "url": "http://hospital.example.org/fhir/StructureDefinition/identifier-issuedDate",
+          "valueDateTime": "2023-06-15T14:30:00Z"
+        }
+      ]
+    }
+  ]
 }
 ```
 
-Builders are
-
-## Data Types
-
-The builders have special handling and helpers for FHIR datatypes.s
-
 ### Codings
+
+Use `b.coding(code, system, extra)` or its shorthand,
+`b.c(code, system, extra)`, to create a Coding object
 
 You can create a coding directly with the `coding` builder:
 
@@ -158,13 +356,46 @@ b.c('MR', 'http://terminology.hl7.org/CodeSystem/v2-0203', {
 // }
 ```
 
-### Codeble Concepts
+### Codeable Concepts
 
-CodeableConcepts can often be represented as a "tuple", or an array of two
-strings where the first value is the code, and the second is the system. The
-tuple will be expanded to a `{ code, system }` Coding object.
+Use `b.concept(codings, extra)` or its shorthand, `b.cc(codings, extra)`, to
+create a Codeable Concept with one or more codings.
 
-For example, an Identifer's `type` accepts a Codeable Concept. We can create a
+Pass one or more codings, as tuples or objects, and optionally extra keys to add
+to the concept:
+
+```js
+b.concept(codings, props);
+```
+
+For example, to create a concept with a single coding:
+
+```js
+b.concept(['MR', 'http://terminology.hl7.org/CodeSystem/v2-0203']);
+// outputs { coding: [{ type: 'MR', system: 'http://terminology.hl7.org/CodeSystem/v2-0203' }]}
+```
+
+Or for multiple codings (note the extra array!)
+
+```js
+b.concept([
+  ['M', 'http://terminology.hl7.org/CodeSystem/v3-MaritalStatus'],
+  ['02', 'http://national-registry.example.org/marital-status'],
+]);
+```
+
+You can add extra props to the concept, like text:
+
+```js
+b.concept($.codings, { text: 'Married' });
+// outputs { text: 'Married', coding: [...]} }
+```
+
+Where a CodeableConcept is expected, it can be represented as a "tuple", or an
+array of two strings where the first value is the code, and the second is the
+system. The tuple will be expanded to a `{ code, system }` Coding object.
+
+For example, an Identifier's `type` accepts a CodeableConcept. We can create a
 patient like this:
 
 ```js
@@ -179,43 +410,21 @@ builders.patient({
 
 Which will generate a resource like:
 
-```js
+```json
 {
-  resourceType: 'Patient';
-  identifier: [
+  "resourceType": "Patient",
+  "identifier": [
     {
-      type: {
-        code: 'MR',
-        system: 'http://terminology.hl7.org/CodeSystem/v2-0203',
-      },
-    },
-  ];
+      "type": {
+        "code": "MR",
+        "system": "http://terminology.hl7.org/CodeSystem/v2-0203"
+      }
+    }
+  ]
 }
 ```
 
 You can also pass a concept object directly, with full type support.
-
-You can also use the `concept` or `cc` builder. Pass one or more codings, as
-tuples or objects, and optionally extra keys to add to the concept:
-
-```js
-b.concept(codings, props);
-```
-
-For example, to create a concept with a single coding:
-
-```js
-b.concept(['MR', 'http://terminology.hl7.org/CodeSystem/v2-0203']);
-// outputs { coding: [{ type: 'MR', system: 'http://terminology.hl7.org/CodeSystem/v2-0203' }]}
-```
-
-Or to add a text string to a pre-defined coding:
-
-```js
-// $.coding is  ['MR', 'http://terminology.hl7.org/CodeSystem/v2-0203']
-b.concept($.coding, { text: 'National Health Database' });
-// outputs { text: 'National Health Database', coding: [...]} }
-```
 
 ### References
 
@@ -269,7 +478,7 @@ b.patient({
 });
 ```
 
-## Multiple Types
+### Multiple Types
 
 Some FHIR properties are polymorphic and support multiple data types. For
 example, a Patient's `deceased` property can be of type `boolean` or `datetime`.
@@ -315,29 +524,95 @@ b.patient({
 FHIR is highly extensible, and the adaptor builder APIs have many features to
 support this.
 
-Any property can be prefixed with `_` to provide an extension, eh,:
+Any property can be prefixed with `_` to provide an extension, e.g,,:
 
+```js
+b.identifier({ _use: 'custom use' });
 ```
-b.identifier({ \_use: "custom use" })
+
+You can add an extension to any resource using the
+`addExtension(resource, extensionUrl, extensionValue)` builder.
+
+For example, the following code:
+
+```js
+fn(state => {
+  const patient = b.patient({});
+
+  b.addExtension(
+    patient,
+    'http://hl7.org/fhir/StructureDefinition/patient-religion',
+    // declare a codeableConcept
+    b.cc(
+      ['1023', 'http://terminology.hl7.org/CodeSystem/v3-ReligiousAffiliation'],
+      { text: 'Muslim' }
+    )
+  );
+
+  return state;
+});
 ```
 
-Additionally, some builders, like `identifier`, allow extension objects to be
-passed. Every additional arugment will be added to an extension array.
+Creates a patient with an `religious affiliation` extension:
 
-You can also use the `b.addExtension` builder to easily add an extension to a
-resource
+```json
+{
+  "resourceType": "Patient",
+  "extension": [
+    {
+      "url": "http://hl7.org/fhir/StructureDefinition/patient-religion",
+      "valueCodeableConcept": {
+        "coding": [
+          {
+            "code": "1023",
+            "system": "http://terminology.hl7.org/CodeSystem/v3-ReligiousAffiliation"
+          }
+        ],
+        "text": "Muslim"
+      }
+    }
+  ]
+}
+```
+
+You can call `addExtension` Multiple times for a given resource. It will
+intelligently manage the `extension` array on the target resource for you.
+
+In addition, some datatype builders, like, `identifier`, allow extensions to be
+passed as extra arguments. For example:
+
+```js
+b.identifier('12345', {
+  url: 'http://hospital.example.org/fhir/StructureDefinition/identifier-issuingDepartment',
+  value: 'Emergency Department',
+});
+```
+
+Produces an identifier like:
+
+```json
+{
+  "extension": [
+    {
+      "url": "http://hospital.example.org/fhir/StructureDefinition/identifier-issuingDepartment",
+      "valueString": "Emergency Department"
+    }
+  ],
+  "value": "12345"
+}
+```
 
 ### System Mappings
 
-FHIR builders allow systems strings in identifiers and codings to be mapped.
+FHIR builders allow `system` strings in identifiers and codings to be mapped.
 This allows you to specify short-form system strings, or more easily map
 resources between FHIR systems.
 
-This is done using the `util.setSystemMap` function. This takes an object which
-maps source strings to destinations. Keys in the object are values you want to
-use in your job code - the values you pass to the builders. The values of the
-object are the target values - the systems you want to appear in your generated
-resources.
+This is done using the `util.setSystemMap(map)` function. This takes an object
+which maps source strings to destinations. Keys in the object are values you
+want to use in your job code - the values you pass to the builders. The values
+of the object are the target values - the systems you want to appear in your
+generated resources.
 
 Set the system map at the top of every step that needs a system map (note that
 mappings are NOT remembered between steps)
@@ -404,32 +679,3 @@ b.patient({
   identifier: $.patient.
 });
 ```
-
-### Code Assist
-
-Each builder function is backed by full Typescript Type definitions. This means
-full code-complete can be provided in editors that support it.
-
-When editing code with the FHIR adaptor, the Inspector will provide full
-code-assist.
-
-Pressing `ctrl + space` will open up the Suggestions list, which provides
-contextual auto-completion. Use this to more easily create FHIR resources.
-
-Note that code assist will only provide suggestions for commonly used
-properties, but custom properties can also be passed directly and will be
-written to the new resource
-
-```
-b.patient({ \_address: { /_ ... custom address _/ } })
-```
-
-## Bundles
-
-## System maps
-
-## Next Steps
-
-- Value mapping - ie, mapping the string 'M' to a fully-coded value `{ code:
-  system }
--
