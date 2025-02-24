@@ -211,6 +211,35 @@ fn(state => {
 });
 ```
 
+## Cardinality
+
+Resource builders will automatically embed values into arrays where appropriate,
+simplifying cardinality handling.
+
+For example, a Patient's `identifier` property contains an array of identifiers.
+But when using a builder function, you can pass a single identifier:
+
+```js
+b.patient({
+  identifier: {
+    value: 'abc',
+  },
+});
+```
+
+Which will be embedded into an array for you:
+
+```json
+{
+  "resourceType": "Patient",
+  "identifier": [
+    {
+      "value": "abc"
+    }
+  ]
+}
+```
+
 ## DataTypes Builders
 
 The builders have special handling and helpers for FHIR datatypes, like
