@@ -10,7 +10,7 @@ title: MailChimp Adaptor
 
 Mailchimp supports two primary integration options:
 
-**1. Rest API:** Mailchimp offers a REST API that enables external applications to interact with its services. This option is ideal for applications requiring scheduled or bulk synchronization with OpenMRS. Refer to the Mailchimp REST API [documentation](https://mailchimp.com/developer/marketing/api/) for detailed guidelines on endpoints and payload formats.
+**1. Rest API:** Mailchimp offers a REST API that enables external applications to interact with its services. This option is ideal for applications requiring scheduled or bulk synchronization with Mailchimp. Refer to the Mailchimp REST API [documentation](https://mailchimp.com/developer/marketing/api/) for detailed guidelines on endpoints and payload formats.
 
 **2. Webhook:** Webhook or Data Forwarding to push data from MailChimp to external systems ([see docs](https://mailchimp.com/developer/transactional/docs/webhooks/)). This option is suited for real-time, event-based data integration.
 
