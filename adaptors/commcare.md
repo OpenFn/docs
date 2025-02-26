@@ -253,6 +253,42 @@ If integrating with CommCare `forms`, you may need to make sure that any unique 
 
 :::
 
+### Lookup Tables in CommCare
+Lookup tables in CommCare store reference data that can be used across multiple forms and workflows. They are often used for predefined lists such as as health facility names, geographic locations, product catalogs, or standardized response options.
+When fetching lookup table data in using CommCare APIs, there are two main approaches:
+**1. Using the Fixture API**
+```
+get("fixture/?fixture_type=diagnosis")
+```
+
+**Pros:**
+- Simple and direct for fetching specific tables.
+- Works well when only a few tables (e.g., 2-3) are needed.
+**Cons:**
+- Requires multiple API calls if several tables are needed, which can be inefficient.
+**2. Using the lookup_table_item API**
+```
+const findLookupById = (id) => state.data.filter((i) => i.data_type_id === id);
+
+state.facility = findLookupById("facility_table_id");
+state.product = findLookupById("product_table_id");
+state.medications = findLookupById("medications_table_id");
+```
+
+**Pros:**
+- Fetches all lookup tables in a single request, reducing API calls.
+- Useful for OpenFn workflows requiring multiple lookup tables.
+**Cons:**
+- Retrieves all lookup tables and filters them in-memory, which can be inefficient if only a few tables are needed.
+- 
+#### Best Practices
+- Use the Fixture API when fetching only a few lookup tables.
+- Use the lookup_table_item API for cases where multiple lookup tables are needed at once.
+- Consider performance trade-offs when selecting an approach, balancing API efficiency with data processing overhead.
+
+#### Troubleshooting tips
+If some tables are throwing errors when being fetched using the fixtures API, the lookup table might be corrupt. Consider exporting the table and re-importing it.
+
 
 ## Helpful Links
 
