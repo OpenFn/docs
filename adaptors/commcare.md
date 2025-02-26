@@ -266,6 +266,7 @@ get("fixture/?fixture_type=diagnosis")
 - Works well when only a few tables (e.g., 2-3) are needed.
 **Cons:**
 - Requires multiple API calls if several tables are needed, which can be inefficient.
+
 **2. Using the lookup_table_item API**
 ```
 const findLookupById = (id) => state.data.filter((i) => i.data_type_id === id);
@@ -280,7 +281,7 @@ state.medications = findLookupById("medications_table_id");
 - Useful for OpenFn workflows requiring multiple lookup tables.
 **Cons:**
 - Retrieves all lookup tables and filters them in-memory, which can be inefficient if only a few tables are needed.
-- 
+  
 #### Best Practices
 - Use the Fixture API when fetching only a few lookup tables.
 - Use the lookup_table_item API for cases where multiple lookup tables are needed at once.
@@ -311,4 +312,4 @@ CommCare has different APIs for reading vs. modifying data. Some helpful links:
 - MiracleFeet (CommCare-to-Salesforce sync):
   https://github.com/OpenFn/miracle-feet
 - Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
-- myAgrto (CommCare-Salesforce): https://github.com/OpenFn/myagro-commcare-sf
+- myAgro (CommCare-Salesforce): https://github.com/OpenFn/myagro-commcare-sf
