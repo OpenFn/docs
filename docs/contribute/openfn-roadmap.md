@@ -66,8 +66,8 @@ mission critical feature requests.
 We encourage you to join our weekly product updates where we present what's new
 and coming next. It's also a good opportunity for you to ask us questions about
 OpenFn. The call holds every Friday at 11 AM GMT (London)
-[here](https://meet.google.com/ene-mbbn-mdo) -
-(https://meet.google.com/ene-mbbn-mdo). You can also
+[here](https://meet.google.com/vaw-qvfq-mru) -
+(https://meet.google.com/vaw-qvfq-mru). You can also
 [add our events to your calendar](https://calendar.google.com/calendar/u/0?cid=Y182Y2Y4NWY0NjlhNWVlMzA4NzEwMWE5MWNhYmRjZTRkMDZlZDU1OGY1OTM3ZGUzNTQ0NWNkYmQ2NDFhMDY3MGFjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)
 so you never miss out on our demos, webinars, and product updates.
 
