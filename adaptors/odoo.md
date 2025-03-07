@@ -10,9 +10,11 @@ title: Odoo Adaptor
 
 Odoo supports two primary integration options with OpenFn:
 
-**1. Rest API:** Odoo offers a REST API that enables external applications to interact with its services. This option is ideal for applications requiring scheduled or bulk synchronization with Odoo. Refer to the Odoo REST API [documentation](https://www.odoo.com/documentation/16.0/developer/api/external_api.html) for detailed guidelines on endpoints and payload formats.
+**1. Direct DB Connection:** This is what _this_ adaptor supports to directly connect to your Odoo database. 
 
-**2. Webhook:** Webhook or Data Forwarding to push data from Odoo to external systems ([see docs](https://www.odoo.com/documentation/16.0/developer/reference/webhooks.html)). This option is suited for real-time, event-based data integration.
+**2. Rest API:** Odoo offers a REST API that enables external applications to interact with its services, but this is a *paid option/may require an additional plugin*. This option is ideal for applications requiring scheduled or bulk synchronization with Odoo. Refer to the Odoo REST API [documentation](https://www.odoo.com/documentation/16.0/developer/api/external_api.html) for detailed guidelines on endpoints and payload formats.
+
+**3. Webhook:** Webhook or Data Forwarding to push data from Odoo to external systems ([see docs](https://www.odoo.com/documentation/16.0/developer/reference/webhooks.html)). This option is suited for real-time, event-based data integration.
 
 ## Authentication
 1. See [Odoo docs](https://www.odoo.com/documentation/16.0/developer/misc/api/odoo.html) for the latest on supported authentication methods.
