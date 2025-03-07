@@ -34,9 +34,5 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 2. [Event Webhooks](https://documentation.mailgun.com/en/latest/api-events.html#event-webhooks)
 3. [Support and Community](https://help.mailgun.com/)
 
-### Implementation Examples
-
-1. [Women for Women International - Committed Giving <> Salesforce Integration](https://github.com/OpenFn/women-for-women?tab=readme-ov-file#email-alerts)
-
 
 
