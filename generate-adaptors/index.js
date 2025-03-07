@@ -209,7 +209,6 @@ async function buildAdaptors(monorepoPath) {
   console.log('Generating adaptors docs via JSDoc...');
   adaptors.map(a => {
     if (!a.name) {
-      console.warn('WARNING: No name for ', a);
       return;
     }
 
