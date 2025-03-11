@@ -32,7 +32,8 @@ To create a new Project, follow the following steps:
 :::info For cloud hosted users on app.openfn.org
 
 1. Projects in a billing account should have unique names.
-2. New projects CANNOT be on a free plan.
+2. Users each get one free starter project. To create a new project you'll need
+   to have a valid payment method and select a plan.
 
 :::
 
