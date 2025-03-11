@@ -101,7 +101,7 @@ limit of some other connected system.
 
 :::info
 
-Please check to ensure that your parallel execution is not disabled for your
+Please check to make sure that your parallel execution is not disabled for your
 project as it will override the workflow level concurrency limit.
 
 :::
