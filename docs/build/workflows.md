@@ -37,10 +37,12 @@ more steps into one step or to skip some steps:
 
 ![Merging](/img/workflow_builder_merging.gif)
 
-:::note 
-Looping workflows are not supported so you have to connect paths to
-downstream steps. When using branching and skipping paths, you can use edge
-conditions like with any other step. 
+:::note LOOPING WORKFLOWS ARE NOT SUPPORTED
+
+Looping workflows are not supported so you have to connect paths to downstream
+steps. When using branching and skipping paths, you can use edge conditions like
+with any other step.
+
 :::
 
 ## Run Workflows
@@ -65,8 +67,8 @@ To "turn off" or disable a Workflow:
 
 ## Limit Concurrency
 
-Workflow **concurrency** is the number pf runs will be allowed for a given
-workflow **_at the same time_**. In OpenFn, project administrators and editors
+Workflow **concurrency** is the number of runs that will be allowed for a given
+workflow **_at the same time_**. In OpenFn, project owners and administrators
 are able to limit the maximum number of the runs that can be executed at the
 same time for a workflow. You might do this to ensure "one at a time" serial
 processing or to keep a fast OpenFn workflow from overwhelming the API rate
@@ -74,12 +76,8 @@ limit of some other connected system.
 
 :::info
 
-Note that this setting allows administrators to _limit_ the maximum concurrency
-for a workflow, but the **global maximum** (i.e., the highest concurrency that
-can be reached if a workflow is _not_ limited by a project administrator) will
-be controlled by your OpenFn instance superuser. This global maximum will be
-determined by the computing power and throughput made available to your
-installation.
+Please check to ensure that your parallel execution is not disabled for your
+project as it will override the workflow level concurrency limit.
 
 :::
 
@@ -110,6 +108,7 @@ canvas.
 3. Click save.
 
 ![Configuring Concurrency](/img/configuring-concurrency.png)
+
 
 ## Keyboard Shortcuts
 
