@@ -37,10 +37,12 @@ more steps into one step or to skip some steps:
 
 ![Merging](/img/workflow_builder_merging.gif)
 
-:::note 
-Looping workflows are not supported so you have to connect paths to
-downstream steps. When using branching and skipping paths, you can use edge
-conditions like with any other step. 
+:::note Looping is not supported
+
+Looping workflows are not supported so you have to connect paths to downstream
+steps. When using branching and skipping paths, you can use edge conditions like
+with any other step.
+
 :::
 
 ## Run Workflows
@@ -52,21 +54,46 @@ workflow manually.
 
 <iframe width="784" height="441" src="https://www.youtube.com/embed/dssixE3Sukc?si=n3Jpdiu_aiBLXuHb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
-## Turn off or disable Workflows
+:::info
 
-To "turn off" or disable a Workflow:
+Please note that workflows are disabled by default. When you are ready to have
+your workflow running, you have to manually enable the workflow.
 
-1. Open the Workflow
-2. Click on the Trigger
-3. Select the **Disable this trigger** checkbox
-4. Select **Save** to save your changes and turn off / disable your workflow
+:::
 
-![disable-wf](/img/disable-wf.png)
+### Enabling or Disabling a Workflow
+
+There are two ways to disable or enable a workflow in your OpenFn project:
+
+1. via the workflow state toggle
+2. via the workflow trigger
+
+#### Via the workflow state toggle
+
+You can enable or disable your workflow by using the toggle button located on
+the corresponding row in the project workflows list or the toggle on the
+navigation bar in the workflow canvas.
+
+The screenshot below shows an enabled workflow in the workflow list.
+
+![Via the workflow list](/img/workflow_list_toggle.png)
+
+The screenshot below shows a disabled workflow in the workflow canvas.
+
+![Via the workflow canvas](/img/workflow_canvas_toggle.png)
+
+#### Via the workflow trigger
+
+To enable or disable a workflow via the workflow trigger, select the trigger
+icon on the canvas and use the toggle in the configuration panel to toggle the
+workflow state.
+
+![Enabled workflow in the trigger panel](/img/via-trigger-panel.png)
 
 ## Limit Concurrency
 
-Workflow **concurrency** is the number pf runs will be allowed for a given
-workflow **_at the same time_**. In OpenFn, project administrators and editors
+Workflow **concurrency** is the number of runs that will be allowed for a given
+workflow **_at the same time_**. In OpenFn, project owners and administrators
 are able to limit the maximum number of the runs that can be executed at the
 same time for a workflow. You might do this to ensure "one at a time" serial
 processing or to keep a fast OpenFn workflow from overwhelming the API rate
@@ -74,12 +101,8 @@ limit of some other connected system.
 
 :::info
 
-Note that this setting allows administrators to _limit_ the maximum concurrency
-for a workflow, but the **global maximum** (i.e., the highest concurrency that
-can be reached if a workflow is _not_ limited by a project administrator) will
-be controlled by your OpenFn instance superuser. This global maximum will be
-determined by the computing power and throughput made available to your
-installation.
+Please check to make sure that your parallel execution is not disabled for your
+project as it will override the workflow level concurrency limit.
 
 :::
 
@@ -110,6 +133,18 @@ canvas.
 3. Click save.
 
 ![Configuring Concurrency](/img/configuring-concurrency.png)
+
+### Log Outputs
+
+For data security and compliance purposes, the log output of a workflow run can
+be configured to disable logging `console.log()` statements. This can be done
+via the workflow configuration modal by a project owner or administrator.
+
+1. Click on the settings icon.
+2. In the modal, toggle the Allow console.log() usage switch to disable logging
+   `console.log()` statements. By default, this is enabled.
+
+![Configuring Log Outputs](/img/configuring-log-outputs.png)
 
 ## Keyboard Shortcuts
 
