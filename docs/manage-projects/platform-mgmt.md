@@ -47,3 +47,29 @@ sidebar). Setup allows you to view or edit the project name and description.
 You can also export your entire project "as code" - either to save it, or to
 edit your project locally. You can learn more about this feature on our
 [Portability page](/documentation/deploy/portability).
+
+## Managing Project Concurrency
+
+OpenFn supports concurrent runs of workflows and projects. This means that multiple runs of
+the same workflow or project can be executed at the same time, provided they are
+configured to run in parallel.
+
+To manage project concurrency, you can use the `Concurrency` section in the
+project settings.
+
+![Project Concurrency](/img/configuring-project-concurrency.png)
+
+You can enable or disable parallel execution for a project. When parallel
+execution is disabled, only one run of a workflow in the project can be
+executed at a time.
+
+:::info Project vs workflow level concurrency
+
+Project level concurrency overrides workflow level concurrency. This means that
+if parallel execution is disabled for a project, workflow concurrency settings
+will be ignored.
+
+:::
+
+
+
