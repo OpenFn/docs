@@ -84,7 +84,7 @@ The screenshot below shows a disabled workflow in the workflow canvas.
 
 #### Via the workflow trigger
 
-To disable or disable a workflow via the workflow trigger, select the trigger
+To enable or disable a workflow via the workflow trigger, select the trigger
 icon on the canvas and use the toggle in the configuration panel to toggle the
 workflow state.
 
