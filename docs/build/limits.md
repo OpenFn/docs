@@ -5,7 +5,7 @@ title: Limits
 OpenFn cloud hosted instance has a number of limits that help ensure smooth
 operation. This page details what those limits are and how they can be adjusted.
 
-| Feature                     | Description                                                  | OSS          | Free    | Core   | Growth  | Scale     | Unlimited |
+| Feature                     | Description                                                  | Open Source  | Free    | Core   | Growth  | Scale     | Unlimited |
 | --------------------------- | ------------------------------------------------------------ | ------------ | ------- | ------ | ------- | --------- | --------- |
 | Runs                        | Maximum number of runs allowed per month                     | Unlimited    | 100     | 2,000  | 5,000   | 10,000    | Unlimited |
 | Workflow Execution Duration | Maximum time a workflow can run before being killed          | Configurable | 60 secs | 5 mins | 20 mins | 30 mins   | 30 mins   |
