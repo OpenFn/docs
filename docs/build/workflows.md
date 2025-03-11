@@ -142,7 +142,8 @@ via the workflow configuration modal by a project owner or administrator.
 
 1. Click on the settings icon beside the save button on your workflow to open
    the workflow settings
-2. In the modal, enter the maximum concurrency limit
+2. In the modal, toggle the Allow console.log() usage switch to disable logging
+   `console.log()` statements. By default, this is enabled.
 
 ![Configuring Log Outputs](/img/configuring-log-outputs.png)
 
