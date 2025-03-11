@@ -11,8 +11,9 @@ contains their Workflows, Credentials and Collaborators scoped to that project.
 
 We introduced a `Projects` table in `v2.7.14` to help users manage their OpenFn
 projects in a table view. This is the new page that you'll see everytime your
-login to your OpenFn account. When users click `Projects` in the menu sidebar, 
-you will see the list of projects where you have been granted collaborator access.
+login to your OpenFn account. When users click `Projects` in the menu sidebar,
+you will see the list of projects where you have been granted collaborator
+access.
 
 ![Project Table](/img/projects-table.png)
 
@@ -31,7 +32,7 @@ To create a new Project, follow the following steps:
 :::info For cloud hosted users on app.openfn.org
 
 1. Projects in a billing account should have unique names.
-2. New projects CANNOT be on a free plan. 
+2. New projects CANNOT be on a free plan.
 
 :::
 
@@ -50,9 +51,9 @@ edit your project locally. You can learn more about this feature on our
 
 ## Managing Project Concurrency
 
-OpenFn supports concurrent runs of workflows and projects. This means that multiple runs of
-the same workflow or project can be executed at the same time, provided they are
-configured to run in parallel.
+OpenFn supports concurrent runs of workflows and projects. This means that
+multiple runs of the same workflow or project can be executed at the same time,
+provided they are configured to run in parallel.
 
 To manage project concurrency, you can use the `Concurrency` section in the
 project settings.
@@ -60,8 +61,8 @@ project settings.
 ![Project Concurrency](/img/configuring-project-concurrency.png)
 
 You can enable or disable parallel execution for a project. When parallel
-execution is disabled, only one run of a workflow in the project can be
-executed at a time.
+execution is disabled, only one run of a workflow in the project can be executed
+at a time.
 
 :::info Project vs workflow level concurrency
 
@@ -70,6 +71,3 @@ if parallel execution is disabled for a project, workflow concurrency settings
 will be ignored.
 
 :::
-
-
-
