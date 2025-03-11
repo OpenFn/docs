@@ -161,13 +161,13 @@ databases, and even raw data files, enabling interoperability with any
 information system ([read more](/adaptors/)). Adaptors, alongside OpenFn's
 workflow engine, enable automated workflows that cut across digital systems.
 
-|                        **ID**                        | **Adaptor**      | **Status** | **Timeline** |  **Δ**   | **Description**                                                                                                                                          |
-| :--------------------------------------------------: | :--------------- | :--------: | :----------: | :------: | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  [947](https://github.com/OpenFn/adaptors/pull/947)  | Africa's Talking |  Tracked   |    Q1'25     | ✨ (new) | Allow users to be automate SMS workflows across Africa via Africas Talking.                                                                              |
-|                          -                           | OCL              |  Tracked   |    Q1'25     |          | To ensure that mappings stored in [OCL](https://openconceptlab.org/) can be more easily access and processed as inputs in OpenFn/Lightning workflows     |
-| [737](https://github.com/OpenFn/adaptors/issues/737) | MOSIP 🆕         |  Tracked   |    Q1'25     |          | Add a [MOSIP](https://mosip.io/#1) adaptor that enables users to integrate with MOSIP for identity management use cases across countries.                |
-| [736](https://github.com/OpenFn/adaptors/issues/736) | OpenCRVS 🆕      |  Tracked   |    Q1'25     |          | Add an [OpenCRVS](https://www.opencrvs.org/) adaptor.                                                                                                    |
-| [738](https://github.com/OpenFn/adaptors/issues/738) | ArcGIS 🆕        |  Tracked   |    Q1'25     |          | Add an [ArcGIS](https://www.arcgis.com/) adaptor for users to build workflow that manage data sync between source and online maps with OpenFn Workflows. |
+|                        **ID**                        | **Adaptor**      | **Status** | **Timeline** | **Δ** | **Description**                                                                                                                                          |
+| :--------------------------------------------------: | :--------------- | :--------: | :----------: | :---: | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  [947](https://github.com/OpenFn/adaptors/pull/947)  | Africa's Talking |  Tracked   |    Q1'25     |       | Allow users to be automate SMS workflows across Africa via Africas Talking.                                                                              |
+|                          -                           | OCL              |  Tracked   |    Q1'25     |       | To ensure that mappings stored in [OCL](https://openconceptlab.org/) can be more easily access and processed as inputs in OpenFn/Lightning workflows     |
+| [737](https://github.com/OpenFn/adaptors/issues/737) | MOSIP 🆕         |  Tracked   |    Q1'25     |       | Add a [MOSIP](https://mosip.io/#1) adaptor that enables users to integrate with MOSIP for identity management use cases across countries.                |
+| [736](https://github.com/OpenFn/adaptors/issues/736) | OpenCRVS 🆕      |  Tracked   |    Q1'25     |       | Add an [OpenCRVS](https://www.opencrvs.org/) adaptor.                                                                                                    |
+| [738](https://github.com/OpenFn/adaptors/issues/738) | ArcGIS 🆕        |  Tracked   |    Q1'25     |       | Add an [ArcGIS](https://www.arcgis.com/) adaptor for users to build workflow that manage data sync between source and online maps with OpenFn Workflows. |
 
 ### Docs Roadmap
 
