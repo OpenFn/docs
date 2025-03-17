@@ -33,7 +33,9 @@ by following the
 [upgrade plan instructions](/documentation/hosted/overview#upgrading-your-subscription).
 
 For custom limits or upgrades in dedicated deployments, contact
-enterprise@openfn.org. :::
+enterprise@openfn.org. 
+
+:::
 
 ## Workflow execution duration (1 hour)
 
