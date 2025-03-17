@@ -297,6 +297,8 @@ If some tables are throwing errors when being fetched using the fixtures API, th
 
 - [Case management overview](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955170/Case+Management+Overview)
 - [Form and case data in CommCare](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954460/Metadata+Glossary)
+- [CommCare Lookup tables](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955074/Lookup+Tables)
+- [Lookup table APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143957320/Lookup+Table+API)
 
 ### CommCare API Docs
 
