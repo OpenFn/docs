@@ -3,7 +3,12 @@ title: Limits
 ---
 
 OpenFn cloud hosted instance has a number of limits that help ensure smooth
-operation. This page details what those limits are and how they can be adjusted.
+operation. The table below shows the limits for different plans. For a more
+detailed list of limits, see the
+[OpenFn pricing page](https://openfn.org/pricing). For self hosted instances,
+these limits are configurable. See the
+[deployment guide](https://openfn.github.io/lightning/deployment.html#limits)
+for more details.
 
 | Feature                     | Description                                                  | DPG          | Free    | Core   | Growth  | Scale     | Unlimited |
 | --------------------------- | ------------------------------------------------------------ | ------------ | ------- | ------ | ------- | --------- | --------- |
@@ -15,19 +20,20 @@ operation. This page details what those limits are and how they can be adjusted.
 | Data Collections (Storage)  | Maximum storage for data collections                         | Configurable | 1MB     | 5MB    | 10MB    | 50MB      | 50MB      |
 | Data Collections (Number)   | Maximum number of data collections per project               | Configurable | 2       | 5      | 10      | Unlimited | Unlimited |
 | Concurrency Control         | Allowing users to control concurrency limits for the project | Configurable | Yes     | Yes    | Yes     | Yes       | Yes       |
-| Workflow concurrency limit  | Maximum workflow runs that can be executed in parallel       | Configurable | N/A     | N/A    | N/A     | N/A       | N/A       |
-| Project concurrency limit   | Maximum project runs that can be executed in parallel.       | Configurable | N/A     | N/A    | N/A     | N/A       | N/A       |
 
-:::tip Increasing limits
+<!--
+To add this back in the future
+| Workflow concurrency limit  | Maximum workflow runs that can be executed in parallel       | Configurable | N/A     | N/A    | N/A     | N/A       | N/A       |
+| Project concurrency limit   | Maximum project runs that can be executed in parallel.       | Configurable | N/A     | N/A    | N/A     | N/A       | N/A       | -->
+
+:::tip Increasing limits for cloud hosted and managed instances
 
 For standard plans, you can increase your limits by upgrading to a higher plan
 by following the
 [upgrade plan instructions](/documentation/hosted/overview#upgrading-your-subscription).
 
 For custom limits or upgrades in dedicated deployments, contact
-enterprise@openfn.org.
-
-:::
+enterprise@openfn.org. :::
 
 ## Workflow execution duration (1 hour)
 
