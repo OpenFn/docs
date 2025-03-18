@@ -5,6 +5,11 @@
     "name": "Bulk upload obat lookup-table"
   },
   {
+    "expressionPath": "jobs/commcare-create-user",
+    "adaptor": "commcare",
+    "name": "Create user"
+  },
+  {
     "expressionPath": "jobs/getKoboData",
     "adaptor": "http",
     "adaptor_version": "v3.1.7",
