@@ -62,6 +62,16 @@
     "name": "Create SMS linked to contact"
   },
   {
+    "expressionPath": "jobs/satusehat-create-bundle",
+    "adaptor": "satusehat",
+    "name": "Create a Bundle record"
+  },
+  {
+    "expressionPath": "jobs/satusehat-create-encounter",
+    "adaptor": "satusehat",
+    "name": "Create an Encounter record"
+  },
+  {
     "expressionPath": "jobs/DHIS2-DataValues-API",
     "adaptor": "dhis2",
     "name": "Create data values"
