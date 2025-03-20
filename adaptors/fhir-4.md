@@ -2,17 +2,28 @@
 title: FHIR r4 Adaptor
 ---
 
-Language support for FHIR version 4. This adaptor is compatible with any FHIR r4
+Language support for FHIR version 4. This adaptor is compatible with any FHIR R4
 compliant server.
 
 The FHIR 4 adaptor is implemented in TypeScript and comes complete with full
 TypeScript definitions.
+
+:::tip
+
+This adaptor is strictly only compatible with
+[FHIR R4](https://www.hl7.org/fhir/R4). But all versions are supported by our
+[generic fhir](/adaptors/fhir) adaptor!
+
+:::
 
 ## About FHIR
 
 [FHIR](https://www.hl7.org/fhir/overview.html) stands for Fast Healthcare
 Interoperability Resources. It is a standard for representing and exchanging
 healthcare data electronically.
+
+Learn more about FHIR and
+[FHIR for heath data exchange](/documentation/get-started/standards#fhir-for-health-data-exchange)
 
 ## Authentication
 
