@@ -23,7 +23,7 @@ Interoperability Resources. It is a standard for representing and exchanging
 healthcare data electronically.
 
 Learn more about FHIR and
-[FHIR for heath data exchange](/documentation/get-started/standards#fhir-for-health-data-exchange)
+[FHIR for heath data exchange](/documentation/get-started/standards#fhir-for-health-data-exchange).
 
 ## Authentication
 
