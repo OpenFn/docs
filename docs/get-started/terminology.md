@@ -45,6 +45,13 @@ Workflows are the **"what to do"** part of automation!
 
 :::
 
+A workflow is a structured sequence of tasks, processes, or actions that are
+executed automatically based on predefined rules, triggers, and logic.
+
+When working with AI, workflows provide the structured execution needed to turn
+LLM insights into real-world actions, while AI agents enable more dynamic
+decision-making within workflows.
+
 A Workflow is a collection of a Trigger, Steps, Paths, and custom logic
 connected together to automate a specific business process or task. A Workflow
 is configured via the Canvas in the web app, or locally (via code).

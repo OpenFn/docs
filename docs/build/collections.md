@@ -4,7 +4,9 @@ sidebar_label: Collections
 ---
 
 Collections provides a high-volume, high-performance storage solution built into
-OpenFn.
+OpenFn. Check out
+**[this video](https://www.youtube.com/watch?v=iXkkkzratzY&t=3s&ab_channel=OpenFn.org)**
+for an introduction.
 
 Collections is suitable for buffering, caching and aggregating data from
 Webhooks, storing large mapping files, and sharing state between workflows.
@@ -65,8 +67,8 @@ You can use the Collections API with any adaptor.
 
 :::
 
-Data is stored as key-value pairs, where the key is a unique identifier for
-some data (like a UUID, or timestamp). The value is always saved as a string
+Data is stored as key-value pairs, where the key is a unique identifier for some
+data (like a UUID, or timestamp). The value is always saved as a string
 (although you can pass JSON-compatible objects directly, which will be
 automatically serialized by the Collections API).
 
@@ -142,7 +144,9 @@ collections.each(
 );
 ```
 
-Values are uploaded to a collection through `collections.set`. All sets are "upserts" - meaning that new keys will be created for values that don't exist, and values will be updated for keys that _do_ exist. 
+Values are uploaded to a collection through `collections.set`. All sets are
+"upserts" - meaning that new keys will be created for values that don't exist,
+and values will be updated for keys that _do_ exist.
 
 The example below sets a single item:
 
