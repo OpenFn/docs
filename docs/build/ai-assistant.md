@@ -4,25 +4,26 @@ sidebar_label: AI Assistant
 ---
 
 The OpenFn AI Assistant provides a chat interface with an AI Model to help you
-build workflows.
+build workflows. **Check out [this video](https://www.youtube.com/watch?v=3L_cGl9tWRc&ab_channel=OpenFn.org) for an introduction on how it works.**
 
 You can use it to draft, proofread and debug job code, diagnose errors, and
 understand the capabilities of the platform.
 
-![AI Assistant](/img/ai-assistant.png)
+:::caution Assistant Unavailable? Can't find it?
 
-:::caution Assistant Unavailable? Can't find it? 
-
-For local deployments of OpenFn, the instance administrator needs to configure the AI
-Assistant before it is available. See
+For local deployments of OpenFn, the instance administrator needs to configure
+the AI Assistant before it is available. See
 [deployment docs](https://github.com/OpenFn/lightning/blob/main/DEPLOYMENT.md#ai-chat)
 here for help or contact the super user of your instance.
 
 The Assistant is available on app.openfn.org, with usage credits subject your
-project's plan. See [openfn.org/pricing](https://www.openfn.org/pricing) or contact [support@openfn.org](mailto:support@openfn.org) 
-for more information on paid plans for usage of OpenFn's cloud-hosted platform.
+project's plan. See [openfn.org/pricing](https://www.openfn.org/pricing) or
+contact [support@openfn.org](mailto:support@openfn.org) for more information on
+paid plans for usage of OpenFn's cloud-hosted platform.
 
 :::
+
+![AI Assistant](/img/ai-assistant.png)
 
 ## About the Assistant
 
@@ -36,8 +37,8 @@ versions of the assistant may be rolled out to other pages.
 All chat sessions are shared between all users of the project. You can start a
 new chat session at any time, or open an old one.
 
-Input data and run-time job logs not sent to the model. But we do include
-your step code so that the Assistant can provide a contextually relevant answer.
+Input data and run-time job logs not sent to the model. But we do include your
+step code so that the Assistant can provide a contextually relevant answer.
 
 ## A Note on Responsible AI Usage
 
@@ -68,9 +69,10 @@ You can close a chat session by clicking the `(X)` button on the top right of
 the chat interface, which will take you back to the list of sessions for this
 step.
 
-:::caution Feedback or Questions about the Assistant?  
+:::caution Feedback or Questions about the Assistant?
 
-We welcome your questions or feedback on [community.openfn.org](https://community.openfn.org/), 
-or contact [support@openfn.org](mailto:support@openfn.org) with private queries. 
+We welcome your questions or feedback on
+[community.openfn.org](https://community.openfn.org/), or contact
+[support@openfn.org](mailto:support@openfn.org) with private queries.
 
 :::
