@@ -45,14 +45,20 @@ Workflows are the **"what to do"** part of automation!
 
 :::
 
+A workflow is a structured sequence of tasks, processes, or actions that are executed automatically based on predefined rules, triggers, and logic.
+
+When working with AI, workflows provide the structured execution needed to turn LLM insights into real-world actions, while AI agents enable more dynamic decision-making within workflows.
+
 A Workflow is a collection of a Trigger, Steps, Paths, and custom logic
 connected together to automate a specific business process or task. A Workflow
 is configured via the Canvas in the web app, or locally (via code).
 
+Wor
+
 OpenFn automation centers around [Workflows](/documentation/build/workflows),
 which may have one or multiple Steps. Workflows can be run in real-time (based
 on an event -e.g., new patient registration), on a scheduled basis (e.g., every
-day at 8am), or manually on-demand.
+day at 8am), or manually on-demand. 
 
 Think of workflow as a set of instructions you might give a staff member (e.g.,
 please create a new Patient record in OpenMRS when a form containing a newly
@@ -290,3 +296,4 @@ a connected case management app:
   }
 }
 ```
+
