@@ -62,12 +62,12 @@
     "name": "Create SMS linked to contact"
   },
   {
-    "expressionPath": "jobs/satusehat-create-bundle",
+    "expressionPath": "jobs/satusehat-update-encounter",
     "adaptor": "satusehat",
     "name": "Create a Bundle record"
   },
   {
-    "expressionPath": "jobs/satusehat-create-encounter",
+    "expressionPath": "jobs/satusehat-create-medication",
     "adaptor": "satusehat",
     "name": "Create an Encounter record"
   },
