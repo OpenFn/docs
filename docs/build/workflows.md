@@ -141,8 +141,8 @@ be configured to disable logging `console.log()` statements. This can be done
 via the workflow configuration modal by a project owner or administrator.
 
 1. Click on the settings icon.
-2. In the modal, toggle the Allow console.log() usage switch to disable logging
-   `console.log()` statements. By default, this is enabled.
+2. In the modal, toggle the **Allow `console.log()` usage** switch to disable
+   logging `console.log()` statements. By default, this is enabled.
 
 ![Configuring Log Outputs](/img/configuring-log-outputs.png)
 
