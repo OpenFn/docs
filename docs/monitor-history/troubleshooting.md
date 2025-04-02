@@ -1,6 +1,13 @@
 ---
-title: Run Logs & Troubleshooting
-sidebar_label: Run Logs & Troubleshooting
+title: Logs & Troubleshooting
+sidebar_label: Logs & Troubleshooting
+keywords:
+  - runs
+  - logs
+  - log levels
+  - status codes
+  - exit codes
+  - troubleshooting
 ---
 
 This page provides troubleshooting tips for _OpenFn v2 platform_ users.
