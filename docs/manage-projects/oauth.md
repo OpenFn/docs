@@ -63,8 +63,8 @@ application. (Note: You should substitue `https://app.openfn.org/` with _your_
 OpenFn's deployment base URL if you're not using app.openfn.org.)
 
 For app-specific guidance (e.g., how to set up an Oauth Client
-[for Google Sheets](./adaptors/googlesheets)), refer to the relevant
-[Adaptor documentation](./adaptors) for app-specific guidance
+[for Google Sheets](../adaptors/googlesheets)), refer to the relevant
+[Adaptor documentation](../adaptors) for app-specific guidance
 
 :::
 
