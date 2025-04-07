@@ -1,38 +1,26 @@
 // Create a medication from visit data and lookup table
 
-function generateUUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
-    const r = (Math.random() * 16) | 0;
-    const v = c === 'x' ? r : (r & 0x3) | 0x8;
-    return v.toString(16);
-  });
-}
+fn(state => {
+  // state.visit is a Commcare Visit record
+  const properties = state.visit.properties;
+  const medicineKeys = extractMedicineKeys(properties);
 
-fnIf(
-  !state.errors &&
-    state.visit.properties['prescription_1'] &&
-    state.visit.properties['prescription_1'].length > 0,
-  state => {
-    const properties = state.visit.properties;
-    const medicineKeys = extractMedicineKeys(properties);
+  const obatList = state.lookup_table.obat;
 
-    const obatList = state.lookup_table.obat;
+  state.medicationSatusehatId = [];
 
-    state.medicationSatusehatId = [];
-    console.log({ medicineKeys });
+  // Map medication data for each relevant key
+  state.medicationMappedData = mapMedications(
+    medicineKeys,
+    properties,
+    obatList, // obatList is the lookup table from Commcare
+    state,
+    util
+  );
 
-    // Map medication data for each relevant key
-    state.medicationMappedData = mapMedications(
-      medicineKeys,
-      properties,
-      obatList,
-      state
-    );
-
-    console.log(`${state.medicationMappedData.length} Medications created`);
-    return state;
-  }
-);
+  console.log(`${state.medicationMappedData.length} Medications created`);
+  return state;
+});
 
 // Function to extract the relevant medicine keys
 function extractMedicineKeys(properties) {
@@ -46,7 +34,7 @@ function extractMedicineKeys(properties) {
 }
 
 // Function to map the medications to FHIR Medication resource format
-function mapMedications(medicineKeys, properties, obatList, state) {
+function mapMedications(medicineKeys, properties, obatList, state, util) {
   return medicineKeys
     .flatMap(medicineKey => {
       const medicineName = properties[medicineKey];
@@ -64,7 +52,7 @@ function mapMedications(medicineKeys, properties, obatList, state) {
         return null;
       } else {
         // Create a new Medication resource if no satusehat_id exists
-        state.medicationId = generateUUID();
+        state.medicationId = util.uuid();
         state.medicationSatusehatId.push({
           [`prescription_${state.medicationSatusehatId.length + 1}`]:
             state.medicationId,
@@ -125,10 +113,3 @@ function createMedicationResource(item, medicationId) {
     },
   };
 }
-// Update the bundle with the new medication data
-collections.get('fhir-bundles', `*${$.bundleName}`);
-collections.set('fhir-bundles', item => item.id, {
-  id: $.bundleName,
-  entry: [...$.data?.[0].value.entry, ...$.medicationMappedData],
-  steps: [...$.data?.[0].value.steps, 'Medication'],
-});
