@@ -64,12 +64,22 @@
   {
     "expressionPath": "jobs/satusehat-update-encounter",
     "adaptor": "satusehat",
-    "name": "Create a Bundle record"
+    "name": "Update an Encounter Record"
+  },
+  {
+    "expressionPath": "jobs/satusehat-create-encounter",
+    "adaptor": "satusehat",
+    "name": "Create an Encounter Record"
+  },
+  {
+    "expressionPath": "jobs/satusehat-create-observations",
+    "adaptor": "satusehat",
+    "name": "Create an Observation"
   },
   {
     "expressionPath": "jobs/satusehat-create-medication",
     "adaptor": "satusehat",
-    "name": "Create an Encounter record"
+    "name": "Create a Medication Record"
   },
   {
     "expressionPath": "jobs/DHIS2-DataValues-API",
