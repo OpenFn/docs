@@ -38,95 +38,93 @@ fn(state => {
    * Filters and maps observations based on the visit.
    */
   function mapObservations(state) {
-    return state.visit.observations
-      .map(item => {
-        const { value_type: valueType, value } = item;
-        const dataObjects = [];
+    return state.visit.observations.map(item => {
+      const { value_type: valueType, value } = item;
+      const dataObjects = [];
 
-        if (valueType === 'valueCodeableConcept') {
-          value.forEach(value => {
-            const result = {
-              [valueType]: {
-                coding: [JSON.parse(value.snomed_code)],
-                value: JSON.parse(value.value),
-              },
-            };
-            const data = createObservationData(
-              { ...item, id: value.id },
-              state,
-              result
-            );
-            dataObjects.push(data);
-          });
-        } else if (valueType === 'valueQuantity') {
-          const result = {
-            [valueType]: {
-              coding: [JSON.parse(value.snomed_code)],
-              value: parseFloat(value.value),
-            },
-          };
-          const data = createObservationData(
-            { ...item, id: value.id },
-            state,
-            result
-          );
-          dataObjects.push(data);
-        } else if (valueType === 'valueInteger') {
-          const result = {
-            [valueType]: {
-              coding: [JSON.parse(value.snomed_code)],
-              value: Number(JSON.parse(value.value)),
-            },
-          };
-          const data = createObservationData(
-            { ...item, id: value.id },
-            state,
-            result
-          );
-          dataObjects.push(data);
-        } else if (valueType === 'valueDateTime') {
-          const result = {
-            [valueType]: {
-              coding: [JSON.parse(value.snomed_code)],
-              value: new Date(JSON.parse(value.value)).toISOString(),
-            },
-          };
-          const data = createObservationData(
-            { ...item, id: value.id },
-            state,
-            result
-          );
-          dataObjects.push(data);
-        } else if (valueType === 'valueBoolean') {
-          const result = {
-            [valueType]: {
-              coding: [JSON.parse(value.snomed_code)],
-              value: JSON.parse(value.value) === 'never' ? false : true,
-            },
-          };
-          const data = createObservationData(
-            { ...item, id: value.id },
-            state,
-            result
-          );
-          dataObjects.push(data);
-        } else {
+      if (valueType === 'valueCodeableConcept') {
+        value.forEach(value => {
           const result = {
             [valueType]: {
               coding: [JSON.parse(value.snomed_code)],
               value: JSON.parse(value.value),
             },
           };
+          const data = createObservationData(
+            { ...item, id: value.id },
+            state,
+            result
+          );
+          dataObjects.push(data);
+        });
+      } else if (valueType === 'valueQuantity') {
+        const result = {
+          [valueType]: {
+            coding: [JSON.parse(value.snomed_code)],
+            value: parseFloat(value.value),
+          },
+        };
+        const data = createObservationData(
+          { ...item, id: value.id },
+          state,
+          result
+        );
+        dataObjects.push(data);
+      } else if (valueType === 'valueInteger') {
+        const result = {
+          [valueType]: {
+            coding: [JSON.parse(value.snomed_code)],
+            value: Number(JSON.parse(value.value)),
+          },
+        };
+        const data = createObservationData(
+          { ...item, id: value.id },
+          state,
+          result
+        );
+        dataObjects.push(data);
+      } else if (valueType === 'valueDateTime') {
+        const result = {
+          [valueType]: {
+            coding: [JSON.parse(value.snomed_code)],
+            value: new Date(JSON.parse(value.value)).toISOString(),
+          },
+        };
+        const data = createObservationData(
+          { ...item, id: value.id },
+          state,
+          result
+        );
+        dataObjects.push(data);
+      } else if (valueType === 'valueBoolean') {
+        const result = {
+          [valueType]: {
+            coding: [JSON.parse(value.snomed_code)],
+            value: JSON.parse(value.value) === 'never' ? false : true,
+          },
+        };
+        const data = createObservationData(
+          { ...item, id: value.id },
+          state,
+          result
+        );
+        dataObjects.push(data);
+      } else {
+        const result = {
+          [valueType]: {
+            coding: [JSON.parse(value.snomed_code)],
+            value: JSON.parse(value.value),
+          },
+        };
 
-          if (result) {
-            const data = createObservationData(item, state, result);
-            dataObjects.push(data);
-          }
+        if (result) {
+          const data = createObservationData(item, state, result);
+          dataObjects.push(data);
         }
+      }
 
-        return dataObjects;
-      })
-      .filter(data => data !== null);
+      return dataObjects;
+    });
   }
 
   state.observationMappedData = mapObservations(state);
