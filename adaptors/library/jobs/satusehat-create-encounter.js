@@ -95,6 +95,7 @@ fn(state => {
 post('Encounter', $.encounterMapping);
 
 fn(state => {
+    // Storing the encounter resources in state
   state.encounterData = state.data;
   return state;
 });
