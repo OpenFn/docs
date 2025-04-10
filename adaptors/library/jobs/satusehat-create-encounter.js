@@ -1,7 +1,6 @@
 // Create an encounter in Satusehat
 
 fn(state => {
-  state.organizationId = state.visit.organizationId;
   state.encounterId = util.uuid();
 
   state.encounterMapping = {
@@ -9,7 +8,7 @@ fn(state => {
     resourceType: 'Encounter',
     identifier: [
       {
-        system: `http://sys-ids.kemkes.go.id/encounter/${state.organizationId}`,
+        system: `http://sys-ids.kemkes.go.id/encounter/${state.visit.organizationId}`,
         value: state.visit.case_id,
       },
     ],
@@ -21,7 +20,6 @@ fn(state => {
     },
     subject: {
       reference: 'Patient/P00805884304',
-
       display: 'Elizabeth Dior',
     },
     participant: [
@@ -87,7 +85,7 @@ fn(state => {
       },
     ],
     serviceProvider: {
-      reference: `Organization/${state.organizationId}`,
+      reference: `Organization/${state.visit.organizationId}`,
     },
   };
 
