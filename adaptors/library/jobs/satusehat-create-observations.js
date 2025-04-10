@@ -35,7 +35,7 @@ fn(state => {
   }
 
   /**
-   * Filters and maps observations based on the state and available lookup data.
+   * Filters and maps observations based on the visit.
    */
   function mapObservations(state) {
     return state.visit.observations
