@@ -92,13 +92,22 @@ succeeded, you should see:
 
 ## 3. Configure another Step to transform the data & import your GoogleSheet
 
-Configure an Oauth Client with Google openid using your Google account's email. You can configure it 
-via Project Settings Credentials or on your Credentials via profile menu. 
-The required endpoints for the Google Oauth Client you find it [here](https://accounts.google.com/.well-known/openid-configuration).  
-For mandatory scopes use "openid email profile" (without quotes) and on optional scopes add https://www.googleapis.com/auth/spreadsheets. Make sure your Google user has edit access to the GoogleSheet used on the job.
+Create a new Googlesheet `Credential` using your Google account's email. (Make
+sure this Google user has edit access to the GoogleSheet you want to integrate
+with.)
 
-For this demo, we have created a Googlesheet
-[like this](https://docs.google.com/spreadsheets/d/1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc/edit?usp=sharing) to store the `users` data.
+:::info Don't see a GoogleSheets credential option?
+
+If your instance superuser hasn't configured a global Oauth client, you may need
+to set one up for yourself. Learn about Oauth Clients
+[here](/documentation/oauth#oauth-clients) and specifics for a GoogleSheet
+Client [here](/adaptors/googlesheets#permissions-scopes).
+
+:::
+
+For this demo, we configured the Googlesheet
+[like this](https://docs.google.com/spreadsheets/d/1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc/edit?usp=sharing)
+to store the `users` data.
 
 Create a new step with the `googlesheet` adaptor for loading the users data into
 your destination GoogleSheet. Configure the step with the following options
