@@ -96,7 +96,16 @@ Create a new Googlesheet `Credential` using your Google account's email. (Make
 sure this Google user has edit access to the GoogleSheet you want to integrate
 with.)
 
-For this demo, we have configured the Googlesheet
+:::info Don't see a GoogleSheets credential option?
+
+If your instance superuser hasn't configured a global Oauth client, you may need
+to set one up for yourself. Learn about Oauth Clients
+[here](/documentation/oauth#oauth-clients) and specifics for a GoogleSheet
+Client [here](/adaptors/googlesheets#permissions-scopes).
+
+:::
+
+For this demo, we configured the Googlesheet
 [like this](https://docs.google.com/spreadsheets/d/1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc/edit?usp=sharing)
 to store the `users` data.
 
