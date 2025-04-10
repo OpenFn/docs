@@ -128,7 +128,7 @@ assumptions about what you want to do.
 
 The operations in the `http` namespace are simpler, lower-level helpers and work
 more like curl or postman. They'll do exactly what you ask for them. They'll
-handle authorisation for you but won't paginate or prepend anything to the
+handle authorization for you but won't paginate or prepend anything to the
 requested path.
 
 To request a single page of concepts, you can do:
