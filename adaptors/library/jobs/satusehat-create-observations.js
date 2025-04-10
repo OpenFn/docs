@@ -2,9 +2,7 @@
 
 fn(state => {
   function createObservationData(item, state, result) {
-    const patientReference = `Patient/${
-      state.patient.ihs_number ?? state.patient.properties.ihs_number
-    }`;
+    const patientReference = `Patient/${state.patient.ihs_number}`;
     const encounterReference = `Encounter/${state.encounterId}`;
     const encounterDisplay = `${state.patient.full_name}'s ${state.visit.properties.visit_type} on ${state.visit.properties.visit_date}`;
     return {
