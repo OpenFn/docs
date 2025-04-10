@@ -62,9 +62,9 @@
     "name": "Create SMS linked to contact"
   },
   {
-    "expressionPath": "jobs/satusehat-update-encounter",
+    "expressionPath": "jobs/satusehat-create-condition",
     "adaptor": "satusehat",
-    "name": "Update an Encounter Record"
+    "name": "Create a condition Record"
   },
   {
     "expressionPath": "jobs/satusehat-create-encounter",
