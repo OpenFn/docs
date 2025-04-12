@@ -24,21 +24,20 @@ See our main website to learn more about OpenFn
 
 ## OpenFn and data storage
 
-In your digital ecosystem, **OpenFn serves as a data processing and transfer
+In your digital ecosystem, typically **OpenFn serves as a data processing and transfer
 solution—not as a data storage service.**
 
 As an open source Digital Public Good, OpenFn can be deployed anywhere and
-Workflows can be configured to adhere to your organization's specific data
+workflows can be configured to adhere to your organization's specific data
 sharing agreements and security policies.
 
 Consult the `Manage Projects` docs pages for more on project and
 [data storage settings](../manage-projects/io-data-storage.md).
 
-See the below diagram for an example architecture where even the cloud-hosted
-OpenFn platform can be configured as a **“zero-persistence” data pipeline** to
+See the below diagram for an example architecture where even the OpenFn Cloud can be configured as a **“zero-persistence” data pipeline** to
 ensure compliance with data security and residency requirements. This enables
 partners to rapidly configure and pilot projects using the turnkey OpenFn
 cloud-hosted platform, before migrating to a local deployment when they’re ready
 to scale.
 
-![Sample Architecture](/img/zero_persistence_architecture.png)
+![Sample Architecture](/img/zero-persistence.png)
