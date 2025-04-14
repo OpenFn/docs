@@ -1,4 +1,4 @@
-// Create a diagnosis in satusehat
+// Map diagnosis objects from commcare into Condition resources
 
 fn(state => {
   state.conditions = state.visit.diagnosis.flatMap(diagnosis =>

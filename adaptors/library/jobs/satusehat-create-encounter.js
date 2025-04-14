@@ -3,7 +3,7 @@
 fn(state => {
   state.encounterId = util.uuid();
 
-  state.encounterMapping = {
+  state.encounter = {
     id: state.encounterId,
     resourceType: 'Encounter',
     identifier: [
@@ -92,10 +92,10 @@ fn(state => {
   return state;
 });
 
-post('Encounter', $.encounterMapping);
+post('Encounter', $.encounter);
 
 fn(state => {
     // Storing the encounter resources in state
-  state.encounterData = state.data;
+  state.encounter = state.data;
   return state;
 });
