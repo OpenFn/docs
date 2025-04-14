@@ -1,78 +1,23 @@
-// Create a medication from visit data and lookup table
+// Create medication in Satusehat based on an incoming Commcare visit
 
 fn(state => {
   // state.visit is a Commcare Visit record
   const properties = state.visit.properties;
-  const medicineKeys = extractMedicineKeys(properties);
-
-  const obatList = state.lookup_table.obat;
-
-  state.medicationSatusehatId = [];
-
-  // Map medication data for each relevant key
-  state.medicationMappedData = mapMedications(
-    medicineKeys,
-    properties,
-    obatList, // obatList is the lookup table from Commcare
-    state,
-    util
-  );
-
-  console.log(`${state.medicationMappedData.length} Medications created`);
-  return state;
-});
-
-// Function to extract the relevant medicine keys
-function extractMedicineKeys(properties) {
-  return Object.keys(properties).filter(
+  const medicineKeys = Object.keys(properties).filter(
     key =>
       key.startsWith('prescription_') &&
       !key.includes('_amount') &&
       !key.includes('_instruction') &&
       !key.includes('_dose')
   );
-}
 
-// Function to map the medications to FHIR Medication resource format
-function mapMedications(medicineKeys, properties, obatList, state, util) {
-  return medicineKeys
-    .flatMap(medicineKey => {
-      const medicineName = properties[medicineKey];
+  const medicationId = util.uuid();
 
-      // Filter obat list to find matching medicine by name
-      return obatList.filter(item => item.fields['Nama'] === medicineName);
-    })
-    .map(item => {
-      if (item.fields.satusehat_id) {
-        // If satusehat_id is present, add to medicationSatusehatId array
-        state.medicationSatusehatId.push({
-          [`prescription_${state.medicationSatusehatId.length + 1}`]:
-            item.fields.satusehat_id,
-        });
-        return null;
-      } else {
-        // Create a new Medication resource if no satusehat_id exists
-        state.medicationId = util.uuid();
-        state.medicationSatusehatId.push({
-          [`prescription_${state.medicationSatusehatId.length + 1}`]:
-            state.medicationId,
-        });
-        return createMedicationResource(item, state.medicationId);
-      }
-    })
-    .filter(data => data !== null);
-}
-
-function createMedicationResource(item, medicationId) {
-  return {
-    fullUrl: `urn:uuid:${medicationId}`,
-    request: {
-      method: 'POST',
-      url: 'Medication',
-    },
-    resource: {
+  // Map medication data for each relevant key
+  state.medication = medicineKeys.map(item => {
+    return {
       resourceType: 'Medication',
-      id: state => state.medicationId,
+      id: state => medicationId,
       meta: {
         profile: [
           'https://fhir.kemkes.go.id/r4/StructureDefinition/Medication',
@@ -80,7 +25,7 @@ function createMedicationResource(item, medicationId) {
       },
       identifier: [
         {
-          system: `http://sys-ids.kemkes.go.id/medication/${state.asri_satusehat_id}`,
+          system: `http://sys-ids.kemkes.go.id/medication/${state.visit.satusehatId}`,
           use: 'usual',
           value: item.fields['Nama'],
         },
@@ -110,6 +55,17 @@ function createMedicationResource(item, medicationId) {
           },
         },
       ],
-    },
-  };
-}
+    };
+  });
+
+  return state;
+});
+
+// Post our medication resources to Satusehat
+post('Medication', $.medication);
+
+fn(state => {
+  //  Store the newly created resources, created by the server, into state for the next step
+  state.medication = state.data;
+  return state;
+});

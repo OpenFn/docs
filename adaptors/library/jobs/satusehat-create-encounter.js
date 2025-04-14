@@ -1,4 +1,4 @@
-// Create an encounter in Satusehat
+// Create an encounter in Satusehat based on an incoming Commcare visit
 
 fn(state => {
   state.encounterId = util.uuid();
@@ -92,10 +92,11 @@ fn(state => {
   return state;
 });
 
+// Post our encounter resources to Satusehat
 post('Encounter', $.encounter);
 
 fn(state => {
-    // Storing the encounter resources in state
+  //  Store the newly created resources, created by the server, into state for the next step
   state.encounter = state.data;
   return state;
 });
