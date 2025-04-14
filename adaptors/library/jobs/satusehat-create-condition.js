@@ -1,7 +1,7 @@
 // Create a diagnosis in satusehat
 
 fn(state => {
-  state.conditionMappedData = state.visit.diagnosis.flatMap(diagnosis =>
+  state.conditions = state.visit.diagnosis.flatMap(diagnosis =>
     state.lookup_table.dentist_diagnosis
       .filter(item => diagnosis === item.fields.name)
       .map(item => {
@@ -88,10 +88,10 @@ fn(state => {
   return state;
 });
 
-post('Condition', $.conditionMappedData);
+post('Condition', $.conditions);
 
 fn(state => {
   // Storing the condition resources in state
-  state.conditionMappedData = state.data;
+  state.conditions = state.data;
   return state;
 });
