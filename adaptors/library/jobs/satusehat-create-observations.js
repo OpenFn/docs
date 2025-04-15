@@ -57,8 +57,8 @@ fn(state => {
     } else if (valueType === 'valueQuantity') {
       const result = {
         [valueType]: {
-          coding: [JSON.parse(value.snomed_code)],
-          value: parseFloat(value.value),
+          coding: [value.snomed_code],
+          value: value.value,
         },
       };
       const data = createObservationData(
@@ -70,8 +70,8 @@ fn(state => {
     } else if (valueType === 'valueInteger') {
       const result = {
         [valueType]: {
-          coding: [JSON.parse(value.snomed_code)],
-          value: Number(JSON.parse(value.value)),
+          coding: value.snomed_code,
+          value: value.value,
         },
       };
       const data = createObservationData(
@@ -109,8 +109,8 @@ fn(state => {
     } else {
       const result = {
         [valueType]: {
-          coding: [JSON.parse(value.snomed_code)],
-          value: JSON.parse(value.value),
+          coding: [value.snomed_code],
+          value: value.value,
         },
       };
 
