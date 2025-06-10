@@ -90,6 +90,10 @@ workflow state.
 
 ### Manual Runs
 
+Check out the video for a quick overview.
+
+<iframe width="784" height="441" src="https://www.youtube.com/embed/dKMtT1QKl-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
 You can run a workflow manually in three ways:
 
 #### With an empty input (this is the default behavior)
