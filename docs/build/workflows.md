@@ -47,12 +47,10 @@ with any other step.
 
 ## Run Workflows
 
-To run a Workflow, you can either activate the Trigger (e.g., send a request to
-the Webhook Event Trigger's URL, or wait for the cron timer to be activated), or
-run your workflow manually. Check out the video below for how to run your
-workflow manually.
-
-<iframe width="784" height="441" src="https://www.youtube.com/embed/dssixE3Sukc?si=n3Jpdiu_aiBLXuHb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+Workflows will run automatically when they are "enabled"—i.e., when their
+trigger is turned on. A webhook trigger will run your workflow whenever a
+request is received at that trigger's URL, and a cron trigger will run a
+workflow whenever its cron schedule matches the current time.
 
 :::info
 
@@ -89,6 +87,25 @@ icon on the canvas and use the toggle in the configuration panel to toggle the
 workflow state.
 
 ![Enabled workflow in the trigger panel](/img/via-trigger-panel.png)
+
+### Manual Runs
+
+You can run a workflow manually in three ways:
+
+#### With an empty input (this is the default behavior)
+
+![Empty Input](/img/empty.png)
+
+#### With a custom input (you can type, copy/paste, or import a file with valid JSON)
+
+![Custom Input](/img/custom.png)
+
+#### With an existing input
+
+![Existing Input](/img/existing.png)
+
+Note that the available existing inputs are only those that have been used to
+run this particular step before.
 
 ## Limit Concurrency
 
