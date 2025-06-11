@@ -24,7 +24,7 @@ Learn more about Collections and common use cases in the
 :::caution
 
 Collections must be created in the
-[Platform Admin page](https:\/\/docs.openfn.org/documentation/build/collections#managing-collections)
+[Platform Admin page](/documentation/build/collections#managing-collections)
 before they can be used.
 
 :::
@@ -83,7 +83,7 @@ under a given key:
 ```js
 collections.set('my-collection', 'commcare-fhir-value-mappings', {
   current_smoker: {
-    system: 'http:\/\/snomed.info/sct',
+    system: 'http://snomed.info/sct',
     code: '77176002',
     display: 'Smoker',
   },
