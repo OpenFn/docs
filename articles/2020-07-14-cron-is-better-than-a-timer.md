@@ -1,9 +1,7 @@
 ---
 layout: post
 title: 'Product News: Enhanced Scheduled/Periodic Job Control'
-author: Taylor Downs
-author_url: https://github.com/taylordowns2000
-author_image_url: https://avatars.githubusercontent.com/taylordowns2000
+authors: taylor
 tags: [annoucement, tips]
 featured: false
 ---

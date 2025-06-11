@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Improving Multistage Docker Builds using Buildx
-author: Stuart Corbishley
-author_url: https://github.com/stuartc
-author_image_url: https://avatars.githubusercontent.com/stuartc
+authors: stu
 tags: [how-to, docker, ci/cd]
 featured: true
 ---

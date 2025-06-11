@@ -2,9 +2,7 @@
 layout: post
 title:
   'Workflow Automation; Why do it yourself when a program can do it for you?'
-author: Alexa de Vegvar
-author_url: https://github.com/alexadevegvar
-author_image_url: https://avatars.githubusercontent.com/alexadevegvar
+authors: alexa
 tags: [automation, solution]
 image: https://user-images.githubusercontent.com/105651463/172341536-ebde5ca0-12b8-4a8a-bb40-da9442701df3.png
 featured: false

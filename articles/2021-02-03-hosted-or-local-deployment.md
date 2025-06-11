@@ -1,9 +1,7 @@
 ---
 layout: post
 title: 'Our Servers or Yours: Thinking through deployment options'
-author: Jed Goldstein
-author_url: https://github.com/jedbgold
-author_image_url: https://avatars.githubusercontent.com/jedbgold
+authors: jed
 tags: [how-to, tips]
 featured: true
 ---

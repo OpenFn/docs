@@ -1,9 +1,7 @@
 ---
 layout: post
 title: 'Allow Yourself to Fail'
-author: Taylor Downs
-author_url: https://github.com/taylordowns2000
-author_image_url: https://avatars.githubusercontent.com/taylordowns2000
+authors: taylor
 tags: [how-to, tips]
 featured: false
 ---

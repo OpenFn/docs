@@ -1,9 +1,7 @@
 ---
 layout: post
 title: 'Tracked entity instances in DHIS2'
-author: Taylor Downs
-author_url: https://github.com/taylordowns2000
-author_image_url: https://avatars.githubusercontent.com/taylordowns2000
+authors: taylor
 tags: [how-to, tips]
 featured: true
 ---

@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Testing a React app, the blurred line between Unit, integration and E2E
-author: Chaiwa Berian
-author_url: https://github.com/chaiwa-berian
-author_image_url: https://avatars.githubusercontent.com/u/7937584?v=4
+authors: chaiwa
 tags: [how-to, tips, testing, browser-testing, react, elixir]
 
 featured: true
