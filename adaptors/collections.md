@@ -24,7 +24,7 @@ Learn more about Collections and common use cases in the
 :::caution
 
 Collections must be created in the
-[Platform Admin page](https://docs.openfn.org/documentation/build/collections#managing-collections)
+[Platform Admin page](https:\/\/docs.openfn.org/documentation/build/collections#managing-collections)
 before they can be used.
 
 :::
@@ -83,7 +83,7 @@ under a given key:
 ```js
 collections.set('my-collection', 'commcare-fhir-value-mappings', {
   current_smoker: {
-    system: 'http://snomed.info/sct',
+    system: 'http:\/\/snomed.info/sct',
     code: '77176002',
     display: 'Smoker',
   },
@@ -184,7 +184,7 @@ collections.get('my-collection', 'commcare-fhir-value-mappings').then(state => {
   state.mappings = state.data;
   return state;
 });
-collecions.each($.inputs, state => {
+collections.each($.inputs, state => {
   const mappedString = state.mappings[state.data.diagnosis];
   state.resources ??= {};
   state.resources[state.data.id] = mappedString;
@@ -238,7 +238,7 @@ collections.each(
 
 You can use `createdBefore` and `createdAfter` dates, which must be ISO 1806
 formatted strings. The `createdBefore` timestamp will match all dates less than
-or equal to (<=) the _start_ of the provided date. Conversely, `createdAfter`
+or equal to (&lt;=) the _start_ of the provided date. Conversely, `createdAfter`
 will match dates greater than or equal to the _end_ of the provided date.
 
 By default, all matching values will be returned to you, but you can limit how

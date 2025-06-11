@@ -56,58 +56,61 @@ openfn test
 The word `openfn` will invoke the CLI. The word `test` will invoke the test
 command.
 
-<details><summary>Expand to see the expected output.</summary>
+<details>
+<summary>Expand to see the expected output.</summary>
 
-    [CLI] ♦ Versions:
-         ▸ node.js     18.12.1
-         ▸ cli         1.0.0
-    [CLI] ℹ Running test workflow...
+```
+[CLI] ♦ Versions:
+     ▸ node.js     18.12.1
+     ▸ cli         1.0.0
+[CLI] ℹ Running test workflow...
 
-    [CLI] ℹ Execution plan:
-    [CLI] ℹ {
-    "options": {
-        "start": "start"
-    },
-    "workflow": {
-        "steps": [
-        {
-            "id": "start",
-            "state": {
-            "data": {
-                "defaultAnswer": 42
-            }
-            },
-            "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
-            "next": {
-            "calculate": "!state.error"
-            }
-        },
-        {
-            "id": "calculate",
-            "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
-            "next": {
-            "result": true
-            }
-        },
-        {
-            "id": "result",
-            "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
+[CLI] ℹ Execution plan:
+[CLI] ℹ {
+"options": {
+    "start": "start"
+},
+"workflow": {
+    "steps": [
+    {
+        "id": "start",
+        "state": {
+        "data": {
+            "defaultAnswer": 42
         }
-        ]
+        },
+        "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
+        "next": {
+        "calculate": "!state.error"
+        }
+    },
+    {
+        "id": "calculate",
+        "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
+        "next": {
+        "result": true
+        }
+    },
+    {
+        "id": "result",
+        "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
     }
-    }
+    ]
+}
+}
 
-    [CLI] ✔ Compiled all expressions in workflow
-    [R/T] ℹ Executing undefined
-    [R/T] ℹ Starting step start
-    [JOB] ℹ Starting computer...
-    [R/T] ✔ Completed step start in 1ms
-    [R/T] ℹ Starting step calculate
-    [JOB] ℹ Calculating to life, the universe, and everything..
-    [R/T] ✔ Completed step calculate in 1ms
-    [R/T] ℹ Starting step result
-    [R/T] ✔ Completed step result in 0ms
-    [CLI] ✔ Result: 42
+[CLI] ✔ Compiled all expressions in workflow
+[R/T] ℹ Executing undefined
+[R/T] ℹ Starting step start
+[JOB] ℹ Starting computer...
+[R/T] ✔ Completed step start in 1ms
+[R/T] ℹ Starting step calculate
+[JOB] ℹ Calculating to life, the universe, and everything..
+[R/T] ✔ Completed step calculate in 1ms
+[R/T] ℹ Starting step result
+[R/T] ✔ Completed step result in 0ms
+[CLI] ✔ Result: 42
+```
 
 </details>
 

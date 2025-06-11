@@ -48,9 +48,9 @@ about it [over here](https://blog.openfn.org/allow-yourself-to-fail/).
 Please don’t hesitate to reach out to one of OpenFn’s implementation specialists
 if you’d like to learn more.
 
-— Taylor
+-- Taylor
 
-[Sign up](https://openfn.org/signup){: .btn} to set up a project today,
+[Sign up](https://openfn.org/signup) to set up a project today,
 absolutely free.
 
-[Reach out](mailto:admin@openfn.org){: .btn} for more information.
+[Reach out](mailto:admin@openfn.org) for more information.

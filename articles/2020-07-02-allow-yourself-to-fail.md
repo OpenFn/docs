@@ -46,7 +46,7 @@ upsert('my_table', 'some_unique_id', {
 
 For an operation to be idempotent means that it can be repeated time and time
 again without producing an unintended result. This is SUPER important for
-creating S3 (**S**ecure, **S**table and **S**calable—more on that
+creating S3 (**S**ecure, **S**table and **S**calable--more on that
 [here](https://openfn.org/trust)) integrations because it provides you with two
 "get-out-of-jail-free" cards.
 
@@ -66,9 +66,9 @@ So... when clients let me mess around with their jobs, I _always_ recommend we
 design for idempotence. It's common sense when you're passing messages between
 two different systems that are bound to evolve, go offline, have a bad day, etc
 
-— Taylor
+-- Taylor
 
-[Sign up](https://openfn.org/signup){: .btn} to set up a project today,
+[Sign up](https://openfn.org/signup) to set up a project today,
 absolutely free.
 
-[Reach out](mailto:admin@openfn.org){: .btn} for more information.
+[Reach out](mailto:admin@openfn.org) for more information.
