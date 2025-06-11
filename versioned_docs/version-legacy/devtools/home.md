@@ -4,10 +4,9 @@ title: Devtools
 
 :::caution Devtools is deprecated
 
-Please note that [OpenFn/devtools](https:\/\/github.com/OpenFn/devtools) are being
-deprecated and replaced by [OpenFn/cli](../cli.md). Learn more about
-CLI
-[github.com/OpenFn/cli/](https:\/\/github.com/OpenFn/kit/tree/main/packages/cli)
+Please note that [OpenFn/devtools](https://github.com/OpenFn/devtools) are being
+deprecated and replaced by [OpenFn/cli](../cli.md). Learn more about CLI
+[github.com/OpenFn/cli/](https://github.com/OpenFn/kit/tree/main/packages/cli)
 
 :::
 
@@ -18,20 +17,21 @@ or Lightning.
 
 :::info Are you a developer?
 
-The [Devtools](https:\/\/github.com/OpenFn/devtools) repo is a collection of bash
+The [Devtools](https://github.com/OpenFn/devtools) repo is a collection of bash
 and Node scripts, as well as a _suggested_ (but not necessary) directory
 structure for working with OpenFn jobs and adaptors.
 
-To run OpenFn jobs locally, you only need [Core](https:\/\/github.com/OpenFn/core) and at
-least one adaptor, e.g. [language-http](https:\/\/github.com/OpenFn/language-http)
-and you may prefer to install core globally via `npm install -g @openfn/core`
+To run OpenFn jobs locally, you only need [Core](https://github.com/OpenFn/core)
+and at least one adaptor, e.g.
+[language-http](https://github.com/OpenFn/language-http) and you may prefer to
+install core globally via `npm install -g @openfn/core`
 
 :::
 
 ## Up and running
 
-1. Install [git](https:\/\/git-scm.com/downloads) and
-   [Node.js](https:\/\/nodejs.org/en/download/) (version 14 or greater)
+1. Install [git](https://git-scm.com/downloads) and
+   [Node.js](https://nodejs.org/en/download/) (version 14 or greater)
 
 2. Clone and install devtools to setup core, language-common, and language-http
    using either SSH or HTTPS:
@@ -176,7 +176,7 @@ export or `openfn pull` the project as code) but you can also run
 `./scripts/generate-project.js` helps you build a project config YAML
 interactively, adding your triggers, credentials and jobs to the config. You can
 read more about the config file
-[here](https:\/\/openfn.github.io/microservice/readme.html#sample-configuration)
+[here](https://openfn.github.io/microservice/readme.html#sample-configuration)
 
 If you choose `monolith` mode, all your job code will be included in the YAML.
 In `URI` mode, you’ll get a config file with URI-s to your defined jobs.
@@ -185,7 +185,7 @@ In `URI` mode, you’ll get a config file with URI-s to your defined jobs.
 
 ## Pre-Requisites
 
-1. [Node](https:\/\/nodejs.org/en/download/) is required to run jobs and use many
+1. [Node](https://nodejs.org/en/download/) is required to run jobs and use many
    of the scripts in Devtools (e.g., `npm run build` is required after changes
    to adaptors).
 
@@ -232,7 +232,7 @@ creates a doclet json file in the `doclets` directory.
 ### analyse-doclets
 
 Iterates overs all doclets found in `doclets` and gives a tree view of the
-doclet structure using [jsdoc-query](https:\/\/github.com/OpenFn/jsdoc-query).
+doclet structure using [jsdoc-query](https://github.com/OpenFn/jsdoc-query).
 
 ## Building adaptors for platform
 
@@ -250,9 +250,9 @@ Here's how to build and release adaptors:
    Container**.
 2. After the build is finished, open a terminal in vscode and run
    `openfn-devtools release .` to build, tag, and push to
-   [npm](https:\/\/www.npmjs.com/).
+   [npm](https://www.npmjs.com/).
 3. Run `openfn-devtools package-release .` to package everything with production
-   dependencies and push to [GitHub](https:\/\/github.com/openfn).
+   dependencies and push to [GitHub](https://github.com/openfn).
 
 Depending on how you've configured your local environment and your VSCode
 installation, you might encounter access issues preventing connections to NPM
@@ -286,7 +286,7 @@ permission denied (publickey)
 :::
 
 To solve this, first make sure the `ssh agent` is
-[up and running](https:\/\/code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container).
+[up and running](https://code.visualstudio.com/docs/remote/containers#_sharing-git-credentials-with-your-container).
 In MacOS, it is running by default. On Linux you can start the agent using the
 command
 
@@ -344,7 +344,7 @@ check it if it's unchecked.
 ### GitHub token sharing
 
 Our release process relies on a `GH_TOKEN` variable. Set up an
-[access token](https:\/\/docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
+[access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 in GitHub.
 
 In your `~/.bash_profile` or `~/.zshrc` file, export the newly created token by

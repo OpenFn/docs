@@ -150,7 +150,7 @@ The input state looks like this:
 
 On the platform, when a Run is triggered by a cron job, the input state will the
 final output state of the **last succesful run** for this workflow. This allows
-each subsequent run to _know_ about previous runs--i.e., you can pass information
+each subsequent run to _know_ about previous runs—i.e., you can pass information
 from one run to another even if they happen days apart.
 
 ```js
