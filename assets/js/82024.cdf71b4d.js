@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_openfn_docs=self.webpackChunk_openfn_docs||[]).push([[82024],{82024:(e,c,s)=>{s.d(c,{createArchitectureServices:()=>n.S});var n=s(98815);s(73579)}}]);
