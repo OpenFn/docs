@@ -60,40 +60,42 @@ state controls what is output by the run at the end of all of these operations.
 Best practice is to include a final state cleanup step that removes any data
 that should not persist between runs or be output (like PII), for example:
 
-    // get data from a data source
-    get('https://jsonplaceholder.typicode.com/users')
+```js
+// get data from a data source
+get('https://jsonplaceholder.typicode.com/users')
 
-    // store retrieved data in state for use later in job
-    fn(state => {
-        state.users = state.data;
-      return state;
-    });
+// store retrieved data in state for use later in job
+fn(state => {
+    state.users = state.data;
+  return state;
+});
 
-    // get more data from another data source
-    get('https://jsonplaceholder.typicode.com/posts')
+// get more data from another data source
+get('https://jsonplaceholder.typicode.com/posts')
 
-    // store additional retrieved data in state for use later in job
-    fn(state => {
-      state.posts = state.data;
-      return state;
-    });
+// store additional retrieved data in state for use later in job
+fn(state => {
+  state.posts = state.data;
+  return state;
+});
 
-    // compare data
-    fn(state => {
-      if (state.users.length > state.posts.length) {
-        // do something based on the comparison
-      }
-      return state;
-    });
+// compare data
+fn(state => {
+  if (state.users.length > state.posts.length) {
+    // do something based on the comparison
+  }
+  return state;
+});
 
-    // cleanup state at the end before finshing job
-    fn(state => {
-      state.data = null
-      state.users = null
-      state.posts = null
-   
-      return state;
-    });
+// cleanup state at the end before finshing job
+fn(state => {
+  state.data = null
+  state.users = null
+  state.posts = null
+ 
+  return state;
+});
+```
 
 ### Webhook triggered runs
 

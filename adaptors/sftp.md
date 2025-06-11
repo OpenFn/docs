@@ -16,7 +16,7 @@ Using this adaptor, you can read and write files (e.g., `csv`, `xls`, `json` fil
 
 When integrating with a SFTP server via OpenFn, you can provide a `username` and `password` for an authorized user to authenticate. See this adaptor's [Configuration docs](/adaptors/packages/sftp-configuration-schema) for more on the required authentication parameters.
 
-See platform docs on [managing credentials](documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
+See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
 
 ```
 {

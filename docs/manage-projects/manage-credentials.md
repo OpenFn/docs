@@ -65,16 +65,19 @@ Raw credentials are valid JSON documents which are passed into a job's runtime
 state. Note that owners of these credentials will be able to view them, in their
 entirety, in the clear.
 
-Raw credentials will work with any adaptor, so long as that adaptor's required `configuration` keys (e.g., `baseUrl`) are specified in your credential. See the "configuration schema" docs for each adaptor to see what is required for that app. 
+Raw credentials will work with any adaptor, so long as that adaptor's required
+`configuration` keys (e.g., `baseUrl`) are specified in your credential. See the
+"configuration schema" docs for each adaptor to see what is required for that
+app.
 
 :::info Use `Raw JSON` to specify custom credential inputs
 
-Use the `Raw JSON` credential type if you would like to store secrets that
-are not standard inputs in an adaptor's credential form. For example, if my REST
-API requires a `client_id` instead of a `username`, then my `configuration`
-schema might look like the below code snippet. Because `client_id` isn't an
-option in the default `Http` credential form, I can create my own custom credential
-using the `Raw JSON` type.
+Use the `Raw JSON` credential type if you would like to store secrets that are
+not standard inputs in an adaptor's credential form. For example, if my REST API
+requires a `client_id` instead of a `username`, then my `configuration` schema
+might look like the below code snippet. Because `client_id` isn't an option in
+the default `Http` credential form, I can create my own custom credential using
+the `Raw JSON` type.
 
 :::
 

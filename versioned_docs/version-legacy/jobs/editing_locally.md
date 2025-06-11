@@ -6,7 +6,7 @@ To edit jobs, instead of using the OpenFn
 [Job Studio](./job-studio.md) you can also use your favorite text
 editor and make changes offline, committing and pushing to GitHub to deploy to
 your OpenFn using the
-[version control feature](../manage/platform-mgmt.md/#github-version-control).
+[version control feature](/documentation/legacy/manage/platform-mgmt#github-version-control).
 
 First, make sure that version control is set up for your project and the job in
 question. When that's all done, follow the steps below:

@@ -19,7 +19,7 @@ Hubtel supports two primary integration options with OpenFn:
 2. When integrating with Hubtel via OpenFn, authentication via **API Key** is supported.
 3. See this adaptor's [Configuration docs](/adaptors/packages/hubtel-configuration-schema) for more on the required authentication parameters.
 
-See platform docs on [managing credentials](documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
+See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
 
 ```
 {

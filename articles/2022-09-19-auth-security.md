@@ -1,17 +1,15 @@
 ---
 layout: post
 title: 'Secure by design: a roadmap to secure authentication and authorization'
-author: Amber Rignell
-author_url: https://github.com/amberrignell
-author_image_url: https://avatars.githubusercontent.com/amberrignell
+authors: amber
 tags: [security, authentication, authorization]
 image: https://user-images.githubusercontent.com/105651463/172341536-ebde5ca0-12b8-4a8a-bb40-da9442701df3.png
 featured: false
 ---
 
-_In order to ensure that Global Goods and Digital Public Goods can enable impact
+In order to ensure that Global Goods and Digital Public Goods can enable impact
 without doing any harm, it is crucial that their authentication and
-authorization systems are secure from the outset. _
+authorization systems are secure from the outset.
 
 We’ve put together a resource to help other Digital Public Goods and Global
 Goods achieve just this. You can view and comment on the resource
@@ -57,8 +55,8 @@ to implement such security features down the line.
 As product manager at Open Function Group, I myself have recently been reviewing
 and analyzing numerous resources to identify and prioritize features required to
 get to fully-secure authentication and authorization for our newest product
-[Lightning](/documentation#openfn-v2-lightning-/)–and make sure that nothing falls
-through the cracks. I’ve also had the opportunity to gather insights from
+[Lightning](/documentation#openfn-v2-lightning-/)–and make sure that nothing
+falls through the cracks. I’ve also had the opportunity to gather insights from
 Digital Public Good community forums (OpenMRS, DHIS2, OpenLMIS, etc) and speak
 to other product managers and engineers from the Digital Public Goods community
 to ask them about their learnings, and any tips they might have: Austin and

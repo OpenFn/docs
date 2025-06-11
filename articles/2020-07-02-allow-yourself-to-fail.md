@@ -1,9 +1,7 @@
 ---
 layout: post
 title: 'Allow Yourself to Fail'
-author: Taylor Downs
-author_url: https://github.com/taylordowns2000
-author_image_url: https://avatars.githubusercontent.com/taylordowns2000
+authors: taylor
 tags: [how-to, tips]
 featured: false
 ---
@@ -64,11 +62,11 @@ creating S3 (**S**ecure, **S**table and **S**calable—more on that
 
 So... when clients let me mess around with their jobs, I _always_ recommend we
 design for idempotence. It's common sense when you're passing messages between
-two different systems that are bound to evolve, go offline, have a bad day, etc
+two different systems that are bound to evolve, go offline, have a bad day, etc.
 
 — Taylor
 
-[Sign up](https://openfn.org/signup){: .btn} to set up a project today,
-absolutely free.
+[Sign up](https://openfn.org/register) to set up a project today, absolutely
+free.
 
-[Reach out](mailto:admin@openfn.org){: .btn} for more information.
+[Reach out](mailto:admin@openfn.org) for more information.

@@ -26,7 +26,7 @@ You can do many things in sequence with OpenFn, whether using `core`,
 - You update a `cursor` in a series of operations that involve `GET` and `POST`.
   When the `POST` fails, you don't want to update the `cursor` for the
   subsequent job run which contains the `GET`.
-- Your operations don't take too long (<100s in total for `platform`) and you
+- Your operations don't take too long (&lt;100s in total for `platform`) and you
   want to reduce the number of executions.
 
 ### Reasons to post back to the inbox

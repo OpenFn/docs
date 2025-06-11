@@ -29,7 +29,7 @@ When integrating with OpenMRS via OpenFn, **Basic Authentication** is supported.
 The `instanceUrl`, `username` an `password` properties are all required to
 access your OpenMRS instance.
 
-See [Managing Credentials](documentation/manage-projects/manage-credentials) to
+See [Managing Credentials](/documentation/manage-projects/manage-credentials) to
 configure a credential in OpenFn.
 
 If working locally or if using a Raw JSON credential type, then your

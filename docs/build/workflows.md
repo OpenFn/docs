@@ -96,20 +96,24 @@ Check out the video for a quick overview.
 
 You can run a workflow manually in three ways:
 
-#### With an empty input (this is the default behavior)
+#### With an empty input
 
-![Empty Input](/img/empty.png)
+This is the default behavior and the input dataclip for your run will be `{}`.
 
-#### With a custom input (you can type, copy/paste, or import a file with valid JSON)
+<img src="/img/empty.png" width="400" />
 
-![Custom Input](/img/custom.png)
+#### With a custom input
+
+You can type, copy/paste, or import (browse your file system or drag & drop) any
+file with valid JSON.
+
+<img src="/img/custom.png" width="400" />
 
 #### With an existing input
 
-![Existing Input](/img/existing.png)
+You can pick from a list of previous inputs that were used to run this step.
 
-Note that the available existing inputs are only those that have been used to
-run this particular step before.
+<img src="/img/existing.png" width="400" />
 
 ## Limit Concurrency
 

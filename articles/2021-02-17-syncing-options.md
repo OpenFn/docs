@@ -1,9 +1,7 @@
 ---
 layout: post
 title: 'Sync Like You Mean It: Thinking Through System “Syncing” Protocols'
-author: Jed Goldstein
-author_url: https://github.com/jedbgold
-author_image_url: https://avatars.githubusercontent.com/jedbgold
+authors: jed
 tags: [how-to, tips]
 featured: true
 ---

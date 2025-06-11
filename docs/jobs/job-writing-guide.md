@@ -925,7 +925,7 @@ In a cron workflow, OpenFn will pass the previous state into the next state - so
 state persists across runs. We can take advantage of that to pick up where we
 left off.
 
-You can use the [`cursor()`](adaptors/packages/common-docs#cursor) operation,
+You can use the [`cursor()`](/adaptors/packages/common-docs#cursor) operation,
 which is built-in to most adaptors, to make cursor management easier.
 
 <details>
