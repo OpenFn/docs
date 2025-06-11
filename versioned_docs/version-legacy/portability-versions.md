@@ -10,7 +10,7 @@ be used to import or export projects between OpenFn/platform and OpenFn/engine.
 The portability specification v4 defines how entire projects (groups of
 workflows with their associated triggers, credentials and jobs) can be
 represented as code. This specification has been written for
-[Lightning](./getting-started/integration-toolkit.md/#lightning-coming-soon),
+[Lightning](/documentation/legacy/getting-started/integration-toolkit#lightning-coming-soon),
 the fully open source webb app which extends the OpenFn DPG. It aims to (a)
 improve developer experience, allowing them to build and test workflows locally;
 (b) enable version control and an audit trail of project changes; and (c) enable

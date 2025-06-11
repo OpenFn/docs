@@ -60,17 +60,17 @@ fetch all keys which relate to Mr Benn in 2024).
 The Collections API gives you four functions to read, write and remove data from
 a collection.
 
-- Use [`collections.get()`](adaptors/packages/collections-docs#collections_get)
+- Use [`collections.get()`](/adaptors/packages/collections-docs#collections_get)
   to fetch a single value, or batch-download a range of values.
 - Use
-  [`collections.each()`](adaptors/packages/collections-docs#collections_each) to
+  [`collections.each()`](/adaptors/packages/collections-docs#collections_each) to
   efficiently iterate over a range of items in a collection. Recommended for
   large data sets.
-- Use [`collections.set()`](adaptors/packages/collections-docs#collections_set)
+- Use [`collections.set()`](/adaptors/packages/collections-docs#collections_set)
   to upload one or more values to a collection. `set()` is always an "upsert":
   if a key already exists, it's value will be replaced by the new value
 - Use
-  [`collections.remove()`](adaptors/packages/collections-docs#collections_remove)
+  [`collections.remove()`](/adaptors/packages/collections-docs#collections_remove)
   to remove one or more values.
 
 Detailed usage examples are provided below.

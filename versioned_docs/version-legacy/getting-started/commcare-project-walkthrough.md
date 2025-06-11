@@ -9,8 +9,8 @@ title:
   minute!)
 - You have checked out our glossary and have an understanding of basic OpenFn
   and API terminology. Check out the pages below to get started
-  - [OpenFn Concepts](../getting-started/terminology.md)
-  - [A glossary for data integration](../getting-started/glossary.md)
+  - [OpenFn Concepts](/documentation/legacy/getting-started/terminology)
+  - [A glossary for data integration](/documentation/legacy/getting-started/glossary)
 - You have a CommCare application with at least one form configured. This is
   your source system.
 - You have a PostgreSQL database configured. This is your destination system.
@@ -110,7 +110,7 @@ In the credential `JSON Configuration`, add your credential as follows:
 
 :::tip
 
-Check out [this](../getting-started/terminology.md/#inbox) docs page on
+Check out [this](/documentation/legacy/getting-started/terminology#inbox) docs page on
 how to find your OpenFn inbox URL to fill in the configuration above.
 
 :::

@@ -198,14 +198,14 @@ The **four configuration steps** include giving the job a name, defining what
 [authentication](../build/credentials.md) details.
 
 The **expression editor** is the area where you write your
-[job expression](../build/jobs.md/#composing-job-expressions). Fill-in
+[job expression](../build/jobs.md#composing-job-expressions). Fill-in
 all the details, and click on the **Save** icon in the top-right corner to save
 your job's configuration changes.
 
 #### Inspecting job's initial state
 
 This feature allows you to view the
-[initial state](../jobs/state.md/#initial-state) of a selected job.
+[initial state](/documentation/legacy/jobs/state#initial-state) of a selected job.
 Note that this feature is currently only available for
 [message-triggered jobs](../build/triggers.md#message-filter-triggers).
 

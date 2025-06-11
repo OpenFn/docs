@@ -18,7 +18,7 @@ This option is suited for scheduled synchronization or workflows requiring regul
 ## Authentication
 When integrating with OCL via OpenFn, you must provide a username and password to generate an authorization token ([see OCL docs](https://docs.openconceptlab.org/en/latest/oclapi/overview.html#authentication-and-authorization)). See this adaptor's [Configuration docs](/adaptors/packages/ocl-configuration-schema) for more on the required authentication parameters.
 
-See platform docs on [managing credentials](documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
+See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
 
 ```
 {

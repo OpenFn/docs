@@ -139,7 +139,7 @@ snippet comes into your inbox.
 
 Save your trigger. You should see a confirmation message “Found x matching
 messages”. To see the data from your last message inside the
-[initial state](../jobs/state.md), drag the
+[initial state](/documentation/legacy/jobs/state), drag the
 **Expression** panel to the right.
 
 ![trigger message](/img/4.3_trigger_message.png 'View a matching trigger message in initial state')

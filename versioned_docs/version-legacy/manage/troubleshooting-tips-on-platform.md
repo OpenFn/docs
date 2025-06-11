@@ -12,7 +12,7 @@ Currently, this section is specific to **OpenFn/platform**.
 ## Runs
 
 One of the most helpful pages for troubleshooting on OpenFn platform is the
-[Activity History](../getting-started/terminology.md#activity-history).
+[Activity History](/documentation/legacy/getting-started/terminology#activity-history).
 This pages provides a list of all of the runs executed in a project and always
 marks any failed runs red or yellow. Project administrators can troubleshoot
 errors by clicking into the run to review the run details. Keep reading for all
@@ -95,15 +95,15 @@ Leverage the various search functionalities in OpenFn to find the right messages
 and runs to support your troubleshooting. You can search in the Inbox, Activity
 History, and Search Console.
 
-1. **[Inbox](../manage/platform-mgmt.md#inbox)** - The inbox contains
+1. **[Inbox](/documentation/legacy/manage/platform-mgmt#inbox)** - The inbox contains
    all the messages that have been sent to your project. Search your project
    inbox for messages that contain a specific body text. You can also filter
    these messages by date, run status and trigger. You can even use filtering to
    see all the messages whose last run failed, so you can get to
    troubleshooting! Learn more about inbox filtering
-   [here](../manage/platform-mgmt.md#inbox).
+   [here](/documentation/legacy/manage/platform-mgmt#inbox).
 
-2. **[Activity history](../getting-started/terminology.md#activity-history)** -
+2. **[Activity history](/documentation/legacy/getting-started/terminology#activity-history)** -
    As discussed above, the activity history records all runs for the current
    project. It has similar search and filtering capabilities as the inbox except
    it doesn't require valid JSON in the search box. Use the search in activity
