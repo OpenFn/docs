@@ -41,14 +41,14 @@ Because an upsert simultaneously UPDATES and INSERTS, it prevents duplicates.
 Upserts are important and good because they cut down on the risk of duplicate
 data entry and they also allow for transactions to be retried over and over to
 ensure data integrity. That last bit is called “idempotency” and you can read
-about it [over here](https://blog.openfn.org/allow-yourself-to-fail/).
+about it [over here](2020-07-02-allow-yourself-to-fail.md).
 
 Please don’t hesitate to reach out to one of OpenFn’s implementation specialists
 if you’d like to learn more.
 
--- Taylor
+— Taylor
 
-[Sign up](https://openfn.org/signup) to set up a project today,
-absolutely free.
+[Sign up](https://openfn.org/register) to set up a project today, absolutely
+free.
 
 [Reach out](mailto:admin@openfn.org) for more information.

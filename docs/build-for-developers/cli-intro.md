@@ -61,42 +61,40 @@ command.
 
 ```
 [CLI] ♦ Versions:
-     ▸ node.js     18.12.1
-     ▸ cli         1.0.0
+   ▸ node.js     18.12.1
+   ▸ cli         1.0.0
 [CLI] ℹ Running test workflow...
-
 [CLI] ℹ Execution plan:
 [CLI] ℹ {
-"options": {
-    "start": "start"
-},
-"workflow": {
-    "steps": [
-    {
-        "id": "start",
-        "state": {
-        "data": {
+   "options": {
+     "start": "start"
+   },
+   "workflow": {
+     "steps": [
+       {
+          "id": "start",
+          "state": {
+          "data": {
             "defaultAnswer": 42
-        }
-        },
-        "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
-        "next": {
-        "calculate": "!state.error"
-        }
-    },
-    {
-        "id": "calculate",
-        "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
-        "next": {
-        "result": true
-        }
-    },
-    {
-        "id": "result",
-        "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
-    }
-    ]
-}
+          }
+          "expression": "const fn = () => (state) => { console.log('Starting computer...'); return state; }; fn()",
+          "next": {
+            "calculate": "!state.error"
+          }
+       },
+       {
+         "id": "calculate",
+         "expression": "const fn = () => (state) => { console.log('Calculating to life, the universe, and everything..'); return state }; fn()",
+         "next": {
+           "result": true
+         }
+       },
+       {
+         "id": "result",
+         "expression": "const fn = () => (state) => ({ data: { answer: state.data.answer || state.data.defaultAnswer } }); fn()"
+       }
+     ]
+   }
 }
 
 [CLI] ✔ Compiled all expressions in workflow

@@ -62,9 +62,9 @@ creating S3 (**S**ecure, **S**table and **S**calable—more on that
 
 So... when clients let me mess around with their jobs, I _always_ recommend we
 design for idempotence. It's common sense when you're passing messages between
-two different systems that are bound to evolve, go offline, have a bad day, etc
+two different systems that are bound to evolve, go offline, have a bad day, etc.
 
--- Taylor
+— Taylor
 
 [Sign up](https://openfn.org/register) to set up a project today, absolutely
 free.

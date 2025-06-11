@@ -8,10 +8,10 @@ featured: true
 
 OpenFn automation happens via [jobs](/documentation/build/workflows) which
 define specific steps ("operations") that OpenFn should perform. They're written
-in a [scripting language](https://www.openfn.org/core) that runs on top of (and
-has full access to) **Javascript**. A basic understanding of Javascript will
-take your job writing on OpenFn to the next level. To improve my limited
-knowledge of JavaScript, I have been taking Codecademy's
+in a basic scripting language that runs on top of (and has full access to)
+**Javascript**. A basic understanding of Javascript will take your job writing
+on OpenFn to the next level. To improve my limited knowledge of JavaScript, I
+have been taking Codecademy's
 [Introduction to JavaScript Course](https://www.codecademy.com/learn/introduction-to-javascript).
 
 <!--truncate-->
