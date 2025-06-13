@@ -18,6 +18,7 @@
   "dependencies": {
     "@babel/helper-module-transforms": "^7.17.7",
     "@docusaurus/core": "3.8.1",
+    "@docusaurus/plugin-client-redirects": "^3.8.1",
     "@docusaurus/plugin-google-gtag": "3.8.1",
     "@docusaurus/plugin-google-tag-manager": "3.8.1",
     "@docusaurus/preset-classic": "3.8.1",
