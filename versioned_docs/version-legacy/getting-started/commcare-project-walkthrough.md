@@ -171,8 +171,6 @@ get(
 
 6. **Once you are finished configuring and writing your job, save and run it!**
 
-![save_run_job_cc](/img/save_run_job_cc.gif)
-
 7. **Check out the `Activity History` tab to see if your run succeeded.** If it
    succeeded, you should see:
    - Successful run log (look for the green!)
