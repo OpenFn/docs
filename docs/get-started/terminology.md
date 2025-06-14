@@ -169,7 +169,7 @@ OpenMRS, and your system administrator will have been notified that one of those
 patients couldn’t be created (or whatever more robust error-handling you’ve set
 up will take place.)
 
-![Work Order](/img/work_order_shot.png)
+![Work Order](/img/work_order_shot.webp)
 
 :::note
 
@@ -199,7 +199,7 @@ fail, so it needs to be retried to successfully process).
 Runs have start times, end times, logs, and status codes that indicate when they
 took place, what they did, and whether or not they succeeded.
 
-![OpenFn Workflow Canvas](/img/run_view_logs.png)
+![OpenFn Workflow Canvas](/img/run_view_logs.webp)
 
 Imagine that a Workflow is configured to create a new patient in OpenMRS
 whenever a new case is opened in CommCare. Today if 1 patient is created, then:
@@ -222,14 +222,14 @@ activities performed when running a Workflow or specific Step.
 OpenFn developers can control what appears in Logs by editing `console.log(...)`
 statements in the Workflow job expressions of individual Steps.
 
-![Logs](/img/logs_run.png)
+![Logs](/img/logs_run.webp)
 
 ## History
 
 On the platform, the History page provides a list of all of the Work Orders and
 Runs that have been processed in a Project.
 
-![History](/img/case-referral-history.png)
+![History](/img/case-referral-history.webp)
 
 ## Inspector
 
@@ -238,7 +238,7 @@ workflows.
 
 The Inspector has 3 key interfaces: `Input`, `Editor`, & `Output`.
 
-![Inspector](/img/inspector_interfaces.png)
+![Inspector](/img/inspector_interfaces.webp)
 
 ### Input
 

@@ -36,6 +36,7 @@
     "react-flow-renderer": "^9.6.8",
     "react-particles": "^2.5.3",
     "react-player": "^2.9.0",
+    "sharp": "^0.34.2",
     "tsparticles": "^2.5.3"
   },
   "browserslist": {
@@ -59,7 +60,7 @@
     "@types/react-helmet": "^6.1.0",
     "@types/react-router-dom": "^5.1.7",
     "chokidar": "^3.6.0",
-    "glob": "^11.0.2",
+    "glob": "^11.0.3",
     "typescript": "~5.2.2"
   },
   "resolutions": {

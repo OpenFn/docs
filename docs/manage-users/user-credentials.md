@@ -10,15 +10,15 @@ You can manage all the Credentials you own under the `Credentials` page of your 
 
 The `Credentials` page of your `User Settings` allows you to add, view, edit or delete the Credentials you own. It is the central place to manage your Credentials across all projects you collaborate on. 
 
-![User Credential](/img/lightning_user_profile_credentials.png) 
+![User Credential](/img/lightning_user_profile_credentials.webp) 
 
-![User Credentials List](/img/lightning_edit_user_credential.png)
+![User Credentials List](/img/lightning_edit_user_credential.webp)
 
 For guidance on how to set up a new Credential, head over to our [Manage Credentials](../manage-projects/manage-credentials.md) page.
 
 You can update the name and login details of a Credential after clicking `Edit`.
 
-![User Credential Edit View](/img/lightning_cred_edit_view.png)
+![User Credential Edit View](/img/lightning_cred_edit_view.webp)
 
 
 ### Share Credentials
@@ -27,7 +27,7 @@ You can also allow multiple projects to have access to a Credential you own.
 
 To add or remove project access, click `Edit` on the Credential you want to share, and choose the project from the dropdown under `Project Access`.
 
-![Update Project Access](/img/lightning_share_cred_with_project.png)
+![Update Project Access](/img/lightning_share_cred_with_project.webp)
  
 :::info Shared Credentials remain secret
 

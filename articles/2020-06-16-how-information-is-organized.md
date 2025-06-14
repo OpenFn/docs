@@ -59,7 +59,7 @@ technology.
 
 ### Boxes and crow's feet
 
-![](/img/box5.png)
+![](/img/box5.webp)
 
 The box is my favorite. It represents an entity in your data system. Entities
 (like `teachers`) have attributes (like `name`, `phone number`, `date of birth`,
@@ -69,7 +69,7 @@ gender, etc. These are the fields on your teacher entity. By submitting one of
 these forms, you’ll add a new teacher to your database. If you’re an Excel
 person, the attributes are columns in your `teachers` table.
 
-![](/img/crowsfeet2.png)
+![](/img/crowsfeet2.webp)
 
 The crow’s foot is my second favorite. It’s used to show relationships between
 entities. We know that teachers are related to the sessions that they conduct.
@@ -83,7 +83,7 @@ relationship. The crow’s foot (that little three-pronged fella) denotes the
 many. One teacher can have many sessions. One session, however, can only have
 one teacher. See the diagram below.
 
-![](/img/objectmodel3.png)
+![](/img/objectmodel3.webp)
 
 If we focus just on `teacher` and `session` and think back to MS Excel, we can
 envision a `teachers` table and a `sessions` table. Let’s put them on different

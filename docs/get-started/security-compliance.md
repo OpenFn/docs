@@ -40,4 +40,4 @@ partners to rapidly configure and pilot projects using the turnkey OpenFn
 cloud-hosted platform, before migrating to a local deployment when they’re ready
 to scale.
 
-![Sample Architecture](/img/zero-persistence.png)
+![Sample Architecture](/img/zero-persistence.webp)

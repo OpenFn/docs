@@ -34,7 +34,7 @@ To configure your project to use Github sync, follow the following steps:
 2. If you have not already connected your OpenFn user account to GitHub, do so
    by clicking the **"Connect your OpenFn account to GitHub"** button.
 
-![Configure](/img/connect-account-to-github.png)
+![Configure](/img/connect-account-to-github.webp)
 
 3. Choose which GitHub installation to use for your project or follow tip below
    to update your installations.
@@ -56,7 +56,7 @@ To configure your project to use Github sync, follow the following steps:
 4. Choose your preferred repository and branch you'd like to connect your
    project
 
-![Configure](/img/github-options.png)
+![Configure](/img/github-options.webp)
 
 5. **_Optionally_**, if you _first want to sync from GitHub to OpenFn and
    already have config file_, add a filepath to an existing project
@@ -101,16 +101,16 @@ interface. After clicking that link, you can follow the steps below:
 
 1. Click **"Configure"** or **"Install"**.
 
-![Configure](/img/lightning_gh_configure.png)
+![Configure](/img/lightning_gh_configure.webp)
 
 2. Then select the GitHub account that owns the repository you want to connect
    to.
 
-![Install](/img/lightning_gh_install_openfn.png)
+![Install](/img/lightning_gh_install_openfn.webp)
 
 3. Select the repository to sync with and hit **"Save"**.
 
-![Permissions](/img/lightning_gh_permissions.png)
+![Permissions](/img/lightning_gh_permissions.webp)
 
 4. When you're done making changes on GitHub, head back to OpenFn and refresh
    the connection lists with the the 🔄 button next to the drop down list of
@@ -150,7 +150,7 @@ dropdown icon beside the save button to select `Save & Sync`. When you click
 Save & Sync, you'll see a confirmation modal with an option for you to customize
 the commit message.
 
-![Initiating Save & Sync](/img/save-and-sync.png)
+![Initiating Save & Sync](/img/save-and-sync.webp)
 
 :::info Sync is a "project level" action
 
@@ -171,7 +171,7 @@ To configure your project to sync to GitHub via the project settings:
 3. Click the button `Initiate Sync to Branch` to trigger a sync to the connected
    Github repository
 
-![Initiating Sync to Github](/img/sync_to_github.png)
+![Initiating Sync to Github](/img/sync_to_github.webp)
 
 ### Sync from GitHub to OpenFn
 

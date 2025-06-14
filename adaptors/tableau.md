@@ -33,6 +33,6 @@ established, OpenFn assists the iNGO with connecting this data to Tableau.
 Refer to the diagram below for a visualization of the data flow cited in the
 above use case.
 
-![Tableau Data Flow Visualization](/img/survey_db_tableau.png)
+![Tableau Data Flow Visualization](/img/survey_db_tableau.webp)
 
 <!-- please note that the diagram can be found at this link: https://lucid.app/lucidchart/invitations/accept/67c935c0-ec87-4454-b38f-57a6c002f597  -->

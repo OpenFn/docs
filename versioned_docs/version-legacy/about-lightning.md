@@ -24,7 +24,7 @@ comes with a user-friendly, low-code interface with the full functionality
 needed for organizations to build, run and audit their workflows all in one
 place.
 
-![Lightning](/img/lightning_build_run_audit.png)
+![Lightning](/img/lightning_build_run_audit.webp)
 
 ### Build
 
@@ -34,7 +34,7 @@ non-technical users, bridging the gap between the IT specialists that build out
 automations and program managers that are the real business/ program experts on
 the processes that need automating.
 
-![Lightning build interface](/img/lightning_build.png)
+![Lightning build interface](/img/lightning_build.webp)
 
 ### Audit
 
@@ -45,7 +45,7 @@ managing their savings to make sure they can afford the next harvest. Lightning
 provides users with a dashboard that allows them to monitor the health of their
 integrations to make sure no request goes unprocessed.
 
-![Lightning audit interface](/img/lightning_audit.png)
+![Lightning audit interface](/img/lightning_audit.webp)
 
 ## Features
 
@@ -334,7 +334,7 @@ comments are welcome there. If you would like to become a beta user or learn
 more about Lightning, book in a call with our product manager here:
 https://calendly.com/amber-openfn/short-call.
 
-![Lightning preview](/img/lightning_preview.png)
+![Lightning preview](/img/lightning_preview.webp)
 
 ## Lightning FAQ
 

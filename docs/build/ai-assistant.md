@@ -19,7 +19,7 @@ decision-making into action and automated execution.
 
 :::
 
-![AI Assistant](/img/ai-assistant.png)
+![AI Assistant](/img/ai-assistant.webp)
 
 :::caution Assistant Unavailable? Can't find it?
 

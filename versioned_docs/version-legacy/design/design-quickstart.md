@@ -143,13 +143,13 @@ This template includes:
 
 1. Details on the source metadata such as field API name, data type, sample data
    values and comments:
-   ![image](https://user-images.githubusercontent.com/80456839/130796010-fe900c03-1bff-40c0-9263-c29e22d9191f.png)
+   ![image](https://user-images.githubusercontent.com/80456839/130796010-fe900c03-1bff-40c0-9263-c29e22d9191f.webp)
 2. Similar details on the destination metadata:
-   ![image](https://user-images.githubusercontent.com/80456839/130796087-67b0359d-207a-4169-aa88-6609572b2561.png)
+   ![image](https://user-images.githubusercontent.com/80456839/130796087-67b0359d-207a-4169-aa88-6609572b2561.webp)
 3. Notes on data transformations & cleaning required and comments for tracking
    changes & questions for technical input:
 
-   ![image](https://user-images.githubusercontent.com/80456839/130796170-2e29a997-9b41-44f7-ac60-79375d096cc9.png)
+   ![image](https://user-images.githubusercontent.com/80456839/130796170-2e29a997-9b41-44f7-ac60-79375d096cc9.webp)
 
 ### To build a complete mapping specification, you’ll need to...
 

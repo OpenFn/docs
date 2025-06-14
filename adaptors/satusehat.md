@@ -169,7 +169,7 @@ See platform docs
 how to configure a credential in OpenFn and see the below Satusehat credential
 example.
 
-![Satusehat Cred](/img/satusehat_credential_edit.png)
+![Satusehat Cred](/img/satusehat_credential_edit.webp)
 
 If you're using the `Raw JSON` credential type, your configuration may look like
 this:

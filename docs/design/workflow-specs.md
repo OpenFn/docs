@@ -17,7 +17,7 @@ Given these, you’ll be ready to finalize your workflow specifications and hand
 
 Each “task” or “step” in the OpenFn swimlane of your technical diagram can be implemented as a distinct operation in your workflow configuration. In the example diagram below, you might implement 1 job with 3 chained operations, or 3 jobs with 1 operation each. 
 
-![workflow](/img/workflow_specs.png)
+![workflow](/img/workflow_specs.webp)
 
 __The workflow specifications should link to all of the design artifacts and highlight the following:__
 1. The required number of OpenFn jobs and the function of each

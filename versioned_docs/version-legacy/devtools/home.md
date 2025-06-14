@@ -339,7 +339,7 @@ In VSCode, go to `Settings`, and in the search bar, type
 `terminal.integrated.inherit`. You should see the option in the image below and
 check it if it's unchecked.
 
-![vscode settings](/img/vscode-settings.png)
+![vscode settings](/img/vscode-settings.webp)
 
 ### GitHub token sharing
 

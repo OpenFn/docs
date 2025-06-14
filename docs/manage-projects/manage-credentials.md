@@ -11,7 +11,7 @@ credentials related to a project.
 Via this `Credentials` page, you can see a list of all Credentials, including
 the name, type, and owner, and whether they are for a production environment.
 
-![Credentials Overview](/img/lightning_credentials_overview.png)
+![Credentials Overview](/img/lightning_credentials_overview.webp)
 
 :::info Viewing credential secrets
 
@@ -32,12 +32,12 @@ etc.).
 { "loginUrl": "https://random-app.com", "username": "test", "password": "pwd" }
 ```
 
-![Credential Type](/img/lightning_choose_cred_type.png)
+![Credential Type](/img/lightning_choose_cred_type.webp)
 
 3. Click `Configure Credentials` and add the authentication details for your
    app. The credential form will indicate which fields are required.
 
-![Add Credential](/img/lightning_add_cred.png)
+![Add Credential](/img/lightning_add_cred.webp)
 
 :::tip Not sure how to fill in all credential details?
 
@@ -51,7 +51,7 @@ ask on [Community](https://community.openfn.org).
 3. Click `Save` and you'll see it listed in your `Credentials` page. You can now
    use it across the Project when building and running Workflows.
 
-![New Credential Ready](/img/lightning_new_cred_ready.png)
+![New Credential Ready](/img/lightning_new_cred_ready.webp)
 
 ### Share Credentials
 
