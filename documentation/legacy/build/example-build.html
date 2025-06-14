@@ -19,8 +19,8 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.6e6ba625.css">
-<script src="/assets/js/runtime~main.e1956b37.js" defer="defer"></script>
-<script src="/assets/js/main.f2cfc798.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.50ead7d0.js" defer="defer"></script>
+<script src="/assets/js/main.b030df57.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -57,48 +57,48 @@ Sheets].</em></p>
 you&#x27;ll see that a sample project has been created for you.</p>
 <p>Create a new project called ‘Kobo case registrations’ by clicking on the blue +
 icon at the bottom right hand corner of your dashboard.</p>
-<p><img decoding="async" loading="lazy" alt="new account dashboard" src="/assets/images/2.1_new_account_dashboard-f9482164cc92d532e6468e026cb9c885.png" title="Create a new project" width="2532" height="1330" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="new account dashboard" src="/assets/images/2.1_new_account_dashboard-2af9082a8dfb7592322287e3417f7388.webp" title="Create a new project" width="2532" height="1330" class="img_ev3q"></p>
 <p>When you click &#x27;View&#x27; to enter your project space, you&#x27;ll be taken to your
 <strong>inbox</strong>. This is where you will receive <strong>messages</strong> - the data that gets sent
 from your source system to OpenFn. Copy your <strong>inbox url</strong> to configure
 KoboToolbox to send data to it.</p>
-<p><img decoding="async" loading="lazy" alt="inbox url" src="/assets/images/2.2_inbox_url-513a10f057ca2da142a9e6ebf8f20257.png" title="Copy your inbox URL" width="2300" height="560" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="inbox url" src="/assets/images/2.2_inbox_url-1148cfc9ab5f9f5d8af9a609afd07594.webp" title="Copy your inbox URL" width="2300" height="560" class="img_ev3q"></p>
 <p><a href="https://kf.kobotoolbox.org/accounts/login/#/" target="_blank" rel="noopener noreferrer">Log into</a> our KoboToolbox demo
 account with <em>username: openfn_demo and password: openfn_demo</em>. Select the form
 you’d like to connect (if using our demo account this will be &#x27;COVID 19 case
 registration&#x27;) and go to Settings -&gt; REST services -&gt; Register a new service.</p>
-<p><img decoding="async" loading="lazy" alt="kobo" src="/assets/images/2.3_kobo_rest-7c2166adc52578a9bce93e3784d0282c.png" title="Register a REST service with Kobo" width="2002" height="754" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="kobo" src="/assets/images/2.3_kobo_rest-065f48f079b92c96cb4c83c4d17c77ff.webp" title="Register a REST service with Kobo" width="2002" height="754" class="img_ev3q"></p>
 <p>Set the service name to OpenFn and the URL to your project inbox url.</p>
-<p><img decoding="async" loading="lazy" alt="kobo" src="/assets/images/2.4_kobo_rest-45304fa0798cebd2ac207d3d5946246f.png" title="Set the REST service URL to your OpenFn inbox URL" width="1178" height="1554" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="kobo" src="/assets/images/2.4_kobo_rest-ab2591f4c9c38c00223d755eef6b642a.webp" title="Set the REST service URL to your OpenFn inbox URL" width="1178" height="1554" class="img_ev3q"></p>
 <p>Your form should now be configured to send data to your OpenFn project inbox
 whenever a response is submitted. We can test this out by submitting some form
 responses at Form -&gt; Open.</p>
-<p><img decoding="async" loading="lazy" alt="kobo form" src="/assets/images/2.5_open_kobo_form-b999c7d71946868574d92ac7aba2ebaa.png" title="Open a kobo form" width="2688" height="1006" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="kobo form" src="/assets/images/2.5_open_kobo_form-5cb58a023edb1a288db43a19e10a116c.webp" title="Open a kobo form" width="2688" height="1006" class="img_ev3q"></p>
 <p>Return to your project inbox. You should see a new message there, which contains
 the data submitted in the KoboToolbox form response.</p>
-<p><img decoding="async" loading="lazy" alt="inbox" src="/assets/images/2.6_inbox-12309fa58e828eae13a6e91b98daed7e.png" title="View inbound messages in your inbox" width="2536" height="1044" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="inbox" src="/assets/images/2.6_inbox-eb05daae344dfd26633b798cfe55a777.webp" title="View inbound messages in your inbox" width="2536" height="1044" class="img_ev3q"></p>
 <p>If you click on the message, and open up the <strong>message body</strong> you’ll see the
 data that you submitted to the form. To view the entire message, open it in full
 screen.</p>
-<p><img decoding="async" loading="lazy" alt="message body" src="/assets/images/2.7_message-9104f8aea22958365365bd9d2e853950.png" title="Open up a message body" width="1750" height="1124" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="message body" src="/assets/images/2.7_message-e2f1896bb9db3c7ca348c0ab10fac5dd.webp" title="Open up a message body" width="1750" height="1124" class="img_ev3q"></p>
 <p>Once you can see the entire message, you need to identify a data point that will
 be the same for every submission. In this case, we know that all of our messages
 will have the same form ID. Save the snippet you have identified
 (<code>&quot;\_xform_id_string&quot;: &quot;aDReHdA7UuNBYsiCXQBr43&quot;</code>), you&#x27;ll need it later to
 create your trigger.</p>
-<p><img decoding="async" loading="lazy" alt="common data point" src="/assets/images/2.8_common_data_point-dbf1b68b26d9d29f02f88d13e73c8ef5.png" title="Identify a common snippet for all your messages" width="1862" height="1424" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="common data point" src="/assets/images/2.8_common_data_point-3e690b6849c8f023db2a7cf307b748f5.webp" title="Identify a common snippet for all your messages" width="1862" height="1424" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="3-create-credentials-to-connect-your-destination-system">3. Create credentials to connect your destination system<a href="#3-create-credentials-to-connect-your-destination-system" class="hash-link" aria-label="Direct link to 3. Create credentials to connect your destination system" title="Direct link to 3. Create credentials to connect your destination system">​</a></h2>
 <p>In order to connect to your destination system, you need to sign in through
 OpenFn to create credentials. These will allow you to send data to your google
 sheet.</p>
 <p>Head to the credentials section of your dashboard, and once again click the
 blue + sign to create new credentials.</p>
-<p><img decoding="async" loading="lazy" alt="create credentials" src="/assets/images/3.1_create_credentials-75fa27b07ea1ea7816494bb1664ea630.png" title="Create credentials to connect your external system" width="2544" height="1436" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="create credentials" src="/assets/images/3.1_create_credentials-98834c87264d6c0bc184d119b8958de9.webp" title="Create credentials to connect your external system" width="2544" height="1436" class="img_ev3q"></p>
 <p>You’ll see various apps you recognise - these are all of the systems that we can
 handle credentials for. Select the <code>Sheets</code> one, and log into your google
 account when you get the pop up window. You’ll get a confirmation message. Close
 the window and give your new project access to these credentials.</p>
-<p><img decoding="async" loading="lazy" alt="select credential type" src="/assets/images/3.2_select_credential_type-2199b70f94e1b5a499fbe30ee430e5ec.png" title="Select a credential type" width="2450" height="994" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="select credential type" src="/assets/images/3.2_select_credential_type-09896ab0f3a925241e190870f5d4f980.webp" title="Select a credential type" width="2450" height="994" class="img_ev3q"></p>
 <p>You’ve now created credentials that will allow you to perform operations in
 google sheets from within your job.</p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="4-create-a-new-job">4. Create a new job<a href="#4-create-a-new-job" class="hash-link" aria-label="Direct link to 4. Create a new job" title="Direct link to 4. Create a new job">​</a></h2>
@@ -108,7 +108,7 @@ expression, which determines what should be done with the incoming data and
 where it should go.</p>
 <p>Navigate to the jobs section in your dashboard, then click the + icon to create
 a new job.</p>
-<p><img decoding="async" loading="lazy" alt="new job" src="/assets/images/4.1_new_job-d35fc34c9721954a27bb18adcdc76f61.png" title="Create a new job" width="2546" height="1450" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="new job" src="/assets/images/4.1_new_job-28a6b976f48bff7523eea1e12e8a57a8.webp" title="Create a new job" width="2546" height="1450" class="img_ev3q"></p>
 <p>Give the job a name (we’ll make ours “Kobo to sheets”).</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="41-create-a-new-trigger">4.1 Create a new trigger<a href="#41-create-a-new-trigger" class="hash-link" aria-label="Direct link to 4.1 Create a new trigger" title="Direct link to 4.1 Create a new trigger">​</a></h3>
 <p>Every job needs a trigger, which determines when it should be run. A <strong>message
@@ -122,12 +122,12 @@ brackets &quot;<!-- -->&quot; around your inclusion criteria snippet.)</em> This
 message body sent by each submitted form response to your inbox.</p>
 <p>This message filter will trigger your job whenever a message which includes the
 snippet comes into your inbox.</p>
-<p><img decoding="async" loading="lazy" alt="new trigger" src="/assets/images/4.2_new_trigger-5e2fa4528c7ab7e384ab69a9ccc280c6.png" title="Create a new trigger" width="1080" height="1132" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="new trigger" src="/assets/images/4.2_new_trigger-5cbe451a46e6a612322f7b12dc0e3dae.webp" title="Create a new trigger" width="1080" height="1132" class="img_ev3q"></p>
 <p>Save your trigger. You should see a confirmation message “Found x matching
 messages”. To see the data from your last message inside the
 <a href="/documentation/legacy/jobs/state">initial state</a>, drag the
 <strong>Expression</strong> panel to the right.</p>
-<p><img decoding="async" loading="lazy" alt="trigger message" src="/assets/images/4.3_trigger_message-fc54ea7aacad2cb7dd782cd62f53ad4f.png" title="View a matching trigger message in initial state" width="2348" height="1406" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="trigger message" src="/assets/images/4.3_trigger_message-6adef8404ab9e2a32dc6101815152341.webp" title="View a matching trigger message in initial state" width="2348" height="1406" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="42-select-an-api-adaptor">4.2 Select an API adaptor<a href="#42-select-an-api-adaptor" class="hash-link" aria-label="Direct link to 4.2 Select an API adaptor" title="Direct link to 4.2 Select an API adaptor">​</a></h3>
 <p>Adaptors are preconfigured pieces of code that allow communication with
 destination systems.</p>
@@ -140,7 +140,7 @@ system. These operations are functions specific to every API adaptor.</p>
 <p>Open up the inline documentation for the adaptor to see the available functions.
 Copy the appendValues function, then paste it into your Expression editor. It
 should look something like this.</p>
-<p><img decoding="async" loading="lazy" alt="adaptor operation" src="/assets/images/4.4_adaptor_operation-3dbf2d82b41aa2e92b5094fff0480a14.png" title="Choose an adaptor operation" width="1656" height="744" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="adaptor operation" src="/assets/images/4.4_adaptor_operation-866c0ae04c131830741ecbadf9ee1d48.webp" title="Choose an adaptor operation" width="1656" height="744" class="img_ev3q"></p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="44-edit-the-function-in-your-expression-editor">4.4 Edit the function in your expression editor<a href="#44-edit-the-function-in-your-expression-editor" class="hash-link" aria-label="Direct link to 4.4 Edit the function in your expression editor" title="Direct link to 4.4 Edit the function in your expression editor">​</a></h3>
 <p>The function you copy pasted into your expression editor is a template that
 shows you what your function should look like. This means the text in quotation
@@ -148,7 +148,7 @@ marks are just placeholders - they need to be replaced with the data entries you
 want to send.</p>
 <p>First, get your spreadsheet ID from the URL of your google sheet (between <code>d/</code>
 and <code>/edit</code>).</p>
-<p><img decoding="async" loading="lazy" alt="sheets ID" src="/assets/images/4.5_sheets_id-5b64e2b5fc49a85d6fba30f69659ed73.png" title="Find a google sheets ID" width="1704" height="630" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="sheets ID" src="/assets/images/4.5_sheets_id-e93b80fd1e332b23573fe416628a8dc9.webp" title="Find a google sheets ID" width="1704" height="630" class="img_ev3q"></p>
 <p>Copy and paste the ID into your <code>appendValues</code> operation to replace the
 placeholder value for <code>spreadsheetId</code>. This ensures your values get appended to
 the correct spreadsheet.</p>
@@ -158,18 +158,18 @@ sheet. Select the desired input from the dropdown menu located in the initial
 state window and paste it to replace the placeholder text (&#x27;From expression&#x27;)
 inside <code>values: []</code>. Repeat this for the following values, and remove line 7 as
 this would add a second row to your sheet.</p>
-<p><img decoding="async" loading="lazy" alt="select values" src="/assets/images/4.6_select_values-0c56e6f353352e48001fdccc052af3e2.png" title="Select values from initial state" width="1664" height="810" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="select values" src="/assets/images/4.6_select_values-e8fcd99c74a5158643c75bd1e2ad792e.webp" title="Select values from initial state" width="1664" height="810" class="img_ev3q"></p>
 <p>Your operation should now look like this:</p>
 <div class="language-js codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-js codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">appendValues</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">spreadsheetId</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;1zFcE05jGLYouXDpevdYQO81ejBWz7hn0ahEOg2gs9fw&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">range</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;Sheet1!A1:E1&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">values</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">[</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">      </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;National_ID&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">      </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;First_Name_of_Patient&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">      </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;Last_Name_of_Patient&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">    </span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token punctuation" style="color:rgb(199, 146, 234)">]</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></span></code></pre></div></div>
 <p>Click <code>Save and run</code> to get a ‘Success!’ response in the <code>run logs</code> and see that
 the data entries between the square brackets [ ] have been added to your google
 sheet.</p>
-<p><img decoding="async" loading="lazy" alt="save and run" src="/assets/images/4.7_save_and_run-c4521f0ccc35b7a4baf7b82fcbc5b6e3.png" title="Save and run a job" width="1652" height="814" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="save and run" src="/assets/images/4.7_save_and_run-5ceacb8db5f647c6672df4c4bc0f7e58.webp" title="Save and run a job" width="1652" height="814" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="5-set-autoprocess-to-true">5. Set autoprocess to true<a href="#5-set-autoprocess-to-true" class="hash-link" aria-label="Direct link to 5. Set autoprocess to true" title="Direct link to 5. Set autoprocess to true">​</a></h2>
 <p>You have now written and tested your job. In order to run your job automatically
 every time a message matches the trigger inclusion criteria, turn on
 auto-process.</p>
-<p><img decoding="async" loading="lazy" alt="autoprocess" src="/assets/images/5.1_autoprocess-9f37c0a295c3021fd7b77e74885781a2.png" title="Enabling &amp;#39;autoprocess&amp;#39; for a job" width="1651" height="1592" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="autoprocess" src="/assets/images/5.1_autoprocess-700d25d99a8820090c2ae6c71f0a6e41.webp" title="Enabling &amp;#39;autoprocess&amp;#39; for a job" width="1651" height="1592" class="img_ev3q"></p>
 <p>You&#x27;re all set! Try out your job by submitting another form response to see the
 data automatically populate your google sheet.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/openfn/docs/edit/main/versioned_docs/version-legacy/build/example-build.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/documentation/legacy/getting-started/so-you-want-to-integrate"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">So, what is an integration? 🤔</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/documentation/legacy/build/lightning-quick-start"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Lightning Quick-Start (v2)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-identify-your-source-and-destination-system" class="table-of-contents__link toc-highlight">1. Identify your source and destination system</a></li><li><a href="#2-create-a-project-and-send-data-from-your-source-system-to-your-openfn-inbox" class="table-of-contents__link toc-highlight">2. Create a project and send data from your source system to your OpenFn inbox</a></li><li><a href="#3-create-credentials-to-connect-your-destination-system" class="table-of-contents__link toc-highlight">3. Create credentials to connect your destination system</a></li><li><a href="#4-create-a-new-job" class="table-of-contents__link toc-highlight">4. Create a new job</a><ul><li><a href="#41-create-a-new-trigger" class="table-of-contents__link toc-highlight">4.1 Create a new trigger</a></li><li><a href="#42-select-an-api-adaptor" class="table-of-contents__link toc-highlight">4.2 Select an API adaptor</a></li><li><a href="#43-choose-your-adaptor-operation" class="table-of-contents__link toc-highlight">4.3 Choose your adaptor operation</a></li><li><a href="#44-edit-the-function-in-your-expression-editor" class="table-of-contents__link toc-highlight">4.4 Edit the function in your expression editor</a></li></ul></li><li><a href="#5-set-autoprocess-to-true" class="table-of-contents__link toc-highlight">5. Set autoprocess to true</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">This Site</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/articles">Articles</a></li><li class="footer__item"><a class="footer__link-item" href="/adaptors">Adaptors</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Forum<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://twitter.com/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.openfn.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">OpenFn.org</a></li><li class="footer__item"><a href="https://github.com/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Open Function Group LLC</div></div></div></footer></div>
 </body>

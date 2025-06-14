@@ -19,8 +19,8 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.6e6ba625.css">
-<script src="/assets/js/runtime~main.e1956b37.js" defer="defer"></script>
-<script src="/assets/js/main.f2cfc798.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.50ead7d0.js" defer="defer"></script>
+<script src="/assets/js/main.b030df57.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -97,7 +97,7 @@ Salesforce integration project.</p>
 <p>Salesforce <strong>field API names</strong> (unique names for each piece of metadata - e.g.,
 <code>PatientID__c</code>) should be referenced in OpenFn integrations, not <strong>field
 labels</strong> (business-friendly label that the end user sees - e.g., <code>Patient ID</code>)
-<img decoding="async" loading="lazy" src="https://user-images.githubusercontent.com/80456839/128650593-343090da-7f12-468a-aa51-1f87f1cf9f34.png" alt="image" class="img_ev3q">.</p>
+<img decoding="async" loading="lazy" src="https://user-images.githubusercontent.com/80456839/128650593-343090da-7f12-468a-aa51-1f87f1cf9f34.webp" alt="image" class="img_ev3q">.</p>
 <p>To view the Salesforce API field names, navigate to the Salesforce backend. Via
 the web app, select <code>Setup</code> from the top naviagation menu to browse the
 Salesforce backend settings, metadata configuration, object and field names,
@@ -121,7 +121,7 @@ being created in Salesforce. To enable this setting on an individual field,
 ensure <code>External ID</code> is checked on the field settings. Learn more about external
 identifiers in Salesforce at
 <a href="https://www.infallibletechie.com/2014/11/what-is-external-id-in-salesforce.html" target="_blank" rel="noopener noreferrer">https://www.infallibletechie.com/2014/11/what-is-external-id-in-salesforce.html</a>
-<img decoding="async" loading="lazy" src="https://user-images.githubusercontent.com/80456839/128650680-e10fa395-bddb-45bd-bd6c-3a9dda8998f8.png" alt="image" class="img_ev3q"></p>
+<img decoding="async" loading="lazy" src="https://user-images.githubusercontent.com/80456839/128650680-e10fa395-bddb-45bd-bd6c-3a9dda8998f8.webp" alt="image" class="img_ev3q"></p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="relationships-and-lookup-fields">Relationships and Lookup Fields<a href="#relationships-and-lookup-fields" class="hash-link" aria-label="Direct link to Relationships and Lookup Fields" title="Direct link to Relationships and Lookup Fields">​</a></h4>
 <p>When mapping <code>lookup</code> fields (which are similar to database &quot;foreign keys&quot;) in
 Salesforce, use the external identifier of the related record. Examples:</p>
@@ -167,7 +167,7 @@ to learn how to configure this. API-only users require an Oauth credential.</p>
 <p>When connecting via Oauth2, choose only the scopes you require.
 (<a href="https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_tokens_scopes.htm&amp;type=5" target="_blank" rel="noopener noreferrer">See Salesforce</a>
 for explanations of these options.)</p>
-<p><img decoding="async" loading="lazy" alt="Salesforce Oauth2" src="/assets/images/salesforce-oauth2-44017265ae0c6c5955a7641a768164fc.png" width="1172" height="963" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Salesforce Oauth2" src="/assets/images/salesforce-oauth2-95166aad507601a9016dc9e957a89c74.webp" width="1172" height="963" class="img_ev3q"></p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="security-token">Security Token<a href="#security-token" class="hash-link" aria-label="Direct link to Security Token" title="Direct link to Security Token">​</a></h4>
 <p>If you are not using Oauth2, you&#x27;ll need to provide a username, password, login
 URL, and security token to authenticate via a user. <strong>Note every time you reset
@@ -184,14 +184,14 @@ it.)</li>
 sandbox environments, use <code>https://test.salesforce.com</code>. For custom domains,
 use <code>&lt;my-domain&gt;.my.salesforce.com</code></li>
 </ul>
-<p><img decoding="async" loading="lazy" alt="Salesforce Cred" src="/assets/images/salesforce-old-cred-dd2ff41d77b635201d3b59224cab42ab.png" width="1128" height="1514" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Salesforce Cred" src="/assets/images/salesforce-old-cred-da168dec112d5e209582ff03475dce92.webp" width="1128" height="1514" class="img_ev3q"></p>
 <p>For use in the CLI, see an example
 <a href="/adaptors/packages/salesforce-configuration-schema">salesforce configuration</a></p>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="resetting-your-security-token">Resetting Your Security Token<a href="#resetting-your-security-token" class="hash-link" aria-label="Direct link to Resetting Your Security Token" title="Direct link to Resetting Your Security Token">​</a></h4>
 <p><a href="https://help.salesforce.com/articleView?id=sf.user_security_token.htm&amp;type=5" target="_blank" rel="noopener noreferrer">See instructions here</a>
 or below screenshot. Once reset, you will receive an email from Salesforce.
 Please save this <code>security token</code> in your OpenFn <code>Credential</code>.</p>
-<p><img decoding="async" loading="lazy" alt="Token Reset" src="/assets/images/security-token-823f24f2a4ff6deebc203a931f6104c4.png" width="1024" height="470" class="img_ev3q"></p>
+<p><img decoding="async" loading="lazy" alt="Token Reset" src="/assets/images/security-token-6b29235f8594a69bb1fb65be6f70f524.webp" width="1024" height="470" class="img_ev3q"></p>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="common-errors">Common Errors<a href="#common-errors" class="hash-link" aria-label="Direct link to Common Errors" title="Direct link to Common Errors">​</a></h2>
 <ol>
 <li><code>INVALID_FIELD: Foreign key external id not found</code>: This error message
