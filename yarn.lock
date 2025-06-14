@@ -4067,7 +4067,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@docusaurus/plugin-sitemap@npm:3.8.1":
+"@docusaurus/plugin-sitemap@npm:3.8.1, @docusaurus/plugin-sitemap@npm:^3.8.1":
   version: 3.8.1
   resolution: "@docusaurus/plugin-sitemap@npm:3.8.1"
   dependencies:
@@ -4576,6 +4576,7 @@ __metadata:
     "@docusaurus/plugin-client-redirects": ^3.8.1
     "@docusaurus/plugin-google-gtag": 3.8.1
     "@docusaurus/plugin-google-tag-manager": 3.8.1
+    "@docusaurus/plugin-sitemap": ^3.8.1
     "@docusaurus/preset-classic": 3.8.1
     "@docusaurus/theme-mermaid": 3.8.1
     "@docusaurus/tsconfig": 3.8.1
