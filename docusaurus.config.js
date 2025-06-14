@@ -200,7 +200,7 @@ module.exports = {
       {
         redirects: [
           {
-            to: '/documentation/roadmap',
+            to: '/documentation/contribute/roadmap',
             from: '/documentation/contribute/openfn-roadmap',
           },
           // Redirect from multiple old paths to the new path
