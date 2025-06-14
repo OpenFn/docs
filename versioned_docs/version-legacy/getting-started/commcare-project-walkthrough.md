@@ -271,8 +271,6 @@ to be exchanged.
 
 1. **Save and turn on the job**
 
-![save_db_job](/img/save_db_job.gif)
-
 ## Time to test!
 
 1. Submit a form in CommCare
