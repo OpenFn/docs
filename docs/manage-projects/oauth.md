@@ -41,13 +41,13 @@ Oauth clients can be set up either on the
 If you do not have an OAuth client already set up for your project, you will see
 an empty section with a button prompting you to create a client as shown below.
 
-![New client](/img/create_new_oauth_client.png)
+![New client](/img/create_new_oauth_client.webp)
 
 Alternatively, you will see the list of existing OAuth clients you have access
 to. To create a new client, click the `Add new` button and select
 `OAuth client [Advanced]` in the dropdown.
 
-![OAuth dropdown](/img/oauth_dropdown.png)
+![OAuth dropdown](/img/oauth_dropdown.webp)
 
 :::tip
 
@@ -72,7 +72,7 @@ A super user has the privilege to share OAuth clients with projects in two ways:
 They can do this in the OAuth client configuration modal either when creating
 the client, or via editing it.
 
-![OAuth edit](/img/oauth_client_edit.png)
+![OAuth edit](/img/oauth_client_edit.webp)
 
 ### Making OAuth clients global
 
@@ -86,7 +86,7 @@ save changes. All projects on the instance can now access the client and users
 with owner, admin and editor rights on these projects can now create credentials
 from the client.
 
-![OAuth project access](/img/manage_project_access.png)
+![OAuth project access](/img/manage_project_access.webp)
 
 ### Sharing OAuth clients with projects
 
@@ -95,7 +95,7 @@ To share an OAuth client with specific projects, scroll down to
 the project dropdown and select a project and click the add button to grant the
 project access to the client.
 
-![Share OAuth client](/img/share_oauth_client.png)
+![Share OAuth client](/img/share_oauth_client.webp)
 
 ## Oauth Credentials
 
@@ -109,9 +109,9 @@ credentials and are associated with clients.
    select `Credential` from the dropdown or click on the
    `create a new credential` button.
 
-![New credential](/img/oauth_dropdown.png)
+![New credential](/img/oauth_dropdown.webp)
 
-![Create new cred](/img/create_new_cred.png)
+![Create new cred](/img/create_new_cred.webp)
 
 2. Then, in the credential type modal, find and select the Oauth client to use
    for creating the OAuth credential. This will open a new modal for you to
@@ -136,7 +136,7 @@ OAuth clients should have the required permissions in the application.
 
 To delete a credential/client, simply click `Delete`.
 
-![OAuth edit](/img/oauth_client_edit.png)
+![OAuth edit](/img/oauth_client_edit.webp)
 
 A confirmation message pops up to confirm your action.
 

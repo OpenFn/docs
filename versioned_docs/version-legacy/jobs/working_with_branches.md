@@ -42,14 +42,14 @@ repo to your local folder.
 6. On GitHub, you can create a Pull Request to get your changes reviewed and
    approved.
 
-   ![PR-1](/img/pull-request.png)
+   ![PR-1](/img/pull-request.webp)
 
-   ![PR-2](/img/pull-request-2.png)
+   ![PR-2](/img/pull-request-2.webp)
 
 7. As you keep working with branches, make sure you check which branch you're on
    with `git status`.
 
-![git-status](/img/git-status.png)
+![git-status](/img/git-status.webp)
 
 8. To keep your local copy up to date with the remote repo, switch to `main`
    with `git checkout main` and hit `git pull` to pull any changes.

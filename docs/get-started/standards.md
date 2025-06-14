@@ -80,7 +80,7 @@ used as a fully OpenHIE-compliant **_interoperability layer _**because it does
 not leverage the IHE ATNA profile (see
 [requirement IOL-WF1](https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-interoperability-layer-iol#openhie-iol-workflow-requirements)).
 
-![openhie_architecture](/img/openhie_architecture.png)
+![openhie_architecture](/img/openhie_architecture.webp)
 
 _For an overview of OpenFn Lightning and how it fits into OpenHIE, see our
 [introduction for the OpenHIE showcase](https://www.youtube.com/watch?v=PTRRZBYtqyc)_
@@ -125,7 +125,7 @@ leveraging OpenFn’s out-of-box DHIS2 adaptor and reusable workflow templates t
 quickly develop automation that reformats data received from CommCare and maps
 it to the DHIS2 data model.
 
-![swisstph](/img/swisstph.png)
+![swisstph](/img/swisstph.webp)
 
 ## GovStack
 
@@ -169,7 +169,7 @@ formats, and then route to FHIR systems.
 
 For example, get data from CommCare mobile app, convert to FHIR, and send to
 national health system's FHIR store.
-![nonFHIR Workflow](/img/workflow_nonfhir_fhir.png)
+![nonFHIR Workflow](/img/workflow_nonfhir_fhir.webp)
 
 ### 2. FHIR to FHIR Data Exchange
 
@@ -179,7 +179,7 @@ of _already_ FHIR-compliant data to other FHIR-compliant systems.
 For example, get data from OpenMRS's FHIR API, and forward to the national
 health system's FHIR store (no data transformation needed).
 
-![FHIR Workflow](/img/workflow_fhir_fhir.png)
+![FHIR Workflow](/img/workflow_fhir_fhir.webp)
 
 ## FHIR Adaptors
 

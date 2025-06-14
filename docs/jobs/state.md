@@ -12,7 +12,7 @@ to read from and write to.
 The final state form a Job must always be a serializable Javascript object (ie,
 a JSON object). Any non-serializable keys will be removed.
 
-![Job State Overview](/img/state-javascript.png)
+![Job State Overview](/img/state-javascript.webp)
 
 :::tip A note on terminology
 
@@ -197,4 +197,4 @@ on state, keyed by the ID of the job that failed.
 See the below diagram for a visual description of how state might be passed
 between Steps in a Workflow.
 
-![Passing State](/img/passing-state-steps.png)
+![Passing State](/img/passing-state-steps.webp)

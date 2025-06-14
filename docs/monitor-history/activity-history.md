@@ -14,7 +14,7 @@ The `History` page provides a list of all of the
 [Runs](/documentation/get-started/terminology#run) that have been processed in a
 Project.
 
-![History](/img/case-referral-history.png)
+![History](/img/case-referral-history.webp)
 
 ## Workflow execution: Work Orders and Runs
 
@@ -34,7 +34,7 @@ OpenFn Workflows are executed as follows:
    `Run` will be created. If successful, then both the Run and related Work
    Order will be updated with a `success` status.
 
-![History Page](/img/history-page-annotated.png)
+![History Page](/img/history-page-annotated.webp)
 
 Check out the other pages in this docs section to learn more about inspecting
 Runs, troubleshooting, and rerunning failed Runs.
@@ -46,7 +46,7 @@ input/output dataclips or run logs contain specific text strings. By default,
 the system will search run logs only but you can select to search any or all of
 three options:
 
-![Search Options](/img/search-options.png)
+![Search Options](/img/search-options.webp)
 
 1. OpenFn UUIDs for workorders, runs, or steps
 2. Input/Output dataclip bodies

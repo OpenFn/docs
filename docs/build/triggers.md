@@ -16,7 +16,7 @@ These triggers are fired by "pushing" data to OpenFn (i.e., by sending an HTTP
 The triggering HTTP request might be sent via a webhook in an external app,
 another OpenFn workflow, or manually (i.e., via cURL request).
 
-![Webhook Trigger](/img/webhook_trigger.png)
+![Webhook Trigger](/img/webhook_trigger.webp)
 
 To learn about how to add an additional layer of security to your Webhook
 Trigger by adding authentication, head over to our
@@ -35,7 +35,7 @@ These Triggers enable users to “pull” data from connected systems. You can p
 a standard schedule (e.g., every day, or every month), or define a custom
 schedule using cron expressions.
 
-![Cron Trigger](/img/cron_trigger.png)
+![Cron Trigger](/img/cron_trigger.webp)
 
 :::tip Help with cron expressions
 
@@ -105,7 +105,7 @@ Instance administrators have to enable Kafka for their instance by setting
 
 :::
 
-![Configuring Kafka Trigger](/img/configuring-kafka.png)
+![Configuring Kafka Trigger](/img/configuring-kafka.webp)
 
 :::info What is Kafka?
 

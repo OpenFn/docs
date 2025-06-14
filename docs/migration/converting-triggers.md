@@ -51,12 +51,12 @@ On V1, you had one unified Inbox for your entire project, where all messages
 would arrive to the same shared webhook URL from every source application. These
 were then picked up by the different jobs based on Message Filter Triggers.
 
-![Unified Inbox](/img/v1_unified_inbox.png)
+![Unified Inbox](/img/v1_unified_inbox.webp)
 
 The main difference on V2 is that each workflow that operates with a webhook
 trigger has its own unique webhook URL to receive data to.
 
-![V2 Webhook Trigger](/img/v2_webhook_trigger.png)
+![V2 Webhook Trigger](/img/v2_webhook_trigger.webp)
 
 This will mean that in your source applications you will probably need to configure multiple webhooks/forwarders, one for each of your recieving workflows, instead of the previous common Inbox one. 
 
@@ -69,8 +69,8 @@ subsequent job should be executed or not.
 
 For example, if on v1 you had a Message Filter trigger that looked like this:
 
-![Trigger Example](/img/lightning_trigger_example.png)
+![Trigger Example](/img/lightning_trigger_example.webp)
 
 The matching v2 JavaScript Path Condition would look like this:
 
-![Path Condition Example](/img/lightning_path_trigger_example.png)
+![Path Condition Example](/img/lightning_path_trigger_example.webp)

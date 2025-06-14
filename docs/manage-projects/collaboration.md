@@ -49,11 +49,11 @@ associated, you will be requested to authorize OpenFn to create an account for
 them and send them an invite to your project. Click `Invite new user` to proceed
 with the invitation.
 
-![Collaboration](/img/collaboration.png)
+![Collaboration](/img/collaboration.webp)
 
-![Add collaborator](/img/add_collab.png)
+![Add collaborator](/img/add_collab.webp)
 
-![Invite new users](/img/invite-new-users.png)
+![Invite new users](/img/invite-new-users.webp)
 
 :::note
 

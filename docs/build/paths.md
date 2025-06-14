@@ -21,7 +21,7 @@ proceed to the next Step when executed:
 4. **Matches a JavaScript Expression**: the next Step will only run if an
    expression evaluates to be true
 
-![Path Conditions](/img/path_conditions.png)
+![Path Conditions](/img/path_conditions.webp)
 
 ## Writing JavaScript Expressions for Custom Path Conditions
 
@@ -36,7 +36,7 @@ This is a regular Javsacript expression with `state` in scope. If the expression
 evaluates to true (or anything _truthy_), the Path will be followed and the next
 Step will be executed.
 
-![Custom Conditions](/img/path_js_expression.png)
+![Custom Conditions](/img/path_js_expression.webp)
 
 Examples of valid conditions include:
 

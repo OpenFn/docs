@@ -16,7 +16,7 @@ Equipment Monitoring System (EMS) standard.
 To integrate with Varo data, you can use the relevant OpenFn adaptor (e.g.,
 Gmail) for your chosen email inbox to query the Varo emails and attachments.
 
-![example-workflow](/img/sample-cce-workflow.png)
+![example-workflow](/img/sample-cce-workflow.webp)
 
 ## Authentication
 

@@ -31,7 +31,7 @@ Use this adpator to integrate with the
 your workflows to leverage their natural language processing (NLP) capabilities.
 
 Example AI-driven workflow on OpenFn:
-![ai-driven-workflow](/img/ai-workflow-example.png)
+![ai-driven-workflow](/img/ai-workflow-example.webp)
 
 ## Authentication
 

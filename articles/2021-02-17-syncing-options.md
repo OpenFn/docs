@@ -36,7 +36,7 @@ interface, i.e., when a real case-worker clicks the “refer” button) OpenFn
 receives a small payload with case data and transmits it to OSCaR and vice
 versa.
 
-![Real_Time_Sync](/img/syncs1.png)
+![Real_Time_Sync](/img/syncs1.webp)
 
 <!-- all diagrams for this article can be found here: https://lucid.app/lucidchart/invitations/accept/d36fb964-7c74-4e48-b248-7e25497883e3 -->
 
@@ -60,7 +60,7 @@ case might not get referred to Oscar!
 
 ### Scheduled Syncs
 
-![Schedule_Dependent_Sync](/img/syncs2.png)
+![Schedule_Dependent_Sync](/img/syncs2.webp)
 
 The second option considered, a bi-directional schedule dependent sync, solves
 for the issue discussed above. On a scheduled basis (every 5 minutes, for

@@ -12,7 +12,7 @@ APIs tell applications how to communicate. An API is the “messenger” that:
 2. Delivers your request to the provider that you’re requesting it from, and then 
 3. Delivers the response back to you
 
-| ![Workflow](/img/api_diagram.png) |
+| ![Workflow](/img/api_diagram.webp) |
 |:--:|
 | *[Source](https://snipcart.com/blog/integrating-apis-introduction)*|
 
@@ -72,7 +72,7 @@ Be on the lookout for API limits. Documentation will often have a dedicated sect
 
 The output of API discovery should be a “technical” workflow diagram. This diagram is different from the functional workflow diagram produced during [“Discovery”](/documentation/design/discovery) in that it captures the technical specifications for how to integrate with target applications. These specifications include the specific methods/operations (e.g., GET, POST) and the database/API names of the target resources (i.e., specific API endpoints or database tables). 
 
-![Workflow](/img/api_example.png)
+![Workflow](/img/api_example.webp)
 
 __When drafting your technical specifications, consider the following:__
 1. __Plan for failure. Your workflows will fail. Consider what happens when they do…__
@@ -95,4 +95,4 @@ __When drafting your technical specifications, consider the following:__
 
 Check out the technical workflow diagram below for syncing forms submissions from KoboToolBox to DHIS2. The original functional diagram can be found [here](/documentation/design/discovery#workflow-requirements-gathering). 
 
-![Workflow](/img/technical_example.png)
+![Workflow](/img/technical_example.webp)

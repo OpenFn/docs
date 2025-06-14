@@ -39,42 +39,42 @@ you'll see that a sample project has been created for you.
 Create a new project called ‘Kobo case registrations’ by clicking on the blue +
 icon at the bottom right hand corner of your dashboard.
 
-![new account dashboard](/img/2.1_new_account_dashboard.png 'Create a new project')
+![new account dashboard](/img/2.1_new_account_dashboard.webp 'Create a new project')
 
 When you click 'View' to enter your project space, you'll be taken to your
 **inbox**. This is where you will receive **messages** - the data that gets sent
 from your source system to OpenFn. Copy your **inbox url** to configure
 KoboToolbox to send data to it.
 
-![inbox url](/img/2.2_inbox_url.png 'Copy your inbox URL')
+![inbox url](/img/2.2_inbox_url.webp 'Copy your inbox URL')
 
 [Log into](https://kf.kobotoolbox.org/accounts/login/#/) our KoboToolbox demo
 account with _username: openfn_demo and password: openfn_demo_. Select the form
 you’d like to connect (if using our demo account this will be 'COVID 19 case
 registration') and go to Settings -> REST services -> Register a new service.
 
-![kobo](/img/2.3_kobo_rest.png 'Register a REST service with Kobo')
+![kobo](/img/2.3_kobo_rest.webp 'Register a REST service with Kobo')
 
 Set the service name to OpenFn and the URL to your project inbox url.
 
-![kobo](/img/2.4_kobo_rest.png 'Set the REST service URL to your OpenFn inbox URL')
+![kobo](/img/2.4_kobo_rest.webp 'Set the REST service URL to your OpenFn inbox URL')
 
 Your form should now be configured to send data to your OpenFn project inbox
 whenever a response is submitted. We can test this out by submitting some form
 responses at Form -> Open.
 
-![kobo form](/img/2.5_open_kobo_form.png 'Open a kobo form')
+![kobo form](/img/2.5_open_kobo_form.webp 'Open a kobo form')
 
 Return to your project inbox. You should see a new message there, which contains
 the data submitted in the KoboToolbox form response.
 
-![inbox](/img/2.6_inbox.png 'View inbound messages in your inbox')
+![inbox](/img/2.6_inbox.webp 'View inbound messages in your inbox')
 
 If you click on the message, and open up the **message body** you’ll see the
 data that you submitted to the form. To view the entire message, open it in full
 screen.
 
-![message body](/img/2.7_message.png 'Open up a message body')
+![message body](/img/2.7_message.webp 'Open up a message body')
 
 Once you can see the entire message, you need to identify a data point that will
 be the same for every submission. In this case, we know that all of our messages
@@ -82,7 +82,7 @@ will have the same form ID. Save the snippet you have identified
 (`"\_xform_id_string": "aDReHdA7UuNBYsiCXQBr43"`), you'll need it later to
 create your trigger.
 
-![common data point](/img/2.8_common_data_point.png 'Identify a common snippet for all your messages')
+![common data point](/img/2.8_common_data_point.webp 'Identify a common snippet for all your messages')
 
 ## 3. Create credentials to connect your destination system
 
@@ -93,14 +93,14 @@ sheet.
 Head to the credentials section of your dashboard, and once again click the
 blue + sign to create new credentials.
 
-![create credentials](/img/3.1_create_credentials.png 'Create credentials to connect your external system')
+![create credentials](/img/3.1_create_credentials.webp 'Create credentials to connect your external system')
 
 You’ll see various apps you recognise - these are all of the systems that we can
 handle credentials for. Select the `Sheets` one, and log into your google
 account when you get the pop up window. You’ll get a confirmation message. Close
 the window and give your new project access to these credentials.
 
-![select credential type](/img/3.2_select_credential_type.png 'Select a credential type')
+![select credential type](/img/3.2_select_credential_type.webp 'Select a credential type')
 
 You’ve now created credentials that will allow you to perform operations in
 google sheets from within your job.
@@ -115,7 +115,7 @@ where it should go.
 Navigate to the jobs section in your dashboard, then click the + icon to create
 a new job.
 
-![new job](/img/4.1_new_job.png 'Create a new job')
+![new job](/img/4.1_new_job.webp 'Create a new job')
 
 Give the job a name (we’ll make ours “Kobo to sheets”).
 
@@ -135,14 +135,14 @@ message body sent by each submitted form response to your inbox.
 This message filter will trigger your job whenever a message which includes the
 snippet comes into your inbox.
 
-![new trigger](/img/4.2_new_trigger.png 'Create a new trigger')
+![new trigger](/img/4.2_new_trigger.webp 'Create a new trigger')
 
 Save your trigger. You should see a confirmation message “Found x matching
 messages”. To see the data from your last message inside the
 [initial state](/documentation/legacy/jobs/state), drag the
 **Expression** panel to the right.
 
-![trigger message](/img/4.3_trigger_message.png 'View a matching trigger message in initial state')
+![trigger message](/img/4.3_trigger_message.webp 'View a matching trigger message in initial state')
 
 ### 4.2 Select an API adaptor
 
@@ -163,7 +163,7 @@ Open up the inline documentation for the adaptor to see the available functions.
 Copy the appendValues function, then paste it into your Expression editor. It
 should look something like this.
 
-![adaptor operation](/img/4.4_adaptor_operation.png 'Choose an adaptor operation')
+![adaptor operation](/img/4.4_adaptor_operation.webp 'Choose an adaptor operation')
 
 ### 4.4 Edit the function in your expression editor
 
@@ -175,7 +175,7 @@ want to send.
 First, get your spreadsheet ID from the URL of your google sheet (between `d/`
 and `/edit`).
 
-![sheets ID](/img/4.5_sheets_id.png 'Find a google sheets ID')
+![sheets ID](/img/4.5_sheets_id.webp 'Find a google sheets ID')
 
 Copy and paste the ID into your `appendValues` operation to replace the
 placeholder value for `spreadsheetId`. This ensures your values get appended to
@@ -188,7 +188,7 @@ state window and paste it to replace the placeholder text ('From expression')
 inside `values: []`. Repeat this for the following values, and remove line 7 as
 this would add a second row to your sheet.
 
-![select values](/img/4.6_select_values.png 'Select values from initial state')
+![select values](/img/4.6_select_values.webp 'Select values from initial state')
 
 Your operation should now look like this:
 
@@ -210,7 +210,7 @@ Click `Save and run` to get a ‘Success!’ response in the `run logs` and see 
 the data entries between the square brackets [ ] have been added to your google
 sheet.
 
-![save and run](/img/4.7_save_and_run.png 'Save and run a job')
+![save and run](/img/4.7_save_and_run.webp 'Save and run a job')
 
 ## 5. Set autoprocess to true
 
@@ -218,7 +218,7 @@ You have now written and tested your job. In order to run your job automatically
 every time a message matches the trigger inclusion criteria, turn on
 auto-process.
 
-![autoprocess](/img/5.1_autoprocess.png "Enabling 'autoprocess' for a job")
+![autoprocess](/img/5.1_autoprocess.webp "Enabling 'autoprocess' for a job")
 
 You're all set! Try out your job by submitting another form response to see the
 data automatically populate your google sheet.

@@ -81,7 +81,7 @@ Salesforce integration project.
 Salesforce **field API names** (unique names for each piece of metadata - e.g.,
 `PatientID__c`) should be referenced in OpenFn integrations, not **field
 labels** (business-friendly label that the end user sees - e.g., `Patient ID`)
-![image](https://user-images.githubusercontent.com/80456839/128650593-343090da-7f12-468a-aa51-1f87f1cf9f34.png).
+![image](https://user-images.githubusercontent.com/80456839/128650593-343090da-7f12-468a-aa51-1f87f1cf9f34.webp).
 
 To view the Salesforce API field names, navigate to the Salesforce backend. Via
 the web app, select `Setup` from the top naviagation menu to browse the
@@ -108,7 +108,7 @@ being created in Salesforce. To enable this setting on an individual field,
 ensure `External ID` is checked on the field settings. Learn more about external
 identifiers in Salesforce at
 https://www.infallibletechie.com/2014/11/what-is-external-id-in-salesforce.html
-![image](https://user-images.githubusercontent.com/80456839/128650680-e10fa395-bddb-45bd-bd6c-3a9dda8998f8.png)
+![image](https://user-images.githubusercontent.com/80456839/128650680-e10fa395-bddb-45bd-bd6c-3a9dda8998f8.webp)
 
 #### Relationships and Lookup Fields
 
@@ -165,7 +165,7 @@ When connecting via Oauth2, choose only the scopes you require.
 ([See Salesforce](https://help.salesforce.com/s/articleView?id=sf.remoteaccess_oauth_tokens_scopes.htm&type=5)
 for explanations of these options.)
 
-![Salesforce Oauth2](/img/salesforce-oauth2.png)
+![Salesforce Oauth2](/img/salesforce-oauth2.webp)
 
 #### Security Token
 
@@ -185,7 +185,7 @@ A "Salesforce" Credential record should include:
   sandbox environments, use `https://test.salesforce.com`. For custom domains,
   use `<my-domain>.my.salesforce.com`
 
-![Salesforce Cred](/img/salesforce-old-cred.png)
+![Salesforce Cred](/img/salesforce-old-cred.webp)
 
 For use in the CLI, see an example
 [salesforce configuration](/adaptors/packages/salesforce-configuration-schema)
@@ -196,7 +196,7 @@ For use in the CLI, see an example
 or below screenshot. Once reset, you will receive an email from Salesforce.
 Please save this `security token` in your OpenFn `Credential`.
 
-![Token Reset](/img/security-token.png)
+![Token Reset](/img/security-token.webp)
 
 ## Common Errors
 
