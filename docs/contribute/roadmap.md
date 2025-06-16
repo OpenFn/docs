@@ -44,11 +44,13 @@ All of our team's work is tracked publicly using a GitHub Project. Three key
 views give you up-to-the-minute insights on what we're doing and what's on our
 immediate roadmap.
 
-### See [**_Now_**](https://github.com/orgs/OpenFn/projects/3/views/1) 🚧 for what's been funded and is currently being built
+### See [**_Now_**](https://github.com/orgs/OpenFn/projects/3/views/24?layout=table&sortedBy%5Bdirection%5D=desc&sortedBy%5BcolumnId%5D=Status) 🚧 for what's currently being built
+
+### See [**_Next_**](https://github.com/orgs/OpenFn/projects/3/views/2?layout=table&sortedBy%5Bdirection%5D=desc&sortedBy%5BcolumnId%5D=Status) ⏭️ for what's being considered for the next sprint
 
 ### See [**_Epics_**](https://github.com/orgs/OpenFn/projects/3/views/7) 🤔 for a list of projects that we're considering, roughly-prioritized
 
-### See [**_Bugs_**](https://github.com/orgs/OpenFn/projects/3/views/22) 🐞 for reported bugs
+### See [**_Bugs_**](https://github.com/orgs/OpenFn/projects/3/views/22) 🐞 for known bugs we're tracking
 
 We will update this site monthly to reflect our progress on major items. You can
 also keep track of all new features, changes, and bug fixes in real-time via our
@@ -110,7 +112,7 @@ pick them up to work on yourself. If you don't find what you're looking for,
 please go ahead an create an issue in the relevant repo. We'll do our best to
 respond promptly!
 
-## Summary Roadmaps
+<!-- ## Summary Roadmaps
 
 #### How to interpret `Status` values in the roadmap
 
@@ -173,7 +175,7 @@ workflow engine, enable automated workflows that cut across digital systems.
 
 | **ID** | **Feature**                 | **Status**  | **Timeline** | **Δ** | **Description**                                                                                                                                                           |
 | :----: | :-------------------------- | :---------: | :----------: | :---: | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|   -    | New Lightning User Guidance | In Progress |    Q1'25     |       | New documentation, videos, and other user guidance on how to use OpenFn/Lightning and how to migrate existing OpenFn/platform projects to Lightning (the new OpenFn "v2") |
+|   -    | New Lightning User Guidance | In Progress |    Q1'25     |       | New documentation, videos, and other user guidance on how to use OpenFn/Lightning and how to migrate existing OpenFn/platform projects to Lightning (the new OpenFn "v2") | -->
 
 ## Have questions, feedback or found a bug?
 
