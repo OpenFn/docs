@@ -921,19 +921,21 @@ fn(state => {
 
 :::warning Availability
 
-Globals are new to CLI version X.X.X and not yet available in Lightning
+Globals are new to CLI version 1.13.0 and not yet available in on the platform.
+If you've tried Globals and have feedback or want to see it in the app, lets us
+know on [community.openfn.org](https://community.openfn.org/)! :::
 
-:::
+You can re-use functions and constants across steps in a workflow through
+Globals.
 
-Each step in your workflow runs in isolation: state is the only way to share
-information between steps.
+Usually, each step in a workflow is "sandboxed" into its own environment, with
+adaptor functions in scope and a state object created by the previous step (or
+input). But globals allow you to define functions and variables to be exported
+across steps.
 
-Since CLI vX.X.X, you can declare global variables and functions which can be
-re-used throughout all steps in your workflow. This is particularly useful for
-declaring re-usable functions.
-
-Globals are defined in a special kind of step. Everything you export from this
-"step" will be made globally available to all other steps.
+Globals are defined in a special kind of step at the top level of your
+`workflow.json` file. Everything you export from this "step" will be made
+globally available to all other steps.
 
 For example, your globals may look like this:
 
@@ -969,11 +971,18 @@ fn(state => {
 });
 ```
 
+Globals are useful when you have common logic that you want to share between
+steps in a workflow - like generating or pre-processing data, running validation
+or generating ids, or utilities like sort, filter and mapping functions.
+
+### The Rules of Globals
+
 There are some important rules to bear in mind when using globals:
 
 - You cannot import other modules inside globals. Globals are not a replacement
   for adaptors.
-- Exported functions are not operations, and cannot be used at the top-level of
+- Globals do not have an associated adaptor and so cannot use adaptor functions.
+- Exported functions are not Operations, and cannot be used at the top-level of
   a job expression (unless you specifically write it that way, see below)
 - The contents of globals are immutable: you cannot change their values and they
   are reset in-between steps. You can of course pass state into a global
@@ -1021,6 +1030,21 @@ export function toKebabCase(str) {
 ```
 
 :::
+
+### CLI Usage
+
+Right now, Globals are only available to workflows executed through the CLI.
+
+When using a workflow with a `globals` key defined, the globals will
+automatically be exported to each step. You don't need to do anything.
+
+If you want ro run a single step through the CLI, and that step depends on
+globals, you'll need to pass the `--globals` argument with a path to the globals
+file, like this:
+
+```bash
+openfn job.js -a http --globals ./globals.js
+```
 
 ## Using Cursors
 
