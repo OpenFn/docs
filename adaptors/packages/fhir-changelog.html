@@ -19,7 +19,7 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.6e6ba625.css">
-<script src="/assets/js/runtime~main.629b464c.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.dd8ef66c.js" defer="defer"></script>
 <script src="/assets/js/main.b030df57.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -127,7 +127,7 @@
 data is the response body and response is the raw response<!-- -->
 <ul>
 <li>All HTTP methods now support a <code>throwOnError</code> param, which defaults to true.
-If false, the adaptor will not throw if the HTTP status is &lt;=400</li>
+If false, the adaptor will not throw if the HTTP status is an error code</li>
 <li>request: return <code>{ data, response }</code> directly</li>
 <li>request: fix an issue where default headers would override user headers</li>
 <li>request: if the body contains application/json content, parse it as JSON</li>
