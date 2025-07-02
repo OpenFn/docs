@@ -4,22 +4,39 @@ title: OpenSSP Adaptor
 
 ## About OpenSSP
 
-[OpenSPP (Open Smart Patient Platform)](https://openspp.org/) is an open-source platform designed to support patient-centric workflows in healthcare delivery. It enables healthcare providers to manage patient data, schedule appointments, track health outcomes, and improve service delivery through real-time data insights and integration capabilities.
+[OpenSPP (Open Source Social Protection Platform)](https://openspp.org/) is an
+integrated and digital social protection information system that enables
+governments and humanitarian agencies to streamline the creation and management
+of assistance programs.
 
 ## Integration Options
 
 OpenSPP supports 2 primary integration options with OpenFn:
 
-1. **Rest API:** OpenSPP has a REST API that enables external services like OpenFn to pull data from OpenSPP, or push data from external apps to OpenSPP. This option is suited for scheduled, bulk syncs or workflows that must update data in OpenSPP with external information. See [functions](/adaptors/packages/openspp-docs) for more on how to use this adaptor to work with the API.
+1. **Rest API:** OpenSPP has a REST API that enables external services like
+   OpenFn to pull data from OpenSPP, or push data from external apps to OpenSPP.
+   This option is suited for scheduled, bulk syncs or workflows that must update
+   data in OpenSPP with external information. See
+   [functions](/adaptors/packages/openspp-docs) for more on how to use this
+   adaptor to work with the API.
 
-2. **Webhook:** Webhook or Data Forwarding to push data from OpenSPP to external systems (see [docs](https://openspp.org/api)). This option is suited for real-time, event-based data integration.
+2. **Webhook:** Webhook or Data Forwarding to push data from OpenSPP to external
+   systems (see [docs](https://openspp.org/api)). This option is suited for
+   real-time, event-based data integration.
 
 ## Authentication
 
-1. See [OpenSPP docs](https://openspp.org/security) for the latest on supported authentication methods.
-2. When integrating with OpenSPP via OpenFn, there is one primary authentication method that is supported: **Basic Authentication**. See this adaptor's [Configuration docs](/adaptors/packages/openspp-configuration-schema) for more on the required authentication parameters.
+1. See [OpenSPP docs](https://openspp.org/security) for the latest on supported
+   authentication methods.
+2. When integrating with OpenSPP via OpenFn, there is one primary authentication
+   method that is supported: **Basic Authentication**. See this adaptor's
+   [Configuration docs](/adaptors/packages/openspp-configuration-schema) for
+   more on the required authentication parameters.
 
-See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
+See platform docs on
+[managing credentials](/documentation/manage-projects/manage-credentials) for
+how to configure a credential in OpenFn. If working locally or if using a Raw
+JSON credential type, then your configuration will look something like this:
 
 ```
 {
@@ -39,7 +56,3 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 ### Implementation Examples
 
 _Coming soon!_
-
-
-
-
