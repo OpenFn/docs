@@ -2,7 +2,7 @@
 title: OpenSSP Adaptor
 ---
 
-## About OpenSSP
+## About OpenSPP
 
 [OpenSPP (Open Source Social Protection Platform)](https://openspp.org/) is an
 integrated and digital social protection information system that enables
