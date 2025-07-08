@@ -9,7 +9,7 @@ This docs page is under construction. Check back later for the complete docs, or
 :::
 
 # Getting started with workflow automation design for OpenFn projects
-Overview of design process and key outputs/artefacts...
+Overview of design process and key outputs/artifacts...
 
 **Integration design begins with the functional or business requirements (not
 the technical bits).** Therefore, you do not need to be an IT consultant or
@@ -116,7 +116,7 @@ See the below example BPMN diagram for the user story:
 > contacts in my SMS campaign configured on RapidPro to send them automated
 > alerts and program updates.
 
-<img src="/img/sample-bpmn.png" url />
+<img src="/img/sample-bpmn.webp" url />
 
 ## 3. Map data elements to be exchanged
 
@@ -150,13 +150,13 @@ This template includes:
 
 1. Details on the source metadata such as field API name, data type, sample data
    values and comments:
-   ![image](https://user-images.githubusercontent.com/80456839/130796010-fe900c03-1bff-40c0-9263-c29e22d9191f.webp)
+   ![image](https://user-images.githubusercontent.com/80456839/130796010-fe900c03-1bff-40c0-9263-c29e22d9191f.png)
 2. Similar details on the destination metadata:
-   ![image](https://user-images.githubusercontent.com/80456839/130796087-67b0359d-207a-4169-aa88-6609572b2561.webp)
+   ![image](https://user-images.githubusercontent.com/80456839/130796087-67b0359d-207a-4169-aa88-6609572b2561.png)
 3. Notes on data transformations & cleaning required and comments for tracking
    changes & questions for technical input:
 
-   ![image](https://user-images.githubusercontent.com/80456839/130796170-2e29a997-9b41-44f7-ac60-79375d096cc9.webp)
+   ![image](https://user-images.githubusercontent.com/80456839/130796170-2e29a997-9b41-44f7-ac60-79375d096cc9.png)
 
 ### To build a complete mapping specification, you’ll need to...
 
