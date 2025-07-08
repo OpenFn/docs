@@ -100,20 +100,20 @@ You can run a workflow manually in three ways:
 
 This is the default behavior and the input dataclip for your run will be `{}`.
 
-<img src="/img/empty.png" width="400" />
+<img src="/img/empty.webp" width="400" />
 
 #### With a custom input
 
 You can type, copy/paste, or import (browse your file system or drag & drop) any
 file with valid JSON.
 
-<img src="/img/custom.png" width="400" />
+<img src="/img/custom.webp" width="400" />
 
 #### With an existing input
 
 You can pick from a list of previous inputs that were used to run this step.
 
-<img src="/img/existing.png" width="400" />
+<img src="/img/existing.webp" width="400" />
 
 ## Limit Concurrency
 
