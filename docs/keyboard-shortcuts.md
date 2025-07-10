@@ -8,12 +8,12 @@ taking your hands off the keyboard. 🤓
 
 ## Platform Shortcuts
 
-| Command                  | Availability      | Mac              | Linux/Windows      | Notes                                                                                                                        |
-| ------------------------ | ----------------- | ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| Save Workflow            | Canvas, Inspector | `⌘+s`            | `Ctrl+s`           |
-| Save & Sync Workflow     | Canvas, Inspector | `⌘+Shift+s`      | `Ctrl+Shift+s`     | When opting to sync, you'll be prompted to either enter a commit message or use the default message provided.                |
-| Run                      | Inspector         | `⌘+Return`       | `Ctrl+Enter`       | This will save (but not sync) your workflow and run it from the current step with the default workorder grouping behavior.\* |
-| Run _(alternate action)_ | Inspector         | `⌘+Shift+Return` | `Ctrl+Shift+Enter` | This will save (but not sync) your workflow and create a new workorder from the current step.                                |
+| Command                      | Availability      | Mac              | Linux/Windows      | Notes                                                                                                                        |
+| ---------------------------- | ----------------- | ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
+| **Save** Workflow            | Canvas, Inspector | `⌘+s`            | `Ctrl+s`           |
+| **Save** & Sync Workflow     | Canvas, Inspector | `⌘+Shift+s`      | `Ctrl+Shift+s`     | When opting to sync, you'll be prompted to either enter a commit message or use the default message provided.                |
+| **Run**                      | Canvas, Inspector | `⌘+Return`       | `Ctrl+Enter`       | This will save (but not sync) your workflow and run it from the current step with the default workorder grouping behavior.\* |
+| **Run** _(alternate action)_ | Inspector         | `⌘+Shift+Return` | `Ctrl+Shift+Enter` | This will save (but not sync) your workflow and create a new workorder from the current step.                                |
 
 \*If you are viewing an existing work order and create a run from the inspector,
 that run will be associated with the existing work order—this is the default
