@@ -1,9 +1,7 @@
 ---
 layout: post
 title: 'To Automate or Not to Automate? Ask Yourself These 3 Questions.'
-author: Aleksa Krolls
-author_url: https://github.com/aleksa-krolls
-author_image_url: https://avatars.githubusercontent.com/aleksa-krolls
+authors: aleksa
 tags: [tips]
 featured: true
 ---

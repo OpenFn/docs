@@ -9,7 +9,7 @@ This docs page is under construction. Check back later for the complete docs, or
 :::
 
 # Getting started with workflow automation design for OpenFn projects
-Overview of design process and key outputs/artefacts...
+Overview of design process and key outputs/artifacts...
 
 **Integration design begins with the functional or business requirements (not
 the technical bits).** Therefore, you do not need to be an IT consultant or
@@ -116,7 +116,7 @@ See the below example BPMN diagram for the user story:
 > contacts in my SMS campaign configured on RapidPro to send them automated
 > alerts and program updates.
 
-<img src="/img/sample-bpmn.png" url />
+<img src="/img/sample-bpmn.webp" url />
 
 ## 3. Map data elements to be exchanged
 

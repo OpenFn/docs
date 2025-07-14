@@ -77,9 +77,9 @@ This way you don’t have to wait for the timer to expire before testing! Simply
 click the process/ “play” button now available via the Job, Run, and Activity
 History pages.
 
-![Runs list run time trigger button](/img/timetriggerunslist.png)
+![Runs list run time trigger button](/img/timetriggerunslist.webp)
 
-![Run history time trigger button](/img/runtimetrigger1.png)
+![Run history time trigger button](/img/runtimetrigger1.webp)
 
 #### Keeping a cursor in `state` for timer Jobs
 

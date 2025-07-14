@@ -78,17 +78,17 @@ fetch all keys which relate to Mr Benn in 2024).
 The Collections API gives you four functions to read, write and remove data from
 a collection.
 
-- Use [`collections.get()`](adaptors/packages/collections-docs#collections_get)
+- Use [`collections.get()`](/adaptors/packages/collections-docs#collections_get)
   to fetch a single value, or batch-download a range of values.
 - Use
-  [`collections.each()`](adaptors/packages/collections-docs#collections_each) to
-  efficiently iterate over a range of items in a collection. Recommended for
+  [`collections.each()`](/adaptors/packages/collections-docs#collections_each)
+  to efficiently iterate over a range of items in a collection. Recommended for
   large data sets.
-- Use [`collections.set()`](adaptors/packages/collections-docs#collections_set)
+- Use [`collections.set()`](/adaptors/packages/collections-docs#collections_set)
   to upload one or more values to a collection. `set()` is always an "upsert":
   if a key already exists, it's value will be replaced by the new value
 - Use
-  [`collections.remove()`](adaptors/packages/collections-docs#collections_remove)
+  [`collections.remove()`](/adaptors/packages/collections-docs#collections_remove)
   to remove one or more values.
 
 Detailed usage examples are provided below.
@@ -202,7 +202,7 @@ collections.get('my-collection', 'commcare-fhir-value-mappings').then(state => {
   state.mappings = state.data;
   return state;
 });
-collecions.each($.inputs, state => {
+collections.each($.inputs, state => {
   const mappedString = state.mappings[state.data.diagnosis];
   state.resources ??= {};
   state.resources[state.data.id] = mappedString;
@@ -256,7 +256,7 @@ collections.each(
 
 You can use `createdBefore` and `createdAfter` dates, which must be ISO 1806
 formatted strings. The `createdBefore` timestamp will match all dates less than
-or equal to (<=) the _start_ of the provided date. Conversely, `createdAfter`
+or equal to (&lt;=) the _start_ of the provided date. Conversely, `createdAfter`
 will match dates greater than or equal to the _end_ of the provided date.
 
 By default, all matching values will be returned to you, but you can limit how

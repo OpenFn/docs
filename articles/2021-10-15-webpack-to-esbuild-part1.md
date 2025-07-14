@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Moving from Webpack to esbuild on Phoenix
-author: Stuart Corbishley
-author_url: https://github.com/stuartc
-author_image_url: https://avatars.githubusercontent.com/stuartc
+authors: stu
 tags: [how-to, js, webpack, build, phoenix, ci/cd]
 featured: true
 ---

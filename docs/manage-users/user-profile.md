@@ -7,21 +7,21 @@ slug: /user-profile
 This article walks you through how to view and update your user information in
 your User Profile.
 
-![User Profile](/img/lightning_select_user_profile.png)
+![User Profile](/img/lightning_select_user_profile.webp)
 
 ### Change Email and Password
 
 You can change the email address associated with your Profile, and update your
 password.
 
-![Change Email Password](/img/lightning_change_email_pw.png)
+![Change Email Password](/img/lightning_change_email_pw.webp)
 
 ### Enable Multi-Factor Authentication
 
 By enabling Multi-Factor Authentication, you can add an additional layer of
 security to your account by requiring more than just a password for logging in.
 
-![Enable MFA](/img/lightning_enable_MFA.png)
+![Enable MFA](/img/lightning_enable_MFA.webp)
 
 You can link your account to an authenticator app or a browser extension like
 1Password or Authy. Once configured, the app will generate a one-time password
@@ -37,7 +37,7 @@ app to set it up.
 
 Your User Profile is also the place where you can delete your OpenFn account.
 
-![Delete Account](/img/lightning_delete_account_cropped.png)
+![Delete Account](/img/lightning_delete_account_cropped.webp)
 
 To delete your account, click on the **"Delete my account"** button. You will be
 asked to confirm the deletion by entering your email address and clicking

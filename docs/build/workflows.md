@@ -47,12 +47,10 @@ with any other step.
 
 ## Run Workflows
 
-To run a Workflow, you can either activate the Trigger (e.g., send a request to
-the Webhook Event Trigger's URL, or wait for the cron timer to be activated), or
-run your workflow manually. Check out the video below for how to run your
-workflow manually.
-
-<iframe width="784" height="441" src="https://www.youtube.com/embed/dssixE3Sukc?si=n3Jpdiu_aiBLXuHb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+Workflows will run automatically when they are "enabled"—i.e., when their
+trigger is turned on. A webhook trigger will run your workflow whenever a
+request is received at that trigger's URL, and a cron trigger will run a
+workflow whenever its cron schedule matches the current time.
 
 :::info
 
@@ -76,11 +74,11 @@ navigation bar in the workflow canvas.
 
 The screenshot below shows an enabled workflow in the workflow list.
 
-![Via the workflow list](/img/workflow_list_toggle.png)
+![Via the workflow list](/img/workflow_list_toggle.webp)
 
 The screenshot below shows a disabled workflow in the workflow canvas.
 
-![Via the workflow canvas](/img/workflow_canvas_toggle.png)
+![Via the workflow canvas](/img/workflow_canvas_toggle.webp)
 
 #### Via the workflow trigger
 
@@ -88,7 +86,34 @@ To enable or disable a workflow via the workflow trigger, select the trigger
 icon on the canvas and use the toggle in the configuration panel to toggle the
 workflow state.
 
-![Enabled workflow in the trigger panel](/img/via-trigger-panel.png)
+![Enabled workflow in the trigger panel](/img/via-trigger-panel.webp)
+
+### Manual Runs
+
+Check out the video for a quick overview.
+
+<iframe width="784" height="441" src="https://www.youtube.com/embed/dKMtT1QKl-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+You can run a workflow manually in three ways:
+
+#### With an empty input
+
+This is the default behavior and the input dataclip for your run will be `{}`.
+
+<img src="/img/empty.webp" width="400" />
+
+#### With a custom input
+
+You can type, copy/paste, or import (browse your file system or drag & drop) any
+file with valid JSON.
+
+<img src="/img/custom.webp" width="400" />
+
+#### With an existing input
+
+You can pick from a list of previous inputs that were used to run this step.
+
+<img src="/img/existing.webp" width="400" />
 
 ## Limit Concurrency
 
@@ -132,7 +157,7 @@ canvas.
 2. In the modal, enter the maximum concurrency limit
 3. Click save.
 
-![Configuring Concurrency](/img/configuring-concurrency.png)
+![Configuring Concurrency](/img/configuring-concurrency.webp)
 
 ### Log Outputs
 
@@ -144,7 +169,7 @@ via the workflow configuration modal by a project owner or administrator.
 2. In the modal, toggle the **Allow `console.log()` usage** switch to disable
    logging `console.log()` statements. By default, this is enabled.
 
-![Configuring Log Outputs](/img/configuring-log-outputs.png)
+![Configuring Log Outputs](/img/configuring-log-outputs.webp)
 
 ## Keyboard Shortcuts
 

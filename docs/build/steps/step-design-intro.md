@@ -17,7 +17,7 @@ In short, to design a Workflow Step, you will need to follow the below list of
 actions, and consider summarizing your design specifications in a
 [workflow diagram](/documentation/design/design-workflow).
 
-![Example Workflow](/img/example-workflow-state.png)
+![Example Workflow](/img/example-workflow-state.webp)
 
 ## 1. Determine your Inputs/Outputs
 
@@ -37,7 +37,7 @@ To get started:
    source app (input) & destination app (output).
 2. Paste the metadata into an Excel spreadsheet to create a mapping sheet:
 
-![Sample mapping sheet](/img/data-element-mapping.png)
+![Sample mapping sheet](/img/data-element-mapping.webp)
 
 3. Map the source and destinationdata elements & define rules for data cleaning
    and transformation. Consider:

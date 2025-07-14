@@ -9,8 +9,8 @@ title:
   minute!)
 - You have checked out our glossary and have an understanding of basic OpenFn
   and API terminology. Check out the pages below to get started
-  - [OpenFn Concepts](../getting-started/terminology.md)
-  - [A glossary for data integration](../getting-started/glossary.md)
+  - [OpenFn Concepts](/documentation/legacy/getting-started/terminology)
+  - [A glossary for data integration](/documentation/legacy/getting-started/glossary)
 - You have a CommCare application with at least one form configured. This is
   your source system.
 - You have a PostgreSQL database configured. This is your destination system.
@@ -23,7 +23,7 @@ also follow along with the prebuilt solution. Follow along at the links below:**
    - Username: testuser
    - Password: 123
 
-![install_cc_app](/img/install_cc_app.png)
+![install_cc_app](/img/install_cc_app.webp)
 
 3. [OpenFn project](https://www.openfn.org/projects/commcare-demo/jobs)
 4. [Public report that shows records in the PostgreSQL database](https://analytics.openfn.org/public/question/095449a9-5696-463c-a4fb-24614c9f08a5)
@@ -45,7 +45,7 @@ data on patients registered!
 
 :::
 
-![cc-postgres](/img/cc-postgres.png)
+![cc-postgres](/img/cc-postgres.webp)
 
 **This integration can be broken up into two parts:**
 
@@ -70,7 +70,7 @@ inbox. After data forwarding is set up, it happens automatically, **_in
 real-time for all forms and cases_**. Learn more about configuring a webhook
 [here](/adaptors/commcare#webhook-forward-cases-andor-forms-from-commcare-to-openfn-using-rest-service).
 
-![option1](/img/option1.png)
+![option1](/img/option1.webp)
 
 ### Option 2: Extracting Commcare data via the REST API
 
@@ -110,7 +110,7 @@ In the credential `JSON Configuration`, add your credential as follows:
 
 :::tip
 
-Check out [this](../getting-started/terminology.md/#inbox) docs page on
+Check out [this](/documentation/legacy/getting-started/terminology#inbox) docs page on
 how to find your OpenFn inbox URL to fill in the configuration above.
 
 :::
@@ -171,15 +171,13 @@ get(
 
 6. **Once you are finished configuring and writing your job, save and run it!**
 
-![save_run_job_cc](/img/save_run_job_cc.gif)
-
 7. **Check out the `Activity History` tab to see if your run succeeded.** If it
    succeeded, you should see:
    - Successful run log (look for the green!)
    - New Messages in your `Inbox` containing data for any forms submitted in the
      time frame specified in your query.
 
-![activity_history_cc](/img/activity_history_cc.png)
+![activity_history_cc](/img/activity_history_cc.webp)
 
 :::info
 
@@ -217,7 +215,7 @@ there are 2:**
    for how to create your own `mapping specification document` to map data
    elements to be exchanged.
 
-![db_config](/img/db_config.png)
+![db_config](/img/db_config.webp)
 
 1. **Create a new message filter trigger, to run our second job for every new
    patient record received in the OpenFn inbox.** Learn more about message
@@ -273,8 +271,6 @@ to be exchanged.
 
 1. **Save and turn on the job**
 
-![save_db_job](/img/save_db_job.gif)
-
 ## Time to test!
 
 1. Submit a form in CommCare
@@ -287,11 +283,11 @@ to be exchanged.
 5. Check out the `Activity History` and ensure that both runs passed (look for
    the green checks in the `Status/Action` column).
 
-![activity_history_final](/img/activity_history_final.png)
+![activity_history_final](/img/activity_history_final.webp)
 
 6. **Finally, refresh your database and check out the new submission data!**
 
-![metabase](/img/metabase.png)
+![metabase](/img/metabase.webp)
 
 While this guide is specifically for PostgreSQL databases, you can generally
 follow these same steps for other database types (e.g., MS SQL or MySQL)—simply

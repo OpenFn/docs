@@ -23,13 +23,13 @@ will also have Admin permissions).
 
 You can manage your tokens in your User Profile.
 
-![API Tokens Profile](/img/lightning_user_profile_api_tokens.png)
+![API Tokens Profile](/img/lightning_user_profile_api_tokens.webp)
 
-![API Tokens](/img/lightning_no_api_token.png)
+![API Tokens](/img/lightning_no_api_token.webp)
 
 1. Click `Generate New Token` to create a new one.
 
-![New Token](/img/lightning_new_api_token.png)
+![New Token](/img/lightning_new_api_token.webp)
 
 2. Make sure you copy your new token right away. You won't be able to view or
    copy it later.

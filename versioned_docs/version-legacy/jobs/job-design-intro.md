@@ -24,7 +24,7 @@ Step 2: Map your data elements
 1. Export the metadata of your form (input) & destination DB (output).
 2. Paste the metadata into an Excel spreadsheet to create a mapping sheet:
 
-![Sample mapping sheet](/img/data-element-mapping.png)
+![Sample mapping sheet](/img/data-element-mapping.webp)
 
 3. Map data elements & define rules for data cleaning and transformation a. How
    should the data collected be translated into your destination system’s data

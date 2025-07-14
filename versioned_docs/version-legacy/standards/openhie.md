@@ -33,7 +33,7 @@ used as a fully OpenHIE-compliant **_interoperability layer _**because it does
 not leverage the IHE ATNA profile (see
 [requirement IOL-WF1](https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-interoperability-layer-iol#openhie-iol-workflow-requirements)).
 
-![openhie_architecture](/img/openhie_architecture.png)
+![openhie_architecture](/img/openhie_architecture.webp)
 
 _For an overview of OpenFn Lightning and how it fits into OpenHIE, see our
 [introduction for the OpenHIE showcase](https://www.youtube.com/watch?v=PTRRZBYtqyc)_
@@ -78,4 +78,4 @@ leveraging OpenFn’s out-of-box DHIS2 adaptor and reusable workflow templates t
 quickly develop automation that reformats data received from CommCare and maps
 it to the DHIS2 data model.
 
-![swisstph](/img/swisstph.png)
+![swisstph](/img/swisstph.webp)

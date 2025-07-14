@@ -62,6 +62,26 @@
     "name": "Create SMS linked to contact"
   },
   {
+    "expressionPath": "jobs/satusehat-create-condition",
+    "adaptor": "satusehat",
+    "name": "Create a condition Record"
+  },
+  {
+    "expressionPath": "jobs/satusehat-create-encounter",
+    "adaptor": "satusehat",
+    "name": "Create an Encounter Record"
+  },
+  {
+    "expressionPath": "jobs/satusehat-create-observations",
+    "adaptor": "satusehat",
+    "name": "Create an Observation"
+  },
+  {
+    "expressionPath": "jobs/satusehat-create-medication",
+    "adaptor": "satusehat",
+    "name": "Create a Medication Record"
+  },
+  {
     "expressionPath": "jobs/DHIS2-DataValues-API",
     "adaptor": "dhis2",
     "name": "Create data values"

@@ -12,7 +12,7 @@ to read from and write to.
 The final state form a Job must always be a serializable Javascript object (ie,
 a JSON object). Any non-serializable keys will be removed.
 
-![Job State Overview](/img/state-javascript.png)
+![Job State Overview](/img/state-javascript.webp)
 
 :::tip A note on terminology
 
@@ -60,40 +60,42 @@ state controls what is output by the run at the end of all of these operations.
 Best practice is to include a final state cleanup step that removes any data
 that should not persist between runs or be output (like PII), for example:
 
-    // get data from a data source
-    get('https://jsonplaceholder.typicode.com/users')
+```js
+// get data from a data source
+get('https://jsonplaceholder.typicode.com/users')
 
-    // store retrieved data in state for use later in job
-    fn(state => {
-        state.users = state.data;
-      return state;
-    });
+// store retrieved data in state for use later in job
+fn(state => {
+    state.users = state.data;
+  return state;
+});
 
-    // get more data from another data source
-    get('https://jsonplaceholder.typicode.com/posts')
+// get more data from another data source
+get('https://jsonplaceholder.typicode.com/posts')
 
-    // store additional retrieved data in state for use later in job
-    fn(state => {
-      state.posts = state.data;
-      return state;
-    });
+// store additional retrieved data in state for use later in job
+fn(state => {
+  state.posts = state.data;
+  return state;
+});
 
-    // compare data
-    fn(state => {
-      if (state.users.length > state.posts.length) {
-        // do something based on the comparison
-      }
-      return state;
-    });
+// compare data
+fn(state => {
+  if (state.users.length > state.posts.length) {
+    // do something based on the comparison
+  }
+  return state;
+});
 
-    // cleanup state at the end before finshing job
-    fn(state => {
-      state.data = null
-      state.users = null
-      state.posts = null
-   
-      return state;
-    });
+// cleanup state at the end before finshing job
+fn(state => {
+  state.data = null
+  state.users = null
+  state.posts = null
+ 
+  return state;
+});
+```
 
 ### Webhook triggered runs
 
@@ -195,4 +197,4 @@ on state, keyed by the ID of the job that failed.
 See the below diagram for a visual description of how state might be passed
 between Steps in a Workflow.
 
-![Passing State](/img/passing-state-steps.png)
+![Passing State](/img/passing-state-steps.webp)

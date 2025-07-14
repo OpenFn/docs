@@ -10,7 +10,7 @@ A Credentials' values can only be viewed or edited by a single user — their "o
 (the user that created that credential). All the collaborators on a Project can
 choose from all credentials for the Project when defining a job.
 
-![Credentials Page](/img/settings_credentials.png)
+![Credentials Page](/img/settings_credentials.webp)
 
 ### Create a new Credential
 
@@ -77,13 +77,13 @@ Users of the hosted OpenFn platform SaaS can post on
 
 Note the credential selects only required scopes for Google Sheets.
 
-![Google OAuth](/img/google-oauth2.png)
+![Google OAuth](/img/google-oauth2.webp)
 
 #### e.g., Salesforce OAuth Credential
 
 Note that you can choose which scopes to access on Salesforce.
 
-![Salseforce OAuth](/img/salesforce-oauth2.png)
+![Salseforce OAuth](/img/salesforce-oauth2.webp)
 
 :::tip
 

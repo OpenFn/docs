@@ -77,7 +77,7 @@ To set up a connection, in CommCareHQ you'll need to:
    set up on OpenFn, add the authentication type, the username and password here
 7. You can test the connection, then save it
 
-![Connection](/img/commecare_connection_settings.png)
+![Connection](/img/commecare_connection_settings.webp)
 
 ### Data Forwarding Options
 
@@ -107,7 +107,7 @@ Here's how you can configure CommCare to forward a form to OpenFn.
    to find the XMLNS of any form.
 9. Click "Start Forwarding" to save and activate
 
-![Forms](/img/commecare_forward_forms.png)
+![Forms](/img/commecare_forward_forms.webp)
 
 #### Forwarding Specific Case Types
 
@@ -123,7 +123,7 @@ forms. Here's how you can configure CommCare to forward a case type to OpenFn.
 7. Select which case type(s) you want to forward, for example `patient`
 8. Exclude any (eg. test) users
 
-![Cases](/img/commcare_forward_cases.png)
+![Cases](/img/commcare_forward_cases.webp)
 
 :::tip Data Forwarding and OpenFn Workflow Design
 
@@ -182,7 +182,7 @@ See platform docs [on managing credentials](/documentation/manage-projects/manag
 how to configure a credential in OpenFn and see the below CommCare credential
 example.
 
-![CommCare Cred](/img/commcare_credential_edit.png)
+![CommCare Cred](/img/commcare_credential_edit.webp)
 
 If you're using the `Raw JSON` credential type, your configuration may look like this:
 
@@ -234,7 +234,7 @@ for a detailed description of the types of data.
 > time through a CommCare form. Ultimately form data is the source of all case
 > data, but not all form data is case data.
 
-![CommCare-data-model](/img/commcare-data-model.png)
+![CommCare-data-model](/img/commcare-data-model.webp)
 
 ### Mapping CommCare Metadata to External Systems
 Use the [CommCare App Summary](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143956371/App+Summary) to view and export case or form metadata to XLS. This will help you discover what data is available to be mapped to an external system. 

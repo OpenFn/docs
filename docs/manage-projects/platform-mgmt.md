@@ -15,7 +15,7 @@ login to your OpenFn account. When users click `Projects` in the menu sidebar,
 you will see the list of projects where you have been granted collaborator
 access.
 
-![Project Table](/img/projects-table.png)
+![Project Table](/img/projects-table.webp)
 
 ## Creating a new Project
 
@@ -37,14 +37,14 @@ To create a new Project, follow the following steps:
 
 :::
 
-![Create a project modal](/img/create-project-modal.png)
+![Create a project modal](/img/create-project-modal.webp)
 
 ## Updating Project Information
 
 You can access your Project's information under `Settings` (see app menu
 sidebar). Setup allows you to view or edit the project name and description.
 
-![Project Overview](/img/lightning_project_overview.png)
+![Project Overview](/img/lightning_project_overview.webp)
 
 You can also export your entire project "as code" - either to save it, or to
 edit your project locally. You can learn more about this feature on our
@@ -59,7 +59,7 @@ provided they are configured to run in parallel.
 To manage project concurrency, you can use the `Concurrency` section in the
 project settings.
 
-![Project Concurrency](/img/configuring-project-concurrency.png)
+![Project Concurrency](/img/configuring-project-concurrency.webp)
 
 You can enable or disable parallel execution for a project. When parallel
 execution is disabled, only one run of a workflow in the project can be executed

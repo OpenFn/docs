@@ -1,9 +1,7 @@
 ---
 layout: post
 title: Wrapping my head around jobs
-author: Taylor Downs
-author_url: https://github.com/taylordowns2000
-author_image_url: https://avatars.githubusercontent.com/taylordowns2000
+authors: taylor
 tags: [how-to, tips, jobs]
 featured: true
 ---

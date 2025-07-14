@@ -175,7 +175,7 @@ The key generator will be called with each value and must return a string key.
 
 Collections can be created, destroyed or renamed from the Admin menu.
 
-![Collections Admin Page](/img/collections_admin.png)
+![Collections Admin Page](/img/collections_admin.webp)
 
 Before it can be used, a collection must be created. Collection names must be
 unique to the deployment, so we recommend using your organisation (and maybe

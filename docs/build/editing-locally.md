@@ -19,7 +19,7 @@ machine:
 2. Clone the repo from GitHub. Depending on how you're connecting, grab the
    HTTPS or SSH URL of the repository.
 
-![GH Clone URL](/img/git_clone_url.png)
+![GH Clone URL](/img/git_clone_url.webp)
 
 :::tip
 
@@ -45,14 +45,14 @@ for more info.)
 6. To edit your steps, use a code editor. We recommend
    [Visual Studio Code](https://code.visualstudio.com/download).
 
-![VS Code](/img/edit_job_vscode.png)
+![VS Code](/img/edit_job_vscode.webp)
 
 7. When using VS Code, make sure you install the
    [Prettier VSCode Extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
    and set it as the default formatter in Settings as seen below. This will apply
    the correct code formatting to the files you change.
 
-![Prettier](/img/prettier.png)
+![Prettier](/img/prettier.webp)
 
 8. Once you're done, you can check which files you changed with `git status`.
 

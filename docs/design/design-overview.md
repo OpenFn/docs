@@ -14,19 +14,19 @@ Before you dive in, make sure you have a clear understanding of these key terms 
 ### Workflow
 The set of instructions that determine how to solve a problem or accomplish a task. They are often broken down into smaller, independent tasks. 
 
-![Workflow](/img/workflow.png)
+![Workflow](/img/workflow.webp)
 
 
 ### Workflow Automation
 The use of software to perform these tasks independently, in accordance with predefined business rules, and without the need for human input. 
 
-![Workflow Automation](/img/workflow_automation.png)
+![Workflow Automation](/img/workflow_automation.webp)
 
 ### Data Integration
 
 The process of combining data from different sources into a centralized view. Data integration is a means of achieving workflow automation. Its tasks may be streamlined, automated, and managed by a workflow automation tool.
 
-![Data Integration](/img/data_integration.png)
+![Data Integration](/img/data_integration.webp)
 
 
 ## Introduction

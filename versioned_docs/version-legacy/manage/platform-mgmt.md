@@ -198,14 +198,14 @@ The **four configuration steps** include giving the job a name, defining what
 [authentication](../build/credentials.md) details.
 
 The **expression editor** is the area where you write your
-[job expression](../build/jobs.md/#composing-job-expressions). Fill-in
+[job expression](../build/jobs.md#composing-job-expressions). Fill-in
 all the details, and click on the **Save** icon in the top-right corner to save
 your job's configuration changes.
 
 #### Inspecting job's initial state
 
 This feature allows you to view the
-[initial state](../jobs/state.md/#initial-state) of a selected job.
+[initial state](/documentation/legacy/jobs/state#initial-state) of a selected job.
 Note that this feature is currently only available for
 [message-triggered jobs](../build/triggers.md#message-filter-triggers).
 
@@ -518,13 +518,13 @@ runs fail due to an error message.
    for reprocessing and gives you an approximate number of runs that will be
    reprocessed.
 
-![Retry run button](/img/retrybutton.png)
+![Retry run button](/img/retrybutton.webp)
 
 3. Click "Reprocess" when you're happy with the query. You'll get feedback on
    the number of runs enqueued within seconds, and you should see your project
    queue fill up then empty over time as the batch is processed.
 
-![Retry run button](/img/reprocess-runs.png)
+![Retry run button](/img/reprocess-runs.webp)
 
 :::info
 
@@ -554,12 +554,12 @@ You can download and review OpenFn runs data by exporting to a CSV file.
 
 2. Click the **Export as CSV** button to review and confirm the desired export.
 
-![Export runs button](/img/exportruns.png)
+![Export runs button](/img/exportruns.webp)
 
 3. Click the "Export" button to submit the request. A link to download the file
    will be sent to your email address shortly.
 
-![Retry run button](/img/export-runs.png)
+![Retry run button](/img/export-runs.webp)
 
 ## Inbox
 
@@ -588,7 +588,7 @@ by:
   custom date range yourself. Note that the default inbox view shows “Last 30
   Days”.
 
-![Image of Inbox Filters](/img/inbox_filter.png)
+![Image of Inbox Filters](/img/inbox_filter.webp)
 
 ### Bulk reprocess messages
 
@@ -604,13 +604,13 @@ destination application, then this feature will help you do so more quickly!
    for reprocessing and gives you an approximate number of messages that will be
    reprocessed.
 
-![Reprocess button](/img/reprocess_msgs.png)
+![Reprocess button](/img/reprocess_msgs.webp)
 
 3. Click "Reprocess" when you're happy with the query. You'll get feedback on
    the number of messages enqueued within seconds, and you should see your
    project queue fill up then empty over time as the batch is processed.
 
-![Retry run button](/img/reprocess-messages.png)
+![Retry run button](/img/reprocess-messages.webp)
 
 #### Note when bulk reprocessing messages
 
@@ -622,7 +622,7 @@ destination application, then this feature will help you do so more quickly!
 
 - Remember that OpenFn plans are run-based, and you can monitor usage in
   **Project Settings** to ensure that you don’t hit any run limits when bulk
-  reprocessing! ![Usage stats chart](/img/usage.png)
+  reprocessing! ![Usage stats chart](/img/usage.webp)
 
 ### Export messages to CSV
 
@@ -633,12 +633,12 @@ You can now download and review OpenFn message data by exporting to a CSV file.
 
 2. Click the **Export as CSV** button to review and confirm the desired export.
 
-![Export CSV button](/img/exportcsv.png)
+![Export CSV button](/img/exportcsv.webp)
 
 3. Click the "Export" button to submit the request. A link to download the file
    will be sent to your email address shortly.
 
-![Retry run button](/img/export-messages.png)
+![Retry run button](/img/export-messages.webp)
 
 ## Search Console
 
@@ -727,8 +727,6 @@ steps to reset it:
 4. Check your email for the recovery token and make a copy of it.
 5. Enter your recovery token and a new password into the OpenFn "Reset Password"
    page.
-
-![Password Reset](/img/recover_password.gif)
 
 ## Project settings
 
@@ -915,7 +913,7 @@ To explore these features, on the left hand navigation ribbon click on the
 _Please refer to the screenshot below for help navigating the functionality of
 this page._
 
-![Access&Security Circled](/img/access_security1.png)
+![Access&Security Circled](/img/access_security1.webp)
 
 ### User Access
 
@@ -958,7 +956,7 @@ and Basic Auth types, which will prompt administrators to either generate an API
 token or to setup a username:password credential. Once this inbox authentication
 is configured, any HTTP requests made to the OpenFn Inbox URL must include
 either this `x-api-key` token or username:password in the request header.
-![inbox security](/img/inbox-security.png)
+![inbox security](/img/inbox-security.webp)
 
 #### Rotating auth methods
 

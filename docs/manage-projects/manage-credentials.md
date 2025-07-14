@@ -11,7 +11,7 @@ credentials related to a project.
 Via this `Credentials` page, you can see a list of all Credentials, including
 the name, type, and owner, and whether they are for a production environment.
 
-![Credentials Overview](/img/lightning_credentials_overview.png)
+![Credentials Overview](/img/lightning_credentials_overview.webp)
 
 :::info Viewing credential secrets
 
@@ -32,12 +32,12 @@ etc.).
 { "loginUrl": "https://random-app.com", "username": "test", "password": "pwd" }
 ```
 
-![Credential Type](/img/lightning_choose_cred_type.png)
+![Credential Type](/img/lightning_choose_cred_type.webp)
 
 3. Click `Configure Credentials` and add the authentication details for your
    app. The credential form will indicate which fields are required.
 
-![Add Credential](/img/lightning_add_cred.png)
+![Add Credential](/img/lightning_add_cred.webp)
 
 :::tip Not sure how to fill in all credential details?
 
@@ -51,7 +51,7 @@ ask on [Community](https://community.openfn.org).
 3. Click `Save` and you'll see it listed in your `Credentials` page. You can now
    use it across the Project when building and running Workflows.
 
-![New Credential Ready](/img/lightning_new_cred_ready.png)
+![New Credential Ready](/img/lightning_new_cred_ready.webp)
 
 ### Share Credentials
 
@@ -65,16 +65,19 @@ Raw credentials are valid JSON documents which are passed into a job's runtime
 state. Note that owners of these credentials will be able to view them, in their
 entirety, in the clear.
 
-Raw credentials will work with any adaptor, so long as that adaptor's required `configuration` keys (e.g., `baseUrl`) are specified in your credential. See the "configuration schema" docs for each adaptor to see what is required for that app. 
+Raw credentials will work with any adaptor, so long as that adaptor's required
+`configuration` keys (e.g., `baseUrl`) are specified in your credential. See the
+"configuration schema" docs for each adaptor to see what is required for that
+app.
 
 :::info Use `Raw JSON` to specify custom credential inputs
 
-Use the `Raw JSON` credential type if you would like to store secrets that
-are not standard inputs in an adaptor's credential form. For example, if my REST
-API requires a `client_id` instead of a `username`, then my `configuration`
-schema might look like the below code snippet. Because `client_id` isn't an
-option in the default `Http` credential form, I can create my own custom credential
-using the `Raw JSON` type.
+Use the `Raw JSON` credential type if you would like to store secrets that are
+not standard inputs in an adaptor's credential form. For example, if my REST API
+requires a `client_id` instead of a `username`, then my `configuration` schema
+might look like the below code snippet. Because `client_id` isn't an option in
+the default `Http` credential form, I can create my own custom credential using
+the `Raw JSON` type.
 
 :::
 

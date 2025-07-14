@@ -41,7 +41,7 @@ testing and troubleshooting much easier in the future.
 
 #### Log Levels
 
-![log-levels](/img/log-levels.png)
+![log-levels](/img/log-levels.webp)
 
 | Level   | Description                                                                                                                          |
 | ------- | ------------------------------------------------------------------------------------------------------------------------------------ |

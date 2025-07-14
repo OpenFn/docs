@@ -38,7 +38,7 @@ SurveyCTO provides a REST API which can be accessed via the OpenFn `surveycto`
 adaptor. In SurveyCTO, admins can also configure webhooks to push data to
 OpenFn/other external systems in real-time in CSV or JSON format.
 
-![openfn-trigger-options](/img/openfn_surveycto_trigger.png)
+![openfn-trigger-options](/img/openfn_surveycto_trigger.webp)
 
 ### 1. Webhooks (for real-time integration):
 
@@ -63,7 +63,7 @@ To configure a webhook to push data to OpenFn:
 [See this docs page](https://docs.surveycto.com/05-exporting-and-publishing-data/03-publishing-data-to-the-cloud/05.forms-to-webhooks.html)
 for more on SurveyCTO webooks.
 
-![Configuraing the webhook for OpenFn](/img/surveycto_webhook_config.png)
+![Configuraing the webhook for OpenFn](/img/surveycto_webhook_config.webp)
 
 ### 2. API integration (for scheduled and/or bulk data integration):
 

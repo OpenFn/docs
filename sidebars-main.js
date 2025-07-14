@@ -146,7 +146,7 @@ module.exports = {
       type: 'category',
       label: 'Contribute',
       items: [
-        'contribute/openfn-roadmap',
+        'contribute/roadmap',
         'contribute/writing-code',
         'contribute/writing-docs',
         'contribute/style-guide',
