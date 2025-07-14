@@ -19,7 +19,7 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.6e6ba625.css">
-<script src="/assets/js/runtime~main.744d82f4.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3a512c6d.js" defer="defer"></script>
 <script src="/assets/js/main.5de5cc58.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -42,9 +42,25 @@ Collections API.</p>
 the collection (generated from the app at /profile/tokens).</p>
 <p>Learn more about Collections and common use cases in the
 <a href="/documentation/build/collections">Collections Docs</a>.</p>
-<div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>caution</div><div class="admonitionContent_BuS1"><p>Collections must be created in the
-<a href="/documentation/build/collections#managing-collections">Platform Admin page</a>
-before they can be used.</p></div></div>
+<div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Collections is <em>not</em> a long-term data storage solution!</div><div class="admonitionContent_BuS1"><p>The OpenFn Collections feature is designed to be a <em>temporary</em> data store or
+integration “buffer” during data transfer and processing between digital
+systems.</p><ul>
+<li>This feature is optimized for throughput and performance (rather then
+long-term retention and making the data accessible to end users for
+querying/analysis)</li>
+<li>Technically, collections is a key value store, so performance for complex
+aggregations or queries is either unsupported or inefficient</li>
+<li>Collections doesn&#x27;t support advance archiving, backup, and recovery features
+that you’d want in a long-term storage solution</li>
+<li>Most buffer implementations have retention mechanisms that automatically
+expire/purge data after a certain period of time to clear up space and memory
+to ensure resources aren’t exhausted for active processing</li>
+</ul><p>Therefore, if you&#x27;re interested in storing data collected longer term–we
+recommend you set up a dedicated database and configure OpenFn to route data to
+there as a long-term storage and/or backup option. Ask on
+<a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer">Community</a> or get in touch with
+<a href="mailto://support@openfn.org" target="_blank" rel="noopener noreferrer">our support team</a> to learn more about related
+OpenFn services.</p></div></div>
 <h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-collections-adaptor">The Collections Adaptor<a href="#the-collections-adaptor" class="hash-link" aria-label="Direct link to The Collections Adaptor" title="Direct link to The Collections Adaptor">​</a></h2>
 <p>The Collections API is inserted into all each Step of a Workflow through a
 special kind of adaptor.</p>
@@ -72,8 +88,8 @@ a collection.</p>
 <li>Use <a href="/adaptors/packages/collections-docs#collections_get"><code>collections.get()</code></a>
 to fetch a single value, or batch-download a range of values.</li>
 <li>Use
-<a href="/adaptors/packages/collections-docs#collections_each"><code>collections.each()</code></a> to
-efficiently iterate over a range of items in a collection. Recommended for
+<a href="/adaptors/packages/collections-docs#collections_each"><code>collections.each()</code></a>
+to efficiently iterate over a range of items in a collection. Recommended for
 large data sets.</li>
 <li>Use <a href="/adaptors/packages/collections-docs#collections_set"><code>collections.set()</code></a>
 to upload one or more values to a collection. <code>set()</code> is always an &quot;upsert&quot;:
