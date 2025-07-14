@@ -21,11 +21,29 @@ the collection (generated from the app at /profile/tokens).
 Learn more about Collections and common use cases in the
 [Collections Docs](/documentation/build/collections).
 
-:::caution
+:::caution Collections is _not_ a long-term data storage solution!
 
-Collections must be created in the
-[Platform Admin page](/documentation/build/collections#managing-collections)
-before they can be used.
+The OpenFn Collections feature is designed to be a _temporary_ data store or
+integration “buffer” during data transfer and processing between digital
+systems.
+
+- This feature is optimized for throughput and performance (rather then
+  long-term retention and making the data accessible to end users for
+  querying/analysis)
+- Technically, collections is a key value store, so performance for complex
+  aggregations or queries is either unsupported or inefficient
+- Collections doesn't support advance archiving, backup, and recovery features
+  that you’d want in a long-term storage solution
+- Most buffer implementations have retention mechanisms that automatically
+  expire/purge data after a certain period of time to clear up space and memory
+  to ensure resources aren’t exhausted for active processing
+
+Therefore, if you're interested in storing data collected longer term–we
+recommend you set up a dedicated database and configure OpenFn to route data to
+there as a long-term storage and/or backup option. Ask on
+[Community](https://community.openfn.org) or get in touch with
+[our support team](mailto://support@openfn.org) to learn more about related
+OpenFn services.
 
 :::
 
@@ -63,8 +81,8 @@ a collection.
 - Use [`collections.get()`](/adaptors/packages/collections-docs#collections_get)
   to fetch a single value, or batch-download a range of values.
 - Use
-  [`collections.each()`](/adaptors/packages/collections-docs#collections_each) to
-  efficiently iterate over a range of items in a collection. Recommended for
+  [`collections.each()`](/adaptors/packages/collections-docs#collections_each)
+  to efficiently iterate over a range of items in a collection. Recommended for
   large data sets.
 - Use [`collections.set()`](/adaptors/packages/collections-docs#collections_set)
   to upload one or more values to a collection. `set()` is always an "upsert":
