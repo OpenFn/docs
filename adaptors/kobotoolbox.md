@@ -113,43 +113,46 @@ With this OpenFn job snippet we fetch submission data from a list of surveys,
 indicated by their IDs.
 
 ```js
+cursor($.lastEnd || $.manualCursor || '2020-11-20T14:32:43.325+01:00');
+
+// Update lastEnd to now
+cursor('now', {
+  key: 'lastEnd',
+  format: c => dateFns(c, 'YYYY-MM-DD:HH:mm:ss'),
+});
+
 fn(state => {
-  console.log('Current cursor value:', state.lastEnd);
+  console.log('Current cursor value:', state.cursor);
   // Set a manual cursor if you'd like to only fetch data after this date.
-  const manualCursor = '2020-11-20T14:32:43.325+01:00';
-  state.data = {
-    surveys: [
-      //** Specify new forms to fetch here **//
-      {
-        id: 'aVdh90L9979L945lb02',
-        name: 'Initial Data Collection',
-      },
-      {
-        id: 'bkgIF96fK7v9n7Hfj2',
-        name: 'Follow-up',
-      },
-    ].map(survey => ({
-      formId: survey.id,
-      name: survey.name,
-      url: `https://kf.kobotoolbox.org/api/v2/assets/${survey.id}/data/?format=json`,
-      query: `&query={"end":{"$gte":"${state.lastEnd || manualCursor}"}}`,
-    })),
-  };
+  state.surveys = [
+    //** Specify new forms to fetch here **//
+    {
+      formId: 'aVdh90L9979L945lb02',
+      name: 'Initial Data Collection',
+    },
+    {
+      formId: 'bkgIF96fK7v9n7Hfj2',
+      name: 'Follow-up',
+    },
+  ];
   return state;
 });
 
-each(dataPath('surveys[*]'), state => {
-  const { url, query, formId, name } = state.data;
-  return get(`${url}${query}`, {}, state => {
-    state.data.submissions = state.data.results.map((submission, i) => {
-      return {
-        i,
-        // Here we append the names defined above to the Kobo form submission data
-        formName: name,
-      };
-    });
-  });
-});
+each(
+  $.surveys,
+  getSubmissions($.data.formId, {
+    query: { end: { $gte: `${$.cursor}` } },
+  }).then(state => {
+    const { name, formId } = state.references.at(-1);
+
+    state.submissions[formId] = {
+      name,
+      submissions: state.data,
+    };
+
+    return state;
+  })
+);
 ```
 
 Check out some of our
