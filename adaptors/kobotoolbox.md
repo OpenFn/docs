@@ -113,9 +113,10 @@ With this OpenFn job snippet we fetch submission data from a list of surveys,
 indicated by their IDs.
 
 ```js
+// set the cursor to use for this run
 cursor($.lastEnd || $.manualCursor || '2020-11-20T14:32:43.325+01:00');
 
-// Update lastEnd to now
+// set the cursor for the next run"
 cursor('now', {
   key: 'lastEnd',
   format: c => dateFns(c, 'YYYY-MM-DD:HH:mm:ss'),
@@ -123,7 +124,7 @@ cursor('now', {
 
 fn(state => {
   console.log('Current cursor value:', state.cursor);
-  // Set a manual cursor if you'd like to only fetch data after this date.
+
   state.surveys = [
     //** Specify new forms to fetch here **//
     {
@@ -143,6 +144,7 @@ each(
   getSubmissions($.data.formId, {
     query: { end: { $gte: `${$.cursor}` } },
   }).then(state => {
+    // Lookup each form's id from the previous state
     const { name, formId } = state.references.at(-1);
 
     state.submissions[formId] = {
