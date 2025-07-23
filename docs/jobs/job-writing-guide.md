@@ -13,7 +13,9 @@ of key patterns in the OpenFn ecosystem which it is important to learn.
 
 :::tip
 
-If you're writing jobs on the platform app (Lightning), you can use the [AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in the Inspector.
+If you're writing jobs on the platform app (Lightning), you can use the
+[AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in
+the Inspector.
 
 :::
 
@@ -915,6 +917,135 @@ fn(state => {
 });
 ```
 
+## Globals
+
+:::warning Availability
+
+Globals are new to CLI version 1.13.0 and not yet available in on the platform.
+If you've tried Globals and have feedback or want to see it in the app, lets us
+know on [community.openfn.org](https://community.openfn.org/)! :::
+
+You can re-use functions and constants across steps in a workflow through
+Globals.
+
+Usually, each step in a workflow is "sandboxed" into its own environment, with
+adaptor functions in scope and a state object created by the previous step (or
+input). But globals allow you to define functions and variables to be exported
+across steps.
+
+Globals are defined in a special kind of step at the top level of your
+`workflow.json` file. Everything you export from this "step" will be made
+globally available to all other steps.
+
+For example, your globals may look like this:
+
+```js
+export const PROJECT_ID = '1245';
+
+export function toKebabCase(str) {
+  return str.replace(/\s/g, '-');
+}
+```
+
+This exports a constant, `PROJECT_ID`, and a (rather naive) helper function to
+convert any string into kebab-case.
+
+In the CLI, you might save these to a file called `globals.js`, and reference
+them in `workflow.json` as a sibling of `steps`:
+
+```json
+{
+  "workflow": {
+    "globals": "./globals.js",
+    "steps": [{...}, {...} ]
+  }
+}
+```
+
+You can now reference these in any job code:
+
+```js
+fn(state => {
+  state.id = toKebabCase(state.data.name);
+  return state;
+});
+```
+
+Globals are useful when you have common logic that you want to share between
+steps in a workflow - like generating or pre-processing data, running validation
+or generating ids, or utilities like sort, filter and mapping functions.
+
+### The Rules of Globals
+
+There are some important rules to bear in mind when using globals:
+
+- You cannot import other modules inside globals. Globals are not a replacement
+  for adaptors.
+- Globals do not have an associated adaptor and so cannot use adaptor functions.
+- Exported functions are not Operations, and cannot be used at the top-level of
+  a job expression (unless you specifically write it that way, see below)
+- The contents of globals are immutable: you cannot change their values and they
+  are reset in-between steps. You can of course pass state into a global
+  function and mutate it.
+
+:::info Global functions are not Operations
+
+A really important (but quite complicated) rule of globals is that any function
+you export is not necessarily an Operation.
+
+An Operation is a function that returns a function that takes state and returns
+state. Operations are provided by adaptor functions and can only be used at the
+top level of your code.
+
+But a function exported from globals is just a function. If you try and use it a
+the top level of job, you'll get an error like
+`TypeError: fn is not a function`.
+
+For example:
+
+```js
+fn(state => {
+  // a valid fn block
+  return state;
+});
+toKebabCase(state.name); // TypeError: fn is not a function!
+```
+
+You can define your own operations by structuring your global functions
+correctly. Remember that your function must return a function, and that this
+inner function must take and return state. Your operation will probably want to
+write to state too (by convention we write to state.data but you can do whatever
+you like).
+
+An operation variation of `toKebabCase` might look like this:
+
+```js
+// globals.js
+export function toKebabCase(str) {
+  return state => {
+    state.result = str.replace(/\s/g, '-');
+    return state;
+  };
+}
+```
+
+:::
+
+### CLI Usage
+
+Right now, Globals are only available to workflows executed through the CLI.
+
+When using a workflow with a `globals` key defined, the globals will
+automatically be exported to each step. You don't need to do anything.
+
+If you want ro run a single step through the CLI, and that step depends on
+globals, you'll need to pass the `--globals` argument with a path to the globals
+file, like this:
+
+```bash
+openfn job.js -a http --globals ./globals.js
+```
+
 ## Using Cursors
 
 Sometimes it is useful to maintain a rolling cursor position on the backend
@@ -1159,26 +1290,29 @@ fn(state => {
 
 ## Referencing credential secrets in your job code
 
-If you want to reference any credential secrets in your job code, you can still map keys from your `state.configuration`. See example below that will dynamically map the username and password from your `configuration` (or "credential" if using the app) into your http request body. 
+If you want to reference any credential secrets in your job code, you can still
+map keys from your `state.configuration`. See example below that will
+dynamically map the username and password from your `configuration` (or
+"credential" if using the app) into your http request body.
 
 ```js
 post('/api/v1/auth/login', {
-   body: {
+  body: {
     username: $.configuration.username, //map the UN from credential
-    password: $.configuration.password //map the PW from credential
-   },
-   headers: {'content-type': 'application/json'},
- })
+    password: $.configuration.password, //map the PW from credential
+  },
+  headers: { 'content-type': 'application/json' },
+});
 ```
 
 :::info OpenFn scrubs Configuration & Functions from final state
 
 OpenFn will automatically scrub the `configuration` key and any functions from
-your final state, as well as from logs if running workflows on the app. This is to help ensure that your credential secrets are kept secure and won't be leaked into History.
+your final state, as well as from logs if running workflows on the app. This is
+to help ensure that your credential secrets are kept secure and won't be leaked
+into History.
 
 :::
-
-
 
 <!--
 I would like to include this BUT fields is not an operation and so works a bit differently
