@@ -36,6 +36,16 @@
     "name": "Create encounter in OpenHIM"
   },
   {
+    "expressionPath": "jobs/opencrvs-create-birth-notification",
+    "adaptor": "opencrvs",
+    "name": "Create birth notification in OpenCRVS"
+  },
+  {
+    "expressionPath": "jobs/opencrvs-query-events",
+    "adaptor": "opencrvs",
+    "name": "Query an event in OpenCRVS"
+  },
+  {
     "expressionPath": "jobs/complex-http-request-chains",
     "adaptor": "http",
     "name": "Chaining HTTP Requests"
