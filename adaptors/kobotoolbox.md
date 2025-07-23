@@ -116,7 +116,7 @@ indicated by their IDs.
 // set the cursor to use for this run
 cursor($.lastEnd || $.manualCursor || '2020-11-20T14:32:43.325+01:00');
 
-// set the cursor for the next run"
+// set the cursor for the next run
 cursor('now', {
   key: 'lastEnd',
   format: c => dateFns(c, 'YYYY-MM-DD:HH:mm:ss'),
