@@ -41,11 +41,12 @@ CommCare supports 2 primary integration options:
    to _push_ `cases` and `forms` data from CommCare to external systems. This
    option is suited for _real-time_, event-based data integration.
 
-2. **[REST APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143958022/API+Access)**
+2. **[REST APIs](https://commcare-hq.readthedocs.io/api/index.html#commcare-apis)**
    that enable external services like OpenFn to _pull_ data from CommCare, or
    push data from external apps to CommCare. This option is suited for
    _scheduled, bulk syncs_ or workflows that must update data in CommCare with
-   external information.
+   external information. Also [see here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview) 
+   for more on the API Explorer. 
 
 This OpenFn adaptor is designed for option #2
 [CommCare's APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview).
@@ -255,37 +256,55 @@ If integrating with CommCare `forms`, you may need to make sure that any unique 
 
 ### Lookup Tables in CommCare
 Lookup tables in CommCare store reference data that can be used across multiple forms and workflows. They are often used for predefined lists such as as health facility names, geographic locations, product catalogs, or standardized response options.
+
 When fetching lookup table data in using CommCare APIs, there are two main approaches:
 **1. Using the Fixture API**
+[See here](https://commcare-hq.readthedocs.io/api/fixture.html) for the CommCare docs on this API. FYI `fixture` is a more technical term that the CommCare docs sometimes use to refer to a `lookup table`.
 ```
+//sample openfn job to get a specific 'diagnosis' lookup table
 get("fixture/?fixture_type=diagnosis")
 ```
 
 **Pros:**
-- Simple and direct for fetching specific tables.
-- Works well when only a few tables (e.g., 2-3) are needed.
+- Simple and direct API for querying a specific lookup table; response include lookup table metadata and data. 
+- Works well when items from only a couple of tables (e.g., 1-3) need to be queried.
+
 **Cons:**
-- Requires multiple API calls if several tables are needed, which can be inefficient.
+- Requires multiple API calls if several tables are needed, which can be inefficient at scale. 
+- See `lookup_table_item` API if querying data across multiple lookup tables.
 
 **2. Using the lookup_table_item API**
-```
-const findLookupById = (id) => state.data.filter((i) => i.data_type_id === id);
+[See here](https://commcare-hq.readthedocs.io/api/fixture.html#list-lookup-table-row) for the CommCare docs on this API. 
+You can use this API to query _and_ update lookup table items or rows.
 
-state.facility = findLookupById("facility_table_id");
-state.product = findLookupById("product_table_id");
-state.medications = findLookupById("medications_table_id");
+```
+get('lookup_table_item') //to list all lookup table items
+
+fn(state => {
+  //custom function to then assign & group lookup_table_items to new variables
+  const findLookupById = (id) => state.data.filter((i) => i.data_type_id === id);
+ 
+  //assign to facility, product, medications variables to use later in WF
+  state.facility = findLookupById("facility_table_id"); 
+  state.product = findLookupById("product_table_id");
+  state.medications = findLookupById("medications_table_id");
+  return state; 
+})
 ```
 
 **Pros:**
-- Fetches all lookup tables in a single request, reducing API calls.
-- Useful for OpenFn workflows requiring multiple lookup tables.
+- Good for bulk querying lookup table rows in a single request, reducing API calls.
+- Useful for OpenFn workflows requiring data from multiple lookup tables.
+- Support for create & update of lookup table items.
+
 **Cons:**
 - Retrieves all lookup tables and filters them in-memory, which can be inefficient if only a few tables are needed.
   
 #### Best Practices
-- Use the Fixture API when fetching only a few lookup tables.
-- Use the lookup_table_item API for cases where multiple lookup tables are needed at once.
+- Use the `Fixture` API when fetching data for only a couple of (1-3) lookup tables.
+- Use the `lookup_table` API for scenarios where data from multiple lookup tables needs to be queried in bulk. 
 - Consider performance trade-offs when selecting an approach, balancing API efficiency with data processing overhead.
+- See the [bulk()](/adaptors/packages/commcare-docs#bulk) helper function for bulk importing lookup table data.
 
 #### Troubleshooting tips
 If some tables are throwing errors when being fetched using the fixtures API, the lookup table might be corrupt. Consider exporting the table and re-importing it.
