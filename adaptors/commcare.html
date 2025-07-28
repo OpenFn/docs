@@ -19,7 +19,7 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.6e6ba625.css">
-<script src="/assets/js/runtime~main.22076ba5.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.3ac11ef4.js" defer="defer"></script>
 <script src="/assets/js/main.77170979.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
@@ -61,11 +61,12 @@ to <em>push</em> <code>cases</code> and <code>forms</code> data from CommCare to
 option is suited for <em>real-time</em>, event-based data integration.</p>
 </li>
 <li>
-<p><strong><a href="https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143958022/API+Access" target="_blank" rel="noopener noreferrer">REST APIs</a></strong>
+<p><strong><a href="https://commcare-hq.readthedocs.io/api/index.html#commcare-apis" target="_blank" rel="noopener noreferrer">REST APIs</a></strong>
 that enable external services like OpenFn to <em>pull</em> data from CommCare, or
 push data from external apps to CommCare. This option is suited for
 <em>scheduled, bulk syncs</em> or workflows that must update data in CommCare with
-external information.</p>
+external information. Also <a href="https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview" target="_blank" rel="noopener noreferrer">see here</a>
+for more on the API Explorer.</p>
 </li>
 </ol>
 <p>This OpenFn adaptor is designed for option #2
@@ -220,31 +221,41 @@ CommCare: <code>case_id</code> &amp; form <code>id</code>.</li>
 <div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>Embedding External IDs and Hidden Values in Forms</div><div class="admonitionContent_BuS1"><p>If integrating with CommCare <code>forms</code>, you may need to make sure that any unique identifiers or external IDs you want to reference in your integration are configured in your forms. You may consider using
 <a href="https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954117/Hidden+Values+Tutorial+Part+1+Adding+Two+Questions+Using+a+Hidden+Value" target="_blank" rel="noopener noreferrer">hidden values</a> to capture external IDs in form data, without affecting the end user experience.</p></div></div>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="lookup-tables-in-commcare">Lookup Tables in CommCare<a href="#lookup-tables-in-commcare" class="hash-link" aria-label="Direct link to Lookup Tables in CommCare" title="Direct link to Lookup Tables in CommCare">​</a></h3>
-<p>Lookup tables in CommCare store reference data that can be used across multiple forms and workflows. They are often used for predefined lists such as as health facility names, geographic locations, product catalogs, or standardized response options.
-When fetching lookup table data in using CommCare APIs, there are two main approaches:
-<strong>1. Using the Fixture API</strong></p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">get(&quot;fixture/?fixture_type=diagnosis&quot;)</span><br></span></code></pre></div></div>
+<p>Lookup tables in CommCare store reference data that can be used across multiple forms and workflows. They are often used for predefined lists such as as health facility names, geographic locations, product catalogs, or standardized response options.</p>
+<p>When fetching lookup table data in using CommCare APIs, there are two main approaches:
+<strong>1. Using the Fixture API</strong>
+<a href="https://commcare-hq.readthedocs.io/api/fixture.html" target="_blank" rel="noopener noreferrer">See here</a> for the CommCare docs on this API. FYI <code>fixture</code> is a more technical term that the CommCare docs sometimes use to refer to a <code>lookup table</code>.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">//sample openfn job to get a specific &#x27;diagnosis&#x27; lookup table</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">get(&quot;fixture/?fixture_type=diagnosis&quot;)</span><br></span></code></pre></div></div>
 <p><strong>Pros:</strong></p>
 <ul>
-<li>Simple and direct for fetching specific tables.</li>
-<li>Works well when only a few tables (e.g., 2-3) are needed.
-<strong>Cons:</strong></li>
-<li>Requires multiple API calls if several tables are needed, which can be inefficient.</li>
+<li>Simple and direct API for querying a specific lookup table; response include lookup table metadata and data.</li>
+<li>Works well when items from only a couple of tables (e.g., 1-3) need to be queried.</li>
 </ul>
-<p><strong>2. Using the lookup_table_item API</strong></p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">const findLookupById = (id) =&gt; state.data.filter((i) =&gt; i.data_type_id === id);</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">state.facility = findLookupById(&quot;facility_table_id&quot;);</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">state.product = findLookupById(&quot;product_table_id&quot;);</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">state.medications = findLookupById(&quot;medications_table_id&quot;);</span><br></span></code></pre></div></div>
+<p><strong>Cons:</strong></p>
+<ul>
+<li>Requires multiple API calls if several tables are needed, which can be inefficient at scale.</li>
+<li>See <code>lookup_table_item</code> API if querying data across multiple lookup tables.</li>
+</ul>
+<p><strong>2. Using the lookup_table_item API</strong>
+<a href="https://commcare-hq.readthedocs.io/api/fixture.html#list-lookup-table-row" target="_blank" rel="noopener noreferrer">See here</a> for the CommCare docs on this API.
+You can use this API to query <em>and</em> update lookup table items or rows.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token plain">get(&#x27;lookup_table_item&#x27;) //to list all lookup table items</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">fn(state =&gt; {</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  //custom function to then assign &amp; group lookup_table_items to new variables</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  const findLookupById = (id) =&gt; state.data.filter((i) =&gt; i.data_type_id === id);</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"> </span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  //assign to facility, product, medications variables to use later in WF</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  state.facility = findLookupById(&quot;facility_table_id&quot;); </span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  state.product = findLookupById(&quot;product_table_id&quot;);</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  state.medications = findLookupById(&quot;medications_table_id&quot;);</span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  return state; </span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">})</span><br></span></code></pre></div></div>
 <p><strong>Pros:</strong></p>
 <ul>
-<li>Fetches all lookup tables in a single request, reducing API calls.</li>
-<li>Useful for OpenFn workflows requiring multiple lookup tables.
-<strong>Cons:</strong></li>
+<li>Good for bulk querying lookup table rows in a single request, reducing API calls.</li>
+<li>Useful for OpenFn workflows requiring data from multiple lookup tables.</li>
+<li>Support for create &amp; update of lookup table items.</li>
+</ul>
+<p><strong>Cons:</strong></p>
+<ul>
 <li>Retrieves all lookup tables and filters them in-memory, which can be inefficient if only a few tables are needed.</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="best-practices">Best Practices<a href="#best-practices" class="hash-link" aria-label="Direct link to Best Practices" title="Direct link to Best Practices">​</a></h4>
 <ul>
-<li>Use the Fixture API when fetching only a few lookup tables.</li>
-<li>Use the lookup_table_item API for cases where multiple lookup tables are needed at once.</li>
+<li>Use the <code>Fixture</code> API when fetching data for only a couple of (1-3) lookup tables.</li>
+<li>Use the <code>lookup_table</code> API for scenarios where data from multiple lookup tables needs to be queried in bulk.</li>
 <li>Consider performance trade-offs when selecting an approach, balancing API efficiency with data processing overhead.</li>
+<li>See the <a href="/adaptors/packages/commcare-docs#bulk">bulk()</a> helper function for bulk importing lookup table data.</li>
 </ul>
 <h4 class="anchor anchorWithStickyNavbar_LWe7" id="troubleshooting-tips">Troubleshooting tips<a href="#troubleshooting-tips" class="hash-link" aria-label="Direct link to Troubleshooting tips" title="Direct link to Troubleshooting tips">​</a></h4>
 <p>If some tables are throwing errors when being fetched using the fixtures API, the lookup table might be corrupt. Consider exporting the table and re-importing it.</p>
