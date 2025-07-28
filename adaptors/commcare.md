@@ -280,7 +280,8 @@ get("fixture/?fixture_type=diagnosis")
 You can use this API to query _and_ update lookup table items or rows.
 
 ```
-get('lookup_table_item') //to list all lookup table items
+get('lookup_table_item', //to list all lookup table items across multiple tables -> bulk query
+  { limit: 100000 }); //will return 100k items at a time, which can be paged through if more are expected
 
 fn(state => {
   //custom function to then assign & group lookup_table_items to new variables
@@ -307,9 +308,9 @@ You can bulk update rows in lookup tables using the [`bulk()` function](/adaptor
 
 Or, you can edit or delete an individual lookup table row via the [lookup_table_item API](https://commcare-hq.readthedocs.io/api/fixture.html#edit-or-delete-lookup-table-row). 
 ```
-request('PUT', `/a/[domain]/api/v1/lookup_table_item/${$.data.id}`} //to update 1 row
+request('PUT', `/a/${$.configuration.domain}/api/v1/lookup_table_item/${item-id}`} //to update 1 row
 
-request('DELETE', `/a/[domain]/api/v1/lookup_table_item/${$.data.id}`} //to delete 1 row
+request('DELETE', `/a/${$.configuration.domain}/api/v1/lookup_table_item/${item-id}`} //to delete 1 row
 ```
   
 #### Best Practices
