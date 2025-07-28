@@ -257,7 +257,9 @@ If integrating with CommCare `forms`, you may need to make sure that any unique 
 ### Lookup Tables in CommCare
 Lookup tables in CommCare store reference data that can be used across multiple forms and workflows. They are often used for predefined lists such as as health facility names, geographic locations, product catalogs, or standardized response options.
 
+#### Querying Lookup Tables
 When fetching lookup table data in using CommCare APIs, there are two main approaches:
+
 **1. Using the Fixture API**
 [See here](https://commcare-hq.readthedocs.io/api/fixture.html) for the CommCare docs on this API. FYI `fixture` is a more technical term that the CommCare docs sometimes use to refer to a `lookup table`.
 ```
@@ -278,7 +280,8 @@ get("fixture/?fixture_type=diagnosis")
 You can use this API to query _and_ update lookup table items or rows.
 
 ```
-get('lookup_table_item') //to list all lookup table items
+get('lookup_table_item', //to list all lookup table items across multiple tables -> bulk query
+  { limit: 100000 }); //will return 100k items at a time, which can be paged through if more are expected
 
 fn(state => {
   //custom function to then assign & group lookup_table_items to new variables
@@ -299,21 +302,31 @@ fn(state => {
 
 **Cons:**
 - Retrieves all lookup tables and filters them in-memory, which can be inefficient if only a few tables are needed.
+
+#### Updating Lookup Tables
+You can bulk update rows in lookup tables using the [`bulk()` function](/adaptors/packages/commcare-docs#bulk) in the CommCare adaptor that will utilize this [CommCare bulk upload API](https://commcare-hq.readthedocs.io/api/fixture.html#bulk-upload-lookup-tables). **Tip:** Set the `replace` option as `false` if you want to _update_ (and not overwrite) tables.
+
+Or, you can edit or delete an individual lookup table row via the [lookup_table_item API](https://commcare-hq.readthedocs.io/api/fixture.html#edit-or-delete-lookup-table-row). 
+```
+request('PUT', `/a/${$.configuration.domain}/api/v1/lookup_table_item/${item-id}`} //to update 1 row
+
+request('DELETE', `/a/${$.configuration.domain}/api/v1/lookup_table_item/${item-id}`} //to delete 1 row
+```
   
 #### Best Practices
 - Use the `Fixture` API when fetching data for only a couple of (1-3) lookup tables.
 - Use the `lookup_table` API for scenarios where data from multiple lookup tables needs to be queried in bulk. 
-- Consider performance trade-offs when selecting an approach, balancing API efficiency with data processing overhead.
-- See the [bulk()](/adaptors/packages/commcare-docs#bulk) helper function for bulk importing lookup table data.
+- Consider performance trade-offs when selecting which API to use, balancing API efficiency with data processing overhead. [See CommCare docs](https://commcare-hq.readthedocs.io/api/index.html#data-apis) for all available data APIs. 
 
 #### Troubleshooting tips
-If some tables are throwing errors when being fetched using the fixtures API, the lookup table might be corrupt. Consider exporting the table and re-importing it.
+If some tables are throwing errors when being fetched using the fixtures API, the lookup table might be corrupted. Consider exporting the table and re-importing it.
 
 
 ## Helpful Links
 
 ### About Forms, case and data management
 
+- [CommCare API Overview](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview)
 - [Case management overview](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955170/Case+Management+Overview)
 - [Form and case data in CommCare](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954460/Metadata+Glossary)
 - [CommCare Lookup tables](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955074/Lookup+Tables)
@@ -323,9 +336,9 @@ If some tables are throwing errors when being fetched using the fixtures API, th
 
 CommCare has different APIs for reading vs. modifying data. Some helpful links:
 
-- [Data APIs](https://confluence.dimagi.com/display/commcarepublic/Data+APIs)
+- [Data APIs](https://commcare-hq.readthedocs.io/api/index.html#data-apis)
 - [API Explorer](https://commcare-api-explorer.dimagi.com/)
-- [Bulk Case Upload API to mass update case records](https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data)
+- [CommCare API Overview](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview)
 
 ### Implementation Examples
 
