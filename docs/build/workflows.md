@@ -31,11 +31,12 @@ The workflow builder allows branch merging and skipping steps. To merge two or
 more steps into one step or to skip some steps:
 
 1. Hover on the step you want to merge or initiate a skip
-2. You will see a link 🔗 icon beside the new step icon.
-3. Click on the link icon and drag to create a path
+2. You will see a plus icon
+3. Click on the plus icon and drag to create a path
 4. Drop the new path on the desired step in your workflow
 
-![Merging](/img/workflow_builder_merging.gif)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XWq2uE6l9wI?si=ab--winNS0k3qA1R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
 
 :::note Looping is not supported
 
