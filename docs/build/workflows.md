@@ -116,6 +116,17 @@ You can pick from a list of previous inputs that were used to run this step.
 
 <img src="/img/existing.webp" width="400" />
 
+### Naming Inputs
+
+You can label your custom or existing inputs for a better search and filtering experience. Assign your dataclip a name by clicking the label field:
+<img src="/img/name_dataclip.webp" />
+
+#### Search and filter inputs
+
+After assigning names to your inputs you can search for them by their name on the search bar:
+<img src="/img/search_dataclip_by_name.webp" width="500" />
+Filter only named inputs by clicking the tag button:
+<img src="/img/show_only_named_dataclips.webp" width="500" />
 ## Limit Concurrency
 
 Workflow **concurrency** is the number of runs that will be allowed for a given
