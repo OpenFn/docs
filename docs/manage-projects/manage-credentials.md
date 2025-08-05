@@ -118,20 +118,27 @@ the keychain credential.
 
 1. On the `Credentials` page under project settings, click on the dropdown icon
    on the `Add New` button to select the Keychain option:
+   
    ![](/img/keychain_credential_dropdown.webp)
+
 2. Name your keychain credential and assign it a JSONPath expression. You can
    also select a default credential to use when the JSONPath expression doesn't
    match:
+   
+   ![](/img/keychain_modal.webp)
 
-![](/img/keychain_modal.webp)
-
-3. To assign an external ID for your keychain by creating a new credential or
-   editing an existing credential: ![](/img/assign_externalID.webp)
+3. Assign an external ID for your keychain to access by creating a new
+   credential or editing an existing credential:
+   
+   ![](/img/assign_externalID.webp)
 
 4. Now on a job in your workflow, you are able to select and use a keychain
-   credential: ![](/img/keychain_selection.webp)
+   credential:
+   
+   ![](/img/keychain_selection.webp)
 
 5. You can now reference your keychain in your input to use it:
+   
    ![](/img/keychain_input.webp)
 
 ## Share Credentials
