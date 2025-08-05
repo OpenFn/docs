@@ -110,9 +110,11 @@ Since credential secrets are fetched at the start of a run (not the start of a
 step) it’s not currently possible to resolve keychain credentials based on data
 that is added to state later in a run. I.e., the data must be present in the
 input dataclip for the whole run, not the input dataclip of the step that uses
-the keychain credential. :::
+the keychain credential.
 
-## Create a Keychain Credential
+:::
+
+### Create a Keychain Credential
 
 1. On the `Credentials` page under project settings, click on the dropdown icon
    on the `Add New` button to select the Keychain option:
