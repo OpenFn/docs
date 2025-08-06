@@ -37,7 +37,6 @@ more steps into one step or to skip some steps:
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XWq2uE6l9wI?si=ab--winNS0k3qA1R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-
 :::note Looping is not supported
 
 Looping workflows are not supported so you have to connect paths to downstream
@@ -115,6 +114,31 @@ file with valid JSON.
 You can pick from a list of previous inputs that were used to run this step.
 
 <img src="/img/existing.webp" width="400" />
+
+### Named Dataclips
+
+Dataclips (custom inputs, step results, webhook requests) can be named to make
+them easier to find and use for testing.
+
+:::info Named dataclips aren't erased
+
+Named dataclips will not be removed alongside other project history when your
+retention period is reached. They will be stored indefinitely.
+
+:::
+
+Assign your dataclip a name by clicking the label field.
+
+<img src="/img/name_dataclip.webp" width="500"/>
+
+After assigning names to your inputs you can search for them by their name on
+the search bar.
+
+<img src="/img/search_dataclip_by_name.webp" width="500" />
+
+Filter only named inputs by clicking the tag button.
+
+<img src="/img/show_only_named_dataclips.webp" width="500" />
 
 ## Limit Concurrency
 
