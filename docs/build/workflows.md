@@ -115,17 +115,29 @@ You can pick from a list of previous inputs that were used to run this step.
 
 <img src="/img/existing.webp" width="400" />
 
-### Naming Inputs
+### Named Dataclips
 
-You can label your custom or existing inputs for a better search and filtering
-experience. Assign your dataclip a name by clicking the label field:
-<img src="/img/name_dataclip.webp" />
+Dataclips (custom inputs, step results, webhook requests) can be named to make
+them easier to find and use for testing.
 
-#### Search and filter inputs
+:::info Named dataclips aren't erased
+
+Named dataclips will not be removed alongside other project history when your
+retention period is reached. They will be stored indefinitely.
+
+:::
+
+Assign your dataclip a name by clicking the label field.
+
+<img src="/img/name_dataclip.webp" width="500"/>
 
 After assigning names to your inputs you can search for them by their name on
-the search bar: <img src="/img/search_dataclip_by_name.webp" width="500" />
-Filter only named inputs by clicking the tag button:
+the search bar.
+
+<img src="/img/search_dataclip_by_name.webp" width="500" />
+
+Filter only named inputs by clicking the tag button.
+
 <img src="/img/show_only_named_dataclips.webp" width="500" />
 
 ## Limit Concurrency
