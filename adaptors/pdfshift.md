@@ -9,19 +9,12 @@ is a solution designed to automate document conversion tasks.
 
 ## Integration Options
 
-PDFShift supports 2 primary integration options with OpenFn:
-
 1. **Rest API:** PDFShift has a REST API that enables external services like
    OpenFn to pull data from PDFShift, or push data from external apps to
    PDFShift. This option is suited for scheduled, bulk syncs or workflows that
    must update data in PDFShift with external information. See
    [functions](/adaptors/packages/pdfshift-docs) for more on how to use this
    adaptor to work with the API.
-
-2. **Webhook:** Webhook or Data Forwarding to push data from PDFShift to
-   external systems (see
-   [docs](https://docs.pdfshift.io/#webhooks)).
-   This option is suited for real-time, event-based data integration.
 
 ## Authentication
 
@@ -39,7 +32,7 @@ JSON credential type, then your configuration will look something like this:
 
 ```json
 {
-  "apiKey": "your-api-key", // e.g 12345678
+  "apiKey": "sk_563874gfvftdv2t28462763fy23d28",
 }
 ```
 

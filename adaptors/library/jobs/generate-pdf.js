@@ -16,4 +16,8 @@ fn(state => {
 
 generatePDF($.pdfHTMLContent, {
   sandbox: true,
+  filename:'trials.pdf', // Returns a JSON response containing an url parameter to PDFShift's Amazon S3 bucket.
+  // The URL expires after 48 hours
 });
+
+
