@@ -142,6 +142,11 @@
     "name": "Using findValue with an array of data"
   },
   {
+    "expressionPath": "jobs/generate-pdf",
+    "adaptor": "pdfshift",
+    "name": "Generate a PDF from a HTML string"
+  },
+  {
     "expressionPath": "jobs/kobotoolbox-get-suspected-patients",
     "adaptor": "kobotoolbox",
     "name": "Create an asset in KoboToolbox"
