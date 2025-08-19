@@ -20,20 +20,9 @@ generatePDF($.pdfHTMLContent, {
   // The URL expires after 48 hours
 });
 
-// Post generated PDF link to WhatsApp
 fn(state => {
   const { data } = state;
   const pdfData = JSON.parse(data);
+  console.log(`Download PDF in 48 hours from ${pdfData.url}`);
   return { ...state, pdfData };
 });
-
-request('POST', 'messages', state => ({
-  to: '254712345678',
-  body: `Please check on the PDF and download in 24hours. ${state.pdfData.url}`,
-  type: 'template',
-  template: {
-    name: 'hello_world',
-    language: { code: 'en_US' },
-  },
-  messaging_product: 'whatsapp',
-}));
