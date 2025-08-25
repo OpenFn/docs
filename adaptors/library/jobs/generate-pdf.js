@@ -16,13 +16,11 @@ fn(state => {
 
 generatePDF($.pdfHTMLContent, {
   sandbox: true,
-  filename: 'trials.pdf', // Returns a JSON response containing an url parameter to PDFShift's Amazon S3 bucket.
-  // The URL expires after 48 hours
+  filename: 'trials.pdf',
 });
 
 fn(state => {
   const { data } = state;
-  const pdfData = JSON.parse(data);
-  console.log(`Download PDF in 48 hours from ${pdfData.url}`);
-  return { ...state, pdfData };
+  console.log(`Download PDF in 48 hours from ${data.url}`);
+  return { ...state, pdfData: data };
 });

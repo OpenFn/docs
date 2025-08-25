@@ -21,10 +21,9 @@ See [PDFShift docs](https://docs.pdfshift.io/#authentication) for the latest on
 supported authentication methods. When integrating with PDFShift via OpenFn,
 only one primary authentication method is supported.
 
-1. Api Key (requires api key created after authenticating in PDFShift). See this
-   adaptor's
-   [Configuration docs](/adaptors/packages/pdfshift-configuration-schema) for
-   the required authentication parameters.
+Api Key (requires api key created after authenticating in PDFShift). See this
+adaptor's [Configuration docs](/adaptors/packages/pdfshift-configuration-schema)
+for the required authentication parameters.
 
 See platform docs on
 [managing credentials](/documentation/manage-projects/manage-credentials) for
