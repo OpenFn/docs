@@ -10,7 +10,7 @@ This adaptor allows OpenFn users to integrate workflows with WhatsApp Business C
 
 ## Integration Options
 
-The WhatsApp Business API provides a [REST API](https://developers.facebook.com/docs/whatsapp/api) to manage message sending, conversations, and contacts. See [functions](/adaptors/packages/whatsapp-docs) for examples of how to use this adaptor to call the API.
+The WhatsApp Business API provides a [REST API](https://developers.facebook.com/docs/whatsapp) to manage message sending, conversations, and contacts. See [functions](/adaptors/packages/whatsapp-docs) for examples of how to use this adaptor to call the API.
 
 In addition, WhatsApp Business supports [Webhooks](https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples) that deliver inbound messages and delivery status updates in real time. These can be consumed by OpenFn workflows via a [webhook event trigger](/documentation/build/triggers#webhook-event-triggers) when customers send messages.
 
@@ -36,6 +36,6 @@ If working locally or if using a `Raw JSON` credential type in OpenFn, your conf
 
 ## Helpful Links
 
-- WhatsApp Business API documentation: https://developers.facebook.com/docs/whatsapp/api
+- WhatsApp Business API documentation: https://developers.facebook.com/docs/whatsapp
 - Cloud API Get Started guide: https://developers.facebook.com/docs/whatsapp/cloud-api/get-started
 - Webhook payload examples: https://developers.facebook.com/docs/whatsapp/cloud-api/webhooks/payload-examples
