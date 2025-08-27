@@ -27,7 +27,7 @@ If working locally or if using a `Raw JSON` credential type in OpenFn, your conf
 ```json
 {
   "baseUrl": "https://graph.facebook.com/v21.0",
-  "token": "EAAJZC...your_long_lived_access_token",
+  "apiToken": "EAAJZC...your_long_lived_access_token",
   "phoneNumberId": "123456789012345",
   "wabaId": "987654321098765"
 }
