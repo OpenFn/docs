@@ -137,6 +137,16 @@
     "name": "Chaining synchronous http requests"
   },
   {
+    "expressionPath": "jobs/stripe-get-subscriptions",
+    "adaptor": "stripe",
+    "name": "Get subscriptions in Stripe"
+  },
+  {
+    "expressionPath": "jobs/stripe-list-customers",
+    "adaptor": "stripe",
+    "name": "List customers in Stripe"
+  },
+  {
     "expressionPath": "jobs/async-findValue",
     "adaptor": "postgresql",
     "name": "Using findValue with an array of data"
