@@ -9,17 +9,17 @@ const badges = [
   {
     name: 'Core',
     icon: `/img/heroicons--shield-check.svg`,
-    link: '/adaptors#adaptor-badges',
+    link: '/adaptors/#adaptor-badges',
   },
   {
     name: 'Community',
     icon: ` /img/heroicons--users.svg`,
-    link: '/adaptors#adaptor-badges',
+    link: '/adaptors/#adaptor-badges',
   },
   {
     name: 'Legacy',
     icon: ` /img/heroicons--cog.svg`,
-    link: '/adaptors#adaptor-badges',
+    link: '/adaptors/#adaptor-badges',
   },
 ];
 async function listVersions(next) {
@@ -135,10 +135,15 @@ keywords:
   ${a.functions.length > 0 ? '- ' : ''}${a.functions.join('\r\n  - ')}
 ---
 
+<a
+  href="${icon?.link || '#'}"
+  class="badge-pill"
+  aria-label="${icon?.name || 'Badge'}"
+>
+  <span>${icon?.name || ''}</span>
+  ${icon?.icon ? `<img src="${icon.icon}" alt="" />` : ''}
+</a>
 
-#### Badge: [${icon?.name || ''} ${
-    icon?.icon ? `![badge](${icon.icon})` : ''
-  }](${icon?.link || '#'})
 
 ${docsContent}`;
 }
