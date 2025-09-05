@@ -18,12 +18,10 @@ on how to use this adaptor to work with the API.
 ## Authentication
 
 See [Stripe docs](https://docs.stripe.com/api/authentication) for the latest on
-supported authentication methods. When integrating with Stripe via OpenFn, only
-one primary authentication method is supported.
-
-Api Key (requires api key created after authenticating in Stripe). See this
-adaptor's [Configuration docs](/adaptors/packages/stripe-configuration-schema)
-for the required authentication parameters.
+supported authentication methods. When integrating Stripe via OpenFn, Stripe API
+Key is required.
+[See our configuration docs](/adaptors/packages/stripe-configuration-schema) to
+learn more.
 
 See platform docs on
 [managing credentials](/documentation/manage-projects/manage-credentials) for

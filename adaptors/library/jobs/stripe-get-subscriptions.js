@@ -6,7 +6,7 @@ fn(state => {
 });
 
 each(
-  '$.subscriptions[*]',
+  '$.subscriptions',
   get('subscriptions', $.data).then(state => {
     state.subscriptionsData.push(state.data.data);
     return state;
