@@ -147,6 +147,7 @@ module.exports = {
       label: 'Contribute',
       items: [
         'contribute/roadmap',
+        'contribute/impact',
         'contribute/writing-code',
         'contribute/writing-docs',
         'contribute/style-guide',
