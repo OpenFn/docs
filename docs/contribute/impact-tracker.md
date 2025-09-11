@@ -20,7 +20,7 @@ Head to [openfn.org/impact](https://www.openfn.org/impact) to see it action.
 
 :::
 
-How does this work? These metrics ([see below](#what-data-can-be-shared)) are
+How does this work? These metrics ([see below](#the-data-yes-all-of-it)) are
 anonymous and submitted by instance operators around the world. When someone
 launches OpenFn, the first thing they see is a message like the one below,
 explaining exactly what aggregate anonymous data they're sending and where
