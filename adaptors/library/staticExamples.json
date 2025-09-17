@@ -5,6 +5,11 @@
     "name": "Bulk upload obat lookup-table"
   },
   {
+    "expressionPath": "jobs/commcare-create-user",
+    "adaptor": "commcare",
+    "name": "Create user"
+  },
+  {
     "expressionPath": "jobs/getKoboData",
     "adaptor": "http",
     "adaptor_version": "v3.1.7",
@@ -29,6 +34,16 @@
     "expressionPath": "jobs/CommCare-FHIR",
     "adaptor": "openhim",
     "name": "Create encounter in OpenHIM"
+  },
+  {
+    "expressionPath": "jobs/opencrvs-create-birth-notification",
+    "adaptor": "opencrvs",
+    "name": "Create birth notification in OpenCRVS"
+  },
+  {
+    "expressionPath": "jobs/opencrvs-query-events",
+    "adaptor": "opencrvs",
+    "name": "Query an event in OpenCRVS"
   },
   {
     "expressionPath": "jobs/complex-http-request-chains",
@@ -57,14 +72,34 @@
     "name": "Create SMS linked to contact"
   },
   {
+    "expressionPath": "jobs/satusehat-create-condition",
+    "adaptor": "satusehat",
+    "name": "Create a condition Record"
+  },
+  {
+    "expressionPath": "jobs/satusehat-create-encounter",
+    "adaptor": "satusehat",
+    "name": "Create an Encounter Record"
+  },
+  {
+    "expressionPath": "jobs/satusehat-create-observations",
+    "adaptor": "satusehat",
+    "name": "Create an Observation"
+  },
+  {
+    "expressionPath": "jobs/satusehat-create-medication",
+    "adaptor": "satusehat",
+    "name": "Create a Medication Record"
+  },
+  {
     "expressionPath": "jobs/DHIS2-DataValues-API",
     "adaptor": "dhis2",
-    "name": "Add data values"
+    "name": "Create data values"
   },
   {
     "expressionPath": "jobs/DHIS2-Events-API",
     "adaptor": "dhis2",
-    "name": "Add events"
+    "name": "Create new events"
   },
   {
     "expressionPath": "jobs/ODK-Create-Many-Records-Moving-In-And-Out-Of-Repeat-Blocks",
@@ -105,5 +140,20 @@
     "expressionPath": "jobs/async-findValue",
     "adaptor": "postgresql",
     "name": "Using findValue with an array of data"
+  },
+  {
+    "expressionPath": "jobs/generate-pdf",
+    "adaptor": "pdfshift",
+    "name": "Generate a PDF from a HTML string"
+  },
+  {
+    "expressionPath": "jobs/kobotoolbox-get-suspected-patients",
+    "adaptor": "kobotoolbox",
+    "name": "Create an asset in KoboToolbox"
+  },
+  {
+    "expressionPath": "jobs/kobotoolbox-get-submissions",
+    "adaptor": "kobotoolbox",
+    "name": "Extract submissions from KoboToolbox"
   }
 ]

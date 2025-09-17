@@ -24,7 +24,7 @@ also follow along with the prebuilt solution. Follow along at the links below:**
    - Username: testuser
    - Password: 123
 
-![install_cc_app](/img/install_cc_app.png)
+![install_cc_app](/img/install_cc_app.webp)
 
 3. [Public report that shows records in the PostgreSQL database](https://analytics.openfn.org/public/question/095449a9-5696-463c-a4fb-24614c9f08a5)
 
@@ -45,7 +45,7 @@ data on patients registered!
 
 :::
 
-![cc-postgres](/img/cc-postgres.png)
+![cc-postgres](/img/cc-postgres.webp)
 
 **This integration can be broken up into two parts:**
 
@@ -68,7 +68,7 @@ workflow. After data forwarding is set up, it happens automatically, **_in
 real-time for all forms and cases_**. Learn more about configuring a webhook
 [here](/adaptors/commcare#webhook-forward-cases-andor-forms-from-commcare-to-openfn-using-rest-service).
 
-![option1](/img/option1.png)
+![option1](/img/option1.webp)
 
 ### Option 2: Extracting Commcare data via the REST API
 
@@ -108,7 +108,7 @@ Make sure you have copied the webhook URL from your OpenFn workflow into CommCar
    for how to create your own `mapping specification document` to map data
    elements to be exchanged.
 
-![db_config](/img/db_config.png)
+![db_config](/img/db_config.webp)
 
 
 
@@ -160,7 +160,7 @@ configuration according to your mapping specifications.
    automatically run.
 5. Check out the `History` and ensure that the work order was successful.
 
-![activity_history_final](/img/activity_history_success.png)
+![activity_history_final](/img/activity_history_success.webp)
 
 :::info
 
@@ -177,7 +177,7 @@ configuration according to your mapping specifications.
 
 4. **Finally, refresh your database and check out the new submission data!**
 
-![metabase](/img/metabase.png)
+![metabase](/img/metabase.webp)
 
 While this guide is specifically for PostgreSQL databases, you can generally
 follow these same steps for other database types (e.g., MS SQL or MySQL)—simply

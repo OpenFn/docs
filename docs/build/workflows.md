@@ -27,44 +27,123 @@ Check out the video overview below to learn how to create a Workflow.
 
 ### Merging branches and Skipping Steps
 
-The workflow builder allows branch merging and skipping steps. To merge two or more steps into one step or to skip some steps: 
+The workflow builder allows branch merging and skipping steps. To merge two or
+more steps into one step or to skip some steps:
 
 1. Hover on the step you want to merge or initiate a skip
-2. You will see a link 🔗 icon beside the new step icon.
-3. Click on the link icon and drag to create a path
+2. You will see a plus icon
+3. Click on the plus icon and drag to create a path
 4. Drop the new path on the desired step in your workflow
 
-![Merging](/img/workflow_builder_merging.gif)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/XWq2uE6l9wI?si=ab--winNS0k3qA1R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-:::note
-Looping workflows are not supported so you have to connect paths to downstream steps.
-When using branching and skipping paths, you can use edge conditions like with any other step.
+:::note Looping is not supported
+
+Looping workflows are not supported so you have to connect paths to downstream
+steps. When using branching and skipping paths, you can use edge conditions like
+with any other step.
+
 :::
 
 ## Run Workflows
 
-To run a Workflow, you can either activate the Trigger (e.g., send a request to
-the Webhook Event Trigger's URL, or wait for the cron timer to be activated), or
-run your workflow manually. Check out the video below for how to run your
-workflow manually.
+Workflows will run automatically when they are "enabled"—i.e., when their
+trigger is turned on. A webhook trigger will run your workflow whenever a
+request is received at that trigger's URL, and a cron trigger will run a
+workflow whenever its cron schedule matches the current time.
 
-<iframe width="784" height="441" src="https://www.youtube.com/embed/dssixE3Sukc?si=n3Jpdiu_aiBLXuHb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+:::info
 
-## Turn off or disable Workflows
+Please note that workflows are disabled by default. When you are ready to have
+your workflow running, you have to manually enable the workflow.
 
-To "turn off" or disable a Workflow:
+:::
 
-1. Open the Workflow
-2. Click on the Trigger
-3. Select the **Disable this trigger** checkbox 
-4. Select **Save** to save your changes and turn off / disable your workflow
+### Enabling or Disabling a Workflow
 
-![disable-wf](/img/disable-wf.png)
+There are two ways to disable or enable a workflow in your OpenFn project:
+
+1. via the workflow state toggle
+2. via the workflow trigger
+
+#### Via the workflow state toggle
+
+You can enable or disable your workflow by using the toggle button located on
+the corresponding row in the project workflows list or the toggle on the
+navigation bar in the workflow canvas.
+
+The screenshot below shows an enabled workflow in the workflow list.
+
+![Via the workflow list](/img/workflow_list_toggle.webp)
+
+The screenshot below shows a disabled workflow in the workflow canvas.
+
+![Via the workflow canvas](/img/workflow_canvas_toggle.webp)
+
+#### Via the workflow trigger
+
+To enable or disable a workflow via the workflow trigger, select the trigger
+icon on the canvas and use the toggle in the configuration panel to toggle the
+workflow state.
+
+![Enabled workflow in the trigger panel](/img/via-trigger-panel.webp)
+
+### Manual Runs
+
+Check out the video for a quick overview.
+
+<iframe width="784" height="441" src="https://www.youtube.com/embed/dKMtT1QKl-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+You can run a workflow manually in three ways:
+
+#### With an empty input
+
+This is the default behavior and the input dataclip for your run will be `{}`.
+
+<img src="/img/empty.webp" width="400" />
+
+#### With a custom input
+
+You can type, copy/paste, or import (browse your file system or drag & drop) any
+file with valid JSON.
+
+<img src="/img/custom.webp" width="400" />
+
+#### With an existing input
+
+You can pick from a list of previous inputs that were used to run this step.
+
+<img src="/img/existing.webp" width="400" />
+
+### Named Dataclips
+
+Dataclips (custom inputs, step results, webhook requests) can be named to make
+them easier to find and use for testing.
+
+:::info Named dataclips aren't erased
+
+Named dataclips will not be removed alongside other project history when your
+retention period is reached. They will be stored indefinitely.
+
+:::
+
+Assign your dataclip a name by clicking the label field.
+
+<img src="/img/name_dataclip.webp" width="500"/>
+
+After assigning names to your inputs you can search for them by their name on
+the search bar.
+
+<img src="/img/search_dataclip_by_name.webp" width="500" />
+
+Filter only named inputs by clicking the tag button.
+
+<img src="/img/show_only_named_dataclips.webp" width="500" />
 
 ## Limit Concurrency
 
-Workflow **concurrency** is the number pf runs will be allowed for a given
-workflow **_at the same time_**. In OpenFn, project administrators and editors
+Workflow **concurrency** is the number of runs that will be allowed for a given
+workflow **_at the same time_**. In OpenFn, project owners and administrators
 are able to limit the maximum number of the runs that can be executed at the
 same time for a workflow. You might do this to ensure "one at a time" serial
 processing or to keep a fast OpenFn workflow from overwhelming the API rate
@@ -72,12 +151,8 @@ limit of some other connected system.
 
 :::info
 
-Note that this setting allows administrators to _limit_ the maximum concurrency
-for a workflow, but the **global maximum** (i.e., the highest concurrency that
-can be reached if a workflow is _not_ limited by a project administrator) will
-be controlled by your OpenFn instance superuser. This global maximum will be
-determined by the computing power and throughput made available to your
-installation.
+Please check to make sure that your parallel execution is not disabled for your
+project as it will override the workflow level concurrency limit.
 
 :::
 
@@ -107,4 +182,22 @@ canvas.
 2. In the modal, enter the maximum concurrency limit
 3. Click save.
 
-![Configuring Concurrency](/img/configuring-concurrency.png)
+![Configuring Concurrency](/img/configuring-concurrency.webp)
+
+### Log Outputs
+
+For data security and compliance purposes, the log output of a workflow run can
+be configured to disable logging `console.log()` statements. This can be done
+via the workflow configuration modal by a project owner or administrator.
+
+1. Click on the settings icon.
+2. In the modal, toggle the **Allow `console.log()` usage** switch to disable
+   logging `console.log()` statements. By default, this is enabled.
+
+![Configuring Log Outputs](/img/configuring-log-outputs.webp)
+
+## Keyboard Shortcuts
+
+From the canvas you can perform certain common actions (e.g., save) using
+keystrokes. Check out the full list of keyboard shortcuts
+[here](/documentation/keyboard-shortcuts).

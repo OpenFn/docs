@@ -72,7 +72,7 @@ notation).
 each time a form is submitted (i.e. real-time sync). There are a maximum of 5000
 patients registered in Kobo per month.
 
-![Workflow](/img/functional_example.png)
+![Workflow](/img/functional_example.webp)
 
 ### Technical feasibility assessment
 
@@ -107,7 +107,7 @@ Example: Only one instance of PatientCare and DHIS2 exist for this integration
 and they have already been built with REST APIs. They are both hosted on
 PatientCare managed servers that require IP whitelisting for access.
 
-![Workflow](/img/technical_example.png)
+![Workflow](/img/technical_example.webp)
 
 ### Capacity assessment
 
@@ -155,10 +155,10 @@ requirements. Check out the example solution architecture diagrams below.
 
 **Example 1:**
 
-![Workflow](/img/solution_diagram1.png)
+![Workflow](/img/solution_diagram1.webp)
 
 **Example 2:**
 
-|                                                      ![Workflow](/img/solution_diagram2.png)                                                       |
+|                                                      ![Workflow](/img/solution_diagram2.webp)                                                       |
 | :------------------------------------------------------------------------------------------------------------------------------------------------: |
 | _[Source](https://lucid.app/lucidchart/1e997197-2d67-4393-8394-a532d83561b2/edit?invitationId=inv_85b809a1-6fbd-4275-abdc-618fbd56e90d&page=0_0#)_ |

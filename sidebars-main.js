@@ -70,6 +70,7 @@ module.exports = {
             'build/working-with-branches',
             'build/troubleshooting',
             'build/workflow-snapshots',
+            'build/workflows-api',
           ],
         },
         {
@@ -111,6 +112,7 @@ module.exports = {
           ],
         },
         'hosted/overview',
+        'keyboard-shortcuts',
       ],
     },
 
@@ -122,6 +124,7 @@ module.exports = {
         'build-for-developers/cli-usage',
         'build-for-developers/cli-walkthrough',
         'build-for-developers/cli-challenges',
+        'build-for-developers/cli-collections',
       ],
     },
     {
@@ -143,7 +146,8 @@ module.exports = {
       type: 'category',
       label: 'Contribute',
       items: [
-        'contribute/openfn-roadmap',
+        'contribute/roadmap',
+        'contribute/impact',
         'contribute/writing-code',
         'contribute/writing-docs',
         'contribute/style-guide',

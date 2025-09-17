@@ -14,7 +14,7 @@ The `History` page provides a list of all of the
 [Runs](/documentation/get-started/terminology#run) that have been processed in a
 Project.
 
-![History](/img/case-referral-history.png)
+![History](/img/case-referral-history.webp)
 
 ## Workflow execution: Work Orders and Runs
 
@@ -34,7 +34,7 @@ OpenFn Workflows are executed as follows:
    `Run` will be created. If successful, then both the Run and related Work
    Order will be updated with a `success` status.
 
-![History Page](/img/history-page-annotated.png)
+![History Page](/img/history-page-annotated.webp)
 
 Check out the other pages in this docs section to learn more about inspecting
 Runs, troubleshooting, and rerunning failed Runs.
@@ -46,7 +46,7 @@ input/output dataclips or run logs contain specific text strings. By default,
 the system will search run logs only but you can select to search any or all of
 three options:
 
-![Search Options](/img/search-options.png)
+![Search Options](/img/search-options.webp)
 
 1. OpenFn UUIDs for workorders, runs, or steps
 2. Input/Output dataclip bodies
@@ -56,6 +56,19 @@ If searching for text within an input/output dataclip or run logs, a `tsvector`
 search is applied. This method of searching allows you to find work orders
 quickly and allows for partial string matches across all text in the run logs
 and across the "keys" and "values" of your dataclips.
+
+:::caution Very large/complex input dataclips may not be indexed
+
+It's not currently possible to create `ts_vector` indexes larger than 1MB, and
+as a result very large or complex input dataclips may not appear in search
+results. This typically won't happen until you're nearing 10MB of JSON, but the
+number of distinct lexemes & positions in your JSON will impact the final index
+size.
+
+More at the Postgres
+["text search limitations" docs page](https://www.postgresql.org/docs/current/textsearch-limitations.html).
+
+:::
 
 Partial string matching works best at the start of words, so if you're looking
 for items matching `"newPatient"` it's better to search for `"newPat"` than for

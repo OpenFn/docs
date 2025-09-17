@@ -4,7 +4,7 @@ sidebar_label: Building compliant APIs
 ---
 
 This section is for you if you are hoping to build or extend an existing
-application that can connect to OpenFn. We follow modern web-standard JSON api
+application that can connect to OpenFn. We follow modern web-standard JSON API
 guidelines.
 
 For your application to a be data provider (or "source") for OpenFn
@@ -17,7 +17,7 @@ of having requests be made and handled every X seconds, your servers and
 OpenFn's servers will only work when new data is available.
 
 For your application to be a consumer (or "destination") for OpenFn, you must
-either have a standard, JSON-based rest API or create a language-package that
+either have a standard, JSON-based REST API or create a language-package that
 meets your API specifications.
 
 ## Sending data to OpenFn
@@ -31,7 +31,7 @@ curl -X POST \
   -H "Content-Type: application/json" \
   -H "Cache-Control: no-cache" \
   -d '{"foo":"bar", "baz":"qux"}' \
-  "https://staging.openfn.org/inbox/some-secret-api-key"
+  "https://app.openfn.org/i/some-secret-inbox-uuid"
 ```
 
 OpenFn will respond with a 200 and an empty JSON object in the event of a

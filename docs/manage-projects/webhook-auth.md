@@ -24,26 +24,26 @@ You can add a new Authentication Method under `Webhook Security` of your
 `Project Settings`. The authentication you set up here can then be used in any
 of your Workflows within this Project.
 
-![Project Settings Webhook Security](/img/lightning_auth_project_settings.png)
+![Project Settings Webhook Security](/img/lightning_auth_project_settings.webp)
 
 After clicking `New auth method`, choose the type - Basic HTTP or API Key
 Authentication.
 
-![New Auth Method](/img/lightning_choose_auth_method.png)
+![New Auth Method](/img/lightning_choose_auth_method.webp)
 
 #### Basic Auth
 
 For Basic Auth, give it a name, choose a username and password, and hit
 `Create Auth Method`.
 
-![Basic Auth](/img/lightning_basic_auth.png)
+![Basic Auth](/img/lightning_basic_auth.webp)
 
 #### API Key
 
 For API Key, just choose a name, and click `Create Auth Method`. An API key is
 generated for you.
 
-![API auth](/img/lightning_api_auth.png)
+![API auth](/img/lightning_api_auth.webp)
 
 You can edit or delete your auth methods on this page as well.
 
@@ -52,9 +52,9 @@ You can edit or delete your auth methods on this page as well.
 Once you added an auth method to a webhook, it will show up under
 `Linked Triggers`.
 
-![Linked Triggers](/img/lightning_linked_triggers.png)
+![Linked Triggers](/img/lightning_linked_triggers.webp)
 
-![Linked Triggers](/img/lightning_linked_triggers2.png)
+![Linked Triggers](/img/lightning_linked_triggers2.webp)
 
 ### Adding Authentication Via a Workflow
 
@@ -69,7 +69,7 @@ these.
 Once you've added an auth method, it will show up in your Webhook Trigger
 configuration.
 
-![Linked Triggers](/img/lightning_workflow_trigger_added.png)
+![Linked Triggers](/img/lightning_workflow_trigger_added.webp)
 
 Only requests using these required auth details will be able to send data to
 your Workflow.

@@ -47,7 +47,7 @@ users the freedom to switch between any and all of the OpenFn products.
 
 All OpenFn products, other than the OpenFn iPaaS are part of the free and
 open-source
-[**OpenFn Integration Toolkit**](../getting-started/integration-toolkit.md).
+[**OpenFn Integration Toolkit**](/documentation/legacy/getting-started/integration-toolkit).
 This Toolkit is a **Digital Public Good** (a "DPG") recognized in the
 [DPG Registry](https://digitalpublicgoods.net/registry/) and Digital Square's
 [Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook).

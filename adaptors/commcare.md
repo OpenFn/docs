@@ -41,11 +41,12 @@ CommCare supports 2 primary integration options:
    to _push_ `cases` and `forms` data from CommCare to external systems. This
    option is suited for _real-time_, event-based data integration.
 
-2. **[REST APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143958022/API+Access)**
+2. **[REST APIs](https://commcare-hq.readthedocs.io/api/index.html#commcare-apis)**
    that enable external services like OpenFn to _pull_ data from CommCare, or
    push data from external apps to CommCare. This option is suited for
    _scheduled, bulk syncs_ or workflows that must update data in CommCare with
-   external information.
+   external information. Also [see here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview) 
+   for more on the API Explorer. 
 
 This OpenFn adaptor is designed for option #2
 [CommCare's APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview).
@@ -77,7 +78,7 @@ To set up a connection, in CommCareHQ you'll need to:
    set up on OpenFn, add the authentication type, the username and password here
 7. You can test the connection, then save it
 
-![Connection](/img/commecare_connection_settings.png)
+![Connection](/img/commecare_connection_settings.webp)
 
 ### Data Forwarding Options
 
@@ -107,7 +108,7 @@ Here's how you can configure CommCare to forward a form to OpenFn.
    to find the XMLNS of any form.
 9. Click "Start Forwarding" to save and activate
 
-![Forms](/img/commecare_forward_forms.png)
+![Forms](/img/commecare_forward_forms.webp)
 
 #### Forwarding Specific Case Types
 
@@ -123,7 +124,7 @@ forms. Here's how you can configure CommCare to forward a case type to OpenFn.
 7. Select which case type(s) you want to forward, for example `patient`
 8. Exclude any (eg. test) users
 
-![Cases](/img/commcare_forward_cases.png)
+![Cases](/img/commcare_forward_cases.webp)
 
 :::tip Data Forwarding and OpenFn Workflow Design
 
@@ -182,7 +183,7 @@ See platform docs [on managing credentials](/documentation/manage-projects/manag
 how to configure a credential in OpenFn and see the below CommCare credential
 example.
 
-![CommCare Cred](/img/commcare_credential_edit.png)
+![CommCare Cred](/img/commcare_credential_edit.webp)
 
 If you're using the `Raw JSON` credential type, your configuration may look like this:
 
@@ -234,7 +235,7 @@ for a detailed description of the types of data.
 > time through a CommCare form. Ultimately form data is the source of all case
 > data, but not all form data is case data.
 
-![CommCare-data-model](/img/commcare-data-model.png)
+![CommCare-data-model](/img/commcare-data-model.webp)
 
 ### Mapping CommCare Metadata to External Systems
 Use the [CommCare App Summary](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143956371/App+Summary) to view and export case or form metadata to XLS. This will help you discover what data is available to be mapped to an external system. 
@@ -253,21 +254,91 @@ If integrating with CommCare `forms`, you may need to make sure that any unique 
 
 :::
 
+### Lookup Tables in CommCare
+Lookup tables in CommCare store reference data that can be used across multiple forms and workflows. They are often used for predefined lists such as as health facility names, geographic locations, product catalogs, or standardized response options.
+
+#### Querying Lookup Tables
+When fetching lookup table data in using CommCare APIs, there are two main approaches:
+
+**1. Using the Fixture API**
+[See here](https://commcare-hq.readthedocs.io/api/fixture.html) for the CommCare docs on this API. FYI `fixture` is a more technical term that the CommCare docs sometimes use to refer to a `lookup table`.
+```
+//sample openfn job to get a specific 'diagnosis' lookup table
+get("fixture/?fixture_type=diagnosis")
+```
+
+**Pros:**
+- Simple and direct API for querying a specific lookup table; response include lookup table metadata and data. 
+- Works well when items from only a couple of tables (e.g., 1-3) need to be queried.
+
+**Cons:**
+- Requires multiple API calls if several tables are needed, which can be inefficient at scale. 
+- See `lookup_table_item` API if querying data across multiple lookup tables.
+
+**2. Using the lookup_table_item API**
+[See here](https://commcare-hq.readthedocs.io/api/fixture.html#list-lookup-table-row) for the CommCare docs on this API. 
+You can use this API to query _and_ update lookup table items or rows.
+
+```
+get('lookup_table_item', //to list all lookup table items across multiple tables -> bulk query
+  { limit: 100000 }); //will return 100k items at a time, which can be paged through if more are expected
+
+fn(state => {
+  //custom function to then assign & group lookup_table_items to new variables
+  const findLookupById = (id) => state.data.filter((i) => i.data_type_id === id);
+ 
+  //assign to facility, product, medications variables to use later in WF
+  state.facility = findLookupById("facility_table_id"); 
+  state.product = findLookupById("product_table_id");
+  state.medications = findLookupById("medications_table_id");
+  return state; 
+})
+```
+
+**Pros:**
+- Good for bulk querying lookup table rows in a single request, reducing API calls.
+- Useful for OpenFn workflows requiring data from multiple lookup tables.
+- Support for create & update of lookup table items.
+
+**Cons:**
+- Retrieves all lookup tables and filters them in-memory, which can be inefficient if only a few tables are needed.
+
+#### Updating Lookup Tables
+You can bulk update rows in lookup tables using the [`bulk()` function](/adaptors/packages/commcare-docs#bulk) in the CommCare adaptor that will utilize this [CommCare bulk upload API](https://commcare-hq.readthedocs.io/api/fixture.html#bulk-upload-lookup-tables). **Tip:** Set the `replace` option as `false` if you want to _update_ (and not overwrite) tables.
+
+Or, you can edit or delete an individual lookup table row via the [lookup_table_item API](https://commcare-hq.readthedocs.io/api/fixture.html#edit-or-delete-lookup-table-row). 
+```
+request('PUT', `/a/${$.configuration.domain}/api/v1/lookup_table_item/${item-id}`} //to update 1 row
+
+request('DELETE', `/a/${$.configuration.domain}/api/v1/lookup_table_item/${item-id}`} //to delete 1 row
+```
+  
+#### Best Practices
+- Use the `Fixture` API when fetching data for only a couple of (1-3) lookup tables.
+- Use the `lookup_table` API for scenarios where data from multiple lookup tables needs to be queried in bulk. 
+- Consider performance trade-offs when selecting which API to use, balancing API efficiency with data processing overhead. [See CommCare docs](https://commcare-hq.readthedocs.io/api/index.html#data-apis) for all available data APIs. 
+
+#### Troubleshooting tips
+If some tables are throwing errors when being fetched using the fixtures API, the lookup table might be corrupted. Consider exporting the table and re-importing it.
+
 
 ## Helpful Links
 
 ### About Forms, case and data management
 
+- [CommCare API Overview](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview)
 - [Case management overview](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955170/Case+Management+Overview)
 - [Form and case data in CommCare](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954460/Metadata+Glossary)
+- [CommCare Lookup tables](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955074/Lookup+Tables)
+- [Lookup table APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143957320/Lookup+Table+API)
 
 ### CommCare API Docs
 
 CommCare has different APIs for reading vs. modifying data. Some helpful links:
 
-- [Data APIs](https://confluence.dimagi.com/display/commcarepublic/Data+APIs)
+- [Data APIs](https://commcare-hq.readthedocs.io/api/index.html#data-apis)
 - [API Explorer](https://commcare-api-explorer.dimagi.com/)
-- [Bulk Case Upload API to mass update case records](https://confluence.dimagi.com/display/commcarepublic/Bulk+Upload+Case+Data)
+- [CommCare API Overview](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview)
 
 ### Implementation Examples
 
@@ -275,4 +346,4 @@ CommCare has different APIs for reading vs. modifying data. Some helpful links:
 - MiracleFeet (CommCare-to-Salesforce sync):
   https://github.com/OpenFn/miracle-feet
 - Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
-- myAgrto (CommCare-Salesforce): https://github.com/OpenFn/myagro-commcare-sf
+- myAgro (CommCare-Salesforce): https://github.com/OpenFn/myagro-commcare-sf

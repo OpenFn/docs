@@ -3,10 +3,11 @@ sidebar_label: Standards
 title: Standards & OpenFn
 ---
 
-OpenFn follows global standards for open source software and for workflow engine solutions. Read on to learn how OpenFn complies with specific standards.
-
+OpenFn follows global standards for open source software and for workflow engine
+solutions. Read on to learn how OpenFn complies with specific standards.
 
 ## Digital Public Good
+
 OpenFn is recognised by the
 [Ditial Public Goods Alliance](https://digitalpublicgoods.net/) as a Digital
 Public Good, or "DPG".
@@ -26,7 +27,8 @@ You can read more about the DPG standard
 ## Global Good for Health
 
 OpenFn is one of 36 software applications that have been recognised as a Digital
-Square [Global Good for Health](https://wiki.digitalsquare.io/index.php/What_are_Global_Goods#:~:text=Digital%20Square%20Global%20Goods%20are,scale%2C%20are%20used%20across%20multiple).
+Square
+[Global Good for Health](https://wiki.digitalsquare.io/index.php/What_are_Global_Goods#:~:text=Digital%20Square%20Global%20Goods%20are,scale%2C%20are%20used%20across%20multiple).
 
 :::info Global Goods for Health Definition
 
@@ -44,7 +46,8 @@ You can read more about Global Goods for Health
 
 ## OpenHIE Standard Architecture
 
-OpenFn is considered a OpenHIE reference technology and is compliant with the OpenHIE standard architecture for digital health implementations. 
+OpenFn is considered a OpenHIE reference technology and is compliant with the
+OpenHIE standard architecture for digital health implementations.
 
 _This section assumes you are familiar with the OpenHIE specification–a
 reference framework that makes sharing health data across information systems
@@ -54,10 +57,10 @@ possible through a Health Information Exchange (“HIE”). To learn more, check
 
 ### OpenFn and OpenHIE
 
-The OpenFn platform v2 ([OpenFn/lightning](https://github.com/OpenFn/)) is an OpenHIE-compliant **_workflow engine_** used to (1)
-automate complex business processes that cut across digital systems (including
-OpenHIE components _and_ point of care systems), and to (2) handle data mapping
-and transformation.
+The OpenFn platform v2 ([OpenFn/lightning](https://github.com/OpenFn/)) is an
+OpenHIE-compliant **_workflow engine_** used to (1) automate complex business
+processes that cut across digital systems (including OpenHIE components _and_
+point of care systems), and to (2) handle data mapping and transformation.
 
 If your organization is implementing the OpenHIE standard architecture, then
 OpenFn provides a workflow engine that interfaces with your interoperability
@@ -77,7 +80,7 @@ used as a fully OpenHIE-compliant **_interoperability layer _**because it does
 not leverage the IHE ATNA profile (see
 [requirement IOL-WF1](https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-interoperability-layer-iol#openhie-iol-workflow-requirements)).
 
-![openhie_architecture](/img/openhie_architecture.png)
+![openhie_architecture](/img/openhie_architecture.webp)
 
 _For an overview of OpenFn Lightning and how it fits into OpenHIE, see our
 [introduction for the OpenHIE showcase](https://www.youtube.com/watch?v=PTRRZBYtqyc)_
@@ -122,48 +125,94 @@ leveraging OpenFn’s out-of-box DHIS2 adaptor and reusable workflow templates t
 quickly develop automation that reformats data received from CommCare and maps
 it to the DHIS2 data model.
 
-![swisstph](/img/swisstph.png)
+![swisstph](/img/swisstph.webp)
 
 ## GovStack
 
-OpenFn is compliant with [GovStack's standard specification](https://govstack.gitbook.io/bb-workflow/2-description) for workflow engines.
-
+OpenFn is compliant with
+[GovStack's standard specification](https://govstack.gitbook.io/bb-workflow/2-description)
+for workflow engines.
 
 ## Pricinciples for Digital Development
 
-OpenFn was designed for the social sector and has been actively prioritizing the [Principles of Digital Development](https://digitalprinciples.org/) since its inception. 
+OpenFn was designed for the social sector and has been actively prioritizing the
+[Principles of Digital Development](https://digitalprinciples.org/) since its
+inception.
 
 OpenFn solutions are:
-- **interoperable** (connect any application);  
-- **reusable** (utilize existing OpenFn configurations as templates, or easily share, copy, and modify your own configurations; see docs.openfn.org/library); 
-- **sustainable** (flexible implementation options with no lock-in); 
-- **scalable** (OpenFn leverages enterprise-grade tech to handle high data volumes and provides a range of deployment options to ensure total solution ownership on any server); 
-- **promote open standards and open access** (through our open-source software, documentation, and features to help users implement open standards in their information exchange solutions), and
-- **address privacy & security**. 
+
+- **interoperable** (connect any application);
+- **reusable** (utilize existing OpenFn configurations as templates, or easily
+  share, copy, and modify your own configurations; see docs.openfn.org/library);
+- **sustainable** (flexible implementation options with no lock-in);
+- **scalable** (OpenFn leverages enterprise-grade tech to handle high data
+  volumes and provides a range of deployment options to ensure total solution
+  ownership on any server);
+- **promote open standards and open access** (through our open-source software,
+  documentation, and features to help users implement open standards in their
+  information exchange solutions), and
+- **address privacy & security**.
 
 ## FHIR for health data exchange
 
-[FHIR](https://www.hl7.org/fhir/) (pronounced "fire" 🔥) is a standard for health care data exchange, published by HL7®.
+[FHIR](https://www.hl7.org/fhir/) (pronounced "fire" 🔥) is a standard for
+health care data exchange, published by HL7®.
 
-OpenFn is used by health organizations to connect multiple FHIR- and non-FHIR compliant systems in a secure, stable, and scalable manner. OpenFn can facilitate 2 categories of FHIR workflows:
+OpenFn is used by health organizations to connect multiple FHIR- and non-FHIR
+compliant systems in a secure, stable, and scalable manner. OpenFn can
+facilitate 2 categories of FHIR workflows:
 
-### 1. Non-FHIR to FHIR
+### 1. Non-FHIR to FHIR Data Exchange
 
-OpenFn users can configure Workflows to convert non-FHIR data to FHIR-compliant formats, and then route to FHIR systems. 
+OpenFn users can configure workflows to convert non-FHIR data to FHIR-compliant
+formats, and then route to FHIR systems.
 
-For example, get data from CommCare mobile app, convert to FHIR, and send to national health system's FHIR store. 
-![nonFHIR Workflow](/img/workflow_nonfhir_fhir.png)
+For example, get data from CommCare mobile app, convert to FHIR, and send to
+national health system's FHIR store.
+![nonFHIR Workflow](/img/workflow_nonfhir_fhir.webp)
 
-### 2.FHIR to FHIR
+### 2. FHIR to FHIR Data Exchange
 
-OpenFn users can also configure Workflows to automate the exchange and routing of _already_ FHIR-compliant data to other FHIR-compliant systems. 
+OpenFn users can also configure Workflows to automate the exchange and routing
+of _already_ FHIR-compliant data to other FHIR-compliant systems.
 
-For example, get data from OpenMRS's FHIR API, and forward to the national health system's FHIR store (no data transformation needed).
+For example, get data from OpenMRS's FHIR API, and forward to the national
+health system's FHIR store (no data transformation needed).
 
-![FHIR Workflow](/img/workflow_fhir_fhir.png)
+![FHIR Workflow](/img/workflow_fhir_fhir.webp)
+
+## FHIR Adaptors
+
+OpenFn [adaptors](/adaptors) fast-track integration setup with target
+applications (including FHIR endpoints!). The core team is currently working on
+a suite of FHIR-specific adaptors to enable interoperability with FHIR systems.
+
+The [fhir-4 adaptor](/adaptors/fhir-4) makes it easy to access and modify data
+held on any [FHIR r4](https://www.hl7.org/fhir/R4/) compliant server. It also
+provides full code-assist to developers while creating specific resource
+definitions, simplifying data-entry and mapping logic.
+
+We also provide a generic [fhir](/adaptors/fhir) adaptor that's compatible with
+all FHIR versions.
+
+:::info Fhir 4 support
+
+The `fhir-4` adaptor is new to OpenFn as of March 2025. It introduces richer
+levels of support from the generic [fhir](/adaptors/fhir)adaptor. Support for
+other FHIR versions is coming soon
+
+:::
+
+See the
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/wiki/Generating-Fhir-Adaptors)
+to learn how to build your own FHIR adpator specific to your target FHIR
+Implementation Guide
 
 ## Other Data Standards
 
-OpenFn Workflows can automate data transformation, cleaning, and formatting rules to ensure compliance with _your_ organization's specific standards. 
+OpenFn Workflows can automate data transformation, cleaning, and formatting
+rules to ensure compliance with _your_ organization's specific standards.
 
-Ask on the [community](https://community.openfn.org) to explore how OpenFn can be leverage to help automate application and enforcement of other data standards.  
+Ask on the [community](https://community.openfn.org) to explore how OpenFn can
+be leverage to help automate application and enforcement of other data
+standards.

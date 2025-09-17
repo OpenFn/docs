@@ -56,12 +56,12 @@ To export work order history for your project, open the project and click on
 `History` on the side menu. On the History page, scroll to the bottom of the
 work order history table and click on the cloud icon (see image below).
 
-![History Page](/img/history_page_cloud.png)
+![History Page](/img/history_page_cloud.webp)
 
 Clicking on the download icon will prompt a confirmation modal for the export.
 If confirmed, a background process will be initiated for the export.
 
-![Confirm export](/img/confirm_export.png)
+![Confirm export](/img/confirm_export.webp)
 
 When the export is complete, an email will be sent to your OpenFn user's
 associated email address.
@@ -84,7 +84,7 @@ On the `History Export`s page, you will see the list of exports showing your
 latest request and previous requests with the other information such as
 filename, date of export, user who requested the export and the status.
 
-![List of history exports ](/img/history_exports_page.png)
+![List of history exports ](/img/history_exports_page.webp)
 
 :::caution Configuring storage for exports
 

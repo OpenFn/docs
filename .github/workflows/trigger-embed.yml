@@ -1,0 +1,22 @@
+name: Trigger Embed Service
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  trigger-embed:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Embed Service
+        env: # The API keys are the same as those used by the AI Assistant. There is only one (production) database. 
+          PINECONE_API_KEY: ${{ secrets.PINECONE_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          curl -X POST https://apollo.staging.openfn.org/services/embed_docsite \
+            -H "Content-Type: application/json" \
+            -d '{
+              "pinecone_api_key": "${{ secrets.PINECONE_API_KEY }}",
+              "openai_api_key": "${{ secrets.OPENAI_API_KEY }}"
+            }'

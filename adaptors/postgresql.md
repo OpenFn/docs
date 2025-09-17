@@ -91,7 +91,7 @@ See the [Job Library](/adaptors/library) for more sample jobs.
   data recieved
 - **Testing**: Create a robust test suite which outlines which tables should be
   updated by each job run
-  ![image](https://user-images.githubusercontent.com/80456839/150614749-6d667df9-495c-4153-b5d6-48632e3ba05a.png)
+  ![image](https://user-images.githubusercontent.com/80456839/150614749-6d667df9-495c-4153-b5d6-48632e3ba05a.webp)
 
 ## Common Errors
 

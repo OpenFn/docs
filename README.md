@@ -5,7 +5,7 @@ site._**
 
 ## Contributing to this documentation site
 
-Visit https://docs.openfn.org/documentation/writing-docs/.
+Visit: https://docs.openfn.org/documentation/writing-docs/
 
 This website is built using [Docusaurus](https://docusaurus.io/), a static
 website generator that uses Markdown and Javascript.

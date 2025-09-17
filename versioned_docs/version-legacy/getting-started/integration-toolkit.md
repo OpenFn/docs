@@ -15,7 +15,7 @@ in integration and interoperability projects. The Toolkit is both a recognized
 [Digital Public Good](https://digitalpublicgoods.net/) ("DPG") and a
 [Digital Square Global Good](https://digitalsquare.org/digital-health-global-goods).
 
-![DPG](/img/openfn_dpg.png)
+![DPG](/img/openfn_dpg.webp)
 
 The Toolkit provides a suite of software tools and documentation to help users
 design, build, and automate integrations.
@@ -31,7 +31,7 @@ deployment pathway for the Integration Toolkit) and back again (see below) but
 to really understand the toolkit you've got to first understand Open Function
 Group and `platform`, the enterprise iPaaS.
 
-![Integration Toolkit](/img/integration-toolkit.png)
+![Integration Toolkit](/img/integration-toolkit.webp)
 
 Open Function Group has been building free and open source software (FOSS) for
 data integration projects in the health, humanitarian, and international
@@ -101,7 +101,7 @@ You can read all about it [here](../about-lightning.md)!
 
 ## Architecture for implementation
 
-![Lightning architecture](/img/lightning_architecture.png)
+![Lightning architecture](/img/lightning_architecture.webp)
 
 ## Open Source Steering Committee (OSSC)
 

@@ -18,6 +18,15 @@ module.exports = {
   },
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
+    metadata: [
+      {name: 'keywords', content: 'OpenFn, workflow automation, ICT4D, integration, automation, documentation'},
+      {name: 'description', content: 'OpenFn documentation - The leading digital public good for workflow automation, making ICT4D more efficient.'},
+      {name: 'twitter:card', content: 'summary_large_image'},
+      {name: 'twitter:site', content: '@openfn'},
+      {name: 'twitter:title', content: 'OpenFn Documentation'},
+      {name: 'twitter:description', content: 'The leading digital public good for workflow automation, OpenFn makes ICT4D more efficient.'},
+      {name: 'twitter:image', content: 'https://docs.openfn.org/img/og-image.png'},
+    ],
     algolia: {
       appId: 'O729P2PJGT',
       apiKey: 'a929e9c0d8fb90f86a1f39f8b6f1816e',
@@ -144,6 +153,12 @@ module.exports = {
         googleTagManager: {
           containerId: 'GTM-5RNRM5NC',
         },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+        },
       },
     ],
   ],
@@ -178,6 +193,22 @@ module.exports = {
           copyright: `Copyright © ${new Date().getFullYear()} Open Function Group, LLC.`,
           title: 'OpenFn Help Articles',
         },
+      },
+    ],
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/documentation/contribute/roadmap',
+            from: '/documentation/contribute/openfn-roadmap',
+          },
+          // Redirect from multiple old paths to the new path
+          // {
+          //   to: '/docs/newDoc2',
+          //   from: ['/docs/oldDocFrom2019', '/docs/legacyDocFrom2016'],
+          // },
+        ],
       },
     ],
   ],

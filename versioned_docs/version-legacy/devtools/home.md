@@ -5,8 +5,7 @@ title: Devtools
 :::caution Devtools is deprecated
 
 Please note that [OpenFn/devtools](https://github.com/OpenFn/devtools) are being
-deprecated and replaced by [OpenFn/cli](../cli.md). Learn more about
-CLI
+deprecated and replaced by [OpenFn/cli](../cli.md). Learn more about CLI
 [github.com/OpenFn/cli/](https://github.com/OpenFn/kit/tree/main/packages/cli)
 
 :::
@@ -22,9 +21,10 @@ The [Devtools](https://github.com/OpenFn/devtools) repo is a collection of bash
 and Node scripts, as well as a _suggested_ (but not necessary) directory
 structure for working with OpenFn jobs and adaptors.
 
-To run OpenFn jobs locally, you only need [Core](https://github.com/OpenFn/core) and at
-least one adaptor, e.g. [language-http](https://github.com/OpenFn/language-http)
-and you may prefer to install core globally via `npm install -g @openfn/core`
+To run OpenFn jobs locally, you only need [Core](https://github.com/OpenFn/core)
+and at least one adaptor, e.g.
+[language-http](https://github.com/OpenFn/language-http) and you may prefer to
+install core globally via `npm install -g @openfn/core`
 
 :::
 
@@ -55,7 +55,7 @@ import CodeBlock from '@theme/CodeBlock';
   </TabItem>
   <TabItem value="https">
     <CodeBlock>
-      git clone https://github.com/OpenFn/devtools.git{'\n'}
+      git clone https:\/\/github.com/OpenFn/devtools.git{'\n'}
       cd devtools{'\n'}
       ./install.sh https
     </CodeBlock>
@@ -91,7 +91,7 @@ Execute takes:
 ```mdx-code-block
 import ReactPlayer from 'react-player';
 
-<ReactPlayer url='https://www.youtube.com/watch?v=fkGI5YLp18s' />
+<ReactPlayer url="'https:\/\/www.youtube.com/watch?v=fkGI5YLp18s'" />
 ```
 
 ### Install a specific adaptor version
@@ -323,7 +323,7 @@ import TabItem from '@theme/TabItem';
 >
    <TabItem value="linux">
 
-      ssh-add <path-to-your-ssh-file>
+      ssh-add &lt;path-to-your-ssh-file&gt;
 
    </TabItem>
    <TabItem value="macos">
@@ -339,7 +339,7 @@ In VSCode, go to `Settings`, and in the search bar, type
 `terminal.integrated.inherit`. You should see the option in the image below and
 check it if it's unchecked.
 
-![vscode settings](/img/vscode-settings.png)
+![vscode settings](/img/vscode-settings.webp)
 
 ### GitHub token sharing
 

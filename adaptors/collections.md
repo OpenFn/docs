@@ -4,38 +4,60 @@ title: Collections Adaptor
 
 ## Collections Overview
 
-The Collections API provides access to a secure key/value store on the OpenFn
-Platform. It is designed for high performance over a large volume of data.
+The Collections API provides access to a secure key/value store that allows
+users to store, update and reuse data across workflows in their OpenFn projects.
+It is designed for high performance over a large volume of data.
 
-Collections are secure, private datastores which are visible only to Workflows
-within a particular OpenFn Project. They can be created, managed and destroyed
-from the OpenFn Admin page.
+Collections are secure, private datastores which are only accessible to
+Workflows within a particular OpenFn Project. They can be created, managed and
+destroyed from the OpenFn Admin page.
+
+The Collections Adaptor provides an interface to workflows to use the
+Collections API.
 
 When running in the CLI, a Personal Access Token can be used to get access to
 the collection (generated from the app at /profile/tokens).
 
-See the [Collections](/documentation/build/collections) Platform Docs to learn
-more about Collections.
+Learn more about Collections and common use cases in the
+[Collections Docs](/documentation/build/collections).
 
-:::caution
+:::caution Collections is _not_ a long-term data storage solution!
 
-Collections must be created in the platform Admin page before they can be used.
+The OpenFn Collections feature is designed to be a _temporary_ data store or
+integration “buffer” during data transfer and processing between digital
+systems.
 
-Refer to the [Collections Docs](/documentation/build/collections) for details
+- This feature is optimized for throughput and performance (rather then
+  long-term retention and making the data accessible to end users for
+  querying/analysis)
+- Technically, collections is a key value store, so performance for complex
+  aggregations or queries is either unsupported or inefficient
+- Collections doesn't support advance archiving, backup, and recovery features
+  that you’d want in a long-term storage solution
+- Most buffer implementations have retention mechanisms that automatically
+  expire/purge data after a certain period of time to clear up space and memory
+  to ensure resources aren’t exhausted for active processing
+
+Therefore, if you're interested in storing data collected longer term–we
+recommend you set up a dedicated database and configure OpenFn to route data to
+there as a long-term storage and/or backup option. Ask on
+[Community](https://community.openfn.org) or get in touch with
+[our support team](mailto://support@openfn.org) to learn more about related
+OpenFn services.
 
 :::
 
 ## The Collections Adaptor
 
-The Collections API is inserted into all Steps through a special kind of
-adaptor.
+The Collections API is inserted into all each Step of a Workflow through a
+special kind of adaptor.
 
 Uniquely, the Collections adaptor it is designed to be run _alongside_ other
-adaptors, not by itself. It is injected into the runtime environment for you for
-you by OpenFn. This makes the Collections API available to every Step in a
-Workflow, regardless of which adaptor it is using.
+adaptors, not by itself. It is automatically injected into the runtime
+environment making the Collections API available to every Step in a Workflow,
+regardless of which adaptor it is using.
 
-If using the CLI run a workflow with Collections, refer to the
+If using the CLI the use Collections locally, refer to the
 [CLI Usage](#cli-usage) guide below.
 
 ## Usage Guide
@@ -56,17 +78,17 @@ fetch all keys which relate to Mr Benn in 2024).
 The Collections API gives you four functions to read, write and remove data from
 a collection.
 
-- Use [`collections.get()`](adaptors/packages/collections-docs#collections_get)
+- Use [`collections.get()`](/adaptors/packages/collections-docs#collections_get)
   to fetch a single value, or batch-download a range of values.
 - Use
-  [`collections.each()`](adaptors/packages/collections-docs#collections_each) to
-  efficiently iterate over a range of items in a collection. Recommended for
+  [`collections.each()`](/adaptors/packages/collections-docs#collections_each)
+  to efficiently iterate over a range of items in a collection. Recommended for
   large data sets.
-- Use [`collections.set()`](adaptors/packages/collections-docs#collections_set)
+- Use [`collections.set()`](/adaptors/packages/collections-docs#collections_set)
   to upload one or more values to a collection. `set()` is always an "upsert":
   if a key already exists, it's value will be replaced by the new value
 - Use
-  [`collections.remove()`](adaptors/packages/collections-docs#collections_remove)
+  [`collections.remove()`](/adaptors/packages/collections-docs#collections_remove)
   to remove one or more values.
 
 Detailed usage examples are provided below.
@@ -180,7 +202,7 @@ collections.get('my-collection', 'commcare-fhir-value-mappings').then(state => {
   state.mappings = state.data;
   return state;
 });
-collecions.each($.inputs, state => {
+collections.each($.inputs, state => {
   const mappedString = state.mappings[state.data.diagnosis];
   state.resources ??= {};
   state.resources[state.data.id] = mappedString;
@@ -234,7 +256,7 @@ collections.each(
 
 You can use `createdBefore` and `createdAfter` dates, which must be ISO 1806
 formatted strings. The `createdBefore` timestamp will match all dates less than
-or equal to (<=) the _start_ of the provided date. Conversely, `createdAfter`
+or equal to (&lt;=) the _start_ of the provided date. Conversely, `createdAfter`
 will match dates greater than or equal to the _end_ of the provided date.
 
 By default, all matching values will be returned to you, but you can limit how
@@ -256,20 +278,21 @@ fn(state => {
 
 ## CLI usage
 
-:::info
+Workflows which use Collections can be run through the CLI. You will need to:
 
-Improved Collections support is coming to the CLI soon.
+- Get a Personal Access Token (PAT)
+- Update the `workflow.json` with your PAT and the OpenFn endpoint
+- Set the step to use the Collections adaptor
+
+:::tip
+
+You can also call the Collections API directly from the CLI. See the
+[CLI Collections Guide](/documentation/collections-cli)
 
 :::
 
 Collections are designed for close integration with the platform app, but can be
 used from the CLI too.
-
-You will need to:
-
-- Set the job to use two adaptors
-- Pass a Personal Access Token
-- Set the Collections endpoint
 
 You can get a Personal Access Token from any v2 deployment.
 
@@ -290,7 +313,7 @@ You'll need to set configuration on the state.json:
 {
   "configuration": {
     "collections_endpoint": "http://localhost:4000/collections",
-    "collections_token": "...paste the token from the app..."
+    "collections_token": "...paste your Personal Access Token..."
   }
 }
 ```
@@ -306,7 +329,7 @@ If you're using `workflow.json`, set the token and endpoint on
     "steps": [ ... ],
     "credentials": {
       "collections_endpoint": "http://localhost:4000/collections",
-      "collections_token": "...paste the token from the app..."
+      "collections_token": "...paste your Personal Access Token..."
     }
   }
 }

@@ -6,7 +6,7 @@ To edit jobs, instead of using the OpenFn
 [Job Studio](./job-studio.md) you can also use your favorite text
 editor and make changes offline, committing and pushing to GitHub to deploy to
 your OpenFn using the
-[version control feature](../manage/platform-mgmt.md/#github-version-control).
+[version control feature](/documentation/legacy/manage/platform-mgmt#github-version-control).
 
 First, make sure that version control is set up for your project and the job in
 question. When that's all done, follow the steps below:
@@ -17,7 +17,7 @@ question. When that's all done, follow the steps below:
 2. Clone the repo from GitHub. Depending on how you're connecting, grab the
    HTTPS or SSH URL of the repository.
 
-![GH Clone URL](/img/git_clone_url.png)
+![GH Clone URL](/img/git_clone_url.webp)
 
 :::tip
 
@@ -43,14 +43,14 @@ for more info.)
 6. To edit your jobs, use a code editor such as
    [Visual Studio Code](https://code.visualstudio.com/download).
 
-![VS Code](/img/edit_job_vscode.png)
+![VS Code](/img/edit_job_vscode.webp)
 
 7. Make sure you install the
    [Prettier VSCode Extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
    and set is as default formatter in Settings as seen below. This will apply
    the correct code formatting to the files you change.
 
-![Prettier](/img/prettier.png)
+![Prettier](/img/prettier.webp)
 
 8. Once you're done, you can check which files you changed with `git status`.
 

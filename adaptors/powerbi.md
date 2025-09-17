@@ -30,6 +30,6 @@ established, OpenFn assists the iNGO with connecting this data to Power BI.
 Refer to the diagram below for a visualization of the data flow cited in the
 above use case.
 
-![Tableau Data Flow Visualization](/img/survey_db_powerbi.png)
+![Tableau Data Flow Visualization](/img/survey_db_powerbi.webp)
 
 <!-- please note that the diagram can be found at this link: https://lucid.app/lucidchart/invitations/accept/f14e78dc-8c94-43a6-9730-7d3c5c6d6eff -->

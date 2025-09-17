@@ -1,0 +1,51 @@
+aleksa:
+  name: Aleksa Krolls
+  title: Co-Founder, Chief Customer Officer
+  page: true
+  email: aleksa@openfn.org
+  image_url: https://avatars.githubusercontent.com/aleksa-krolls
+  socials:
+    github: aleksa-krolls
+
+taylor:
+  name: Taylor Downs
+  title: Founder & CEO
+  page: true
+  image_url: https://avatars.githubusercontent.com/taylordowns2000
+  email: taylor@openfn.org
+  socials:
+    x: taylordowns2000
+    github: taylordowns2000
+
+jed:
+  name: Jed Goldstein
+  image_url: https://avatars.githubusercontent.com/jedbgold
+  socials:
+    github: jedbgold
+
+stu:
+  name: Stuart Corbishley
+  image_url: https://avatars.githubusercontent.com/stuartc
+  socials:
+    github: https://github.com/stuartc
+
+chaiwa:
+  name: Chaiwa Berian
+  image_url: https://avatars.githubusercontent.com/u/7937584?v=4
+  socials:
+    github: chaiwa-berian
+
+aicha:
+  name: Aicha Diallo
+  image_url: https://avatars.githubusercontent.com/daissatou2
+  socials:
+    github: daissatou2
+
+alexa:
+  name: Alexa de Vegvar
+
+amber:
+  name: Amber Rignell
+  image_url: https://avatars.githubusercontent.com/amberrignell
+  socials:
+    github: amberrignell

@@ -37,6 +37,14 @@ decisions. For customized migration support, ask your questions on our
    version control. Follow [this guide](../manage-projects/link-to-gh.md) to
    learn how it works and set it up.
 
+   :::warning Turn off GitHub sync on v1 before setting it up on v2 If you're
+   using the same GitHub repo and branch for both your v1 and v2 project,
+   disable GitHub sync on v1 _before_ you enable it on v2. Otherwise every
+   change you still make on v1 will trigger a GitHub > OpenFn sync on v2,
+   overwriting any changes you may not have synced yet from your v2 project to GitHub.
+
+   :::
+
    :::warning GitHub sync works differently in v2
 
    Once the GitHub sync is live, consider that all changes will be synced with
@@ -72,10 +80,12 @@ decisions. For customized migration support, ask your questions on our
     adjusted your Project Settings.
 14. When all Workflows run successfully, update each Step in your Workflows to
     use a "production" Credential to connect to live systems.
-15. While you're testing, you may be using [Path Conditions](../build/paths.md) to allow
-    only test data, such as `test_case == yes`. If you then want to exclude test
-    data from your production systems, don't forget to update edge conditions,
-    eg. `test_case == no`. Check out [this guide(https://docs.openfn.org/documentation/converting-triggers#converting-message-filters)] for a specific example.
+15. While you're testing, you may be using [Path Conditions](../build/paths.md)
+    to allow only test data, such as `test_case == yes`. If you then want to
+    exclude test data from your production systems, don't forget to update edge
+    conditions, eg. `test_case == no`. Check out [this
+    guide(https://docs.openfn.org/documentation/converting-triggers#converting-message-filters)]
+    for a specific example.
 16. If webhooks are used in your source applications, update the webhook
     configurations in these apps to point to your v2 OpenFn Workflows (you can
     locate your Workflow's new webhook endpoint URL by clicking n the Trigger).
@@ -83,10 +93,14 @@ decisions. For customized migration support, ask your questions on our
     Workflows and monitor usage on your
     [Workflows Dashboard](../manage-projects/workflow-dashboard.md). Now time to
     shut down your v1 project.
-18. Turn "off" your Jobs on v1 and delete the GitHub connection in your v1
-    Project Settings to disable version control.
-19. You have the option to export some of your v1 data: `Messages` and `Run History` for
-    reference or archival. To do this, visit the `Downloads` page in your v1 project. Your most recent downloadable `receipts archives` and `runs archives` are at the bottom of the export list. You can generate a new export by navigating to the `Inbox` or `Activity History` page, filtering your view to query the desired data to export, and then select the cloud ☁ icon to `Export to csv`. 
+18. Turn "off" your Jobs on v1.
+19. You have the option to export some of your v1 data: `Messages` and
+    `Run History` for reference or archival. To do this, visit the `Downloads`
+    page in your v1 project. Your most recent downloadable `receipts archives`
+    and `runs archives` are at the bottom of the export list. You can generate a
+    new export by navigating to the `Inbox` or `Activity History` page,
+    filtering your view to query the desired data to export, and then select the
+    cloud ☁ icon to `Export to csv`.
 20. Finally, when ready, request to delete your project on v1. To do this, go to
     your v1 `Project Settings` and select the `Delete Project` button.
 

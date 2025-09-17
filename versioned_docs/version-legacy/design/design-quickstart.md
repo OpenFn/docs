@@ -109,7 +109,7 @@ See the below example BPMN diagram for the user story:
 > contacts in my SMS campaign configured on RapidPro to send them automated
 > alerts and program updates.
 
-<img src="/img/sample-bpmn.png" url />
+<img src="/img/sample-bpmn.webp" url />
 
 ## 3. Map data elements to be exchanged
 

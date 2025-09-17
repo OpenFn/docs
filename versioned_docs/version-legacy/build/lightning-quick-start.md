@@ -19,7 +19,7 @@ to your inbox to confirm your email.
 
 Click on the 'sample workflow' created for you on registration.
 
-![lightning-workflows-page](/img/lightning-workflows-page.png)
+![lightning-workflows-page](/img/lightning-workflows-page.webp)
 
 :::tip
 
@@ -37,7 +37,7 @@ taking a patient’s name and age and:
 2. converting it to the same format as DHIS2;
 3. uploading it to DHIS2.
 
-![lightning-sample-workflow](/img/lightning-sample-workflow.png)
+![lightning-sample-workflow](/img/lightning-sample-workflow.webp)
 
 It is made up of 3 _jobs_.
 
@@ -55,7 +55,7 @@ Click on Job 3 to view more details about it in the setup and editor tab.
 
 The SETUP TAB is where you define the when, where and how of your job.
 
-![lightning_setup](/img/lightning_setup.png)
+![lightning_setup](/img/lightning_setup.webp)
 
 **When: trigger**
 
@@ -110,7 +110,7 @@ job during previous runs.
 In job 3, we'll be using the data values that are in `names` which are
 `"Wycliffe"` and `"Orao"` in this example. Can you see them?
 
-![lightning_input_data](/img/lightning_input_data.png)
+![lightning_input_data](/img/lightning_input_data.webp)
 
 :::tip
 
@@ -128,11 +128,11 @@ state (which contains your input) to use.
 
 When you need to use data that comes from your webhook trigger (data sent from
 your external system), cron trigger, or a previous job you can find it in
-`state`. Learn more [here](../jobs/state.md/).
+`state`. Learn more [here](/documentation/legacy/jobs/state).
 
 :::
 
-![lightning_editor_1](/img/lightning_editor_1.png)
+![lightning_editor_1](/img/lightning_editor_1.webp)
 
 In this job, we're using the `names` data from state (which we saw in the Input
 tab).
@@ -146,7 +146,7 @@ It gets added from the adaptor documentation _below_ the editor as an example
 operation, and is then configured to use specific values from the state input
 data. (see image below for details)
 
-![lightning_editor](/img/lightning_editor.png)
+![lightning_editor](/img/lightning_editor.webp)
 
 ## 3. Run the sample workflow
 
@@ -176,7 +176,7 @@ data below into the `custom input`, then click `run`.
 }
 ```
 
-![lightning_manual_run](/img/lightning_manual_run.png)
+![lightning_manual_run](/img/lightning_manual_run.webp)
 
 You should now be able to
 [see your request on the history page](#4-check-your-request-got-processed-correctly).
@@ -232,18 +232,18 @@ account with _username: openfn_demo and password: openfn_demo_. Select the form
 you’d like to connect ('Lightning sample workflow') and go to Settings -> REST
 services -> Register a new service.
 
-![kobo](/img/2.3_kobo_rest.png 'Register a REST service with Kobo')
+![kobo](/img/2.3_kobo_rest.webp 'Register a REST service with Kobo')
 
 Set the service name to OpenFn and the URL to the webhook URL (you can copy is
 from the first node on your workflow).
 
-![kobo](/img/2.4_kobo_rest.png 'Set the REST service URL to your OpenFn inbox URL')
+![kobo](/img/2.4_kobo_rest.webp 'Set the REST service URL to your OpenFn inbox URL')
 
 Your form should now be configured to send data to the webhook trigger for your
 first job whenever a response is submitted. We can test this out by submitting
 some form responses at Form -> Open.
 
-![kobo form](/img/2.5_open_kobo_form.png 'Open a kobo form')
+![kobo form](/img/2.5_open_kobo_form.webp 'Open a kobo form')
 
 Once you've made a form submission, you should be able to
 [see your request on the history page](#4-check-your-request-got-processed-correctly).
@@ -261,11 +261,11 @@ Now that you have run your workflow, head to the history page to see the work
 order. You'll see it has a status of 'Success' which means it got processed
 correctly.
 
-![lightning_history](/img/lightning_history.png)
+![lightning_history](/img/lightning_history.webp)
 
 Click on the chevron next to the status to expand it and see each job run.
 
-![lightning-history_expanded](/img/lightning_history_expanded.png)
+![lightning-history_expanded](/img/lightning_history_expanded.webp)
 
 ## 5. Make a run that fails, then edit the job and rerun it to make it succeed
 
@@ -284,7 +284,7 @@ old using the data below.
 Head to the history page and see that the work order has a status of 'Failure'.
 This is because the patient is **not** older than 18 months.
 
-![lightning_history_failure](/img/lightning_history_failure.png)
+![lightning_history_failure](/img/lightning_history_failure.webp)
 
 Let's say we made a mistake and _actually_ wanted to register any patient that
 is _**both**_ 18 months old _**and**_ above. We want to edit the job logic and
@@ -312,19 +312,19 @@ to find it.
 
 Expand the work order, and click the 'rerun' button next to the first job run.
 
-![lightning_retry](/img/lightning_retry.png)
+![lightning_retry](/img/lightning_retry.webp)
 
 You'll see a new **attempt** created in the same work order, which now succeeds.
 The work order status also gets updated to the status of the last attempt to
 show 'Success'.
 
-![lightning_new_attempt](/img/lightning_new_attempt.png)
+![lightning_new_attempt](/img/lightning_new_attempt.webp)
 
 Rerun the same work order, this time from 'Job 3 - Upload to DHIS2'. You'll see
 the runs for Job 1 and 2 get copied over to the new attempt, so that their
 output can be used for the input of Job 3.
 
-![lightning_rerun_downstream_job](/img/lightning_rerun_downstream_job.png)
+![lightning_rerun_downstream_job](/img/lightning_rerun_downstream_job.webp)
 
 :::tip Note
 

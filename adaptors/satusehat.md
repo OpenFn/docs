@@ -25,7 +25,7 @@ exchange
 
 The following example shows a HTTP POST request to creating an `Encounter` FHIR
 resource. Data was taken from the
-[Satusehate Postman Collection](https://www.postman.com/satusehat/satusehat-public/request/56uan96/encounter-create)
+[Satusehat Postman Collection](https://www.postman.com/satusehat/satusehat-public/request/56uan96/encounter-create)
 
 ```js
 post('Encounter', {
@@ -125,7 +125,10 @@ The result will be written to `state.data`.
 ## Integration Options
 
 1. **[REST APIs](https://satusehat.kemkes.go.id/platform/docs/id/postman-workshop/)**
-   enable external services like OpenFn to pull data from Satusehat or push data to Satusehat from external apps. This option is suitable for scheduled workflows or those that need to update data in Satusehat with external information.
+   enable external services like OpenFn to pull data from Satusehat or push data
+   to Satusehat from external apps. This option is suitable for scheduled
+   workflows or those that need to update data in Satusehat with external
+   information.
 
 ## How to Extract or Modify Satusehat Data
 
@@ -166,7 +169,7 @@ See platform docs
 how to configure a credential in OpenFn and see the below Satusehat credential
 example.
 
-![Satusehat Cred](/img/satusehat_credential_edit.png)
+![Satusehat Cred](/img/satusehat_credential_edit.webp)
 
 If you're using the `Raw JSON` credential type, your configuration may look like
 this:

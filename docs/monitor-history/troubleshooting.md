@@ -1,42 +1,61 @@
 ---
-title: Troubleshooting
-sidebar_label: Troubleshooting
+title: Logs & Troubleshooting
+sidebar_label: Logs & Troubleshooting
+keywords:
+  - runs
+  - logs
+  - log levels
+  - status codes
+  - exit codes
+  - troubleshooting
 ---
 
-This page provides troubleshooting tips for *OpenFn v2 platform* users.
+This page provides troubleshooting tips for _OpenFn v2 platform_ users.
 
 ## Runs
 
 One of the most helpful pages for troubleshooting on OpenFn is the
-[History](./activity-history.md) page.
-This page provides a list of all of the runs executed for a Work Order and their status. Project administrators can troubleshoot errors by clicking into the run to review the run details. Learn more about runs [here](./inspect-runs.md) here.
+[History](./activity-history.md) page. This page provides a list of all of the
+runs executed for a Work Order and their status. Project administrators can
+troubleshoot errors by clicking into the run to review the run details. Learn
+more about runs [here](./inspect-runs.md) here.
 
 ### Status codes
 
-Every run will have a status code. The status code is a way for OpenFn to classify
-the run status and can help you troubleshoot errors. Learn more about OpenFn
-status codes and what each one means [here](./status-codes.md).
+Every run will have a status code. The status code is a way for OpenFn to
+classify the run status and can help you troubleshoot errors. Learn more about
+OpenFn status codes and what each one means [here](./status-codes.md).
 
 ### The time it took for the workflow to fail
 
 The run will also record how long it took before the workflow failed. This
-information helps users understand if the workflow is taking longer than it should
-and is especially helpful with errors that involve timeouts. You can use the run
-to determine at which operation the workflow is timing out and determine if the workflow
-performance can be optimized.
+information helps users understand if the workflow is taking longer than it
+should and is especially helpful with errors that involve timeouts. You can use
+the run to determine at which operation the workflow is timing out and determine
+if the workflow performance can be optimized.
 
 ### Run logs
 
-As workflows are developed it is important to log details which will make testing and
-troubleshooting much easier in the future. Keep reading for the two most
-important parts of a run log!
+As workflows are developed it is important to log details which will make
+testing and troubleshooting much easier in the future.
+
+#### Log Levels
+
+![log-levels](/img/log-levels.webp)
+
+| Level   | Description                                                                                                                          |
+| ------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| `debug` | Shows all logs, including system-level stuff produced by the "runtime" and the output of a user-entered `console.debug()` statement. |
+| `info`  | The default log level, shows key information produced by the adaptors or `console.log()`/`console.info()` statements.                |
+| `warn`  | Hides most of the noise and only shows major run events (step start/end), adaptor warnings, or `console.warn()` statements.          |
+| `error` | Hides all but major run events, adaptor errors, and `console.error()` statements.                                                    |
 
 #### Mappings
 
-If possible, the logs should be written so that you can see exactly what was mapped between
-the source system and the destination system. In summary,
-the log can have a **"Data received from source system"** section and a **"Data
-to be uploaded to destination system"** section.
+If possible, the logs should be written so that you can see exactly what was
+mapped between the source system and the destination system. In summary, the log
+can have a **"Data received from source system"** section and a **"Data to be
+uploaded to destination system"** section.
 
 These logs can help admins verify that the source data and the data being
 uploaded to the destination system is correct. For example, seeing in the logs
@@ -61,13 +80,13 @@ Other error messages are not as clear and can take some time to debug:
 
 `TypeError [Error]: Cannot read property 'split' of undefined`
 
-**`TypeErrors`** usually indicate that the job received a part of the input
-that it wasn't expecting, or there is a syntax error in your job code. It means
-that the job needs to be updated to know how to handle the input. In this
-case, the job received an old version of the Commcare form which was missing a
-field on which the job called the `split` function. You can determine this by
-reviewing the job for which fields the split function is being called on and
-checking that they are all present in the message.
+**`TypeErrors`** usually indicate that the job received a part of the input that
+it wasn't expecting, or there is a syntax error in your job code. It means that
+the job needs to be updated to know how to handle the input. In this case, the
+job received an old version of the Commcare form which was missing a field on
+which the job called the `split` function. You can determine this by reviewing
+the job for which fields the split function is being called on and checking that
+they are all present in the message.
 
 The more you test and troubleshoot with a particular system, the more familiar
 with its error messages you become.
@@ -82,15 +101,18 @@ their error messages [here](/adaptors#connect-anything).
 
 ## Leveraging search and filtering in OpenFn
 
-Leverage the various search functionalities in OpenFn to find the right runs to support your troubleshooting. You can search on the History page across OpenFn IDs, Inputs, and/or Logs. 
+Leverage the various search functionalities in OpenFn to find the right runs to
+support your troubleshooting. You can search on the History page across OpenFn
+IDs, Inputs, and/or Logs.
 
-Check out this [video](https://youtu.be/XIUykmLCxwQ?si=hquc8rPTJrAZkbbD) for how to use Search.
-
-
+Check out this [video](https://youtu.be/XIUykmLCxwQ?si=hquc8rPTJrAZkbbD) for how
+to use Search.
 
 ## Sign up for email alerts
 
-You can turn on notifications to receive [email alerts](../manage-projects/notifications.md) when a workflow fails and subscribe to digests that summarize project activity.
+You can turn on notifications to receive
+[email alerts](../manage-projects/notifications.md) when a workflow fails and
+subscribe to digests that summarize project activity.
 
 ## More
 

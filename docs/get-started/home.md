@@ -78,7 +78,7 @@ entirely self-hosted platform.
 Version 2 leverages the same tried-and-trusted core technology as the OpenFn v1
 and comes with an improved, visual interface for building integrations.
 
-![OpenFn Workflow Canvas](/img/case_referral_workflow.png)
+![OpenFn Workflow Canvas](/img/case_referral_workflow.webp)
 
 **Check out the
 [OpenFn v2 Basics playlist](https://www.youtube.com/watch?v=U0MXYRXkDnI&list=PL1pD3-abjHJ0L01RjouO2xOWKtEUYi8e4&ab_channel=OpenFn.org)**

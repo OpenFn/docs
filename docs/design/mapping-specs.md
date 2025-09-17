@@ -19,7 +19,7 @@ For each automation step in your workflow, you will document which data elements
 (or metadata) will be referenced, as well as the “rules” for how these data
 elements should be mapped, reassigned, cleaned, transformed, and/or calculated.
 
-![mapping](/img/mapping_example.png)
+![mapping](/img/mapping_example.webp)
 
 **To draft a data element mapping specification, you’ll need to…**
 
@@ -31,7 +31,7 @@ elements should be mapped, reassigned, cleaned, transformed, and/or calculated.
    file with “dummy” data.
 3. Start “mapping” the data elements and recording transformation rules!
 
-|            ![mapping](/img/mapping_process.png)            |
+|            ![mapping](/img/mapping_process.webp)            |
 | :--------------------------------------------------------: |
 | _The data mapping process for data integration solutions._ |
 
@@ -143,7 +143,7 @@ second step in the workflow is dedicated to querying this list of global
 mappings from the app in which they're stored to dynamically fetch the latest
 globals every time the workflow is run.
 
-![ocl-workflow-example](/img/workflow-ocl-example.png)
+![ocl-workflow-example](/img/workflow-ocl-example.webp)
 
 :::tip
 

@@ -23,7 +23,7 @@ click on an existing Step to view or configure its key components.
 
 To properly configure a Step, you must understand its basic anatomy.
 
-![Step Anatomy](/img/anatomy_of_step.png)
+![Step Anatomy](/img/anatomy_of_step.webp)
 
 A Step includes these key components:
 

@@ -38,7 +38,7 @@ probably want a feature in your user-interface that allows them to turn on and
 off these various services. See the below example from Kobo Toolbox (left) and
 CommCare (right).
 
-![kobo_to_commcare](/img/webhooks1.png)
+![kobo_to_commcare](/img/webhooks1.webp)
 
 ## When to send?
 
