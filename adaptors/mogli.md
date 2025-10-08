@@ -1,4 +1,6 @@
-# Mogli
+---
+title: Mogli Adaptor
+---
 
 ## About Mogli
 

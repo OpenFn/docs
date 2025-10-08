@@ -1,4 +1,6 @@
-# ResourceMap
+---
+title: ResourceMap Adaptor
+---
 
 ## About ResourceMap
 

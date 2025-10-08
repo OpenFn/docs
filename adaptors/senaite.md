@@ -1,4 +1,6 @@
-# Senaite
+---
+title: Senaite Adaptor
+---
 
 ## About Senaite
 

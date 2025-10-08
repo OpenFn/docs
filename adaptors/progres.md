@@ -1,4 +1,6 @@
-# ProGres
+---
+title: ProGres Adaptor
+---
 
 ## About ProGres
 

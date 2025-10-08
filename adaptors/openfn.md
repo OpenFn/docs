@@ -1,4 +1,6 @@
-# OpenFn
+---
+title: OpenFn Adaptor
+---
 
 ## About OpenFn
 

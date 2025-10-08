@@ -1,4 +1,6 @@
-# Nexmo
+---
+title: Nexmo Adaptor
+---
 
 ## About Nexmo
 

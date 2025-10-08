@@ -1,4 +1,6 @@
-# Maximo
+---
+title: Maximo Adaptor
+---
 
 ## About Maximo
 
