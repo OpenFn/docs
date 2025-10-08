@@ -4,13 +4,14 @@ title: MTN-Momo Adaptor
 
 ## About Mtn-Momo
 
-[Mtn-Momo](https://developer.safaricom.co.ke/Documentation) is a mobile money transfer service in Kenya that allows users to store and transfer money through their mobile phones.
+[Mtn-Momo](https://momodeveloper.mtn.com/api-documentation/api-description) is a mobile money transfer service in Kenya that allows users to store and transfer money through their mobile phones.
 
 ## Integration Options
 
 **Rest API:** Mtn-Momo offers a REST API that enables external applications to interact with its services. Refer to the Mtn-Momo REST API [documentation](https://momodeveloper.mtn.com/api-documentation/getting-started) for detailed guidelines on endpoints and payload formats.
 
 ## Authentication
+
 See [Mtn-Momo docs](https://momodeveloper.mtn.com/api-documentation/api-description) for the latest on supported authentication methods.
 [See our configuration docs](/adaptors/packages/mtn-momo-configuration-schema) to learn more.
 
