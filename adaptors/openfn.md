@@ -58,6 +58,5 @@ request({
 - [OpenFn Documentation](https://docs.openfn.org/)
 - [OpenFn Community Forum](https://community.openfn.org/)
 - [OpenFn GitHub Repository](https://github.com/openfn)
-- [OpenFn API Documentation](https://docs.openfn.org/documentation/api)
-- [OpenFn OpenFn Adaptor Configuration](https://docs.openfn.org/adaptors/packages/openfn-configuration-schema)
-- [OpenFn OpenFn Adaptor Docs](https://docs.openfn.org/adaptors/packages/openfn-docs)
+- [OpenFn Adaptor Configuration](https://docs.openfn.org/adaptors/packages/openfn-configuration-schema)
+- [OpenFn Adaptor Docs](https://docs.openfn.org/adaptors/packages/openfn-docs)
