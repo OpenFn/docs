@@ -39,6 +39,5 @@ All API requests require this multi-layer authentication approach to ensure secu
 
 ## Helpful Links
 
-- [Mogli Platform](https://mogli.africa/)
 - [OpenFn Mogli Adaptor Configuration](https://docs.openfn.org/adaptors/packages/mogli-configuration-schema)
 - [OpenFn Mogli Adaptor Docs](https://docs.openfn.org/adaptors/packages/mogli-docs)

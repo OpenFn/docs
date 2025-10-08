@@ -62,27 +62,10 @@ See this adaptor's [Configuration docs](/adaptors/packages/pesapal-configuration
 
 See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn.
 
-## Key Features
-
-- **Payment Processing**: Submit order requests and handle payment workflows
-- **Transaction Status Tracking**: Query payment status using order references or tracking IDs  
-- **Multiple Payment Methods**: Support for mobile money (M-Pesa, Airtel Money), cards, and bank transfers
-- **Multi-currency Support**: Accept payments in various currencies (KES, UGX, TZS, USD, etc.)
-- **IPN Integration**: Real-time payment status notifications via webhooks
-- **Secure Processing**: PCI/DSS compliant payment handling
-
-## Common Use Cases
-
-1. **E-commerce Integration**: Process online store payments and sync order status with inventory management systems
-2. **Subscription Billing**: Automate recurring payment processing for subscription services
-3. **Financial Reporting**: Extract payment data for accounting and reporting systems
-4. **Payment Status Monitoring**: Track payment flows and handle failed transactions
-5. **Multi-platform Integration**: Sync payment data between mobile apps and web platforms
 
 ### Helpful Links
 
 1. [Pesapal API 3.0 Documentation](https://developer.pesapal.com/how-to-integrate/e-commerce/api-30-json/api-reference)
-2. [Pesapal Developer Portal](https://developer.pesapal.com/)
 3. [Pesapal Postman Collection](https://documenter.getpostman.com/view/6715320/UyxepTv1)
 4. [Test Credentials](https://developer.pesapal.com/api3-demo-keys.txt)
 5. [Merchant Registration](https://www.pesapal.com/dashboard/account/register)

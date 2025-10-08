@@ -1,4 +1,6 @@
-# Khan Academy
+---
+title: Khan Academy Adaptor
+---
 
 ## About Khan Academy
 
@@ -34,11 +36,6 @@ OAuth credentials enable secure access to Khan Academy's educational data while 
 
 ## Helpful Links
 
-- [Khan Academy Platform](https://www.khanacademy.org/)
-- [Khan Academy About](https://www.khanacademy.org/about)
-- [Khan Academy for Educators](https://www.khanacademy.org/khan-for-educators)
 - [Khan Academy API Documentation](https://github.com/Khan/khan-api)
-- [Khan Academy Developer Resources](https://khanacademy.zendesk.com/hc/en-us)
-- [Khan Academy Research](https://blog.khanacademy.org/research/)
 - [OpenFn Khan Academy Adaptor Configuration](https://docs.openfn.org/adaptors/packages/khanacademy-configuration-schema)
 - [OpenFn Khan Academy Adaptor Docs](https://docs.openfn.org/adaptors/packages/khanacademy-docs)

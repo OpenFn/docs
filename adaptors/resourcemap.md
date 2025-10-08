@@ -29,9 +29,7 @@ For public collections, only the `baseUrl` is required.
 
 ## Helpful Links
 
-- [ResourceMap Official Website](http://resourcemap.instedd.org/)
 - [ResourceMap GitHub Repository](https://github.com/instedd/resourcemap)
 - [ResourceMap REST API Documentation](https://github.com/instedd/resourcemap/wiki/REST_API)
-- [ResourceMap Wiki](https://github.com/instedd/resourcemap/wiki)
 - [OpenFn ResourceMap Adaptor Configuration](https://docs.openfn.org/adaptors/packages/resourcemap-configuration-schema)
 - [OpenFn ResourceMap Adaptor Docs](https://docs.openfn.org/adaptors/packages/resourcemap-docs)

@@ -35,9 +35,5 @@ All requests must include the subscription key in headers and use SSL certificat
 
 ## Helpful Links
 
-- [UNHCR Official Website](https://www.unhcr.org/)
-- [UNHCR Help Portal](https://help.unhcr.org/)
-- [UNHCR Data Portal](https://www.unhcr.org/refugee-statistics/)
-- [UNHCR Global Trends](https://www.unhcr.org/global-trends)
 - [OpenFn ProGres Adaptor Configuration](https://docs.openfn.org/adaptors/packages/progres-configuration-schema)
 - [OpenFn ProGres Adaptor Docs](https://docs.openfn.org/adaptors/packages/progres-docs)

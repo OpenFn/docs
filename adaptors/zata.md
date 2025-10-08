@@ -39,50 +39,11 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 }
 ```
 
-## Common Use Cases
-
-### 1. Retail Chain Management
-- Sync product catalogs across multiple store locations
-- Consolidate sales data from various POS systems
-- Manage inventory levels across warehouses and branches
-
-### 2. Tax Compliance Integration
-- Automate tax report generation from sales data
-- Ensure EBM compliance for retail transactions
-- Integrate with accounting systems for financial reporting
-
-### 3. E-commerce Integration
-- Sync online store inventory with physical retail locations
-- Process sales transactions from multiple channels
-- Manage customer data across digital and physical touchpoints
-
-### 4. Financial Services Integration
-- Connect mobile money payment processing
-- Integrate invoice financing and credit scoring
-- Sync transaction data with banking and payment platforms
-
-### 5. Supply Chain Management
-- Track product quantities and batch numbers
-- Manage supplier relationships and purchase orders
-- Integrate with logistics and distribution systems
-
-## API Operations
-
-The Zata adaptor supports various operations including:
-
-- **Product Management**: Create, update, and track products and inventory
-- **Transaction Processing**: Handle sales transactions with customer and payment details
-- **Company & Branch Management**: Manage multiple business locations and organizational structure
-- **Inventory Control**: Track stock levels, reduce quantities, and manage batch numbers
-- **Customer Management**: Store and retrieve customer information including TIN numbers
-- **Data Retrieval**: Access product types, transaction history, and compliance reports
 
 ### Helpful Links
 
 1. [Zata Platform](https://zata.rw/)
 2. [Zata API Documentation](https://docs.zata.rw/)
-3. [HiQ Africa](https://hiq.africa/)
-4. [Get API Access](https://calendly.com/hiqafrica)
 5. [Zata Community](https://community.zata.rw/)
 
 ### Implementation Examples

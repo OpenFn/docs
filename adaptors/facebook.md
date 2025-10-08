@@ -31,10 +31,5 @@ Access tokens are generated through Facebook for Developers and provide access t
 ## Helpful Links
 
 - [Facebook for Developers](https://developers.facebook.com/)
-- [Messenger Platform Documentation](https://developers.facebook.com/docs/messenger-platform)
-- [Facebook Business](https://business.facebook.com/)
-- [Messenger Platform API Reference](https://developers.facebook.com/docs/messenger-platform/reference)
-- [Facebook App Dashboard](https://developers.facebook.com/apps/)
-- [Messenger Platform Getting Started](https://developers.facebook.com/docs/messenger-platform/getting-started)
 - [OpenFn Facebook Adaptor Configuration](https://docs.openfn.org/adaptors/packages/facebook-configuration-schema)
 - [OpenFn Facebook Adaptor Docs](https://docs.openfn.org/adaptors/packages/facebook-docs)

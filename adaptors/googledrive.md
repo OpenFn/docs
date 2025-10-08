@@ -29,11 +29,7 @@ Access tokens can be generated through Google Cloud Console and provide scoped a
 
 ## Helpful Links
 
-- [Google Drive](https://www.google.com/drive/)
+
 - [Google Drive API Documentation](https://developers.google.com/drive/api)
-- [Google Drive API Guides](https://developers.google.com/drive/api/guides)
-- [Google Cloud Console](https://console.cloud.google.com/)
-- [Google Workspace](https://workspace.google.com/)
-- [Google Drive Help Center](https://support.google.com/drive)
 - [OpenFn Google Drive Adaptor Configuration](https://docs.openfn.org/adaptors/packages/googledrive-configuration-schema)
 - [OpenFn Google Drive Adaptor Docs](https://docs.openfn.org/adaptors/packages/googledrive-docs)

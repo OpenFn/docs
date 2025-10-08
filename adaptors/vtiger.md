@@ -36,7 +36,6 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 
 ### Helpful Links
 
-1. [Vtiger CRM Platform](https://www.vtiger.com/)
 2. [Vtiger Documentation](https://www.vtiger.com/docs/)
 4. [REST API Manual](https://help.vtiger.com/article/147111249-Rest-API-Manual)
 5. [Web Services Integration](http://community.vtiger.com/help/vtigercrm/developers/third-party-app-integration.html)

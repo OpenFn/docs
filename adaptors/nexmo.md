@@ -31,11 +31,7 @@ API credentials can be obtained from the Vonage Dashboard and provide access to 
 
 ## Helpful Links
 
-- [Vonage Communications APIs](https://www.vonage.com/communications-apis/)
 - [Vonage Developer Center](https://developer.vonage.com/)
 - [SMS API Documentation](https://developer.vonage.com/messaging/sms/overview)
-- [Voice API Documentation](https://developer.vonage.com/voice/voice-api/overview)
-- [Verify API Documentation](https://developer.vonage.com/verify/overview)
-- [Vonage Dashboard](https://dashboard.vonage.com/)
 - [OpenFn Nexmo Adaptor Configuration](https://docs.openfn.org/adaptors/packages/nexmo-configuration-schema)
 - [OpenFn Nexmo Adaptor Docs](https://docs.openfn.org/adaptors/packages/nexmo-docs)

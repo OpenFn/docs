@@ -56,9 +56,5 @@ request({
 
 ## Helpful Links
 
-- [OpenFn Platform](https://www.openfn.org/)
-- [OpenFn Documentation](https://docs.openfn.org/)
-- [OpenFn Community Forum](https://community.openfn.org/)
-- [OpenFn GitHub Repository](https://github.com/openfn)
 - [OpenFn Adaptor Configuration](https://docs.openfn.org/adaptors/packages/openfn-configuration-schema)
 - [OpenFn Adaptor Docs](https://docs.openfn.org/adaptors/packages/openfn-docs)

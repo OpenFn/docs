@@ -33,10 +33,5 @@ Maximo uses HTTP basic authentication for API access:
 
 ## Helpful Links
 
-- [IBM Maximo Application Suite](https://www.ibm.com/products/maximo)
-- [IBM Maximo Asset Management](https://www.ibm.com/products/maximo/asset-management)
-- [Maximo Documentation](https://www.ibm.com/docs/en/masv-and-l/cd)
-- [Maximo REST API Guide](https://www.ibm.com/docs/en/maximo-manage/continuous-delivery?topic=overview-maximo-rest-api)
-- [IBM Maximo Case Studies](https://www.ibm.com/products/maximo/case-studies)
 - [OpenFn Maximo Adaptor Configuration](https://docs.openfn.org/adaptors/packages/maximo-configuration-schema)
 - [OpenFn Maximo Adaptor Docs](https://docs.openfn.org/adaptors/packages/maximo-docs)

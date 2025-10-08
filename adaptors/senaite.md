@@ -37,7 +37,5 @@ request("GET", "catalogs", {
 ## Helpful Links
 
 - [Senaite Documentation](https://www.senaite.com/docs/quickstart)
-- [Senaite GitHub Repository](https://github.com/senaite/senaite.core)
-- [Senaite Community Forum](https://community.senaite.org/)
 - [OpenFn Senaite Adaptor Configuration](https://docs.openfn.org/adaptors/packages/senaite-configuration-schema)
 - [OpenFn Senaite Adaptor Docs](https://docs.openfn.org/adaptors/packages/senaite-docs)
