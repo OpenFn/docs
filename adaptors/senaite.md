@@ -1,0 +1,41 @@
+# Senaite
+
+## About Senaite
+
+[Senaite](https://www.senaite.com/) is an Enterprise Open Source Laboratory Information Management System (LIMS) designed for laboratory environments. Built on the Plone CMS, Senaite provides comprehensive sample management, workflow automation, quality control, and reporting capabilities for analytical laboratories.
+
+Senaite is particularly suited for analytical laboratories requiring ISO/IEC 17025 compliance and serves industries including environmental testing, food safety, pharmaceuticals, and clinical diagnostics.
+
+## Authentication
+
+The Senaite adaptor uses HTTP basic authentication with the following configuration:
+
+```json
+{
+  "username": "your_senaite_username",
+  "password": "your_senaite_password", 
+  "baseUrl": "https://your-senaite-instance.com"
+}
+```
+
+## Integration Options
+
+### HTTP Requests
+
+Make authenticated HTTP requests to Senaite's REST API:
+
+```js
+request("GET", "catalogs", {
+  query: { portal_type: "Sample" },
+  headers: { "Accept": "application/json" }
+});
+```
+
+
+## Helpful Links
+
+- [Senaite Documentation](https://www.senaite.com/docs/quickstart)
+- [Senaite GitHub Repository](https://github.com/senaite/senaite.core)
+- [Senaite Community Forum](https://community.senaite.org/)
+- [OpenFn Senaite Adaptor Configuration](https://docs.openfn.org/adaptors/packages/senaite-configuration-schema)
+- [OpenFn Senaite Adaptor Docs](https://docs.openfn.org/adaptors/packages/senaite-docs)
