@@ -39,3 +39,9 @@ OAuth credentials enable secure access to Khan Academy's educational data while 
 - [Khan Academy API Documentation](https://github.com/Khan/khan-api)
 - [OpenFn Khan Academy Adaptor Configuration](https://docs.openfn.org/adaptors/packages/khanacademy-configuration-schema)
 - [OpenFn Khan Academy Adaptor Docs](https://docs.openfn.org/adaptors/packages/khanacademy-docs)
+
+### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+
+Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/wiki) for more information on how you can update Adaptors!
+
+Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).

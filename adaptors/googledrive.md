@@ -33,3 +33,9 @@ Access tokens can be generated through Google Cloud Console and provide scoped a
 - [Google Drive API Documentation](https://developers.google.com/drive/api)
 - [OpenFn Google Drive Adaptor Configuration](https://docs.openfn.org/adaptors/packages/googledrive-configuration-schema)
 - [OpenFn Google Drive Adaptor Docs](https://docs.openfn.org/adaptors/packages/googledrive-docs)
+
+### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+
+Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/wiki) for more information on how you can update Adaptors!
+
+Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
