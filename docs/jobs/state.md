@@ -148,10 +148,26 @@ The input state looks like this:
 
 ### Cron triggered runs
 
-On the platform, when a Run is triggered by a cron job, the input state will the
-final output state of the **last succesful run** for this workflow. This allows
-each subsequent run to _know_ about previous runs—i.e., you can pass information
-from one run to another even if they happen days apart.
+#### What are cron jobs?
+
+A **cron job** is a time-based scheduler that automatically runs your workflow at specified intervals. Think of it like setting an alarm clock for your workflow. It will run automatically at the times you configure, whether that's every hour, daily at 9 AM, or on the first day of each month.
+
+Common cron job examples:
+- **Daily sync**: Pull new records from a database every day at midnight
+- **Weekly reports**: Generate and send reports every Friday at 5 PM  
+- **Hourly monitoring**: Check system status every hour during business hours
+- **Monthly cleanup**: Archive old data on the first day of each month
+
+#### Default input for cron workflows
+
+When a workflow has a **cron trigger**, it will automatically use a default input for its scheduled runs. On the platform, this appears as:
+
+> **Default Next Input for Cron**  
+> This workflow has a "cron" trigger, and by default it will use the input below for its next run. You can override that by starting a manual run with an empty input or a custom input at any time.
+
+#### How cron input state works
+
+When a run is triggered by a cron job, the input state will be the final output state of the **last successful run** for this workflow. This allows each subsequent run to _know_ about previous runs. In other words, you can pass information from one run to another even if they happen days apart.
 
 ```js
 {
@@ -159,8 +175,16 @@ from one run to another even if they happen days apart.
 }
 ```
 
-If this is the first time the workflow has run, the initial state will simply by
-an empty Javascript object: `{}`
+**Example scenario**: If your workflow fetches new records and the last run processed records up to ID 1000, the next cron run will start with that information and can fetch records starting from ID 1001.
+
+If this is the first time the workflow has run, the initial state will simply be an empty JavaScript object: `{}`
+
+#### Overriding cron input
+
+You can always **manually run** a cron-triggered workflow with:
+- **Empty input**: `{}` - starts fresh without previous state
+- **Custom input**: Your own data to test specific scenarios
+- **Default input**: Uses the same input as the scheduled runs
 
 ## Input & output state for steps
 
