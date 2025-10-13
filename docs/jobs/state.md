@@ -152,18 +152,6 @@ The input state looks like this:
 
 A **cron job** is a time-based scheduler that automatically runs your workflow at specified intervals. Think of it like setting an alarm clock for your workflow. It will run automatically at the times you configure, whether that's every hour, daily at 9 AM, or on the first day of each month.
 
-Common cron job examples:
-- **Daily sync**: Pull new records from a database every day at midnight
-- **Weekly reports**: Generate and send reports every Friday at 5 PM  
-- **Hourly monitoring**: Check system status every hour during business hours
-- **Monthly cleanup**: Archive old data on the first day of each month
-
-#### Default input for cron workflows
-
-When a workflow has a **cron trigger**, it will automatically use a default input for its scheduled runs. On the platform, this appears as:
-
-> **Default Next Input for Cron**  
-> This workflow has a "cron" trigger, and by default it will use the input below for its next run. You can override that by starting a manual run with an empty input or a custom input at any time.
 
 #### How cron input state works
 
@@ -182,9 +170,10 @@ If this is the first time the workflow has run, the initial state will simply be
 #### Overriding cron input
 
 You can always **manually run** a cron-triggered workflow with:
-- **Empty input**: `{}` - starts fresh without previous state
-- **Custom input**: Your own data to test specific scenarios
-- **Default input**: Uses the same input as the scheduled runs
+- **Empty input**: `{}` - starts fresh without previous state.
+    - If your manual run succeeds, the next scheduled cron run will start with whatever output state your manual run produced.
+- **Custom input**: Your own data to test specific scenarios.
+- **Default input**: Uses the same input as the scheduled runs.
 
 ## Input & output state for steps
 
