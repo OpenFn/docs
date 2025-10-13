@@ -3,24 +3,25 @@ sidebar_label: Job Writing Guide
 title: Job Writing Guide
 ---
 
-Workflow automation and data integration in OpenFn is realised through the
-creation of Jobs.
-
 This guide will walk you through key concepts and best practices for job
-writing. It is suitable for new coders and experienced JavaScript programmers.
-In fact, even if you're an experienced JavaScript developer, there are a number
-of key patterns in the OpenFn ecosystem which it is important to learn.
+writing.
+
+It is suitable for new coders and experienced JavaScript programmers. In fact,
+even if you're an experienced JavaScript developer, there are a number of key
+patterns in the OpenFn ecosystem which it is important to learn.
 
 :::tip
 
-If you're writing jobs on the platform app (Lightning), you can use the [AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in the Inspector.
+If you're writing jobs on the platform app (Lightning), you can use the
+[AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in
+the Inspector.
 
 :::
 
 A Job is a bunch of JavaScript code which performs a particular task, like
 fetching data from Salesforce or converting some JSON data to FHIR standard.
 
-Each job uses exactly one Adaptor (often called a "connector") to perform its
+Each Job uses exactly one Adaptor (often called a "connector") to perform its
 task. The Adaptor provides a collection of helper functions (Operations) which
 makes it easy to communicate with a data source.
 
@@ -1159,26 +1160,29 @@ fn(state => {
 
 ## Referencing credential secrets in your job code
 
-If you want to reference any credential secrets in your job code, you can still map keys from your `state.configuration`. See example below that will dynamically map the username and password from your `configuration` (or "credential" if using the app) into your http request body. 
+If you want to reference any credential secrets in your job code, you can still
+map keys from your `state.configuration`. See example below that will
+dynamically map the username and password from your `configuration` (or
+"credential" if using the app) into your http request body.
 
 ```js
 post('/api/v1/auth/login', {
-   body: {
+  body: {
     username: $.configuration.username, //map the UN from credential
-    password: $.configuration.password //map the PW from credential
-   },
-   headers: {'content-type': 'application/json'},
- })
+    password: $.configuration.password, //map the PW from credential
+  },
+  headers: { 'content-type': 'application/json' },
+});
 ```
 
 :::info OpenFn scrubs Configuration & Functions from final state
 
 OpenFn will automatically scrub the `configuration` key and any functions from
-your final state, as well as from logs if running workflows on the app. This is to help ensure that your credential secrets are kept secure and won't be leaked into History.
+your final state, as well as from logs if running workflows on the app. This is
+to help ensure that your credential secrets are kept secure and won't be leaked
+into History.
 
 :::
-
-
 
 <!--
 I would like to include this BUT fields is not an operation and so works a bit differently
@@ -1260,6 +1264,72 @@ Compiles to this JavaScript module:
 import { get } from '@openfn/language-http';
 export * from '@openfn/language-http';
 export default [get('/patients')];
+```
+
+Since the CLI version 1.16.1 and worker version 1.16.1, the compiler will
+_ignore_ top-level objects inside variable declarations, like this:
+
+```
+const mapping = {
+  // This will be ignored by the compiler!
+}
+fn(state => {
+  // This will be compiled as usual
+})
+```
+
+This can be a useful exploit - see
+[Jobs are slow to compile](#jobs-are-slow-to-compile)
+
+## Troubleshooting
+
+### Jobs are slow to compile
+
+For very large jobs (tens of thousands of lines), compilation can be a slow
+process (several seconds), and can in some cases cause a Run to exceed its
+allocated memory limit.
+
+These kinds of jobs are very rare
+
+The best solution is to use [Collections](/documentation/build/collections) to
+load and manage your mappings. This keeps your job code shorter and more
+maintainable, and also let you change mappings without touching your Workflows.
+
+Alternatively, you can hoist the mapping object to the top level of your code,
+where it will be ignored by the compiler.
+
+Instead of this:
+
+```
+fn(state => {
+  const mappings = {
+    rw: 'rwanda',
+    // +10k string: value pairings
+  }
+
+  // Job code might use the mappings like this
+  const key = state.data.countryCode;
+  const mappedValue = mappings[key];
+
+  return state;
+})
+```
+
+Do this:
+
+```
+const mappings = {
+  rw: 'rwanda',
+  // +10k string: value pairings
+}
+
+fn(state => {
+  // Job code might use the mappings like this
+  const key = state.data.countryCode;
+  const mappedValue = mappings[key];
+
+  return state;
+})
 ```
 
 ## Next Steps
