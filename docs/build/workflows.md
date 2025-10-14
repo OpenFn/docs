@@ -1,203 +1,191 @@
 ---
-title: Workflows
-sidebar_label: Workflows
+title: sandboxes
+sidebar_label: sandboxes
 ---
 
-**Workflows** are automated processes or sets of instructions that accomplish a
-task. In OpenFn configuration, a Workflow consists of a Trigger, Steps, and
-Paths that define automation logic. Read on to learn how to configure Workflows.
+sandboxes are a way to develop fixes and new features on workflows without
+affecting live, or "in production", runs.
 
-## Create Workflows
+:::info sandboxes are new to OpenFn since October 2025.
 
-To create a new Workflow in your Project:
+At the time of writing sandboxes are under active development and testing. We
+expect to be in full working order by the end of November 2025, but until then
+we recommend not using them with live workflows.
 
-1. Go to the **Workflows** page.
-2. Click the **Create new workflow** button.
-3. Give your Workflow a descriptive `Name` (e.g., `Register patients`,
-   `Refer cases`, `Monthly payroll`).
-4. Choose your [Trigger](../build/triggers.md)
-5. Edit your first [Step](../build/steps/steps.md)
-6. Modify the [Path Condition](../build/paths.md), if needed, to define _when_
-   the Workflow should proceed to the next Step.
-7. Configure more Steps as needed
-
-Check out the video overview below to learn how to create a Workflow.
-
-<iframe width="784" height="441" src="https://www.youtube.com/embed/HmE_wp_g1RY?si=Pud7DPS0BevAjStp" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-### Merging branches and Skipping Steps
-
-The workflow builder allows branch merging and skipping steps. To merge two or
-more steps into one step or to skip some steps:
-
-1. Hover on the step you want to merge or initiate a skip
-2. You will see a plus icon
-3. Click on the plus icon and drag to create a path
-4. Drop the new path on the desired step in your workflow
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/XWq2uE6l9wI?si=ab--winNS0k3qA1R" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-:::note Looping is not supported
-
-Looping workflows are not supported so you have to connect paths to downstream
-steps. When using branching and skipping paths, you can use edge conditions like
-with any other step.
+To access sandboxes, you'll need to enable the Experimental Features option in
+your user settings.
 
 :::
 
-## Run Workflows
+A sandbox is essentially a clone of a project, with its own private history,
+webhooks, cron triggers credentials and access rights. It also has its own
+billing rules - so sandbox runs and AI tokens don't affect your main project.
+Unlike most sandbox settings, the billing rules derive from the original
+project, rather than duplicate them.
 
-Workflows will run automatically when they are "enabled"—i.e., when their
-trigger is turned on. A webhook trigger will run your workflow whenever a
-request is received at that trigger's URL, and a cron trigger will run a
-workflow whenever its cron schedule matches the current time.
+The idea is that you can develop the workflow in total isolation from the main
+project, and once you're done, merge (read as "push" or "promote") changes back.
+
+with a copy of each workflow, its own webhooks, cron triggers and
+
+:::tip Short-lived sandboxes
+
+sandboxes work best when they're short-lived, so right now they are destroyed
+after merging. While you can create as many sandboxes as you like (subject to
+your usage allowance), we recommend keeping the number low to reduce the risk of
+merge conflicts.
+
+:::
+
+## Isolated Context
+
+A sandbox is an isolated copy of your original project with its own context. As
+such, your sandbox has its own "private" copies of the following artefacts and
+features:
+
+- Workflows
+- Dataclips
+- Run History
+- Subscription (run limits, AI credits and collection memory)
+- Collections
+- Settings
+
+By "private copy", what we mean is that changing a Workflow in a sandbox will
+not affect the same-named Workflow in any other project or sandbox, or that a
+Run in a sandbox will contribute to your usage in any other sandbox or project,
+and so on.
+
+## Creating sandboxes
+
+When you create a new sandbox, we basically create a total copy of your project.
+Any changes made to the sandbox will not affect your main project workflows - so
+you can experiment freely without breaking anything.
+
+To create a sandbox, enter a Project, click on sandboxes, and click on the
+Create sandbox button.
+
+You'll need to set a name for the sandbox. This is unique within your project
+and its sandboxes. If you're familiar with git, treat it like a branch name.
+Otherwise, you can either give it a general name like `testing`, or name it for
+a specific feature, like `new-patient-workflow`.
+
+You'll also need to set an Environment (see below). This configures all
+credentials within the sandbox to use that environment variant. If you're not
+sure, set the environment to `dev`.
+
+A color will be randomly selected to associate with the sandbox. You'll see this
+color in the app UI while you're using the sandbox. You can select a different
+color if you like.
+
+Click Create sandbox when you're ready. You'll automatically enter the sandbox.
+
+## Viewing a sandbox
+
+To develop and test a sandbox, you need to enter it in the app from the
+sandboxes menu.
+
+When sandbox is active, the app will change color to help you understand what
+you're looking at. [TODO] We also list the active sandbox in the breadcrumbs at
+the top of the page, and in a banner on the Inspector.
+
+Each sandbox has its own isolated Workflows, Subscription, History and settings.
+As you click through the pages, you'll notice that your original project's
+details are excluded. This is because your sandbox is an independent clone of
+the original project.
+
+## Environments
+
+Environments allow you to run a Workflow with a special set of credentials. This
+lets you use development servers, modes and databases while building your
+sandbox, without interfering with live production services.
+
+Each sandbox has an associated environment. By default it's `main`, which
+implies that this is your live production environment. But you can create an
+environment like `dev` or `staging`.
+
+The environment is just a label. Each credential used in your workflow with have
+a set of values associated with that environment. For example, when connecting
+to DHIS2, your main credential will contain private login details. But your
+`dev` environment might use the public sandbox and so contain a different
+username and password.
+
+All environments are securely stored and encrypted within our database, so it's
+perfectly safe to duplicate production credentials across multiple environments.
+
+For each Credential used in your workflow, you must ensure there is a value set
+to match your sandbox environment. If you do not configure your credentials, the
+Workflow will fail with clear instructions on how to correct it.
+
+## Merging sandboxes
+
+Once you've finished making changes to your workflows, it's time to merge them
+back into your main project.
+
+This is easy in the app: simply head to the Sandboxes page, find the Sandbox you
+want to merge in the list, and click the Merge icon on the right-hand side.
+
+You'll be prompted to select the target project or sandbox to merge into: pick
+from the list and click Merge. Usually you'll want to merge into the original
+project, which is selected by default.
+
+When merging, we replace the contents of workflows in your project with those in
+your sandbox. Any workflows which are not in the sandbox will be ignored. If you
+rename a workflow in the sandbox, you'll see the new workflow appear in your
+main project, and the original workflow will be left alone (you'll probably want
+to delete that manually).
+
+Note that settings and options, like concurrency and data retention rules, are
+not transferred in the merge, nor are historical runs or dataclips. Just the
+Workflow contents.
+
+After merging, the sandbox will be destroyed, along with its history and
+dataclips.
+
+:::tip
+
+You can also use the CLI to merge your changes locally, give them one final
+test, and then deploy them to your main project.
+
+::::
+
+## Conflicts
+
+If you've ever worked with a source version control system - like git or
+Subversion - you'll be familiar with the idea of conflicts.
+
+A conflict occurs when you're trying to merge a Sandbox into your original
+project (or another sandbox), and there are incompatible changes between them.
+
+Say you create a Sandbox from your main project and in the sandbox, you change
+the adaptor of one step from `common` to `http`. And while you're making this
+change, a colleague goes to the main project and sets the adaptor of the same
+step to `salesforce`.
+
+What happens when you try and merge the sandbox? Should we preserve the original
+change? Or accept the change in the sandbox? Or something else?
+
+Occasionally these conflicts are trivial to resolve and you might wonder what
+all the fuss is about. But often they are complex, and it can be difficult or
+impossible to automate a solution.
+
+[TODO not implemented yet] When we detect a conflict like this, we'll show a
+warning when you try and merge the Sandbox. You can choose to "force push" the
+Sandbox and overwrite whatever changes happened on the target Project, or you
+can cancel and resolve the conflict yourself.
+
+For now, the only way to resolve conflicts manually is to use the CLI to edit
+your project locally, and pushed the resolved, final version up to the app.
+
+:::tip
+
+We'll be adding better support for resolving conflicts soon.
+
+:::
+
+## Editing sandboxes Locally
 
 :::info
 
-Please note that workflows are disabled by default. When you are ready to have
-your workflow running, you have to manually enable the workflow.
+Sandboxes are fully compatible with the CLI.
 
-:::
-
-### Enabling or Disabling a Workflow
-
-There are two ways to disable or enable a workflow in your OpenFn project:
-
-1. via the workflow state toggle
-2. via the workflow trigger
-
-#### Via the workflow state toggle
-
-You can enable or disable your workflow by using the toggle button located on
-the corresponding row in the project workflows list or the toggle on the
-navigation bar in the workflow canvas.
-
-The screenshot below shows an enabled workflow in the workflow list.
-
-![Via the workflow list](/img/workflow_list_toggle.webp)
-
-The screenshot below shows a disabled workflow in the workflow canvas.
-
-![Via the workflow canvas](/img/workflow_canvas_toggle.webp)
-
-#### Via the workflow trigger
-
-To enable or disable a workflow via the workflow trigger, select the trigger
-icon on the canvas and use the toggle in the configuration panel to toggle the
-workflow state.
-
-![Enabled workflow in the trigger panel](/img/via-trigger-panel.webp)
-
-### Manual Runs
-
-Check out the video for a quick overview.
-
-<iframe width="784" height="441" src="https://www.youtube.com/embed/dKMtT1QKl-o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-
-You can run a workflow manually in three ways:
-
-#### With an empty input
-
-This is the default behavior and the input dataclip for your run will be `{}`.
-
-<img src="/img/empty.webp" width="400" />
-
-#### With a custom input
-
-You can type, copy/paste, or import (browse your file system or drag & drop) any
-file with valid JSON.
-
-<img src="/img/custom.webp" width="400" />
-
-#### With an existing input
-
-You can pick from a list of previous inputs that were used to run this step.
-
-<img src="/img/existing.webp" width="400" />
-
-### Named Dataclips
-
-Dataclips (custom inputs, step results, webhook requests) can be named to make
-them easier to find and use for testing.
-
-:::info Named dataclips aren't erased
-
-Named dataclips will not be removed alongside other project history when your
-retention period is reached. They will be stored indefinitely.
-
-:::
-
-Assign your dataclip a name by clicking the label field.
-
-<img src="/img/name_dataclip.webp" width="500"/>
-
-After assigning names to your inputs you can search for them by their name on
-the search bar.
-
-<img src="/img/search_dataclip_by_name.webp" width="500" />
-
-Filter only named inputs by clicking the tag button.
-
-<img src="/img/show_only_named_dataclips.webp" width="500" />
-
-## Limit Concurrency
-
-Workflow **concurrency** is the number of runs that will be allowed for a given
-workflow **_at the same time_**. In OpenFn, project owners and administrators
-are able to limit the maximum number of the runs that can be executed at the
-same time for a workflow. You might do this to ensure "one at a time" serial
-processing or to keep a fast OpenFn workflow from overwhelming the API rate
-limit of some other connected system.
-
-:::info
-
-Please check to make sure that your parallel execution is not disabled for your
-project as it will override the workflow level concurrency limit.
-
-:::
-
-### What happens when concurrency limit is set on a workflow?
-
-When concurrency limit is configured for a workflow, the maximum number of runs
-that are executed concurrently will not exceed the number that has been set for
-the workflow. For example:
-
-- **Concurrency not set (or = 0)**: There's no artificial limit applied, and
-  this workflow will only be limited by the total computing power available
-  across your OpenFn installation.
-- **Concurrency = 1**: Runs for this workflow will only take place 1-at-a-time.
-  Each run must _finish_ before the next run can start.
-- **Concurrency = 2**: No more than 2 runs for this workflow can be executed at
-  a time and other runs will have stay `enqueued`. If runs "A", "B", and "C" are
-  all enqueued, "A" and "B" will start executing. Once "A" finishes, "C" will
-  start. (No more than 2-at-a-time.)
-
-### Setting Concurrency for a workflow
-
-Concurrency limits can be set via the workflow settings modal on the workflow
-canvas.
-
-1. Click on the settings icon beside the save button on your workflow to open
-   the workflow settings
-2. In the modal, enter the maximum concurrency limit
-3. Click save.
-
-![Configuring Concurrency](/img/configuring-concurrency.webp)
-
-### Log Outputs
-
-For data security and compliance purposes, the log output of a workflow run can
-be configured to disable logging `console.log()` statements. This can be done
-via the workflow configuration modal by a project owner or administrator.
-
-1. Click on the settings icon.
-2. In the modal, toggle the **Allow `console.log()` usage** switch to disable
-   logging `console.log()` statements. By default, this is enabled.
-
-![Configuring Log Outputs](/img/configuring-log-outputs.webp)
-
-## Keyboard Shortcuts
-
-From the canvas you can perform certain common actions (e.g., save) using
-keystrokes. Check out the full list of keyboard shortcuts
-[here](/documentation/keyboard-shortcuts).
+For more details, see these CLI docs (link to follow)
