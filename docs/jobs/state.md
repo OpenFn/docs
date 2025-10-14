@@ -155,11 +155,11 @@ A **cron job** is a time-based scheduler that automatically runs your workflow a
 
 #### How cron input state works
 
-When a run is triggered by a cron job, the input state will be the final output state of the **last successful run** for this workflow. This allows each subsequent run to _know_ about previous runs. In other words, you can pass information from one run to another even if they happen days apart.
+When a run is triggered by a cron job, the input state will be the final output state of the **last successful run** of the first step in the workflow. This allows each subsequent run to _know_ about previous runs. In other words, you can pass information from one run to another even if they happen days apart.
 
 ```js
 {
-  ...finalStateOfLastSuccessfulRun,
+  ...finalStateOfLastSuccessfulRunOfStep1,
 }
 ```
 
