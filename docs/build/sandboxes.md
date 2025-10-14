@@ -71,7 +71,8 @@ a specific feature, like `new-patient-workflow`.
 
 You'll also need to set an Environment (see below). This configures all
 credentials within the sandbox to use that environment variant. If you're not
-sure, set the environment to `dev`.
+sure, set the environment to `dev` (you can change this at any time from the
+Setup tab of the sandbox Settings page).
 
 A color will be randomly selected to associate with the sandbox. You'll see this
 color in the app UI while you're using the sandbox. You can select a different
@@ -115,6 +116,10 @@ perfectly safe to duplicate production credentials across multiple environments.
 For each Credential used in your workflow, you must ensure there is a value set
 to match your sandbox environment. If you do not configure your credentials, the
 Workflow will fail with clear instructions on how to correct it.
+
+To change a the environment used by a Sandbox, first enter the Sandbox from the
+Sandboxes page, then go to the Settings page. The environment can be edited
+under the Identity section of the Setup tab (right at the top of the page).
 
 ## Merging sandboxes
 
