@@ -104,11 +104,11 @@ Each sandbox has an associated environment. By default it's `main`, which
 implies that this is your live production environment. But you can create an
 environment like `dev` or `staging`.
 
-The environment is just a label. Each credential used in your workflow with have
-a set of values associated with that environment. For example, when connecting
-to DHIS2, your main credential will contain private login details. But your
-`dev` environment might use the public sandbox and so contain a different
-username and password.
+The environment is just a label, and each credential used in your workflow has a
+set of values associated with that label. For example, when connecting to DHIS2,
+your main credential will contain private login details. But your `dev`
+environment might use the public sandbox and so contain a different username and
+password.
 
 All environments are securely stored and encrypted within our database, so it's
 perfectly safe to duplicate production credentials across multiple environments.
@@ -144,7 +144,8 @@ not transferred in the merge, nor are historical runs or dataclips. Just the
 Workflow contents.
 
 After merging, the sandbox will be destroyed, along with its history and
-dataclips.
+dataclips. Any environments and credentials assocaited with the project will be
+unaffected.
 
 :::tip
 
@@ -189,8 +190,7 @@ We'll be adding better support for resolving conflicts soon.
 
 ## Editing sandboxes Locally
 
-:::info
-
 Sandboxes are fully compatible with the CLI.
 
-For more details, see these CLI docs (link to follow)
+We're still working on docs and features for that - check back soon for more
+details!
