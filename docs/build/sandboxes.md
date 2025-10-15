@@ -3,10 +3,10 @@ title: Sandboxes
 sidebar_label: Sandboxes
 ---
 
-sandboxes are a way to develop fixes and new features on workflows without
+Sandboxes are a way to develop fixes and new features on workflows without
 affecting live, or "in production", runs.
 
-:::info sandboxes are new to OpenFn since October 2025.
+:::info Sandboxes are new to OpenFn since October 2025.
 
 At the time of writing sandboxes are under active development and testing. We
 expect to be in full working order by the end of November 2025, but until then
@@ -25,8 +25,6 @@ project, rather than duplicate them.
 
 The idea is that you can develop the workflow in total isolation from the main
 project, and once you're done, merge (read as "push" or "promote") changes back.
-
-with a copy of each workflow, its own webhooks, cron triggers and
 
 :::tip Short-lived sandboxes
 
