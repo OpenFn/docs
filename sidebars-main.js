@@ -66,6 +66,7 @@ module.exports = {
             'build/credentials',
             'build/collections',
             'build/limits',
+            'build/sandboxes',
             'build/editing-locally',
             'build/working-with-branches',
             'build/troubleshooting',
