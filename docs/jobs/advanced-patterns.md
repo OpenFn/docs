@@ -51,26 +51,52 @@ fn(state => {
 
 ## Referencing credential secrets in your job code
 
-If you want to reference any credential secrets in your job code, you can still map keys from your `state.configuration`. See example below that will dynamically map the username and password from your `configuration` (or "credential" if using the app) into your http request body.
+:::danger This is NOT a recommended practice
+
+**You should NOT reference credential secrets directly in your job code.** This
+pattern is considered a bad practice and should only be used as a last resort
+when you cannot separate your workflow into two steps (e.g., one HTTP step
+followed by one common adaptor step).
+
+**Only use the approach below if you cannot separate your workflow into multiple
+steps**
+
+:::
+
+If you must reference credential secrets in your job code, you can map keys from
+your `state.configuration`. The example below dynamically maps the username and
+password from your `configuration` (or "credential" if using the app) into your
+http request body.
 
 ```js
 post('/api/v1/auth/login', {
-   body: {
+  body: {
     username: $.configuration.username, //map the UN from credential
-    password: $.configuration.password //map the PW from credential
-   },
-   headers: {'content-type': 'application/json'},
- })
+    password: $.configuration.password, //map the PW from credential
+  },
+  headers: { 'content-type': 'application/json' },
+});
 ```
+
+> **Note:** While most adaptors handles authentication automatically, The
+> `@openfn/language-common` adaptor allows manual authentication handling.
+
+**Recommended approach:** Instead of accessing credentials in your job code, you
+should:
+
+1. Use a dedicated adaptor step (e.g., `@openfn/language-http`) with its own
+   credential for authentication
+2. Follow up with a `@openfn/language-common` step if you need additional data
+   transformation
 
 :::info OpenFn scrubs Configuration & Functions from final state
 
 OpenFn will automatically scrub the `configuration` key and any functions from
-your final state, as well as from logs if running workflows on the app. This is to help ensure that your credential secrets are kept secure and won't be leaked into History.
+your final state, as well as from logs if running workflows on the app. This is
+to help ensure that your credential secrets are kept secure and won't be leaked
+into History.
 
 :::
-
-
 
 <!--
 I would like to include this BUT fields is not an operation and so works a bit differently
