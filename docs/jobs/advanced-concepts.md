@@ -1,6 +1,6 @@
 ---
-sidebar_label: Advanced Patterns
-title: Advanced Patterns
+sidebar_label: Advanced Concepts
+title: Advanced Concepts
 ---
 
 ## Cleaning final state

@@ -55,7 +55,7 @@ module.exports = {
             'jobs/callbacks-and-promises',
             'jobs/data-transformation',
             'jobs/using-cursors',
-            'jobs/advanced-patterns',
+            'jobs/advanced-concepts',
           ],
         },
         'build-for-developers/security-for-devs',
