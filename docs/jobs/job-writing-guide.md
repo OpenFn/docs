@@ -62,37 +62,3 @@ If you have any job-writing questions, ask on
 core team and other implementers.
 
 :::
-
-## Topics
-
-This guide is organized into the following topics:
-
-- [Operations and State](operations-and-state.md)
-:::info [Operations and State](operations-and-state.md)
-Learn about the core concepts of OpenFn jobs: how operations work, why they must
-be at the top level, and how to read state lazily.
-:::
-
-:::info [Lazy State Operator](lazy-state-operator.md)
-Discover the `$` operator - a shorthand syntax that makes it easier to read
-state when passing data into operations.
-:::
-### [Callbacks and Promises](callbacks-and-promises.md)
-
-Understand how to use callbacks with `fn()`, and how to chain operations using
-`.then()` and `.catch()` for error handling.
-
-### [Data Transformation](data-transformation.md)
-
-Learn how to map objects, iterate with `each()`, and initialize variables in
-your jobs.
-
-### [Using Cursors](using-cursors.md)
-
-Discover how to maintain state between workflow runs for pagination and
-incremental data fetching.
-
-### [Advanced Patterns](advanced-patterns.md)
-
-Explore advanced topics including cleaning final state, referencing credentials,
-error handling, and compilation.
