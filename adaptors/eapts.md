@@ -15,7 +15,6 @@ The **@openfn/language-eapts** adaptor enables seamless integration between Open
 - Generating dashboards or analytics reports  
 - Monitoring supply chain performance programmatically  
 
----
 
 ## Use OpenFn + EAPTS for Data-Driven Health Workflows
 
@@ -27,7 +26,6 @@ However, managing cross-system data exchange—such as syncing with DHIS2, KoboT
 Example:
 > Use OpenFn to fetch updated stock levels from EAPTS nightly and automatically sync them with your national reporting system.
 
----
 
 ## Integration Options
 
