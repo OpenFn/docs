@@ -56,14 +56,11 @@ ask on [Community](https://community.openfn.org).
 ## Keychain Credentials (Variable Auth)
 
 Keychain credentials allow for a single job to make use of multiple credentials.
+
 They work by inspecting the data in the job's runtime state (i.e., state.data)
 and checking for the value of a predetermined identifier. Based on that value,
 present in the data for a given source message, for example, another credential
 will be selected and applied for that particular job run.
-
-Keychain credentials allow for a single job to make use of multiple credentials.
-They work by inspecting the data in the initial input for a given run (e.g.,
-state.data) and checking for the value of a predetermined identifier.
 
 Imagine you have 2 credentials in your project:
 
