@@ -87,7 +87,7 @@ fn(state => {
   return state;
 });
 
-// cleanup state at the end before finshing job
+// cleanup state at the end before finishing job
 fn(state => {
   state.data = null
   state.users = null
@@ -148,19 +148,20 @@ The input state looks like this:
 
 ### Cron triggered runs
 
-On the platform, when a Run is triggered by a cron job, the input state will the
-final output state of the **last succesful run** for this workflow. This allows
-each subsequent run to _know_ about previous runs—i.e., you can pass information
-from one run to another even if they happen days apart.
+When a run is triggered by a cron job, its input state will be the output of the **first step** from the previous run. This allows each subsequent run to know about previous runs. In other words, you can pass information from one run to another even if they happen days apart.
 
-```js
-{
-  ...finalStateOfLastSuccessfulRun,
-}
-```
+**Example scenario**: You have a **daily sync at 9 AM** with a workflow that has 3 steps: (1) fetch patient records, (2) transform data, (3) send to database. On Monday, the **first step** processes records up to ID 1000 and outputs `{ lastProcessedId: 1000 }`. Even though steps 2 and 3 modify the state further, only the **first step's output** gets saved for the next cron run. On Tuesday at 9 AM, the cron job starts again with `{ lastProcessedId: 1000 }` from Monday's first step, so it knows to fetch records starting from ID 1001.
 
-If this is the first time the workflow has run, the initial state will simply by
-an empty Javascript object: `{}`
+The first time the workflow runs, the initial state will simply be an empty JavaScript object: `{}`
+
+#### Overriding cron input
+
+You can always manually run a cron-triggered workflow with:
+- **Empty input**: `{}` - starts fresh without previous state.
+- **Custom input**: Your own data to test specific scenarios.
+- **Default input**: Uses the same input as the scheduled runs.
+
+If the manual run succeeds, the next scheduled cron run will start with whatever output state your manual run produced.
 
 ## Input & output state for steps
 
