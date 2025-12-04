@@ -2,7 +2,7 @@
 const fs = require('fs');
 const path = require('path');
 
-// Read the help section template
+
 const TEMPLATE_PATH = path.join(__dirname, '_help-section-template.md');
 const HELP_SECTION = '\n\n' + fs.readFileSync(TEMPLATE_PATH, 'utf8');
 
@@ -10,11 +10,16 @@ function addHelpSectionToFile(filePath) {
   try {
     let content = fs.readFileSync(filePath, 'utf8');
     
-    // Add the new help section at the end
+
+    if (content.includes("I've noticed a problem with this Adaptor") || 
+        content.includes("something is out of date, what can I do?")) {
+      return false;
+    }
+
     content = content.trimEnd() + HELP_SECTION;
     
     fs.writeFileSync(filePath, content);
-    console.log(`Updated help section in: ${path.basename(filePath)}`);
+    console.log(`Added help section to: ${path.basename(filePath)}`);
     return true;
   } catch (error) {
     console.error(`Error processing ${filePath}:`, error.message);
