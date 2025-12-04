@@ -10,13 +10,12 @@ title: Memento Database Adaptor
 
 Memento Database supports REST API integration with OpenFn:
 
-**REST API**: Memento Database provides a Cloud API that enables external services like OpenFn to interact with libraries (databases), entries (records), and files. This API allows you to create, read, update, and delete records, manage database structures, and synchronize data programmatically. See [functions](/adaptors/packages/momento-docs) for more on how to use this adaptor to work with the Memento Database API.
+**REST API**: Memento Database provides a Cloud API that enables external services like OpenFn to interact with libraries (databases), entries (records), and files. This API allows you to create, read, update, and delete records, manage database structures, and synchronize data programmatically.
 
 ## Authentication
 
 1. See [Memento Database API docs](https://mementodatabase.docs.apiary.io/) for the latest on supported authentication methods.
 2. When integrating with Memento Database via OpenFn, the primary authentication method is **API Key**. You can generate an API key from your Memento Database account settings.
-3. See this adaptor's [Configuration docs](/adaptors/packages/momento-configuration-schema) for more on the required authentication parameters.
 
 See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
 

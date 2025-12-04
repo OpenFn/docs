@@ -16,7 +16,7 @@ FormSG supports webhook integration with OpenFn:
 
 1. See [FormSG SDK documentation](https://github.com/opengovsg/formsg-sdk) for the latest on webhook authentication and signature verification methods.
 2. When integrating with FormSG via OpenFn, you need a **Form Secret Key** which is generated when you create a form in FormSG. This key is used for decrypting submissions and verifying webhook signatures.
-3. See this adaptor's [Configuration docs](/adaptors/packages/formsg-configuration-schema) for more on the required authentication parameters.
+3. See this adaptor's [configuration docs](/adaptors/packages/formsg-configuration-schema) for more on the required authentication parameters.
 
 See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
 
@@ -27,12 +27,6 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
   "webhookEndpoint": "https://my-domain.com/submissions"
 }
 ```
-
-### Helpful Links
-
-1. [FormSG Official Website](https://form.gov.sg/)
-2. [FormSG GitHub Repository](https://github.com/opengovsg/FormSG)
-3. [FormSG JavaScript SDK](https://github.com/opengovsg/formsg-sdk)
 
 
 ### Implementation Examples
