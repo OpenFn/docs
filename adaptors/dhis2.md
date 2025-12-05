@@ -136,3 +136,10 @@ useful. In the following sections, special systems will be described.
 1. DHIS2 Demo Implementations: https://github.com/OpenFn/dhis2-demo
 2. Lesotho Integration connecting two DHIS2 instances:
    https://github.com/OpenFn/lesotho-dhis2
+   
+
+### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+
+Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+
+Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).

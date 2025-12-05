@@ -145,3 +145,10 @@ that shows us how to get data via a REST API and push it to Google Sheet.
 - [Google Sheets API Overview](https://developers.google.com/sheets/api/guides/concepts)
 - OpenFn Workflow Tutorial:
   [HTTP-to-GoogleSheets](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets)
+  
+
+### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+
+Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+
+Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).

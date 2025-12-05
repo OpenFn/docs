@@ -36,3 +36,9 @@ above use case.
 ![Tableau Data Flow Visualization](/img/survey_db_tableau.webp)
 
 <!-- please note that the diagram can be found at this link: https://lucid.app/lucidchart/invitations/accept/67c935c0-ec87-4454-b38f-57a6c002f597  -->
+
+### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+
+Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+
+Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).

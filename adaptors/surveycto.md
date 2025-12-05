@@ -111,3 +111,9 @@ setting controls whether or not users in a given role can use the API to fetch
 forms and data from the server.
 [See SurveyCTO docs](https://docs.surveycto.com/04-monitoring-and-management/01-the-basics/00b.managing-user-roles.html)
 on managing user roles.
+
+### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+
+Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+
+Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).

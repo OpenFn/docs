@@ -46,3 +46,8 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 
 Have resources or links to share? Submit a PR to edit this page or post on [community.openfn.org](https://community.openfn.org).
 
+### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+
+Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/wiki) for more information on how you can update Adaptors!
+
+Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
