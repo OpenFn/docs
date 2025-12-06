@@ -8,24 +8,39 @@ module.exports = {
   baseUrl: '/',
   trailingSlash: false,
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
   onDuplicateRoutes: 'throw',
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
   markdown: {
+    hooks: { onBrokenMarkdownLinks: 'warn' },
     mermaid: true,
   },
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
     metadata: [
-      {name: 'keywords', content: 'OpenFn, workflow automation, ICT4D, integration, automation, documentation'},
-      {name: 'description', content: 'OpenFn documentation - The leading digital public good for workflow automation, making ICT4D more efficient.'},
-      {name: 'twitter:card', content: 'summary_large_image'},
-      {name: 'twitter:site', content: '@openfn'},
-      {name: 'twitter:title', content: 'OpenFn Documentation'},
-      {name: 'twitter:description', content: 'The leading digital public good for workflow automation, OpenFn makes ICT4D more efficient.'},
-      {name: 'twitter:image', content: 'https://docs.openfn.org/img/og-image.png'},
+      {
+        name: 'keywords',
+        content:
+          'OpenFn, workflow automation, ICT4D, integration, automation, documentation',
+      },
+      {
+        name: 'description',
+        content:
+          'OpenFn documentation - The leading digital public good for workflow automation, making ICT4D more efficient.',
+      },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:site', content: '@openfn' },
+      { name: 'twitter:title', content: 'OpenFn Documentation' },
+      {
+        name: 'twitter:description',
+        content:
+          'The leading digital public good for workflow automation, OpenFn makes ICT4D more efficient.',
+      },
+      {
+        name: 'twitter:image',
+        content: 'https://docs.openfn.org/img/og-image.png',
+      },
     ],
     algolia: {
       appId: 'O729P2PJGT',
