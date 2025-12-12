@@ -10,10 +10,16 @@ taking your hands off the keyboard. 🤓
 
 | Command                      | Availability      | Mac              | Linux/Windows      | Notes                                                                                                                        |
 | ---------------------------- | ----------------- | ---------------- | ------------------ | ---------------------------------------------------------------------------------------------------------------------------- |
-| **Save** Workflow            | Canvas, Inspector | `⌘+s`            | `Ctrl+s`           |
+| **Save** Workflow            | Canvas, Inspector | `⌘+s`            | `Ctrl+s`           |                                                                                                                              |
 | **Save** & Sync Workflow     | Canvas, Inspector | `⌘+Shift+s`      | `Ctrl+Shift+s`     | When opting to sync, you'll be prompted to either enter a commit message or use the default message provided.                |
 | **Run**                      | Canvas, Inspector | `⌘+Return`       | `Ctrl+Enter`       | This will save (but not sync) your workflow and run it from the current step with the default workorder grouping behavior.\* |
 | **Run** _(alternate action)_ | Inspector         | `⌘+Shift+Return` | `Ctrl+Shift+Enter` | This will save (but not sync) your workflow and create a new workorder from the current step.                                |
+| **Open** Job Editor          | Canvas            | `⌘+e`            | `Ctrl+e`           | Opens the full-screen code editor for the selected job.                                                                      |
+| **Toggle** AI Assistant      | Canvas, Inspector | `⌘+k`            | `Ctrl+k`           |                                                                                                                              |
+| **Toggle** Run History       | Canvas, Inspector | `⌘+h`            | `Ctrl+h`           | Not available when creating a new workflow.                                                                                  |
+| **Toggle** Templates Panel   | Workflow Create   | `⌘+/`            | `Ctrl+/`           | Only available when creating a new workflow.                                                                                 |
+| **Toggle** Import Panel      | Workflow Create   | `⌘+\`            | `Ctrl+\`           | Only available when creating a new workflow. Allows importing from YAML.                                                     |
+| **Close** Panel/Editor       | Canvas, Inspector | `Escape`         | `Escape`           | Closes the inspector, job editor, or run panel.                                                                              |
 
 \*If you are viewing an existing work order and create a run from the inspector,
 that run will be associated with the existing work order—this is the default
