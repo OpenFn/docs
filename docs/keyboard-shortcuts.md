@@ -19,7 +19,7 @@ taking your hands off the keyboard. 🤓
 | **Toggle** Run History       | Canvas, IDE     | `⌘+h`            | `Ctrl+h`           | Not available when creating a new workflow.                                                                                  |
 | **Toggle** Templates Panel   | Workflow Create | `⌘+/`            | `Ctrl+/`           | Only available when creating a new workflow.                                                                                 |
 | **Toggle** Import Panel      | Workflow Create | `⌘+\`            | `Ctrl+\`           | Only available when creating a new workflow. Allows importing from YAML.                                                     |
-| **Close** Panel/Editor       | Canvas, IDE     | `Escape`         | `Escape`           | Closes an open inspector, the IDE, or the run panel.                                                                         |
+| **Close** Panel/IDE       | Canvas, IDE     | `Escape`         | `Escape`           | Closes an open inspector, the IDE, or the run panel.                                                                         |
 
 \*If you are viewing an existing run and create a new run from the Canvas or
 IDE, that run will be associated with the existing work order—this is the
