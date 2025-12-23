@@ -42,7 +42,7 @@ standards have emerged to make it more straightforward for a new user to
 interact with Platform X's API, by trying to ensure most applications use one of
 a few different formats. That's what an API protocol is. A few of the big names
 here are REST, SOAP, JSON, and GraphQL. Rather than reinvent the wheel,
-[here's a good primer on how protocols differ, their data formats, and why that all matters.](https://frontend-digest.com/beginners-guide-to-apis-protocols-and-data-formats-f80cf7f30425])
+[here's a good primer on how protocols differ, their data formats, and why that all matters.](https://frontend-digest.com/beginners-guide-to-apis-protocols-and-data-formats-f80cf7f30425)
 
 ## Database
 
