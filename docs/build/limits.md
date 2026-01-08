@@ -15,7 +15,8 @@ for more details.
 | Runs                        | Maximum number of runs allowed per month                     | Unlimited    | 100     | 2,000  | 5,000   | 10,000    | Unlimited |
 | Workflow Execution Duration | Maximum time a workflow can run before being killed          | Configurable | 60 secs | 5 mins | 20 mins | 30 mins   | 30 mins   |
 | Memory Usage                | Maximum memory allowed per workflow attempt                  | Configurable | 128MB   | 256MB  | 512GB   | 1GB       | 1GB       |
-| Dataclip Size               | Maximum size for data clips persisted run states             | Configurable | 512KB   | 2MB    | 10MB    | 10MB      | 10MB      |
+| State Size                  | Maximum size of state objects inside the runtime VM          | Dynamic      | 32mb    | 64MB   | 128GB   | 256GB     | 256GB     |
+| Dataclip Size               | Maximum size for data clips persisted from run output        | Configurable | 512KB   | 2MB    | 10MB    | 10MB      | 10MB      |
 | AI Assistant                | Maximum AI tokens available                                  | Configurable | 500K    | 1.5M   | 5M      | 10M       | 10M       |
 | Data Collections (Storage)  | Maximum storage for data collections                         | Configurable | 1MB     | 5MB    | 10MB    | 50MB      | 50MB      |
 | Data Collections (Number)   | Maximum number of data collections per project               | Configurable | 2       | 5      | 10      | Unlimited | Unlimited |
@@ -33,7 +34,7 @@ by following the
 [upgrade plan instructions](/documentation/hosted/overview#upgrading-your-subscription).
 
 For custom limits or upgrades in dedicated deployments, contact
-enterprise@openfn.org. 
+enterprise@openfn.org.
 
 :::
 
