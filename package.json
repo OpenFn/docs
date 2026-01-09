@@ -70,7 +70,8 @@
   "resolutions": {
     "trim": "^0.0.3",
     "got": "^11.8.5",
-    "cytoscape": "3.28.1"
+    "cytoscape": "3.28.1",
+    "glob": "^11.1.0"
   },
   "engines": {
     "node": ">=18.0"
