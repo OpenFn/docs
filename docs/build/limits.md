@@ -58,6 +58,10 @@ attempt exceeds this limit, it will be killed by the worker and you'll see a
 > _Instance superusers can control this limit via the `MAX_RUN_MEMORY`
 > environment variable._
 
+Note that the `state` object returned at the end of each step in a workflow
+must not exceed 25% of your total runtime memory limit or your run will be
+killed with a `StateTooLarge` error.
+
 ## Dataclip Size (10MB)
 
 1. Each **webhook request** to a trigger URL cannot exceed `10MB`.
