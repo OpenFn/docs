@@ -278,28 +278,74 @@ fn(state => {
 
 ## CLI usage
 
-Workflows which use Collections can be run through the CLI. You will need to:
+Since version 1.21.0 (Jan 2026), `@openfn/cli` fully supports the use of
+collections in workflows.
 
-- Get a Personal Access Token (PAT)
-- Update the `workflow.json` with your PAT and the OpenFn endpoint
-- Set the step to use the Collections adaptor
+Prior to 1.21.0, special setup was needed. So this guide is split into two
+sections: we recommend using the latest CLI and following first guide below.
+It's shorter, cleaner and easier.
 
-:::tip
-
-You can also call the Collections API directly from the CLI. See the
-[CLI Collections Guide](/documentation/collections-cli)
-
-:::
-
-Collections are designed for close integration with the platform app, but can be
-used from the CLI too.
-
-You can get a Personal Access Token from any v2 deployment.
+But if you're unable to update your CLI, you can still configure collections
+manually with the [Older CLI guide](#older-cli).
 
 Remember that a Collection must be created from the Admin page before it can be
 used!
 
-### For a single job
+:::tip
+
+You can also call the Collections API directly from the CLI, without using a
+Workflow. See the [CLI Collections Guide](/documentation/collections-cli)
+
+:::
+
+### Latest CLI 1.20+
+
+The CLI includes full native support for collections within a workflow.
+
+If you've pulled a project from the app (Lightning), all you'll need to do is
+provide an API Token when you run the workflow. You can either do this by
+passing the `--api-key` argument, or by setting the `OPENFN_API_KEY` env var.
+
+```bash
+openfn my-workflow.json --api-key $MY_OPENFN_PAT
+```
+
+By default, the CLI will use our cloud platform at app.openfn.org to find any
+collections referenced in the workflow. To use a different deployment server,
+you can pass `--endpoint` or set the `OPENFN_ENDPOINT` env var. Note that this
+should point to the server root - so `http://app.openfn.org`, not
+`http://app.openfn.org/collections`.
+
+:::tip
+
+Since v1.19.0 The CLI fully supports `.env` files. If you run multiple projects
+locally, you may want to create a `.env` file in your project root and configure
+your endpoint and API token in there:
+
+```
+OPENFN_API_KEY="eyJhbGc..."
+OPENFN_ENDPOINT="https://app.openfn.org"
+```
+
+The `.env` file will be automatically loaded by the CLI. Check debug output for
+details.
+
+:::
+
+### Older CLI
+
+The rest of this guide only applies when using older CLI versions.
+
+If you're using a version prior to 1.21.0, you will need to:
+
+- Get a Personal Access Token (PAT)
+- Update the `workflow.json` with your PAT and the OpenFn endpoint
+- Update the step in the workflow to use the Collections adaptor
+
+Remember that a Collection must be created from the Admin page before it can be
+used!
+
+#### For a single job
 
 You can pass multiple adaptors from the CLI:
 
@@ -318,7 +364,7 @@ You'll need to set configuration on the state.json:
 }
 ```
 
-### For a workflow
+#### For a workflow
 
 If you're using `workflow.json`, set the token and endpoint on
 `workflow.credentials`:
@@ -350,8 +396,12 @@ And make sure that any steps which use collections have multiple adaptors set:
 }
 ```
 
-### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+## Contributing
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+We are a fully Open Source Digital Public Good, and we welcome contributions
+from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).
