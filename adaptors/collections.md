@@ -334,13 +334,8 @@ details.
 
 ### Older CLI
 
-The rest of this guide only applies when using older CLI versions.
-
-If you're using a version prior to 1.21.0, you will need to:
-
-- Get a Personal Access Token (PAT)
-- Update the `workflow.json` with your PAT and the OpenFn endpoint
-- Update the step in the workflow to use the Collections adaptor
+The rest of this guide only applies when using older CLI versions, prior to
+1.21.0.
 
 Remember that a Collection must be created from the Admin page before it can be
 used!
