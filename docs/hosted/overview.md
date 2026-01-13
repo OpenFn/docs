@@ -1,5 +1,5 @@
 ---
-title: Subscriptions on OpenFn.org
+title: Billing & Subscription Management on OpenFn.org
 id: overview
 sidebar_label: Subscriptions (OpenFn.org)
 ---
@@ -17,9 +17,9 @@ billing accounts and subscriptions.
 :::tip Need OpenFn on _Your_ Servers?
 
 OpenFn can be deployed anywhere. Check out the
-[Deployment docs](/documentation/deploy/options) to learn about supported options
-and the "do-it-yourself" local deployment pathway. If you seek expert help to
-manage your local deployment, check out the
+[Deployment docs](/documentation/deploy/options) to learn about supported
+options and the "do-it-yourself" local deployment pathway. If you seek expert
+help to manage your local deployment, check out the
 [managed deployment services](https://www.openfn.org/pricing?hostingType=selfHosted)
 offered by the OpenFn core team.
 
@@ -140,3 +140,29 @@ For downgrades, you are allowed to continue using your current plan until your
 cycle ends as you have already pre-paid for usage during that cycle. When the
 cycle ends, the lower limits will be applied and your next charge will be for
 the price of your new plan.
+
+## Transferring Project Subscriptions
+
+If you're a billing account manager, you can request to transfer ownership
+(i.e., ask someone else to pay for) a project in your billing account. Enter
+their email address, and they'll be notified.
+
+To accept the transfer request, they will need to be a manager of at least one
+billing account with an active payment method. They'll choose the billing
+account, choose the payment method they want to use, and then the transfer will
+be complete and _they_ will pay the next time a payment is owed for that
+subscription.
+
+
+## How It Fits Together (for the engineers 🤓)
+
+```mermaid
+erDiagram
+    "User" }|--|{ "Project" : "A user can access many projects"
+    "User" }|--|{ "Billing Account" : "A user can access many billing accounts"
+    "Project" ||--|| "Subscription" : "A project has one active subscription"
+    "Billing Account" ||--o{ "Payment Method" : "A billing account has many payment methods"
+    "Payment Method" ||--o{ "Subscription" : "A payment method can be use for many subscriptions"
+    "Billing Account" ||--o{ "Subscription" : "A billing account has many subscriptions"
+    "Plan" ||--o{ "Subscription" : "Many subscriptions use the same plan"
+```
