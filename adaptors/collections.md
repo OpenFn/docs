@@ -10,7 +10,7 @@ It is designed for high performance over a large volume of data.
 
 Collections are secure, private datastores which are only accessible to
 Workflows within a particular OpenFn Project. They can be created, managed and
-destroyed from the OpenFn Admin page.
+destroyed from the OpenFn Settings page.
 
 The Collections Adaptor provides an interface to workflows to use the
 Collections API.
@@ -288,8 +288,8 @@ It's shorter, cleaner and easier.
 But if you're unable to update your CLI, you can still configure collections
 manually with the [Older CLI guide](#older-cli).
 
-Remember that a Collection must be created from the Admin page before it can be
-used!
+Remember that a Collection must be created from the Settings page before it can
+be used!
 
 :::tip
 
@@ -337,8 +337,8 @@ details.
 The rest of this guide only applies when using older CLI versions, prior to
 1.21.0.
 
-Remember that a Collection must be created from the Admin page before it can be
-used!
+Remember that a Collection must be created from the Settings page before it can
+be used!
 
 #### For a single job
 
@@ -368,7 +368,7 @@ If you're using `workflow.json`, set the token and endpoint on
 {
   "workflow": {
     "steps": [ ... ],
-    "credentials": {
+    "configuration": {
       "collections_endpoint": "http://localhost:4000/collections",
       "collections_token": "...paste your Personal Access Token..."
     }
