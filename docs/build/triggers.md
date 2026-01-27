@@ -25,6 +25,89 @@ Trigger by adding authentication, head over to our
 Learn how a workflow's initial `state` gets built from a webhook trigger
 [here](../jobs/state#webhook-triggered-runs).
 
+**Webhook Trigger Responses**
+-----------------------------
+
+When a workflow is triggered via a webhook, OpenFn can respond in one of two ways, depending on how the trigger is configured and what the calling system needs.
+
+### **Synchronous response (immediate)**
+
+By default, webhook triggers respond **synchronously**.
+
+This means OpenFn sends an HTTP response **immediately after receiving the webhook request**, once the Work Order and Run have been created.
+
+**Use this mode when:**
+
+*   The calling system only needs confirmation that the request was received
+    
+*   You want fast responses and minimal coupling
+    
+*   The workflow may take longer to run, but the caller does not need the result
+    
+
+**When the response is sent:**
+
+Immediately, during the same HTTP request that triggered the workflow.
+
+**What this response represents:**
+
+It confirms that OpenFn has accepted the webhook and scheduled the workflow to run. It does **not** include the workflow’s output.
+
+Example response body:
+
+```js
+{
+  "work_order_id": "abc123",
+  "run_id": "xyz456"
+}
+```
+
+### **Asynchronous response (after completion)**
+
+Webhook triggers can also be configured to respond **asynchronously**, after the workflow has finished running.
+
+In this mode, OpenFn sends a response **after the Run reaches a final state** (for example: success, failed, or cancelled).
+
+**Use this mode when:**
+
+*   The calling system needs the result of the workflow
+    
+*   You need to know whether the run succeeded or failed
+    
+*   You want access to the workflow’s final output
+    
+
+**When the response is sent:**
+
+After the workflow completes, not during the original webhook request.
+
+**What this response includes:**
+
+*   The final output of the workflow
+    
+*   Metadata describing the run and its outcome
+    
+
+**Response body structure:**
+```js
+
+  {
+  "data": {
+    "...": "final workflow output"
+  },
+  "meta": {
+    "work_order_id": "abc123",
+    "run_id": "xyz456",
+    "state": "success",
+    "error_type": null,
+    "inserted_at": "2025-10-23T10:15:00Z",
+    "started_at": "2025-10-23T10:15:05Z",
+    "claimed_at": "2025-10-23T10:15:06Z",
+    "finished_at": "2025-10-23T10:15:20Z"
+  }
+}
+```
+
 ## Cron Triggers (formerly timers)
 
 **Cron Triggers** run Workflows based on a cron schedule, and are good for
