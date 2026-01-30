@@ -30,9 +30,9 @@ Learn how a workflow's initial `state` gets built from a webhook trigger
 
 When a workflow is triggered via a webhook, OpenFn can respond in one of two ways, depending on how the trigger is configured and what the calling system needs.
 
-### **Synchronous response (immediate)**
+### **Asynchronous response (immediate)**
 
-By default, webhook triggers respond **synchronously**.
+By default, webhook triggers respond **asynchronously**.
 
 This means OpenFn sends an HTTP response **immediately after receiving the webhook request**, once the Work Order and Run have been created.
 
@@ -62,9 +62,9 @@ Example response body:
 }
 ```
 
-### **Asynchronous response (after completion)**
+### **Synchronous response (after completion)**
 
-Webhook triggers can also be configured to respond **asynchronously**, after the workflow has finished running.
+Webhook triggers can also be configured to respond **synchronously**, after the workflow has finished running.
 
 In this mode, OpenFn sends a response **after the Run reaches a final state** (for example: success, failed, or cancelled).
 
