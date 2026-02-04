@@ -27,13 +27,13 @@ Learn how a workflow's initial `state` gets built from a webhook trigger
 
 ## **Webhook Trigger Responses**
 
-When a workflow is triggered via a webhook, OpenFn can respond in one of two
-ways, depending on how the trigger is configured and what the calling system
-needs.
+When a workflow is triggered via a webhook, OpenFn can run that workflow in one
+of two ways, depending on how the trigger is configured and what the calling
+system needs.
 
-### **Asynchronous response (immediate)**
+### **Asynchronous mode**
 
-By default, webhook triggers respond **asynchronously**.
+By default, workflows are executed **asynchronously**.
 
 This means OpenFn sends an HTTP response **immediately after receiving the
 webhook request**, once the Work Order and Run have been created.
@@ -42,7 +42,8 @@ webhook request**, once the Work Order and Run have been created.
 
 - The calling system only needs confirmation that the request was received
 - You want fast responses and minimal coupling
-- The workflow may take longer to run, but the caller does not need the result
+- The calling system does not need the result of the workflow run (or expects
+  knowledge of the result to be delivered to another endpoint)
 
 **When the response is sent:**
 
@@ -50,25 +51,27 @@ Immediately, during the same HTTP request that triggered the workflow.
 
 **What this response represents:**
 
-It confirms that OpenFn has accepted the webhook and scheduled the workflow to
+It confirms that OpenFn has accepted the request and scheduled the workflow to
 run. It does **not** include the workflow’s output.
 
-Example response body:
+#### The async-mode response
 
-```js
-{
-  "work_order_id": "abc123",
-  "run_id": "xyz456"
-}
-```
+- Status code: `200`
+- Body:
+  ```json
+  {
+    "work_order_id": "abc123",
+    "run_id": "xyz456"
+  }
+  ```
 
 ### **Synchronous response (after completion)**
 
-Webhook triggers can also be configured to respond **synchronously**, after the
-workflow has finished running.
+Workflows triggered by webhooks can also be configured to respond
+**synchronously**, after the workflow has finished running.
 
-In this mode, OpenFn sends a response **after the Run reaches a final state**
-(for example: success, failed, or cancelled).
+In this mode, OpenFn sends a response **after the run finishes**, returning its
+final status (e.g., success, failed, killed) and state.
 
 **Use this mode when:**
 
@@ -85,26 +88,28 @@ After the workflow completes, not during the original webhook request.
 - The final output of the workflow
 - Metadata describing the run and its outcome
 
-**Response body structure:**
+#### The sync-mode response
 
-```js
+- Status code: `201`
+- Body:
+  ```json
 
-  {
-  "data": {
-    "...": "final workflow output"
-  },
-  "meta": {
-    "work_order_id": "abc123",
-    "run_id": "xyz456",
-    "state": "success",
-    "error_type": null,
-    "inserted_at": "2025-10-23T10:15:00Z",
-    "started_at": "2025-10-23T10:15:05Z",
-    "claimed_at": "2025-10-23T10:15:06Z",
-    "finished_at": "2025-10-23T10:15:20Z"
+    {
+    "data": {
+      "...final": "run state goes here..."
+    },
+    "meta": {
+      "work_order_id": "abc123",
+      "run_id": "xyz456",
+      "state": "success",
+      "error_type": null,
+      "inserted_at": "2025-10-23T10:15:00Z",
+      "started_at": "2025-10-23T10:15:05Z",
+      "claimed_at": "2025-10-23T10:15:06Z",
+      "finished_at": "2025-10-23T10:15:20Z"
+    }
   }
-}
-```
+  ```
 
 ## Cron Triggers (formerly timers)
 
