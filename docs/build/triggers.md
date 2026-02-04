@@ -47,7 +47,7 @@ webhook request**, once the Work Order and Run have been created.
 
 **When the response is sent:**
 
-Immediately, during the same HTTP request that triggered the workflow.
+Immediately, as soon as the workorder is created and the run is enqueued.
 
 **What this response represents:**
 
@@ -65,23 +65,25 @@ run. It does **not** include the workflow’s output.
   }
   ```
 
-### **Synchronous response (after completion)**
+### **Synchronous mode**
 
-Workflows triggered by webhooks can also be configured to respond
-**synchronously**, after the workflow has finished running.
+Optionally, workflows can be executed **asynchronously**.
 
-In this mode, OpenFn sends a response **after the run finishes**, returning its
-final status (e.g., success, failed, killed) and state.
+This means OpenFn sends an HTTP response to the original webhook request **after
+the run finishes**, returning its final status (e.g., success, failed, killed)
+and state.
 
 **Use this mode when:**
 
-- The calling system needs the result of the workflow
+- The calling system needs the result of the workflow and there isn't another
+  API to receive it
 - You need to know whether the run succeeded or failed
-- You want access to the workflow’s final output
+- You want access to the workflow’s final output to do something _else_ in the
+  calling system
 
 **When the response is sent:**
 
-After the workflow completes, not during the original webhook request.
+After the workflow completes, sometimes seconds (or minutes) later.
 
 **What this response includes:**
 
@@ -92,9 +94,9 @@ After the workflow completes, not during the original webhook request.
 
 - Status code: `201`
 - Body:
-  ```json
 
-    {
+  ```json
+  {
     "data": {
       "...final": "run state goes here..."
     },
