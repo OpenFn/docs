@@ -5,6 +5,23 @@ const chokidar = require('chokidar');
 
 const versions = [];
 
+const badges = [
+  {
+    name: 'Core',
+    icon: `/img/heroicons--shield-check.svg`,
+    link: '/adaptors/#adaptor-badges',
+  },
+  {
+    name: 'Community',
+    icon: ` /img/heroicons--users.svg`,
+    link: '/adaptors/#adaptor-badges',
+  },
+  {
+    name: 'Legacy',
+    icon: ` /img/heroicons--cog.svg`,
+    link: '/adaptors/#adaptor-badges',
+  },
+];
 async function listVersions(next) {
   const url = next || `https://api.github.com/repos/OpenFn/adaptors/tags`;
 
@@ -90,19 +107,24 @@ function pushToPaths(name) {
 function generateJsDoc(a) {
   // Add line break before </dt> tags and escape curly braces outside of code blocks
   let docsContent = JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>');
-  
+
   // Split content by code blocks (both inline ` and multi-line ```)
   const codeBlockRegex = /(```[\s\S]*?```|`[^`]*`)/g;
   const parts = docsContent.split(codeBlockRegex);
-  
+
   // Escape curly braces only in non-code parts (odd indices are code blocks)
   for (let i = 0; i < parts.length; i++) {
-    if (i % 2 === 0) { // Non-code parts
+    if (i % 2 === 0) {
+      // Non-code parts
       parts[i] = parts[i].replace(/{/g, '\\{').replace(/}/g, '\\}');
     }
   }
-  
+
   docsContent = parts.join('');
+
+  const icon = badges.find(
+    b => b.name?.toLowerCase() === a.badge?.toLowerCase()
+  );
 
   return `---
 title: ${a.name}@${a.version}
@@ -112,6 +134,16 @@ keywords:
   - ${a.name}
   ${a.functions.length > 0 ? '- ' : ''}${a.functions.join('\r\n  - ')}
 ---
+
+<a
+  href="${icon?.link || '#'}"
+  class="badge-pill"
+  aria-label="${icon?.name || 'Badge'}"
+>
+  <span>${icon?.name || ''}</span>
+  ${icon?.icon ? `<img src="${icon.icon}" alt="" />` : ''}
+</a>
+
 
 ${docsContent}`;
 }
@@ -227,7 +259,6 @@ async function buildAdaptors(monorepoPath) {
     if (!a.name) {
       return;
     }
-
     const docsBody = generateJsDoc(a);
     const readmeBody = generateReadme(a);
     const changelogBody = generateChangelog(a);
