@@ -215,6 +215,14 @@ module.exports = {
       {
         redirects: [
           {
+            to: '/documentation/get-started/security',
+            from: '/security-guidelines',
+          },
+          {
+            to: '/documentation/get-started/security-compliance',
+            from: '/trust',
+          },
+          {
             to: '/documentation/contribute/roadmap',
             from: '/documentation/contribute/openfn-roadmap',
           },
