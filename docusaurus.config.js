@@ -220,7 +220,7 @@ module.exports = {
           },
           {
             to: '/documentation/get-started/security-compliance',
-            from: '/trust',
+            from: '/compliance',
           },
           {
             to: '/documentation/contribute/roadmap',
