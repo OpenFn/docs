@@ -94,7 +94,9 @@ This means that workflow code which maps information into fhir resources is
 simpler and cleaner. It's easier to write, easier to read, easier to reason
 about, and easier to modify.
 
-## Builder functions
+## User Guide
+
+### Builder functions
 
 All builder functions are available on the `b` (short for `builders`) namespac.
 
@@ -132,7 +134,7 @@ addToBundle(
 );
 ```
 
-## Value mapping
+### Value mapping
 
 The adaptor knows the Eswatini IG's value sets, so short code values are
 automatically expanded to full coded concepts.
@@ -219,7 +221,7 @@ b.patient({
 });
 ```
 
-## Extensions as properties
+### Extensions as properties
 
 Eswatini-specific extensions are exposed as simple named properties on the
 relevant builders, instead of requiring you to construct extension objects
@@ -280,12 +282,12 @@ b.patient({
 }
 ```
 
-## Multi-profile resources
+### Multi-profile resources
 
 Some FHIR resource types have multiple Eswatini profiles. For these, pass the
 profile name as the first argument to the builder.
 
-### Observation
+#### Observation
 
 The `observation` builder accepts one of `SzCauseOfDeath`,
 `SzClinicalObservation`, `SzLabResult`, `SzMannerOfDeath`, or `SzVitalSigns`:
@@ -297,7 +299,7 @@ b.observation('SzVitalSigns', {
 });
 ```
 
-### ServiceRequest
+#### ServiceRequest
 
 The `serviceRequest` builder accepts one of `SzLabRequest` or `SzReferral`:
 
@@ -309,7 +311,7 @@ b.serviceRequest('SzReferral', {
 });
 ```
 
-## Finding More Examples
+### Finding More Examples
 
 The size and complexity of FHIR implementations can make it hard to document
 effectively.
@@ -332,6 +334,24 @@ places to get help are:
    you want is supported, and check how the value is processed (is it value
    mapped? Is it sent to another builder?)
 
+## Adaptor Implementation
+
+The `fhir-eswatini` adaptor is automatically generated from an implementation
+guide.
+
+All builder functions, reference documentation and typings are generated from
+details in the specification according to specific usage patterns and templates.
+
+Some parts of the adaptor, like the main operations, core datatype builders, and
+unit tests, are hand-written.
+
+The ability to generate adaptor code means that the adaptor can be updated to
+changes in the specification within minutes. It also ensures that the generated
+code is comprehensive and accurate.
+
+But bugs in the generation process can result in errors, and the sheer scale of
+code generated means that test coverage can be lacking.
+
 ## Authentication
 
 See this adaptor's
@@ -350,7 +370,7 @@ credential type, your configuration will look something like this:
 }
 ```
 
-### I've noticed a problem with this adaptor, or something is out of date, what can I do?
+## I've noticed a problem with this adaptor, or something is out of date, what can I do?
 
 Thanks for asking! We are a fully Open Source Digital Public Good, and we
 welcome contributions from our community. Check out our
