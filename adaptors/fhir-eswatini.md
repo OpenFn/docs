@@ -109,11 +109,28 @@ b.patient({
 ```
 
 The "builder function" `b.patient()` handles the profile URL, the full
-identifier type coding, and the extension structure automatically.
+identifier type coding, and the extension structure automatically. It also
+provides convenient facilities for mapping values from the incoming data
+source - so sintead of something like this:
+
+```
+state.patient = {
+  // Use a custom map to translate source to target values
+  inkhundla: lookups.region2inkhundla[state.patient.region]
+}
+```
+
+You can just do this:
+
+```
+state.patient = b.patient{
+  inkhundla: state.patient.region
+}
+```
 
 This means that workflow code which maps information into fhir resources is
-simpler and cleaner. It's easier to write, easier to read, easier to reason
-about, and easier to modify.
+simpler and cleaner, with less fiddly syntax and logic. It's easier to write,
+easier to read, easier to reason about, and easier to modify.
 
 ## User Guide
 
