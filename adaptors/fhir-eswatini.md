@@ -20,7 +20,28 @@ healthcare data electronically.
 Learn more about FHIR and
 [FHIR for heath data exchange](/documentation/get-started/standards#fhir-for-health-data-exchange).
 
+## Authentication
+
+See this adaptor's
+[Configuration docs](/adaptors/packages/fhir-eswatini-configuration-schema) for
+the required authentication parameters.
+
+See platform docs on
+[managing credentials](/documentation/manage-projects/manage-credentials) for
+how to configure a credential in OpenFn. If working locally or using a Raw JSON
+credential type, your configuration will look something like this:
+
+```json
+{
+  "baseUrl": "https://hapifhir.eswatinihie.com",
+  "apiPath": "fhir"
+}
+```
+
 ## How This Adaptor Helps
+
+One of the major aims of the `fhir-eswatini` adaptor is to make it easier to
+define FHIR resources.
 
 Writing conformant FHIR resources by hand is verbose. The raw JSON for basic
 Patient looks something like this:
@@ -83,7 +104,7 @@ b.patient({
   name: [{ family: 'Gule', given: ['Jacob', 'Samuel'] }],
   gender: 'male',
   birthDate: '1990-01-01',
-  inkhundla: '3',
+  inkhundla: 'LOBAMBA',
 });
 ```
 
@@ -123,7 +144,13 @@ fn(state => {
 });
 ```
 
-### TODO Bundling
+### Bundling
+
+See the base `fhir-4` docs for details of the `createBundle`, `addToBundle` and
+`uploadBundle` functions.
+
+The `fhir-eswatini` adaptor will generate correct URLs for each entry, and sort
+by dependency order.
 
 ```js
 addToBundle(
@@ -132,6 +159,7 @@ addToBundle(
     birthDate: '1990-01-01',
   })
 );
+uploadBundle();
 ```
 
 ### Value mapping
@@ -158,13 +186,23 @@ accepts short codes like `OPD`, `IPD`, `CO`, and `SO`:
 ```js
 b.encounter({
   class: 'OPD', // expands to full coding with system and display
-  subject: 'Patient/123',
 });
 ```
 
-To know the range of value allowed, follow the links in the docs to the value
+You can pass mappings with the code or display values:
+
+```js
+b.patient({
+  inkundla: 'mbabane', // or code 264
+});
+```
+
+To know the range of values allowed, follow the links in the docs to the value
 set definition (the docs will link you straight into the Implementation Guide).
-Any Code value declared on that page is allowed.
+Any Code or Display value declared on that page is allowed.
+
+If a mapping fails, the value you passed in will be fed through the final FHIR
+resource, unmapped and untouched.
 
 ![Example listing of code values from the FHIR IG](/img/fhir-eswatini-valueset-example.png)
 
@@ -351,24 +389,6 @@ code is comprehensive and accurate.
 
 But bugs in the generation process can result in errors, and the sheer scale of
 code generated means that test coverage can be lacking.
-
-## Authentication
-
-See this adaptor's
-[Configuration docs](/adaptors/packages/fhir-eswatini-configuration-schema) for
-the required authentication parameters.
-
-See platform docs on
-[managing credentials](/documentation/manage-projects/manage-credentials) for
-how to configure a credential in OpenFn. If working locally or using a Raw JSON
-credential type, your configuration will look something like this:
-
-```json
-{
-  "baseUrl": "https://hapifhir.eswatinihie.com",
-  "apiPath": "fhir"
-}
-```
 
 ## I've noticed a problem with this adaptor, or something is out of date, what can I do?
 
