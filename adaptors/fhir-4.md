@@ -65,7 +65,8 @@ written to the new resource
 
 ## Bundles
 
-The FHIR-4 adaptor provides support for bundles.
+The FHIR-4 adaptor provides support for creating, updating and uploading
+bundles.
 
 You can create resources and add them to a bundle:
 
@@ -76,25 +77,13 @@ addToBundle($.resource);
 Where `$.resource` is a FHIR resource, or an array of resources, on the state
 object.
 
-This will add the resources to a bundle resource, under the `entry` key, on
-state under a key called `bundle`. To save the bundle under a different key,
-pass a string as the second argument:
+`addToBundle` actually does two things:
 
-```js
-addToBundle($.resource, 'patients-bundle');
-```
+- First it creates a bundle object on state, setting some defaults
+- Secondly it wraps your resource into an entry object, and add it to the
+  bundle.
 
-Each item in the bundle will be given a `request` object with the `PUT` method
-and a URL. For example:
-
-```js
-addToBundle({
-  id: 'x',
-  resourceType: 'Patient',
-});
-```
-
-Will create a state object like this:
+The code `addToBundle($.resource)` will give you a state object like this:
 
 ```json
 {
@@ -103,6 +92,7 @@ Will create a state object like this:
     "entry": [
       {
         "resource": {
+          // This object is the resource you passed in
           "id": "x",
           "resourceType": "Patient"
         },
@@ -116,8 +106,24 @@ Will create a state object like this:
 }
 ```
 
+To save the bundle under a different key, pass a string key name as the second
+argument:
+
+```js
+addToBundle($.resource, 'patients-bundle');
+```
+
+You can customize the bundle by calling the `createBundle()` function yourself.
+This can be useful for setting the bundle type or other keys.
+
+```
+createBundle({ name: 'upload', type: 'batch' })
+```
+
 To send the Bundle to the FHIR server defined in `state.configuration.baseURL`,
-call `uploadBundle()`.
+call `uploadBundle()`. This operation will sort the bundle according to the
+dependencies of its contents: so resources that reference other resources will
+appear later in the bundle.
 
 You can pass the name of a key on state to upload a specific bundle:
 
@@ -722,6 +728,10 @@ b.patient({
 
 ### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+Thanks for asking! We are a fully Open Source Digital Public Good, and we
+welcome contributions from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).
