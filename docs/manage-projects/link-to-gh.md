@@ -175,7 +175,7 @@ To configure your project to sync to GitHub via the project settings:
 
 ### Sync from GitHub to OpenFn
 
-Use this sync method when you want to pull a version of your priject from GitHub
+Use this sync method when you want to pull a version of your project from GitHub
 into OpenFn. When this sync is triggered, `openfn-deploy` action is executed on
 GitHub and your project spec _(file ending with `.yaml`)_ will be auto-deployed
 to OpenFn.
