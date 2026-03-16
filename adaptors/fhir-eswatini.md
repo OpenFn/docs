@@ -91,7 +91,7 @@ Patient looks something like this:
 }
 ```
 
-The fhir-eswatini adaptor reduces this to:
+But with the `fhir-eswatini` adaptor, all we have to write is:
 
 ```js
 b.patient({
@@ -111,7 +111,7 @@ b.patient({
 The "builder function" `b.patient()` handles the profile URL, the full
 identifier type coding, and the extension structure automatically. It also
 provides convenient facilities for mapping values from the incoming data
-source - so sintead of something like this:
+source - so instead of something like this:
 
 ```
 state.patient = {
@@ -136,13 +136,14 @@ easier to read, easier to reason about, and easier to modify.
 
 ### Builder functions
 
-All builder functions are available on the `b` (short for `builders`) namespac.
+All builder functions are available on the `b` (short for `builders`) namespace.
 
-There is a builder for every resource type in the Eswatini IG: `b.patient()`,
-`b.encounter()`, `b.observation()`, `b.condition()` and so on. See the
-[reference docs](/adaptors/packages/fhir-eswatini-docs) for the full list.
+There is a builder for every resource type in the Eswatini IG: such as
+`b.patient()`, `b.encounter()`, `b.observation()`, `b.condition()` and so on.
+See the [reference docs](/adaptors/packages/fhir-eswatini-docs) for the full
+list.
 
-Pass a plain object with the properties you want:
+Pass a plain object with the properties you want to assign to the resource:
 
 ```js
 const patient = b.patient({
@@ -151,8 +152,22 @@ const patient = b.patient({
 });
 ```
 
-Builders are not operations themselves. Pass them as an argument to an operation
-like `create()`, or use them inside a callback:
+Some resource types, like Observation, support multiple profiles. Pass a profile
+name as the first value to these builders:
+
+```js
+const patient = b.observation('SzLabResult', {
+  code: 'CD4',
+});
+```
+
+The in-app code-editor provides full code-complete (typeahead) on all functions,
+including profile names.
+
+Builders are not operations themselves, so you can't use the at the top level of
+your job code. Pass them as an argument to an operation like
+`create(b.patient(...)` or `addToBundle(b.patient(...))`, or use them inside a
+callback:
 
 ```js
 fn(state => {
@@ -163,11 +178,8 @@ fn(state => {
 
 ### Bundling
 
-See the base `fhir-4` docs for details of the `createBundle`, `addToBundle` and
-`uploadBundle` functions.
-
-The `fhir-eswatini` adaptor will generate correct URLs for each entry, and sort
-by dependency order.
+The `fhir-eswatini` adaptor provides API support to create, manage and upload
+bundles.
 
 ```js
 addToBundle(
@@ -179,10 +191,47 @@ addToBundle(
 uploadBundle();
 ```
 
+The final `uploadBundle()` function will generate correct URLs for each entry,
+and sort entries by dependency order.
+
+See the base `fhir-4` docs for details of the `createBundle`, `addToBundle` and
+`uploadBundle` functions.
+
 ### Value mapping
 
-The adaptor knows the Eswatini IG's value sets, so short code values are
-automatically expanded to full coded concepts.
+FHIR data structures are very verbose. In many cases, complex structure values
+can be mapped to a simple string values.
+
+For example, an Encounter resource has a `class` property to specify the
+location the encounter took place:
+
+```js
+b.encounter({
+  class: {
+    code: 'OPD',
+    display: 'Outpatient Department',
+    system:
+      'https://hapifhir.eswatinihie.com/fhir/CodeSystem/SzEncounterClassificationCS',
+  },
+});
+```
+
+Using value mappings generated from the Eswatini IG, we can accept a short-hand
+string value in the builder which will expand this whole structure internally:
+
+```js
+b.encounter({
+  class: 'OPD',
+});
+```
+
+The builder knows the that `class` property of encounter is bound to a
+particular value set. So it will automatically try and lookup a string value
+against the list of known codes. If it finds one, it'll replace the string with
+the full object definition above.
+
+This mapping applies to any property or extension for which the IG specifies a
+value set.
 
 For example, an identifier's `type` accepts a short code from the Eswatini
 Person Identifications code system:
@@ -197,31 +246,37 @@ b.patient({
 });
 ```
 
-The same applies to other coded fields. For example, an encounter's `class`
-accepts short codes like `OPD`, `IPD`, `CO`, and `SO`:
-
-```js
-b.encounter({
-  class: 'OPD', // expands to full coding with system and display
-});
-```
-
-You can pass mappings with the code or display values:
+Expands to:
 
 ```js
 b.patient({
-  inkundla: 'mbabane', // or code 264
+  identifier: {
+    type: {
+      coding: [
+        {
+          system:
+            'https://hapifhir.eswatinihie.com/fhir/CodeSystem/SzPersonIdentificationsCS',
+          code: 'PI',
+          display: 'Personal ID Number',
+        },
+      ],
+    },
+    system: 'http://homeaffairs.sys',
+    value: '1999001000000',
+  },
 });
 ```
 
 To know the range of values allowed, follow the links in the docs to the value
 set definition (the docs will link you straight into the Implementation Guide).
-Any Code or Display value declared on that page is allowed.
+Any Code or Display value declared on that page is accepted.
 
 If a mapping fails, the value you passed in will be fed through the final FHIR
 resource, unmapped and untouched.
 
 ![Example listing of code values from the FHIR IG](/img/fhir-eswatini-valueset-example.png)
+
+### Custom Value Mapping
 
 You can also define your own value mappings. This is useful when mapping your
 input data into FHIR. Just declare the mappings at the top of your job code with
@@ -267,8 +322,8 @@ b.patient({
 });
 ```
 
-If you declare mappings relative to the format your source data, you can declare
-the value based on your data without complex mapping code
+If you declare mappings relative to the format of your source data, you can
+declare the value based on your data without complex mapping code
 
 ```js
 b.patient({
