@@ -299,6 +299,17 @@ b.setValues(
 );
 ```
 
+::: tip
+
+Because it is a plain Javascript function, not an Operation, `b.setValues` can
+only be used inside a callback or fn block.
+
+`fhir-eswatini` v0.6.0 provides a `setMappings` operation, with the same API as
+`setValues`, which allows value maps to be set from the top level of your job
+code.
+
+:::
+
 Custom mappings like this do not override the default system values. In fact,
 your custom mappings are expanded first and THEN the system mappings cut in - so
 you can declare custom mappings which map right to codings, which will then be
