@@ -157,9 +157,9 @@ they happen days apart.
 **Example scenario**: You have a **daily sync at 9 AM** with a workflow that has
 3 steps: (1) fetch patient records, (2) transform data, (3) send to database. On
 Monday, the workflow processes records up to ID 1000 and outputs
-`{ lastProcessedId: 1000 }`. On Tuesday at 9 AM, the cron job starts again with
-`{ lastProcessedId: 1000 }` from Monday's first step, so it knows to fetch and
-process records starting from ID 1001.
+`{ lastProcessedId: 1000 }` as its final state. On Tuesday at 9 AM, the cron job
+starts again with `{ lastProcessedId: 1000 }` as its input, so it knows to fetch
+and process records starting from ID 1001.
 
 The first time the workflow runs, the initial state will simply be an empty
 JavaScript object: `{}`
