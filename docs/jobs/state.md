@@ -9,8 +9,8 @@ State is just a Javascript object. It is the means via which Jobs share
 information between each other. It also provides a common scope for Operations
 to read from and write to.
 
-The final state form a Job must always be a serializable Javascript object (ie,
-a JSON object). Any non-serializable keys will be removed.
+The final state form a Job must always be a serializable Javascript object
+(i.e., a JSON object). Any non-serializable keys will be removed.
 
 ![Job State Overview](/img/state-javascript.webp)
 
@@ -35,7 +35,7 @@ State objects tend to have the following keys:
   name.
 
 At the end of a Job, the configuration key will be removed, along with any other
-non serialisable keys.
+non serializable keys.
 
 Adaptors will occasionally write extra information to state during a run - for
 example, database Adaptors tend to write a `client` key to state, used to track
@@ -43,8 +43,8 @@ the database connection. These will be removed at the end of a Job.
 
 ## Input & output state for runs
 
-Depending on whether you're running Workflows locally via the CLI or on the app, the input
-state for a Run must be generated differently:
+Depending on whether you're running Workflows locally via the CLI or on the app,
+the input state for a Run must be generated differently:
 
 - When manually creating a work order, you must select or generate your input
   manually (e.g., by creating a custom `Input` on the app or `state.json` file
@@ -54,24 +54,25 @@ state for a Run must be generated differently:
 
 The final state of a Run is determined by what's returned from the last
 operation. Remember that job expressions are a series of operations: they each
-take state and return state, after creating any number of side effects. The final returned
-state controls what is output by the run at the end of all of these operations.
+take state and return state, after creating any number of side effects. The
+final returned state controls what is output by the run at the end of all of
+these operations.
 
 Best practice is to include a final state cleanup step that removes any data
 that should not persist between runs or be output (like PII), for example:
 
 ```js
 // get data from a data source
-get('https://jsonplaceholder.typicode.com/users')
+get('https://jsonplaceholder.typicode.com/users');
 
 // store retrieved data in state for use later in job
 fn(state => {
-    state.users = state.data;
+  state.users = state.data;
   return state;
 });
 
 // get more data from another data source
-get('https://jsonplaceholder.typicode.com/posts')
+get('https://jsonplaceholder.typicode.com/posts');
 
 // store additional retrieved data in state for use later in job
 fn(state => {
@@ -89,10 +90,10 @@ fn(state => {
 
 // cleanup state at the end before finishing job
 fn(state => {
-  state.data = null
-  state.users = null
-  state.posts = null
- 
+  state.data = null;
+  state.users = null;
+  state.posts = null;
+
   return state;
 });
 ```
@@ -148,20 +149,31 @@ The input state looks like this:
 
 ### Cron triggered runs
 
-When a run is triggered by a cron job, its input state will be the output of the **first step** from the previous run. This allows each subsequent run to know about previous runs. In other words, you can pass information from one run to another even if they happen days apart.
+When a run is triggered by a cron job, its input state will be the final state
+of the previous run. This allows each subsequent run to know about previous
+runs. In other words, you can pass information from one run to another even if
+they happen days apart.
 
-**Example scenario**: You have a **daily sync at 9 AM** with a workflow that has 3 steps: (1) fetch patient records, (2) transform data, (3) send to database. On Monday, the **first step** processes records up to ID 1000 and outputs `{ lastProcessedId: 1000 }`. Even though steps 2 and 3 modify the state further, only the **first step's output** gets saved for the next cron run. On Tuesday at 9 AM, the cron job starts again with `{ lastProcessedId: 1000 }` from Monday's first step, so it knows to fetch records starting from ID 1001.
+**Example scenario**: You have a **daily sync at 9 AM** with a workflow that has
+3 steps: (1) fetch patient records, (2) transform data, (3) send to database. On
+Monday, the workflow processes records up to ID 1000 and outputs
+`{ lastProcessedId: 1000 }` as its final state. On Tuesday at 9 AM, the cron job
+starts again with `{ lastProcessedId: 1000 }` as its input, so it knows to fetch
+and process records starting from ID 1001.
 
-The first time the workflow runs, the initial state will simply be an empty JavaScript object: `{}`
+The first time the workflow runs, the initial state will simply be an empty
+JavaScript object: `{}`
 
 #### Overriding cron input
 
 You can always manually run a cron-triggered workflow with:
+
 - **Empty input**: `{}` - starts fresh without previous state.
 - **Custom input**: Your own data to test specific scenarios.
 - **Default input**: Uses the same input as the scheduled runs.
 
-If the manual run succeeds, the next scheduled cron run will start with whatever output state your manual run produced.
+If the manual run succeeds, the next scheduled cron run will start with whatever
+output state your manual run produced.
 
 ## Input & output state for steps
 

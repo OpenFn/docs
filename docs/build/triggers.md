@@ -113,17 +113,15 @@ After the workflow completes, sometimes seconds (or minutes) later.
   }
   ```
 
-## Cron Triggers (formerly timers)
+## Cron Triggers
 
 **Cron Triggers** run Workflows based on a cron schedule, and are good for
 repetitive tasks that are time-based (e.g., every day at 8am, sync financial
-data).
+data between two systems).
 
-These Triggers enable users to “pull” data from connected systems. You can pick
+These Triggers enable users to "pull" data from connected systems. You can pick
 a standard schedule (e.g., every day, or every month), or define a custom
 schedule using cron expressions.
-
-![Cron Trigger](/img/cron_trigger.webp)
 
 :::tip Help with cron expressions
 
@@ -137,15 +135,22 @@ Cron Triggers enable Workflows to be run as frequently as once every minute, or
 as infrequently as you desire and can be scheduled on very specific dates or
 times.
 
-Learn how a workflow's initial `state` gets built from a cron trigger
-[here](/documentation/jobs/state#cron-triggered-runs).
+### Input `state` for the next run
 
-You can use a Cursor to help build input state when the workflow is triggered:
-see the [Job Writing Guide](/documentation/jobs/job-writing-guide#using-cursors)
-for more details.
+Every time a cron-triggered workflow is run it will _start_ with the final
+output of the last successful run. This allows users to build workflows that
+make use of a ["cursor"](/documentation/jobs/job-writing-guide#using-cursors)
+that tracks what happened last time the workflow ran. (Only processing data that
+changed since that last run, for example.)
 
-Each time a timed job succeeds, its `final_state` will be saved and used as the
-input state for its next run.
+![Cron Trigger](/img/cron_trigger.webp)
+
+Be default, the input state for the next cron run will be the final output state
+of the previous run, but you can configure this to use the output state from a
+specific step in your earlier run by changing the "Cron Input Source".
+
+More on `state` in cron-triggered runs can be found in the
+["Input and Output State"](/documentation/jobs/state#cron-triggered-runs) docs.
 
 ### Managing the size of `state` for Cron Workflows
 
