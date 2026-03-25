@@ -264,7 +264,7 @@ triggers going forward. Please don't hesitate to reach out on
    consumer settings, this may prove to be an obstacle as users will not be able
    to tune their consumers to align with their individual clusters in large
    multi-tenant deployments.
-2. If a run could not be turned into a Workflow (due to persistence errors or
+2. If a message could not be turned into a work order (due to persistence errors or
    hitting the hard limit), these will not be visible to the end-user and may be
    lost forever (i.e. the cluster thinks Lightning has them but it doesn't and
    they eventually rotate off the cluster)
