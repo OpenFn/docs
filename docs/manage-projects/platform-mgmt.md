@@ -65,6 +65,21 @@ You can enable or disable parallel execution for a project. When parallel
 execution is disabled, only one run of a workflow in the project can be executed
 at a time.
 
+### Sync-mode workflows
+
+Note that workflows triggered by webhook and set to respond synchronously are typically
+configured by your instance superuser to run in a priority queue (to reduce HTTP
+request/response times) and will IGNORE all concurrency limits. I.e., they will use the
+max number of available priority workers to reduce response times.
+
+:::warning Sync-mode workflows are not limited by project concurrency
+
+They use the maximum number of available workers, as configured by your instance administrator.
+
+:::
+
+### Workflow-level concurrency limiter
+
 :::info Project vs workflow level concurrency
 
 Project level concurrency overrides workflow level concurrency. This means that
