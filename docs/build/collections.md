@@ -14,16 +14,6 @@ Webhooks, storing large mapping files, and sharing state between workflows.
 Collections can be used to store a very large number of items (in the order of
 millions).
 
-:::caution Collections Stability
-
-Collections is a new feature to OpenFn, in beta release since November 2024.
-
-We'd love to hear your feedback on
-[community.openfn.org](https://community.openfn.org/) via email at
-[support@openfn.org](mailto:support@openfn.org).
-
-:::
-
 ## Use Cases
 
 ### Buffering Data
