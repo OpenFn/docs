@@ -22,7 +22,7 @@ You can use the CLI to:
 - Experiment with query syntax to get the keys you need
 - Update mapping objects and lookup tables from local (or source-controlled)
   files
-- Manually remove unneeded data
+- Manually remove data
 
 :::tip
 
@@ -59,10 +59,11 @@ We do this using Personal Access Tokens. See
 more details.
 
 One you have a PAT, you need to pass it in to the CLI. The easiest way to do
-this is to set your `OPENFN_PAT` env var, which the CLI will use automatically.
+this is to set an env var `OPENFN_API_KEY`, or use a `.env` file. The CLI will
+automatically use this value for all requests.
 
-If you're using multiple access tokens, you can pass `--token` to the CLI to
-override the default.
+You can also pass `--token` to the CLI to override the value loaded from your
+environment.
 
 ```bash
 openfn collections get my-collection \* --token $MY_OPENFN_PAT
@@ -78,16 +79,15 @@ all examples will work.
 
 ## Setting a server
 
-By default, the CLI will point to our primary platform at
-https://app.openfn.org.
+By default, the CLI will point to our cloud app at https://app.openfn.org.
 
 If you're running from open source or using a different deployment, you'll also
 need to tell the CLI which Collections server to use.
 
-You can do this by passing `--lightning` directly:
+You can do this by passing `--endpoint` directly:
 
 ```bash
-openfn collections get my-collection \* --lightning http://localhost:4000
+openfn collections get my-collection \* --endpoint http://localhost:4000
 ```
 
 Or by setting the `OPENFN_ENDPOINT` environment variable.
@@ -102,6 +102,25 @@ openfn collections get my-collection \* --log debug
 ```
 
 :::
+
+## Project Name Uniqueness
+
+In Lightning releases prior to 2.17.0, collection names were globally unique.
+
+Since 2.17.0, collection names are scoped to a project, which means an OpenFn
+instance can have multiple collections with the same name.
+
+Any requests to the collections API will attempt to resolve a collection name to
+a single collection. But if there are conflicts, the server will return a 409
+error code.
+
+To resolve this, pass a project id
+
+```bash
+openfn collections get <collection-name> <key> --project_id 1d28c76c-e4ef-4e58-ac1e-464dc479946c
+```
+
+You can also set the project ID through an env var, or use the `-p` shortcut.
 
 ## Fetching items
 
@@ -261,4 +280,26 @@ running the delete:
 
 ```bash
 openfn collections remove my-collection 2024* --dry-run
+```
+
+## Troubleshooting
+
+### Error 409: multiple collection names matched
+
+This means that you've requested a collection by name, but the server has
+multiple collections with that name.
+
+You must scope your request to the correct project by including the project id
+in your request.
+
+You can either pass this directly:
+
+```
+openfn collections get my-collection \* --project-id 1d28c76c-e4ef-4e58-ac1e-464dc479946c
+```
+
+Or set an env var (`.env` files are supported):
+
+```
+OPENFN_PROJECT_ID=1d28c76c-e4ef-4e58-ac1e-464dc479946c
 ```
