@@ -71,9 +71,27 @@ html[data-theme='dark'] .header-github-link:before {
 
   margin-bottom: 20px;
   padding-top: 12px;
-  text-align:  center;
+  text-align: center;
   border: solid 1px #c0c0c0;
   border-radius: 8px;
   min-width: 300px;
   max-width: 400px;
+}
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 5px 10px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 9999px;
+  background: rgb(225, 225, 230);
+  color: inherit;
+  text-decoration: none;
+  line-height: 1.1;
+}
+.badge-pill img {
+  width: 1.2em;
+  height: 1.2em;
+  transform: translateY(0.05em);
 }
