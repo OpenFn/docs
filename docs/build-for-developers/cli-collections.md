@@ -107,7 +107,7 @@ openfn collections get my-collection \* --log debug
 
 In Lightning releases prior to 2.17.0, collection names were globally unique.
 
-Since XXX, collection names are scoped to a project, which means an OpenFn
+Since 2.17.0, collection names are scoped to a project, which means an OpenFn
 instance can have multiple collections with the same name.
 
 Any requests to the collections API will attempt to resolve a collection name to
