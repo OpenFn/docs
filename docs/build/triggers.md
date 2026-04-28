@@ -47,6 +47,9 @@ gets a fast acknowledgement and the workflow runs in the background.
 **Response:**
 
 - Status code: `200`
+- Headers:
+  - `x-meta-work-order-id` — the ID of the created work order
+  - `x-meta-run-id` — the ID of the created run
 - Body:
   ```json
   {
@@ -71,6 +74,9 @@ system waits — sometimes seconds or minutes — for the result.
 **Default response:**
 
 - Status code: `201` (configurable — see below)
+- Headers:
+  - `x-meta-work-order-id` — the ID of the work order
+  - `x-meta-run-id` — the ID of the run
 - Body: the final run state as a JSON object
 
 :::note Security policy for failed runs
