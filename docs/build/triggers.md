@@ -27,36 +27,29 @@ Learn how a workflow's initial `state` gets built from a webhook trigger
 
 ## **Webhook Trigger Responses**
 
-When a workflow is triggered via a webhook, OpenFn can run that workflow in one
-of two ways, depending on how the trigger is configured and what the calling
-system needs.
+When a workflow is triggered via a webhook, OpenFn can respond to the calling
+system in one of two ways, depending on how the trigger is configured.
 
-### **Asynchronous mode**
+### **Async (Before Start)**
 
 By default, workflows are executed **asynchronously**.
 
-This means OpenFn sends an HTTP response **immediately after receiving the
-webhook request**, once the Work Order and Run have been created.
+OpenFn sends an HTTP response **immediately after receiving the webhook
+request**, once the Work Order and Run have been created. The calling system
+gets a fast acknowledgement and the workflow runs in the background.
 
 **Use this mode when:**
 
 - The calling system only needs confirmation that the request was received
 - You want fast responses and minimal coupling
-- The calling system does not need the result of the workflow run (or expects
-  knowledge of the result to be delivered to another endpoint)
+- The calling system does not need the result of the workflow run
 
-**When the response is sent:**
-
-Immediately, as soon as the workorder is created and the run is enqueued.
-
-**What this response represents:**
-
-It confirms that OpenFn has accepted the request and scheduled the workflow to
-run. It does **not** include the workflow’s output.
-
-#### The async-mode response
+**Response:**
 
 - Status code: `200`
+- Headers:
+  - `x-meta-work-order-id` — the ID of the created work order
+  - `x-meta-run-id` — the ID of the created run
 - Body:
   ```json
   {
@@ -65,53 +58,70 @@ run. It does **not** include the workflow’s output.
   }
   ```
 
-### **Synchronous mode**
+### **Sync (After Completion)**
 
-Optionally, workflows can be executed **asynchronously**.
+Optionally, workflows can be executed **synchronously**.
 
-This means OpenFn sends an HTTP response to the original webhook request **after
-the run finishes**, returning its final status (e.g., success, failed, killed)
-and state.
+OpenFn holds the HTTP connection open and sends a response **after the run
+finishes**, returning the final run state as the response body. The calling
+system waits — sometimes seconds or minutes — for the result.
 
 **Use this mode when:**
 
-- The calling system needs the result of the workflow and there isn't another
-  API to receive it
-- You need to know whether the run succeeded or failed
-- You want access to the workflow’s final output to do something _else_ in the
-  calling system
+- The calling system needs the result of the workflow run
+- You need the workflow’s final output to drive the next step in the caller
 
-**When the response is sent:**
+**Default response:**
 
-After the workflow completes, sometimes seconds (or minutes) later.
+- Status code: `201` (configurable — see below)
+- Headers:
+  - `x-meta-work-order-id` — the ID of the work order
+  - `x-meta-run-id` — the ID of the run
+- Body: the final run state as a JSON object
 
-**What this response includes:**
+:::note Security policy for failed runs
 
-- The final output of the workflow
-- Metadata describing the run and its outcome
+When a run fails, OpenFn returns a generic message as the response body rather
+than the full run state, to avoid leaking sensitive data. You can still return
+a custom body from a failed run using `_webhookResponse` (see below).
 
-#### The sync-mode response
+:::
 
-- Status code: `201`
-- Body:
+#### Configuring custom status codes
 
-  ```json
-  {
-    "data": {
-      "...final": "run state goes here..."
-    },
-    "meta": {
-      "work_order_id": "abc123",
-      "run_id": "xyz456",
-      "state": "success",
-      "error_type": null,
-      "inserted_at": "2025-10-23T10:15:00Z",
-      "started_at": "2025-10-23T10:15:05Z",
-      "claimed_at": "2025-10-23T10:15:06Z",
-      "finished_at": "2025-10-23T10:15:20Z"
-    }
-  }
-  ```
+In sync mode you can set custom HTTP status codes via the trigger inspector
+under **Options → Response Status**:
+
+- **Success Status Code** — returned when the run completes successfully
+  (defaults to `201`)
+- **Error Status Code** — returned when the run fails (defaults to `201`)
+
+#### Customising the response from your job
+
+To return a custom body or status code from values at runtime, set `_webhookResponse` in the state, e.g.:
+
+```js
+fn(state => ({
+  ...state,
+  _webhookResponse: {
+    status: 200,
+    body: { ack: true, id: state.data.id },
+  },
+}));
+```
+
+`_webhookResponse` is read from the state at the **end of the run** — the
+output of the last step that executed. Any job in the workflow can set or
+overwrite it, so you have full control over what gets returned regardless of
+where in the workflow it happens.
+
+Both `status` and `body` are **optional** — you can include either or both:
+
+| Field    | Behaviour when set                                              |
+| -------- | --------------------------------------------------------------- |
+| `status` | Overrides the configured status code for this run              |
+| `body`   | Replaces the final run state as the response body              |
+| neither  | Falls back to the configured status code and final run state   |
 
 ## Cron Triggers
 
