@@ -65,7 +65,7 @@ and set any environment variables you need there. The CLI will load this file
 and report which keys its using. Values in your `.env` file will be preferred to
 those defined in your system.
 
-You can also
+You can also pass `--api-key` directly as a flag to most commands.
 
 ::: info
 
@@ -184,9 +184,85 @@ This will save the project to `dev@app.openfn.org.yaml`
 To change the alias, you can simply rename the file. Whatever goes before the
 `@` will be treated as the alias.
 
+## Checking Out
+
+You can checkout a project any time with:
+
+```bash
+openfn project checkout <alias|id|uuid>
+```
+
+This will update your local workflows folder with the target project.
+
+If a checkout will cause changes to be lost (ie, you've changed a step.js file
+but haven't deployed it), you will be warned. Add `--force` to ignore the
+change, or run `openfn project clean` to wipe and reset the `workflows` folder.
+
+Checking out will only modify files managed by the CLI - basically workflow and
+step files. If you have other files in the file system (like state files or test
+files) they will be untouched.
+
 ## Running workflows in projects
 
+You can execute any workflow in the checked out project by name:
+
+```bash
+openfn my-workflow
+```
+
+The CLI will find the workflow in your `workflows` folder and run it. You can
+pass state via `-s` and set log levels as per usual.
+
+When running a workflow by name like this, you get two benefits:
+
+- **Credentials** are loaded automatically from the credential map in
+  `openfn.yaml`, so you don't need to pass `--credential-map`
+- **Collections** use the server configured in `openfn.yaml`, so you don't need
+  to pass `--collections-endpoint` or anything.
+
 ## Deploying a Project
+
+To push your local changes back to the app, run:
+
+```bash
+openfn project deploy
+```
+
+This will take your currently checked out project and push it to the app. It
+will also report what has changed in the local project.
+
+Before uploading, the CLI fetches the latest version of the project from the app
+and checks for **divergence** — meaning it checks whether any of your
+locally-changed workflows have also been edited in the app since you last
+pulled. If they have, the deploy will fail with an error to prevent you from
+accidentally overwriting someone else's work.
+
+If you want to push anyway, pass `--force`:
+
+```bash
+openfn project deploy --force
+```
+
+To preview what would change without actually uploading anything, use
+`--dry-run`. This will log the final update payload that would be sent to the
+app (as a JSON structure).
+
+You can deploy the checked out project as a new project on the target app by
+adding the `--new` command. This is only available if you have superuser
+privileges on the target instance.
+
+You can also deploy the checked out project to another app project by passing
+its alias, id or uuid:
+
+```
+openfn project deploy main
+```
+
+If you currently have a development sandbox checked out, this would merge it
+straight into the main app project.
+
+Note that you have to have fetched the target project locally before you can
+deploy it.
 
 ## Sandboxes
 
@@ -194,4 +270,16 @@ To change the alias, you can simply rename the file. Whatever goes before the
 
 ## Cheatsheet
 
-An OpenFn project can be represented as a single yaml file
+| Command                                  | Description                                                                    |
+| ---------------------------------------- | ------------------------------------------------------------------------------ | ----- | --------------------------------------- |
+| `openfn project pull <uuid>`             | Pull a project from the app for the first time                                 |
+| `openfn project pull`                    | Re-pull the current project                                                    |
+| `openfn project pull <uuid> --alias dev` | Pull and set a local alias                                                     |
+| `openfn project fetch <alias             | id                                                                             | uuid` | Fetch a project without checking it out |
+| `openfn project`                         | List all local projects in the current working folder                          |
+| `openfn project checkout <alias>`        | Switch to a different local project                                            |
+| `openfn project deploy`                  | Deploy checked-out project to the app                                          |
+| `openfn project deploy --dry-run`        | Try a deploy but skip the upload step                                          |
+| `openfn project deploy --force`          | Force the checked out project to be uploaded, ignoring any divergence warnings |
+| `openfn <workflow-name>`                 | Run a workflow in the checked-out project                                      |
+| `openfn project clean`                   | Delete the `workflows` folder and all contents, then check out the project     |
