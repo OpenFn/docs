@@ -3,7 +3,7 @@ title: Collections
 sidebar_label: Collections
 ---
 
-Collections provides a high-volume, high-performance storage solution built into
+Collections provide a high-volume, high-performance storage solution built into
 OpenFn. Check out
 **[this video](https://www.youtube.com/watch?v=iXkkkzratzY&t=3s&ab_channel=OpenFn.org)**
 for an introduction.
