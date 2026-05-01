@@ -27,7 +27,7 @@
     "@docusaurus/theme-mermaid": "3.9.2",
     "@mdx-js/react": "^3.0.0",
     "axios": "1.15.0",
-    "brace-expansion": "1.1.12",
+    "brace-expansion": "^5.0.0",
     "clsx": "^1.1.1",
     "compare-versions": "^5.0.1",
     "date-fns": "2.21.3",
