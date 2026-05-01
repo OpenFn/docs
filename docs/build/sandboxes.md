@@ -4,26 +4,15 @@ sidebar_label: Sandboxes
 ---
 
 Sandboxes are a way to develop fixes and new features on workflows without
-affecting live, or "in production", runs.
-
-:::info Sandboxes are new to OpenFn since October 2025.
-
-At the time of writing sandboxes are under active development and testing. We
-expect to be in full working order by the end of November 2025, but until then
-we recommend not using them with live workflows.
-
-To access sandboxes, you'll need to enable the Experimental Features option in
-your user settings.
-
-:::
+affecting live, or "production", runs.
 
 A sandbox is essentially a clone of a project, with its own private history,
-webhooks, cron triggers credentials and access rights. It also has its own
-billing rules - so sandbox runs and AI tokens don't affect your main project.
-Unlike most sandbox settings, the billing rules derive from the original
-project, rather than duplicate them.
+webhooks and cron triggers, credentials and access rights.
 
-The idea is that you can develop the workflow in total isolation from the main
+Sandboxes also have their own billing rules, so runs and AI tokens used in the
+sandbox don't affect the usage of your main project.
+
+The idea is that you can develop workflows in total isolation from the main
 project, and once you're done, merge (read as "push" or "promote") changes back.
 
 :::tip Short-lived sandboxes
@@ -53,6 +42,11 @@ not affect the same-named Workflow in any other project or sandbox, or that a
 Run in a sandbox will contribute to your usage in any other sandbox or project,
 and so on.
 
+Collections are scoped to a project or sandbox. When you create a new sandbox,
+empty copies of any collections on the original project will be created inside
+the sandbox. When merging the sandbox, data is not transferred between
+collections (but new collections will be created on the merge target).
+
 ## Creating sandboxes
 
 When you create a new sandbox, we basically create a total copy of your project.
@@ -60,47 +54,42 @@ Any changes made to the sandbox will not affect your main project workflows - so
 you can experiment freely without breaking anything.
 
 To create a sandbox, enter a Project, click on sandboxes, and click on the
-Create sandbox button.
+Create Sandbox button.
 
-You'll need to set a name for the sandbox. This is unique within your project
-and its sandboxes. If you're familiar with git, treat it like a branch name.
+You'll need to set a name for the sandbox. This must be unique across sandboxes
+within the project. If you're familiar with git, treat it like a branch name.
 Otherwise, you can either give it a general name like `testing`, or name it for
 a specific feature, like `new-patient-workflow`.
-
-You'll also need to set an Environment (see below). This configures all
-credentials within the sandbox to use that environment variant. If you're not
-sure, set the environment to `dev` (you can change this at any time from the
-Setup tab of the sandbox Settings page).
 
 A color will be randomly selected to associate with the sandbox. You'll see this
 color in the app UI while you're using the sandbox. You can select a different
 color if you like.
 
-Click Create sandbox when you're ready. You'll automatically enter the sandbox.
+Click Create Sandbox when you're ready. You'll automatically enter the sandbox.
 
 ## Viewing a sandbox
 
-To develop and test a sandbox, you need to enter it in the app from the
-sandboxes menu.
+To develop and test a sandbox, you need to enter it from the Sandboxes item on
+the main navigation bar.
 
 When sandbox is active, the app will change color to help you understand what
-you're looking at. [TODO] We also list the active sandbox in the breadcrumbs at
-the top of the page, and in a banner on the Inspector.
+version of your project you're looking at.
 
-Each sandbox has its own isolated Workflows, Subscription, History and settings.
-As you click through the pages, you'll notice that your original project's
-details are excluded. This is because your sandbox is an independent clone of
-the original project.
+Each sandbox has its own isolated Workflows, Collections, Subscription, History
+and settings. As you click through the pages, you'll notice that your original
+project's details are excluded. This is because your sandbox is an independent
+clone of the original project.
+
+Some Settings are "private" to a sandbox, while others are inherited by the
+parent Project, and a few will be copied into the target on merge. The Settings
+page will clearly tell you what to expect.
 
 ## Environments
 
-Environments allow you to run a Workflow with a special set of credentials. This
-lets you use development servers, modes and databases while building your
-sandbox, without interfering with live production services.
-
-Each sandbox has an associated environment. By default it's `main`, which
-implies that this is your live production environment. But you can create an
-environment like `dev` or `staging`.
+Environments allow you to run a Workflow with a special set of credential
+values, seperate to your main project. This lets you use development servers,
+modes and databases while building your sandbox, without interfering with live
+production services.
 
 The environment is just a label, and each credential used in your workflow has a
 set of values associated with that label. For example, when connecting to DHIS2,
@@ -108,16 +97,15 @@ your main credential will contain private login details. But your `dev`
 environment might use the public sandbox and so contain a different username and
 password.
 
+By default, all Sandboxes are given the environment `dev`. You can change this
+from the Settings page.
+
 All environments are securely stored and encrypted within our database, so it's
 perfectly safe to duplicate production credentials across multiple environments.
 
 For each Credential used in your workflow, you must ensure there is a value set
 to match your sandbox environment. If you do not configure your credentials, the
 Workflow will fail with clear instructions on how to correct it.
-
-To change a the environment used by a Sandbox, first enter the Sandbox from the
-Sandboxes page, then go to the Settings page. The environment can be edited
-under the Identity section of the Setup tab (right at the top of the page).
 
 ## Merging sandboxes
 
@@ -127,23 +115,21 @@ back into your main project.
 This is easy in the app: simply head to the Sandboxes page, find the Sandbox you
 want to merge in the list, and click the Merge icon on the right-hand side.
 
-You'll be prompted to select the target project or sandbox to merge into: pick
-from the list and click Merge. Usually you'll want to merge into the original
-project, which is selected by default.
+You'll be prompted to select the target project or sandbox to merge into.
+Usually you'll want to merge into the original project, which is selected by
+default.
 
-When merging, we replace the contents of workflows in your project with those in
-your sandbox. Any workflows which are not in the sandbox will be ignored. If you
-rename a workflow in the sandbox, you'll see the new workflow appear in your
-main project, and the original workflow will be left alone (you'll probably want
-to delete that manually).
+You can also pick which Workflows to include in the merge. This helps reduce
+conflicts with any changes on the underlying Project, and helps you understand
+the consequences of the merge.
 
-Note that settings and options, like concurrency and data retention rules, are
-not transferred in the merge, nor are historical runs or dataclips. Just the
-Workflow contents.
+When merging, we replace the contents of workflows in the target project with
+those in your sandbox. Renaming a worklow will make it look like the workflow
+was removed from the base, and a new workflow added.
 
-After merging, the sandbox will be destroyed, along with its history and
-dataclips. Any environments and credentials assocaited with the project will be
-unaffected.
+After merging, the sandbox will be destroyed, along with its history,
+collections and dataclips. Any environments and credentials associated with the
+project will be unaffected.
 
 :::tip
 
@@ -172,10 +158,10 @@ Occasionally these conflicts are trivial to resolve and you might wonder what
 all the fuss is about. But often they are complex, and it can be difficult or
 impossible to automate a solution.
 
-[TODO not implemented yet] When we detect a conflict like this, we'll show a
-warning when you try and merge the Sandbox. You can choose to "force push" the
-Sandbox and overwrite whatever changes happened on the target Project, or you
-can cancel and resolve the conflict yourself.
+When we detect a conflict like this, we'll show a warning when you try and merge
+the Sandbox. You can choose to force the merge and overwrite whatever changes
+happened on the target Project, or you can cancel and resolve the conflict
+yourself.
 
 For now, the only way to resolve conflicts manually is to use the CLI to edit
 your project locally, and pushed the resolved, final version up to the app.
@@ -190,5 +176,8 @@ We'll be adding better support for resolving conflicts soon.
 
 Sandboxes are fully compatible with the CLI.
 
-We're still working on docs and features for that - check back soon for more
-details!
+Use `openfn project pull` to fetch a sandbox locally, and `openfn project push`
+to push changes back to the the sandbox in the app.
+
+You can use `openfn project merge` to merge two local projects together, and
+then `openfn project deploy` to sync with the app.
