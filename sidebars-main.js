@@ -124,9 +124,10 @@ module.exports = {
       items: [
         'build-for-developers/cli-intro',
         'build-for-developers/cli-usage',
+        'build-for-developers/cli-sync',
+        'build-for-developers/cli-collections',
         'build-for-developers/cli-walkthrough',
         'build-for-developers/cli-challenges',
-        'build-for-developers/cli-collections',
       ],
     },
     {
