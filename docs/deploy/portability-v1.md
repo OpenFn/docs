@@ -1,5 +1,5 @@
 ---
-title: Portability
+title: Portability v1 (legacy)
 ---
 
 The portability specification allows for the representations of entire workflow
@@ -17,13 +17,11 @@ If you're interested in contributing to the specification, reach out to OpenFn
 via the [community forum](https://community.openfn.org), write to us, or suggest
 changes by submitting a pull request here.
 
-:::info
+:::warning
 
-This document describes v2 of the OpenFn deployment spec, in-line with
-[OpenFn Sync](/documentation/sync).
+This is the legacy version of the OpenFn Portability spec.
 
-For the v1 spec (using state, project and config files), see
-[Legacy Portability](./portability-v1).
+For the latest version, see [Portability](portability)
 
 :::
 
@@ -32,28 +30,10 @@ For the v1 spec (using state, project and config files), see
 Entire projects (groups of workflows with their associated triggers, edges,
 credentials and jobs) can be represented as code.
 
-This improves the OpenFn developer experience by:
-
-1. Allowing workflows to be built and tested locally
-2. Enabling project version control and an audit trail of project changes
-3. Allowing users to port existing projects between different instances (i.e.,
-   deployments) of Lightning.
-
-# Joe's Thoughts
-
-What should go in this file?
-
-The Sync document is the best equivalent. Should I just reference that?
-
-This document talks about a portability "spec". But I don't really see that
-explained anywhere. Should I rewrite that stuff into a higher level manifesto?
-
-There's also already a v1 and v2 spec. So actually what I'm doing now is a v3?
-
-I should chat with Taylor about what to do here.
-
-I am super unconfortable having multiple versions of the sync workflow on the
-site
+This improves the OpenFn developer experience by (a) allowing workflows to be
+built and tested locally; (b) enabling project version control and an audit
+trail of project changes; and (c) allowing users to port existing projects
+between different instances (i.e., deployments) of Lightning.
 
 ### Directory structure
 
@@ -75,7 +55,7 @@ myProject/
 
 :::info Directory Structure
 
-There are 3 commonly used directory structures for OpenFn projects, namely:
+There are commonly used 3 directory structure for OpenFn projects namely:
 standard, production & test, and monorepo. To learn more, please see the OpenFn
 [GitHub configuration documentation](/documentation/link-to-GitHub#structuring-your-github-repository).
 
@@ -296,16 +276,6 @@ for resources on a particular Lightning deployment.
 
 ## Using the CLI interact with projects
 
-:::warning
-
-This document describes the legacy OpenFn Sync format used by older versions of
-the CLI and GitHub Sync.
-
-See the [CLI Sync](/documentation/sync) docs for the best experience syncing and
-deploying projects.
-
-:::
-
 The project spec and project state can be used for a variety of reasons, e.g.
 one could generate the state and spec as backups of the project or one could
 generate these files and use them for auditing and record keeping, etc. The
@@ -436,7 +406,7 @@ OpenFn pull or deploy in your projects.
 #### Description
 
 This error occurs when you run `openfn deploy` and there is a mismatch between
-IDs of workflows in your projectSpec and your OpenFn instance. When this
+between IDs of workflows in your projectSpec and your OpenFn instance. When this
 occurs, the error will be written out in an error object as shown below:
 
 ```
