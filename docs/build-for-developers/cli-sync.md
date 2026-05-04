@@ -1,6 +1,6 @@
 ---
 title: OpenFn Sync
-sidebar_label: OpenFn Sync
+sidebar_label: Sync
 slug: /sync
 ---
 
@@ -16,28 +16,40 @@ by OpenFn Projects.
 
 ## What is a Project?
 
-A Project basically set of Workflows (and maybe some configuration) which
-solves, automates or integrates some business function. It usually lives in the
-app, but it can just be some files on a file system.
+A Project is a set of Workflows which solves, automates or integrates some
+business function.
 
-Inside the OpenFn app, a Project is a top level entity backed by a bunch of
-database tables.
+A Project lives in the OpenFn app (either on the cloud Saas instance or on a
+privately deployed instance ), but it also can exist as files on a file system.
+
+Attached to every Project is some metadata (like a name and a description) and
+some configuration like Credentials and Collections.
+
+Inside the OpenFn app, a Project is a billable top level entity, where all the
+workflows and configuration are saved to database tables.
 
 The app Project includes a bunch of extra stuff: like configuring Channels,
-tracking the run history, saving dataclips, and providing support from the AI
+tracking the run history, saving dataclips, and chat sessions with the AI
 assistant.
 
-The Project can also exist on the file system, in which case it's a bunch of
+The Project can also exist on a local file system, in which case it's a bunch of
 files which can be read and executed by the CLI. This local representation of a
 project is pretty bare-bones: you'll only find workflows and code here.
 
 Multiple related projects can exist on the file system at any one time. Each
-will ive in a single project file. You can "check out" or "expand" one project
+will live in a single project file. You can "check out" or "expand" one project
 at a time to a local folder, which will create one file for each workflow and
 one file for each step.
 
-Sometimes, We call this superset of all known, related, distributed projects a
-Workspace.
+It's typical that a single conceptual project - that is, the code and
+configuration which drives a business function - exists in several places at
+once. It might have several representations in the app through sandboxes; be
+backed up to GitHub; run locally on a developer's machine; and be distributed to
+several remote instances to run in production.
+
+Sometimes, we call this superset of all known, related, distributed Projects a
+Workspace. The Sync problem is the question of how code and configuration is
+copied/deployed/replicated across Project instances.
 
 Not all artifacts of a Project are included in a sync. Generally we sync the
 project's workflows and some of its options. But we do not sync any associated
@@ -52,7 +64,7 @@ The best way to do this is to set an environment variable called
 `OPENFN_API_KEY`. Set it to the value of your
 [Personal Access Token](https://docs.openfn.org/documentation/api-tokens#about-api-tokens).
 
-::: info Personal Access Tokens
+:::info Personal Access Tokens
 
 See
 [Create and Manage API Tokens](https://docs.openfn.org/documentation/api-tokens)
@@ -67,9 +79,10 @@ those defined in your system.
 
 You can also pass `--api-key` directly as a flag to most commands.
 
-::: info
+:::info
 
-This guide assumes you want to sync with our hosted SaaS app at app.openfn.org
+This guide assumes you want to sync with our hosted SaaS app at
+[app.openfn.org](https://app.openfn.org)
 
 You can sync with a different OpenFn instance by setting the env var
 `OPENFN_ENDPOINT` or by passing the `--endpoint` argument to most commands.
@@ -84,19 +97,34 @@ To pull a project down from the app to your local machine, run:
 openfn project pull <uuid>
 ```
 
+This will create a file in your working directory called
+`.projects/main@app.openfn.org.yaml`.
+
+:::info
+
+Every Project in the app has a unique identifier, called a UUID, which is used
+to reference it. It is a 32 digit number of the form
+`a6cc5bdd-b04f-4413-b4b8-132a5115acac`
+
+You can copy a Project's UUID from the URL by browsing to it in the app. It's
+the long string after `projects`.
+
+For example, the UUID is the bold section in:
+{'https://openfn.org/projects/'}<b>{'abc087dd-3963-4260-8d09-ced2e1ff2bb0'}</b>{'/w'}
+
+:::
+
 After you've pulled a project for the first time, you don't need to specify the
-UUID again (in any commands).
+UUID again. You can use the alias, the id, or leave the identifier blank to use
+the currently checked out project.
 
 The `project pull` command does three things:
 
 - If you do not have an `openfn.yaml` file, it'll create one
-- It will _fetch_ your project from the app and save it into a single file at
-  `.projects/main@app.openfn.org.yaml`
-- It will _checkout_ that project onto your file system, expanding workflows and
-  steps to their own files.
-
-This will create a file in your working directory called
-`.projects/main@app.openfn.org.yaml`.
+- It will _fetch_ (download) your project from the app and save it into a single
+  file at `.projects/main@app.openfn.org.yaml`
+- It will _checkout_ (expand) that project onto your file system, expanding
+  workflows and steps to their own files.
 
 ## Understanding a Project Structure
 
@@ -118,13 +146,14 @@ There are three key files to understand here:
 ### project.yaml
 
 The project file saves a copy of the whole state of a project as saved in the
-app. If you look inside you'll see the workflows represented as0 plain text.
+app. If you look inside you'll see the workflows represented as plain text.
 
 A project file is named like `<alias>@<domain>.yaml`. The alias is a local name
-used to refer to a particular version of the project.
+used to refer to a particular version of the project. The domain comes from the
+OpenFn instance the project was downloaded from.
 
-The project file should not be edited locally as changes will be dropped on the
-next fetch.
+The project file should not be edited locally as any changes will be dropped on
+the next fetch.
 
 You can fetch as many projects as you like, and each will be saved to its own
 project.yaml file.
@@ -149,21 +178,10 @@ compare/merge them against each other directly.
 
 ### openfn.yaml
 
-This is a top-level configuration file
-
-We call this file system a Workspace (not a project, because technically it
-holds multiple projects)
-
-At any time, one project can be "checked out" or "expanded". That means the the
-contents of the `workflows` folder represents that specific project. You cannot
-checkout two versions of the same workflow at once.
-
-- `openfn.yaml` contains settings and metadata about the checked out project
-- `.projects` contains a yaml file for each project. This is a local copy of a
-  remote project. It should always reflect an app's view of a project. You
-  should generally not edit these files.
-- `workflows` contains all the workflows for the checked out project. These are
-  compatible with the CLI.
+This is a top-level configuration file which can mostly be ignored. It is used
+by OpenFn tooling to recognise a project root folder. It also holds
+configuration options for all local projects, and metadata about the currently
+checked out project.
 
 ## Aliases
 
@@ -266,7 +284,37 @@ deploy it.
 
 ## Sandboxes
 
+The CLI is fully compatible with sandboxes. Treat them like any other project:
+fetch them for the first time with their UUID.
+
+Use the `checkout` command to switch between sandboxes and projects locally.
+Remember you can only have a single project checked out at once. The CLI will
+warn you if a checkout will cause you to lose any local changes.
+
+When fetching a sandbox, by default the project alias will be set to the sandbox
+name.
+
+You can merge two projects locally with `openfn merge`, and deploy the resulting
+project to the app (you'll likely have to force push the change). This is useful
+for conflict resolution.
+
 ## GitHub
+
+You can configure a Project to sync automatically to GitHub. This means that
+commit to GitHub will automatically deploy changes to an OpenFn Project; and
+pressing Save & Sync in the app will commit back to GitHub.
+
+Under the hood, GitHub Sync uses the CLI's `pull` and `deploy` commands,
+triggered by GitHub Actions, to sync your projects.
+
+Note that by default, GitHub Sync will use the legacy format, with `state.json`,
+`project.yaml` and `config.json` files. When setting up a new GitHub Sync, you
+can choose to select the v2 format. V2 sync is only suitable for pulling a
+single Project per branch to github, as multiple projects will overwrite the
+same `workflows/` folder.
+
+See [Version Control](/documentation/link-to-GitHub) for more details about
+GitHub Sync.
 
 ## Cheatsheet
 
