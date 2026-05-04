@@ -11,8 +11,8 @@ You can create a project in the app, download it to your local machine to
 develop offline, re-upload it to the app, or even deploy it to a different
 OpenFn server.
 
-We call this OpenFn Sync, and it's one of the most powerful features afforded
-by OpenFn Projects.
+We call this OpenFn Sync, and it's one of the most powerful features afforded by
+OpenFn Projects.
 
 ## What is a Project?
 
@@ -126,7 +126,7 @@ The `project pull` command does three things:
 - It will _checkout_ (expand) that project onto your file system, expanding
   workflows and steps to their own files.
 
-## Understanding a Project Structure
+## Understanding Project Structure
 
 Pulling a project from the app will create a file structure that looks like
 this:
@@ -266,8 +266,8 @@ To preview what would change without actually uploading anything, use
 app (as a JSON structure).
 
 You can deploy the checked out project as a new project on the target app by
-adding the `--new` flag. This is only available if you have superuser
-privileges on the target instance.
+adding the `--new` flag. This is only available if you have superuser privileges
+on the target instance.
 
 You can also deploy the checked out project to another app project by passing
 its alias, id or uuid:
@@ -294,9 +294,9 @@ warn you if a checkout will cause you to lose any local changes.
 When fetching a sandbox, by default the project alias will be set to the sandbox
 name.
 
-You can merge two projects locally with `openfn project merge`, and deploy the resulting
-project to the app (you'll likely have to force push the change). This is useful
-for conflict resolution.
+You can merge two projects locally with `openfn project merge`, and deploy the
+resulting project to the app (you'll likely have to force push the change). This
+is useful for conflict resolution.
 
 ## GitHub
 
@@ -318,12 +318,12 @@ GitHub Sync.
 
 ## Cheatsheet
 
-| Command                                      | Description                                                                    |
-| -------------------------------------------- | ------------------------------------------------------------------------------ |
-| `openfn project pull <uuid>`                 | Pull a project from the app for the first time                                 |
-| `openfn project pull`                        | Re-pull the current project                                                    |
-| `openfn project pull <uuid> --alias dev`     | Pull and set a local alias                                                     |
-| `openfn project fetch <alias/id/uuid>`       | Fetch a project without checking it out                                        |
+| Command                                  | Description                                                                    |
+| ---------------------------------------- | ------------------------------------------------------------------------------ |
+| `openfn project pull <uuid>`             | Pull a project from the app for the first time                                 |
+| `openfn project pull`                    | Re-pull the current project                                                    |
+| `openfn project pull <uuid> --alias dev` | Pull and set a local alias                                                     |
+| `openfn project fetch <alias/id/uuid>`   | Fetch a project without checking it out                                        |
 | `openfn project`                         | List all local projects in the current working folder                          |
 | `openfn project checkout <alias>`        | Switch to a different local project                                            |
 | `openfn project deploy`                  | Deploy checked-out project to the app                                          |

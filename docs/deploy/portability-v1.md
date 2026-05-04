@@ -1,5 +1,5 @@
 ---
-title: Portability
+title: Portability v1 (legacy)
 ---
 
 The portability specification allows for the representations of entire workflow
@@ -17,13 +17,11 @@ If you're interested in contributing to the specification, reach out to OpenFn
 via the [community forum](https://community.openfn.org), write to us, or suggest
 changes by submitting a pull request here.
 
-:::info
+:::warning
 
-This document describes v2 of the OpenFn deployment spec, in-line with
-[OpenFn Sync](/documentation/sync).
+This is the legacy version of the OpenFn Portability spec.
 
-For the v1 spec (using state, project and config files), see
-[Legacy Portability](./portability-v1).
+For the latest version, see [Portability](portability)
 
 :::
 
@@ -32,28 +30,10 @@ For the v1 spec (using state, project and config files), see
 Entire projects (groups of workflows with their associated triggers, edges,
 credentials and jobs) can be represented as code.
 
-This improves the OpenFn developer experience by:
-
-1. Allowing workflows to be built and tested locally
-2. Enabling project version control and an audit trail of project changes
-3. Allowing users to port existing projects between different instances (i.e.,
-   deployments) of Lightning.
-
-# Joe's Thoughts
-
-What should go in this file?
-
-The Sync document is the best equivalent. Should I just reference that?
-
-This document talks about a portability "spec". But I don't really see that
-explained anywhere. Should I rewrite that stuff into a higher level manifesto?
-
-There's also already a v1 and v2 spec. So actually what I'm doing now is a v3?
-
-I should chat with Taylor about what to do here.
-
-I am super unconfortable having multiple versions of the sync workflow on the
-site
+This improves the OpenFn developer experience by (a) allowing workflows to be
+built and tested locally; (b) enabling project version control and an audit
+trail of project changes; and (c) allowing users to port existing projects
+between different instances (i.e., deployments) of Lightning.
 
 ### Directory structure
 
