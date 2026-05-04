@@ -60,6 +60,52 @@ Your job code should only contain Operations at the top level/scope - you should
 NOT include any other JavaScript statements. We'll talk about this more in a
 minute.
 
+## Cleaning final state
+
+When your job has completed, the final state object will be "returned" by the
+openfn runtime.
+
+This final state must be serialisable to JSON.
+
+If there are more steps in the workflow, the state will be passed to those
+steps. If running on the app (Lightning), the final state will be saved as a
+dataclip. Or if running in the CLI, the final state will be written to disk.
+
+It's often desirable to clean up your final state so that any unused information
+is removed. This reduces the size of your saved data, but could also be an
+important security consideration.
+
+The best practice is to use a closing `fn()` block which returns just the keys
+you need:
+
+```js
+fn(state => {
+  return {
+    data: state.data,
+  };
+});
+```
+
+You could use the spread operator to override some keys:
+
+```js
+fn(state => {
+  return {
+    ...state,
+    secretStuff: null,
+  };
+});
+```
+
+Or use the _rest_ operator:
+
+```js
+fn(state => {
+  const { username, password, secrets, ...rest } = state;
+  return rest;
+});
+```
+
 ## Operations run at the top level
 
 Operations will only work when they are at the top level of your job code, like
