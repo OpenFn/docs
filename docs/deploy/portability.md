@@ -268,6 +268,16 @@ for resources on a particular Lightning deployment.
 
 ## Using the CLI interact with projects
 
+:::warning
+
+This document describes the legacy OpenFn Sync format used by older versions of
+the CLI and GitHub Sync.
+
+See the [CLI Sync](/documentation/sync) docs for the best experience syncing and
+deploying projects.
+
+:::
+
 The project spec and project state can be used for a variety of reasons, e.g.
 one could generate the state and spec as backups of the project or one could
 generate these files and use them for auditing and record keeping, etc. The
@@ -395,7 +405,7 @@ OpenFn pull or deploy in your projects.
 
 ### Extraneous Workflow ID
 
-#### Description 
+#### Description
 
 This error occurs when you run `openfn deploy` and there is a mismatch between
 between IDs of workflows in your projectSpec and your OpenFn instance. When this
@@ -419,6 +429,7 @@ occurs, the error will be written out in an error object as shown below:
     }
   }
 ```
+
 #### Solution
 
 Run `openfn pull` to update your local instance and keep IDs in sync,
