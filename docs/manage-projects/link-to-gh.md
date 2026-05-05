@@ -13,11 +13,7 @@ repo; and commits pushed to GitHub can update the Project in your OpenFn App.
 :::info For Cloud Hosted OpenFn Users
 
 GitHub Sync is only available in projects that are subscribed to Core, Growth,
-Scale or Custom plans on Cloud Hosted OpenFn.
-
-Users can however connect their OpenFn account to GitHub by authenticating
-OpenFn to access their GitHub account by navigating to `User Profile` page and
-clicking ` Connect your GitHub Account".
+Scale or Custom plans.
 
 :::
 
@@ -194,7 +190,58 @@ Learn more about relative paths and directory structure in
 
 :::
 
+### Using Sync v2
+
+By default, GitHub Sync will use the legacy folder structure to represent your
+project on GitHub. That folder structure is explained below - it'll create
+`config.json`, `state.json` and `project.yaml` files to represent your Project
+in your git repo.
+
+You can instead choose to use the v2 sync format, as described in the
+[Sync](/documentation/sync) pages. This will automatically "expand" your
+workflows and steps into files to be easily read and written, and provides a
+much better developer experience.
+
+This v2 style will be made the default means of syncing Projects soon.
+
+You can also create an empty `openfn.yaml` file in an already connected repo and
+the next sync will generate the v2 file structures.
+
+:::warning
+
+In Sync v1, you can have multiple 2-way syncs existing on the same branch in a
+single repo. That's because each project creates its own set of sync artifacts
+(config.json, project.yaml and state.json). Usually you'd want to do this to
+sync your production and staging projects, or multiple sandboxes, to the same
+GitHub repo.
+
+This doesn't work with the new sync protocol, because the new sync shares a
+`workflows` folder. So each time GitHub pulls from your project, it'll overwrite
+`workflows` and wipe out state from your other projects.
+
+To do this in v2 Sync, you can:
+
+- Maintain one two-way sync per branch. Each Sandbox maintains its own GitHub
+  Sync to a different branch in your repo. This works great because you can
+  compare differences between your sandbox and main project by comparing the
+  branches on git.
+- Connect many Projects to a branch so long as they only sync one-way. This
+  works in a production environment where one Project is replicated over several
+  deployments, so committing to GitHub will trigger an update to all connected
+  Projects. This works so long as you can promise that no user will Save & Sync
+  back from the production projects
+
+:::
+
 ## What is in your GitHub Repository?
+
+:::info
+
+These docs describe the legacy format of GitHub Sync. The latest format is
+described in the [CLI Sync](/documentation/sync) pages, and will be used by
+default soon.
+
+:::
 
 When you initiate a connection between OpenFn and your GitHub repository, a
 config.json file containing reference to your project spec and project state
@@ -222,83 +269,6 @@ spec and project state.
   "specPath": "./custom-name-for-project-spec.yaml"
 }
 ```
-
-## Structuring OpenFn projects in git repositories
-
-There are three common patterns used to structure OpenFn projects inside git
-repositories. See them below:
-
-### Standard
-
-Use this approach if you've got one OpenFn project connected to one git
-repository.
-
-```
-your-git-repo
-├── config.json
-├── projectState.json
-└── projectSpec.yaml
-```
-
-### Production & Test
-
-Use this approach if you've got two OpenFn projects that use the _same
-worklows_. Here, you're connecting two projects (prod and test) to a single git
-repo and a single `project.yaml` file.
-
-This will allow you to keep two projects in sync when changes are merged from
-one branch to another. You might choose to sync:
-
-- Your production project with the `main` branch
-- Your test project with the `staging` branch
-
-After a merge, your repo would look like this:
-
-```
-your-git-repo
-├── projectSpec.yaml ## works both
-│
-├── prod-config.json
-├── prod-projectState.json
-│
-├── test-config.json
-└── test-projectState.json
-```
-
-### Monorepo
-
-Sometimes, it's helpful to have multiple OpenFn projects all stored in the same
-repo, even if they don't use the same workflows (i.e., even if they don't share
-a `project.yaml` file.)
-
-```
-your-git-monorepo
-├── project-a
-│    ├── config.json
-│    ├── projectState.json
-│    └── projectSpec.yaml
-└── project-b
-     ├── config.json
-     ├── projectState.json
-     └── projectSpec.yaml
-```
-
-:::tip A sync in time, saves nine
-
-When you sync changes from OpenFn to GitHub, the `projectSpec.yaml` file in your
-repository will be updated with the changes made to the project in OpenFn. For a
-project with a directory structure that uses relative paths for job code, OpenFn
-will respect the structure when syncing changes for backup. All job code will be
-written into their respective files. Newer ones will be kept inline (in the
-body) of the `projectSpec.yaml` file.
-
-When you keep job code in relative file paths, ensure to update the
-`projectSpec.yaml` file based on changes to the files or paths in your project
-repository. A GitHub action is automatically triggered to push changes to OpenFn
-ensuring that future syncs are not affected. Changes can include adding,
-renaming, deleting a file or updating a file path.
-
-:::
 
 ## Troubleshooting
 
