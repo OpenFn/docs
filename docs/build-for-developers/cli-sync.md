@@ -55,6 +55,104 @@ Not all artifacts of a Project are included in a sync. Generally we sync the
 project's workflows and some of its options. But we do not sync any associated
 data, credential values, usage history or AI sessions.
 
+## Project Structure
+
+OpenFn Sync writes a Project to the file system using a number of conventions.
+Whether using the CLI or GitHub Sync, a Project has the following structure
+
+```
+├── openfn.yaml
+├── .projects
+│   ├── main@app.openfn.org.yaml
+└── workflows
+    ├── my-workflow
+    │   ├── my-workflow.yaml
+    │   ├── my-step.js
+```
+
+Briefly, these files are:
+
+- `openfn.yaml` declares this folder to be an OpenFn Project, and contains
+  metadata and settings
+- The `projects` folder contains a complete YAML representation of each Project
+- The `workflows` folder shows the contents of the project - the steps and edges
+  and so on.
+
+Let's look at this structure in a bit more detail.
+
+### project.yaml
+
+The project file saves a copy of the whole state of a project as saved in the
+app. If you look inside you'll see the workflows represented as plain text.
+
+A project file is named like `<alias>@<domain>.yaml`. The alias is a local name
+used to refer to a particular version of the project. The domain comes from the
+OpenFn instance the project was downloaded from.
+
+The project file should not be edited locally as any changes will be dropped on
+the next fetch.
+
+You can fetch as many projects as you like, and each will be saved to its own
+project.yaml file.
+
+The `.projects` folder can and should be committed to source control.
+
+### workflows
+
+Having your whole project inside a single file isn't actually a great way to
+read or edit workflows. So the CLI can "checkout" or "expand" a project file
+onto the file system.
+
+Checking out is the process of writing each workflow to a workflow.yaml file and
+each step to a step.js file. This all lives in the `workflows` directory.
+
+Here you can edit files as much as you like, and changes will be tracked when
+you push/deploy back to the app.
+
+You can only check out one project at a time. This is actually great for working
+with git, because you can checkout two projects on different branches and
+compare/merge them against each other directly.
+
+### workflow.yaml
+
+A workflow.yaml file defines the steps of a workflow and the edges which connect
+them.
+
+```
+id: my-workflow
+name: My Workflow
+start: webhook
+steps:
+  - id: my-step
+    name: My Step
+    adaptor: '@openfn/language-http@7.2.9'
+    expression: ./my-step.js
+  - id: webhook
+    type: webhook
+    enabled: true
+    next:
+      my-step:
+        disabled: false
+        condition: always
+```
+
+The `next` key on each step defines any downstream edges for that step - ie, the
+steps to execute next. In the example above, the `webbhook` step is executed
+first (determined by the `start` key), and it defines a single edge to
+`my-step`, which always executes.
+
+The actual code for each step lives in its own .js file. You can modify the code
+freely and sync it back to the server any time. If you want to rename a step,
+make sure to to update the file name of the step and the path in the
+`expression` key in `workflow.yaml`.
+
+### openfn.yaml
+
+This is a top-level configuration file which can mostly be ignored. It is used
+by OpenFn tooling to recognise a project root folder. It also holds
+configuration options for all local projects, and metadata about the currently
+checked out project.
+
 ## Authorization
 
 Before you use the CLI to fetch anything from the app, you'll need to provide
@@ -125,63 +223,6 @@ The `project pull` command does three things:
   file at `.projects/main@app.openfn.org.yaml`
 - It will _checkout_ (expand) that project onto your file system, expanding
   workflows and steps to their own files.
-
-## Understanding Project Structure
-
-Pulling a project from the app will create a file structure that looks like
-this:
-
-```
-├── openfn.yaml
-├── .projects
-│   ├── main@app.staging.openfn.org.yaml
-└── workflows
-    ├── my-workflow
-    │   ├── my-workflow.yaml
-    │   ├── job.js
-```
-
-There are three key files to understand here:
-
-### project.yaml
-
-The project file saves a copy of the whole state of a project as saved in the
-app. If you look inside you'll see the workflows represented as plain text.
-
-A project file is named like `<alias>@<domain>.yaml`. The alias is a local name
-used to refer to a particular version of the project. The domain comes from the
-OpenFn instance the project was downloaded from.
-
-The project file should not be edited locally as any changes will be dropped on
-the next fetch.
-
-You can fetch as many projects as you like, and each will be saved to its own
-project.yaml file.
-
-The `.projects` folder can and should be committed to source control.
-
-### workflows
-
-Having your whole project inside a single file isn't actually a great way to
-read or edit workflows. So the CLI can "checkout" or "expand" a project file
-onto the file system.
-
-Checking out is the process of writing each workflow to a workflow.yaml file and
-each step to a step.js file. This all lives in the `workflows` directory.
-
-Here you can edit files as much as you like, and changes will be tracked when
-you push/deploy back to the app.
-
-You can only check out one project at a time. This is actually great for working
-with git, because you can checkout two projects on different branches and
-compare/merge them against each other directly.
-
-### openfn.yaml
-
-This is a top-level configuration file which can mostly be ignored. It is used
-by OpenFn tooling to recognise a project root folder. It also holds
-configuration options for all local projects, and metadata about the currently
-checked out project.
 
 ## Aliases
 
