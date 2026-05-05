@@ -2,42 +2,30 @@
 title: Portability
 ---
 
-The portability specification allows for the representations of entire workflow
-projects "as code"; lets user moves between various deployment pathways (such as
-cloud, local, hosted); and proposes a globally-applicable way of defining
-workflow automation and system integration rules that might be applied across
-workflow-engines/integration platforms across the sector.
+## Intent
 
-Nothing about the spec _must_ be specific to OpenFn or any one of our individual
-products. We envision a future in which software built with Lightning, the
-OpenFn Integration Toolkit, and entirely new and different integration/workflow
-tools can adopt this specification.
+The portability specification allows for the representations of entire workflow
+projects "as code", lets user move between various deployment pathways (cloud,
+local, DIY, etc.) and proposes a globally-applicable way of **_specifying
+workflow automation_** and **_systems integration_** that might be applied
+across workflow-engines/integration platforms across the sector. Nothing about
+the spec _must_ be specific to OpenFn or any one of our individual products. We
+envision a future in which software built with Lightning, the OpenFn Integration
+Toolkit, and entirely new and different integration/workflow tools can adopt
+this specification.
 
 If you're interested in contributing to the specification, reach out to OpenFn
 via the [community forum](https://community.openfn.org), write to us, or suggest
 changes by submitting a pull request here.
 
-:::info
-
-This document describes v2 of the OpenFn deployment spec, in-line with
-[OpenFn Sync](/documentation/sync).
-
-For the v1 spec (using state, project and config files), see
-[Legacy Portability](./portability-v1).
-
-:::
-
 ## Projects "as code"
 
 Entire projects (groups of workflows with their associated triggers, edges,
-credentials and jobs) can be represented as code.
-
-This improves the OpenFn developer experience by:
-
-1. Allowing workflows to be built and tested locally
-2. Enabling project version control and an audit trail of project changes
-3. Allowing users to port existing projects between different instances (i.e.,
-   deployments) of Lightning.
+credentials and jobs) can be represented as code. This improves the OpenFn
+developer experience by (a) allowing workflows to be built and tested locally;
+(b) enabling project version control and an audit trail of project changes; and
+(c) allowing users to port existing projects between different instances (i.e.,
+deployments) of Lightning.
 
 ### Directory structure
 
@@ -407,7 +395,7 @@ OpenFn pull or deploy in your projects.
 
 ### Extraneous Workflow ID
 
-#### Description
+#### Description 
 
 This error occurs when you run `openfn deploy` and there is a mismatch between
 between IDs of workflows in your projectSpec and your OpenFn instance. When this
@@ -431,7 +419,6 @@ occurs, the error will be written out in an error object as shown below:
     }
   }
 ```
-
 #### Solution
 
 Run `openfn pull` to update your local instance and keep IDs in sync,
