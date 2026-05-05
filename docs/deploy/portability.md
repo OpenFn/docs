@@ -39,22 +39,6 @@ This improves the OpenFn developer experience by:
 3. Allowing users to port existing projects between different instances (i.e.,
    deployments) of Lightning.
 
-# Joe's Thoughts
-
-What should go in this file?
-
-The Sync document is the best equivalent. Should I just reference that?
-
-This document talks about a portability "spec". But I don't really see that
-explained anywhere. Should I rewrite that stuff into a higher level manifesto?
-
-There's also already a v1 and v2 spec. So actually what I'm doing now is a v3?
-
-I should chat with Taylor about what to do here.
-
-I am super unconfortable having multiple versions of the sync workflow on the
-site
-
 ### Directory structure
 
 Many users keep OpenFn projects in git repositories, and this is a common
