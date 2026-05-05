@@ -1,31 +1,31 @@
 ---
-title: GitHub Sync
-sidebar_label: GitHub Sync
+title: Version Control
+sidebar_label: Version Control (GitHub Sync)
 slug: /link-to-GitHub
 ---
 
-GitHub Sync enables two-way sync between OpenFn project and your GitHub
-repository.
-
-This means changes made to a Project in OpenFn can commit back to your GitHub
-repo; and commits pushed to GitHub can update the Project in your OpenFn App.
+The version control (GitHub Sync) feature lets users track and manage changes to
+their OpenFn projects in GitHub. GitHub Sync enables a 2-way sync between your
+OpenFn project and your GitHub repository. By 2-way sync, we mean that you can
+**sync changes made to your project on OpenFn to GitHub**, and you can **deploy
+changes you've made to your project on GitHub to OpenFn**.
 
 :::info For Cloud Hosted OpenFn Users
 
 GitHub Sync is only available in projects that are subscribed to Core, Growth,
-Scale or Custom plans on Cloud Hosted OpenFn.
-
-Users can however connect their OpenFn account to GitHub by authenticating
-OpenFn to access their GitHub account by navigating to `User Profile` page and
-clicking ` Connect your GitHub Account".
+Scale or Custom plans on Cloud Hosted OpenFn. Users can however connect their
+OpenFn account to GitHub by authenticating OpenFn to access their GitHub account
+by navigating to `User Profile` page and clicking ` Connect your GitHub
+Account".
 
 :::
 
-### Configuring your Project to use GitHub Sync
+### Configuring your project to use GitHub Sync
 
-Users can configure their projects to access one or more repositories on GitHub.
-Users must have admin access to the GitHub Repo to ensure the OpenFn application
-is installed.
+Users are able to configure their projects to have access to one or more
+repositories on GitHub. To enable sync, the OpenFn project requires a repository
+where a GitHub OpenFn application is installed and users are required to have
+administrative access to the repositiory.
 
 To configure your project to use Github sync, follow the following steps:
 
@@ -285,6 +285,8 @@ your-git-monorepo
 
 :::tip A sync in time, saves nine
 
+#### Syncing Changes from OpenFn to GitHub
+
 When you sync changes from OpenFn to GitHub, the `projectSpec.yaml` file in your
 repository will be updated with the changes made to the project in OpenFn. For a
 project with a directory structure that uses relative paths for job code, OpenFn
@@ -296,9 +298,7 @@ When you keep job code in relative file paths, ensure to update the
 `projectSpec.yaml` file based on changes to the files or paths in your project
 repository. A GitHub action is automatically triggered to push changes to OpenFn
 ensuring that future syncs are not affected. Changes can include adding,
-renaming, deleting a file or updating a file path.
-
-:::
+renaming, deleting a file or updating a file path. :::
 
 ## Troubleshooting
 
