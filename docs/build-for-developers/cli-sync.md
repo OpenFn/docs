@@ -137,13 +137,13 @@ steps:
 ```
 
 The `next` key on each step defines any downstream edges for that step - ie, the
-steps to execute next. In the example above, the `webbhook` step is executed
+steps to execute next. In the example above, the `webhook` step is executed
 first (determined by the `start` key), and it defines a single edge to
 `my-step`, which always executes.
 
 The actual code for each step lives in its own .js file. You can modify the code
 freely and sync it back to the server any time. If you want to rename a step,
-make sure to to update the file name of the step and the path in the
+make sure to update the file name of the step and the path in the
 `expression` key in `workflow.yaml`.
 
 ### openfn.yaml
@@ -172,7 +172,7 @@ for help setting up a token.
 
 If you connect to multiple OpenFn projects or apps, you can create a `.env` file
 and set any environment variables you need there. The CLI will load this file
-and report which keys its using. Values in your `.env` file will be preferred to
+and report which keys it's using. Values in your `.env` file will be preferred to
 those defined in your system.
 
 You can also pass `--api-key` directly as a flag to most commands.
@@ -342,7 +342,7 @@ is useful for conflict resolution.
 ## GitHub
 
 You can configure a Project to sync automatically to GitHub. This means that
-commit to GitHub will automatically deploy changes to an OpenFn Project; and
+commits to GitHub will automatically deploy changes to an OpenFn Project; and
 pressing Save & Sync in the app will commit back to GitHub.
 
 Under the hood, GitHub Sync uses the CLI's `pull` and `deploy` commands,

@@ -4,7 +4,7 @@ sidebar_label: GitHub Sync
 slug: /link-to-GitHub
 ---
 
-GitHub Sync enables two-way sync between OpenFn project and your GitHub
+GitHub Sync enables two-way sync between an OpenFn project and your GitHub
 repository.
 
 This means changes made to a Project in OpenFn can commit back to your GitHub
@@ -23,7 +23,7 @@ Users can configure their projects to access one or more repositories on GitHub.
 Users must have admin access to the GitHub Repo to ensure the OpenFn application
 is installed.
 
-To configure your project to use Github sync, follow the following steps:
+To configure your project to use Github sync, follow these steps:
 
 1. Navigate to `Project Settings > Sync to GitHub` .
 
@@ -50,7 +50,7 @@ To configure your project to use Github sync, follow the following steps:
    :::
 
 4. Choose your preferred repository and branch you'd like to connect your
-   project
+   project to
 
 ![Configure](/img/github-options.webp)
 
@@ -79,7 +79,7 @@ To configure your project to use Github sync, follow the following steps:
    it to GitHub to start the version control process. If you choose to instead
    take an existing `project.yaml` file from GitHub and overwrite your current
    OpenFn project, you won't be able to recover your existing workflows on
-   OpenFn. This is feature that covers certain advanced use-cases, and unless
+   OpenFn. This is a feature that covers certain advanced use-cases, and unless
    you know what you're doing you should start by syncing from "OpenFn to
    GitHub".
 
@@ -109,7 +109,7 @@ interface. After clicking that link, you can follow the steps below:
 ![Permissions](/img/lightning_gh_permissions.webp)
 
 4. When you're done making changes on GitHub, head back to OpenFn and refresh
-   the connection lists with the the 🔄 button next to the drop down list of
+   the connection lists with the 🔄 button next to the drop down list of
    available installations.
 
 ## Using Version Control & Managing Changes
@@ -122,7 +122,7 @@ project.
 ### Sync from OpenFn to GitHub
 
 This sync pushes changes from your OpenFn project to GitHub. This sync operation
-will trigger a `openfn pull` action workflow on your connected Github repository
+will trigger an `openfn pull` action workflow on your connected Github repository
 , which will pull the latest configuration from the OpenFn app and save it as
 code in the `project.yaml` file on your repository.
 
@@ -154,7 +154,7 @@ When you trigger `Save & Sync` in a workflow, your new changes and _previous_
 uncommitted changes (if any) to your project's resources (including other
 workflows) will be committed to GitHub. I.e., if there are other, uncommitted
 changes by either you or someone else to other workflows in the project, they’ll
-also show up in that sync also.
+also show up in that sync.
 
 :::
 
@@ -181,7 +181,7 @@ to OpenFn.
 From v2.7.19, OpenFn deploy and pull actions now support the use of relative
 paths in project spec. Consequently, projects with directory structure that uses
 relative paths for job code in project spec, automatically gets packaged and
-deployed without the user having to copy changes into the projct spec. This new
+deployed without the user having to copy changes into the project spec. This new
 approach gives developers more flexibility to better manage their job code in
 individual files rather than having all the code in the `projectSpec.yaml` file.
 

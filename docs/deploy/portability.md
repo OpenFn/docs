@@ -47,7 +47,7 @@ myProject/
 
 :::info Directory Structure
 
-There are commonly used 3 directory structure for OpenFn projects namely:
+There are 3 commonly used directory structures for OpenFn projects, namely:
 standard, production & test, and monorepo. To learn more, please see the OpenFn
 [GitHub configuration documentation](/documentation/link-to-GitHub#structuring-your-github-repository).
 
@@ -408,7 +408,7 @@ OpenFn pull or deploy in your projects.
 #### Description
 
 This error occurs when you run `openfn deploy` and there is a mismatch between
-between IDs of workflows in your projectSpec and your OpenFn instance. When this
+IDs of workflows in your projectSpec and your OpenFn instance. When this
 occurs, the error will be written out in an error object as shown below:
 
 ```
