@@ -3,7 +3,7 @@ title: Portability
 ---
 
 The portability specification allows for the representations of entire workflow
-projects "as code"; lets user moves between various deployment pathways (such as
+projects "as code"; lets users move between various deployment pathways (such as
 cloud, local, hosted); and proposes a globally-applicable way of defining
 workflow automation and system integration rules that might be applied across
 workflow-engines/integration platforms across the sector.
