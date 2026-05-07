@@ -1,5 +1,5 @@
 ---
-title: Portability v1 (legacy)
+title: Portability v3 (legacy)
 ---
 
 The portability specification allows for the representations of entire workflow
