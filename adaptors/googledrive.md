@@ -45,10 +45,10 @@ consent flow, making them more reliable and auditable for integration workflows.
 
 When setting up a service account for Google Drive:
 
-- Grant only the scopes your workflow requires. For example, if the workflow
-  only reads files, restrict the account to
-  `https://www.googleapis.com/auth/drive.readonly` rather than full
-  `drive` access.
+- Grant only the scopes your workflow requires, following the principle of
+  least privilege. See
+  [Google's documentation on OAuth scopes](https://developers.google.com/identity/protocols/oauth2/scopes#drive)
+  for the available Drive scopes.
 - Share the specific Drive folder(s) or file(s) with the service account's
   email address (e.g. `my-service-account@my-project.iam.gserviceaccount.com`)
   at the appropriate permission level (Viewer for read-only, Editor for write

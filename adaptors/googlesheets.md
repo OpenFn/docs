@@ -60,10 +60,10 @@ consent flow, making them more reliable and auditable for integration workflows.
 
 When setting up a service account for Google Sheets:
 
-- Grant only the scopes your workflow requires. For example, if the workflow
-  only reads data, restrict the account to
-  `https://www.googleapis.com/auth/spreadsheets.readonly` rather than full
-  `spreadsheets` access.
+- Grant only the scopes your workflow requires, following the principle of
+  least privilege. See
+  [Google's documentation on OAuth scopes](https://developers.google.com/identity/protocols/oauth2/scopes#sheets)
+  for the available Sheets scopes.
 - Share the specific Google Sheet(s) with the service account's email address
   (e.g. `my-service-account@my-project.iam.gserviceaccount.com`) at the
   appropriate permission level (Viewer for read-only, Editor for write access).
