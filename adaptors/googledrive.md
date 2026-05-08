@@ -12,7 +12,18 @@ title: Google Drive Adaptor
 
 ## Authentication
 
-Google Drive uses OAuth 2.0 access tokens for API authentication:
+Google Drive supports two credential types in OpenFn: **OAuth2** and a raw **access token**.
+
+### OAuth2
+
+For interactive workflows where a user authorizes access, you can connect via OAuth2. To authorize Google Drive for your OpenFn workflows, read our documentation on
+[using OAuth credentials](/documentation/build/credentials#use-oauth2-credentials).
+
+![Google Drive OAuth credential](/img/googledrive-oauth2.webp)
+
+### Access Token
+
+For workflows using a pre-generated access token (e.g. from a service account or Google Cloud Console), provide the token directly:
 
 ```json
 {
@@ -20,10 +31,32 @@ Google Drive uses OAuth 2.0 access tokens for API authentication:
 }
 ```
 
-**Authentication Components:**
-- **access_token**: OAuth 2.0 access token obtained through Google's authentication flow
+Access tokens provide scoped access to Google Drive resources based on the permissions granted during the OAuth flow.
 
-Access tokens can be generated through Google Cloud Console and provide scoped access to Google Drive resources based on the permissions granted during the OAuth flow.
+![Google Drive access token credential](/img/googledrive-access-token.webp)
+
+### Using a Google Service Account
+
+For automated, unattended workflows we recommend using a
+[Google Service Account](https://cloud.google.com/iam/docs/service-accounts-create)
+instead of a personal user OAuth credential. Service accounts are designed for
+machine-to-machine access and do not require a human login or interactive
+consent flow, making them more reliable and auditable for integration workflows.
+
+When setting up a service account for Google Drive:
+
+- Grant only the scopes your workflow requires. For example, if the workflow
+  only reads files, restrict the account to
+  `https://www.googleapis.com/auth/drive.readonly` rather than full
+  `drive` access.
+- Share the specific Drive folder(s) or file(s) with the service account's
+  email address (e.g. `my-service-account@my-project.iam.gserviceaccount.com`)
+  at the appropriate permission level (Viewer for read-only, Editor for write
+  access).
+
+See the [Credentials page](/documentation/build/credentials#creating-a-dedicated-integration-user-for-your-openfn-workflow)
+for broader guidance on why dedicated integration users and service accounts are
+recommended for all OpenFn workflows.
 
 
 

@@ -16,6 +16,8 @@ default OpenFn Google OAuth client or choose to
 To authorize Google Sheets for your OpenFn workflows, read our documentation on
 [using OAuth credentials](/documentation/build/credentials#use-oauth2-credentials).
 
+![Google Sheets OAuth credential](/img/gsheets-oauth2.webp)
+
 :::info Google Oauth Client Setup Tips for Super Users
 
 Setting up your own generic OAuth client requires that you have an OAuth
@@ -47,6 +49,28 @@ for the latest information.
   https://developers.google.com/identity/protocols/oauth2/scopes (note that you
   need to use the full URL, e.g.,
   `https://www.googleapis.com/auth/spreadsheets`)
+
+### Using a Google Service Account
+
+For automated, unattended workflows we recommend using a
+[Google Service Account](https://cloud.google.com/iam/docs/service-accounts-create)
+instead of a personal user OAuth credential. Service accounts are designed for
+machine-to-machine access and do not require a human login or interactive
+consent flow, making them more reliable and auditable for integration workflows.
+
+When setting up a service account for Google Sheets:
+
+- Grant only the scopes your workflow requires. For example, if the workflow
+  only reads data, restrict the account to
+  `https://www.googleapis.com/auth/spreadsheets.readonly` rather than full
+  `spreadsheets` access.
+- Share the specific Google Sheet(s) with the service account's email address
+  (e.g. `my-service-account@my-project.iam.gserviceaccount.com`) at the
+  appropriate permission level (Viewer for read-only, Editor for write access).
+
+See the [Credentials page](/documentation/build/credentials#creating-a-dedicated-integration-user-for-your-openfn-workflow)
+for broader guidance on why dedicated integration users and service accounts are
+recommended for all OpenFn workflows.
 
 ## Integration Options
 
