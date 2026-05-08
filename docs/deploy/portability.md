@@ -85,35 +85,71 @@ cloning a whole project.
 Here is an example Project spec in YAML format:
 
 ```yaml
-id: joe-sync-1
-name: Joe Sync 1
-description: Duplication of staging joe-sync-1
+id: portability-example
+name: Portability Example
 collections:
-  - joestuff
+  - cache
 credentials:
-  - name: http test
+  - name: local login
     owner: editor@openfn.org
-options:
-  allow_support_access: false
-  requires_mfa: false
-  retention_policy: retain_all
 workflows:
-  - name: A
+  - name: Event-based workflow
     steps:
-      - id: a
-        name: a
+      - id: transform-data
+        name: Transform data
         expression: fn(s => s)
-        adaptor: '@openfn/language-http@7.2.9'
-        configuration: editor@openfn.org|http test
+        adaptor: '@openfn/language-common@latest'
       - id: webhook
         type: webhook
+        webhook_reply: before_start
         enabled: true
         next:
-          a:
+          transform-data:
             disabled: false
             condition: always
-    id: a
+    id: event-based-workflow
     start: webhook
+  - name: Scheduled workflow
+    steps:
+      - id: common
+        name: Common
+        expression: fn(s => s)
+        adaptor: '@openfn/language-common@3.3.1'
+      - id: cron
+        type: cron
+        enabled: true
+        cron_expression: 00 00 * * 1-5
+        cron_cursor_job_id: fb95ea89-17d2-4773-823c-09770317aaed
+        next:
+          get-data:
+            disabled: false
+            condition: always
+      - id: get-data
+        name: Get data
+        expression: fn(s => s)
+        adaptor: '@openfn/language-http@latest'
+        configuration: editor@openfn.org|local login
+        next:
+          throw-error:
+            disabled: false
+            condition: on_job_failure
+          common:
+            disabled: false
+            condition: '!state.error'
+            label: sometimes
+          never:
+            disabled: true
+            condition: on_job_success
+      - id: never
+        name: never
+        expression: fn(s => s)
+        adaptor: '@openfn/language-http@7.2.10'
+      - id: throw-error
+        name: throw error
+        expression: fn(s => s)
+        adaptor: '@openfn/language-common@3.3.1'
+    id: scheduled-workflow
+    start: cron
 ```
 
 The latest schema for a project spec file is defined in TypeScript
