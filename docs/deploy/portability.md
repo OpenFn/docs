@@ -119,7 +119,7 @@ workflows:
         type: cron
         enabled: true
         cron_expression: 00 00 * * 1-5
-        cron_cursor_job_id: fb95ea89-17d2-4773-823c-09770317aaed
+        cron_cursor_job_id: get-data
         next:
           get-data:
             disabled: false
