@@ -37,7 +37,7 @@ changes by submitting a pull request here.
 
 ## Projects As Code
 
-A core tenant of OpenFn Projects is that they can be represented as code, on a
+A core tenet of OpenFn Projects is that they can be represented as code, on a
 file system or a git branch.
 
 This improves the OpenFn developer experience by:
@@ -54,7 +54,7 @@ shared, synced, deployed and edited - is called a Project Spec. It is an
 abstract definition of a project, a blueprint which can be deployed to many
 places.
 
-This structure defines a set of workflows, and for each workflow, its, its core
+This structure defines a set of workflows, and for each workflow, its core
 configuration, and the sequence of steps which it executes. We usually represent
 this structure as YAML, because it's convenient for humans and machines, but it
 can be represented in any text format.
@@ -157,13 +157,13 @@ edited, see our extensive documentation on [CLI Sync](/documentation/sync).
 
 ## Linked Resources
 
-While we designed Projects with portabality in mind - some features are
+While we designed Projects with portability in mind - some features are
 intrinsically NOT portable.
 
 For example, credentials contain highly secure tokens, which by design and
 nature should be very hard to extract from the OpenFn platform. So credentials
 aren't really portable. When exporting a project, sensitive credentials should
-be included in that exported, plain-text document.
+not be included in that exported, plain-text document.
 
 Similarly, collections are a feature which is tied closely to a specific
 deployment of an OpenFn platform. The data of collections is not covered by the
@@ -173,7 +173,12 @@ collections).
 These kinds of non-portable resources are not part of a project, but they are
 LINKED to a project.
 
-Usually resources are linked by name. A credential and collections just declares
-a dependency on a thing with a given name, which must be resolved at runtime.
-The CLI has tools to do that, and when deploying to a target instance the
-instance may need to be pre-configured to have matching resources.
+Usually resources are linked by name. Credentials and collections just declare a
+dependency on a thing with a given name, which must be resolved at runtime. The
+CLI has tools to do that, and when deploying to a target instance the instance
+may need to be pre-configured to have matching resources.
+
+## Legacy Portability Specifications
+
+For older versions of our approach, see
+[Portability Versions](portability-versions)

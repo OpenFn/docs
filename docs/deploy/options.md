@@ -46,11 +46,11 @@ local/government-managed servers, you might:
    preparations**:
    1. Assess the **value of the solution** itself—is it solving the problems you
       thought it would?
-   2. Asses your **data residency requirements**—do you need to run this
+   2. Assess your **data residency requirements**—do you need to run this
       solution in country?
    3. Assess your team’s technical **DevOps capacity**—how are other local
       deployments of DPGs going?
-   4. Assess your countries computing, storage, and networking
+   4. Assess your country's computing, storage, and networking
       infrastructure—what options\* are available for servers and network
       connectivity?
    5. Determine if a **"zero-persistence"** cloud solution or a **locally

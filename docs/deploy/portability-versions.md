@@ -5,14 +5,14 @@ title: Versions of the Portability Proposal
 Our commitment to portability hasn't changed within OpenFn's lifetime - but our
 approach and implementation of this commitment have taken many forms.
 
-This document provides a reference to older versions of specification.
+This document provides a reference to older versions of the specification.
 
 ## v3
 
 The v3 standard was created for the v2 platform and is linked to the Lightning
 project.
 
-V3 uses the legacy CLI deploy commands and protocols. It is still full supported
+V3 uses the legacy CLI deploy commands and protocols. It is still fully supported
 by the app and CLI, but is being phased out as of May 2026.
 
 [See the v3 specification here](/documentation/deploy/portability-v3)
