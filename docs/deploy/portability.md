@@ -148,7 +148,7 @@ workflows:
 ```
 
 The latest schema for a project spec file is defined in TypeScript
-[here](https://github.com/OpenFn/kit/blob/5e4d65af25a6854886c15294ed4cf17f93ecbc19/packages/lexicon/portability.d.ts)
+[here](https://github.com/OpenFn/kit/blob/main/packages/lexicon/portability.d.ts)
 
 ## Syncing Projects
 
