@@ -11,10 +11,10 @@ workflows directly from the command line. It’s simple to install, works on
 macOS, Windows, and Linux, and offers a range of functionality to enhance your
 developer experience with OpenFn. You can use the OpenFn CLI to:
 
-- Securely run OpenFn steps and workflows
+- Sync workflows between OpenFn and a local filesystem or GitHub
+- Securely run OpenFn workflows
 - Troubleshoot and debug OpenFn steps
-- Access adaptor documentation
-- Deploy workflows to OpenFn
+- Read and write Collections data
 
 ---
 
@@ -25,7 +25,7 @@ Before you begin with the @openfn/cli, make sure to setup some key tooling:
 1. **Code Editor:** Ensure you have a code editor installed on your machine. You
    can use popular editors like [VS Code](https://code.visualstudio.com/) or
    [Sublime](https://www.sublimetext.com/).
-2. **Node.js:** Install Node.js (version 18 or later). For Linux, Windows, or
+2. **Node.js:** Install Node.js (version 24 or later). For Linux, Windows, or
    macOS, use a version manager like [nvm](https://github.com/nvm-sh/nvm) or
    [asdf](https://asdf-vm.com/guide/getting-started.html). Or
    [install Node.js directly](https://kinsta.com/blog/how-to-install-node-js/)
@@ -57,7 +57,7 @@ The word `openfn` will invoke the CLI. The word `test` will invoke the test
 command.
 
 <details>
-<summary>Expand to see the expected output.</summary>
+<summary>Expand to see the expected output</summary>
 
 ```
 [CLI] ♦ Versions:
