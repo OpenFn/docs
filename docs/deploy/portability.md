@@ -3,18 +3,17 @@ title: Portability
 ---
 
 The Portability Specification is an idea right at the heart of OpenFn Projects.
-It is both a technical standard and an ongoing commitment.
-
-The Portability Specification ensures that code written in an OpenFn application
-can be:
+It is both a technical standard and an ongoing commitment. It ensures that code
+written in an OpenFn application can be:
 
 - Deployed to another OpenFn instance (critical for production services running
   in-country)
-- Executed on a local machine (great news for developers)
+- Executed on a local machine (great news for developers building workflows or
+  adaptors)
 - Ejected from OpenFn entirely and executed through a generic JavaScript runtime
 
-The Portability Specification drives the core functionality of OpenFn Sync, CLI
-Deploy, Sandbox merging, and Project export/import from the app.
+This manifesto drives the core functionality of OpenFn Sync, CLI Deploy, Sandbox
+merging, and Project export/import from the app.
 
 :::info Legacy Portability Specifications
 
@@ -50,19 +49,15 @@ This improves the OpenFn developer experience by:
 
 ## Project Spec
 
-:::warning TODO
-
-project file? Project text? Project source? Oh I like source
-
-:::
-
 The unit of portability - the thing that encodes a Project and allows it to be
-shared, synced, deployed and edited - is called a Project Spec.
+shared, synced, deployed and edited - is called a Project Spec. It is an
+abstract definition of a project, a blueprint which can be deployed to many
+places.
 
-It is a structured artifact which defines a set of workflows, and for each
-workflow, its, its core configuration, and the sequence of steps which it
-executes. We usually represent this structure as YAML, because it's convenient
-for humans and machines, but it can be represented in any text format.
+This structure defines a set of workflows, and for each workflow, its, its core
+configuration, and the sequence of steps which it executes. We usually represent
+this structure as YAML, because it's convenient for humans and machines, but it
+can be represented in any text format.
 
 With a copy of a project spec, users can:
 
@@ -155,42 +150,30 @@ workflows:
 The latest schema for a project spec file is defined in TypeScript
 [here](https://github.com/OpenFn/kit/blob/5e4d65af25a6854886c15294ed4cf17f93ecbc19/packages/lexicon/portability.d.ts)
 
+## Syncing Projects
+
+For more details about how a project can be deployed, executed, pulled and
+edited, see our extensive documentation on [CLI Sync](/documentation/sync).
+
 ## Linked Resources
 
-:::warning TODO
+While we designed Projects with portabality in mind - some features are
+intrinsically NOT portable.
 
-I don't really want to talk about state here - but I do want to touch on the
-idea that the spec is uncoupled from an instance, and that we have these "linked
-resources" which on deploy get assigned UUIDs
+For example, credentials contain highly secure tokens, which by design and
+nature should be very hard to extract from the OpenFn platform. So credentials
+aren't really portable. When exporting a project, sensitive credentials should
+be included in that exported, plain-text document.
 
-But the new statefile, main@app.openfn.org.yaml, is not part of the portability
-spec! It's just an artefact used by the CLI to track and instance.
+Similarly, collections are a feature which is tied closely to a specific
+deployment of an OpenFn platform. The data of collections is not covered by the
+portability spec (although with the right permissions data can be synced between
+collections).
 
-If the SPEC is standard for interopability which might go beyond openfn, the
-STATEFILE isa proprietary artefact of sync which is 100% coupled to the app
+These kinds of non-portable resources are not part of a project, but they are
+LINKED to a project.
 
-:::
-
-Project State links a project to related artifacts which live on a specific
-instance of the app - like a user or a credential.
-
-The Project Spec does not link directly to those resources. Rather, it
-references those resources by an identifier string.
-
-When syncing or deploying a project, the hosting app will attempt to reference
-an artifact with the same identifier within the project's scope, and connect it.
-That connection is local to that instance and usually requires a UUID reference.
-This connection is not portable.
-
-:::warning TODO
-
-I want to neatly reference users of the portability spec.
-
-Like "see CLI Sync" to read more about how portability works in practice.
-
-:::
-
-## Execution
-
-TODO: touch on executing workflows with CLI, and also compiling a workflow and
-running that with native node.
+Usually resources are linked by name. A credential and collections just declares
+a dependency on a thing with a given name, which must be resolved at runtime.
+The CLI has tools to do that, and when deploying to a target instance the
+instance may need to be pre-configured to have matching resources.
