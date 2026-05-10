@@ -3,18 +3,17 @@ title: Portability
 ---
 
 The Portability Specification is an idea right at the heart of OpenFn Projects.
-It is both a technical standard and an ongoing commitment.
-
-The Portability Specification ensures that code written in an OpenFn application
-can be:
+It is both a technical standard and an ongoing commitment. It ensures that code
+written in an OpenFn application can be:
 
 - Deployed to another OpenFn instance (critical for production services running
   in-country)
-- Executed on a local machine (great news for developers)
+- Executed on a local machine (great news for developers building workflows or
+  adaptors)
 - Ejected from OpenFn entirely and executed through a generic JavaScript runtime
 
-The Portability Specification drives the core functionality of OpenFn Sync, CLI
-Deploy, Sandbox merging, and Project export/import from the app.
+This manifesto drives the core functionality of OpenFn Sync, CLI Deploy, Sandbox
+merging, and Project export/import from the app.
 
 :::info Legacy Portability Specifications
 
