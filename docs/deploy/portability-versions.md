@@ -2,12 +2,20 @@
 title: Versions of the Portability Proposal
 ---
 
-OpenFn is currently designing a portable project configuration schema that can
-be used to import or export projects between OpenFn/platform and OpenFn/engine.
+Our commitment to portability hasn't changed within OpenFn's lifetime - but our
+approach and implementation of this commitment have taken many forms.
 
-## [Current](/documentation/deploy/portability#the-project-spec)
+This document provides a reference to older versions of specification.
 
-[See the current specification here.](/documentation/deploy/portability#the-project-spec)
+## v3
+
+The v3 standard was created for the v2 platform and is linked to the Lightning
+project.
+
+V3 uses the legacy CLI deploy commands and protocols. It is still full supported
+by the app and CLI, but is being phased out as of May 2026.
+
+[See the v3 specification here](/documentation/deploy/portability-v3)
 
 ## v2
 
