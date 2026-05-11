@@ -68,7 +68,7 @@ Inbox). When a webhook is configured, any Commcare forms submitted are
 **_automatically forwarded_** to the designated endpoint, such as your OpenFn
 inbox. After data forwarding is set up, it happens automatically, **_in
 real-time for all forms and cases_**. Learn more about configuring a webhook
-[here](/adaptors/commcarewebhook-or-data-forwarding-setup-commcare-to-openfn).
+[here](/adaptors/commcare#webhook-or-data-forwarding-setup-commcare-to-openfn).
 
 ![option1](/img/option1.webp)
 
