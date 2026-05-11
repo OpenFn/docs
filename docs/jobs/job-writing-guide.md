@@ -13,7 +13,9 @@ of key patterns in the OpenFn ecosystem which it is important to learn.
 
 :::tip
 
-If you're writing jobs on the platform app (Lightning), you can use the [AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in the Inspector.
+If you're writing jobs on the platform app (Lightning), you can use the
+[AI Assistant](/documentation/build/ai-assistant) to help you. You'll find it in
+the Inspector.
 
 :::
 
@@ -101,7 +103,7 @@ minute.
 :::caution
 
 As of July 2024, callbacks are going to be phased out of the adaptor APIs. See
-[Promise-like Operations](#promise-like-operations) for tips on how to use
+[Promise-like Operations](#operations-and-promises) for tips on how to use
 callbacks with adaptors APIs that don't explicitly support them.
 
 :::
@@ -1159,26 +1161,29 @@ fn(state => {
 
 ## Referencing credential secrets in your job code
 
-If you want to reference any credential secrets in your job code, you can still map keys from your `state.configuration`. See example below that will dynamically map the username and password from your `configuration` (or "credential" if using the app) into your http request body. 
+If you want to reference any credential secrets in your job code, you can still
+map keys from your `state.configuration`. See example below that will
+dynamically map the username and password from your `configuration` (or
+"credential" if using the app) into your http request body.
 
 ```js
 post('/api/v1/auth/login', {
-   body: {
+  body: {
     username: $.configuration.username, //map the UN from credential
-    password: $.configuration.password //map the PW from credential
-   },
-   headers: {'content-type': 'application/json'},
- })
+    password: $.configuration.password, //map the PW from credential
+  },
+  headers: { 'content-type': 'application/json' },
+});
 ```
 
 :::info OpenFn scrubs Configuration & Functions from final state
 
 OpenFn will automatically scrub the `configuration` key and any functions from
-your final state, as well as from logs if running workflows on the app. This is to help ensure that your credential secrets are kept secure and won't be leaked into History.
+your final state, as well as from logs if running workflows on the app. This is
+to help ensure that your credential secrets are kept secure and won't be leaked
+into History.
 
 :::
-
-
 
 <!--
 I would like to include this BUT fields is not an operation and so works a bit differently

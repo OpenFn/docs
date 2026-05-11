@@ -482,7 +482,7 @@ fn(state => {
 
 As you can see from our logs that helper function `dataValue` has a TypeError,
 to troubleshoot this you can go to the documentation for **dataValue ->
-[docs.openfn.org/adaptors/packages/common-docs/#datavaluepath--operation](/adaptors/packages/common-docs/#datavaluepath--operation)
+[docs.openfn.org/adaptors/packages/common-docs/#datavalue](/adaptors/packages/common-docs/#datavalue)
 **
 
 According to the docs, dataValue takes a path as input, which is of the string
@@ -557,9 +557,9 @@ each('posts[*]', state => {
 </details>
 
 Notice how this code uses the `each` function, a helper function defined in
-[language-common](/adaptors/packages/common-docs/#eachdatasource-operation--operation)
-but accessed from this job that is using `language-http`. Most adaptors import
-many functions from `language-common`.
+[language-common](/adaptors/packages/common-docs/#each) but accessed from this
+job that is using `language-http`. Most adaptors import many functions from
+`language-common`.
 
 Run **openfn getPosts.js -a http -s tmp/state.json -o tmp/output.json**
 

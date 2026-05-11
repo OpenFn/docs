@@ -21,10 +21,9 @@ time is reached.
 
 ## Adaptors
 
-We've got a whole section on creating new
-[Adaptors](/adaptors), but the critical thing to be aware of
-when writing a job is that you've got to choose an **adaptor**, and an **adaptor
-version**.
+We've got a whole section on creating new [Adaptors](/adaptors), but the
+critical thing to be aware of when writing a job is that you've got to choose an
+**adaptor**, and an **adaptor version**.
 
 All of the discussion below of helper functions like `create` or `findPatient`
 requires some understanding of adaptors. When you run a job, you're borrowing a
@@ -70,14 +69,6 @@ Finished.
 Note that here, OpenFn/core version `1.3.12` is running on Node.js `12.20.1` and
 using `@openfn/language-http#v2.4.15` which might have very different helper
 functions from `@openfn/language-http#v3.1.5`
-
-:::info
-
-See [the npm section](/adaptors#install-on-platform-via-npm)
-on the adaptors docs page to learn how to install an adaptor from `npm` while
-using `platform`.
-
-:::
 
 ### Upgrading to newer adaptor versions
 
@@ -289,7 +280,7 @@ receipt to upsert a `Patient__c` record in Salesforce and create multiple new
 `Patient_Visit__c` (child to Patient) records.
 
 ```js
-upsert(
+(upsert(
   'Patient__c',
   'Patient_Id__c',
   fields(
@@ -308,7 +299,7 @@ upsert(
         field('Reason__c', dataValue('why_did_they_see_doctor'))
       )
     )
-  );
+  ));
 ```
 
 ### Accessing the "data array" in Open Data Kit submissions
@@ -382,7 +373,7 @@ each(
 ### Create many child records WITHOUT a repeat group in ODK
 
 ```js
-beta.each(
+(beta.each(
   '$.data.data[*]',
   upsert(
     'Outlet__c',
@@ -413,7 +404,7 @@ beta.each(
         field('Comments__c', dataValue('comments'))
       )
     )
-  );
+  ));
 ```
 
 ### Salesforce: perform an update
@@ -566,7 +557,7 @@ dataValueSet(
 ### sample openMRS expression, creates a person and then a patient
 
 ```js
-person(
+(person(
   fields(
     field('gender', 'F'),
     field('names', function (state) {
@@ -593,7 +584,7 @@ person(
         ];
       })
     )
-  );
+  ));
 ```
 
 ### merge many values into a child path
@@ -702,7 +693,7 @@ This will replace all "cats" with "dogs" in the string that lives at
 > **NOTE:** The JavaScript `replace()` function only replaces the first instance
 > of whatever argument you specify. If you're looking for a way to replace all
 > instances, we suggest you use a regex like we did in the
-> [example](#custom-concatenation-of-null-values) below.
+> [example](#concatenation-of-null-values) below.
 
 ### Custom arrayToString
 

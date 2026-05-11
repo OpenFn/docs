@@ -68,7 +68,7 @@ Inbox). When a webhook is configured, any Commcare forms submitted are
 **_automatically forwarded_** to the designated endpoint, such as your OpenFn
 inbox. After data forwarding is set up, it happens automatically, **_in
 real-time for all forms and cases_**. Learn more about configuring a webhook
-[here](/adaptors/commcare#webhook-forward-cases-andor-forms-from-commcare-to-openfn-using-rest-service).
+[here](/adaptors/commcare#webhook-or-data-forwarding-setup-commcare-to-openfn).
 
 ![option1](/img/option1.webp)
 
@@ -110,8 +110,8 @@ In the credential `JSON Configuration`, add your credential as follows:
 
 :::tip
 
-Check out [this](/documentation/legacy/getting-started/terminology#inbox) docs page on
-how to find your OpenFn inbox URL to fill in the configuration above.
+Check out [this](/documentation/legacy/getting-started/terminology#inbox) docs
+page on how to find your OpenFn inbox URL to fill in the configuration above.
 
 :::
 
@@ -219,8 +219,7 @@ there are 2:**
 
 1. **Create a new message filter trigger, to run our second job for every new
    patient record received in the OpenFn inbox.** Learn more about message
-   filter triggers
-   [here](../build/triggers.md#message-filter-triggers).
+   filter triggers [here](../build/triggers.md#message-filter-triggers).
 
 ![create_new_trgger_db](/img/create_new_trgger_db.gif)
 
@@ -257,8 +256,8 @@ upsert('patient', 'ON CONSTRAINT patient_pk', {
 
 Feel free to modify the code above to reflect your CommCare and database
 configuration according to your mapping specifications. Check out this
-[page](../jobs/job-studio.md#job-studio-features) for how to copy the
-dataValue for source data fields in the OpenFn job studio.
+[page](../jobs/job-studio.md#job-studio-features) for how to copy the dataValue
+for source data fields in the OpenFn job studio.
 
 :::tip
 
