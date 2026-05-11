@@ -82,11 +82,12 @@ Here is an example Project spec in YAML format:
 ```yaml
 id: portability-example
 name: Portability Example
+schema_version: '4.0'
 collections:
-  - cache
+  - my-data-cache
 credentials:
-  - name: local login
-    owner: editor@openfn.org
+  - name: my-login
+    owner: some-user@openfn.org
 workflows:
   - name: Event-based workflow
     steps:
