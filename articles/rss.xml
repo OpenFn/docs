@@ -1055,7 +1055,7 @@ to Salesforce integration on your own.</p>
 <p>First, most people make use of CommCare's "Data Forwarding" feature to send form
 submissions and changes in cases (creation, update, closure, etc.) to OpenFn in
 real-time. You can read about that
-<a class="" href="https://docs.openfn.org/adaptors/commcare#webhook-forward-cases-andor-forms-from-commcare-to-openfn-using-rest-service">here</a>
+<a class="" href="https://docs.openfn.org/adaptors/commcare#webhook-or-data-forwarding-setup-commcare-to-openfn">here</a>
 but the key consideration at this planning stage is <em>when</em> you'll be performing
 operations—<code>create(...)</code>, <code>update(...)</code>, <code>upsert(...)</code>, <code>query(...)</code>,
 <code>(bulk(...)</code>, etc.—in Salesforce and what data you'll have access to.</p>
@@ -1201,8 +1201,7 @@ this all up on your own are:</p>
 <li class="">this site (docs.openfn.org), and</li>
 <li class="">the <a href="https://community.openfn.org/" target="_blank" rel="noopener noreferrer" class="">forum</a> (community.openfn.org)</li>
 </ol>
-<p>Read through the
-<a class="" href="https://docs.openfn.org/documentation/tutorials/tutorial">"What is an integration"</a>,
+<p>Read through the <a class="" href="https://docs.openfn.org/documentation/tutorials/tutorial">"What is an integration"</a>,
 <a class="" href="https://docs.openfn.org/documentation/get-started/terminology">"OpenFn Concepts"</a>, and
 <a class="" href="https://docs.openfn.org/documentation/build/workflows">"Build"</a> sections if you're a thorough,
 background-first kind of learner. If you crave snippets and sample job code,

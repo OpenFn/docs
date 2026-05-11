@@ -19,8 +19,8 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.ce8360fa.css">
-<script src="/assets/js/runtime~main.6c4cdc32.js" defer="defer"></script>
-<script src="/assets/js/main.fa18aba2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d459fc46.js" defer="defer"></script>
+<script src="/assets/js/main.ec312148.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -37,11 +37,10 @@ OpenFn v1 to v2.</p>
 <a class="" href="/documentation/legacy/build/triggers">4 types of triggers</a> on
 v1: Message Filters, Cron Triggers, Flow Triggers, and Fail Triggers.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="converting-cron-triggers">Converting Cron Triggers<a href="#converting-cron-triggers" class="hash-link" aria-label="Direct link to Converting Cron Triggers" title="Direct link to Converting Cron Triggers" translate="no">​</a></h3>
-<p>Setting up a
-<a class="" href="/documentation/build/triggers#cron-triggers-formerly-timers">Cron Trigger on v2</a> works
-just the same as on <a class="" href="/documentation/legacy/build/triggers">v1</a>:
-when you&#x27;re building a Workflow, select Cron Schedule as Trigger type, and set
-the frequency.</p>
+<p>Setting up a <a class="" href="/documentation/build/triggers#cron-triggers">Cron Trigger on v2</a> works just
+the same as on <a class="" href="/documentation/legacy/build/triggers">v1</a>: when
+you&#x27;re building a Workflow, select Cron Schedule as Trigger type, and set the
+frequency.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="converting-flow-and-fail-triggers">Converting Flow and Fail Triggers<a href="#converting-flow-and-fail-triggers" class="hash-link" aria-label="Direct link to Converting Flow and Fail Triggers" title="Direct link to Converting Flow and Fail Triggers" translate="no">​</a></h3>
 <p>With a Flow trigger, we can execute a job upon success of another specified job.
 With a Fail trigger, the job will run if an another specified job failed.</p>
@@ -65,7 +64,9 @@ were then picked up by the different jobs based on Message Filter Triggers.</p>
 <p>The main difference on V2 is that each workflow that operates with a webhook
 trigger has its own unique webhook URL to receive data to.</p>
 <p><img decoding="async" loading="lazy" alt="V2 Webhook Trigger" src="/assets/images/v2_webhook_trigger-e42aae2389437b940306ffec15a7edc5.webp" width="1190" height="788" class="img_ev3q"></p>
-<p>This will mean that in your source applications you will probably need to configure multiple webhooks/forwarders, one for each of your recieving workflows, instead of the previous common Inbox one.</p>
+<p>This will mean that in your source applications you will probably need to
+configure multiple webhooks/forwarders, one for each of your recieving
+workflows, instead of the previous common Inbox one.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="path-conditions">Path Conditions<a href="#path-conditions" class="hash-link" aria-label="Direct link to Path Conditions" title="Direct link to Path Conditions" translate="no">​</a></h4>
 <p>Once you&#x27;ve configured your
 <a class="" href="/documentation/build/triggers#webhook-event-triggers">Webhook</a>, you can use a custom

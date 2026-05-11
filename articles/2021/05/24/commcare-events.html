@@ -19,8 +19,8 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.ce8360fa.css">
-<script src="/assets/js/runtime~main.6c4cdc32.js" defer="defer"></script>
-<script src="/assets/js/main.fa18aba2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d459fc46.js" defer="defer"></script>
+<script src="/assets/js/main.ec312148.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -41,7 +41,7 @@ to Salesforce integration on your own.</p>
 <p>First, most people make use of CommCare&#x27;s &quot;Data Forwarding&quot; feature to send form
 submissions and changes in cases (creation, update, closure, etc.) to OpenFn in
 real-time. You can read about that
-<a class="" href="/adaptors/commcare#webhook-forward-cases-andor-forms-from-commcare-to-openfn-using-rest-service">here</a>
+<a class="" href="/adaptors/commcare#webhook-or-data-forwarding-setup-commcare-to-openfn">here</a>
 but the key consideration at this planning stage is <em>when</em> you&#x27;ll be performing
 operations—<code>create(...)</code>, <code>update(...)</code>, <code>upsert(...)</code>, <code>query(...)</code>,
 <code>(bulk(...)</code>, etc.—in Salesforce and what data you&#x27;ll have access to.</p>
@@ -162,7 +162,7 @@ provided by the Salesforce adaptor:</p>
 <p>Now, every time this job runs (which is every time a CommCare form is submitted)
 your OpenFn worker will upsert a <code>Participant</code>, upsert a <code>Visit</code>, and upsert a
 whole list of <code>Medications</code> in Salesforce.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What&#x27;s next<a href="#whats-next" class="hash-link" aria-label="Direct link to What&#x27;s next" title="Direct link to What&#x27;s next" translate="no">​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What&#x27;s next<a href="#whats-next" class="hash-link" aria-label="Direct link to What&#x27;s next" title="Direct link to What&#x27;s next" translate="no"> ​</a></h2>
 <p>Well, in our little example you&#x27;d turn the job &quot;on&quot; (setting it to on the
 inbound messages from CommCare) and let it run. Whenever there was a failure
 (maybe your Salesforce admin added a new required field on the
@@ -187,8 +187,7 @@ this all up on your own are:</p>
 <li class="">this site (docs.openfn.org), and</li>
 <li class="">the <a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer" class="">forum</a> (community.openfn.org)</li>
 </ol>
-<p>Read through the
-<a class="" href="/documentation/tutorials/tutorial">&quot;What is an integration&quot;</a>,
+<p>Read through the <a class="" href="/documentation/tutorials/tutorial">&quot;What is an integration&quot;</a>,
 <a class="" href="/documentation/get-started/terminology">&quot;OpenFn Concepts&quot;</a>, and
 <a class="" href="/documentation/build/workflows">&quot;Build&quot;</a> sections if you&#x27;re a thorough,
 background-first kind of learner. If you crave snippets and sample job code,

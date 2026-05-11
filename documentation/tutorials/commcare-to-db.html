@@ -19,8 +19,8 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.ce8360fa.css">
-<script src="/assets/js/runtime~main.6c4cdc32.js" defer="defer"></script>
-<script src="/assets/js/main.fa18aba2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d459fc46.js" defer="defer"></script>
+<script src="/assets/js/main.ec312148.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -85,7 +85,7 @@ workflow). When a webhook is configured, any Commcare forms submitted are
 <strong><em>automatically forwarded</em></strong> to the designated endpoint, such as your OpenFn
 workflow. After data forwarding is set up, it happens automatically, <strong><em>in
 real-time for all forms and cases</em></strong>. Learn more about configuring a webhook
-<a class="" href="/adaptors/commcare#webhook-forward-cases-andor-forms-from-commcare-to-openfn-using-rest-service">here</a>.</p>
+<a class="" href="/adaptors/commcare#webhook-or-data-forwarding-setup-commcare-to-openfn">here</a>.</p>
 <p><img decoding="async" loading="lazy" alt="option1" src="/assets/images/option1-ab03a992d540358911f15c5fd400c453.webp" width="1132" height="572" class="img_ev3q"></p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="option-2-extracting-commcare-data-via-the-rest-api">Option 2: Extracting Commcare data via the REST API<a href="#option-2-extracting-commcare-data-via-the-rest-api" class="hash-link" aria-label="Direct link to Option 2: Extracting Commcare data via the REST API" title="Direct link to Option 2: Extracting Commcare data via the REST API" translate="no">​</a></h3>
 <p>CommCare provides a robust
@@ -107,7 +107,9 @@ Deciding on which option to go with depends on your business requirements.</p>
 <li class=""><strong>Create a new “Webhook” trigger to schedule this extract job.</strong></li>
 </ol>
 <p><img decoding="async" loading="lazy" alt="create_trigger" src="/assets/images/create_trigger-72300266a5f05029845bfaa1c77772f8.gif" width="1432" height="672" class="img_ev3q"></p>
-<p>Make sure you have copied the webhook URL from your OpenFn workflow into CommCare. Each form submitted in CommCare will be automatically sent to OpenFn and will trigger your new workflow.</p>
+<p>Make sure you have copied the webhook URL from your OpenFn workflow into
+CommCare. Each form submitted in CommCare will be automatically sent to OpenFn
+and will trigger your new workflow.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="transforming-and-loading-commcare-data-to-a-postgresql-database">Transforming and loading CommCare data to a PostgreSQL database<a href="#transforming-and-loading-commcare-data-to-a-postgresql-database" class="hash-link" aria-label="Direct link to Transforming and loading CommCare data to a PostgreSQL database" title="Direct link to Transforming and loading CommCare data to a PostgreSQL database" translate="no">​</a></h2>
 <ol>
 <li class=""><strong>You should have a database configured and a username provided for OpenFn to
@@ -115,9 +117,8 @@ read and write data in your target DB tables.</strong> For this demo, we have
 configured the database
 <a href="https://docs.google.com/spreadsheets/d/1pi_oxImakhtaCCCIENkjTPZeuyWhpFEcNmH7hfvTBgo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="">like this</a>
 to capture the CommCare form data. Check out the
-<a class="" href="/documentation/design/mapping-specs">this page</a>
-for how to create your own <code>mapping specification document</code> to map data
-elements to be exchanged.</li>
+<a class="" href="/documentation/design/mapping-specs">this page</a> for how to create your own
+<code>mapping specification document</code> to map data elements to be exchanged.</li>
 </ol>
 <p><img decoding="async" loading="lazy" alt="db_config" src="/assets/images/db_config-10010f7749045c1ab7522074f014977b.webp" width="1122" height="564" class="img_ev3q"></p>
 <ol start="2">
@@ -132,10 +133,10 @@ authenticate with the database.</strong></li>
 <p><img decoding="async" loading="lazy" alt="add_credential_postgres" src="/assets/images/postgresql-cred-b343dbf799802b766f489fcc213350af.gif" width="1440" height="672" class="img_ev3q"></p>
 <ol start="4">
 <li class=""><strong>Writing the step:</strong> For this step we will use the upsert operation to
-insert/update records in the destination <code>patient</code> table and use <code>patient_id</code> as
-the primary key. An <code>upsert</code> will update an existing row if a specified value
-already exists in a table, and insert a new row if the specified value doesn&#x27;t
-already exist.</li>
+insert/update records in the destination <code>patient</code> table and use <code>patient_id</code>
+as the primary key. An <code>upsert</code> will update an existing row if a specified
+value already exists in a table, and insert a new row if the specified value
+doesn&#x27;t already exist.</li>
 </ol>
 <div class="language-js codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-js codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token function" style="color:rgb(130, 170, 255)">upsert</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;patient&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;ON CONSTRAINT patient_pk&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"> </span><span class="token punctuation" style="color:rgb(199, 146, 234)">{</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">patient_id</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.patient_name&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">patient_name</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.patient_name&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">village_name</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.village_name&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">last_menstrual_period</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.last_menstrual_period&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">expected_delivery_date</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.expected_delivery_date&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">children_alive</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.children_alive&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">living_children</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.living_children&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">feeling_sick</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.feeling_sick&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">total_children</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.Total_children&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token literal-property property">risk_level</span><span class="token operator" style="color:rgb(137, 221, 255)">:</span><span class="token plain"> </span><span class="token function" style="color:rgb(130, 170, 255)">dataValue</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token string" style="color:rgb(195, 232, 141)">&#x27;data.Risk_level&#x27;</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">,</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain"></span><span class="token punctuation" style="color:rgb(199, 146, 234)">}</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token punctuation" style="color:rgb(199, 146, 234)">;</span><br></span></code></pre></div></div>
 <p>Feel free to modify the code above to reflect your CommCare and database
@@ -144,7 +145,8 @@ configuration according to your mapping specifications.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="time-to-test">Time to test!<a href="#time-to-test" class="hash-link" aria-label="Direct link to Time to test!" title="Direct link to Time to test!" translate="no">​</a></h2>
 <ol>
 <li class="">Submit a form in CommCare</li>
-<li class="">If you have enabled data forwarding, your workflow should should be triggered automatically.</li>
+<li class="">If you have enabled data forwarding, your workflow should should be triggered
+automatically.</li>
 <li class="">If you have not enabled data forwarding and set up a FETCH step instead, run
 the step (ensure the <code>received_on_start</code> and <code>received_on_start</code> dates in the
 FETCH are appropriate).</li>
@@ -155,8 +157,9 @@ automatically run.</li>
 <p><img decoding="async" loading="lazy" alt="activity_history_final" src="/assets/images/activity_history_success-bfc053662366825120766e1f8eafcb79.webp" width="2878" height="1000" class="img_ev3q"></p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p><strong>What do do if your run fails:</strong></p><ol>
 <li class="">Open the run to inspect the error log</li>
-<li class="">Adjust the step to resolve the issue and re-run the step as needed by clicking the
-&quot;rerun&quot; button in <code>History</code> or the &quot;Re-run from here&quot; button on the <code>Inspector</code></li>
+<li class="">Adjust the step to resolve the issue and re-run the step as needed by
+clicking the &quot;rerun&quot; button in <code>History</code> or the &quot;Re-run from here&quot; button on
+the <code>Inspector</code></li>
 <li class="">Check out the <a class="" href="/adaptors/postgresql#common-errors">PostgreSQL common errors</a>
 page for more details!</li>
 </ol></div></div>

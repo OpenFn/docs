@@ -19,8 +19,8 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.ce8360fa.css">
-<script src="/assets/js/runtime~main.6c4cdc32.js" defer="defer"></script>
-<script src="/assets/js/main.fa18aba2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d459fc46.js" defer="defer"></script>
+<script src="/assets/js/main.ec312148.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -127,9 +127,9 @@ clicked on OpenFn) project changes to keep a repository in sync with your OpenFn
 project.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="sync-from-openfn-to-github">Sync from OpenFn to GitHub<a href="#sync-from-openfn-to-github" class="hash-link" aria-label="Direct link to Sync from OpenFn to GitHub" title="Direct link to Sync from OpenFn to GitHub" translate="no">​</a></h3>
 <p>This sync pushes changes from your OpenFn project to GitHub. This sync operation
-will trigger an <code>openfn pull</code> action workflow on your connected Github repository
-, which will pull the latest configuration from the OpenFn app and save it as
-code in the <code>project.yaml</code> file on your repository.</p>
+will trigger an <code>openfn pull</code> action workflow on your connected Github
+repository , which will pull the latest configuration from the OpenFn app and
+save it as code in the <code>project.yaml</code> file on your repository.</p>
 <div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p>Your OpenFn project can be represented as code and packaged as project.yaml
 which is called the project spec. See the
 <a class="" href="/documentation/deploy/portability">portability documentation</a> to learn more.</p></div></div>
@@ -170,7 +170,7 @@ relative paths for job code in project spec, automatically gets packaged and
 deployed without the user having to copy changes into the project spec. This new
 approach gives developers more flexibility to better manage their job code in
 individual files rather than having all the code in the <code>projectSpec.yaml</code> file.</p><p>Learn more about relative paths and directory structure in
-<a class="" href="/documentation/deploy/portability#directory-structure">portability documentation</a>.</p></div></div>
+<a class="" href="/documentation/deploy/portability-v3#directory-structure">portability documentation</a>.</p></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="using-sync-v2">Using Sync v2<a href="#using-sync-v2" class="hash-link" aria-label="Direct link to Using Sync v2" title="Direct link to Using Sync v2" translate="no">​</a></h3>
 <p>By default, GitHub Sync will use the legacy folder structure to represent your
 project on GitHub. That folder structure is explained below - it&#x27;ll create

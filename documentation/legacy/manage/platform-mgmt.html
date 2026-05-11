@@ -19,8 +19,8 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.ce8360fa.css">
-<script src="/assets/js/runtime~main.6c4cdc32.js" defer="defer"></script>
-<script src="/assets/js/main.fa18aba2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d459fc46.js" defer="defer"></script>
+<script src="/assets/js/main.ec312148.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -172,16 +172,16 @@ steps</strong> and an <strong>expression editor</strong>. In <strong>Fullscreen 
 configuration steps</strong> appear as regular fields, without a wizard.</p>
 <p>The <strong>four configuration steps</strong> include giving the job a name, defining what
 <a class="" href="/documentation/legacy/build/triggers">triggers</a> its execution, selecting an
-<a class="" href="/adaptors">adaptor</a>, and providing
-<a class="" href="/documentation/legacy/build/credentials">authentication</a> details.</p>
+<a class="" href="/adaptors">adaptor</a>, and providing <a class="" href="/documentation/legacy/build/credentials">authentication</a>
+details.</p>
 <p>The <strong>expression editor</strong> is the area where you write your
-<a class="" href="/documentation/legacy/build/jobs#composing-job-expressions">job expression</a>. Fill-in
-all the details, and click on the <strong>Save</strong> icon in the top-right corner to save
-your job&#x27;s configuration changes.</p>
+<a class="" href="/documentation/legacy/build/jobs#composing-job-expressions">job expression</a>. Fill-in all the
+details, and click on the <strong>Save</strong> icon in the top-right corner to save your
+job&#x27;s configuration changes.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="inspecting-jobs-initial-state">Inspecting job&#x27;s initial state<a href="#inspecting-jobs-initial-state" class="hash-link" aria-label="Direct link to Inspecting job&#x27;s initial state" title="Direct link to Inspecting job&#x27;s initial state" translate="no">​</a></h4>
 <p>This feature allows you to view the
-<a class="" href="/documentation/legacy/jobs/state#initial-state">initial state</a> of a selected job.
-Note that this feature is currently only available for
+<a class="" href="/documentation/legacy/jobs/state#initial-state">initial state</a> of a selected
+job. Note that this feature is currently only available for
 <a class="" href="/documentation/legacy/build/triggers#message-filter-triggers">message-triggered jobs</a>.</p>
 <p>To view or inspect a job&#x27;s initial state, click the expression pane splitter and
 drag to the right. After dragging, you will see a <code>json tree</code> representation of
@@ -206,9 +206,7 @@ Studio&#x27;s theme from the default one, click the <code>color palette</code> i
 a theme of your choice.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-a-unreleased-adaptor-version">Installing a unreleased adaptor version<a href="#installing-a-unreleased-adaptor-version" class="hash-link" aria-label="Direct link to Installing a unreleased adaptor version" title="Direct link to Installing a unreleased adaptor version" translate="no">​</a></h4>
 <p>In Job Studio, you can install adaptors that are not part of the recommended
-adaptors picklist directly from npm. See details
-<a class="" href="/adaptors#install-on-platform-via-npm">here</a> on how to install the unreleased
-adaptor version.</p>
+adaptors picklist directly from npm.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="testing-a-job">Testing a job<a href="#testing-a-job" class="hash-link" aria-label="Direct link to Testing a job" title="Direct link to Testing a job" translate="no">​</a></h4>
 <p>You can test your job without exiting Job Studio, by clicking on the <strong>Save and
 Run</strong> button. You can find the <strong>Save and Run</strong> button in the bottom pane of the
@@ -403,8 +401,8 @@ began and ended.</p>
 performing multiple actions in a destination system or if they are fetching
 lots of data from a REST api at the start of a migration. They will appear as
 red if they have failed. In the case of failure, refer to our
-<a class="" href="/documentation/legacy/manage/troubleshooting-tips-on-platform">Troubleshooting</a>
-section below.</p>
+<a class="" href="/documentation/legacy/manage/troubleshooting-tips-on-platform">Troubleshooting</a> section
+below.</p>
 </blockquote>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="filter-runs-in-the-activity-view">Filter runs in the Activity view<a href="#filter-runs-in-the-activity-view" class="hash-link" aria-label="Direct link to Filter runs in the Activity view" title="Direct link to Filter runs in the Activity view" translate="no">​</a></h3>
 <p>You can filter the run logs in the Activity View by:</p>
@@ -699,8 +697,8 @@ Project</strong>.</li>
 Microservice. Exporting as <code>project.yaml</code> will provide you with a <code>YAML</code> file
 that can be used to run this project with
 <a class="" href="/documentation/legacy/microservice/home">OpenFn/engine</a>,
-<a class="" href="/documentation/legacy/microservice/home">OpenFn/microservice</a>, or for use in
-another OpenFn/platform space.</li>
+<a class="" href="/documentation/legacy/microservice/home">OpenFn/microservice</a>, or for use in another
+OpenFn/platform space.</li>
 <li class="">Exporting as <code>microservice.zip</code> will prepare a <code>ZIP</code> file with
 <code>openfn/microservice:latest</code> (from hub.docker.com) and a your <code>YAML</code> file
 inside a pre-configured directory structure so that you can run this project
@@ -872,10 +870,10 @@ job on OpenFn.</p><p>⚠️ <strong>PLEASE note</strong> that <em>before</em> yo
 for OpenFn jobs on the platform. If you commit something you don&#x27;t want (like an
 empty file) to GitHub, <code>autodeploy</code> is on, and that file is linked to an OpenFn
 job, you will <strong>erase your existing job</strong> and you may not be able to retrieve
-it. ⚠️</p><p>For this reason, and because <a class="" href="/documentation/legacy/cli"><strong>OpenFn/cli</strong></a> provides a
-free, open-source, offline testing environment, it&#x27;s recommended to create your
-jobs using a GitHub repo and test them on your own machine <em>before</em> linking them
-to a project on OpenFn.</p></div></div>
+it. ⚠️</p><p>For this reason, and because <a class="" href="/documentation/legacy/cli"><strong>OpenFn/cli</strong></a> provides a free,
+open-source, offline testing environment, it&#x27;s recommended to create your jobs
+using a GitHub repo and test them on your own machine <em>before</em> linking them to a
+project on OpenFn.</p></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="setup-steps">Setup Steps<a href="#setup-steps" class="hash-link" aria-label="Direct link to Setup Steps" title="Direct link to Setup Steps" translate="no">​</a></h3>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="linking-your-openfn-account-to-your-github-account">Linking your OpenFn account to your GitHub account<a href="#linking-your-openfn-account-to-your-github-account" class="hash-link" aria-label="Direct link to Linking your OpenFn account to your GitHub account" title="Direct link to Linking your OpenFn account to your GitHub account" translate="no">​</a></h4>
 <ol>

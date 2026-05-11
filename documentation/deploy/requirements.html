@@ -19,8 +19,8 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.ce8360fa.css">
-<script src="/assets/js/runtime~main.6c4cdc32.js" defer="defer"></script>
-<script src="/assets/js/main.fa18aba2.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.d459fc46.js" defer="defer"></script>
+<script src="/assets/js/main.ec312148.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -72,7 +72,7 @@ the following specs will help prevent unwanted downtime.<!-- -->
 <li class=""><strong>GKE limits:</strong> memory@ &quot;2560Mi&quot;</li>
 </ol>
 </li>
-<li class="">For a simple non-Kubernetes/HA deployments, the minimum recommended machines
+<li class="">For simple non-Kubernetes/HA deployments, the minimum recommended machines
 are:<!-- -->
 <ul>
 <li class=""><strong>Application machine:</strong> 2 vCPU (roughly a single core of a 2.6 GHz Intel
@@ -88,8 +88,12 @@ E5) with 3.75 GB memory. Storage required for the DB varies by how many
 days (if any) of message data you’d like to store on the app itself and
 cannot be determined without estimates for message/run throughput. If
 scaling physical storage is not difficult for your particular deployment,
-start at 40gb. 3. A Postgres (at least v14.2) instance (as we run this on a
-<em>separate server</em>) from the application for greater stability.</li>
+start at 40gb.<!-- -->
+<ol>
+<li class="">A Postgres (at least v14.2) instance, run on a <em>separate server</em> from
+the application for greater stability.</li>
+</ol>
+</li>
 </ul>
 </li>
 <li class="">If both the application and database are hosted on the same machine (which is
