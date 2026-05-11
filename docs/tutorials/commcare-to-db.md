@@ -1,7 +1,6 @@
 ---
 sidebar_label: CommCare to PostgreSQL
-title:
- Syncing your CommCare form submissions to a PostgreSQL database
+title: Syncing your CommCare form submissions to a PostgreSQL database
 ---
 
 **Before starting this tutorial please make sure:**
@@ -49,7 +48,7 @@ data on patients registered!
 
 **This integration can be broken up into two parts:**
 
-1. Getting data from your source system into OpenFn to trigger your workflow 
+1. Getting data from your source system into OpenFn to trigger your workflow
 2. Transforming and loading this data to your destination system
 
 … let’s get started!
@@ -66,7 +65,7 @@ workflow). When a webhook is configured, any Commcare forms submitted are
 **_automatically forwarded_** to the designated endpoint, such as your OpenFn
 workflow. After data forwarding is set up, it happens automatically, **_in
 real-time for all forms and cases_**. Learn more about configuring a webhook
-[here](/adaptors/commcare#webhook-forward-cases-andor-forms-from-commcare-to-openfn-using-rest-service).
+[here](/adaptors/commcarewebhook-or-data-forwarding-setup-commcare-to-openfn).
 
 ![option1](/img/option1.webp)
 
@@ -78,12 +77,11 @@ extracting and loading data. This second option involves configuring a step in
 OpenFn to fetch CommCare submissions via a `GET` HTTP request with parameters to
 filter your data query. CommCare API access requires a paid CommCare plan.
 
-
-   The main advantage of using the webhook is that your data is forwarded to the
-   destination system in real-time. However, the List Forms API is also
-   advantageous because it enables users to extract data in bulk on a scheduled
-   basis, for syncing historical data every month on the 30th, for example.
-   Deciding on which option to go with depends on your business requirements.
+The main advantage of using the webhook is that your data is forwarded to the
+destination system in real-time. However, the List Forms API is also
+advantageous because it enables users to extract data in bulk on a scheduled
+basis, for syncing historical data every month on the 30th, for example.
+Deciding on which option to go with depends on your business requirements.
 
 ### Set up a workflow using Option 1
 
@@ -95,7 +93,9 @@ filter your data query. CommCare API access requires a paid CommCare plan.
 
 ![create_trigger](/img/create_trigger.gif)
 
-Make sure you have copied the webhook URL from your OpenFn workflow into CommCare. Each form submitted in CommCare will be automatically sent to OpenFn and will trigger your new workflow.
+Make sure you have copied the webhook URL from your OpenFn workflow into
+CommCare. Each form submitted in CommCare will be automatically sent to OpenFn
+and will trigger your new workflow.
 
 ## Transforming and loading CommCare data to a PostgreSQL database
 
@@ -104,13 +104,10 @@ Make sure you have copied the webhook URL from your OpenFn workflow into CommCar
    configured the database
    [like this](https://docs.google.com/spreadsheets/d/1pi_oxImakhtaCCCIENkjTPZeuyWhpFEcNmH7hfvTBgo/edit?usp=sharing)
    to capture the CommCare form data. Check out the
-   [this page](../design/mapping-specs)
-   for how to create your own `mapping specification document` to map data
-   elements to be exchanged.
+   [this page](../design/mapping-specs) for how to create your own
+   `mapping specification document` to map data elements to be exchanged.
 
 ![db_config](/img/db_config.webp)
-
-
 
 2. **Create a new step with the `postgresql` adaptor for loading the CommCare
    data into your destination database.**
@@ -123,10 +120,10 @@ Make sure you have copied the webhook URL from your OpenFn workflow into CommCar
 ![add_credential_postgres](/img/postgresql-cred.gif)
 
 4. **Writing the step:** For this step we will use the upsert operation to
-insert/update records in the destination `patient` table and use `patient_id` as
-the primary key. An `upsert` will update an existing row if a specified value
-already exists in a table, and insert a new row if the specified value doesn't
-already exist.
+   insert/update records in the destination `patient` table and use `patient_id`
+   as the primary key. An `upsert` will update an existing row if a specified
+   value already exists in a table, and insert a new row if the specified value
+   doesn't already exist.
 
 ```js
 upsert('patient', 'ON CONSTRAINT patient_pk', {
@@ -144,15 +141,15 @@ upsert('patient', 'ON CONSTRAINT patient_pk', {
 ```
 
 Feel free to modify the code above to reflect your CommCare and database
-configuration according to your mapping specifications. 
+configuration according to your mapping specifications.
 
 ![create-job](/img/create_job_db.gif)
-
 
 ## Time to test!
 
 1. Submit a form in CommCare
-2. If you have enabled data forwarding, your workflow should should be triggered automatically.
+2. If you have enabled data forwarding, your workflow should should be triggered
+   automatically.
 3. If you have not enabled data forwarding and set up a FETCH step instead, run
    the step (ensure the `received_on_start` and `received_on_start` dates in the
    FETCH are appropriate).
@@ -167,13 +164,13 @@ configuration according to your mapping specifications.
 **What do do if your run fails:**
 
 1. Open the run to inspect the error log
-2. Adjust the step to resolve the issue and re-run the step as needed by clicking the
-   "rerun" button in `History` or the "Re-run from here" button on the `Inspector`
+2. Adjust the step to resolve the issue and re-run the step as needed by
+   clicking the "rerun" button in `History` or the "Re-run from here" button on
+   the `Inspector`
 3. Check out the [PostgreSQL common errors](/adaptors/postgresql/#common-errors)
    page for more details!
 
 :::
-
 
 4. **Finally, refresh your database and check out the new submission data!**
 
@@ -182,7 +179,7 @@ configuration according to your mapping specifications.
 While this guide is specifically for PostgreSQL databases, you can generally
 follow these same steps for other database types (e.g., MS SQL or MySQL)—simply
 leverage a different adaptor in your step configuration.
- 
+
 **Other resources to check out:**
 
 1. OpenFn Job Library

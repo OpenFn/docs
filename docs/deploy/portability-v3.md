@@ -56,8 +56,7 @@ myProject/
 :::info Directory Structure
 
 There are commonly used 3 directory structure for OpenFn projects namely:
-standard, production & test, and monorepo. To learn more, please see the OpenFn
-[GitHub configuration documentation](/documentation/link-to-GitHub#structuring-your-github-repository).
+standard, production & test, and monorepo.
 
 :::
 

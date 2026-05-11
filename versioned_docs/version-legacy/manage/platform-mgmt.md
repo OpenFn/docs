@@ -194,19 +194,19 @@ configuration steps** appear as regular fields, without a wizard.
 
 The **four configuration steps** include giving the job a name, defining what
 [triggers](../build/triggers.md) its execution, selecting an
-[adaptor](/adaptors), and providing
-[authentication](../build/credentials.md) details.
+[adaptor](/adaptors), and providing [authentication](../build/credentials.md)
+details.
 
 The **expression editor** is the area where you write your
-[job expression](../build/jobs.md#composing-job-expressions). Fill-in
-all the details, and click on the **Save** icon in the top-right corner to save
-your job's configuration changes.
+[job expression](../build/jobs.md#composing-job-expressions). Fill-in all the
+details, and click on the **Save** icon in the top-right corner to save your
+job's configuration changes.
 
 #### Inspecting job's initial state
 
 This feature allows you to view the
-[initial state](/documentation/legacy/jobs/state#initial-state) of a selected job.
-Note that this feature is currently only available for
+[initial state](/documentation/legacy/jobs/state#initial-state) of a selected
+job. Note that this feature is currently only available for
 [message-triggered jobs](../build/triggers.md#message-filter-triggers).
 
 To view or inspect a job's initial state, click the expression pane splitter and
@@ -241,9 +241,7 @@ a theme of your choice.
 #### Installing a unreleased adaptor version
 
 In Job Studio, you can install adaptors that are not part of the recommended
-adaptors picklist directly from npm. See details
-[here](/adaptors#install-on-platform-via-npm) on how to install the unreleased
-adaptor version.
+adaptors picklist directly from npm.
 
 #### Testing a job
 
@@ -490,8 +488,8 @@ began and ended.
 > performing multiple actions in a destination system or if they are fetching
 > lots of data from a REST api at the start of a migration. They will appear as
 > red if they have failed. In the case of failure, refer to our
-> [Troubleshooting](../manage/troubleshooting-tips-on-platform.md)
-> section below.
+> [Troubleshooting](../manage/troubleshooting-tips-on-platform.md) section
+> below.
 
 ### Filter runs in the Activity view
 
@@ -809,8 +807,8 @@ finished working on the first.
   Microservice. Exporting as `project.yaml` will provide you with a `YAML` file
   that can be used to run this project with
   [OpenFn/engine](../microservice/home.md),
-  [OpenFn/microservice](../microservice/home.md), or for use in
-  another OpenFn/platform space.
+  [OpenFn/microservice](../microservice/home.md), or for use in another
+  OpenFn/platform space.
 - Exporting as `microservice.zip` will prepare a `ZIP` file with
   `openfn/microservice:latest` (from hub.docker.com) and a your `YAML` file
   inside a pre-configured directory structure so that you can run this project
@@ -1021,10 +1019,10 @@ empty file) to GitHub, `autodeploy` is on, and that file is linked to an OpenFn
 job, you will **erase your existing job** and you may not be able to retrieve
 it. ⚠️
 
-For this reason, and because [**OpenFn/cli**](../cli.md) provides a
-free, open-source, offline testing environment, it's recommended to create your
-jobs using a GitHub repo and test them on your own machine _before_ linking them
-to a project on OpenFn.
+For this reason, and because [**OpenFn/cli**](../cli.md) provides a free,
+open-source, offline testing environment, it's recommended to create your jobs
+using a GitHub repo and test them on your own machine _before_ linking them to a
+project on OpenFn.
 
 :::
 

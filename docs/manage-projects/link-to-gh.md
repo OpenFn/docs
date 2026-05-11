@@ -122,9 +122,9 @@ project.
 ### Sync from OpenFn to GitHub
 
 This sync pushes changes from your OpenFn project to GitHub. This sync operation
-will trigger an `openfn pull` action workflow on your connected Github repository
-, which will pull the latest configuration from the OpenFn app and save it as
-code in the `project.yaml` file on your repository.
+will trigger an `openfn pull` action workflow on your connected Github
+repository , which will pull the latest configuration from the OpenFn app and
+save it as code in the `project.yaml` file on your repository.
 
 :::info
 
@@ -186,7 +186,7 @@ approach gives developers more flexibility to better manage their job code in
 individual files rather than having all the code in the `projectSpec.yaml` file.
 
 Learn more about relative paths and directory structure in
-[portability documentation](/documentation/deploy/portability#directory-structure).
+[portability documentation](/documentation/deploy/portability-v3#directory-structure).
 
 :::
 

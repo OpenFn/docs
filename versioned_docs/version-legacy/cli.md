@@ -52,7 +52,6 @@ please see the documentation for
    [Sublime](https://www.sublimetext.com/))
 
 2. Install NodeJs **v18 is the minimum version required**
-
    - To install a specific version of Node.js (in this case, version 18) on
      Linux, Windows, or macOS, you can use a version manager such as nvm (Node
      Version Manager) or any multiple runtime version manager eg:
@@ -691,7 +690,7 @@ fn(state => {
 
 As you can see from our logs that helper function `dataValue` has a TypeError,
 To troubleshoot this you can go to the documentation for **dataValue ->
-[docs.openfn.org/adaptors/packages/common-docs/#datavaluepath--operation](/adaptors/packages/common-docs/#datavaluepath--operation)
+[docs.openfn.org/adaptors/packages/common-docs/#datavalue](/adaptors/packages/common-docs/#datavalue)
 **
 
 According to the docs, dataValue take path which is a string type. But in our
@@ -769,9 +768,9 @@ each('posts[*]', state => {
 ```
 
 Notice how this code uses the `each` function, a helper function defined in
-[language-common](/adaptors/packages/common-docs/#eachdatasource-operation--operation)
-but accessed from this job that is using language-http. Most adaptors import and
-export many functions from `language-common`.
+[language-common](/adaptors/packages/common-docs/#each) but accessed from this
+job that is using language-http. Most adaptors import and export many functions
+from `language-common`.
 
 ##### Run **openfn getPosts.js -a http -o tmp/output.json**
 

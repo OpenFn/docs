@@ -17,11 +17,10 @@ v1: Message Filters, Cron Triggers, Flow Triggers, and Fail Triggers.
 
 ### Converting Cron Triggers
 
-Setting up a
-[Cron Trigger on v2](../build/triggers.md#cron-triggers-formerly-timers) works
-just the same as on [v1](../../versioned_docs/version-legacy/build/triggers.md):
-when you're building a Workflow, select Cron Schedule as Trigger type, and set
-the frequency.
+Setting up a [Cron Trigger on v2](../build/triggers.md#cron-triggers) works just
+the same as on [v1](../../versioned_docs/version-legacy/build/triggers.md): when
+you're building a Workflow, select Cron Schedule as Trigger type, and set the
+frequency.
 
 ### Converting Flow and Fail Triggers
 
@@ -58,7 +57,9 @@ trigger has its own unique webhook URL to receive data to.
 
 ![V2 Webhook Trigger](/img/v2_webhook_trigger.webp)
 
-This will mean that in your source applications you will probably need to configure multiple webhooks/forwarders, one for each of your recieving workflows, instead of the previous common Inbox one. 
+This will mean that in your source applications you will probably need to
+configure multiple webhooks/forwarders, one for each of your recieving
+workflows, instead of the previous common Inbox one.
 
 #### Path Conditions
 
