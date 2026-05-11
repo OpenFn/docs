@@ -63,7 +63,7 @@ independently of the Javascript worker node pool & pods.
    the following specs will help prevent unwanted downtime.
    1. **GKE requests:** cpu@ "500m", memory@ "1024Mi"
    2. **GKE limits:** memory@ "2560Mi"
-2. For a simple non-Kubernetes/HA deployments, the minimum recommended machines
+2. For simple non-Kubernetes/HA deployments, the minimum recommended machines
    are:
    - **Application machine:** 2 vCPU (roughly a single core of a 2.6 GHz Intel
      Xeon E5) with 3.75 GB memory and 15 gb of storage for the application
@@ -75,8 +75,9 @@ independently of the Javascript worker node pool & pods.
      days (if any) of message data you’d like to store on the app itself and
      cannot be determined without estimates for message/run throughput. If
      scaling physical storage is not difficult for your particular deployment,
-     start at 40gb. 3. A Postgres (at least v14.2) instance (as we run this on a
-     _separate server_) from the application for greater stability.
+     start at 40gb.
+     1. A Postgres (at least v14.2) instance, run on a _separate server_ from
+        the application for greater stability.
 3. If both the application and database are hosted on the same machine (which is
    not recommended) that machine should have roughly the sum of the requirements
    above.
