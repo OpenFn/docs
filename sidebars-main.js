@@ -41,9 +41,9 @@ module.exports = {
       label: 'Write Jobs',
       items: [
         'jobs/job-writing-guide',
+        'jobs/operations',
         'jobs/state',
         'jobs/lazy-state-operator',
-        'jobs/callbacks-and-promises',
         'jobs/javascript',
         'jobs/data-transformation',
         'jobs/using-cursors',

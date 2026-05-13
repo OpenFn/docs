@@ -1,7 +1,132 @@
 ---
-sidebar_label: Callbacks and Promises
-title: Callbacks and Promises
+sidebar_label: Operations
+title: Operations
 ---
+
+Operations are Javascript functions exposed by an adaptor which are used in job
+code to _do stuff_.
+
+Operations are provided by an Adaptor (connector). Each adaptor exports a list
+of functions designed to interact with a particular data source - for example,
+take a look at the [dhis2](/adaptors/packages/dhis2-docs) and
+[salesforce](/adaptors/packages/salesforce-docs) adaptors.
+
+Everything you can achieve in OpenFn can be achieve with existing JavaScript
+libraries or calls to REST APIs. The value of Adaptors is that they provide
+functions to make this stuff easier: taking care of authorization, providing
+cleaner syntax, and hiding away implementation details for you.
+
+For example, here's how simply we issue a GET request with the http adaptor:
+
+```js
+get('/patients');
+```
+
+The first argument to `get` is the path to request from (the configuration will
+tell the adaptor what base url to use). In this case we're passing a static
+string, but we can also pass a value from state:
+
+```js
+get(state => state.endpoint);
+```
+
+<details>
+<summary>Why the arrow function?</summary>
+If you've got some JavaScript experience, you'll notice the example above uses an arrow function to retrieve the endpoint key from state.
+
+But why not just do this?
+
+```
+get(state.endpoint);
+```
+
+Well, the problem is that the state value must be resolved lazily (ie, just
+before the get actually runs). Because of how Javascript works, if we just
+inline the value it might read before state.endpoint has been actually been
+assigned.
+
+For more details, jump ahead to [Reading State Lazily](#reading-state-lazily)
+
+</details>
+
+Your job code should only contain Operations at the top level/scope - you should
+NOT include any other JavaScript statements. We'll talk about this more in a
+minute.
+
+## Operations run at the top level
+
+Operations will only work when they are at the top level of your job code:
+
+```js
+get('/patients');
+each('$.data.patients[*]', state => {
+  item.id = `item-${index}`;
+  return state;
+});
+post('/patients', dataValue('patients'));
+```
+
+OpenFn calls your operations in series during workflow execution, ensuring the
+correct state is fed into each one.
+
+If you try to nest an operation inside the callback of another operation, it
+will fail:
+
+```js
+get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
+  // This will fail because it is nested in a callback
+  each('$.data.patients[*]', (item, index) => {
+    item.id = `item-${index}`;
+  });
+});
+post('/patients', dataValue('patients'));
+```
+
+This is because an operation is a "factory" function — when executed, it returns
+a new function that must be invoked with state. The OpenFn runtime handles this
+correctly only at the top scope. Best practice is to build each discrete
+operation of the pipeline at the top level, passing state between them
+naturally.
+
+If you ever absolutely need a nested operation, you can immediately invoke it
+and pass state in directly — but this is an anti-pattern and should be avoided:
+
+```js
+get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
+  each('$.data.patients[*]', (item, index) => {
+    item.id = `item-${index}`;
+  })(state); // anti-pattern: immediately invoke and pass state
+});
+post('/patients', dataValue('patients'));
+```
+
+## Reading state lazily
+
+A common problem when writing jobs is getting hold of the right state value at
+the right time. Consider this code:
+
+```js
+get('/some-data');
+post('/some-other-data', state.data);
+```
+
+The `state.data` in the `post` call will resolve to `undefined` and the post
+will fail. This is because operations are factory functions — their parameters
+are resolved when the module loads (before any operation has actually run), so
+`state.data` hasn't been assigned a value yet by the time `post` reads it.
+
+The fix is to pass a function instead of a value, so the evaluation is deferred
+until the operation actually runs:
+
+```js
+get('/some-data');
+post('/some-other-data', state => state.data);
+```
+
+When `post` executes, it resolves any function arguments by calling them with
+the current state. This lazy evaluation pattern is fundamental to writing
+correct OpenFn jobs. See also the
+[Lazy State operator](./lazy-state-operator.md) for a shorthand syntax.
 
 ## Callbacks and fn()
 

@@ -12,11 +12,7 @@ of the pipeline.
 
 ![Job Pipeline](/img/guide-job-pipeline.webp)
 
-State is just a Javascript object. It is the means via which Jobs share
-information between each other. It also provides a common scope for Operations
-to read from and write to.
-
-The final state form a Job must always be a serializable Javascript object
+The final state from a Job must always be a serializable JavaScript object
 (i.e., a JSON object). Any non-serializable keys will be removed.
 
 ![Job State Overview](/img/state-javascript.webp)
@@ -249,77 +245,3 @@ See the below diagram for a visual description of how state might be passed
 between Steps in a Workflow.
 
 ![Passing State](/img/passing-state-steps.webp)
-
-## Operations run at the top level
-
-Operations will only work when they are at the top level of your job code:
-
-```js
-get('/patients');
-each('$.data.patients[*]', state => {
-  item.id = `item-${index}`;
-  return state;
-});
-post('/patients', dataValue('patients'));
-```
-
-OpenFn calls your operations in series during workflow execution, ensuring the
-correct state is fed into each one.
-
-If you try to nest an operation inside the callback of another operation, it
-will fail:
-
-```js
-get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
-  // This will fail because it is nested in a callback
-  each('$.data.patients[*]', (item, index) => {
-    item.id = `item-${index}`;
-  });
-});
-post('/patients', dataValue('patients'));
-```
-
-This is because an operation is a "factory" function — when executed, it returns
-a new function that must be invoked with state. The OpenFn runtime handles this
-correctly only at the top scope. Best practice is to build each discrete
-operation of the pipeline at the top level, passing state between them naturally.
-
-If you ever absolutely need a nested operation, you can immediately invoke it and
-pass state in directly — but this is an anti-pattern and should be avoided:
-
-```js
-get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
-  each('$.data.patients[*]', (item, index) => {
-    item.id = `item-${index}`;
-  })(state); // anti-pattern: immediately invoke and pass state
-});
-post('/patients', dataValue('patients'));
-```
-
-## Reading state lazily
-
-A common problem when writing jobs is getting hold of the right state value at
-the right time. Consider this code:
-
-```js
-get('/some-data');
-post('/some-other-data', state.data);
-```
-
-The `state.data` in the `post` call will resolve to `undefined` and the post
-will fail. This is because operations are factory functions — their parameters
-are resolved when the module loads (before any operation has actually run), so
-`state.data` hasn't been assigned a value yet by the time `post` reads it.
-
-The fix is to pass a function instead of a value, so the evaluation is deferred
-until the operation actually runs:
-
-```js
-get('/some-data');
-post('/some-other-data', state => state.data);
-```
-
-When `post` executes, it resolves any function arguments by calling them with
-the current state. This lazy evaluation pattern is fundamental to writing correct
-OpenFn jobs. See also the [Lazy State operator](./lazy-state-operator.md) for a
-shorthand syntax.
