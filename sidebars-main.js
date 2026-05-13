@@ -43,7 +43,6 @@ module.exports = {
         'jobs/job-writing-guide',
         'jobs/compilation',
         'jobs/state',
-        'jobs/operations-and-state',
         'jobs/lazy-state-operator',
         'jobs/callbacks-and-promises',
         'jobs/javascript',
