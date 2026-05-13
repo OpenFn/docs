@@ -5,6 +5,13 @@ title: Input and output state
 Each Job requires an input state and (in most cases) will produce an output
 state. This article explains these concepts in greater detail.
 
+Every job is a data transformation pipeline. It takes some input (a JavaScript
+object we call State) and executes a set of Operations (or functions), which
+transform that state in series. The final state object is returned as the output
+of the pipeline.
+
+![Job Pipeline](/img/guide-job-pipeline.webp)
+
 State is just a Javascript object. It is the means via which Jobs share
 information between each other. It also provides a common scope for Operations
 to read from and write to.
