@@ -41,7 +41,6 @@ module.exports = {
       label: 'Write Jobs',
       items: [
         'jobs/job-writing-guide',
-        'jobs/compilation',
         'jobs/state',
         'jobs/lazy-state-operator',
         'jobs/callbacks-and-promises',
@@ -52,6 +51,7 @@ module.exports = {
         'jobs/job-snippets',
         'jobs/image-handling',
         'jobs/best-practices',
+        'jobs/compilation',
         'build-for-developers/security-for-devs',
       ],
     },
