@@ -43,11 +43,12 @@ you don't even need to declare variables.
 
 <details>
 <summary>What is functional programming?</summary>
+
 Functional programming is a style of programming, increasingly popular in modern Javascript.
 
 Broadly, the idea is to minimize the usage of control flow statements (like
 `if/else`,`for`) and instead use chains of functions. In functional programming
-we pass data through a pipeline to get the result we want sound familiar?).
+we pass data through a pipeline to get the result we want sound familiar?.
 
 ```js
 const items = [10, 109, 55];
@@ -109,14 +110,14 @@ ids = [4, 5, 6]; // This throws a runtime error because we are re-assigning the 
 
 ### Optional chaining
 
-JavaScript is an untyped language - which is very conveient for OpenFn jobs and
+JavaScript is an untyped language - which is very convenient for OpenFn jobs and
 usually makes life easier.
 
 However, a common problem is that when writing long property chains, an
 exception will be thrown if a property is missing. And this happens all the time
 when fetching data from remote servers.
 
-Optional chaning allows JavaScript to stop evaluating a property chain and
+Optional chaining allows JavaScript to stop evaluating a property chain and
 return undefined as the result of that whole expression:
 
 ```js
@@ -140,7 +141,7 @@ but included for completeness):
 const x = a.b?.();
 ```
 
-You can combine optional chaning with the wonderfully named **"nullish
+You can combine optional chaining with the wonderfully named **"nullish
 coalescing"** operator. This works a bit like a ternary expression or an or - if
 anything to left of the operator returns `null` or `undefined`, the value to the
 right will be returned.
@@ -212,7 +213,7 @@ The spread or rest operator `...` can be used for several purposes. It can be
 quite complex to understand, but in OpenFn it has a couple of strong uses.
 
 First, you can **"spread"** or **"apply"** the properties and value of one (or
-more) objects to a new object. This is a really conveient way to shallow clone
+more) objects to a new object. This is a really convenient way to shallow clone
 objects.
 
 It works a lot like `Object.assign(obj, first, second, third)`.
@@ -253,6 +254,7 @@ only a shallow clone, and non-primitive values use pointers, not copies.
 
 <details>
 <summary>What is a shallow clone?</summary>
+
 To shallow clone an object means to copy all the top-level keys and values of that object onto a new object.
 
 But this ONLY applies to top-level keys. And if a value contains an object,
@@ -291,17 +293,15 @@ globals.
 
 ```js
 //Workflow step 1
+//Global mapping rules you want to implement in your workflow
+const locationMap = {
+    //location_id from source app: location value in destination app
+    01: 'Western Cape',
+    02: 'Eastern Cape',
+    03: 'Gauteng'
+}
 //First we use fn() to tranform, map & clean our data
 fn(state => {
-
-    //Global mapping rules you want to implement in your workflow
-    const locationMap = {
-        //location_id from source app: location value in destination app
-        01: 'Western Cape',
-        02: 'Eastern Cape',
-        03: 'Gauteng'
-    }
-
     // Here we build the payload of our http request body...
     // We assume the input is an array of records
     const payload = state.data.map(record => ({

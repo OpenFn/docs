@@ -139,9 +139,9 @@ times.
 
 Every time a cron-triggered workflow is run it will _start_ with the final
 output of the last successful run. This allows users to build workflows that
-make use of a ["cursor"](/documentation/jobs/job-writing-guide#using-cursors)
-that tracks what happened last time the workflow ran. (Only processing data that
-changed since that last run, for example.)
+make use of a ["cursor"](/documentation/jobs/using-cursors) that tracks what
+happened last time the workflow ran. (Only processing data that changed since
+that last run, for example.)
 
 ![Cron Trigger](/img/cron_trigger.webp)
 
@@ -264,10 +264,10 @@ triggers going forward. Please don't hesitate to reach out on
    consumer settings, this may prove to be an obstacle as users will not be able
    to tune their consumers to align with their individual clusters in large
    multi-tenant deployments.
-2. If a message could not be turned into a work order (due to persistence errors or
-   hitting the hard limit), these will not be visible to the end-user and may be
-   lost forever (i.e. the cluster thinks Lightning has them but it doesn't and
-   they eventually rotate off the cluster)
+2. If a message could not be turned into a work order (due to persistence errors
+   or hitting the hard limit), these will not be visible to the end-user and may
+   be lost forever (i.e. the cluster thinks Lightning has them but it doesn't
+   and they eventually rotate off the cluster)
 3. Errors are written to the log and to Sentry; nothing is visible to the
    end-user.
 4. Reprocessing dropped messages isn't practical if you are not writing failed
