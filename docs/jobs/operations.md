@@ -32,6 +32,7 @@ get(state => state.endpoint);
 
 <details>
 <summary>Why the arrow function?</summary>
+
 If you've got some JavaScript experience, you'll notice the example above uses an arrow function to retrieve the endpoint key from state.
 
 But why not just do this?
@@ -149,6 +150,7 @@ operation.
 
 <details>
 <summary>What is a callback?</summary>
+
 A callback is a common pattern in JavaScript.
 
 It's kind of hard to understand in the abstract: a callback is a function which
@@ -287,7 +289,7 @@ For example:
 
 ```js
 get($.data.url).then(state => {
-  console.log(state);
+  console.log(state.data);
   return state; // always remember to return state!
 });
 ```
@@ -303,7 +305,7 @@ example:
 ```js
 get($.data.url);
 fn(state => {
-  console.log(state);
+  console.log(state.data);
   return state; // always remember to return state!
 });
 ```
@@ -318,7 +320,7 @@ each($.items, post(`patient/${$.data.id}`, $.data));
 :::tip
 
 You can read more about the `each()` operation in
-[Iteration with Each](#iteration-with-each).
+[Iteration with Each](/documentation/jobs/data-transformation#iteration-with-each).
 
 :::
 

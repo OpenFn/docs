@@ -18,10 +18,10 @@ which is built-in to most adaptors, to make cursor management easier.
 
 <details>
 <summary>Version support</summary>
+
 The cursor operation was introduced to <code>@openfn/language-common</code> in version
 <code>1.13.0</code> (released April 2024).
-<br />
-<br />
+
 Any adaptor which uses common <code>1.12.0</code> or less will not support the
 cursor operation. Consider updating to the latest adaptor version to take advantage
 of this functionality.
@@ -128,6 +128,7 @@ $ openfn job.js -s state.json -a http
 
 <details>
 <summary>Manual cursors on v1</summary>
+
 Platform v1 does not allow input states to be freely defined, so setting a
 manual cursor is a little more difficult.
 

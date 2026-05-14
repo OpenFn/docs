@@ -5,7 +5,7 @@ title: Data Transformation
 
 ## Mapping Objects
 
-A common use-case in OpenFn fn is to map/convert/transform an object from system
+A common use-case in OpenFn `fn` is to map/convert/transform an object from system
 A to the format of system B.
 
 We often do this in multiple Jobs in the same workflow, so that we can use
@@ -34,7 +34,7 @@ fn(state => {
 });
 
 // Post it elsewhere
-post('https://system-b.com/api/v1/records/123', () => state.uploadData);
+post('https://system-b.com/api/v1/records/123', (state) => state.uploadData);
 ```
 
 :::tip Batch conversions
@@ -45,7 +45,7 @@ convert many objects at once.
 See the each() example below to see how we can do this with the each operator.
 
 You can also use a Javascript map() or forEach() function inside a callback or
-fn block.
+`fn` block.
 
 Generally it's easier to spread your job logic across many top-level operations,
 each responsible for one task, rather than having a few deeply nested
@@ -134,14 +134,14 @@ each(
 );
 ```
 
-Each participant is upserted into Salesforce, with its salesforce fields mapped
+Each participant is `upserted` into Salesforce, with its salesforce fields mapped
 to values in the `participants` array.
 
 :::info JSON paths
 
 The use of a JSON path string as the first argument to `each()` allows the
 runtime to lazily evaluate the value at that path -
-[See Reading state lazily](#reading-state-lazily).
+[See Reading state lazily](/documentation/jobs/operations#reading-state-lazily).
 
 Not all operations support a JSON path string - refer to
 [individual adaptor docs](/adaptors) for guidance.

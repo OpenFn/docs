@@ -50,7 +50,7 @@ get((state) => state.data.url);
 We call it "lazy state" because the reference will be resolved by the runtime
 engine immediately before its used. This bypasses a lot of the asynchronicity
 problems of Javascript which are discussed in
-[Reading State Lazily](#reading-state-lazily).
+[Reading State Lazily](/documentation/jobs/operations#reading-state-lazily).
 
 :::tip $ Only works within Operations
 
