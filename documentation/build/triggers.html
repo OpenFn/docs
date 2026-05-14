@@ -19,8 +19,8 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.ce8360fa.css">
-<script src="/assets/js/runtime~main.dc9ec4c3.js" defer="defer"></script>
-<script src="/assets/js/main.ec312148.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.b0bca75e.js" defer="defer"></script>
+<script src="/assets/js/main.58081db7.js" defer="defer"></script>
 </head>
 <body class="navigation-with-keyboard">
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -117,9 +117,9 @@ times.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="input-state-for-the-next-run">Input <code>state</code> for the next run<a href="#input-state-for-the-next-run" class="hash-link" aria-label="Direct link to input-state-for-the-next-run" title="Direct link to input-state-for-the-next-run" translate="no">​</a></h3>
 <p>Every time a cron-triggered workflow is run it will <em>start</em> with the final
 output of the last successful run. This allows users to build workflows that
-make use of a <a class="" href="/documentation/jobs/job-writing-guide#using-cursors">&quot;cursor&quot;</a>
-that tracks what happened last time the workflow ran. (Only processing data that
-changed since that last run, for example.)</p>
+make use of a <a class="" href="/documentation/jobs/using-cursors">&quot;cursor&quot;</a> that tracks what
+happened last time the workflow ran. (Only processing data that changed since
+that last run, for example.)</p>
 <p><img decoding="async" loading="lazy" alt="Cron Trigger" src="/assets/images/cron_trigger-c5a2b269d83803f14c553b5a60a387fc.webp" width="1744" height="1320" class="img_ev3q"></p>
 <p>Be default, the input state for the next cron run will be the final output state
 of the previous run, but you can configure this to use the output state from a
@@ -207,10 +207,10 @@ at instance-level. As there is quite a close relationship between cluster and
 consumer settings, this may prove to be an obstacle as users will not be able
 to tune their consumers to align with their individual clusters in large
 multi-tenant deployments.</li>
-<li class="">If a message could not be turned into a work order (due to persistence errors or
-hitting the hard limit), these will not be visible to the end-user and may be
-lost forever (i.e. the cluster thinks Lightning has them but it doesn&#x27;t and
-they eventually rotate off the cluster)</li>
+<li class="">If a message could not be turned into a work order (due to persistence errors
+or hitting the hard limit), these will not be visible to the end-user and may
+be lost forever (i.e. the cluster thinks Lightning has them but it doesn&#x27;t
+and they eventually rotate off the cluster)</li>
 <li class="">Errors are written to the log and to Sentry; nothing is visible to the
 end-user.</li>
 <li class="">Reprocessing dropped messages isn&#x27;t practical if you are not writing failed
