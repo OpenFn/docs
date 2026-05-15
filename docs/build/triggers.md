@@ -83,7 +83,7 @@ system waits — sometimes seconds or minutes — for the result.
 
 When a run fails, OpenFn returns a generic message as the response body rather
 than the full run state, to avoid leaking sensitive data. You can still return
-a custom body from a failed run using `_webhookResponse` (see below).
+a custom body from a failed run using `webhookResponse` (see below).
 
 :::
 
@@ -94,26 +94,33 @@ under **Options → Response Status**:
 
 - **Success Status Code** — returned when the run completes successfully
   (defaults to `201`)
-- **Error Status Code** — returned when the run fails (defaults to `201`)
+- **Error Status Code** — returned when the run fails (defaults to `500`)
+
+:::note Switching back to Async
+
+Switching a trigger back to **Async (Before Start)** clears any configured
+success or error status codes — they only apply in sync mode.
+
+:::
 
 #### Customising the response from your job
 
-To return a custom body or status code from values at runtime, set `_webhookResponse` in the state, e.g.:
+To return a custom body or status code from values at runtime, set `webhookResponse` in the state, e.g.:
 
 ```js
 fn(state => ({
   ...state,
-  _webhookResponse: {
+  webhookResponse: {
     status: 200,
     body: { ack: true, id: state.data.id },
   },
 }));
 ```
 
-`_webhookResponse` is read from the state at the **end of the run** — the
-output of the last step that executed. Any job in the workflow can set or
-overwrite it, so you have full control over what gets returned regardless of
-where in the workflow it happens.
+`webhookResponse` is captured from each step as it completes, with **last write
+wins** across the run. A later step that does not set `webhookResponse` will
+not clear a value set by an earlier step — the most recent value written by any
+step is the one returned.
 
 Both `status` and `body` are **optional** — you can include either or both:
 
@@ -122,6 +129,18 @@ Both `status` and `body` are **optional** — you can include either or both:
 | `status` | Overrides the configured status code for this run              |
 | `body`   | Replaces the final run state as the response body              |
 | neither  | Falls back to the configured status code and final run state   |
+
+:::note Malformed values
+
+If `webhookResponse` is not a JSON object (e.g. a string, number, or array), it
+is ignored and the run's default status code and body apply.
+
+If `webhookResponse.status` is not an integer, or `webhookResponse.body` is not
+a JSON object, the response status falls back to the run's default (the
+configured success or error code, or `201`/`500`) and the body is replaced with
+`{ "message": "Run completed, but webhook_response was malformed: ..." }`.
+
+:::
 
 ## Cron Triggers
 
