@@ -25,38 +25,30 @@ the number low to reduce the risk of merge conflicts.
 
 ## Isolated Context
 
-A sandbox is an isolated copy of your original project with its own context. As
-such, your sandbox has its own "private" copies of the following artefacts:
+A sandbox is an isolated copy of your original project with its own context.
+Most things in a sandbox are private:
 
-- Workflows (jobs, edges, and triggers, all disabled at creation)
-- Run History
-- Dataclips
+- Workflows (jobs, edges, and triggers; triggers are disabled at creation)
 - Collections (the names are copied, the data isn't)
 - Keychain credentials
-- Project membership (collaborators are seeded from the parent at creation,
-  then independent)
+- Project members (seeded from the parent at creation, then independent)
+- Most project settings (also seeded from the parent, then independent)
+
+Run history and dataclips aren't copied — sandboxes start with an empty
+history and accumulate their own as workflows run.
 
 A few things are shared with the parent rather than copied:
 
-- **Credentials.** When you create a sandbox, the same credentials remain
-  available; only the link between the credential and the project is
-  duplicated. Editing a credential affects every project that uses it.
-- **Subscription.** Sandboxes share the parent's billing scope. Runs and AI
-  tokens used in a sandbox count toward the parent's usage allowances.
-- **A few project settings.** `allow_support_access`, `concurrency`,
-  `description`, `requires_mfa`, `retention_policy`,
-  `history_retention_period`, and `dataclip_retention_period` are copied from
-  the parent at creation. After that, the sandbox owns its own copy and they
-  can drift.
-- **Webhook authentication methods.** Webhook auth methods (Basic, API key)
-  live on the parent project, not on the sandbox. The sandbox's webhook
-  triggers reference the parent's methods and are protected by them. The
+- **Credentials.** The same credentials remain available in the sandbox; only
+  the link between the credential and the project is duplicated. Editing a
+  credential affects every project that uses it.
+- **Subscription.** Runs and AI tokens used in a sandbox count toward the
+  parent's usage allowances.
+- **Webhook authentication methods.** These live on the parent and are shared
+  — the sandbox's webhook triggers reference the parent's methods. The
   Webhook Security tab on the sandbox is read-only and links back to the
-  parent for management: you can only create, edit, or delete auth methods
-  from there. Each sandbox webhook trigger still gets its own unique URL.
-
-Channels are not cloned. A new sandbox starts with no channels of its own. If
-you need a channel inside a sandbox, you'll have to create it there.
+  parent for management. Each sandbox webhook trigger still gets its own
+  unique URL.
 
 ## Creating sandboxes
 
@@ -72,8 +64,9 @@ branch name. Otherwise, you can either give it a general name like `testing`,
 or name it for a specific feature, like `new-patient-workflow`.
 
 A color will be randomly selected to associate with the sandbox. You'll see
-this color across the app UI while you're inside the sandbox, so it's easy to
-tell where you are. You can select a different color if you like.
+this color on the project picker in the breadcrumb while you're inside the
+sandbox, so it's easy to tell where you are. You can select a different color
+if you like.
 
 ![Create Sandbox modal](/img/create_sandbox_modal.webp)
 
@@ -90,9 +83,9 @@ All workflow triggers on the new sandbox start **disabled**. This is to avoid
 duplicating production runs from the moment the sandbox exists. You can
 re-enable any trigger you want to test from the sandbox's workflow page.
 
-After creation, the Edit action on a sandbox card lets you rename it, change
-its color, and set its environment. Everything else (workflows, credentials,
-membership, settings) is managed from inside the sandbox itself.
+After creation, the Edit action on a sandbox card lets you rename it and
+change its color. Everything else (workflows, credentials, membership,
+environment, and other settings) is managed from inside the sandbox itself.
 
 ### Limits
 
@@ -124,27 +117,17 @@ project role.
 | Merge a sandbox              | `admin` or `owner` on the source, and `editor`+ on the merge target                    |
 | Cancel a scheduled deletion  | Same as edit or delete                                                                 |
 
-A few things follow from these rules:
-
-- A user with a role on a parent project will not automatically see sandboxes
-  under it. They need to be explicitly added to each sandbox they should
-  access.
-- When you can see a sandbox but not its parent, the breadcrumb at the top of
-  the app starts at the highest project you can see (rather than the actual
-  workspace root). Ancestors above that point are silently hidden.
-- The global project picker hides projects you can't see. When you can see a
-  sandbox but not the sandboxes between it and the root, the picker collapses
-  the gap and nests the sandbox under the nearest visible ancestor.
+The global project picker hides projects you can't see.
 
 ## Viewing a sandbox
 
-To open a sandbox, click your project name in the top-left breadcrumb to open
-the global picker, then pick the sandbox. You can also reach the sandbox from
-the **Sandboxes** page of any project where you can see it.
+You can see all sandboxes on a project from the **Sandboxes** page in the
+side menu. From here, click a sandbox name to enter it. You can also enter a
+sandbox from the global project picker (Ctrl/Cmd+P).
 
-When you're inside a sandbox, the app will change color to help you understand
-what version of your project you're looking at. The breadcrumb shows the
-sandbox's name and picks up the sandbox's chosen color.
+When you're inside a sandbox, the project picker in the breadcrumb shows the
+sandbox's name and picks up the sandbox's chosen color, so it's easy to tell
+which version of your project you're looking at.
 
 ![Breadcrumb inside a sandbox](/img/sandbox_breadcrumb.webp)
 
@@ -209,14 +192,16 @@ When merging, we replace the contents of workflows in the target project with
 those in your sandbox. Renaming a workflow will make it look like the workflow
 was removed from the base, and a new workflow added.
 
-Collections are synced by name. Collections with the same name on the source
-and target are left alone (their data isn't copied). Collections that exist
-only on the source are created empty on the target. Collections that exist
-only on the target are deleted along with their items.
+Collections are merged by relationship, not by data. A collection that exists
+only on the sandbox is created empty on the target. A collection that exists
+only on the target is removed (along with its items). A collection with the
+same name on both sides is left alone — neither side's items are copied
+across.
 
-To merge a sandbox you need to be `admin` or `owner` of the **source**
-sandbox; the Merge button is disabled otherwise. You also need `editor`+ on
-the target project, otherwise the merge submission is rejected.
+To merge a sandbox you need to be `admin` or `owner` of the **source** (the
+sandbox you're merging from); the Merge button is disabled otherwise. You
+also need `editor`+ on the target project, otherwise the merge submission is
+rejected.
 
 After merging, the source sandbox is **scheduled for deletion** with the
 configured grace period. It moves to the "Scheduled for deletion" section of
@@ -292,7 +277,7 @@ descendants; triggers stay disabled and need to be turned back on manually.
 Once the grace period elapses and the purge worker has run, the sandbox is
 gone for good.
 
-## Editing sandboxes Locally
+## Editing sandboxes locally
 
 Sandboxes are fully compatible with the CLI.
 
