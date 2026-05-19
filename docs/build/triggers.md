@@ -30,7 +30,7 @@ Learn how a workflow's initial `state` gets built from a webhook trigger
 When a workflow is triggered via a webhook, OpenFn can respond to the calling
 system in one of two ways, depending on how the trigger is configured.
 
-### **Async (Before Start)**
+### **Async Mode Responds Before Start**
 
 By default, workflows are executed **asynchronously**.
 
@@ -58,7 +58,7 @@ gets a fast acknowledgement and the workflow runs in the background.
   }
   ```
 
-### **Sync (After Completion)**
+### **Sync Mode Responds After Completion**
 
 Optionally, workflows can be executed **synchronously**.
 
@@ -89,8 +89,8 @@ a custom body from a failed run using `webhookResponse` (see below).
 
 #### Configuring custom status codes
 
-In sync mode you can set custom HTTP status codes via the trigger inspector
-under **Options → Response Status**:
+In sync mode you can set custom HTTP status codes on the trigger (under
+**Options → Response Status** in the UI):
 
 - **Success Status Code** — returned when the run completes successfully
   (defaults to `201`)
@@ -98,8 +98,8 @@ under **Options → Response Status**:
 
 :::note Switching back to Async
 
-Switching a trigger back to **Async (Before Start)** clears any configured
-success or error status codes — they only apply in sync mode.
+Switching a trigger back to async mode clears any configured success or error
+status codes, they only apply in sync mode.
 
 :::
 
@@ -117,10 +117,9 @@ fn(state => ({
 }));
 ```
 
-`webhookResponse` is captured from each step as it completes, with **last write
-wins** across the run. A later step that does not set `webhookResponse` will
-not clear a value set by an earlier step — the most recent value written by any
-step is the one returned.
+At the end of the run, the value of `state.webhookResponse` will be used to
+send the HTTP response back to the caller. Changing the value during the run
+does not affect the response, it's only the final state that counts.
 
 Both `status` and `body` are **optional** — you can include either or both:
 
