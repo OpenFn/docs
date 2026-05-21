@@ -77,13 +77,32 @@ system waits — sometimes seconds or minutes — for the result.
 - Headers:
   - `x-meta-work-order-id` — the ID of the work order
   - `x-meta-run-id` — the ID of the run
-- Body: the final run state as a JSON object
+- Body: a JSON object with the shape:
+  ```json
+  {
+    "data": { /* the final run state */ },
+    "meta": {
+      "work_order_id": "abc123",
+      "run_id": "xyz456",
+      "state": "success",
+      "error_type": null,
+      "inserted_at": "2026-05-21T10:00:00Z",
+      "started_at": "2026-05-21T10:00:01Z",
+      "claimed_at": "2026-05-21T10:00:01Z",
+      "finished_at": "2026-05-21T10:00:05Z"
+    }
+  }
+  ```
+  - `data` — the final run state (or a security message on failure, or a
+    custom body — see below)
+  - `meta` — run metadata, including run lifecycle timestamps and final
+    `state` (`"success"` or `"failed"`)
 
 :::note Security policy for failed runs
 
-When a run fails, OpenFn returns a generic message as the response body rather
-than the full run state, to avoid leaking sensitive data. You can still return
-a custom body from a failed run using `webhookResponse` (see below).
+When a run fails, OpenFn returns a generic message in `data` rather than the
+full run state, to avoid leaking sensitive data. You can still return a custom
+body from a failed run using `webhookResponse` (see below).
 
 :::
 
@@ -94,7 +113,7 @@ In sync mode you can set custom HTTP status codes on the trigger (under
 
 - **Success Status Code** — returned when the run completes successfully
   (defaults to `201`)
-- **Error Status Code** — returned when the run fails (defaults to `500`)
+- **Error Status Code** — returned when the run fails (defaults to `201`)
 
 :::note Switching back to Async
 
@@ -126,8 +145,18 @@ Both `status` and `body` are **optional** — you can include either or both:
 | Field    | Behaviour when set                                              |
 | -------- | --------------------------------------------------------------- |
 | `status` | Overrides the configured status code for this run              |
-| `body`   | Replaces the final run state as the response body              |
+| `body`   | Replaces the final run state under `data` in the response body |
 | neither  | Falls back to the configured status code and final run state   |
+
+`webhookResponse.body` only replaces the `data` portion of the response —
+`meta` is always included by OpenFn. So the example above produces:
+
+```json
+{
+  "data": { "ack": true, "id": "..." },
+  "meta": { "work_order_id": "...", "run_id": "...", "state": "success", ... }
+}
+```
 
 :::note Malformed values
 
@@ -136,7 +165,7 @@ is ignored and the run's default status code and body apply.
 
 If `webhookResponse.status` is not an integer, or `webhookResponse.body` is not
 a JSON object, the response status falls back to the run's default (the
-configured success or error code, or `201`/`500`) and the body is replaced with
+configured success or error code, or `201`) and `data` is replaced with
 `{ "message": "Run completed, but webhook_response was malformed: ..." }`.
 
 :::
