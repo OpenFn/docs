@@ -16,14 +16,14 @@ Google Drive supports two credential types in OpenFn: **OAuth2** and a raw **acc
 
 ### OAuth2
 
-For interactive workflows where a user authorizes access, you can connect via OAuth2. To authorize Google Drive for your OpenFn workflows, read our documentation on
+To authorize Google Drive using OAuth2 for your OpenFn workflows, read our documentation on
 [using OAuth credentials](/documentation/build/credentials#use-oauth2-credentials).
 
 ![Google Drive OAuth credential](/img/googledrive-oauth2.webp)
 
 ### Access Token
 
-For workflows using a pre-generated access token (e.g. from a service account or Google Cloud Console), provide the token directly:
+You can generate an access token via google cloud console or from a service account, then provide the token directly:
 
 ```json
 {
