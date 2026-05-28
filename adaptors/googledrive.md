@@ -12,7 +12,8 @@ title: Google Drive Adaptor
 
 ## Authentication
 
-Google Drive supports two credential types in OpenFn: **OAuth2** and a raw **access token**.
+Google Drive uses OAuth 2.0 access tokens for API authentication:
+
 
 ### OAuth2
 
@@ -23,7 +24,7 @@ To authorize Google Drive using OAuth2 for your OpenFn workflows, read our docum
 
 ### Access Token
 
-You can generate an access token via google cloud console or from a service account, then provide the token directly:
+If you need to test the adaptor locally you, you can generate a 1hour token using gcloud cli, then provide the token directly:
 
 ```json
 {
@@ -37,7 +38,7 @@ Access tokens provide scoped access to Google Drive resources based on the permi
 
 ### Using a Google Service Account
 
-For automated, unattended workflows we recommend using a
+We recommend using a
 [Google Service Account](https://cloud.google.com/iam/docs/service-accounts-create)
 instead of a personal user OAuth credential. Service accounts are designed for
 machine-to-machine access and do not require a human login or interactive

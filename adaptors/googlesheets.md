@@ -52,7 +52,7 @@ for the latest information.
 
 ### Using a Google Service Account
 
-For automated, unattended workflows we recommend using a
+We recommend using a
 [Google Service Account](https://cloud.google.com/iam/docs/service-accounts-create)
 instead of a personal user OAuth credential. Service accounts are designed for
 machine-to-machine access and do not require a human login or interactive

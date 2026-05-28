@@ -29,7 +29,7 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 
 ### Using a Google Service Account
 
-For automated, unattended workflows we recommend using a
+We recommend using a
 [Google Service Account](https://cloud.google.com/iam/docs/service-accounts-create)
 to generate the access token rather than using a personal user credential.
 Service accounts are designed for machine-to-machine access, do not require a
