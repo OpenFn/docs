@@ -1,5 +1,23 @@
 [
   {
+    "expressionPath": "jobs/fetch-all-events",
+    "adaptor": "dhis2",
+    "adaptor_version": "v8.1.1",
+    "name": "Fetch all events without pagination"
+  },
+  {
+    "expressionPath": "jobs/fetch-default-events",
+    "adaptor": "dhis2",
+    "adaptor_version": "v8.1.1",
+    "name": "Fetch default events"
+  },
+  {
+    "expressionPath": "jobs/fetch-all-events-with-pagination",
+    "adaptor": "dhis2",
+    "adaptor_version": "v8.1.1",
+    "name": "Fetch all events with pagination"
+  },
+  {
     "expressionPath": "jobs/commcare-asri-bulk-upload",
     "adaptor": "commcare",
     "name": "Bulk upload obat lookup-table"
