@@ -14,6 +14,18 @@ need additions to adaptors.
 
 :::
 
+:::warning Platform limitations for image manipulation
+
+OpenFn does **not** natively support advanced image manipulation such as resizing, compression, format conversion, or writing EXIF metadata.
+
+- **No external binary access** — platform jobs run in a sandboxed Node.js environment and cannot invoke external programs such as `imagemagick`, `ffmpeg`, or similar tools.
+- **EXIF metadata** — writing EXIF data to image files is not supported in the OpenFn job environment due to technical constraints in the Node.js runtime.
+- **Supported scope** — the supported use cases are (a) fetching an image via URL and forwarding it as-is to a downstream system, and (b) encoding it as a Base64 string for embedding in JSON payloads. Avoid Base64 for large files as it significantly increases payload size.
+
+If your workflow requires actual image transformation, pre-process the image outside of OpenFn (e.g., in a dedicated microservice or cloud function) and pass the result to OpenFn.
+
+:::
+
 ## Base64 (standard handling)
 
 In essence, the way to deal with images/PDFs/other files and be able to save
@@ -57,7 +69,4 @@ fn(state => {
 
 ## Summary
 
-Most use cases should **_Just Work ™️_**. If you have a specific need involving
-large file sizes or high volumes and you need to process images, rather than
-just moving them from place to place, you might need to make a change to your
-adaptor.
+Most use cases — fetching an image from one system and uploading it to another — should **_Just Work ™️_**. For workflows that require transforming the image itself (resize, compress, reformat, add EXIF data), see the limitations note above; those operations must happen outside of OpenFn.
