@@ -3,10 +3,12 @@ title: iHRIS Adaptor
 ---
 
 ## About iHRIS
-iHRIS stands for Integrated Human Resource Information System. It is the national human resource system for health workforce management. 
+iHRIS is IntraHealth International's free, open source software that helps countries around the world track and manage their health workforce data to improve access to services. Countries use it to capture and maintain high-quality information for health workforce planning, management, regulation, and training.
 
 ## Integration Options
-iHRIS has an available [REST API](https://ihris.github.io/iHRIS/dev/fhir_http/). See [functions](/adaptors/packages/ihris-docs) for more on how to use this adaptor to work with the API.
+iHRIS has an available [REST API](https://ihris.github.io/iHRIS/dev/fhir_http/).
+See [functions](/adaptors/packages/ihris-docs) for more on how to use this adaptor to work with the API.
+Visit the [iHRIS homepage](https://www.intrahealth.org/resources/ihris-software) for more details.
 
 ## Authentication
 Users must specify a  `baseUrl`, `username` and `password` to login and get a `cookie` back. The cookie is then included as part of the headers in every HTTP request.

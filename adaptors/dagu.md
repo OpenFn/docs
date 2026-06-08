@@ -3,11 +3,11 @@ title: Dagu Adaptor
 ---
 
 ## About Dagu
-Dagu is a pharmaceutical inventory management system. On top of storing inventory items it also stores patient, provider and prescription data.
+Dagu is an open source tool for managing supply chain functions at health facilities, incorporating inventory
+and patient service management systems used in Ethiopia. It includes an inventory management system at the facility store level and a patient service management system at the dispensing unit level. It is designed to manage daily transactions incorporating the business process and operations at each health facility.
 
 ## Integration Options
-Dagu has an available [REST API](https://api-dagu.palladiumethiopia.com/swagger/index.html).
-See [functions](/adaptors/packages/dagu-docs) for more on how to use this adaptor to work with the API.
+See [Dagu adaptor functions](/adaptors/packages/dagu-docs) for more on how to use this adaptor to work with the API.
 
 ## Authentication
 Users must specify a  `baseUrl`, `username` and `password` to generate an `access_token`, which is then sent as `Bearer token` as part of the headers in every HTTP request.

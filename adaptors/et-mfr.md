@@ -3,7 +3,7 @@ title: ET-MFR Adaptor
 ---
 
 ## About ET-MFR
-ET-MFR stands for Ethiopia Master Facility Registry. It is the national registry of all health facilities in Ethiopia, maintained by the MOH. It stores facility metadata including names, codes, geographic location and facility type.
+The Ethiopia Master Facility Registry (MFR) is an open source tool developed and led by the Federal Ministry of Health (FMoH) to support the standardization of health facility information across the country. As a centralized and authoritative source, the MFR provides a comprehensive, up-to-date database of all public and private health facilities operating within Ethiopia’s health system.
 
 ## Integration Options
 ET-MFR has an available [REST API](https://mfr.moh.gov.et/swagger/index.html). See [functions](/adaptors/packages/et-mfr-docs) for more on how to use this adaptor to work with the API.
