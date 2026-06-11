@@ -4,9 +4,11 @@ import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import useBaseUrl from '@docusaurus/useBaseUrl';
-import Particles from 'react-particles';
+import Particles, { ParticlesProvider } from '@tsparticles/react';
 import { loadFull } from 'tsparticles';
 import styles from './styles.module.css';
+
+const particlesInit = engine => loadFull(engine);
 
 const highlights = [
   {
@@ -119,7 +121,7 @@ function Home() {
   const particlesConfig = {
     particles: {
       number: {
-        value: 60,
+        value: 80,
         density: {
           enable: true,
           value_area: 800,
@@ -163,11 +165,11 @@ function Home() {
           sync: false,
         },
       },
-      line_linked: {
+      links: {
         enable: true,
         distance: 150,
         color: '#ffffff',
-        opacity: 0.4,
+        opacity: 0.6,
         width: 1,
       },
       move: {
@@ -235,96 +237,94 @@ function Home() {
   };
 
   return (
-    <Layout title={`Home`} description="The OpenFn Documentation Site">
-      <header className={clsx('hero hero--primary', styles.heroBanner)}>
-        <Particles
-          id="tsparticles"
-          init={particlesInit}
-          options={particlesConfig}
-        />
-        <div className="container" style={{ zIndex: 1 }}>
-          <h1 className="hero__title">OpenFn Documentation</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
-          <div className={styles.buttons}>
-            <Link
-              className={clsx(
-                'button button--secondary button--lg',
-                styles.getStarted
-              )}
-              to={'/documentation'}
-            >
-              Get Started
-            </Link>
+    <ParticlesProvider init={particlesInit}>
+      <Layout title={`Home`} description="The OpenFn Documentation Site">
+        <header className={clsx('hero hero--primary', styles.heroBanner)}>
+          <Particles id="tsparticles" options={particlesConfig} />
+          <div className="container" style={{ zIndex: 1 }}>
+            <h1 className="hero__title">OpenFn Documentation</h1>
+            <p className="hero__subtitle">{siteConfig.tagline}</p>
+            <div className={styles.buttons}>
+              <Link
+                className={clsx(
+                  'button button--secondary button--lg',
+                  styles.getStarted
+                )}
+                to={'/documentation'}
+              >
+                Get Started
+              </Link>
+            </div>
           </div>
-        </div>
-      </header>
-      <main>
-        {features && features.length > 0 && (
-          <section className={styles.features}>
-            <div className="container">
-              <div className="row">
-                {features.map((props, idx) => (
-                  <Feature key={idx} {...props} />
-                ))}
-                <div className={clsx('col col--4', styles.feature)}>
-                  <div className="text--center">
-                    <img
-                      className={styles.featureImage}
-                      src="img/undraw_Newsletter_re_wrob.svg"
-                      alt="Newsletter"
-                    />
-                  </div>
-                  <h3>Newsletter</h3>
-                  <p>
-                    Never miss a story from us, subscribe to our newsletter
-                    here.
-                  </p>
-                  <form
-                    action="https://openfn.us11.list-manage.com/subscribe/post?u=ad898e5a4d5a9aab0bbd63aee&amp;id=bf982e5409"
-                    method="post"
-                    name="mc-embedded-subscribe-form"
-                    target="_blank"
-                    novalidate
-                  >
-                    <div className={styles.subscribeForm}>
-                      <input
-                        type="email"
-                        placeholder="Email"
-                        name="EMAIL"
-                        id="mce-EMAIL"
-                        autocomplete="on"
-                        required
-                        className={styles.emailButton}
+        </header>
+        <main>
+          {features && features.length > 0 && (
+            <section className={styles.features}>
+              <div className="container">
+                <div className="row">
+                  {features.map((props, idx) => (
+                    <Feature key={idx} {...props} />
+                  ))}
+                  <div className={clsx('col col--4', styles.feature)}>
+                    <div className="text--center">
+                      <img
+                        className={styles.featureImage}
+                        src="img/undraw_Newsletter_re_wrob.svg"
+                        alt="Newsletter"
                       />
-                      <button
-                        type="submit"
-                        name="subscribe"
-                        className="button button--secondary button--sm"
-                      >
-                        Subscribe
-                      </button>
                     </div>
-                  </form>
+                    <h3>Newsletter</h3>
+                    <p>
+                      Never miss a story from us, subscribe to our newsletter
+                      here.
+                    </p>
+                    <form
+                      action="https://openfn.us11.list-manage.com/subscribe/post?u=ad898e5a4d5a9aab0bbd63aee&amp;id=bf982e5409"
+                      method="post"
+                      name="mc-embedded-subscribe-form"
+                      target="_blank"
+                      novalidate
+                    >
+                      <div className={styles.subscribeForm}>
+                        <input
+                          type="email"
+                          placeholder="Email"
+                          name="EMAIL"
+                          id="mce-EMAIL"
+                          autocomplete="on"
+                          required
+                          className={styles.emailButton}
+                        />
+                        <button
+                          type="submit"
+                          name="subscribe"
+                          className="button button--secondary button--sm"
+                        >
+                          Subscribe
+                        </button>
+                      </div>
+                    </form>
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
-        )}
-      </main>
-      <div className="container" style={{ marginTop: '30px' }}>
-        <h1 style={{ textAlign: 'center' }}>✨Documentation Highlights✨</h1>
-        <div className="highlights-wrapper">
-          {highlights.map(h => (
-            <div className="highlight-card">
-              <h3>
-                <a href={h.link}>{h.title}</a>
-              </h3>
-              <p>{h.description}</p>
-            </div>
-          ))}
+            </section>
+          )}
+        </main>
+        <div className="container" style={{ marginTop: '30px' }}>
+          <h1 style={{ textAlign: 'center' }}>✨Documentation Highlights✨</h1>
+          <div className="highlights-wrapper">
+            {highlights.map(h => (
+              <div className="highlight-card">
+                <h3>
+                  <a href={h.link}>{h.title}</a>
+                </h3>
+                <p>{h.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </Layout>
+      </Layout>
+    </ParticlesProvider>
   );
 }
 
