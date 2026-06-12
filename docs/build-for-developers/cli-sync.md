@@ -143,8 +143,8 @@ first (determined by the `start` key), and it defines a single edge to
 
 The actual code for each step lives in its own .js file. You can modify the code
 freely and sync it back to the server any time. If you want to rename a step,
-make sure to update the file name of the step and the path in the
-`expression` key in `workflow.yaml`.
+make sure to update the file name of the step and the path in the `expression`
+key in `workflow.yaml`.
 
 ### openfn.yaml
 
@@ -172,8 +172,8 @@ for help setting up a token.
 
 If you connect to multiple OpenFn projects or apps, you can create a `.env` file
 and set any environment variables you need there. The CLI will load this file
-and report which keys it's using. Values in your `.env` file will be preferred to
-those defined in your system.
+and report which keys it's using. Values in your `.env` file will be preferred
+to those defined in your system.
 
 You can also pass `--api-key` directly as a flag to most commands.
 
@@ -338,6 +338,60 @@ name.
 You can merge two projects locally with `openfn project merge`, and deploy the
 resulting project to the app (you'll likely have to force push the change). This
 is useful for conflict resolution.
+
+## Resolving Merge Conflicts
+
+Sometimes merging a sandbox can risk overwriting changes in the target project.
+This can happen if a workflow in the main project changed _after_ the sandbox
+was recreated - so the sandbox doesn't know about it. Merging will cause that
+change on main to be lost.
+
+You can resolve these conflicts locally using the CLI and git (or equivalent
+version control), then push the resolved project back to the app.
+
+:::tip
+
+You do not need GitHub repo to use git!
+
+Git is a simply a program that runs in your shell on your local system.
+
+GitHub is an application hosted in the cloud which a) provides remote access to
+git repositories and b) provides a rich UI on top of a git-controlled file
+system.
+
+:::
+
+Here's how to do it with git. This example assumes you are trying to merge a
+sandbox `dev` into your main project `main`.
+
+- Make sure you have a local folder ready to work in. It needs to be a git
+  repository. Run `git init` in any folder to set git up (you do not need a
+  connected GitHub repo)
+- Pull your main project locally: `openfn project pull <main-uuid>` (assumes
+  OPENFN_API_KEY is set)
+- Commit your changes to git:
+  `git add . && git commit -m "checkout main project"`
+- Now pull your sandbox locally: `openfn project pull <dev-uuid>`
+- This will set your local `workflows/` folder to look like your sandbox
+- Running `git status` and `git diff` now will show you all the changes which
+  would be applied to the main project once the merge is made
+- Check that you are happy with the diffs. You may want to revert some files to
+  look like main (`git checkout main workflows/my-workflow/job.js`). Or you may
+  want to manually mix changes from both projects.
+- Once you're done, push the project to the app with the CLI
+  `openfn project deploy main`
+- You can commit your changes to git if you like (but for the purposes of this
+  example it's not necessary)
+
+For more complex changes, you might want to try the following approach:
+
+- Pull and commit `main` locally
+- Create a new branch, and pull and commit `dev` to that branch
+- Checkout the main branch again: `git checkout main`
+- Merge the `dev` branch into main: `git merge dev`
+- Resolve any conflicts raised by git (the git conflict should represent any
+  place where main and the sandbox have both made changes)
+- When you're finished, use the CLI to force-deploy your changes
 
 ## GitHub
 
