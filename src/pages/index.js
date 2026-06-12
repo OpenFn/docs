@@ -167,7 +167,7 @@ function Home() {
       },
       links: {
         enable: true,
-        distance: 150,
+        distance: 180,
         color: '#ffffff',
         opacity: 0.6,
         width: 1,
@@ -190,11 +190,11 @@ function Home() {
     interactivity: {
       detect_on: 'canvas',
       events: {
-        onhover: {
+        onHover: {
           enable: true,
           mode: 'grab',
         },
-        onclick: {
+        onClick: {
           enable: true,
           mode: 'push',
         },
@@ -202,8 +202,8 @@ function Home() {
       },
       modes: {
         grab: {
-          distance: 200,
-          line_linked: {
+          distance: 160,
+          links: {
             opacity: 1,
           },
         },
@@ -219,7 +219,7 @@ function Home() {
           duration: 0.4,
         },
         push: {
-          particles_nb: 4,
+          particles_nb: 3,
         },
         remove: {
           particles_nb: 2,
