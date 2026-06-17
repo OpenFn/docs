@@ -84,11 +84,11 @@ and pass it into a HTTP query.
 Or perhaps you want to build the cursor into an object:
 
 ```js
-get('registrations', state => {
+get('registrations', state => ({
   query: {
-    fromdate: state.cursor;
-  }
-});
+    fromdate: state.cursor,
+  },
+}));
 ```
 
 The actual value of a cursor is arbitrary. You can use a string, a Date, a page
@@ -98,7 +98,7 @@ You may want to advance the cursor at the end of a job ready, for the next run:
 
 ```js
 cursor(state => state.cursor, { defaultValue: 'today' });
-get(`/registrations?since={date.cursor}`);
+get(`/registrations?since=${$.cursor}`);
 fn(/* do something good with your data */);
 cursor('now');
 ```
