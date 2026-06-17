@@ -123,9 +123,8 @@ Salesforce, use the external identifier of the related record. Examples:
 - If the metadata are standard objects or fields, then you do not need the `__r`
   to indicate there is a relationship. Example mapping:
   `Account.CustomAccountID__c: {AcctIdFromSourceData}`
-- If using the OpenFn adaptor, you may also choose to leverage the
-  `relationship(...)` helper function in your job. Example mapping:
-  `relationship('Respondent__r', 'PersonID__c', dataValue('sourceField'))`
+- If using the OpenFn adaptor, use a nested object to express the relationship in your job. Example mapping:
+  `{ Respondent__r: { PersonID__c: state.data.sourceField } }`
 
 #### Picklist fields
 
