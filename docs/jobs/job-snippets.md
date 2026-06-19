@@ -52,10 +52,10 @@ This will concatenate many values, even if one or more are null, writing them to
 a field called Main_Office_City_c.
 
 ```js
-fn(state => {
-  const clean = val =>
-    val == null ? '' : val.toString().replace(/-/g, ' ');
+const clean = val =>
+  val == null ? '' : val.toString().replace(/-/g, ' ');
 
+fn(state => {
   state.Main_Office_City__c = [
     clean(state.data.Main_Office_City_a),
     clean(state.data.Main_Office_City_b),
