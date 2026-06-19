@@ -1,13 +1,11 @@
-// Chain multiple HTTP requests per array item using async/await inside fn().
-// Avoid nesting operations as callbacks — use sequential awaits instead.
+// Chain multiple HTTP requests per array item. The first request runs as a
+// top-level operation, then we use .then() to run the follow-up requests.
 each(
   $.data.someArray,
-  fn(async state => {
-    // Step 1: POST the current item
-    state = await post('https://en7a5l7u3izq6.x.pipedream.net/', {
-      name: $.data.surname,
-      age: $.data.age,
-    })(state);
+  post('https://en7a5l7u3izq6.x.pipedream.net/', {
+    name: $.data.surname,
+    age: $.data.age,
+  }).then(async state => {
     console.log('posted:', state.data);
 
     // Step 2: GET a resource using the POST result

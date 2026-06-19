@@ -43,7 +43,11 @@ each(
   $.submissions,
   fn(async (state, openfnInboxUrl) => {
     console.log(`Posting submission ${state.data.i + 1}...`);
-    return post(openfnInboxUrl, state.data)(state);
+    
+    return post(openfnInboxUrl, state => {
+      console.log(`Posting submission ${state.data.i + 1}...`);
+      return state.data
+    })(state);
   })
 );
 
