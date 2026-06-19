@@ -38,16 +38,12 @@ each(
 );
 
 // Post each submission to the OpenFn inbox
-// TODO: Replace openfnInboxUrl with your OpenFn Project Inbox URL
+// TODO: Replace with your OpenFn Project Inbox URL
 each(
   $.submissions,
-  fn(async (state, openfnInboxUrl) => {
+  post($.configuration.inboxUrl, $.data).then(state => {
     console.log(`Posting submission ${state.data.i + 1}...`);
-    
-    return post(openfnInboxUrl, state => {
-      console.log(`Posting submission ${state.data.i + 1}...`);
-      return state.data
-    })(state);
+    return state;
   })
 );
 
