@@ -1,8 +1,6 @@
-send(
-  fields(
-    field('from', 'you@domain.com'),
-    field('to', dataValue('form.submission.respondantEmail')),
-    field('subject', 'Thanks for completing our survey.'),
-    field('text', 'Your message goes here.')
-  )
-);
+send({
+  from: 'you@domain.com',
+  to: $.data.form.submission.respondantEmail,
+  subject: 'Thanks for completing our survey.',
+  text: 'Your message goes here.',
+});
