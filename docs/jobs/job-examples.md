@@ -245,7 +245,7 @@ create('patient', state => ({
 }));
 ```
 
-### merge many values into a child path
+### Merge parent-level values into each child item
 
 ```js
 // Merge parent-level values into each child item before iterating
@@ -270,10 +270,14 @@ each(
 );
 ```
 
-### arrayToString
+### Concatenate an array into a string
 
 ```js
-arrayToString(arr, separator_string);
+fn(state => {
+  // Join an array of values into a single string with a ", " separator
+  state.speciesList = state.data.target_species.join(', ');
+  return state;
+});
 ```
 
 ### access an image URL from an ODK submission
@@ -286,7 +290,7 @@ create('Photo__c', state => ({
 }));
 ```
 
-### alterState (alter state) to make sure data is in an array
+### Ensure data is in an array before iterating
 
 ```js
 // Here, we make sure CommCare gives us an array and merge parent-level fields

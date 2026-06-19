@@ -5,7 +5,8 @@ each(
   fn(async state => {
     // Step 1: POST the current item
     state = await post('https://en7a5l7u3izq6.x.pipedream.net/', {
-      body: { name: $.data.surname, age: $.data.age },
+      name: $.data.surname,
+      age: $.data.age,
     })(state);
     console.log('posted:', state.data);
 

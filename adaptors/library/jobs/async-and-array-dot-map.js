@@ -17,10 +17,10 @@ fn(state => {
   };
 });
 
-each($.clinicChunks, post($.configuration.inboxUrl, { body: { clinics: $.data } }));
-each($.patientChunks, post($.configuration.inboxUrl, { body: { patients: $.data } }));
-each($.visitChunks, post($.configuration.inboxUrl, { body: { visits: $.data } }));
-each($.deletedVisitChunks, post($.configuration.inboxUrl, { body: { deletedVisits: $.data } }));
+each($.clinicChunks, post($.configuration.inboxUrl, { clinics: $.data }));
+each($.patientChunks, post($.configuration.inboxUrl, { patients: $.data }));
+each($.visitChunks, post($.configuration.inboxUrl, { visits: $.data }));
+each($.deletedVisitChunks, post($.configuration.inboxUrl, { deletedVisits: $.data }));
 
 fn(state => {
   console.log('All chunks posted successfully.');
