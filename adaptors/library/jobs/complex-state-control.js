@@ -1,19 +1,12 @@
-// Example with language-salesforce
+// Example with language-salesforce: use top-level sequential operations
+// instead of wrapping in a Promise.
+query('SELECT Name FROM Account');
+
 fn(state => {
-  // return state => {
-  return new Promise((resolve, reject) => {
-    query('SELECT Name FROM Account')(state)
-      .then(state => {
-        console.log(state.references[0].records);
-        console.log('doing stuff here');
-        return state;
-      })
-      .then(state => {
-        console.log('and in here');
-        resolve(state);
-      });
-  });
-  // };
+  console.log(state.references[0].records);
+  console.log('doing stuff here');
+  console.log('and in here');
+  return state;
 });
 
 fn(state => {

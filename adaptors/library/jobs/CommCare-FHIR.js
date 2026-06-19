@@ -1,108 +1,53 @@
 // CommCare form submission mapped to the FHIR patient encounter standard,
 // submitted by Simon Kelly @ Dimagi.
-encounter(
-  fields(
-    field('resourceType', 'Encounter'),
-    field('status', 'finished'),
-    field('type', function (state) {
-      return [
+encounter({
+  resourceType: 'Encounter',
+  status: 'finished',
+  type: [{ coding: [{ system: 'momconnect:type', code: '8' }] }],
+  contained: [
+    {
+      resourceType: 'Patient',
+      id: 'patient',
+      identifier: [
+        { use: 'official', system: 'momconnect:sanid', value: $.data.properties.id_number },
+      ],
+      name: [
         {
-          coding: [
-            {
-              system: 'momconnect:type',
-              code: '8',
-            },
-          ],
+          use: 'official',
+          family: [$.data.properties.family_name],
+          given: [$.data.properties.given_name],
+          text: `${$.data.properties.given_name} ${$.data.properties.family_name}`,
         },
-      ];
-    }),
-    field('contained', function (state) {
-      return [
+      ],
+      gender: 'female',
+      birthDate: $.data.properties.dob,
+      telecom: [{ system: 'phone', value: $.data.properties.msisdn }],
+      communication: [
         {
-          resourceType: 'Patient',
-          id: 'patient',
-          identifier: [
-            {
-              use: 'official',
-              system: 'momconnect:sanid',
-              value: dataValue('properties.id_number')(state),
-            },
-          ],
-          name: [
-            {
-              use: 'official',
-              family: [dataValue('properties.family_name')(state)],
-              given: [dataValue('properties.given_name')(state)],
-              text: dataValue('properties.given_name')(state).concat(
-                ' ',
-                dataValue('properties.family_name')(state)
-              ),
-            },
-          ],
-          gender: 'female',
-          birthDate: dataValue('properties.dob')(state),
-          telecom: [
-            {
-              system: 'phone',
-              value: dataValue('properties.msisdn')(state),
-            },
-          ],
-          communication: [
-            {
-              language: {
-                coding: [
-                  {
-                    system: 'urn:ietf:bcp:47',
-                    code: dataValue('properties.language_code')(state),
-                  },
-                ],
-              },
-              preferred: true,
-            },
-          ],
-        },
-        {
-          resourceType: 'Observation',
-          id: 'edd',
-          code: {
-            coding: [
-              {
-                system: 'http://loinc.org',
-                code: '11778-8',
-                display: 'Delivery date Estimated',
-              },
-            ],
+          language: {
+            coding: [{ system: 'urn:ietf:bcp:47', code: $.data.properties.language_code }],
           },
-          valueDateTime: dataValue('properties.edd')(state),
-          status: 'preliminary',
+          preferred: true,
         },
-      ];
-    }),
-    field('patient', function (state) {
-      return {
-        reference: '#patient',
-      };
-    }),
-    field('period', function (state) {
-      return {
-        start: dataValue('properties.visit_date')(state),
-      };
-    }),
-    field('extension', function (state) {
-      return [
-        {
-          url: 'momconnect:mha',
-          valueInteger: 2,
-        },
-        {
-          url: 'momconnect:swt',
-          valueInteger: 3,
-        },
-        {
-          url: 'momconnect:dmsisdn',
-          valueString: '+27831111111',
-        },
-      ];
-    })
-  )
-);
+      ],
+    },
+    {
+      resourceType: 'Observation',
+      id: 'edd',
+      code: {
+        coding: [
+          { system: 'http://loinc.org', code: '11778-8', display: 'Delivery date Estimated' },
+        ],
+      },
+      valueDateTime: $.data.properties.edd,
+      status: 'preliminary',
+    },
+  ],
+  patient: { reference: '#patient' },
+  period: { start: $.data.properties.visit_date },
+  extension: [
+    { url: 'momconnect:mha', valueInteger: 2 },
+    { url: 'momconnect:swt', valueInteger: 3 },
+    { url: 'momconnect:dmsisdn', valueString: '+27831111111' },
+  ],
+});

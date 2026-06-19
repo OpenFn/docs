@@ -3,53 +3,50 @@
   blocks, submitted by Taylor Downs @ OpenFn.
 */
 
-beta.each(
-  '$.data.data[*]',
-  create(
-    'ODK__c',
-    fields(
-      field('Event_Type__c', dataValue('event_type')),
-      field('Training_Type__c', dataValue('training_type')),
-      field('Event_Leader_ID__c', dataValue('leader')),
-      field('Event_Date__c', dataValue('date')),
-      field('metainstanceid__c', dataValue('*meta-instance-id*'))
-    )
-  )
+// Step 1: Create a parent ODK record for each submission
+each(
+  $.data.data,
+  create('ODK__c', {
+    Event_Type__c: $.data.event_type,
+    Training_Type__c: $.data.training_type,
+    Event_Leader_ID__c: $.data.leader,
+    Event_Date__c: $.data.date,
+    metainstanceid__c: $.data['*meta-instance-id*'],
+  })
 );
 
-beta.each(
-  merge(
-    dataPath('data[*].attendee_new[*]'),
-    fields(field('parentId', lastReferenceValue('id')))
-  ),
-  create(
-    'ODK_Child_2__c',
-    fields(
-      field('ODK__c', dataValue('parentId')),
-      field('Barcode__c', dataValue('new_attendee_id')),
-      field('First_Name__c', dataValue('new_attendee_first_name')),
-      field('Last_Name__c', dataValue('new_attendee_last_name')),
-      field('Phone_Number__c', dataValue('new_attendee_phone'))
-    )
-  )
+// Step 2: Flatten child records across all submissions, attaching the parent ID
+fn(state => {
+  const parentId = state.references[state.references.length - 1].id;
+  return {
+    ...state,
+    newAttendees: state.data.data.flatMap(sub =>
+      (sub.attendee_new || []).map(a => ({ ...a, parentId }))
+    ),
+    attendees: state.data.data.flatMap(sub =>
+      (sub.attendee || []).map(a => ({ ...a, parentId }))
+    ),
+  };
+});
+
+// Step 3: Create child records for new attendees
+each(
+  $.newAttendees,
+  create('ODK_Child_2__c', {
+    ODK__c: $.data.parentId,
+    Barcode__c: $.data.new_attendee_id,
+    First_Name__c: $.data.new_attendee_first_name,
+    Last_Name__c: $.data.new_attendee_last_name,
+    Phone_Number__c: $.data.new_attendee_phone,
+  })
 );
 
-beta.each(
-  merge(
-    dataPath('data[*].attendee[*]'),
-    fields(
-      field('parentId', function (state) {
-        return state.references[state.references.length - 1].id;
-      })
-      // ^^ This will get the sfID of the 1st item created.
-    )
-  ),
-  create(
-    'ODK_Child_1__c',
-    fields(
-      field('ODK__c', dataValue('parentId')),
-      field('Barcode__c', dataValue('attendee_id')),
-      field('Late__c', dataValue('late'))
-    )
-  )
+// Step 4: Create child records for existing attendees
+each(
+  $.attendees,
+  create('ODK_Child_1__c', {
+    ODK__c: $.data.parentId,
+    Barcode__c: $.data.attendee_id,
+    Late__c: $.data.late,
+  })
 );

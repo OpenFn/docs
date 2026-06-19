@@ -41,7 +41,7 @@ fn(async state => {
     console.log(`${countInbox} request to inbox`);
 
     await new Promise(resolve => setTimeout(resolve, 2000));
-    await post(state.configuration.inboxUrl, { body: data })(state);
+    await post(state.configuration.inboxUrl, data)(state);
   };
 
   console.log('For each one of our chunks, we send one by one awaiting response.');
