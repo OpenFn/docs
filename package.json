@@ -40,7 +40,7 @@
     "react-flow-renderer": "^9.6.8",
     "react-particles": "^2.5.3",
     "react-player": "^2.9.0",
-    "sharp": "^0.34.2",
+    "sharp": "^0.35.0",
     "tsparticles": "^2.5.3"
   },
   "browserslist": {
