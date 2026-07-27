@@ -9,8 +9,28 @@ other binaries. This page explains how you do it.
 
 :::success The tl;dr:
 
-Images and other binaries mostly **_Just Work™️_**. Edges cases might
-need additions to adaptors.
+Images and other binaries mostly **_Just Work™️_**. Edges cases might need
+additions to adaptors.
+
+:::
+
+:::info Advanced image manipulation
+
+Need to resize, compress, strip embed EXIF metadata, or read metadata from an
+image? Use the
+[`image-utils` adaptor](https://docs.openfn.org/adaptors/packages/image-utils-docs),
+which runs these operations natively in your job, no external microservice
+required. See
+[Image manipulation with the `image-utils` adaptor](#image-manipulation-with-the-image-utils-adaptor)
+below for details.
+
+- **No external binary access**: platform jobs still run in a sandboxed Node.js
+  environment and cannot invoke external programs such as `imagemagick` or
+  `ffmpeg`. The `image-utils` adaptor works entirely within the Node.js runtime,
+  so it doesn't need them.
+- **Large files**: Base64 significantly increases payload size, so avoid it for
+  large files where possible; prefer working with Buffers (the default return
+  format for `image-utils` operations).
 
 :::
 
@@ -55,9 +75,38 @@ fn(state => {
 });
 ```
 
+## Image manipulation with the `image-utils` adaptor
+
+For workflows that need to actually transform an image rather than just move it,
+use the
+[`image-utils` adaptor](https://docs.openfn.org/adaptors/packages/image-utils-docs).
+It provides:
+
+```js
+// resize an image to given `width`/`height` dimensions.
+resize(state.data.buffer, { width: 1200, height: 1600 });
+// reduce image quality/file size until it meets a target `maxBytes`, down to a `minQuality` floor.
+compress(state.data.buffer, { maxBytes: 700 * 1024, minQuality: 20 });
+// remove all EXIF metadata from an image.
+stripMetadata($.data.photoBase64);
+// write EXIF key-value pairs (e.g. `UserComment`) into a JPEG.
+embedMetadata($.data.buffer, { UserComment: 'patient-id=42' });
+// read an image's dimensions, orientation, size, and EXIF data without modifying it.
+metadata($.data.photoBase64);
+```
+
+Each operation accepts a Base64 string or Buffer and writes its result to
+`state.data` (typically as a `buffer`, with `parseAs: 'base64'` available where
+you need a string instead).
+
+See the
+[`image-utils` adaptor documentation](https://docs.openfn.org/adaptors/packages/image-utils-docs)
+for full details on each function's options and return values.
+
 ## Summary
 
-Most use cases should **_Just Work ™️_**. If you have a specific need involving
-large file sizes or high volumes and you need to process images, rather than
-just moving them from place to place, you might need to make a change to your
-adaptor.
+Most use cases — fetching an image from one system and uploading it to another —
+should **_Just Work ™️_**. For workflows that require transforming the image
+itself (resize, compress, strip/embed EXIF data, or read metadata), use the
+[`image-utils` adaptor](https://docs.openfn.org/adaptors/packages/image-utils-docs)
+as described above.
