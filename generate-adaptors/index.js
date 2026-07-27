@@ -100,7 +100,7 @@ function escapeMdx(content) {
         .replace(/{/g, '\\{')
         .replace(/}/g, '\\}')
         // Escape < unless it can start a JSX tag (letter, /, $, _) or an
-        // HTML comment (<!--), e.g. the "<3.0" in the gmail changelog
+        // HTML comment (<!--)
         .replace(/<(?![A-Za-z/$_!])/g, '\\<');
     }
   }
