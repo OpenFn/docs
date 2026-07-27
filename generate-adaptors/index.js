@@ -87,22 +87,30 @@ function pushToPaths(name) {
   });
 }
 
-function generateJsDoc(a) {
-  // Add line break before </dt> tags and escape curly braces outside of code blocks
-  let docsContent = JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>');
-  
+// Escape characters that MDX would parse as JSX outside of code blocks
+function escapeMdx(content) {
   // Split content by code blocks (both inline ` and multi-line ```)
   const codeBlockRegex = /(```[\s\S]*?```|`[^`]*`)/g;
-  const parts = docsContent.split(codeBlockRegex);
-  
-  // Escape curly braces only in non-code parts (odd indices are code blocks)
+  const parts = content.split(codeBlockRegex);
+
+  // Escape only in non-code parts (odd indices are code blocks)
   for (let i = 0; i < parts.length; i++) {
-    if (i % 2 === 0) { // Non-code parts
-      parts[i] = parts[i].replace(/{/g, '\\{').replace(/}/g, '\\}');
+    if (i % 2 === 0) {
+      parts[i] = parts[i]
+        .replace(/{/g, '\\{')
+        .replace(/}/g, '\\}')
+        // Escape < unless it can start a JSX tag (letter, /, $, _) or an
+        // HTML comment (<!--), e.g. the "<3.0" in the gmail changelog
+        .replace(/<(?![A-Za-z/$_!])/g, '\\<');
     }
   }
-  
-  docsContent = parts.join('');
+
+  return parts.join('');
+}
+
+function generateJsDoc(a) {
+  // Add line break before </dt> tags and escape MDX specials outside code blocks
+  const docsContent = escapeMdx(JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>'));
 
   return `---
 title: ${a.name}@${a.version}
@@ -128,7 +136,7 @@ keywords:
 
 # Changelog for the ${a.name} adaptor
 
-${JSON.parse(a.changelog)}`;
+${escapeMdx(JSON.parse(a.changelog))}`;
 }
 
 function generateReadme(a) {
@@ -145,7 +153,7 @@ keywords:
 
 Source: https://github.com/OpenFn/adaptors/tree/main/packages/${a.name}
 
-${JSON.parse(a.readme)}`;
+${escapeMdx(JSON.parse(a.readme))}`;
 }
 
 const sampleConfiguration = json => {
