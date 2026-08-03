@@ -28,9 +28,9 @@ two ways: via a [Google Service Account](#google-service-account-recommended)
 We strongly recommend using a
 [Google Service Account](https://cloud.google.com/iam/docs/service-accounts-create)
 for production workflows. A service account is a dedicated, non-personal Google
-identity designed for machine-to-machine access — similar to an API-only user in
-Salesforce. It does not require anyone to log in with their personal Gmail
-account, and it won't break if someone changes their password or loses access.
+identity designed for machine-to-machine access. It does not require anyone to
+log in with their personal Gmail account, and it won't break if someone changes
+their password or loses access.
 
 When setting up a service account for Google Drive:
 
