@@ -37,10 +37,9 @@ paid plans for usage of OpenFn's cloud-hosted platform.
 
 ## About the Assistant
 
-The AI Assistant is a custom multi-agent system built on models from
-[Anthropic](https://www.anthropic.com/). It has access to OpenFn documentation
-and implementation best practices, so it can answer your questions in the context
-of the platform.
+The AI Assistant is a custom multi-agent system. It has access to OpenFn
+documentation and implementation best practices, so it can answer your questions 
+in the context of the platform.
 
 All chat sessions are shared between all users of the project. You can start a
 new chat session at any time, or open an old one.
