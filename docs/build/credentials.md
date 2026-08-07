@@ -77,7 +77,7 @@ Users of the hosted OpenFn platform SaaS can post on
 
 Note the credential selects only required scopes for Google Sheets.
 
-![Google OAuth](/img/google-oauth2.webp)
+![Google Sheets OAuth](/img/gsheets-oauth2.webp)
 
 #### e.g., Salesforce OAuth Credential
 
@@ -101,8 +101,11 @@ application.
 You _can_ use your personal user as an OpenFn credential for your
 workflow, but we recommend that you create a dedicated "OpenFn" integration user
 or service account user to access your target applications. For example, in
-Salesforce, you can create an API-only user with a special API-only license type
-to perform automated tasks and integrations without requiring full user access.
+[Salesforce](/adaptors/salesforce#salesforce-credentials), you can create an
+API-only user with a special API-only license type to perform automated tasks
+and integrations without requiring full user access. For Google APIs such as
+[Google Sheets](/adaptors/googlesheets#using-a-google-service-account), a
+Google Service Account is the recommended approach for automated workflows.
 
 API-only users might not be available in every target system, but many do offer the
 creation of user roles that have API-only access permissions, and may allow you
