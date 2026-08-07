@@ -22,7 +22,7 @@ fn(state => {
   // Read the data we fetched
   const obj = state.data;
 
-  // convert it by mapping properties from one object to the o ther
+  // convert it by mapping properties from one object to the other
   state.uploadData = {
     id: obj.id,
     name: `${obj.first_name} ${obj.last_name}`,
@@ -106,7 +106,7 @@ fn((state) => {
   state.transformed = []
   return state;
 })
-each("$.items[*]", fn(state) => {
+each("$.items[*]", fn(state => {
   // Pull the next item off the state
   const next = state.data;
 
@@ -118,7 +118,7 @@ each("$.items[*]", fn(state) => {
 
   // Always return state
   return state;
-})
+}))
 ```
 
 Or we can pass in another operation, like this Salesforce example:
@@ -127,9 +127,9 @@ Or we can pass in another operation, like this Salesforce example:
 each(
   '$.form.participants[*]',
   upsert('Person__c', 'Participant_PID__c', state => ({
-    Participant_PID__c: state.pid,
-    First_Name__c: state.participant_first_name,
-    Surname__c: state.participant_surname,
+    Participant_PID__c: state.data.pid,
+    First_Name__c: state.data.participant_first_name,
+    Surname__c: state.data.participant_surname,
   }))
 );
 ```

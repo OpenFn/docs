@@ -231,7 +231,7 @@ declare more properties:
 
 ```js
 const newState = {
-  ...state
+  ...state,
   data: {} // create a new data object but keep all other keys of state
 }
 ```
@@ -243,7 +243,7 @@ finally overwrites the data key.
 ```js
 const newState = {
   ...defaults,
-  ...state
+  ...state,
   data: {} // create a new data object but keep all other keys of state
 }
 ```
@@ -275,7 +275,7 @@ const b = {
 
 b.x = 2; // a.x is unchanged
 b.y.values = []; // a.y.values is changed
-b.y = 20' // a.y is unchanged
+b.y = 20; // a.y is unchanged
 ```
 
 A deep clone means that all properties in the whole object tree are cloned.
@@ -305,7 +305,7 @@ fn(state => {
     // Here we build the payload of our http request body...
     // We assume the input is an array of records
     const payload = state.data.map(record => ({
-        location: locationMap[record.location_id] //translate location_id to the mapped value
+        location: locationMap[record.location_id], //translate location_id to the mapped value
         external_id: record.case_id
     }));
 
@@ -314,11 +314,10 @@ fn(state => {
 
 //Workflow step 2
 //Then we post the payload built in the prior operation to create a record
-post('/api/myEndpoint', {
+post('/api/myEndpoint', state => state.payload, {
   headers: {
     'Content-Type': 'application/json',
   },
-  body: (state) => state.payload
 });
 ```
 
