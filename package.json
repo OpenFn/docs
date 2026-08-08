@@ -32,7 +32,7 @@
     "compare-versions": "^5.0.1",
     "date-fns": "2.21.3",
     "form-data": "4.0.6",
-    "mermaid": "11.15.0",
+    "mermaid": "11.16.1",
     "prism-react-renderer": "^2.1.0",
     "raw-loader": "^4.0.2",
     "react": "^18.2.0",
