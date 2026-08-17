@@ -72,6 +72,7 @@ module.exports = {
             'build/paths',
             'build/credentials',
             'build/collections',
+            'build/channels',
             'build/limits',
             'build/sandboxes',
             'build/editing-locally',
