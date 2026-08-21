@@ -119,6 +119,7 @@ module.exports = {
             'manage-users/api-tokens',
           ],
         },
+        'build/channels',
         'hosted/overview',
         'keyboard-shortcuts',
       ],
