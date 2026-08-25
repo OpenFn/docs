@@ -14,6 +14,9 @@ developer experience with OpenFn. You can use the OpenFn CLI to:
 - Sync workflows between OpenFn and a local filesystem or GitHub
 - Securely run OpenFn workflows
 - Troubleshoot and debug OpenFn steps
+- Compile your job code so you can
+  [unit test it](/documentation/jobs/unit-testing-jobs) in a standard JavaScript
+  test runner
 - Read and write Collections data
 
 ---
