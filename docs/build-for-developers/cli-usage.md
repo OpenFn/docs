@@ -4,7 +4,8 @@ sidebar_label: Basic usage
 slug: /cli-usage
 ---
 
-This page shows examples for some of the most common usages of the CLI, including:
+This page shows examples for some of the most common usages of the CLI,
+including:
 
 - get help
 - run a job
@@ -12,6 +13,7 @@ This page shows examples for some of the most common usages of the CLI, includin
 - adjust logging level
 - maintain adaptors repo
 - run a workflow
+- compile job code for unit testing
 - load adaptor documentation
 
 ---
@@ -30,7 +32,8 @@ openfn deploy --help
 
 ### Run a job
 
-To run a single job, you must explicitly specify which adaptor to use - see the [publicly available adaptors](/adaptors).
+To run a single job, you must explicitly specify which adaptor to use - see the
+[publicly available adaptors](/adaptors).
 
 Adaptors are automatically installed if the specified version is not detected.
 
@@ -219,6 +222,49 @@ openfn path/to/workflow.json -o tmp/output.json
 
 Check out this detailed [tutorial](cli-walkthrough#7-running-workflows) on
 running workflows via the CLI.
+
+---
+
+### Compile job code for unit testing
+
+Job expressions aren't valid JavaScript, so you can't import them straight into
+a test runner. `openfn compile` writes them out as ordinary ES modules.
+
+**Compile every workflow in the project, keeping only exported declarations:**
+
+```bash
+openfn compile --exports-only
+```
+
+Compiled files are written to `dist/` as `.mjs`, mirroring your workflow
+folders. Operations (`fn`, `get`, `each`) are stripped, so what's left is the
+helper functions you exported - ready to import into a test.
+
+**Compile a single workflow by name:**
+
+```bash
+openfn compile my-workflow --exports-only
+```
+
+**Print the compiled output instead of writing files:**
+
+```bash
+openfn compile path/to/job.js -a http -O
+```
+
+**Recompile whenever a source file changes:**
+
+```bash
+openfn compile --exports-only --watch
+```
+
+Without `--exports-only` you get the full compiled output - every step, adaptor
+imports resolved, and operations kept in `export default [...]`. That's what the
+runtime executes, and it's useful for debugging compilation.
+
+Requires `@openfn/cli` v1.39.0 or later. See
+[Writing unit tests for your jobs](/documentation/jobs/unit-testing-jobs) for
+the full guide.
 
 ---
 
