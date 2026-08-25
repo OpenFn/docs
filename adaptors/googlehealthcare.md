@@ -25,6 +25,30 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 }
 ```
 
+![Google Cloud Healthcare access token credential](/img/googlehealthcare-access-token.webp)
+
+### Using a Google Service Account
+
+We recommend using a
+[Google Service Account](https://cloud.google.com/iam/docs/service-accounts-create)
+to generate the access token rather than using a personal user credential.
+Service accounts are designed for machine-to-machine access, do not require a
+human login, and provide a clear audit trail which is particularly important for
+healthcare data integrations.
+
+When setting up a service account for Google Cloud Healthcare:
+
+- Grant only the IAM roles your workflow requires, following the principle of
+  least privilege. See
+  [Google Cloud IAM roles for Healthcare](https://cloud.google.com/healthcare-api/docs/access-control)
+  for the available roles.
+- Generate a short-lived access token from the service account to use as your
+  OpenFn credential, rather than a long-lived personal token.
+
+See the [Credentials page](/documentation/build/credentials#creating-a-dedicated-integration-user-for-your-openfn-workflow)
+for broader guidance on why dedicated integration users and service accounts are
+recommended for all OpenFn workflows.
+
 ### Helpful Links
 
 1. [Google Cloud Healthcare API Documentation](https://cloud.google.com/healthcare-api)
