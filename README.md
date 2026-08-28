@@ -94,7 +94,7 @@ with watch mode:
 yarn generate-adaptors -w
 ```
 
-Ensure that the OPENFN_ADAPTORS_REPO env var is set and points to the local
+Ensure that the `OPENFN_ADAPTORS_REPO` env var is set and points to the local
 monorepo.
 
 See
