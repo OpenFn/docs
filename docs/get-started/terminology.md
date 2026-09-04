@@ -199,7 +199,7 @@ fail, so it needs to be retried to successfully process).
 Runs have start times, end times, logs, and status codes that indicate when they
 took place, what they did, and whether or not they succeeded.
 
-![OpenFn Workflow Canvas](/img/run_view_logs.webp)
+![Run detail page showing steps and logs](/img/run_view_logs.webp)
 
 Imagine that a Workflow is configured to create a new patient in OpenMRS
 whenever a new case is opened in CommCare. Today if 1 patient is created, then:
