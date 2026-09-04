@@ -3,7 +3,7 @@ title: Inspect Runs & Search via the History page
 sidebar_label: Inspect Runs
 ---
 
-A [Run](../get-started/terminology.md#run) is created each time
+A [Run](/documentation/get-started/terminology#run) is created each time
 OpenFn attempts to excute a Workflow for a given Work Order. All Runs can be
 viewed, filtered, and searched via the `History` page.
 

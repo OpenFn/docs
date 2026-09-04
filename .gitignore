@@ -13,9 +13,6 @@
 .docusaurus
 .cache-loader
 
-# translation
-/i18n
-
 # Misc
 .DS_Store
 .env.local

@@ -2,7 +2,7 @@ import React, { useCallback } from 'react';
 import clsx from 'clsx';
 import Layout from '@theme/Layout';
 import Link from '@docusaurus/Link';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Translate, { translate } from '@docusaurus/Translate';
 import useBaseUrl from '@docusaurus/useBaseUrl';
 import Particles from 'react-particles';
 import { loadFull } from 'tsparticles';
@@ -10,77 +10,104 @@ import styles from './styles.module.css';
 
 const highlights = [
   {
-    title: 'Job Writing Guide',
+    title: translate({
+      id: 'homepage.highlights.jobWritingGuide.title',
+      message: 'Job Writing Guide',
+    }),
     link: 'documentation/jobs/job-writing-guide',
-    description: 'Writing a job for OpenFn? Start here',
+    description: translate({
+      id: 'homepage.highlights.jobWritingGuide.description',
+      message: 'Writing a job for OpenFn? Start here',
+    }),
   },
   {
-    title: 'CLI Usage Examples',
+    title: translate({
+      id: 'homepage.highlights.cliUsage.title',
+      message: 'CLI Usage Examples',
+    }),
     link: 'documentation/cli-usage',
-    description: 'See what the CLI can do at a glance',
+    description: translate({
+      id: 'homepage.highlights.cliUsage.description',
+      message: 'See what the CLI can do at a glance',
+    }),
   },
   {
-    title: 'JavaScript Tips & Tricks',
+    title: translate({
+      id: 'homepage.highlights.javascriptTips.title',
+      message: 'JavaScript Tips & Tricks',
+    }),
     link: 'documentation/cli-usage',
-    description: 'Level up your code',
+    description: translate({
+      id: 'homepage.highlights.javascriptTips.description',
+      message: 'Level up your code',
+    }),
   },
 ];
 
 const features = [
   {
-    title: 'Docs',
+    title: translate({ id: 'homepage.features.docs.title', message: 'Docs' }),
     link: 'documentation',
     imageUrl: 'img/undraw_Code_review_re_woeb.svg',
     description: (
-      <>
+      <Translate id="homepage.features.docs.description">
         Documentation on all aspects of OpenFn, the leading digital public good
         for workflow automation.
-      </>
+      </Translate>
     ),
   },
   {
-    title: 'Adaptors',
+    title: translate({
+      id: 'homepage.features.adaptors.title',
+      message: 'Adaptors',
+    }),
     link: 'adaptors',
     imageUrl: 'img/undraw_pair_programming_njlp.svg',
     description: (
-      <>
+      <Translate id="homepage.features.adaptors.description">
         Searchable and browseable adaptors docs, examples, changelogs, and
         overviews for connecting the world's most common DPGs.
-      </>
+      </Translate>
     ),
   },
   {
-    title: 'Articles',
+    title: translate({
+      id: 'homepage.features.articles.title',
+      message: 'Articles',
+    }),
     link: 'articles',
     imageUrl: 'img/undraw_Portfolio_update_re_jqnp.svg',
     description: (
-      <>
+      <Translate id="homepage.features.articles.description">
         How to prepare for data integration? How to structure external IDs? How
         to...
-      </>
+      </Translate>
     ),
   },
   {
-    title: 'Blog',
+    title: translate({ id: 'homepage.features.blog.title', message: 'Blog' }),
     link: 'https://openfn.org/blog',
     imageUrl: 'img/undraw_reading_time_gvg0.svg',
     description: (
-      <>
+      <Translate id="homepage.features.blog.description">
         We help the world's most promising social impact interventions achieve
         scale through automation, data integration, and interoperability. These
         are their stories.
-      </>
+      </Translate>
     ),
   },
   {
-    title: 'Enterprise',
+    title: translate({
+      id: 'homepage.features.enterprise.title',
+      message: 'Enterprise',
+    }),
     link: 'https://www.openfn.org',
     imageUrl: 'img/undraw_secure_server_s9u8.svg',
     description: (
-      <>
+      <Translate id="homepage.features.enterprise.description">
         Check out the enterprise-grade OpenFn integration-platform-as-a-service
         (iPaaS), offering free-forever plans and affordable pathways to scale.
-      </>
+      </Translate>
     ),
   },
 ];
@@ -109,9 +136,6 @@ function Feature({ imageUrl, title, description, link }) {
 }
 
 function Home() {
-  const context = useDocusaurusContext();
-  const { siteConfig = {} } = context;
-
   const particlesInit = useCallback(async engine => {
     await loadFull(engine);
   }, []);
@@ -235,7 +259,13 @@ function Home() {
   };
 
   return (
-    <Layout title={`Home`} description="The OpenFn Documentation Site">
+    <Layout
+      title={translate({ id: 'homepage.meta.title', message: 'Home' })}
+      description={translate({
+        id: 'homepage.meta.description',
+        message: 'The OpenFn Documentation Site',
+      })}
+    >
       <header className={clsx('hero hero--primary', styles.heroBanner)}>
         <Particles
           id="tsparticles"
@@ -243,8 +273,18 @@ function Home() {
           options={particlesConfig}
         />
         <div className="container" style={{ zIndex: 1 }}>
-          <h1 className="hero__title">OpenFn Documentation</h1>
-          <p className="hero__subtitle">{siteConfig.tagline}</p>
+          <h1 className="hero__title">
+            <Translate id="homepage.hero.title">OpenFn Documentation</Translate>
+          </h1>
+          {/* The English copy here mirrors `tagline` in docusaurus.config.js.
+              Site-level config values are not extracted for translation, so the
+              hero subtitle is declared as a translatable string instead. */}
+          <p className="hero__subtitle">
+            <Translate id="homepage.hero.subtitle">
+              The leading digital public good for workflow automation, OpenFn
+              makes ICT4D more efficient.
+            </Translate>
+          </p>
           <div className={styles.buttons}>
             <Link
               className={clsx(
@@ -253,7 +293,7 @@ function Home() {
               )}
               to={'/documentation'}
             >
-              Get Started
+              <Translate id="homepage.hero.cta">Get Started</Translate>
             </Link>
           </div>
         </div>
@@ -271,13 +311,22 @@ function Home() {
                     <img
                       className={styles.featureImage}
                       src="img/undraw_Newsletter_re_wrob.svg"
-                      alt="Newsletter"
+                      alt={translate({
+                        id: 'homepage.newsletter.imageAlt',
+                        message: 'Newsletter',
+                      })}
                     />
                   </div>
-                  <h3>Newsletter</h3>
+                  <h3>
+                    <Translate id="homepage.newsletter.title">
+                      Newsletter
+                    </Translate>
+                  </h3>
                   <p>
-                    Never miss a story from us, subscribe to our newsletter
-                    here.
+                    <Translate id="homepage.newsletter.description">
+                      Never miss a story from us, subscribe to our newsletter
+                      here.
+                    </Translate>
                   </p>
                   <form
                     action="https://openfn.us11.list-manage.com/subscribe/post?u=ad898e5a4d5a9aab0bbd63aee&amp;id=bf982e5409"
@@ -289,7 +338,10 @@ function Home() {
                     <div className={styles.subscribeForm}>
                       <input
                         type="email"
-                        placeholder="Email"
+                        placeholder={translate({
+                          id: 'homepage.newsletter.emailPlaceholder',
+                          message: 'Email',
+                        })}
                         name="EMAIL"
                         id="mce-EMAIL"
                         autocomplete="on"
@@ -301,7 +353,9 @@ function Home() {
                         name="subscribe"
                         className="button button--secondary button--sm"
                       >
-                        Subscribe
+                        <Translate id="homepage.newsletter.subscribe">
+                          Subscribe
+                        </Translate>
                       </button>
                     </div>
                   </form>
@@ -312,7 +366,11 @@ function Home() {
         )}
       </main>
       <div className="container" style={{ marginTop: '30px' }}>
-        <h1 style={{ textAlign: 'center' }}>✨Documentation Highlights✨</h1>
+        <h1 style={{ textAlign: 'center' }}>
+          <Translate id="homepage.highlights.heading">
+            ✨Documentation Highlights✨
+          </Translate>
+        </h1>
         <div className="highlights-wrapper">
           {highlights.map(h => (
             <div className="highlight-card">
