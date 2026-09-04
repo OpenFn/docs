@@ -1,0 +1,1833 @@
+# screenshot-map.yml
+#
+# What each image in static/img/ shows, so a repeat triage run does not have to
+# re-classify everything. Read by the screenshot-triage skill.
+#
+# Format, one entry per image path:
+#   shows      short description of the image content
+#   area       UI area it maps to, one of:
+#              workflow-canvas, step-editor, runs-history, credentials,
+#              triggers, project-settings, lightning-other,
+#              external (another product's UI), diagram, non-ui-photo
+#   confidence high | medium | low  - how sure the classification is
+#   status     active | legacy (only used in versioned_docs) | unused
+#
+# Dates are NOT stored here; they are recomputed on every run.
+# Humans may edit any entry - corrections are kept and not overwritten.
+
+images:
+  1_branch.webp:
+    shows: "Branches"
+    area: lightning-other
+    confidence: low
+    status: active
+  2.1_new_account_dashboard.webp:
+    shows: "new account dashboard"
+    area: project-settings
+    confidence: medium
+    status: active
+  2.2_inbox_url.webp:
+    shows: "inbox url"
+    area: triggers
+    confidence: medium
+    status: active
+  2.3_kobo_rest.webp:
+    shows: "kobo"
+    area: external
+    confidence: high
+    status: active
+  2.4_kobo_rest.webp:
+    shows: "kobo"
+    area: external
+    confidence: high
+    status: active
+  2.5_open_kobo_form.webp:
+    shows: "kobo form"
+    area: external
+    confidence: high
+    status: active
+  2.6_inbox.webp:
+    shows: "inbox"
+    area: triggers
+    confidence: medium
+    status: active
+  2.7_message.webp:
+    shows: "message body"
+    area: lightning-other
+    confidence: low
+    status: active
+  2.8_common_data_point.webp:
+    shows: "common data point"
+    area: lightning-other
+    confidence: low
+    status: active
+  3.1_create_credentials.webp:
+    shows: "create credentials"
+    area: credentials
+    confidence: high
+    status: active
+  3.2_select_credential_type.webp:
+    shows: "select credential type"
+    area: credentials
+    confidence: high
+    status: active
+  4.1_new_job.webp:
+    shows: "new job"
+    area: step-editor
+    confidence: medium
+    status: active
+  4.2_new_trigger.webp:
+    shows: "new trigger"
+    area: triggers
+    confidence: medium
+    status: active
+  4.3_trigger_message.webp:
+    shows: "trigger message"
+    area: triggers
+    confidence: medium
+    status: active
+  4.4_adaptor_operation.webp:
+    shows: "adaptor operation"
+    area: step-editor
+    confidence: medium
+    status: active
+  4.5_sheets_id.webp:
+    shows: "sheets ID"
+    area: external
+    confidence: high
+    status: active
+  4.6_select_values.webp:
+    shows: "select values"
+    area: lightning-other
+    confidence: low
+    status: active
+  4.7_save_and_run.webp:
+    shows: "save and run"
+    area: runs-history
+    confidence: medium
+    status: active
+  5.1_autoprocess.webp:
+    shows: "autoprocess"
+    area: lightning-other
+    confidence: low
+    status: active
+  BPMN_example.webp:
+    shows: "BPMN example"
+    area: diagram
+    confidence: high
+    status: active
+  Create_new_project.gif:
+    shows: "create_new_project"
+    area: project-settings
+    confidence: medium
+    status: active
+  access_security1.webp:
+    shows: "Access&Security Circled"
+    area: lightning-other
+    confidence: low
+    status: active
+  access_security_collaboration1.webp:
+    shows: "access security collaboration1"
+    area: lightning-other
+    confidence: low
+    status: active
+  activity_history_cc.webp:
+    shows: "activity_history_cc"
+    area: runs-history
+    confidence: medium
+    status: active
+  activity_history_final.webp:
+    shows: "activity_history_final"
+    area: runs-history
+    confidence: medium
+    status: active
+  activity_history_success.webp:
+    shows: "activity_history_final"
+    area: runs-history
+    confidence: medium
+    status: active
+  adaptor-picker.webp:
+    shows: "adaptor picker"
+    area: step-editor
+    confidence: medium
+    status: active
+  adaptor_choice_openfn.webp:
+    shows: "adaptor choice openfn"
+    area: step-editor
+    confidence: medium
+    status: active
+  adaptor_npm.webp:
+    shows: "Adaptors list in npm"
+    area: step-editor
+    confidence: medium
+    status: active
+  add_collab.webp:
+    shows: "Add collaborator"
+    area: lightning-other
+    confidence: low
+    status: active
+  add_credential_postgres.gif:
+    shows: "add_credential_postgres"
+    area: external
+    confidence: high
+    status: active
+  add_credit_card.gif:
+    shows: "Credit Card"
+    area: lightning-other
+    confidence: low
+    status: active
+  add_new_cred.gif:
+    shows: "add_new_cred"
+    area: lightning-other
+    confidence: low
+    status: active
+  ai-assistant.webp:
+    shows: "AI Assistant"
+    area: lightning-other
+    confidence: low
+    status: active
+  ai-workflow-example.webp:
+    shows: "ai-driven-workflow"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  airport.webp:
+    shows: "airport"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  akira-chix.webp:
+    shows: "akira chix"
+    area: lightning-other
+    confidence: low
+    status: active
+  anatomy_of_step.webp:
+    shows: "Step Anatomy"
+    area: step-editor
+    confidence: medium
+    status: active
+  api_diagram.webp:
+    shows: "Workflow"
+    area: diagram
+    confidence: high
+    status: active
+  api_example.webp:
+    shows: "Workflow"
+    area: lightning-other
+    confidence: low
+    status: active
+  apps.webp:
+    shows: "apps"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  ase.webp:
+    shows: "ase"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  assign_externalID.webp:
+    shows: "assign externalID"
+    area: lightning-other
+    confidence: low
+    status: active
+  authentication-vs-athorization.webp:
+    shows: "authentication vs athorization"
+    area: lightning-other
+    confidence: low
+    status: active
+  bo-kaap.webp:
+    shows: "bo kaap"
+    area: lightning-other
+    confidence: low
+    status: active
+  box5.webp:
+    shows: "box5"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  brazil_students.webp:
+    shows: "brazil students"
+    area: lightning-other
+    confidence: low
+    status: active
+  bulk_reprocess.webp:
+    shows: "bulk reprocess"
+    area: lightning-other
+    confidence: low
+    status: active
+  calendar.webp:
+    shows: "calendar"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  cambodia-kids.webp:
+    shows: "cambodia kids"
+    area: lightning-other
+    confidence: low
+    status: active
+  cambodia_child.webp:
+    shows: "cambodia child"
+    area: lightning-other
+    confidence: low
+    status: active
+  cambodia_dashboard.webp:
+    shows: "cambodia dashboard"
+    area: project-settings
+    confidence: medium
+    status: active
+  cambodia_school.webp:
+    shows: "cambodia school"
+    area: lightning-other
+    confidence: low
+    status: active
+  carisfoundation.webp:
+    shows: "carisfoundation"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  case-referral-history.webp:
+    shows: "History"
+    area: runs-history
+    confidence: medium
+    status: active
+  case_referral_workflow.webp:
+    shows: "OpenFn Workflow Canvas"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  cc-postgres.webp:
+    shows: "cc-postgres"
+    area: external
+    confidence: high
+    status: active
+  chaining-operations.webp:
+    shows: "chaining operations"
+    area: lightning-other
+    confidence: low
+    status: active
+  change_concurrency.gif:
+    shows: "Change Concurrency"
+    area: lightning-other
+    confidence: low
+    status: active
+  change_plan.gif:
+    shows: "Change Plans"
+    area: lightning-other
+    confidence: low
+    status: active
+  collaboration.webp:
+    shows: "Collaboration"
+    area: lightning-other
+    confidence: low
+    status: active
+  collections_admin.webp:
+    shows: "Collections Admin Page"
+    area: lightning-other
+    confidence: low
+    status: active
+  commcare-data-model.webp:
+    shows: "CommCare-data-model"
+    area: external
+    confidence: high
+    status: active
+  commcare_credential.webp:
+    shows: "commcare credential"
+    area: external
+    confidence: high
+    status: active
+  commcare_credential_edit.webp:
+    shows: "CommCare Cred"
+    area: external
+    confidence: high
+    status: active
+  commcare_data_forwarding_overview.webp:
+    shows: "commcare data forwarding overview"
+    area: external
+    confidence: high
+    status: active
+  commcare_forward_cases.webp:
+    shows: "Cases"
+    area: external
+    confidence: high
+    status: active
+  commecare_connection_settings.webp:
+    shows: "Connection"
+    area: project-settings
+    confidence: medium
+    status: active
+  commecare_forward_forms.webp:
+    shows: "Forms"
+    area: lightning-other
+    confidence: low
+    status: active
+  configure_job_cc.gif:
+    shows: "configure_job_cc"
+    area: step-editor
+    confidence: medium
+    status: active
+  configure_job_postgres.gif:
+    shows: "configure_job_postgres"
+    area: external
+    confidence: high
+    status: active
+  configuring-concurrency.webp:
+    shows: "Configuring Concurrency"
+    area: lightning-other
+    confidence: low
+    status: active
+  configuring-kafka.webp:
+    shows: "Configuring Kafka Trigger"
+    area: lightning-other
+    confidence: low
+    status: active
+  configuring-log-outputs.webp:
+    shows: "Configuring Log Outputs"
+    area: runs-history
+    confidence: medium
+    status: active
+  configuring-project-concurrency.webp:
+    shows: "Project Concurrency"
+    area: project-settings
+    confidence: medium
+    status: active
+  confirm_export.webp:
+    shows: "Confirm export"
+    area: lightning-other
+    confidence: low
+    status: active
+  connect-account-to-github.webp:
+    shows: "Configure"
+    area: project-settings
+    confidence: medium
+    status: active
+  create-job.gif:
+    shows: "configure_job_postgres"
+    area: step-editor
+    confidence: medium
+    status: active
+  create-new-workflow.gif:
+    shows: "create_new_workflow"
+    area: lightning-other
+    confidence: low
+    status: active
+  create-project-modal.webp:
+    shows: "Create a project modal"
+    area: project-settings
+    confidence: medium
+    status: active
+  create_job_db.gif:
+    shows: "create-job"
+    area: step-editor
+    confidence: medium
+    status: active
+  create_new_cred.webp:
+    shows: "Create new cred"
+    area: lightning-other
+    confidence: low
+    status: active
+  create_new_oauth_client.webp:
+    shows: "New client"
+    area: credentials
+    confidence: high
+    status: active
+  create_new_trgger_db.gif:
+    shows: "create_new_trgger_db"
+    area: lightning-other
+    confidence: low
+    status: active
+  create_pr.webp:
+    shows: "Save Pull Request"
+    area: lightning-other
+    confidence: low
+    status: active
+  create_sandbox_modal.webp:
+    shows: "Create Sandbox modal"
+    area: project-settings
+    confidence: medium
+    status: active
+  create_trigger.gif:
+    shows: "create_trigger"
+    area: triggers
+    confidence: medium
+    status: active
+  create_trigger_cc.gif:
+    shows: "create_trigger_cc"
+    area: triggers
+    confidence: medium
+    status: active
+  credentials.webp:
+    shows: "credentials"
+    area: credentials
+    confidence: high
+    status: active
+  cron_trigger.webp:
+    shows: "Cron Trigger"
+    area: triggers
+    confidence: medium
+    status: active
+  cronhourglass.webp:
+    shows: "cronhourglass"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  crowsfeet2.webp:
+    shows: "crowsfeet2"
+    area: diagram
+    confidence: high
+    status: active
+  custom.webp:
+    shows: "custom"
+    area: lightning-other
+    confidence: low
+    status: active
+  data-element-mapping.webp:
+    shows: "Sample mapping sheet"
+    area: lightning-other
+    confidence: low
+    status: active
+  data_integration.webp:
+    shows: "Data Integration"
+    area: lightning-other
+    confidence: low
+    status: active
+  db_config.webp:
+    shows: "db_config"
+    area: lightning-other
+    confidence: low
+    status: active
+  demo-exclusion.gif:
+    shows: "img"
+    area: lightning-other
+    confidence: low
+    status: active
+  deployment_paths.webp:
+    shows: "deployment paths"
+    area: lightning-other
+    confidence: low
+    status: active
+  designforfailure.webp:
+    shows: "designforfailure"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  devtools.gif:
+    shows: "devtools"
+    area: lightning-other
+    confidence: low
+    status: active
+  digest_email.webp:
+    shows: "digest email"
+    area: lightning-other
+    confidence: low
+    status: active
+  disable-wf.webp:
+    shows: "disable wf"
+    area: lightning-other
+    confidence: low
+    status: active
+  dixons-van.webp:
+    shows: "dixons van"
+    area: lightning-other
+    confidence: low
+    status: active
+  edit_job_vscode.webp:
+    shows: "VS Code"
+    area: step-editor
+    confidence: medium
+    status: active
+  edit_steps.webp:
+    shows: "edit steps"
+    area: step-editor
+    confidence: medium
+    status: active
+  empty.webp:
+    shows: "empty"
+    area: lightning-other
+    confidence: low
+    status: active
+  example-workflow-state.webp:
+    shows: "Example Workflow"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  exclusion.gif:
+    shows: "img"
+    area: lightning-other
+    confidence: low
+    status: active
+  existing.webp:
+    shows: "existing"
+    area: lightning-other
+    confidence: low
+    status: active
+  export-messages.webp:
+    shows: "Retry run button"
+    area: lightning-other
+    confidence: low
+    status: active
+  export-runs.webp:
+    shows: "Retry run button"
+    area: runs-history
+    confidence: medium
+    status: active
+  exportcsv.webp:
+    shows: "Export CSV button"
+    area: lightning-other
+    confidence: low
+    status: active
+  exportruns.webp:
+    shows: "Export runs button"
+    area: runs-history
+    confidence: medium
+    status: active
+  farmers.webp:
+    shows: "farmers"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  favicon.ico:
+    shows: "favicon"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  fhir-eswatini-valueset-example.png:
+    shows: "Example listing of code values from the FHIR IG"
+    area: lightning-other
+    confidence: low
+    status: active
+  form_workflow.webp:
+    shows: "form workflow"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  foundational-functional-identity.webp:
+    shows: "foundational functional identity"
+    area: external
+    confidence: high
+    status: active
+  functional_example.webp:
+    shows: "Workflow"
+    area: external
+    confidence: high
+    status: active
+  generate-project.gif:
+    shows: "Generate Project"
+    area: project-settings
+    confidence: medium
+    status: active
+  george-washington-bridge.webp:
+    shows: "george washington bridge"
+    area: lightning-other
+    confidence: low
+    status: active
+  git-status.webp:
+    shows: "git-status"
+    area: lightning-other
+    confidence: low
+    status: active
+  git_clone_url.webp:
+    shows: "GH Clone URL"
+    area: lightning-other
+    confidence: low
+    status: active
+  github-options.webp:
+    shows: "Configure"
+    area: project-settings
+    confidence: medium
+    status: active
+  google-oauth2.webp:
+    shows: "Google OAuth"
+    area: credentials
+    confidence: high
+    status: active
+  guide-job-pipeline.webp:
+    shows: "Job Pipeline"
+    area: step-editor
+    confidence: medium
+    status: active
+  history-page-annotated.webp:
+    shows: "History Page"
+    area: runs-history
+    confidence: medium
+    status: active
+  history_exports_page.webp:
+    shows: "List of history exports "
+    area: runs-history
+    confidence: medium
+    status: active
+  history_page_cloud.webp:
+    shows: "History Page"
+    area: runs-history
+    confidence: medium
+    status: active
+  hourglass.webp:
+    shows: "hourglass"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  how-to-gif.gif:
+    shows: "img"
+    area: lightning-other
+    confidence: low
+    status: active
+  identity-lifecycle.webp:
+    shows: "identity lifecycle"
+    area: lightning-other
+    confidence: low
+    status: active
+  ikapa2.webp:
+    shows: "ikapa2"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  inbox-security.webp:
+    shows: "inbox security"
+    area: triggers
+    confidence: medium
+    status: active
+  inbox_filter.webp:
+    shows: "Image of Inbox Filters"
+    area: triggers
+    confidence: medium
+    status: active
+  informationorganized.webp:
+    shows: "informationorganized"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  inspect.webp:
+    shows: "Inspect"
+    area: lightning-other
+    confidence: low
+    status: active
+  inspector_interfaces.webp:
+    shows: "Inspector"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  install_cc_app.webp:
+    shows: "install_cc_app"
+    area: lightning-other
+    confidence: low
+    status: active
+  integration-toolkit.webp:
+    shows: "Integration Toolkit"
+    area: lightning-other
+    confidence: low
+    status: active
+  invite-new-users.webp:
+    shows: "Invite new users"
+    area: project-settings
+    confidence: medium
+    status: active
+  itau_integration_diagram.webp:
+    shows: "itau integration diagram"
+    area: diagram
+    confidence: high
+    status: active
+  itau_social.webp:
+    shows: "itau social"
+    area: lightning-other
+    confidence: low
+    status: active
+  job_studio_edit.gif:
+    shows: "Job_Studio_Edit"
+    area: step-editor
+    confidence: medium
+    status: active
+  joe-beach.webp:
+    shows: "joe beach"
+    area: lightning-other
+    confidence: low
+    status: active
+  kenya-joe.webp:
+    shows: "kenya joe"
+    area: lightning-other
+    confidence: low
+    status: active
+  keychain_credential_dropdown.webp:
+    shows: "keychain credential dropdown"
+    area: credentials
+    confidence: high
+    status: active
+  keychain_input.webp:
+    shows: "keychain input"
+    area: credentials
+    confidence: high
+    status: active
+  keychain_modal.webp:
+    shows: "keychain modal"
+    area: credentials
+    confidence: high
+    status: active
+  keychain_selection.webp:
+    shows: "keychain selection"
+    area: credentials
+    confidence: high
+    status: active
+  kgvk.v2.webp:
+    shows: "kgvk v2"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  kgvk.webp:
+    shows: "kgvk"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  kobo-deploy.webp:
+    shows: "kobo deploy"
+    area: external
+    confidence: high
+    status: active
+  kobo-new.webp:
+    shows: "kobo new"
+    area: external
+    confidence: high
+    status: active
+  kobo-project-space.webp:
+    shows: "kobo project space"
+    area: external
+    confidence: high
+    status: active
+  lightning-custom-input.webp:
+    shows: "lightning custom input"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning-dhis2-editor.webp:
+    shows: "lightning dhis2 editor"
+    area: external
+    confidence: high
+    status: active
+  lightning-dhis2-job.webp:
+    shows: "lightning dhis2 job"
+    area: external
+    confidence: high
+    status: active
+  lightning-sample-workflow.webp:
+    shows: "lightning-sample-workflow"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning-work-order-expanded.webp:
+    shows: "lightning work order expanded"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning-workflows-page.webp:
+    shows: "lightning-workflows-page"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_add_cred.webp:
+    shows: "Add Credential"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_add_repo_secrets.webp:
+    shows: "lightning add repo secrets"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_api_auth.webp:
+    shows: "API auth"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_architecture.webp:
+    shows: "Lightning architecture"
+    area: diagram
+    confidence: high
+    status: active
+  lightning_audit.webp:
+    shows: "Lightning audit interface"
+    area: project-settings
+    confidence: medium
+    status: active
+  lightning_auth_from_workflow.webp:
+    shows: "lightning auth from workflow"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  lightning_auth_project_settings.webp:
+    shows: "Project Settings Webhook Security"
+    area: project-settings
+    confidence: medium
+    status: active
+  lightning_basic_auth.webp:
+    shows: "Basic Auth"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_build.webp:
+    shows: "Lightning build interface"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_build_run_audit.webp:
+    shows: "Lightning"
+    area: runs-history
+    confidence: medium
+    status: active
+  lightning_change_email_pw.webp:
+    shows: "Change Email Password"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_choose_auth_method.webp:
+    shows: "New Auth Method"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_choose_cred_type.webp:
+    shows: "Credential Type"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_connect_to_gh (1).webp:
+    shows: "lightning connect to gh (1)"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_connect_to_gh.webp:
+    shows: "lightning connect to gh"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_cred_edit_view.webp:
+    shows: "User Credential Edit View"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_credentials_overview.webp:
+    shows: "Credentials Overview"
+    area: credentials
+    confidence: high
+    status: active
+  lightning_delete_account_cropped.webp:
+    shows: "Delete Account"
+    area: project-settings
+    confidence: medium
+    status: active
+  lightning_digest.webp:
+    shows: "Digest Email Setting"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_edit_auth_method.webp:
+    shows: "lightning edit auth method"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_edit_user_credential.webp:
+    shows: "User Credentials List"
+    area: credentials
+    confidence: high
+    status: active
+  lightning_editor.webp:
+    shows: "lightning_editor"
+    area: step-editor
+    confidence: medium
+    status: active
+  lightning_editor_1.webp:
+    shows: "lightning_editor_1"
+    area: step-editor
+    confidence: medium
+    status: active
+  lightning_enable_MFA.webp:
+    shows: "Enable MFA"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_failed_run.webp:
+    shows: "Failure Run"
+    area: runs-history
+    confidence: medium
+    status: active
+  lightning_failed_work_orders.webp:
+    shows: "Failed Work Orders"
+    area: runs-history
+    confidence: medium
+    status: active
+  lightning_failure_alert.webp:
+    shows: "Failure Alert"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_failure_email.webp:
+    shows: "Failure Email"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_gh_configure.webp:
+    shows: "Configure"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_gh_initate_sync.webp:
+    shows: "lightning gh initate sync"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_gh_install_openfn.webp:
+    shows: "Install"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_gh_permissions.webp:
+    shows: "Permissions"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_history.webp:
+    shows: "lightning_history"
+    area: runs-history
+    confidence: medium
+    status: active
+  lightning_history_expanded.webp:
+    shows: "lightning-history_expanded"
+    area: runs-history
+    confidence: medium
+    status: active
+  lightning_history_failure.webp:
+    shows: "lightning_history_failure"
+    area: runs-history
+    confidence: medium
+    status: active
+  lightning_input_data.webp:
+    shows: "lightning_input_data"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_linked_triggers.webp:
+    shows: "Linked Triggers"
+    area: triggers
+    confidence: medium
+    status: active
+  lightning_linked_triggers2.webp:
+    shows: "Linked Triggers"
+    area: triggers
+    confidence: medium
+    status: active
+  lightning_manual_run.webp:
+    shows: "lightning_manual_run"
+    area: runs-history
+    confidence: medium
+    status: active
+  lightning_new_api_token.webp:
+    shows: "New Token"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_new_attempt.webp:
+    shows: "lightning_new_attempt"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_new_cred_ready.webp:
+    shows: "New Credential Ready"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_no_api_token (1).webp:
+    shows: "lightning no api token (1)"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_no_api_token.webp:
+    shows: "API Tokens"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_openfn_select_repo_branch.webp:
+    shows: "lightning openfn select repo branch"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_path_trigger_example.webp:
+    shows: "Path Condition Example"
+    area: triggers
+    confidence: medium
+    status: active
+  lightning_preview.webp:
+    shows: "Lightning preview"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_project_overview.webp:
+    shows: "Project Overview"
+    area: project-settings
+    confidence: medium
+    status: active
+  lightning_rerun_downstream_job.webp:
+    shows: "lightning_rerun_downstream_job"
+    area: runs-history
+    confidence: medium
+    status: active
+  lightning_retry.webp:
+    shows: "lightning_retry"
+    area: runs-history
+    confidence: medium
+    status: active
+  lightning_select_user_profile.webp:
+    shows: "User Profile"
+    area: project-settings
+    confidence: medium
+    status: active
+  lightning_setup.webp:
+    shows: "lightning_setup"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_share_cred_with_project.webp:
+    shows: "Update Project Access"
+    area: project-settings
+    confidence: medium
+    status: active
+  lightning_trigger_example.webp:
+    shows: "Trigger Example"
+    area: triggers
+    confidence: medium
+    status: active
+  lightning_user_profile_api_tokens.webp:
+    shows: "API Tokens Profile"
+    area: project-settings
+    confidence: medium
+    status: active
+  lightning_user_profile_credentials.webp:
+    shows: "User Credential"
+    area: credentials
+    confidence: high
+    status: active
+  lightning_view_creds_not_edit.webp:
+    shows: "lightning view creds not edit"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_weekly_digest.webp:
+    shows: "Digest Email"
+    area: lightning-other
+    confidence: low
+    status: active
+  lightning_workflow_dashboard.webp:
+    shows: "Dashboard"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  lightning_workflow_trigger_added.webp:
+    shows: "Linked Triggers"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  log-levels.webp:
+    shows: "log-levels"
+    area: runs-history
+    confidence: medium
+    status: active
+  logo.svg:
+    shows: "logo"
+    area: diagram
+    confidence: high
+    status: active
+  logs_run.webp:
+    shows: "Logs"
+    area: runs-history
+    confidence: medium
+    status: active
+  make.webp:
+    shows: "make"
+    area: lightning-other
+    confidence: low
+    status: active
+  manage_project_access.webp:
+    shows: "OAuth project access"
+    area: project-settings
+    confidence: medium
+    status: active
+  mapping_example.webp:
+    shows: "mapping"
+    area: lightning-other
+    confidence: low
+    status: active
+  mapping_process.webp:
+    shows: "mapping"
+    area: lightning-other
+    confidence: low
+    status: active
+  merge_sandbox_modal.webp:
+    shows: "Merge sandbox modal"
+    area: project-settings
+    confidence: medium
+    status: active
+  metabase.webp:
+    shows: "metabase"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  microservice_zip_export.gif:
+    shows: "Export Microservice Zip"
+    area: lightning-other
+    confidence: low
+    status: active
+  migration_existing-workflows.webp:
+    shows: "Existing Workflows"
+    area: lightning-other
+    confidence: low
+    status: active
+  migration_workflow_pasted.webp:
+    shows: "Workflows Added"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  myAgro1.JPG:
+    shows: "myAgro1"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  myagrograph.webp:
+    shows: "myagrograph"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  nalibali.webp:
+    shows: "nalibali"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  name_dataclip.webp:
+    shows: "name dataclip"
+    area: lightning-other
+    confidence: low
+    status: active
+  new_branch.webp:
+    shows: "New Branche"
+    area: lightning-other
+    confidence: low
+    status: active
+  new_cred.webp:
+    shows: "new cred"
+    area: lightning-other
+    confidence: low
+    status: active
+  notifications.webp:
+    shows: "notifications"
+    area: project-settings
+    confidence: medium
+    status: active
+  oauth_client_edit.webp:
+    shows: "OAuth edit"
+    area: credentials
+    confidence: high
+    status: active
+  oauth_dropdown.webp:
+    shows: "OAuth dropdown"
+    area: credentials
+    confidence: high
+    status: active
+  objectmodel3.webp:
+    shows: "objectmodel3"
+    area: diagram
+    confidence: high
+    status: active
+  ofg.webp:
+    shows: "ofg"
+    area: lightning-other
+    confidence: low
+    status: active
+  ona_dashboard.webp:
+    shows: "ona dashboard"
+    area: external
+    confidence: high
+    status: active
+  ona_integration.webp:
+    shows: "ona integration"
+    area: external
+    confidence: high
+    status: active
+  openfn-color.webp:
+    shows: "openfn color"
+    area: lightning-other
+    confidence: low
+    status: active
+  openfn_dpg.webp:
+    shows: "DPG"
+    area: lightning-other
+    confidence: low
+    status: active
+  openfn_prod_staging.webp:
+    shows: "Prod and Staging Projects"
+    area: project-settings
+    confidence: medium
+    status: active
+  openfn_surveycto_trigger.webp:
+    shows: "openfn-trigger-options"
+    area: external
+    confidence: high
+    status: active
+  openhie_architecture.webp:
+    shows: "openhie_architecture"
+    area: diagram
+    confidence: high
+    status: active
+  option1.webp:
+    shows: "option1"
+    area: lightning-other
+    confidence: low
+    status: active
+  os4h-dashboard.webp:
+    shows: "os4h dashboard"
+    area: project-settings
+    confidence: medium
+    status: active
+  os4h-flow.webp:
+    shows: "os4h flow"
+    area: lightning-other
+    confidence: low
+    status: active
+  os4h-meet.webp:
+    shows: "os4h meet"
+    area: lightning-other
+    confidence: low
+    status: active
+  os4h-team.webp:
+    shows: "os4h team"
+    area: lightning-other
+    confidence: low
+    status: active
+  passing-state-steps.webp:
+    shows: "Passing State"
+    area: step-editor
+    confidence: medium
+    status: active
+  path_conditions.webp:
+    shows: "Path Conditions"
+    area: lightning-other
+    confidence: low
+    status: active
+  path_js_expression.webp:
+    shows: "Custom Conditions"
+    area: lightning-other
+    confidence: low
+    status: active
+  path_main.webp:
+    shows: "Spec Main"
+    area: lightning-other
+    confidence: low
+    status: active
+  path_staging.webp:
+    shows: "Spec Staging"
+    area: project-settings
+    confidence: medium
+    status: active
+  postgresql-cred.gif:
+    shows: "add_credential_postgres"
+    area: external
+    confidence: high
+    status: active
+  prettier.webp:
+    shows: "Prettier"
+    area: lightning-other
+    confidence: low
+    status: active
+  primero-ona-dash-example.webp:
+    shows: "primero ona dash example"
+    area: external
+    confidence: high
+    status: active
+  primero_oscar.webp:
+    shows: "primero oscar"
+    area: lightning-other
+    confidence: low
+    status: active
+  projectid.webp:
+    shows: "Project ID"
+    area: project-settings
+    confidence: medium
+    status: active
+  projects-table.webp:
+    shows: "Project Table"
+    area: project-settings
+    confidence: medium
+    status: active
+  pull-request-2.webp:
+    shows: "PR-2"
+    area: lightning-other
+    confidence: low
+    status: active
+  pull-request.webp:
+    shows: "PR-1"
+    area: lightning-other
+    confidence: low
+    status: active
+  questions1.webp:
+    shows: "questions1"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  reprocess-messages.webp:
+    shows: "Retry run button"
+    area: lightning-other
+    confidence: low
+    status: active
+  reprocess-runs.webp:
+    shows: "Retry run button"
+    area: runs-history
+    confidence: medium
+    status: active
+  reprocess_msgs.webp:
+    shows: "Reprocess button"
+    area: lightning-other
+    confidence: low
+    status: active
+  retrybutton.webp:
+    shows: "Retry run button"
+    area: runs-history
+    confidence: medium
+    status: active
+  roads.webp:
+    shows: "roads"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  round-logo.webp:
+    shows: "round logo"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  run_view_logs.webp:
+    shows: "OpenFn Workflow Canvas"
+    area: runs-history
+    confidence: medium
+    status: active
+  runs_retry.webp:
+    shows: "runs retry"
+    area: runs-history
+    confidence: medium
+    status: active
+  runtimetrigger1.webp:
+    shows: "Run history time trigger button"
+    area: runs-history
+    confidence: medium
+    status: active
+  salesforce-cred.webp:
+    shows: "salesforce cred"
+    area: external
+    confidence: high
+    status: active
+  salesforce-oauth2.webp:
+    shows: "Salseforce OAuth"
+    area: external
+    confidence: high
+    status: active
+  salesforce-old-cred.webp:
+    shows: "Salesforce Cred"
+    area: external
+    confidence: high
+    status: active
+  sample-bpmn.webp:
+    shows: "sample bpmn"
+    area: diagram
+    confidence: high
+    status: active
+  sample-cce-workflow.webp:
+    shows: "example-workflow"
+    area: lightning-other
+    confidence: low
+    status: active
+  sandbox_breadcrumb.webp:
+    shows: "Breadcrumb inside a sandbox"
+    area: project-settings
+    confidence: medium
+    status: active
+  sandbox_settings_banner.webp:
+    shows: "Sandbox Settings banner on the Credentials tab"
+    area: project-settings
+    confidence: medium
+    status: active
+  sandboxes_list.webp:
+    shows: "Sandboxes list"
+    area: project-settings
+    confidence: medium
+    status: active
+  satusehat_credential_edit.webp:
+    shows: "Satusehat Cred"
+    area: credentials
+    confidence: high
+    status: active
+  save-and-sync.webp:
+    shows: "Initiating Save & Sync"
+    area: lightning-other
+    confidence: low
+    status: active
+  scheduled_for_deletion.webp:
+    shows: "Scheduled for deletion section"
+    area: lightning-other
+    confidence: low
+    status: active
+  search-job.gif:
+    shows: "search job"
+    area: step-editor
+    confidence: medium
+    status: active
+  search-options.webp:
+    shows: "Search Options"
+    area: lightning-other
+    confidence: low
+    status: active
+  search_dataclip_by_name.webp:
+    shows: "search dataclip by name"
+    area: lightning-other
+    confidence: low
+    status: active
+  security-token.webp:
+    shows: "Token Reset"
+    area: lightning-other
+    confidence: low
+    status: active
+  select_workflow_to_add.webp:
+    shows: "Select Workflows"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  settings_credentials.webp:
+    shows: "Credentials Page"
+    area: credentials
+    confidence: high
+    status: active
+  sffh.webp:
+    shows: "sffh"
+    area: lightning-other
+    confidence: low
+    status: active
+  share_oauth_client.webp:
+    shows: "Share OAuth client"
+    area: credentials
+    confidence: high
+    status: active
+  show_only_named_dataclips.webp:
+    shows: "show only named dataclips"
+    area: lightning-other
+    confidence: low
+    status: active
+  sinapis.webp:
+    shows: "sinapis"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  snapshots1.webp:
+    shows: "Snapshot1"
+    area: lightning-other
+    confidence: low
+    status: active
+  snapshots2.webp:
+    shows: "Snapshot2"
+    area: lightning-other
+    confidence: low
+    status: active
+  snapshots3.webp:
+    shows: "Snapshot3"
+    area: lightning-other
+    confidence: low
+    status: active
+  snapshots4.webp:
+    shows: "Snapshot4"
+    area: lightning-other
+    confidence: low
+    status: active
+  snapshots5.webp:
+    shows: "Snapshot5"
+    area: lightning-other
+    confidence: low
+    status: active
+  snapshots6.webp:
+    shows: "Snapshot6"
+    area: lightning-other
+    confidence: low
+    status: active
+  solution_diagram1.webp:
+    shows: "Workflow"
+    area: diagram
+    confidence: high
+    status: active
+  solution_diagram2.webp:
+    shows: "Workflow"
+    area: diagram
+    confidence: high
+    status: active
+  srcfolder.webp:
+    shows: "srcfolder"
+    area: lightning-other
+    confidence: low
+    status: active
+  staging_prod_branches_gh.webp:
+    shows: "Prod and Main Branches"
+    area: project-settings
+    confidence: medium
+    status: active
+  staging_pushes.webp:
+    shows: "Create Pull Request"
+    area: project-settings
+    confidence: medium
+    status: active
+  state-javascript.webp:
+    shows: "Job State Overview"
+    area: lightning-other
+    confidence: low
+    status: active
+  step-anatomy.webp:
+    shows: "step anatomy"
+    area: step-editor
+    confidence: medium
+    status: active
+  stream.gif:
+    shows: "Stream"
+    area: lightning-other
+    confidence: low
+    status: active
+  survey_db_powerbi.webp:
+    shows: "Tableau Data Flow Visualization"
+    area: lightning-other
+    confidence: low
+    status: active
+  survey_db_tableau.webp:
+    shows: "Tableau Data Flow Visualization"
+    area: lightning-other
+    confidence: low
+    status: active
+  surveycto_webhook_config.webp:
+    shows: "Configuraing the webhook for OpenFn"
+    area: external
+    confidence: high
+    status: active
+  swisstph.webp:
+    shows: "swisstph"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  swisstph1.webp:
+    shows: "swisstph1"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  sync_to_github.webp:
+    shows: "Initiating Sync to Github"
+    area: project-settings
+    confidence: medium
+    status: active
+  syncs1.webp:
+    shows: "Real_Time_Sync"
+    area: lightning-other
+    confidence: low
+    status: active
+  syncs2.webp:
+    shows: "Schedule_Dependent_Sync"
+    area: lightning-other
+    confidence: low
+    status: active
+  taylor-baboons.webp:
+    shows: "taylor baboons"
+    area: lightning-other
+    confidence: low
+    status: active
+  taylor-enouce.webp:
+    shows: "taylor enouce"
+    area: lightning-other
+    confidence: low
+    status: active
+  team-cape-point.webp:
+    shows: "team cape point"
+    area: lightning-other
+    confidence: low
+    status: active
+  team-kenya-meal.webp:
+    shows: "team kenya meal"
+    area: lightning-other
+    confidence: low
+    status: active
+  team-kenya.webp:
+    shows: "team kenya"
+    area: lightning-other
+    confidence: low
+    status: active
+  team-no-td.webp:
+    shows: "team no td"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  teamphoto.webp:
+    shows: "teamphoto"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  technical_example.webp:
+    shows: "Workflow"
+    area: lightning-other
+    confidence: low
+    status: active
+  technology1.webp:
+    shows: "technology1"
+    area: runs-history
+    confidence: medium
+    status: active
+  techpic.webp:
+    shows: "techpic"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  timetriggerunslist.webp:
+    shows: "Runs list run time trigger button"
+    area: runs-history
+    confidence: medium
+    status: active
+  trackedEntities.webp:
+    shows: "trackedEntities"
+    area: lightning-other
+    confidence: low
+    status: active
+  undraw_Code_review_re_woeb.svg:
+    shows: "undraw Code review re woeb"
+    area: diagram
+    confidence: high
+    status: active
+  undraw_Newsletter_re_wrob.svg:
+    shows: "undraw Newsletter re wrob"
+    area: diagram
+    confidence: high
+    status: active
+  undraw_Portfolio_update_re_jqnp.svg:
+    shows: "img"
+    area: diagram
+    confidence: high
+    status: active
+  undraw_pair_programming_njlp.svg:
+    shows: "undraw pair programming njlp"
+    area: diagram
+    confidence: high
+    status: active
+  undraw_reading_time_gvg0.svg:
+    shows: "undraw reading time gvg0"
+    area: diagram
+    confidence: high
+    status: active
+  undraw_secure_server_s9u8.svg:
+    shows: "undraw secure server s9u8"
+    area: diagram
+    confidence: high
+    status: active
+  unicef-cambodia-cc-daravatey-seng.webp:
+    shows: "unicef cambodia cc daravatey seng"
+    area: lightning-other
+    confidence: low
+    status: active
+  usage.webp:
+    shows: "Usage stats chart"
+    area: lightning-other
+    confidence: low
+    status: active
+  usethistemplate.webp:
+    shows: "usethistemplate"
+    area: lightning-other
+    confidence: low
+    status: active
+  v1_unified_inbox.webp:
+    shows: "Unified Inbox"
+    area: triggers
+    confidence: medium
+    status: active
+  v2_webhook_trigger.webp:
+    shows: "V2 Webhook Trigger"
+    area: project-settings
+    confidence: medium
+    status: active
+  via-trigger-panel.webp:
+    shows: "Enabled workflow in the trigger panel"
+    area: triggers
+    confidence: medium
+    status: active
+  vscode-settings.webp:
+    shows: "vscode settings"
+    area: project-settings
+    confidence: medium
+    status: active
+  webhook_trigger.webp:
+    shows: "Webhook Trigger"
+    area: project-settings
+    confidence: medium
+    status: active
+  webhooks1.webp:
+    shows: "kobo_to_commcare"
+    area: project-settings
+    confidence: medium
+    status: active
+  work_order_shot.webp:
+    shows: "Work Order"
+    area: runs-history
+    confidence: medium
+    status: active
+  workflow-ocl-example.webp:
+    shows: "ocl-workflow-example"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  workflow.webp:
+    shows: "Workflow"
+    area: lightning-other
+    confidence: low
+    status: active
+  workflow_automation.webp:
+    shows: "Workflow Automation"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  workflow_builder_merging.gif:
+    shows: "workflow builder merging"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  workflow_canvas_toggle.webp:
+    shows: "Via the workflow canvas"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  workflow_fhir_fhir.webp:
+    shows: "FHIR Workflow"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  workflow_list_toggle.webp:
+    shows: "Via the workflow list"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  workflow_nonfhir_fhir.webp:
+    shows: "nonFHIR Workflow"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  workflow_specs.webp:
+    shows: "workflow"
+    area: workflow-canvas
+    confidence: medium
+    status: active
+  workflows-v-adaptors.webp:
+    shows: "workflows-adaptors-compare"
+    area: step-editor
+    confidence: medium
+    status: active
+  x-runner.webp:
+    shows: "x runner"
+    area: non-ui-photo
+    confidence: medium
+    status: active
+  zero-persistence.webp:
+    shows: "Sample Architecture"
+    area: lightning-other
+    confidence: low
+    status: active
+  zero_persistence_architecture.webp:
+    shows: "zero persistence architecture"
+    area: diagram
+    confidence: high
+    status: active
