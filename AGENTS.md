@@ -51,10 +51,11 @@ repo. Never change them.
 
 If the user asks for one skill only, run that one and still finish with a PR.
 
-One skill runs from the other direction. **PR analysis** starts from a pull
-request in a product repo and finds the docs pages that need to change
-because of it. Run it when someone hands you a product PR, a commit range, or
-a release tag.
+One skill runs from the other direction. **Release review** starts from what
+the product shipped, by default every release in the last month, and finds
+the docs pages that need to change because of it. Run it on a monthly
+schedule, or by hand after a big release, or narrowed to one PR if someone
+asks.
 
 ## Pick one section
 
