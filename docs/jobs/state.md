@@ -154,33 +154,6 @@ The input state will look something like this:
 }
 ```
 
-### Kafka triggered runs
-
-When a Kafka message is fetched by the trigger, the input state contains the
-message body and information that can be used for auditing or recovery if
-connections are lost or workorders fail.
-
-The input state looks like this:
-
-```js
-{
-  data: { // the message value
-    formId: "patient_enrollment",
-    name: "John Doe"
-  },
-  request: {
-    "headers": [
-      // kafka headers can be used to provide additional metadata
-    ],
-    "key": "", // the key assigned to the message by the publisher
-    "offset": 168321,
-    "partition": 1,
-    "topic": "fhir-data-pipes",
-    "ts": 1721889238000 // the kafka message timestamp
-  }
-}
-```
-
 ### Cron triggered runs
 
 When a run is triggered by a cron job, its input state will be the final state
