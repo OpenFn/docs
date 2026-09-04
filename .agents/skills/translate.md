@@ -83,8 +83,11 @@ what to do with it.
 Check that the fixed glossary terms (the ones without `product_noun: true`,
 such as OpenFn, Lightning, adaptor, webhook) appear as many times as in the
 English. Product nouns like "run" and "step" are allowed to differ, since
-their ordinary-English uses get translated. Check the code blocks are
-identical. Check the counts of headings, code blocks,
+their ordinary-English uses get translated. Before counting, join each file
+into one line with single spaces: Prettier wraps prose at 80 columns, and
+English and Spanish wrap at different points, so a multi-word term like "work
+order" can sit across a line break in one file and not the other. Check the
+code blocks are identical. Check the counts of headings, code blocks,
 callouts, images, and tables match. Check the front matter is complete. Check
 every fenced block survived. Then build that locale and make sure it passes.
 

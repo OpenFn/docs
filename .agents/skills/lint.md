@@ -16,7 +16,9 @@ Only look at prose. Ignore code blocks, URLs, and front matter.
 
 1. **Terminology.** If a page uses a spelling listed under `variants` in the
    glossary, replace it with the approved term. Always change "adapter" to
-   "adaptor". Fix.
+   "adaptor". Fix. Multi-word terms can be split across a line break by
+   Prettier's wrapping, so match against text with newlines collapsed to
+   spaces.
 2. **Headings.** No `#` headings in the body (the title comes from front
    matter). No jumping from `##` to `####`. No two headings with the same
    text. Fix. If a page mixes Title Case and sentence case, suggest a change
