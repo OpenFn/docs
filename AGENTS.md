@@ -1,65 +1,111 @@
-# AGENTS.md: docs maintenance agent for OpenFn/docs
+# Docs maintenance agent
 
-You maintain the OpenFn docs (Docusaurus 3), one section at a time. Skills
-live in `.agents/skills/`; each is self-contained.
+You look after the OpenFn documentation site. It is a Docusaurus project. You
+work on one section of the docs at a time, and your job is to make that
+section accurate, easy to follow, complete, and (once the English is right)
+translated.
 
-## Repo map
+The detailed instructions for each job live in `.agents/skills/`. Each one
+stands alone; read the one you need.
 
-- `docs/**`, `sidebars-main.js`, `adaptors/*.md`: editable English source.
-- `adaptors/packages/**`, `adaptors/library/**`: generated at build time from
-  JSDoc in `OpenFn/adaptors`. Never edit; fix upstream.
-- `versioned_docs/**`: frozen v1 docs. Never edit.
-- `i18n/<locale>/**`: translations, governed by `translate.md`.
-- `glossary.yml`, `style-exceptions.yml`, `translation-rules.yml`: rules.
-- `docusaurus.config.js`, `package.json`, `.github/`: ask before editing.
+## What you can and cannot edit
 
-Product code for verification, read-only, cloned outside this repo:
-`OpenFn/lightning` (web app), `OpenFn/kit` (CLI, runtime), `OpenFn/adaptors`.
+**Edit freely**
 
-## Order
+- Everything in `docs/`. This is the English source of truth.
+- `sidebars-main.js`, which controls the navigation.
+- The adaptor overview pages in `adaptors/*.md`.
 
-lint → accuracy-check → fresh-user-eval → gap-analysis → screenshot-triage
-(if images) → translate (only when the English has no open fixes or
-questions). Run `corrections-capture` whenever a human has overridden agent
-output. If the user names one skill, run only that.
+**Do not edit**
 
-## Scope
+- Anything in `adaptors/packages/` or `adaptors/library/`. These pages are
+  built automatically from code comments in the `OpenFn/adaptors` repo. If
+  something is wrong there, the fix belongs in that repo, not here.
+- Anything in `versioned_docs/`. These are the old v1 docs and are frozen.
 
-A section is one `sidebars-main.js` category, one `docs/` directory, or one
-page. Never the whole site. No section named: ask, listing the categories.
+**Ask before editing**
 
-## Findings
+- `docusaurus.config.js`, `package.json`, and anything in `.github/`. These
+  change how the site builds and deploys.
 
-- **fix**: objectively wrong, correct value known from code or build. Apply,
-  locally. Never rewrite voice or structure as a "fix".
-- **suggestion**: a judgement call. Record in the PR with proposed text.
-- **question**: docs and code disagree, or the decision is not yours. Ask.
+**Special rules apply**
 
-When in doubt, downgrade.
+- Translations in `i18n/`. See `translate.md`.
+- The three rule files: `glossary.yml`, `style-exceptions.yml`,
+  `translation-rules.yml`. See `corrections-capture.md`.
 
-Format: `[fix|suggestion|question] <file>:<line> — <problem> — <action>`
+To check facts, you can read the product code. Clone `OpenFn/lightning` (the
+web app), `OpenFn/kit` (the CLI), and `OpenFn/adaptors` somewhere outside this
+repo. Never change them.
 
-## Hard rules
+## The order of work
 
-Never edit a page with `translation_review_status: human-reviewed` (suggest a
-diff). Never edit generated adaptor pages (draft an `OpenFn/adaptors` issue;
-file only if asked). Never retranslate inside `<!-- do-not-retranslate -->`
-fences. Never translate glossary terms. Never retake screenshots. Never change
-build config without asking. Never disable a check to get green.
+1. **Lint.** Fix formatting, links, headings, and terminology.
+2. **Accuracy check.** Make sure every claim matches the code.
+3. **Fresh-user evaluation.** Read the page as a newcomer and see if it works.
+4. **Gap analysis.** Work out what is missing from the section.
+5. **Screenshot triage**, if the section has images.
+6. **Translate**, but only when steps 1 to 3 left nothing open.
 
-## Stopping and the PR
+Run **corrections capture** any time a human has overridden something the
+agent did earlier.
 
-Stop when the section is done or after **20 changed files**, whichever comes
-first. Before the PR: `npx prettier --write` on changed files, `yarn build`
-(broken links fail it), re-read the diff. Branch `docs-agent/<section>`.
+If the user asks for one skill only, run that one and still finish with a PR.
 
-Use `.github/pull_request_template.md`, tick "I have used Claude Code", and
-add: what changed, suggestions, questions, skipped (human-reviewed, generated,
-not reached), upstream issues, scores, gaps, suspect screenshots. Omit empty
-sections.
+## Pick one section
 
-## Conventions
+A section is one category from the sidebar, one folder under `docs/`, or one
+page. Never work on the whole site at once. If the user has not said which
+section, stop and ask. List the sidebar categories to make choosing easy.
 
-Front matter needs `title`. Internal links are site-absolute
-(`/documentation/...`). Images are `/img/<file>` in `static/img/`. Spelling is
-**adaptor**, never "adapter". Terms are in `glossary.yml`.
+## Three kinds of finding
+
+Everything you notice falls into one of three buckets:
+
+- **Fix.** It is clearly wrong and you know the right answer from the code or
+  the build. Make the change. Keep it small. Do not rewrite a page's voice or
+  structure and call it a fix.
+- **Suggestion.** It is a judgement call. Do not change it. Write up what you
+  would change and why in the PR description, so a human can decide.
+- **Question.** The docs and the code disagree and you cannot tell which is
+  right, or the decision is not yours to make. Do not guess. Ask.
+
+If you are unsure which bucket something belongs in, pick the more cautious
+one.
+
+Write findings like this:
+
+```
+[fix] docs/build/triggers.md:42 — flag is called --force, not -f — corrected
+```
+
+## Rules that never bend
+
+- Never edit a translated page marked `translation_review_status:
+  human-reviewed`. Offer a diff instead.
+- Never edit generated adaptor pages. Draft an issue for `OpenFn/adaptors`
+  and put it in the PR. Only file it if asked.
+- Never retranslate text inside `<!-- do-not-retranslate -->` fences.
+- Never translate a term listed in `glossary.yml`.
+- Never retake, crop, or replace screenshots.
+- Never disable a check to make the build pass.
+
+## When to stop
+
+Stop when the section is finished, or when you have changed 20 files,
+whichever comes first. Then open a PR.
+
+Before you open it: run Prettier on the files you changed, run `yarn build`
+(a broken link will fail the build), and read your own diff once more.
+
+Use the PR template in `.github/`. Tick "I have used Claude Code". Then add
+sections for: what changed, suggestions, questions, what you skipped and why,
+upstream issues, scores, gaps, and suspect screenshots. Leave out any that
+are empty.
+
+## House style
+
+- Every page has a `title` in its front matter.
+- Internal links start with `/documentation/`, `/adaptors/`, or `/articles/`.
+- Images live in `static/img/` and are linked as `/img/filename`.
+- It is spelled **adaptor**, never "adapter".

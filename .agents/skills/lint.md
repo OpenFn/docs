@@ -1,27 +1,53 @@
-# Skill: Lint
+# Lint
 
-Deterministic checks on a docs section. Run first. Load `glossary.yml` and
-`style-exceptions.yml`; skip findings matching an exception. Never touch
-generated adaptor pages, `versioned_docs/`, or human-reviewed translations.
+Run this first on any section. These are mechanical checks. Most of what you
+find, you can fix on the spot.
 
-Check prose only (not code, URLs, or front matter):
+Before you start, read `glossary.yml` (the approved terms) and
+`style-exceptions.yml` (things humans have told us not to flag). Skip any
+finding that matches an exception.
 
-1. **Terminology**: replace glossary `variants` with `term`; always fix
-   "adapter" → "adaptor". *Fix.*
-2. **Headings**: no body H1, no skipped levels, no duplicates. *Fix.* Mixed
-   case is a *suggestion* (headings are anchors).
-3. **Internal links**: must resolve. `yarn build` is authoritative
-   (`onBrokenLinks: throw`). *Fix* if the target is obvious, else *question*.
-4. **External links**: 404/410 after two tries is dead. *Fix* if there is a
-   clear successor, else *suggestion*. 403/429 are uncertain, not dead.
-5. **Orphans**: pages in no sidebar and linked from nowhere. *Suggestion.*
-6. **Front matter**: valid YAML with `title`. *Fix* from the body H1.
-7. **Code fences**: need a language (`js`, `json`, `yaml`, `bash`, `text`). *Fix.*
-8. **Alt text**: must describe the image, not "screenshot". *Fix* from context.
-9. **Admonitions**: blank line inside both `:::` fences. *Fix.*
+Do not lint the generated adaptor pages, the old v1 docs, or translations
+marked human-reviewed.
 
-Change only the offending line. Run Prettier, then `yarn build`, before
-committing.
+## What to check
 
-Output: counts, then one line per finding in the shared format. If a human
-rejects a fix, hand it to `corrections-capture.md`.
+Only look at prose. Ignore code blocks, URLs, and front matter.
+
+1. **Terminology.** If a page uses a spelling listed under `variants` in the
+   glossary, replace it with the approved term. Always change "adapter" to
+   "adaptor". Fix.
+2. **Headings.** No `#` headings in the body (the title comes from front
+   matter). No jumping from `##` to `####`. No two headings with the same
+   text. Fix. If a page mixes Title Case and sentence case, suggest a change
+   rather than making it, because headings double as link anchors.
+3. **Internal links.** Every link to another docs page must work. The easiest
+   way to check is `yarn build`, which fails on broken links. Fix it if the
+   right target is obvious. Otherwise ask.
+4. **External links.** Try each one twice. A 404 or 410 means it is dead.
+   Replace it if there is a clear replacement; otherwise suggest removing it.
+   A 403 or 429 does not mean dead, so leave those alone and note them.
+5. **Orphan pages.** A page that is not in any sidebar and not linked from
+   anywhere. Suggest adding or removing it. Do not decide yourself; someone
+   might be drafting it.
+6. **Front matter.** Must be valid YAML and must have a `title`. If the title
+   is missing, take it from the page's first heading. Fix.
+7. **Code blocks.** Every fenced block needs a language: `js`, `json`,
+   `yaml`, `bash`, or `text`. Fix.
+8. **Alt text.** Every image needs alt text that says what the image shows.
+   "Screenshot" does not count. Write it from the surrounding paragraph. Fix.
+9. **Callouts.** `:::tip` and similar blocks need a blank line after the
+   opening and before the closing. Fix.
+
+## How to fix
+
+Change only the line with the problem. When you are done, run Prettier on the
+files you touched, then `yarn build`. Do not commit until both are clean.
+
+## What to report
+
+Give the counts (files checked, fixes, suggestions, questions), then one line
+per finding in the standard format.
+
+If a reviewer later undoes one of your fixes, do not push back. Pass it to
+`corrections-capture.md` so it becomes an exception.

@@ -1,30 +1,52 @@
-# Skill: Gap analysis
+# Gap analysis
 
-Compare what a section covers with what exists in the product and what users
-ask. Rank the gaps. Write pages only if asked.
+Work out what a section of the docs should cover but does not. Produce a
+ranked list. Do not write the missing pages unless you are asked to.
 
-1. **Inventory the docs**: what each page covers, from headings and tables.
-   Check that links out of the section point at pages that exist.
-2. **Inventory the product** for the matching area: routes and LiveViews in
-   `OpenFn/lightning`; `packages/cli/src/commands.ts` and `openfn --help` in
-   `OpenFn/kit`; `packages/common/src/` exports in `OpenFn/adaptors`;
-   `DEPLOYMENT.md` and `config/runtime.exs` for deployment.
-3. **Diff.** Search all of `docs/`, `articles/`, and `adaptors/*.md` before
-   calling something a gap. Label each: **missing page**, **partial page**
-   (right page exists, item absent), **misplaced**, or **stale** (hand to
-   `accuracy-check.md`). Note docs items the product no longer has.
-4. **User signals**, only if accessible: `OpenFn/docs` issues, the community
-   forum, support channels, search analytics. Count, do not quote. Never
-   invent demand.
-5. **Rank**: score 1 to 5 on reach, severity, evidence (5 repeated asks, 3
-   prominent in UI, 1 code only), and effort (5 a paragraph, 1 a tutorial).
-   Sum and sort.
+## Steps
 
-Output per gap: label, score, what is missing, evidence, where it should live
-(file, sidebar position or heading), suggested outline. Top ten in the PR;
-collapse the rest.
+1. **List what the docs cover.** For every page in the section, note what it
+   explains, using the headings and tables. Also note where it links out to
+   other sections, and check those pages exist.
 
-Only *fix*: a one-sentence cross-link to a page that clearly exists.
-Everything else is a *suggestion*. Thin generated adaptor pages are JSDoc
-issues, not gaps. Feature-flagged behaviour is a *question* for the product
-team.
+2. **List what the product has.** Look at the part of the code that matches
+   the section. For the web app, that is the routes and screens in
+   `OpenFn/lightning`. For the CLI, run `openfn --help` and look at the
+   commands in `OpenFn/kit`. For job writing, look at what
+   `packages/common` exports in `OpenFn/adaptors`. For deployment, read
+   `DEPLOYMENT.md` and the runtime config in Lightning.
+
+3. **Compare the two lists.** Before you call anything a gap, search the
+   whole docs folder, the articles, and the adaptor overviews. It might be
+   documented somewhere else. Label each gap as one of:
+   - **Missing page**: nothing in the docs mentions it.
+   - **Partial page**: the right page exists but does not cover this.
+   - **Misplaced**: it is documented, but not where a user would look.
+   - **Stale**: it describes an old version. Hand these to the accuracy check.
+
+   Also note anything the docs describe that the product no longer has.
+
+4. **Look for user evidence**, if you have access to it: issues on the docs
+   repo, the community forum, support channels, search analytics. Count how
+   often a topic comes up. Do not quote anyone. If you have no access, say so,
+   and do not make up demand.
+
+5. **Rank.** Score each gap from 1 to 5 on four things: how many users it
+   affects, how bad it is to be without it, how much evidence you have that
+   people want it, and how easy it is to write (5 means a paragraph, 1 means
+   a whole tutorial). Add them up and sort.
+
+## What to report
+
+For each gap: its label, its score, what is missing, your evidence, where it
+should go (which file, and where in the sidebar or which heading), and a
+rough outline. Put the top ten in the PR and collapse the rest.
+
+## What you may change
+
+Only one thing: add a single sentence linking to a page that clearly already
+covers the topic. Everything else is a suggestion.
+
+Thin generated adaptor pages are not gaps here; they are code-comment issues
+for `OpenFn/adaptors`. If a feature is behind a feature flag, do not propose
+documenting it. Ask the product team instead.

@@ -1,34 +1,56 @@
-# Skill: Screenshot triage
+# Screenshot triage
 
-Rank screenshots likely to be stale. Never retake, edit, or delete images.
-Needs `OpenFn/lightning` cloned with history (`--filter=blob:none`).
+Find the screenshots most likely to be out of date and rank them so a human
+can retake them. You never retake, edit, or delete an image yourself.
 
-1. List `/img/...` references in the section (full triage: all of
-   `static/img/`, noting images no page uses).
-2. Date each image with `git log -n 1 --format=%cs -- static/img/<file>`,
-   skipping bulk re-encode commits.
-3. Map each image to a UI area from file name, alt text, and prose, with
-   confidence high/medium/low, then to Lightning paths: canvas
-   `assets/js/workflow-diagram/`; step editor `lib/lightning_web/live/
-   workflow_live/`, `assets/js/collaborative-editor/`; runs and history
-   `run_live/`, `dataclip_live/`, `assets/js/log-viewer/`; credentials
-   `credential_live/`; project settings `project_live/`, `sandbox_live/`;
-   global styling `assets/css/app.css`, `lib/lightning_web/components/`. CLI
-   output maps to kit `packages/cli/src/`. Third-party UIs are `external`.
-4. Date the UI: newest commit touching the mapped or global styling paths.
-   List user-visible commit subjects since the image date.
-5. Suspect = UI newer than image. Rank by gap in days, then user-visible
-   commits, then Get Started and Tutorials first. Flag low-confidence
-   mappings in the top five.
+You need a clone of `OpenFn/lightning` with full history, because the whole
+method is about comparing dates.
 
-Output a table: image, page:line, image date, UI area (confidence), last UI
-change, gap, what likely changed. List external, orphaned, and diagram images
-separately. Top fifteen in the PR. The only edit allowed is correcting wrong
-alt text.
+## Steps
 
-**Extension point, not implemented**: Lightning has Playwright specs in
-`assets/test/e2e/specs/`. When they can emit docs screenshots, add step 6:
-look each suspect up in a `screenshot-capture-map.yml` (image → spec, test
-title, selector), run it with a capture flag against a seeded local
-Lightning, write to `static/img/<same name>`, and present before/after as a
-*suggestion*.
+1. **List the images** the section uses (they are linked as `/img/...`). For
+   a whole-site triage, list everything in `static/img/` and note any image no
+   page uses.
+
+2. **Find out how old each image is** from its last commit in this repo. If
+   the last commit was a bulk optimisation that touched lots of images, look
+   at the one before it.
+
+3. **Work out what each image shows.** Use the file name, the alt text, and
+   the paragraph around it. Say how confident you are. Then match it to the
+   part of the Lightning code that draws that screen. Roughly: the workflow
+   canvas is under `assets/js/workflow-diagram`; the step editor, runs,
+   credentials, and project settings each have their own folder under
+   `lib/lightning_web/live/`; global styling is in `assets/css` and
+   `lib/lightning_web/components`. Screenshots of other products (Kobo,
+   DHIS2) have no matching code; mark them "external".
+
+4. **Find out when that part of the UI last changed.** Take the newest commit
+   touching the matching code, or the global styling, whichever is later. Skim
+   the commit messages since the image was taken and keep the ones that sound
+   visible to users (renamed, moved, redesigned, added a button).
+
+5. **Flag and rank.** An image is a suspect if the UI changed after it was
+   taken. Sort by the size of the gap, then by how many visible changes
+   happened in it, and give pages in Get Started and Tutorials a nudge up the
+   list. If you were not confident about what an image shows and it lands
+   near the top, say so.
+
+## What to report
+
+A table with: image, page and line, image date, what it shows and your
+confidence, date of the last UI change, the gap in days, and what probably
+changed. List external, unused, and diagram images separately. Put the top
+fifteen in the PR and collapse the rest.
+
+The only edit you may make is correcting alt text that describes the image
+wrongly.
+
+## Later: taking screenshots automatically
+
+Not built yet. Lightning already has Playwright browser tests under
+`assets/test/e2e/specs/`. When those can produce screenshots, add a final
+step: a mapping file that says which test reaches which screenshot, run the
+test with a capture flag against a local Lightning, save the result over the
+old image, and present the before-and-after in the PR as a suggestion for a
+human to approve.
