@@ -16,8 +16,8 @@ Check these three things. If any fails, stop and ask.
 - `i18n/` is not in `.gitignore`.
 - `glossary.yml` and `translation-rules.yml` are valid YAML.
 
-If you changed any English pages earlier in this run, commit them before you
-translate, so the source hash points at the version you actually translated.
+Translate the English page as it is on disk after any fixes and after
+Prettier has run, so the hash you record matches what you translated.
 
 ## Front matter
 
@@ -25,10 +25,18 @@ Copy the English page's front matter. Translate only `title` and
 `sidebar_label`. Then add:
 
 ```yaml
-translation_source_hash: <the commit that last changed the English page>
+translation_source_hash: <git hash-object of the English file>
 translation_review_status: machine
 translation_model: <the model you are running as>
 ```
+
+The hash is the content hash of the English file, from
+`git hash-object docs/<path>.md`, not a commit. Commits do not survive squash
+merges: a hash pointing at a commit made on a branch dangles as soon as the
+branch is squashed onto main. A content hash is the same wherever the file
+lives, and it answers the only question the field exists to answer: is the
+English still the version this was translated from? To compare, hash the
+current English file and check it against the recorded value.
 
 `translation_review_status` can be `machine`, `needs-review`, or
 `human-reviewed`. Only a human ever sets `human-reviewed`, and when they do
@@ -43,11 +51,13 @@ they also add `translation_reviewer` and `translation_review_date`.
 - **Translation exists but has no `translation_review_status`.** Treat it as
   `machine` and regenerate it.
 - **Status is `human-reviewed` and the hash matches the current English
-  commit.** Skip it. It is up to date and approved.
-- **Status is `human-reviewed` and the hash is older.** Do not touch the
-  file. Work out what changed in the English since that hash, translate only
-  those parts, and open a separate PR with the proposed diff for the named
-  reviewer.
+  file.** Skip it. It is up to date and approved.
+- **Status is `human-reviewed` and the hash no longer matches.** Do not touch
+  the file. Recover the English the reviewer saw with
+  `git cat-file -p <recorded hash>`, diff it against the current English,
+  translate only the changed parts, and open a separate PR with the proposed
+  diff for the named reviewer. If the old blob is no longer in the repo,
+  say so and offer a full retranslation as the suggested diff instead.
 
 ## Fenced blocks
 
