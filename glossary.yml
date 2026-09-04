@@ -1,0 +1,194 @@
+# glossary.yml
+#
+# Purpose
+# -------
+# Product vocabulary for the OpenFn docs. Two consumers read this file:
+#
+#   1. The translate skill (.agents/skills/translate.md). Any term with
+#      `translate: false` must appear verbatim in every translated page.
+#   2. The lint skill (.agents/skills/lint.md). Any spelling in `variants`
+#      is flagged in English pages and replaced with `term`.
+#
+# The corrections-capture skill appends new entries when a human edit implies
+# a terminology rule. Humans can edit this file directly too.
+#
+# Schema
+# ------
+# terms:                       # list of glossary entries
+#   - term: string             # canonical English spelling (required)
+#     translate: boolean       # false = keep verbatim in all locales (default false)
+#     product_noun: boolean    # true = the rule only applies when the word is used
+#                              #        as the OpenFn concept, not as ordinary English
+#                              #        (e.g. "run" the noun, not "run the command").
+#                              #        Translators keep the product noun and may
+#                              #        translate the ordinary-English use. Default false.
+#     case_sensitive: boolean  # true = lint flags case variants too (default false)
+#     variants: [string]       # spellings lint should flag and replace with `term`
+#     note: string             # guidance for humans and the agent
+#     locales:                 # optional. Only used when translate: true, to pin a
+#       es: string             # specific rendering per locale instead of free
+#       fr: string             # translation.
+#
+# patterns:                    # regexes that are never translated, for families
+#   - pattern: string          # of identifiers too numerous to list (adaptor
+#     note: string             # package names, CLI flags, env vars, ...)
+#
+# Matching is whole-word for `term` and `variants`. Code blocks, inline code,
+# URLs, and front matter are always exempt from lint and translation.
+
+terms:
+  - term: OpenFn
+    translate: false
+    case_sensitive: true
+    variants:
+      - Open Fn
+      - Openfn
+      - openFn
+    note: The product and organisation name. Never localised.
+
+  - term: Lightning
+    translate: false
+    case_sensitive: true
+    note: >-
+      The OpenFn web app (OpenFn/lightning). In user-facing docs prefer
+      "the OpenFn platform" or "the web app"; keep "Lightning" when the docs
+      refer to the repo or to self-hosting.
+
+  - term: adaptor
+    translate: false
+    variants:
+      - adapter
+      - Adapter
+    note: >-
+      Always "adaptor", never "adapter". Also covers "adaptors", "Adaptor",
+      "Adaptors". Adaptor package names are matched by the pattern below.
+
+  - term: workflow
+    translate: false
+    product_noun: true
+    note: >-
+      A Trigger plus Steps plus Paths configured on the Canvas or in
+      project.yaml. Keep "workflow" in translations when it names the OpenFn
+      object.
+
+  - term: step
+    translate: false
+    product_noun: true
+    note: A unit of work inside a workflow. Was "job" in OpenFn v1.
+
+  - term: job
+    translate: false
+    product_noun: true
+    note: >-
+      In v2 the job is the JavaScript expression a Step runs. Do not
+      "correct" v1 usage inside pages that are explicitly about v1 or
+      migration.
+
+  - term: credential
+    translate: false
+    product_noun: true
+    note: Stored authentication configuration attached to a Step.
+
+  - term: trigger
+    translate: false
+    product_noun: true
+    note: What starts a workflow. Types are webhook, cron, and kafka.
+
+  - term: cron
+    translate: false
+    note: Trigger type and the scheduling syntax.
+
+  - term: webhook
+    translate: false
+    note: Trigger type. One word, lower case, no hyphen.
+
+  - term: run
+    translate: false
+    product_noun: true
+    note: >-
+      One execution of a workflow for a work order. Only the noun is
+      protected. "Run the CLI" is ordinary English and may be translated.
+
+  - term: attempt
+    translate: false
+    product_noun: true
+    note: >-
+      Legacy name for a run. Do not replace it in migration or historical
+      pages. In pages about current v2 behaviour, prefer "run" and record the
+      change as a suggestion, not a fix.
+
+  - term: work order
+    translate: false
+    variants:
+      - workorder
+      - work-order
+    note: The record created when a trigger fires; owns one or more runs.
+
+  - term: project space
+    translate: false
+    note: Billing and hosting unit on the hosted OpenFn app.
+
+  - term: project
+    translate: false
+    product_noun: true
+    note: Administrative grouping of workflows, credentials, and collaborators.
+
+  - term: dataclip
+    translate: false
+    variants:
+      - data clip
+      - data-clip
+    note: A stored input or output state object.
+
+  - term: collection
+    translate: false
+    product_noun: true
+    note: The Collections key-value store feature. Ordinary English use may be translated.
+
+  - term: sandbox
+    translate: false
+    product_noun: true
+    note: A Lightning sandbox environment.
+
+  - term: Canvas
+    translate: false
+    case_sensitive: true
+    note: The visual workflow editor in the web app.
+
+  - term: Inspector
+    translate: false
+    case_sensitive: true
+    note: The step editing panel in the web app.
+
+  - term: CLI
+    translate: false
+    case_sensitive: true
+    note: "@openfn/cli. Also keep every CLI command and flag verbatim."
+
+  - term: state
+    translate: false
+    product_noun: true
+    note: >-
+      The `state` object passed between operations. Protected only when it
+      names the object (usually rendered in code as `state`).
+
+  - term: operation
+    translate: false
+    product_noun: true
+    note: A function exported by an adaptor, e.g. `get()`, `upsert()`.
+
+patterns:
+  - pattern: "@openfn/[a-z0-9-]+"
+    note: npm package names (adaptors, CLI, runtime).
+
+  - pattern: "language-[a-z0-9-]+"
+    note: Bare adaptor package names as they appear in the adaptor picker.
+
+  - pattern: "\\bopenfn [a-z][a-z-]*"
+    note: CLI subcommands such as `openfn deploy`, `openfn pull`.
+
+  - pattern: "\\b[A-Z][A-Z0-9_]{2,}\\b"
+    note: Environment variables and constants (OPENFN_API_KEY, WORKER_SECRET).
+
+  - pattern: "\\bproject\\.yaml\\b"
+    note: The project state file name.

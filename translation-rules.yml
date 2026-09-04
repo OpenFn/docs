@@ -1,0 +1,59 @@
+# translation-rules.yml
+#
+# Purpose
+# -------
+# Locale-specific phrasing rules learned from human edits to machine
+# translations. The translate skill (.agents/skills/translate.md) loads this
+# file after glossary.yml and applies every rule whose `locale` matches the
+# target locale.
+#
+# Glossary terms (never translate) belong in glossary.yml, not here. This file
+# is for how to translate, not what to leave alone.
+#
+# Entries are added by the corrections-capture skill
+# (.agents/skills/corrections-capture.md) when a reviewer edits a translated
+# page and the edit implies a general pattern, or by humans directly.
+#
+# Schema
+# ------
+# rules:
+#   - locale: string        # "es" or "fr" (or "*" for every locale)
+#     kind: string          # one of:
+#                           #   term        - a fixed rendering for a phrase
+#                           #   register    - tone/voice guidance (formal vs informal "you")
+#                           #   punctuation - spacing, quotation marks, list punctuation
+#                           #   structure   - how to handle headings, admonition titles, UI labels
+#                           #   avoid       - a rendering the reviewer rejected
+#     source: string        # English phrase or pattern the rule applies to (for
+#                           # kind: term and avoid). Omit for global rules.
+#     target: string        # required rendering (kind: term) or rejected rendering
+#                           # (kind: avoid)
+#     instruction: string   # plain-language rule the translator must follow
+#     example_source: string   # optional English example
+#     example_target: string   # optional translated example
+#     reason: string        # why, in one sentence
+#     added_by: string      # GitHub handle
+#     added_on: string      # ISO date (YYYY-MM-DD)
+#     source_pr: string     # PR URL or number where the edit happened
+#
+# Example
+# -------
+# rules:
+#   - locale: es
+#     kind: register
+#     instruction: Address the reader as "tú", not "usted".
+#     reason: Matches the informal tone of the English docs.
+#     added_by: someone
+#     added_on: 2026-01-01
+#     source_pr: https://github.com/OpenFn/docs/pull/000
+#   - locale: fr
+#     kind: term
+#     source: "Save and Run"
+#     target: "Enregistrer et exécuter"
+#     instruction: UI button labels are translated to match the French UI strings in OpenFn/lightning.
+#     reason: Reviewer aligned button names with the app's own translations.
+#     added_by: someone
+#     added_on: 2026-01-01
+#     source_pr: https://github.com/OpenFn/docs/pull/000
+
+rules: []
