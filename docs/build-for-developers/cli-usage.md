@@ -4,7 +4,8 @@ sidebar_label: Basic usage
 slug: /cli-usage
 ---
 
-This page shows examples for some of the most common usages of the CLI, including:
+This page shows examples for some of the most common usages of the CLI,
+including:
 
 - get help
 - run a job
@@ -30,7 +31,8 @@ openfn deploy --help
 
 ### Run a job
 
-To run a single job, you must explicitly specify which adaptor to use - see the [publicly available adaptors](/adaptors).
+To run a single job, you must explicitly specify which adaptor to use - see the
+[publicly available adaptors](/adaptors).
 
 Adaptors are automatically installed if the specified version is not detected.
 
@@ -123,9 +125,10 @@ openfn path/to/job.js -a adaptor-name -O
 openfn path/to/workflow.json --cache-steps
 ```
 
-Each step will write its output to `./cli-cache/<workflow-name>/<step-id>.json`.
-The `.cli-cache` folder will be git-ignored and the cache will be cleared when
-the workflow is re-run with `--cache-steps` enabled.
+Each step will write its output to
+`./.cli-cache/<workflow-name>/<step-id>.json`. The `.cli-cache` folder will be
+git-ignored and the cache will be cleared when the workflow is re-run with
+`--cache-steps` enabled.
 
 To _always_ cache, set the `OPENFN_ALWAYS_CACHE_STEPS` env var to `"true"`, and
 pass `--no-cache-steps` to disable it temporarily.
@@ -184,14 +187,14 @@ openfn repo clean
   "options": {
     "start": "a" // optionally specify the start node (defaults to steps[0])
   },
-  "workflows": {
+  "workflow": {
     "steps": [
       {
         "id": "a",
         "expression": "fn((state) => state)", // code or a path
-        "adaptor": "@openfn/language-common@1.75", // specifiy the adaptor to use (version optional)
+        "adaptor": "@openfn/language-common@3.3.5", // specify the adaptor to use (version optional, but must be a full version number)
         "state": {
-          "data": {} // optionally pre-populate the data object (this will be overriden by keys in in previous state)
+          "data": {} // optionally pre-populate the data object (this will be overridden by keys in previous state)
         },
         "configuration": {}, // Use this to pass credentials
         "next": {
