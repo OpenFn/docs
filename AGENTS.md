@@ -50,6 +50,11 @@ repo. Never change them.
 
 If the user asks for one skill only, run that one and still finish with a PR.
 
+One skill runs from the other direction. **PR analysis** starts from a pull
+request in a product repo and finds the docs pages that need to change
+because of it. Run it when someone hands you a product PR, a commit range, or
+a release tag.
+
 ## Pick one section
 
 A section is one category from the sidebar, one folder under `docs/`, or one
