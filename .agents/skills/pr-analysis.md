@@ -9,6 +9,23 @@ This is the inverse of the accuracy check. That skill starts from a docs page
 and looks for the code. This one starts from a code change and looks for the
 docs.
 
+## Two repos are involved
+
+The PR lives in a product repo. The docs live here. You need both checked
+out.
+
+- **If you are running in the docs repo** and someone gives you a PR link,
+  clone the product repo into a scratch directory outside this one, then
+  fetch the PR: `git fetch origin pull/<number>/head:pr-<number>`. Diff it
+  against the base branch. Do not modify the product repo.
+- **If you are running inside Lightning, kit, or adaptors** (for example,
+  someone on a product PR asks "does this need a docs change?"), clone
+  `OpenFn/docs` into a scratch directory and follow the same steps. Any docs
+  changes go in a branch and PR on the docs repo, never in the product PR.
+
+Either way, name the product repo, PR number, and head commit at the top of
+your report so a reader knows exactly what you looked at.
+
 ## Steps
 
 1. **Read the PR.** Start with the title, description, and any linked issue,
@@ -63,6 +80,9 @@ and how many docs pages are affected. Then the findings in the standard
 format, grouped by page. Finish with the images that need retaking and any
 new pages that are needed.
 
-If you were asked to make the changes and the PR is merged, apply the fixes,
-run Prettier and `yarn build`, and open a docs PR that links back to the
-product PR. Everything else goes in the PR description as suggestions.
+If you were asked to make the changes and the PR is merged, apply the fixes
+in the docs repo, run Prettier and `yarn build`, and open a docs PR that links
+back to the product PR. Everything else goes in that PR's description as
+suggestions. If you were invoked from the product PR, leave one comment there
+linking to the docs PR or summarising the findings, so the product reviewer
+can see the docs were considered.
