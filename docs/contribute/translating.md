@@ -170,6 +170,20 @@ Two things worth knowing about these files:
   `new Date().getFullYear()`, so translating it would freeze the year. It is
   omitted deliberately and falls back to the source.
 
+:::warning After running write-translations, check your diff
+
+`write-translations` does not know which keys we deliberately left out. It will
+re-add roughly 130 `theme.*` keys to `code.json` and the footer `copyright` key,
+filled in with values it read from upstream. Committing those silently takes
+over maintenance of strings Docusaurus already translates for us, and freezes
+the copyright year.
+
+Keep only the keys you actually came to add. If `git diff` on `code.json` shows
+more than the strings you were working on, you have picked up the inherited
+ones.
+
+:::
+
 If you add user-facing copy to a React component, wrap it so it can be
 extracted:
 
