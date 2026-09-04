@@ -21,7 +21,7 @@ Here are some we assume you've looked over before you begin this process.
 
 - You have checked out our glossary and have an understanding of basic OpenFn &
   API concepts. Check out the pages below to get started
-  - [OpenFn Concepts](../get-started/terminology.md)
+  - [OpenFn Concepts](/documentation/get-started/terminology)
   - [A glossary for data integration](../get-started/glossary.md)
 - You have a Google Account. We will use it to create a credential to authorize
   with Google Sheets.
