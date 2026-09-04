@@ -3,6 +3,8 @@ title: ¿Qué es OpenFn?
 id: home
 sidebar_label: ¿Qué es OpenFn?
 slug: /
+translation_source_hash: bf33ecde0f3556f61527ffbfaea99ca95128c1b3
+translation_review_status: machine
 ---
 
 **OpenFn es el principal
@@ -39,7 +41,7 @@ organizaciones de mayor impacto del mundo.
 
 :::
 
-## Nuestros productos
+## Nuestros productos {#our-products}
 
 OpenFn ofrece un conjunto de productos, todos ellos interoperables entre sí.
 Esto les da a nuestros usuarios la libertad de cambiar entre cualquiera de los
@@ -108,7 +110,7 @@ con una aplicación web propietaria.
 La plataforma v1 será retirada en 2025 y reemplazada por OpenFn v2, que es
 totalmente de código abierto (ver arriba).
 
-### Herramientas de desarrollo de OpenFn
+### Herramientas de desarrollo de OpenFn {#openfn-developer-tooling}
 
 [OpenFn/kit](https://github.com/OpenFn/kit) ofrece un CLI y un conjunto de
 herramientas para desarrolladores que sirven para escribir y probar flujos de
@@ -126,7 +128,7 @@ FOSS y documentación adicional.
 
 :::
 
-## Comunidad
+## Comunidad {#community}
 
 Para hacer preguntas, reportar problemas o aprender de otras personas que
 implementan OpenFn, visita nuestro foro de Discourse en
@@ -137,7 +139,7 @@ preguntas que no se responden aquí.
 Si tienes preguntas sobre nuestros productos, pregunta en la Comunidad o escribe
 al equipo central a [support@openfn.org](mailto:support@openfn.org).
 
-## ¿Quién lo desarrolla?
+## ¿Quién lo desarrolla? {#who-is-it-built-by}
 
 El principal responsable de OpenFn es
 [Open Function Group](https://openfn.org/about), un equipo global de

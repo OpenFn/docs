@@ -2,11 +2,13 @@
 title: Prueba la v2⚡
 id: try-out
 sidebar_label: Prueba la v2⚡
+translation_source_hash: 7eb7f0f7897b9464b0dcf518e1ddf895b1948681
+translation_review_status: machine
 ---
 
 Si te interesa probar OpenFn v2⚡ hoy mismo, tienes 3 opciones:
 
-## 1. Regístrate para obtener una cuenta gratuita
+## 1. Regístrate para obtener una cuenta gratuita {#1-register-for-a-free-account}
 
 Regístrate para obtener una cuenta gratuita en el servicio alojado de OpenFn.org
 y crea tu propio Project privado. Para hacerlo, visita:
@@ -25,7 +27,7 @@ crear una cuenta nueva de v2 en
 
 :::
 
-## 2. Inicia sesión en el sitio de demostración de OpenFn
+## 2. Inicia sesión en el sitio de demostración de OpenFn {#2-log-into-the-openfn-demo-site}
 
 Visita [demo.openfn.org](https://demo.openfn.org) y usa las siguientes
 credenciales para iniciar sesión y explorar la plataforma:
@@ -41,7 +43,7 @@ configuraciones que quieras conservar.
 
 :::
 
-## 3. Instala OpenFn/lightning localmente
+## 3. Instala OpenFn/lightning localmente {#3-install-openfnlightning-locally}
 
 Instala OpenFn v2 localmente para acceder al software de código abierto y
 explorarlo sin límites. Consulta nuestro repositorio de GitHub para ver la

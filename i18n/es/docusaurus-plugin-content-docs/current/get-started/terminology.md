@@ -1,5 +1,7 @@
 ---
 title: Conceptos clave
+translation_source_hash: bf33ecde0f3556f61527ffbfaea99ca95128c1b3
+translation_review_status: machine
 ---
 
 A lo largo del OpenFn Integration Toolkit y de este sitio de documentación
@@ -21,16 +23,6 @@ Ten en cuenta que si buscas un glosario de términos genéricos de integración 
 datos (en lugar de estos términos _específicos de OpenFn_), dirígete a la página
 [Glosario de integración](/documentation/get-started/glossary) en la sección de
 Diseño. Si no, ¡sigue leyendo!
-
-:::note Los nombres de los productos se mantienen en inglés
-
-Los términos propios de OpenFn (Project, Workflow, Trigger, Step, Job, Adaptor,
-Credential, Work Order, Run, Collection) se mantienen en inglés en toda la
-documentación en español, porque así aparecen en la interfaz de OpenFn y en los
-archivos `project.yaml`. De esa forma, lo que lees aquí coincide con lo que ves
-en la aplicación.
-
-:::
 
 ## Project
 
@@ -174,10 +166,10 @@ paciente que necesita procesarse).
 Se crea un Work Order cada vez que se activa el Trigger de un Workflow, o
 manualmente por parte de un usuario administrador.
 
-Para que un Work Order se complete correctamente, debe llegar sin errores a un
-Step final: así se garantiza que el procesamiento terminó. Es posible que se
-necesiten varios "Runs" del Workflow para que un Work Order determinado se
-considere exitoso.
+Para que un Work Order se complete correctamente, el Work Order debe llegar sin
+errores a un Step final: así se garantiza que el procesamiento terminó. Es
+posible que se necesiten varios "Runs" del Workflow para que un Work Order
+determinado se considere exitoso.
 
 Los Work Orders les permiten a los usuarios monitorear de cerca si cada entrada
 individual (por ejemplo, el "registro de paciente 123") es procesada
