@@ -9,14 +9,15 @@ docs.
 
 ## Before you start
 
-Check these four things. If any fails, stop and ask.
+Check these three things. If any fails, stop and ask.
 
-- The English section has no unfinished fixes. Translating a page you are
-  about to change is wasted work.
 - The locale is enabled in `docusaurus.config.js`. Do not enable it yourself;
   that changes what gets deployed.
 - `i18n/` is not in `.gitignore`.
 - `glossary.yml` and `translation-rules.yml` are valid YAML.
+
+If you changed any English pages earlier in this run, commit them before you
+translate, so the source hash points at the version you actually translated.
 
 ## Front matter
 
@@ -39,6 +40,8 @@ they also add `translation_reviewer` and `translation_review_date`.
 - **Translation exists, status is `machine` or `needs-review`.** Translate the
   whole page again, but keep any fenced blocks (see below) exactly as they
   were.
+- **Translation exists but has no `translation_review_status`.** Treat it as
+  `machine` and regenerate it.
 - **Status is `human-reviewed` and the hash matches the current English
   commit.** Skip it. It is up to date and approved.
 - **Status is `human-reviewed` and the hash is older.** Do not touch the
@@ -77,11 +80,15 @@ what to do with it.
 
 ## Before you commit
 
-Check that every glossary term appears as many times as in the English. Check
-the code blocks are identical. Check the counts of headings, code blocks,
+Check that the fixed glossary terms (the ones without `product_noun: true`,
+such as OpenFn, Lightning, adaptor, webhook) appear as many times as in the
+English. Product nouns like "run" and "step" are allowed to differ, since
+their ordinary-English uses get translated. Check the code blocks are
+identical. Check the counts of headings, code blocks,
 callouts, images, and tables match. Check the front matter is complete. Check
 every fenced block survived. Then build that locale and make sure it passes.
 
-Commit one locale at a time. Each translated file counts toward the 20-file
-limit. If you spot a problem in the English while translating, note it for
-the next English pass; do not fix it here.
+Open one PR per locale per section, separate from the English PR. Translated
+files do not count toward the 20-file limit, because a section's translations
+are reviewed as a set. If you spot a problem in the English while translating,
+note it for the next English pass; do not fix it here.

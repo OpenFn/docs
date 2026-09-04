@@ -46,7 +46,7 @@ repo. Never change them.
 3. **Fresh-user evaluation.** Read the page as a newcomer and see if it works.
 4. **Gap analysis.** Work out what is missing from the section.
 5. **Screenshot triage**, if the section has images.
-6. **Translate**, but only when steps 1 to 3 left nothing open.
+6. **Translate**, in its own PR per locale.
 
 If the user asks for one skill only, run that one and still finish with a PR.
 
@@ -91,7 +91,8 @@ Write findings like this:
 ## When to stop
 
 Stop when the section is finished, or when you have changed 20 files,
-whichever comes first. Then open a PR.
+whichever comes first. Then open a PR. Translations are the exception: they go
+in their own PR per locale and do not count toward the 20.
 
 Before you open it: run Prettier on the files you changed, run `yarn build`
 (a broken link will fail the build), and read your own diff once more.
