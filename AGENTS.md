@@ -45,7 +45,8 @@ repo. Never change them.
 2. **Accuracy check.** Make sure every claim matches the code.
 3. **Fresh-user evaluation.** Read the page as a newcomer and see if it works.
 4. **Gap analysis.** Work out what is missing from the section.
-5. **Screenshot triage**, if the section has images.
+5. **Screenshot triage.** Scans the whole repo by default; runs on request
+   rather than every time.
 6. **Translate**, in its own PR per locale.
 
 If the user asks for one skill only, run that one and still finish with a PR.

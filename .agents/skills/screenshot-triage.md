@@ -3,22 +3,39 @@
 Find the screenshots most likely to be out of date and rank them so a human
 can retake them. You never retake, edit, or delete an image yourself.
 
+By default, scan the whole repo. A ranking only means something across the
+whole site. If the user names a page or section, limit the scan to the images
+those pages use.
+
 You need a clone of `OpenFn/lightning` with full history, because the whole
 method is about comparing dates.
 
+## Remembering what each image shows
+
+Keep a file called `screenshot-map.yml` at the repo root. For each image it
+records what the image shows, which UI area that maps to, and how confident
+you were. Read it at the start of every run. Only classify images that are
+new, renamed, or missing from the file, then add them. Dates are always
+recomputed; classifications are not. This makes a repeat scan of the whole
+repo cheap.
+
+Humans can edit this file to correct a classification, and the correction
+sticks. Put a short comment at the top explaining the format.
+
 ## Steps
 
-1. **List the images** the section uses (they are linked as `/img/...`). For
-   a whole-site triage, list everything in `static/img/` and note any image no
-   page uses.
+1. **List the images.** For the whole repo, everything in `static/img/`,
+   noting any image no page uses. For a page or section, only the images
+   those pages link as `/img/...`.
 
 2. **Find out how old each image is** from its last commit in this repo. If
    the last commit was a bulk optimisation that touched lots of images, look
    at the one before it.
 
-3. **Work out what each image shows.** Use the file name, the alt text, and
-   the paragraph around it. Say how confident you are. Then match it to the
-   part of the Lightning code that draws that screen. Roughly: the workflow
+3. **Work out what each image shows**, for images not already in
+   `screenshot-map.yml`. Use the file name, the alt text, and the paragraph
+   around it. Say how confident you are. Then match it to the part of the
+   Lightning code that draws that screen. Roughly: the workflow
    canvas is under `assets/js/workflow-diagram`; the step editor, runs,
    credentials, and project settings each have their own folder under
    `lib/lightning_web/live/`; global styling is in `assets/css` and
@@ -43,8 +60,9 @@ confidence, date of the last UI change, the gap in days, and what probably
 changed. List external, unused, and diagram images separately. Put the top
 fifteen in the PR and collapse the rest.
 
-The only edit you may make is correcting alt text that describes the image
-wrongly.
+Whole-repo scans are report-only apart from updating `screenshot-map.yml`.
+When scoped to a page or section, you may also correct alt text that describes
+an image wrongly.
 
 ## Later: taking screenshots automatically
 
