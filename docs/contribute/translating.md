@@ -18,6 +18,7 @@ belongs in `glossary.yml` instead.
 | `.agents/skills/translate.md` | How a page gets translated, and when        |
 | `glossary.yml`                | Which terms stay in English                 |
 | `translation-rules.yml`       | Locale phrasing, register, punctuation      |
+| `AGENTS.md`                   | Order of work, house style, what to edit    |
 | This page                     | How the site is built and served per locale |
 
 English is always the source of truth. Translated content lives under
@@ -29,9 +30,9 @@ no broken pages, no placeholders.
 
 - `en` — source of truth, complete
 - `es` — site chrome (navbar, footer, sidebar labels, homepage) plus **What is
-  OpenFn?**, **Try out v2**, **Key Concepts**, and **Get Help**. Every
-  translated page is `translation_review_status: machine`; none has been
-  human-reviewed yet.
+  OpenFn?**, **Try out v2**, **Key Concepts**, and **Get Help**. All four pages
+  were produced by the `translate` skill and are
+  `translation_review_status: machine`; none has been human-reviewed yet.
 - `fr` — planned, not enabled
 
 :::
@@ -80,7 +81,8 @@ debug.
 
 ### Link to docs with site-absolute paths, not relative `.md` paths
 
-This is already the house style in `AGENTS.md`, and i18n is why it matters. Use:
+This is already the house style in `AGENTS.md`, and i18n is why it matters. On
+an English page, use:
 
 ```md
 [Key Concepts](/documentation/get-started/terminology)
@@ -97,6 +99,11 @@ directory. Once one is translated and the other is not, they come from different
 directories — one from `i18n/es/`, the other falling back from `docs/` — and
 Docusaurus cannot resolve the path. With `onBrokenLinks` set to `throw`, that
 fails the build.
+
+On a **translated** page, write the locale in: the `translate` skill asks for
+`/es/documentation/get-started/terminology`, and that is what these pages do.
+Links into the generated adaptor pages stay unprefixed, since those are English
+only.
 
 Four such links were converted when Spanish was added. Roughly **100 relative
 `.md` links remain across ~35 pages** in `docs/`, which are house-style
@@ -229,13 +236,26 @@ scales with the number of languages.
 
 ## Running it locally
 
-Build just the locale you care about:
+For a quick look at a single locale, use the dev server:
 
 ```bash
-yarn start --locale es          # dev server, Spanish only
-yarn build --locale es          # production build, Spanish only
+yarn start --locale es
 ```
 
-Plain `yarn build` builds **all** locales, which is what CI and the deploy
-workflow do. Run it before opening a PR — a broken link fails the build, and the
-locale-specific failures above will not show up any other way.
+:::danger `yarn build --locale es` is not a substitute for `yarn build`
+
+The two use different base URLs, and they disagree about locale-prefixed links.
+
+A full `yarn build` builds `es` as a sub-site at `baseUrl: /es/`, so its route
+paths are `/es/documentation/...` and the `/es/`-prefixed links in translated
+pages resolve. `yarn build --locale es` builds Spanish as though it were the
+only language, at `baseUrl: /`, so its route paths are `/documentation/...` —
+and every correctly written `/es/...` link in a translated page is reported as a
+broken link. With `onBrokenLinks: throw`, the single-locale build fails on pages
+the real build is perfectly happy with.
+
+So treat a `--locale` failure as suspect until you have reproduced it with a
+full build, and always run plain `yarn build` before opening a PR. That is what
+CI and the deploy workflow run.
+
+:::

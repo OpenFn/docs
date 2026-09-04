@@ -1,7 +1,7 @@
 ---
 title: Soporte para implementaciones de OpenFn
 sidebar_label: Obtener ayuda
-translation_source_hash: bf33ecde0f3556f61527ffbfaea99ca95128c1b3
+translation_source_hash: 2a73f0ecc8314aa6d23cfc20a7193d77ea125d0f
 translation_review_status: machine
 ---
 
@@ -13,7 +13,7 @@ comentarios sobre el producto, primero visita nuestra
 personas que implementan OpenFn revisan todas las publicaciones para ayudarse
 entre sí, compartir ejemplos y difundir novedades del producto.
 
-## ¿Tienes una pregunta sobre tu proyecto en OpenFn.org? {#have-a-question-about-your-project-on-openfnorg}
+## ¿Tienes una pregunta sobre tu Project en OpenFn.org? {#have-a-question-about-your-project-on-openfnorg}
 
 Si usas la plataforma alojada de OpenFn (SaaS) y tienes una pregunta privada
 sobre tu Project, tu cuenta o tu facturación, escribe a nuestro equipo central a

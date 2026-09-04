@@ -3,7 +3,7 @@ title: ¿Qué es OpenFn?
 id: home
 sidebar_label: ¿Qué es OpenFn?
 slug: /
-translation_source_hash: bf33ecde0f3556f61527ffbfaea99ca95128c1b3
+translation_source_hash: c4af9efb3157acd6020bb65eaa98b3d278887e0b
 translation_review_status: machine
 ---
 
@@ -22,7 +22,7 @@ todos los niveles.
 
 OpenFn se puede desplegar localmente o en la
 [plataforma segura alojada en la nube](https://openfn.org/pricing). Consulta la
-[documentación de despliegue](/documentation/deploy/options) para conocer más
+[documentación de despliegue](/es/documentation/deploy/options) para conocer más
 sobre las opciones y los requisitos de despliegue.
 
 Para apoyar a quienes implementan, OpenFn cuenta con una
@@ -62,7 +62,7 @@ Los productos principales de OpenFn incluyen:
 - OpenFn/platform: la primera versión de nuestra plataforma. Reemplazada por la
   v2 y con retiro previsto para 2025
 - [**OpenFn/adaptors**](https://github.com/OpenFn/adaptors): código fuente de
-  los Adaptors
+  los adaptors
 - [**OpenFn/kit**](https://github.com/OpenFn/kit): CLI, herramientas para
   desarrolladores y entornos de ejecución de JavaScript
 - [**OpenFn/docs**](https://github.com/OpenFn/docs): documentación y código
@@ -113,18 +113,18 @@ totalmente de código abierto (ver arriba).
 ### Herramientas de desarrollo de OpenFn {#openfn-developer-tooling}
 
 [OpenFn/kit](https://github.com/OpenFn/kit) ofrece un CLI y un conjunto de
-herramientas para desarrolladores que sirven para escribir y probar flujos de
-trabajo, gestionar Projects de OpenFn y desarrollar
+herramientas para desarrolladores que sirven para escribir y probar workflows,
+gestionar Projects de OpenFn y desarrollar
 [Adaptors](https://github.com/openfn/adaptors).
 
 :::note Explora todo el código de OpenFn
 
 Puedes consultar la documentación técnica y el código fuente de las herramientas
-de integración y los Adaptors de OpenFn, que son totalmente de código abierto
+de integración y los adaptors de OpenFn, que son totalmente de código abierto
 ("FOSS"), en sus respectivos repositorios en
 [GitHub.com/OpenFn](https://github.com/openfn), o revisar la sección
-[Despliegue](/documentation/deploy/options) para ver un resumen de las opciones
-FOSS y documentación adicional.
+[Despliegue](/es/documentation/deploy/options) para ver un resumen de las
+opciones FOSS y documentación adicional.
 
 :::
 

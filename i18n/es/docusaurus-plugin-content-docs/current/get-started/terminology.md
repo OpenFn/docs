@@ -1,6 +1,6 @@
 ---
 title: Conceptos clave
-translation_source_hash: bf33ecde0f3556f61527ffbfaea99ca95128c1b3
+translation_source_hash: 88f1bae70e80318a23a5c56152c2e9da1d0d37e4
 translation_review_status: machine
 ---
 
@@ -21,8 +21,8 @@ o pregunta en la [Comunidad](https://community.openfn.org)
 
 Ten en cuenta que si buscas un glosario de términos genéricos de integración de
 datos (en lugar de estos términos _específicos de OpenFn_), dirígete a la página
-[Glosario de integración](/documentation/get-started/glossary) en la sección de
-Diseño. Si no, ¡sigue leyendo!
+[Glosario de integración](/es/documentation/get-started/glossary) en la sección
+de Diseño. Si no, ¡sigue leyendo!
 
 ## Project
 
@@ -30,12 +30,12 @@ Un Project es una agrupación administrativa en OpenFn, algo así como un "espac
 de trabajo".
 
 En la plataforma (OpenFn/lightning), los Projects definen quién puede acceder a
-la configuración y al historial de tus flujos de trabajo de OpenFn. Los Projects
-tienen una persona propietaria y uno o más Collaborators.
+la configuración y al historial de tus Workflows de OpenFn. Los Projects tienen
+una persona propietaria y uno o más Collaborators.
 
 En despliegues y desarrollo local, un Project también corresponde a un archivo
-[`project.yaml`](/documentation/deploy/portability-versions#v2), que define la
-configuración de un Project.
+[`project.yaml`](/es/documentation/deploy/portability-versions#v2), que define
+la configuración de un Project.
 
 En cualquiera de los dos casos, un Project contiene Workflows, Triggers,
 Credentials y todo lo que necesitas para automatizar e integrar con OpenFn.
@@ -49,7 +49,7 @@ Credentials y todo lo que necesitas para automatizar e integrar con OpenFn.
 :::
 
 Un Workflow es una secuencia estructurada de tareas, procesos o acciones que se
-ejecutan automáticamente según reglas, triggers y lógica predefinidos.
+ejecutan automáticamente según reglas, Triggers y lógica predefinidos.
 
 Cuando se trabaja con IA, los Workflows aportan la ejecución estructurada que se
 necesita para convertir los hallazgos de un LLM en acciones concretas, mientras
@@ -62,7 +62,7 @@ tarea específica. Un Workflow se configura desde el Canvas en la aplicación we
 o localmente (mediante código).
 
 La automatización en OpenFn gira en torno a los
-[Workflows](/documentation/build/workflows), que pueden tener uno o varios
+[Workflows](/es/documentation/build/workflows), que pueden tener uno o varios
 Steps. Los Workflows pueden ejecutarse en tiempo real (a partir de un evento,
 por ejemplo el registro de un nuevo paciente), de forma programada (por ejemplo,
 todos los días a las 8 a.m.) o manualmente, cuando se necesite.
@@ -107,7 +107,7 @@ Los [Adaptors](/adaptors) de OpenFn son módulos de código abierto que le dan a
 tus Workflows las funcionalidades que necesitan para comunicarse con la API de
 un sistema en particular. Algunos ejemplos son [dhis](/adaptors/dhis2),
 [`postgresql`](/adaptors/postgresql) y [`http`](/adaptors/packages/http-docs),
-entre otros. Actualmente hay más de 70 Adaptors activos, y cualquiera puede
+entre otros. Actualmente hay más de 70 adaptors activos, y cualquiera puede
 crear uno nuevo o mejorar los existentes. Consulta
 [GitHub/Adaptors](https://github.com/OpenFn/adaptors) para ver el código fuente.
 
@@ -135,11 +135,11 @@ ni queden al alcance de las personas equivocadas.
 
 :::
 
-Un [Trigger](/documentation/build/triggers) determina **cómo y cuándo** deben
+Un [Trigger](/es/documentation/build/triggers) determina **cómo y cuándo** deben
 ejecutarse los Workflows automáticamente (por ejemplo, en tiempo real o según
 una programación). Cuando se activan, los Triggers crean un nuevo
-[Work Order](/documentation/get-started/terminology#work-order) y ejecutan el
-Workflow.
+[Work Order](/es/documentation/get-started/terminology#work-order) y ejecutan (o
+"corren") el Workflow.
 
 Puedes configurar un Trigger de tipo "Webhook Event" si quieres que tu Workflow
 se ejecute en tiempo real cuando ocurra un evento en una aplicación externa (por
@@ -221,14 +221,14 @@ Imagina que hay un Workflow configurado para crear un paciente nuevo en OpenMRS
 cada vez que se abre un caso nuevo en CommCare. Si hoy se crea 1 paciente,
 entonces:
 
-- Se creará 1 Work Order en OpenFn. Esto activará la ejecución de un Run para
-  crear el paciente en OpenMRS.
+- Se creará 1 Work Order en OpenFn. Esto activará un Run para crear el paciente
+  en OpenMRS.
 - Si ese Run falla por un error (por ejemplo, la contraseña del usuario de
   OpenMRS es incorrecta, o al paciente le falta información obligatoria), el
   "Status" de ese Run y del Work Order asociado aparecerá como `failed`.
 - Los usuarios de OpenFn pueden corregir el error y luego elegir "rerun" para
-  volver a ejecutar ese Run fallido. Esto creará un 2.º Run asociado al Work
-  Order original. Si tiene éxito, el "Status" del 2.º Run y del Work Order
+  volver a ejecutar ese Run fallido. Esto creará un 2.º Run relacionado con el
+  Work Order original. Si tiene éxito, el "Status" del 2.º Run y del Work Order
   aparecerá como "success".
 
 ### Logs
@@ -238,7 +238,8 @@ capturar las actividades realizadas al ejecutar un Workflow o un Step
 específico.
 
 Quienes desarrollan en OpenFn pueden controlar qué aparece en los logs editando
-las sentencias `console.log(...)` en las expresiones de Job de cada Step.
+las sentencias `console.log(...)` en las expresiones de Job de los Steps
+individuales.
 
 ![Logs](/img/logs_run.webp)
 
@@ -260,8 +261,8 @@ El Inspector tiene 3 interfaces principales: `Input`, `Editor` y `Output`.
 
 ### Input
 
-Un Input son los datos (`json`) que se usan como entrada inicial para que un
-Step de un Workflow los utilice al ejecutarse. Cada Run tendrá un Input (estado
+Un Input son los datos (`json`) que se usan como Input inicial para que un Step
+de un Workflow los utilice al ejecutarse. Cada Run tendrá un Input (estado
 inicial) y un Output (estado final).
 
 Los Inputs pueden crearse automáticamente a partir de un evento de webhook (por
