@@ -49,5 +49,5 @@ files you touched, then `yarn build`. Do not commit until both are clean.
 Give the counts (files checked, fixes, suggestions, questions), then one line
 per finding in the standard format.
 
-If a reviewer later undoes one of your fixes, do not push back. Pass it to
-`corrections-capture.md` so it becomes an exception.
+If a reviewer undoes one of your fixes, do not push back. Suggest they add an
+entry to `style-exceptions.yml` so it is not flagged again.

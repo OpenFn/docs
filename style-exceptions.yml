@@ -6,9 +6,8 @@
 # (.agents/skills/lint.md) loads this file and suppresses any finding that
 # matches an entry, so the same rejected suggestion is not raised again.
 #
-# Entries are added by the corrections-capture skill
-# (.agents/skills/corrections-capture.md) when a reviewer rejects or reverts a
-# lint change in a PR, or by humans directly.
+# Humans maintain this file. Add an entry when you reject or revert a lint
+# change in a PR and do not want it raised again.
 #
 # Schema
 # ------

@@ -31,8 +31,9 @@ stands alone; read the one you need.
 **Special rules apply**
 
 - Translations in `i18n/`. See `translate.md`.
-- The three rule files: `glossary.yml`, `style-exceptions.yml`,
-  `translation-rules.yml`. See `corrections-capture.md`.
+- The three rule files: `glossary.yml`, `style-exceptions.yml`, and
+  `translation-rules.yml`. Humans maintain these. Each explains its format at
+  the top. Only add an entry if the user asks you to.
 
 To check facts, you can read the product code. Clone `OpenFn/lightning` (the
 web app), `OpenFn/kit` (the CLI), and `OpenFn/adaptors` somewhere outside this
@@ -46,9 +47,6 @@ repo. Never change them.
 4. **Gap analysis.** Work out what is missing from the section.
 5. **Screenshot triage**, if the section has images.
 6. **Translate**, but only when steps 1 to 3 left nothing open.
-
-Run **corrections capture** any time a human has overridden something the
-agent did earlier.
 
 If the user asks for one skill only, run that one and still finish with a PR.
 

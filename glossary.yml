@@ -9,8 +9,8 @@
 #   2. The lint skill (.agents/skills/lint.md). Any spelling in `variants`
 #      is flagged in English pages and replaced with `term`.
 #
-# The corrections-capture skill appends new entries when a human edit implies
-# a terminology rule. Humans can edit this file directly too.
+# Humans maintain this file. Add a term when a review shows the same
+# correction being made more than once.
 #
 # Schema
 # ------

@@ -10,9 +10,8 @@
 # Glossary terms (never translate) belong in glossary.yml, not here. This file
 # is for how to translate, not what to leave alone.
 #
-# Entries are added by the corrections-capture skill
-# (.agents/skills/corrections-capture.md) when a reviewer edits a translated
-# page and the edit implies a general pattern, or by humans directly.
+# Humans maintain this file. Add a rule when you correct a translation in a
+# way that should apply to other pages too.
 #
 # Schema
 # ------
