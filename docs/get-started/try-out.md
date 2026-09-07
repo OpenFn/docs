@@ -50,7 +50,7 @@ without limits. See our GitHub repo for developer docs:
 :::info Questions?
 
 Check out these docs for more details on specific features (see menu sidebar),
-browse the [main docs page](./home.md), or post your questions on
+browse the [main docs page](/documentation/), or post your questions on
 [Community](https://community.openfn.org).
 
 :::

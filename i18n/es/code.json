@@ -1,0 +1,126 @@
+{
+  "homepage.highlights.jobWritingGuide.title": {
+    "message": "Guía para escribir Jobs"
+  },
+  "homepage.highlights.jobWritingGuide.description": {
+    "message": "¿Vas a escribir un Job para OpenFn? Empieza por aquí"
+  },
+  "homepage.highlights.cliUsage.title": {
+    "message": "Ejemplos de uso del CLI"
+  },
+  "homepage.highlights.cliUsage.description": {
+    "message": "Descubre de un vistazo todo lo que puede hacer el CLI"
+  },
+  "homepage.highlights.javascriptTips.title": {
+    "message": "Trucos y consejos de JavaScript"
+  },
+  "homepage.highlights.javascriptTips.description": {
+    "message": "Mejora tu código"
+  },
+  "homepage.highlights.heading": {
+    "message": "✨Destacados de la documentación✨"
+  },
+  "homepage.features.docs.title": {
+    "message": "Documentación"
+  },
+  "homepage.features.docs.description": {
+    "message": "Documentación sobre todos los aspectos de OpenFn, el principal bien público digital para la automatización de flujos de trabajo."
+  },
+  "homepage.features.adaptors.title": {
+    "message": "Adaptors"
+  },
+  "homepage.features.adaptors.description": {
+    "message": "Documentación, ejemplos, registros de cambios y descripciones generales de los Adaptors, con búsqueda y navegación, para conectar los bienes públicos digitales más usados del mundo."
+  },
+  "homepage.features.articles.title": {
+    "message": "Artículos"
+  },
+  "homepage.features.articles.description": {
+    "message": "¿Cómo prepararse para una integración de datos? ¿Cómo estructurar los IDs externos? ¿Cómo..."
+  },
+  "homepage.features.blog.title": {
+    "message": "Blog"
+  },
+  "homepage.features.blog.description": {
+    "message": "Ayudamos a que las iniciativas de impacto social más prometedoras del mundo alcancen escala mediante la automatización, la integración de datos y la interoperabilidad. Estas son sus historias."
+  },
+  "homepage.features.enterprise.title": {
+    "message": "Empresas"
+  },
+  "homepage.features.enterprise.description": {
+    "message": "Descubre la plataforma de integración como servicio (iPaaS) de OpenFn para empresas, con planes gratuitos permanentes y opciones accesibles para crecer."
+  },
+  "homepage.meta.title": {
+    "message": "Inicio"
+  },
+  "homepage.meta.description": {
+    "message": "El sitio de documentación de OpenFn"
+  },
+  "homepage.hero.title": {
+    "message": "Documentación de OpenFn"
+  },
+  "homepage.hero.subtitle": {
+    "message": "El principal bien público digital para la automatización de flujos de trabajo. OpenFn hace que las TIC para el desarrollo (ICT4D) sean más eficientes."
+  },
+  "homepage.hero.cta": {
+    "message": "Comenzar"
+  },
+  "homepage.newsletter.title": {
+    "message": "Boletín"
+  },
+  "homepage.newsletter.imageAlt": {
+    "message": "Boletín"
+  },
+  "homepage.newsletter.description": {
+    "message": "No te pierdas ninguna novedad: suscríbete aquí a nuestro boletín."
+  },
+  "homepage.newsletter.emailPlaceholder": {
+    "message": "Correo electrónico"
+  },
+  "homepage.newsletter.subscribe": {
+    "message": "Suscribirse"
+  },
+  "theme.admonition.tip": {
+    "message": "consejo",
+    "description": "The default label used for the Tip admonition (:::tip)"
+  },
+  "theme.admonition.info": {
+    "message": "información",
+    "description": "The default label used for the Info admonition (:::info)"
+  },
+  "theme.docs.versionBadge.label": {
+    "message": "Versión: {versionLabel}"
+  },
+  "theme.IconExternalLink.ariaLabel": {
+    "message": "(se abre en una pestaña nueva)",
+    "description": "The ARIA label for the external link icon"
+  },
+  "theme.colorToggle.ariaLabel.mode.system": {
+    "message": "modo del sistema",
+    "description": "The name for the system color mode"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.expandAriaLabel": {
+    "message": "Expandir el menú desplegable",
+    "description": "The ARIA label of the button to expand the mobile dropdown navbar item"
+  },
+  "theme.navbar.mobileDropdown.collapseButton.collapseAriaLabel": {
+    "message": "Contraer el menú desplegable",
+    "description": "The ARIA label of the button to collapse the mobile dropdown navbar item"
+  },
+  "theme.blog.authorsList.pageTitle": {
+    "message": "Autores",
+    "description": "The title of the authors page"
+  },
+  "theme.blog.author.noPosts": {
+    "message": "Este autor aún no ha escrito publicaciones.",
+    "description": "The text for authors with 0 blog post"
+  },
+  "theme.contentVisibility.draftBanner.title": {
+    "message": "Página en borrador",
+    "description": "The draft content banner title"
+  },
+  "theme.contentVisibility.draftBanner.message": {
+    "message": "Esta página es un borrador. Solo será visible en el entorno de desarrollo y se excluirá de la compilación de producción.",
+    "description": "The draft content banner message"
+  }
+}

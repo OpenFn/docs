@@ -1,0 +1,62 @@
+{
+  "version.label": {
+    "message": "v2 ⚡",
+    "description": "The label for version current"
+  },
+  "sidebar.docs.category.Get Started": {
+    "message": "Primeros pasos",
+    "description": "The label for category 'Get Started' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Tutorials": {
+    "message": "Tutoriales",
+    "description": "The label for category 'Tutorials' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Design Workflows": {
+    "message": "Diseñar Workflows",
+    "description": "The label for category 'Design Workflows' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Write Jobs": {
+    "message": "Escribir Jobs",
+    "description": "The label for category 'Write Jobs' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Platform ⚡": {
+    "message": "Plataforma ⚡",
+    "description": "The label for category 'Platform ⚡' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Build & Manage Workflows": {
+    "message": "Crear y gestionar Workflows",
+    "description": "The label for category 'Build & Manage Workflows' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Monitor History": {
+    "message": "Monitorear el historial",
+    "description": "The label for category 'Monitor History' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Manage Projects": {
+    "message": "Gestionar Projects",
+    "description": "The label for category 'Manage Projects' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Manage Users & Credentials": {
+    "message": "Gestionar usuarios y Credentials",
+    "description": "The label for category 'Manage Users & Credentials' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.CLI": {
+    "message": "CLI",
+    "description": "The label for category 'CLI' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Deployment": {
+    "message": "Despliegue",
+    "description": "The label for category 'Deployment' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Migrate to v2": {
+    "message": "Migrar a v2",
+    "description": "The label for category 'Migrate to v2' in sidebar 'docs'"
+  },
+  "sidebar.docs.category.Contribute": {
+    "message": "Contribuir",
+    "description": "The label for category 'Contribute' in sidebar 'docs'"
+  },
+  "sidebar.docs.link.Community Forum": {
+    "message": "Foro de la comunidad",
+    "description": "The label for link 'Community Forum' in sidebar 'docs', linking to 'https://community.openfn.org'"
+  }
+}

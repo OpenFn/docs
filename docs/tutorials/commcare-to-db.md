@@ -9,7 +9,7 @@ title: Syncing your CommCare form submissions to a PostgreSQL database
   minute!)
 - You have checked out our glossary and have an understanding of basic OpenFn
   and API terminology. Check out the pages below to get started
-  - [OpenFn Concepts](../get-started/terminology.md)
+  - [OpenFn Concepts](/documentation/get-started/terminology)
   - [A glossary for data integration](../get-started/glossary.md)
 - You have a CommCare application with at least one form configured. This is
   your source system.
