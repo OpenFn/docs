@@ -3,7 +3,7 @@ title: Triggers
 ---
 
 Triggers allow you to start the execution of Workflows automatically. They come
-in three types: Cron triggers, Webhook Event, and Kafka triggers.
+in two types: Cron triggers and Webhook Event triggers.
 
 ## Webhook Event Triggers
 
@@ -241,98 +241,19 @@ fn(state => {
 });
 ```
 
-## Kafka Triggers (beta) 🚧
+## Kafka Triggers
 
-The Kafka trigger allows OpenFn users to build Workflows triggered by messages
-published by a Kafka cluster. The triggers make use of Kafka consumer groups
-that are set up on-demand to receive messages from a defined cluster then
-converts them to `Input` dataclips that are used to initialize a Work Order.
+Kafka triggers were removed in **v2.18.2**. A workflow can no longer be started
+by consuming from a Kafka cluster.
 
-:::info For self-hosted OpenFn deployments
+Existing Kafka triggers were converted to **disabled webhook triggers** rather
+than deleted, so the workflows they belonged to are intact. To keep one running,
+point the sending system at the trigger's webhook URL and enable it.
 
-Instance administrators have to enable Kafka for their instance by setting
-`KAFKA_TRIGGERS_ENABLED=yes` in the environment variable.
+:::caution For self-hosted OpenFn deployments
 
-:::
-
-![Configuring Kafka Trigger](/img/configuring-kafka.webp)
-
-:::info What is Kafka?
-
-Apache Kafka® is an event streaming platform designed to handle high volumes of
-data. Check out
-[Kafka Docs](https://kafka.apache.org/documentation/#gettingStarted) to learn
-more.
+The `KAFKA_*` environment variables no longer do anything. If you're running
+with `KAFKA_TRIGGERS_ENABLED` switched on, take a backup and switch it off
+before upgrading. Stay on the previous release if you still need Kafka.
 
 :::
-
-### Configuring a Kafka trigger for your workflow
-
-1. Create a new Workflow or open an existing Workflow in your Project
-2. Click on the workflow's Trigger and change the trigger type to
-   `Kafka Consumer` in the `Trigger type` dropdown.
-3. Fill out the required connection details:
-
-- **Hosts**: Provide the URL of the host(s) your trigger should listen to for
-  messages.
-- **Topics**: Enter the topics your Kafka consumers should subscribe to. You
-  need at least one topic for a successful connection.
-- **SSL**: Some Kafka clusters require SSL connection. If you are connecting to
-  an environment that requires SSL connection, select `Enable SSL`.
-- **SSL Authentication**: Select the type of Authentication required for the
-  Kafka cluster.
-- **Initial offset policy**: The intial offset dictates where the consumer
-  starts reading messages from a topic when it subscribes for the first time.
-  There are three possible options: `earliest` messages available, `latest`
-  messages available, or messages with a specific `timestamp` (e.g.,
-  `1721889238000`).
-- **Connect timeout**: The connect timeout specified in seconds (e.g., `30`)
-  represents how long the consumer should wait before timing out when attempting
-  to connect with a Kafka cluster.
-
-4. If you have not finished designing your Workflow or you're not ready to start
-   receiving messages from the Kafka cluster, please check the box to **disable
-   the trigger** until you're ready for message ingestion to begin.
-
-:::warning Disable the trigger during workflow design
-
-Once the required connection information is provided via the modal, the trigger
-will _immediately_ start attempting to connect to the Kafka cluster. We advise
-that the trigger is disabled until your workflow is ready to receive data from
-the cluster for processing. **To stop the trigger from receiving and processing
-messages, check the `Disable this trigger` checkbox at the bottom of the trigger
-configuration modal.**
-
-:::
-
-Learn how the initial `state` (and `Input`) for Kafka-triggered Workflows gets
-built [here](../jobs/state#kafka-triggered-runs).
-
-### Known "sharp edges" on the Kafka trigger feature
-
-We'll monitor bug/exception reports, perform user interviews and collect feature
-requests during the beta to determine which of these rough-edges are worth
-ironing out, and how to do so assuming that the community wants to support Kafka
-triggers going forward. Please don't hesitate to reach out on
-[community.openfn.org](https://community.openfn.org) to make your voice heard!
-
-1. Performance settings are out of the _end-user's_ control and can only be set
-   at instance-level. As there is quite a close relationship between cluster and
-   consumer settings, this may prove to be an obstacle as users will not be able
-   to tune their consumers to align with their individual clusters in large
-   multi-tenant deployments.
-2. If a message could not be turned into a work order (due to persistence errors
-   or hitting the hard limit), these will not be visible to the end-user and may
-   be lost forever (i.e. the cluster thinks Lightning has them but it doesn't
-   and they eventually rotate off the cluster)
-3. Errors are written to the log and to Sentry; nothing is visible to the
-   end-user.
-4. Reprocessing dropped messages isn't practical if you are not writing failed
-   messages to some sort of persistent file storage.
-5. If a consumer group is disconnected from a cluster long enough for the
-   cluster to forget the last message, we may not be able to prevent duplicates
-   making it through (as a result of instance-wide de-duplication settings).
-6. We cannot provide concurrency _and_ honour message sequence that is based on
-   the Kafka message key mechanism. If a user wants to guarantee the Kafka
-   message sequence, they must enable 1-at-a-time processing on OpenFn by
-   turning their workflow concurrency down to 1.
