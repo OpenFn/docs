@@ -310,9 +310,9 @@ then commits the result to its branch.
 **Stack sandboxes when work depends on earlier work.** If a sandbox has to live
 for a while (waiting on a review or a release window, say) and you want to start
 something that builds on it, create a sandbox of that sandbox instead of merging
-early just to unblock yourself. Sandboxes nest up to the configured depth
-(default 5). Do the same in git: branch the dependent work off the feature
-branch rather than off main.
+early just to unblock yourself. Sandboxes nest up to the configured depth. Do
+the same in git: branch the dependent work off the feature branch rather than
+off main.
 
 **Avoid building directly on the main project.** Changes made there are live,
 and they turn up in the merge of every other sandbox as a diverged workflow.
