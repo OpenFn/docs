@@ -279,3 +279,36 @@ If you're working with several sandboxes in one workspace, two things help:
   the parent project or each other.
 - `openfn project checkout <project>` switches the active project in the
   workspace. Use it to flip between sandboxes you've already pulled.
+
+## Best practices
+
+Sandboxes map neatly onto git branches, and the workflows that work best treat
+them the same way.
+
+**Create one sandbox per piece of work.** Give each new feature, fix, or issue
+its own sandbox, rather than sharing one long-lived `testing` sandbox across
+several people and several changes. Small, short-lived sandboxes are easier to
+review and much less likely to conflict when you merge.
+
+**Connect each sandbox to its own GitHub branch.** If you use
+[GitHub Sync](/documentation/link-to-GitHub), don't point a sandbox at your
+repo's default branch. Create a feature branch for the work and sync the sandbox
+to that branch instead. With the v2 sync format you need one two-way sync per
+branch anyway, because every project synced to a branch shares the same
+`workflows` folder.
+
+**Open pull requests from the feature branch into main.** Reviewers then see
+only the changes that came out of that sandbox. Syncing straight into your main
+branch produces one large diff with everything mixed together, which is hard to
+review and hard to unpick later.
+
+**Stack sandboxes when work depends on earlier work.** If a sandbox has to live
+for a while (waiting on a review or a release window, say) and you want to start
+something that builds on it, create a sandbox of that sandbox instead of merging
+early just to unblock yourself. Sandboxes nest up to the configured depth
+(default 5). Do the same in git: branch the dependent work off the feature
+branch rather than off main.
+
+**Avoid building directly on the main project.** Changes made there are live,
+and they turn up in the merge of every other sandbox as a diverged workflow.
+Start in a sandbox, then merge back when the change is ready.
