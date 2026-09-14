@@ -297,10 +297,15 @@ to that branch instead. With the v2 sync format you need one two-way sync per
 branch anyway, because every project synced to a branch shares the same
 `workflows` folder.
 
-**Open pull requests from the feature branch into main.** Reviewers then see
-only the changes that came out of that sandbox. Syncing straight into your main
-branch produces one large diff with everything mixed together, which is hard to
-review and hard to unpick later.
+**Open a pull request for review, but don't merge it into main.** Comparing the
+sandbox's branch against your main branch is the easiest way to see what changed
+and to leave comments on specific steps. Don't merge that pull request, though:
+the branch holds the sandbox's whole project state, including sandbox-specific
+configuration that isn't meant to reach the main project, so merging it brings
+across far more than the change under review. Promote the change with the
+**Merge** action on the sandbox instead (see
+[Merging sandboxes](#merging-sandboxes)); the parent project's own GitHub Sync
+then commits the result to its branch.
 
 **Stack sandboxes when work depends on earlier work.** If a sandbox has to live
 for a while (waiting on a review or a release window, say) and you want to start
