@@ -55,6 +55,12 @@ If you're ready to start using the app, take a look at this guide to
 Workflow design is a non-trivial problem, so you might also like to review the
 Workflow [Design Process docs](/documentation/design/design-overview).
 
+As your jobs grow, you'll start writing helper functions inside them - parsing,
+mapping, reformatting. Those helpers can be unit tested like any other
+JavaScript: export them, compile your project with the CLI, and point a test
+runner at the output. See
+[Writing unit tests for your jobs](/documentation/jobs/unit-testing-jobs).
+
 :::info Questions?
 
 If you have any job-writing questions, ask on
