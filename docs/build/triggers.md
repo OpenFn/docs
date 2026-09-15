@@ -25,6 +25,52 @@ Trigger by adding authentication, head over to our
 Learn how a workflow's initial `state` gets built from a webhook trigger
 [here](../jobs/state#webhook-triggered-runs).
 
+### Webhook URLs
+
+Every webhook trigger answers on a URL built from its own id, and that URL never
+changes. It looks like `https://app.openfn.org/i/<trigger-id>`.
+
+You can also give a trigger a name of your own. It then answers on a second URL,
+built from your project's id and the name you chose, like
+`https://app.openfn.org/i/<project-id>/et-emr-facility-001`.
+
+Both URLs reach the same trigger. Naming one never replaces the default, so
+anything already posting to the default URL keeps working.
+
+Names are useful when you know what an endpoint should be called before the
+workflow exists. If you're connecting the same system at a hundred sites, you
+can generate the URLs from your list of site names rather than copying them out
+of the app one at a time.
+
+To add one, open the trigger and click **Add custom URL**. You type only the
+last segment of the address. The rest is fixed, and sits beside the field as
+plain text. A name can use lowercase letters, numbers, hyphens and underscores,
+up to 255 characters. It can't be a UUID, because OpenFn reads those as trigger
+ids.
+
+A name has to be unique within a project, and OpenFn warns you as you type if
+another workflow has already taken the one you're entering. A workflow that's
+disabled still holds its name. Two different projects can use the same name,
+because their URLs differ by project id.
+
+:::warning There's no redirect
+
+Renaming or removing a custom URL breaks it. Once you save, requests to the old
+address get a `404`, so update the system sending the data first. The
+`/i/<trigger-id>` URL is unaffected.
+
+:::
+
+Changing a trigger from webhook to cron removes its custom URL, and changing it
+back doesn't restore it.
+
+[Webhook authentication](../manage-projects/webhook-auth.md) is attached to the
+trigger rather than to an address, so it covers both URLs.
+
+You can also set a name outside the app, as `custom_path` on a webhook trigger
+in [project.yaml](/documentation/sync) or through the
+[Workflows API](../build/workflows-api.md).
+
 ## **Webhook Trigger Responses**
 
 When a workflow is triggered via a webhook, OpenFn can respond to the calling
