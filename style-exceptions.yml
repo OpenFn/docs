@@ -1,0 +1,43 @@
+# style-exceptions.yml
+#
+# Purpose
+# -------
+# Lint findings that a human has rejected. The lint skill
+# (.agents/skills/lint.md) loads this file and suppresses any finding that
+# matches an entry, so the same rejected suggestion is not raised again.
+#
+# Humans maintain this file. Add an entry when you reject or revert a lint
+# change in a PR and do not want it raised again.
+#
+# Schema
+# ------
+# exceptions:
+#   - rule: string          # lint rule id, one of:
+#                           #   terminology, heading-hierarchy, heading-case,
+#                           #   internal-link, external-link, orphan-page,
+#                           #   frontmatter, code-language, image-alt,
+#                           #   admonition-spacing
+#     scope: string         # glob of files the exception applies to.
+#                           #   "**" = whole repo, "docs/jobs/**" = a section,
+#                           #   "docs/jobs/state.md" = one page.
+#     match: string         # optional. Substring or regex the finding text must
+#                           # contain for the exception to apply (e.g. a heading
+#                           # text, a link URL, a term). Omit to suppress the whole
+#                           # rule within the scope.
+#     reason: string        # why the human rejected it. Required.
+#     added_by: string      # GitHub handle
+#     added_on: string      # ISO date (YYYY-MM-DD)
+#     source_pr: string     # PR URL or number where the rejection happened
+#
+# Example
+# -------
+# exceptions:
+#   - rule: heading-case
+#     scope: "docs/contribute/style-guide.md"
+#     match: "H1 - Create the best documentation"
+#     reason: The style guide intentionally shows every heading level.
+#     added_by: someone
+#     added_on: 2026-01-01
+#     source_pr: https://github.com/OpenFn/docs/pull/000
+
+exceptions: []
