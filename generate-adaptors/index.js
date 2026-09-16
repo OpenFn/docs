@@ -108,9 +108,43 @@ function escapeMdx(content) {
   return parts.join('');
 }
 
+// Rewrite bare function references like [http.get](http.get), which JSDoc
+// emits for @see/@deprecated tags, into same-page anchors (#http_get).
+// Docusaurus otherwise resolves them as relative paths and fails the build.
+function fixFunctionLinks(content) {
+  const anchors = new Set();
+  const anchorRegex = /\{#([\w-]+)\}/g;
+  let match;
+  while ((match = anchorRegex.exec(content))) {
+    anchors.add(match[1]);
+  }
+
+  const codeBlockRegex = /(```[\s\S]*?```|`[^`]*`)/g;
+  const parts = content.split(codeBlockRegex);
+
+  for (let i = 0; i < parts.length; i++) {
+    // odd indices are code blocks - leave them alone
+    if (i % 2 === 1) continue;
+
+    parts[i] = parts[i].replace(
+      /\[([^\]]+)\]\((?!https?:|\/|#|\.)([A-Za-z_$][\w$]*(?:\.[\w$]+)*)\)/g,
+      (link, text, target) => {
+        const id = target.replace(/\./g, '_');
+        // only link if the page actually defines that anchor, otherwise drop
+        // the link and keep the text so we never emit a broken link
+        return anchors.has(id) ? `[${text}](#${id})` : text;
+      }
+    );
+  }
+
+  return parts.join('');
+}
+
 function generateJsDoc(a) {
   // Add line break before </dt> tags and escape MDX specials outside code blocks
-  const docsContent = escapeMdx(JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>'));
+  const docsContent = escapeMdx(
+    fixFunctionLinks(JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>'))
+  );
 
   return `---
 title: ${a.name}@${a.version}
