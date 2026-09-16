@@ -3,10 +3,10 @@ sidebar_label: Unit Testing Jobs
 title: Writing unit tests for your jobs
 ---
 
-Most job code is glue: fetch some records, reshape them, send them somewhere
-else. But the reshaping bit often grows into real logic - parsing an SMS string
-into a structured record, mapping local codes onto DHIS2 data elements,
-normalising a dozen date formats into one.
+Most job code goes like this: fetch some records, reshape them, send them
+somewhere else. But the reshaping bit often grows into real logic - parsing an
+SMS string into a structured record, mapping local codes onto DHIS2 data
+elements, normalising a dozen date formats into one.
 
 That logic deserves tests. This guide shows you how to write them.
 
@@ -15,6 +15,19 @@ That logic deserves tests. This guide shows you how to write them.
 You need **`@openfn/cli` v1.39.0 or later**, which is when `openfn compile`
 gained the ability to write compiled job code to disk. Check your version with
 `openfn -v`, and upgrade with `npm install -g @openfn/cli`.
+
+You also need **an OpenFn project checked out locally**. `openfn compile` reads
+`openfn.yaml` to find your workflows, and that file is created when you pull a
+project down from an OpenFn instance - either app.openfn.org or your own
+Lightning server:
+
+```bash
+openfn project pull <uuid>
+```
+
+That gives you a folder with `openfn.yaml`, a `workflows/` directory, and one
+`.js` file per step. See [OpenFn Sync](/documentation/sync) for pulling,
+checking out and deploying projects.
 
 :::
 
@@ -46,7 +59,7 @@ that's done, your test runner can import them like any other JavaScript.
 
 Operations are stripped out during compilation, so there is nothing left to
 import. To exercise a whole step or workflow, run it with
-`openfn path/to/workflow.yaml -s input.json` and inspect the output state.
+`openfn <workflow-name> -s tmp/input.json` and inspect the output state.
 
 The trick, then, is to **move your logic out of operations and into functions**,
 and then test the functions.
@@ -131,23 +144,33 @@ Two things to note:
   stripping - which is any step that is only operations - are skipped entirely.
   See [Troubleshooting](#troubleshooting) below.
 
+:::warning Don't commit the generated `.mjs` files
+
+The CLI does not add a `.gitignore` for the compiled directory, so add one
+yourself before your first commit:
+
+```title=".gitignore"
+dist/
+```
+
+The `.mjs` files are build output, derived entirely from your `.js` steps.
+Tracking them gives you noisy diffs and merge conflicts on every edit, and lets
+`dist/` drift out of sync with `workflows/`. See
+[Gitignore the compiled output](#gitignore-the-compiled-output) for more.
+
+:::
+
 Other useful flags:
 
 ```bash
 # Write somewhere other than dist/
-openfn compile --exports-only -o build
+openfn compile --exports-only -o workflows
 
 # Wipe the output folder first
 openfn compile --exports-only --clean
 
 # Just one workflow, by name
 openfn compile sms-intake --exports-only
-
-# Print to stdout instead of writing files (handy for a quick look)
-openfn compile workflows/sms-intake/parse-message.js --exports-only -O
-
-# Compile a project in another directory
-openfn compile --exports-only --workspace ../other-project
 ```
 
 You can also set the output folder permanently in `openfn.yaml`:
@@ -155,7 +178,7 @@ You can also set the output folder permanently in `openfn.yaml`:
 ```yaml title="openfn.yaml"
 dirs:
   workflows: workflows
-  compiled: dist
+  compiled: workflows
 ```
 
 ## Step 3: Write a test
@@ -308,8 +331,15 @@ for `.cli-cache`, which is why you may expect otherwise.) Add it yourself:
 dist/
 ```
 
-Compiled output is derived from your source, so committing it just creates merge
-conflicts and lets `dist/` drift out of sync with `workflows/`.
+The generated `.mjs` files are build output: every one of them can be recreated
+from your `.js` steps with a single `openfn compile --exports-only`. Committing
+them means a second copy of every helper in the repo, a diff on every step edit,
+and merge conflicts in files nobody wrote by hand - plus the risk that a stale
+`dist/` gets reviewed as if it were source.
+
+If you compile to somewhere other than `dist/` - with `-o build`, or a different
+`dirs.compiled` in `openfn.yaml` - ignore that folder instead. Your `workflows/`
+folder and `openfn.yaml` are source, and should stay tracked.
 
 ### Install your adaptors as devDependencies
 
@@ -434,12 +464,6 @@ Option B is the better default. Pure functions that take data and return data
 are easier to test _and_ easier to reuse, and pushing adaptor calls out to the
 operations keeps that boundary clean.
 
-### `export default` is missing from the compiled file
-
-That's expected. In `--exports-only` mode the default export is removed, because
-it only exists so the runtime can find the list of operations to execute. It has
-nothing in it to unit test.
-
 ### My tests pass but the workflow still breaks
 
 Unit tests only cover the helpers. Operations, state shape, credentials and
@@ -447,8 +471,11 @@ adaptor behaviour are all outside their reach. Run the workflow with the CLI
 against realistic input to check those:
 
 ```bash
-openfn workflows/sms-intake/sms-intake.yaml -s fixture.json
+openfn sms-intake -s tmp/state.json -o tmp/output.json
 ```
+
+Because `openfn.yaml` already knows where your workflows live, you refer to a
+workflow by **name**, not by path.
 
 ## Full compilation
 
@@ -498,3 +525,5 @@ dirs:
 - [Best Practices](/documentation/jobs/best-practices) - writing job code that's
   worth testing
 - [CLI basic usage](/documentation/cli-usage) - running workflows locally
+- [OpenFn Sync](/documentation/sync) - pulling a project down so you have an
+  `openfn.yaml` to compile against
