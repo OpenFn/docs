@@ -290,13 +290,6 @@ its own sandbox, rather than sharing one long-lived `testing` sandbox across
 several people and several changes. Small, short-lived sandboxes are easier to
 review and much less likely to conflict when you merge.
 
-**Connect each sandbox to its own GitHub branch.** If you use
-[GitHub Sync](/documentation/link-to-GitHub), don't point a sandbox at your
-repo's default branch. Create a feature branch for the work and sync the sandbox
-to that branch instead. With the v2 sync format you need one two-way sync per
-branch anyway, because every project synced to a branch shares the same
-`workflows` folder.
-
 **Stack sandboxes when work depends on earlier work.** If a sandbox has to live
 for a while (waiting on a review or a release window, say) and you want to start
 something that builds on it, create a sandbox of that sandbox instead of merging
