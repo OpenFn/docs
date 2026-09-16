@@ -61,10 +61,10 @@ Operations will only work when they are at the top level of your job code:
 ```js
 get('/patients');
 each('$.data.patients[*]', state => {
-  item.id = `item-${index}`;
+  state.data.id = `item-${state.index}`;
   return state;
 });
-post('/patients', dataValue('patients'));
+post('/patients', state => state.data.patients);
 ```
 
 OpenFn calls your operations in series during workflow execution, ensuring the
@@ -74,13 +74,14 @@ If you try to nest an operation inside the callback of another operation, it
 will fail:
 
 ```js
-get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
+get('/patients', { headers: { 'content-type': 'application/json' } }).then(state => {
   // This will fail because it is nested in a callback
   each('$.data.patients[*]', (item, index) => {
     item.id = `item-${index}`;
   });
+  return state;
 });
-post('/patients', dataValue('patients'));
+post('/patients', state => state.data.patients);
 ```
 
 This is because an operation is a "factory" function — when executed, it returns
@@ -93,12 +94,13 @@ If you ever absolutely need a nested operation, you can immediately invoke it
 and pass state in directly — but this is an anti-pattern and should be avoided:
 
 ```js
-get('/patients', { headers: { 'content-type': 'application/json' } }, state => {
+get('/patients', { headers: { 'content-type': 'application/json' } }).then(state => {
   each('$.data.patients[*]', (item, index) => {
     item.id = `item-${index}`;
   })(state); // anti-pattern: immediately invoke and pass state
+  return state;
 });
-post('/patients', dataValue('patients'));
+post('/patients', state => state.data.patients);
 ```
 
 ## Reading state lazily
@@ -133,9 +135,9 @@ correct OpenFn jobs. See also the
 
 :::caution
 
-As of July 2024, callbacks are going to be phased out of the adaptor APIs. See
-[Promise-like Operations](#promise-like-operations) for tips on how to use
-callbacks with adaptors APIs that don't explicitly support them.
+As of July 2024, callbacks have been deprecated from adaptor APIs. Use
+[`.then()`](#callback-with-then) instead — it works on every operation and
+provides the same functionality.
 
 :::
 
@@ -233,10 +235,10 @@ fn(state => {
 });
 ```
 
-But you can also use a callback function, which is usually a bit neater:
+But you can also use `.then()`, which is usually a bit neater:
 
 ```js
-get('/data', {}, state => {
+get('/data').then(state => {
   state.data = state.data.filter(/* ... */);
   return state;
 });

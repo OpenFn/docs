@@ -147,7 +147,7 @@ The input state will look something like this:
   },
   request: {
     method: "POST",
-    path: ['i', 'your-webhook-url-uuid'] // an ordered array with optional additional paths
+    path: ['i', 'your-webhook-url-uuid'], // an ordered array with optional additional paths
     headers: { "content-type": "application/json" }, // an object containing the headers of the request
     query_params: {} // an object containig any query parameters
   },

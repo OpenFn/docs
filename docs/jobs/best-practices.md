@@ -11,13 +11,14 @@ password from your `state.configuration` (or "credential" if using the app) into
 http request body.
 
 ```js
-post('/api/v1/auth/login', {
-  body: {
+post(
+  '/api/v1/auth/login',
+  {
     username: $.configuration.username, //map the UN from credential
     password: $.configuration.password, //map the PW from credential
   },
-  headers: { 'content-type': 'application/json' },
-});
+  { headers: { 'content-type': 'application/json' } }
+);
 ```
 
 > **Note:** While most adaptors handles authentication automatically, The
