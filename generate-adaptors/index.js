@@ -87,64 +87,119 @@ function pushToPaths(name) {
   });
 }
 
+const CODE_BLOCK_REGEX = /(```[\s\S]*?```|`[^`]*`)/g;
+
+// A link whose target is a bare identifier, eg [http.get](http.get)
+const BARE_LINK_REGEX =
+  /\[([^\]]+)\]\((?!https?:|\/|#|\.)([A-Za-z_$][\w$]*(?:\.[\w$]+)*)\)/g;
+
+// Even indices are prose, odd indices are code
+function splitCodeBlocks(content) {
+  return content.split(CODE_BLOCK_REGEX);
+}
+
+// Blank out code while preserving newlines, so a scan of the masked copy keeps
+// `^` anchored to real line starts - splitting alone does not guarantee that
+function maskCodeBlocks(content) {
+  return content.replace(CODE_BLOCK_REGEX, match =>
+    match.replace(/[^\n]/g, ' ')
+  );
+}
+
+// Approximates the id Docusaurus derives from a heading with no explicit {#id}
+function slugify(text) {
+  return text
+    .trim()
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+// Plain headings count too - `### get` really does render as id="get". Braces
+// arrive escaped or not depending on whether escapeMdx has run, so allow both.
+function collectAnchors(content) {
+  const masked = maskCodeBlocks(content);
+  const anchors = new Set();
+  let match;
+
+  const explicitRegex = /\\?\{#([\w-]+)\\?\}/g;
+  while ((match = explicitRegex.exec(masked))) {
+    anchors.add(match[1]);
+  }
+
+  const headingRegex = /^#{1,6}\s+(.+)$/gm;
+  while ((match = headingRegex.exec(masked))) {
+    const heading = match[1].trim();
+    if (!/\\?\{#[\w-]+\\?\}/.test(heading)) {
+      anchors.add(slugify(heading));
+    }
+  }
+
+  return anchors;
+}
+
 // Escape characters that MDX would parse as JSX outside of code blocks
 function escapeMdx(content) {
-  // Split content by code blocks (both inline ` and multi-line ```)
-  const codeBlockRegex = /(```[\s\S]*?```|`[^`]*`)/g;
-  const parts = content.split(codeBlockRegex);
+  const parts = splitCodeBlocks(content);
 
-  // Escape only in non-code parts (odd indices are code blocks)
-  for (let i = 0; i < parts.length; i++) {
-    if (i % 2 === 0) {
-      parts[i] = parts[i]
-        .replace(/{/g, '\\{')
-        .replace(/}/g, '\\}')
-        // Escape < unless it can start a JSX tag (letter, /, $, _) or an
-        // HTML comment (<!--)
-        .replace(/<(?![A-Za-z/$_!])/g, '\\<');
-    }
+  for (let i = 0; i < parts.length; i += 2) {
+    parts[i] = parts[i]
+      .replace(/{/g, '\\{')
+      .replace(/}/g, '\\}')
+      // Escape < unless it can start a JSX tag (letter, /, $, _) or an
+      // HTML comment (<!--)
+      .replace(/<(?![A-Za-z/$_!])/g, '\\<');
   }
 
   return parts.join('');
 }
 
-// Rewrite bare function references like [http.get](http.get), which JSDoc
-// emits for @see/@deprecated tags, into same-page anchors (#http_get).
-// Docusaurus otherwise resolves them as relative paths and fails the build.
-function fixFunctionLinks(content) {
-  const anchors = new Set();
-  const anchorRegex = /\{#([\w-]+)\}/g;
-  let match;
-  while ((match = anchorRegex.exec(content))) {
-    anchors.add(match[1]);
-  }
+// JSDoc emits bare references like [http.get](http.get), which Docusaurus
+// resolves as relative paths and fails the build on. Rewrite them as anchors.
+function fixFunctionLinks(content, name = 'adaptor') {
+  const anchors = collectAnchors(content);
+  const parts = splitCodeBlocks(content);
 
-  const codeBlockRegex = /(```[\s\S]*?```|`[^`]*`)/g;
-  const parts = content.split(codeBlockRegex);
+  for (let i = 0; i < parts.length; i += 2) {
+    parts[i] = parts[i].replace(BARE_LINK_REGEX, (_match, text, target) => {
+      // namespaced functions get an explicit {#http_get}, plain ones a slug
+      const candidates = [target.replace(/\./g, '_'), slugify(target)];
+      const id = candidates.find(candidate => anchors.has(candidate));
 
-  for (let i = 0; i < parts.length; i++) {
-    // odd indices are code blocks - leave them alone
-    if (i % 2 === 1) continue;
-
-    parts[i] = parts[i].replace(
-      /\[([^\]]+)\]\((?!https?:|\/|#|\.)([A-Za-z_$][\w$]*(?:\.[\w$]+)*)\)/g,
-      (link, text, target) => {
-        const id = target.replace(/\./g, '_');
-        // only link if the page actually defines that anchor, otherwise drop
-        // the link and keep the text so we never emit a broken link
-        return anchors.has(id) ? `[${text}](#${id})` : text;
+      if (id) {
+        return `[${text}](#${id})`;
       }
-    );
+
+      console.warn(
+        `  ! ${name}: no anchor for [${text}](${target}), dropping the link`
+      );
+      return text;
+    });
   }
 
   return parts.join('');
+}
+
+// An unbalanced backtick can throw off the code block split and let a link
+// through. Warn here rather than fail the build later with an opaque error.
+function warnOnBareLinks(content, name) {
+  const survivors = maskCodeBlocks(content).match(BARE_LINK_REGEX);
+
+  if (survivors) {
+    console.warn(
+      `  ! ${name}: ${survivors.length} unresolved link(s) will break the build: ${survivors.join(', ')}`
+    );
+  }
 }
 
 function generateJsDoc(a) {
   // Add line break before </dt> tags and escape MDX specials outside code blocks
   const docsContent = escapeMdx(
-    fixFunctionLinks(JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>'))
+    fixFunctionLinks(JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>'), a.name)
   );
+
+  warnOnBareLinks(docsContent, a.name);
 
   return `---
 title: ${a.name}@${a.version}
@@ -379,3 +434,9 @@ Make sure OPENFN_ADAPTORS_REPO is set in your env`);
     },
   };
 };
+
+// exported for unit tests
+module.exports.escapeMdx = escapeMdx;
+module.exports.collectAnchors = collectAnchors;
+module.exports.fixFunctionLinks = fixFunctionLinks;
+module.exports.slugify = slugify;
