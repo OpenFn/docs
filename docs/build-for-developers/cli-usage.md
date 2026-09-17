@@ -4,7 +4,8 @@ sidebar_label: Basic usage
 slug: /cli-usage
 ---
 
-This page shows examples for some of the most common usages of the CLI, including:
+This page shows examples for some of the most common usages of the CLI,
+including:
 
 - get help
 - run a job
@@ -12,6 +13,7 @@ This page shows examples for some of the most common usages of the CLI, includin
 - adjust logging level
 - maintain adaptors repo
 - run a workflow
+- compile job code for unit testing
 - load adaptor documentation
 
 ---
@@ -30,7 +32,8 @@ openfn deploy --help
 
 ### Run a job
 
-To run a single job, you must explicitly specify which adaptor to use - see the [publicly available adaptors](/adaptors).
+To run a single job, you must explicitly specify which adaptor to use - see the
+[publicly available adaptors](/adaptors).
 
 Adaptors are automatically installed if the specified version is not detected.
 
@@ -219,6 +222,77 @@ openfn path/to/workflow.json -o tmp/output.json
 
 Check out this detailed [tutorial](cli-walkthrough#7-running-workflows) on
 running workflows via the CLI.
+
+---
+
+### Compile job code for unit testing
+
+So you want to write unit tests against your job code? Start here.
+
+#### What "unit testing a job" means
+
+A job is made of two different kinds of code, and only one of them is unit
+testable:
+
+- **Pure JavaScript functions you write and export** - `parseSms`,
+  `toFhirPatient`, a date normaliser. These take input and return output. You
+  **can** unit test these.
+- **Operations** - `fn`, `get`, `each`, `create` and the rest of the adaptor
+  API. These need a runtime, a state object and often a live connection. You
+  **cannot** unit test these.
+
+So unit testing a job does not mean running the job. It means pulling the logic
+out of your operations into named, exported functions, and testing those
+functions on their own. To exercise a whole step or workflow, run it with the
+CLI instead (`openfn <workflow-name> -s tmp/input.json`) and inspect the output
+state.
+
+#### How it works
+
+1. **Compile your project** using `openfn compile`. This compiles your workflows and writes them out as ordinary ES modules.
+2. **Import the compiled functions** into your test file, just like any other native JS module.
+3. **Write tests as usual** against those pure functions.
+
+Compilation is what makes this possible: a job expression is not valid
+JavaScript on its own, so it can't be imported by a test runner until it has
+been compiled. See [Compilation](/documentation/jobs/compilation) for why.
+
+**Compile every workflow in the project, keeping only exported declarations:**
+
+```bash
+openfn compile --exports-only
+```
+
+Compiled files are written to `dist/` as `.mjs`, mirroring your workflow
+folders. Operations are stripped out entirely, so what's left is only the helper
+functions you exported - which is exactly the part you can test. Anything you
+don't export is dropped too, so export every helper you want a test to reach.
+
+**Compile a single workflow by name:**
+
+```bash
+openfn compile my-workflow --exports-only
+```
+
+**Print the compiled output instead of writing files:**
+
+```bash
+openfn compile path/to/job.js -a http -O
+```
+
+**Recompile whenever a job code changes:**
+
+```bash
+openfn compile --exports-only --watch
+```
+
+Without `--exports-only` you get the full compiled output - every step, adaptor
+imports resolved, and operations kept in `export default [...]`. That's what the
+runtime executes, and it's useful for debugging compilation.
+
+Requires `@openfn/cli` v1.39.0 or later. See
+[Writing unit tests for your jobs](/documentation/jobs/unit-testing-jobs) for
+the full guide.
 
 ---
 
