@@ -4,7 +4,7 @@ title: Writing unit tests for your jobs
 ---
 
 Most job code goes like this: fetch some records, reshape them, send them
-somewhere else. But the reshaping bit often grows into real logic - parsing an
+somewhere else. But the reshaping bit often grows into complex logic - parsing an
 SMS string into a structured record, mapping local codes onto DHIS2 data
 elements, normalising a dozen date formats into one.
 

@@ -57,7 +57,7 @@ Workflow [Design Process docs](/documentation/design/design-overview).
 
 As your jobs grow, you'll start writing helper functions inside them - parsing,
 mapping, reformatting. Those helpers can be unit tested like any other
-JavaScript: export them, compile your project with the CLI, and point a test
+JavaScript: export them at top level, compile your project with the CLI, and point a test
 runner at the output. See
 [Writing unit tests for your jobs](/documentation/jobs/unit-testing-jobs).
 

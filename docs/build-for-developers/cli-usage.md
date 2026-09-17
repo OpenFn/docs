@@ -227,8 +227,17 @@ running workflows via the CLI.
 
 ### Compile job code for unit testing
 
-Job expressions aren't valid JavaScript, so you can't import them straight into
-a test runner. `openfn compile` writes them out as ordinary ES modules.
+Want to write unit tests against your job code? You can — as long as you're testing pure functions.
+
+#### How it works
+
+1. **Compile your project** using `openfn compile`. This compiles your workflows and writes them out as ordinary ES modules.
+2. **Import the compiled functions** into your test file, just like any other native JS module.
+3. **Write tests as usual** against those pure functions.
+
+#### Why this works
+
+Since pure functions have no side effects or hidden dependencies, they behave predictably once compiled to plain JS — making them straightforward to import and test with your normal testing tools.
 
 **Compile every workflow in the project, keeping only exported declarations:**
 
@@ -252,7 +261,7 @@ openfn compile my-workflow --exports-only
 openfn compile path/to/job.js -a http -O
 ```
 
-**Recompile whenever a source file changes:**
+**Recompile whenever a job code changes:**
 
 ```bash
 openfn compile --exports-only --watch
