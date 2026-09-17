@@ -227,7 +227,25 @@ running workflows via the CLI.
 
 ### Compile job code for unit testing
 
-Want to write unit tests against your job code? You can — as long as you're testing pure functions.
+So you want to write unit tests against your job code? Start here.
+
+#### What "unit testing a job" means
+
+A job is made of two different kinds of code, and only one of them is unit
+testable:
+
+- **Pure JavaScript functions you write and export** - `parseSms`,
+  `toFhirPatient`, a date normaliser. These take input and return output. You
+  **can** unit test these.
+- **Operations** - `fn`, `get`, `each`, `create` and the rest of the adaptor
+  API. These need a runtime, a state object and often a live connection. You
+  **cannot** unit test these.
+
+So unit testing a job does not mean running the job. It means pulling the logic
+out of your operations into named, exported functions, and testing those
+functions on their own. To exercise a whole step or workflow, run it with the
+CLI instead (`openfn <workflow-name> -s tmp/input.json`) and inspect the output
+state.
 
 #### How it works
 
@@ -235,9 +253,9 @@ Want to write unit tests against your job code? You can — as long as you're te
 2. **Import the compiled functions** into your test file, just like any other native JS module.
 3. **Write tests as usual** against those pure functions.
 
-#### Why this works
-
-Since pure functions have no side effects or hidden dependencies, they behave predictably once compiled to plain JS — making them straightforward to import and test with your normal testing tools.
+Compilation is what makes this possible: a job expression is not valid
+JavaScript on its own, so it can't be imported by a test runner until it has
+been compiled. See [Compilation](/documentation/jobs/compilation) for why.
 
 **Compile every workflow in the project, keeping only exported declarations:**
 
@@ -246,8 +264,9 @@ openfn compile --exports-only
 ```
 
 Compiled files are written to `dist/` as `.mjs`, mirroring your workflow
-folders. Operations (`fn`, `get`, `each`) are stripped, so what's left is the
-helper functions you exported - ready to import into a test.
+folders. Operations are stripped out entirely, so what's left is only the helper
+functions you exported - which is exactly the part you can test. Anything you
+don't export is dropped too, so export every helper you want a test to reach.
 
 **Compile a single workflow by name:**
 
