@@ -19,7 +19,9 @@ decision-making into action and automated execution.
 
 :::
 
-<img src="/img/ai-assistant.webp" width="427" />
+<p align="center">
+  <img src="/img/ai-assistant.webp" width="427" />
+</p>
 
 :::caution Assistant Unavailable? Can't find it?
 
