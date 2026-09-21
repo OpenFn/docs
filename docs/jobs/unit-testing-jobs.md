@@ -4,22 +4,20 @@ title: Writing unit tests for your jobs
 ---
 
 Most job code goes like this: fetch some records, reshape them, send them
-somewhere else. But the reshaping bit often grows into complex logic - parsing an
-SMS string into a structured record, mapping local codes onto DHIS2 data
+somewhere else. But the reshaping bit often grows into complex logic - parsing
+an SMS string into a structured record, mapping local codes onto DHIS2 data
 elements, normalising a dozen date formats into one.
 
-That logic deserves tests. This guide shows you how to write them.
+Unit testing that logic helps to validate that the code runs correctly, and
+helps to prevent errors occurring when the code is modified later.
 
 :::info Requirements
 
-You need **`@openfn/cli` v1.39.0 or later**, which is when `openfn compile`
-gained the ability to write compiled job code to disk. Check your version with
-`openfn -v`, and upgrade with `npm install -g @openfn/cli`.
+You need `@openfn/cli` v1.39.0 or later to compile your job code for testing.
+Check your version with `openfn -v`, and upgrade with
+`npm install -g @openfn/cli`.
 
-You also need **an OpenFn project checked out locally**. `openfn compile` reads
-`openfn.yaml` to find your workflows, and that file is created when you pull a
-project down from an OpenFn instance - either app.openfn.org or your own
-Lightning server:
+You also need an OpenFn project checked out locally:
 
 ```bash
 openfn project pull <uuid>
@@ -33,7 +31,8 @@ checking out and deploying projects.
 
 ## Why you need to compile first
 
-Job expressions are not valid JavaScript. A step like this:
+Job expressions are not valid JavaScript. A step like this can't be imported
+into a test runner:
 
 ```js
 export const parseSms = text => text.split('#');
@@ -41,9 +40,9 @@ export const parseSms = text => text.split('#');
 fn(state => ({ ...state, data: state.data.map(parseSms) }));
 ```
 
-...can't be imported into a test runner. There is no `import` for `fn`, and the
-bare `fn(...)` call at the top level would execute on import even if there were.
-See [Compilation](/documentation/jobs/compilation) for the full explanation.
+There is no `import` for `fn`, and the bare `fn(...)` call at the top level
+would execute on import even if there were. See
+[Compilation](/documentation/jobs/compilation) for the full explanation.
 
 `openfn compile` turns job expressions into ordinary ES modules on disk. Once
 that's done, your test runner can import them like any other JavaScript.
@@ -53,7 +52,7 @@ that's done, your test runner can import them like any other JavaScript.
 |                                                        | Unit testable?                              |
 | ------------------------------------------------------ | ------------------------------------------- |
 | Pure helper functions you wrote (`parseSms`, `toFhir`) | **Yes** - this is what this guide covers    |
-| Operations (`fn`, `get`, `each`, `create`)             | No - they need a runtime and a state object |
+| Operations (`fn`, `http.get`, `each`)                  | No - they need a runtime and a state object |
 | A whole step, end to end                               | No - run it with the CLI instead            |
 | A whole workflow                                       | No - run it with the CLI instead            |
 
@@ -61,8 +60,8 @@ Operations are stripped out during compilation, so there is nothing left to
 import. To exercise a whole step or workflow, run it with
 `openfn <workflow-name> -s tmp/input.json` and inspect the output state.
 
-The trick, then, is to **move your logic out of operations and into functions**,
-and then test the functions.
+The trick, then, is to move your logic out of operations and into functions, and
+then test the functions.
 
 ## Step 1: Export any helper you want to test
 
