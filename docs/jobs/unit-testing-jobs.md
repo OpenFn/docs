@@ -31,39 +31,6 @@ checking out and deploying projects.
 
 :::
 
-<!-- ## Why you need to compile first
-
-Job expressions are not valid JavaScript. A step like this can't be imported
-into a test runner:
-
-```js
-export const parseSms = text => text.split('#');
-
-fn(state => ({ ...state, data: state.data.map(parseSms) }));
-```
-
-There is no `import` for `fn`, and the bare `fn(...)` call at the top level
-would execute on import even if there were. See
-[Compilation](/documentation/jobs/compilation) for the full explanation.
-
-`openfn compile` turns job expressions into ordinary ES modules on disk. Once
-that's done, your test runner can import them like any other JavaScript.
-
-## What you can and can't unit test
-
-|                                                        | Unit testable?                              |
-| ------------------------------------------------------ | ------------------------------------------- |
-| Pure helper functions you wrote (`parseSms`, `toFhir`) | **Yes** - this is what this guide covers    |
-| Operations (`fn`, `http.get`, `each`)                  | No - they need a runtime and a state object |
-| A whole step, end to end                               | No - run it with the CLI instead            |
-| A whole workflow                                       | No - run it with the CLI instead            |
-
-Operations are stripped out during compilation, so there is nothing left to
-import. To exercise a whole step or workflow, run it with
-`openfn <workflow-name> -s tmp/input.json` and inspect the output state.
-
-The trick, then, is to move your logic out of operations and into functions, and
-then test the functions. -->
 
 ## Step 1: Export any helper you want to test
 
