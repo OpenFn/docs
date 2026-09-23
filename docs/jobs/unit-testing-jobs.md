@@ -2,10 +2,12 @@
 sidebar_label: Unit Testing Jobs
 title: Writing unit tests for your jobs
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 Most job code goes like this: fetch some records, reshape them, send them
 somewhere else. But the reshaping bit often grows into complex logic - parsing
-an SMS string into a structured record, mapping local codes onto DHIS2 data
+a string into a structured record, mapping local codes onto DHIS2 data
 elements, normalising a dozen date formats into one.
 
 Unit testing that logic helps to validate that the code runs correctly, and
@@ -29,7 +31,7 @@ checking out and deploying projects.
 
 :::
 
-## Why you need to compile first
+<!-- ## Why you need to compile first
 
 Job expressions are not valid JavaScript. A step like this can't be imported
 into a test runner:
@@ -61,28 +63,12 @@ import. To exercise a whole step or workflow, run it with
 `openfn <workflow-name> -s tmp/input.json` and inspect the output state.
 
 The trick, then, is to move your logic out of operations and into functions, and
-then test the functions.
+then test the functions. -->
 
 ## Step 1: Export any helper you want to test
 
-This is the most important thing on this page.
-
-When you compile with `--exports-only`, the compiler keeps **only exported
-declarations**. Everything else - operations, plain `const`s, plain
-`function`s - is dropped.
-
-So a helper you want to test must be exported:
-
-```js title="Before - not testable"
-const FIELDS = ['id', 'name', 'dob'];
-
-const parseSms = text =>
-  Object.fromEntries(FIELDS.map((f, i) => [f, text.split('#')[i]]));
-
-fn(state => ({ ...state, data: state.data.messages.map(parseSms) }));
-```
-
-```js title="After - testable"
+The functions that you want to test must be exported:
+```js title="testable code"
 export const FIELDS = ['id', 'name', 'dob'];
 
 export const parseSms = text =>
@@ -90,25 +76,6 @@ export const parseSms = text =>
 
 fn(state => ({ ...state, data: state.data.messages.map(parseSms) }));
 ```
-
-The job runs identically either way - `export` is a no-op at runtime. It only
-changes what survives compilation.
-
-:::warning Export the things your helpers depend on, too
-
-Stripping is per-declaration, not "everything `parseSms` touches". If you export
-`parseSms` but leave `const FIELDS` unexported, `FIELDS` is dropped and your
-test fails at call time with:
-
-```
-ReferenceError: FIELDS is not defined
-```
-
-This is easy to miss because the compile step succeeds and the import succeeds.
-If a helper references a module-level constant, export that constant as well.
-
-:::
-
 ## Step 2: Compile your workflows
 
 From your project root (the folder with `openfn.yaml`):
@@ -125,12 +92,12 @@ Compiled files land in `dist/`, mirroring your workflow structure:
 
 ```
 workflows/
-  sms-intake/
-    sms-intake.yaml
+  sms-parser/
+    sms-parser.yaml
     parse-message.js      # source
     upload.js
 dist/
-  sms-intake/
+  sms-parser/
     parse-message.mjs     # compiled
 ```
 
@@ -169,7 +136,7 @@ openfn compile --exports-only -o workflows
 openfn compile --exports-only --clean
 
 # Just one workflow, by name
-openfn compile sms-intake --exports-only
+openfn compile sms-parser --exports-only
 ```
 
 You can also set the output folder permanently in `openfn.yaml`:
@@ -182,93 +149,8 @@ dirs:
 
 ## Step 3: Write a test
 
-Here's the whole loop, end to end.
-
-### The source
-
-```js title="workflows/sms-intake/parse-message.js"
-export const FIELDS = ['id', 'name', 'dob', 'weight'];
-
-export const parseSms = text => {
-  const parts = text.trim().split('#');
-  return FIELDS.reduce((record, field, i) => {
-    record[field] = parts[i]?.trim() ?? null;
-    return record;
-  }, {});
-};
-
-fn(state => ({
-  ...state,
-  data: state.data.messages.map(parseSms),
-}));
-```
-
-### The compiled output
-
-After `openfn compile --exports-only`:
-
-```js title="dist/sms-intake/parse-message.mjs"
-export const FIELDS = ['id', 'name', 'dob', 'weight'];
-
-export const parseSms = text => {
-  const parts = text.trim().split('#');
-  return FIELDS.reduce((record, field, i) => {
-    record[field] = parts[i]?.trim() ?? null;
-    return record;
-  }, {});
-};
-```
-
-The `fn(...)` operation is gone. Both exports survived.
-
-### The test
-
-Note the import path: it points at `dist/`, **not** at your source file.
-
-```js title="test/parse-message.test.mjs"
-import { test } from 'node:test';
-import assert from 'node:assert/strict';
-
-import { parseSms } from '../dist/sms-intake/parse-message.mjs';
-
-test('parses a well-formed message into a record', () => {
-  assert.deepEqual(parseSms('P-001#Ada Lovelace#1815-12-10#3.2'), {
-    id: 'P-001',
-    name: 'Ada Lovelace',
-    dob: '1815-12-10',
-    weight: '3.2',
-  });
-});
-
-test('trims whitespace around each field', () => {
-  const record = parseSms('  P-002 # Grace Hopper #1906-12-09#3.5  ');
-  assert.equal(record.id, 'P-002');
-  assert.equal(record.name, 'Grace Hopper');
-});
-
-test('fills missing trailing fields with null', () => {
-  assert.equal(parseSms('P-003#Alan Turing').dob, null);
-});
-```
-
-### Run it
-
-```bash
-openfn compile --exports-only && node --test
-```
-
-```
-✔ parses a well-formed message into a record (0.9ms)
-✔ trims whitespace around each field (0.1ms)
-✔ fills missing trailing fields with null (0.1ms)
-ℹ tests 3
-ℹ pass 3
-ℹ fail 0
-```
-
-We use Node's built-in test runner here because it needs no dependencies, but
-nothing about this is Node-specific. Vitest, Jest, Mocha, `node:test` - any
-runner that can import an ES module will work.
+We recommend Node's built-in test runner here because it needs no dependencies, but
+nothing about this is Node-specific. You can use any test runner that can import an ES module.
 
 :::tip Name your test files `.test.mjs`
 
@@ -278,6 +160,79 @@ Node will warn about reparsing them as ES modules. Naming them `.test.mjs`
 avoids the warning without touching your `package.json`.
 
 :::
+<Tabs groupId="write-a-test">
+  <TabItem value="source" label="The job code">
+    ```js title="workflows/sms-parser/parse-message.js"
+    export const FIELDS = ['id', 'name', 'dob', 'weight'];
+
+    export const parseSms = text => {
+      const parts = text.trim().split('#');
+      return FIELDS.reduce((record, field, i) => {
+        record[field] = parts[i]?.trim() ?? null;
+        return record;
+      }, {});
+    };
+
+    fn(state => ({
+      ...state,
+      data: state.data.messages.map(parseSms),
+    }));
+    ```
+  </TabItem>
+  <TabItem value="output" label="The compiled output">
+  
+    After `openfn compile --exports-only`:
+
+    ```js title="dist/sms-parser/parse-message.mjs"
+    export const FIELDS = ['id', 'name', 'dob', 'weight'];
+
+    export const parseSms = text => {
+      const parts = text.trim().split('#');
+      return FIELDS.reduce((record, field, i) => {
+        record[field] = parts[i]?.trim() ?? null;
+        return record;
+      }, {});
+    };
+    ```
+    The `fn(...)` operation is gone. Both exports survived.
+  </TabItem>
+  <TabItem value="test" label="The test">
+    Note the import path: it points at `dist/`, **not** at your source file.
+
+    ```js title="test/parse-message.test.mjs"
+    import { test } from 'node:test';
+    import assert from 'node:assert/strict';
+
+    import { parseSms } from '../dist/sms-parser/parse-message.mjs';
+
+    test('parses a well-formed message into a record', () => {
+      assert.deepEqual(parseSms('P-001#Ada Lovelace#1815-12-10#3.2'), {
+        id: 'P-001',
+        name: 'Ada Lovelace',
+        dob: '1815-12-10',
+        weight: '3.2',
+      });
+    });
+    ```
+  </TabItem>
+</Tabs>
+
+
+### Running the test
+
+```bash
+openfn compile --exports-only && node --test
+```
+
+```
+✔ parses a well-formed message into a record (0.9ms)
+✔ trims whitespace around each field (0.1ms)
+✔ fills missing trailing fields with null (0.1ms)
+ℹ tests 1
+ℹ pass 1
+ℹ fail 0
+```
+
 
 ## Step 4: The edit → test loop
 
@@ -470,7 +425,7 @@ adaptor behaviour are all outside their reach. Run the workflow with the CLI
 against realistic input to check those:
 
 ```bash
-openfn sms-intake -s tmp/state.json -o tmp/output.json
+openfn sms-parser -s tmp/state.json -o tmp/output.json
 ```
 
 Because `openfn.yaml` already knows where your workflows live, you refer to a
@@ -483,7 +438,7 @@ writes the **full** compiled output for **every** step - all declarations are
 kept, adaptor imports are added automatically, and operations are preserved in a
 default export:
 
-```js title="dist/sms-intake/upload.mjs"
+```js title="dist/sms-parser/upload.mjs"
 import { post } from '@openfn/language-http';
 export * from '@openfn/language-http';
 export default [post('/patients', { body: state.data })];
