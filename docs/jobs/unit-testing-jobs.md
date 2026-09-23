@@ -225,7 +225,8 @@ Add scripts to your project's `package.json`:
 ```json title="package.json"
 {
   "devDependencies": {
-    "@openfn/cli": "^1.39.0"
+    // specific adaptor version if needed
+    // eg: @openfn/language-common: 3.0.0
   },
   "scripts": {
     "compile": "openfn compile --exports-only",
@@ -290,113 +291,6 @@ jobs:
 
 `npm test` runs `compile` first, so the tests always run against fresh output.
 
-## Troubleshooting
-
-### My helper isn't in the compiled file
-
-It wasn't exported. In `--exports-only` mode, non-exported declarations are
-always dropped - there is no warning, the declaration simply isn't there.
-
-Add `export` to the declaration and recompile.
-
-### `ReferenceError: X is not defined` when my test calls a helper
-
-The helper was exported but something it depends on wasn't. Stripping happens
-declaration by declaration, so a module-level `const` or `function` your helper
-closes over is dropped unless it is _also_ exported.
-
-Export it too.
-
-### No file was written for my step
-
-Steps whose compiled output is empty after stripping are skipped, so no `.mjs`
-file is created. Importing it fails with a module-not-found error rather than
-anything that explains why:
-
-```
-Error [ERR_MODULE_NOT_FOUND]: Cannot find module '.../dist/my-workflow/upload.mjs'
-```
-
-This is expected for steps that are only operations - there's nothing in them to
-unit test. Check the compile output: `Compiled 1 step(s)` when you have three
-steps tells you two were skipped.
-
-### My test fails with `Cannot find package '@openfn/language-...'` {#adaptor-imports}
-
-Adaptor imports are **preserved** in compiled output. A step containing:
-
-```js
-import { dateFns } from '@openfn/language-common';
-
-export const formatDate = date => dateFns.format(new Date(date), 'yyyy-MM-dd');
-```
-
-compiles to a file that still starts with that import. When your test imports
-it, Node has to resolve `@openfn/language-common` - and the CLI's own adaptor
-repo isn't on your project's module path. So you get:
-
-```
-Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@openfn/language-common'
-```
-
-There are two ways to fix this. Pick based on whether the helper actually needs
-the adaptor.
-
-**Option A - install the adaptor as a devDependency.** Correct when the helper
-genuinely uses adaptor code:
-
-```bash
-npm install --save-dev @openfn/language-common@3.3.4
-```
-
-Match the version to the one pinned in your `workflow.yaml` so your tests
-exercise the same code the runtime will.
-
-**Option B - keep testable helpers free of adaptor imports.** Often the helper
-doesn't need the adaptor at all, and the import is only there for the
-operations. Operations are stripped, so if you don't write an explicit import,
-the compiled file has no adaptor dependency and the test runs with nothing
-installed:
-
-```js title="workflows/wf/transform.js"
-export const toDhis2Payload = row => ({
-  dataElement: row.element,
-  value: String(row.value),
-  period: row.date.replaceAll('-', '').slice(0, 6),
-});
-
-each(
-  '$.data[*]',
-  create('dataValueSets', state => toDhis2Payload(state.data))
-);
-```
-
-compiles to just the function - no imports, no adaptor needed to test it:
-
-```js title="dist/wf/transform.mjs"
-export const toDhis2Payload = row => ({
-  dataElement: row.element,
-  value: String(row.value),
-  period: row.date.replaceAll('-', '').slice(0, 6),
-});
-```
-
-Option B is the better default. Pure functions that take data and return data
-are easier to test _and_ easier to reuse, and pushing adaptor calls out to the
-operations keeps that boundary clean.
-
-### My tests pass but the workflow still breaks
-
-Unit tests only cover the helpers. Operations, state shape, credentials and
-adaptor behaviour are all outside their reach. Run the workflow with the CLI
-against realistic input to check those:
-
-```bash
-openfn sms-parser -s tmp/state.json -o tmp/output.json
-```
-
-Because `openfn.yaml` already knows where your workflows live, you refer to a
-workflow by **name**, not by path.
 
 ## Full compilation
 
@@ -418,17 +312,6 @@ in the adaptor and evaluates the operations. Use `--exports-only` for tests.
 ## Reference
 
 ### `openfn compile` flags
-
-| Flag                    | Description                                                                                                                                    |
-| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--exports-only`        | Strip operation calls and keep only exported declarations. Use this for testing                                                                |
-| `-o`, `--output-path`   | Write to this path instead of the default output folder                                                                                        |
-| `-O`, `--output-stdout` | Print to stdout instead of writing files                                                                                                       |
-| `-w`, `--watch`         | Recompile whenever a source file changes                                                                                                       |
-| `--clean`               | Remove the output folder before compiling                                                                                                      |
-| `--workspace`           | Path to the project root (the folder containing `openfn.yaml`)                                                                                 |
-| `-a`, `--adaptor`       | Adaptor to resolve operation imports against when compiling a single `.js` file. Not needed with `--exports-only`, which strips the operations |
-
 Run `openfn compile --help` for the complete list.
 
 ### `openfn.yaml` keys
@@ -439,7 +322,7 @@ dirs:
   compiled: dist # where openfn compile writes output
 ```
 
-## Next steps
+## Related pages
 
 - [Compilation](/documentation/jobs/compilation) - what the compiler does and
   why
