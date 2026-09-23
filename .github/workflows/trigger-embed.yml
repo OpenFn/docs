@@ -1,4 +1,4 @@
-name: Trigger Embed Service
+name: Embed docsite
 
 on:
   push:
@@ -9,10 +9,13 @@ jobs:
   trigger-embed:
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger Embed Service
+      - name: Embed docs into staging
         env:
           APOLLO_STAGING_API_KEY: ${{ secrets.APOLLO_STAGING_API_KEY }}
         run: |
           curl -f -X POST https://apollo.staging.openfn.org/services/embed_docsite \
             -H "Content-Type: application/json" \
-            -d "{\"api_key\": \"$APOLLO_STAGING_API_KEY\"}"
+            -d "{ \
+                "target": "postgres", \
+                \"api_key\": \"$APOLLO_STAGING_API_KEY\" \
+              }"
