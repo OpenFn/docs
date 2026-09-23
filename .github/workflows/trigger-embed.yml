@@ -10,9 +10,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger Embed Service
+        env:
+          APOLLO_STAGING_API_KEY: ${{ secrets.APOLLO_STAGING_API_KEY }}
         run: |
           curl -f -X POST https://apollo.staging.openfn.org/services/embed_docsite \
             -H "Content-Type: application/json" \
-            -d '{
-              "api_key": "${{ secrets.APOLLO_STAGING_API_KEY }}"
-            }'
+            -d "{\"api_key\": \"$APOLLO_STAGING_API_KEY\"}"
