@@ -201,7 +201,7 @@ openfn compile --exports-only && node --test
 ```
 
 
-## Step 4: The edit → test loop
+## Step 4: Running test in watch mode
 
 Run the compiler in watch mode in one terminal:
 
@@ -217,97 +217,6 @@ node --test --watch
 
 Now editing a step recompiles it, which changes a file in `dist/`, which re-runs
 your tests.
-
-## Step 5: Wire it into your project
-
-Add scripts to your project's `package.json`:
-
-```json title="package.json"
-{
-  "devDependencies": {
-    // specific adaptor version if needed
-    // eg: @openfn/language-common: 3.0.0
-  },
-  "scripts": {
-    "compile": "openfn compile --exports-only",
-    "compile:watch": "openfn compile --exports-only --watch",
-    "test": "npm run compile && node --test",
-    "test:watch": "node --test --watch"
-  }
-}
-```
-
-Adding `@openfn/cli` as a devDependency pins the version your project builds
-with and means CI gets it from `npm ci`, rather than depending on whatever is
-installed globally.
-
-Having `test` depend on `compile` matters: your tests import build output, so a
-stale `dist/` means you're testing code you no longer have.
-
-### Gitignore the compiled output
-
-**The CLI does not create a `.gitignore` for the compiled directory.** (It does
-for `.cli-cache`, which is why you may expect otherwise.) Add it yourself:
-
-```title=".gitignore"
-dist/
-```
-
-The generated `.mjs` files are build output: every one of them can be recreated
-from your `.js` steps with a single `openfn compile --exports-only`. Committing
-them means a second copy of every helper in the repo, a diff on every step edit,
-and merge conflicts in files nobody wrote by hand - plus the risk that a stale
-`dist/` gets reviewed as if it were source.
-
-If you compile to somewhere other than `dist/` - with `-o build`, or a different
-`dirs.compiled` in `openfn.yaml` - ignore that folder instead. Your `workflows/`
-folder and `openfn.yaml` are source, and should stay tracked.
-
-### Install your adaptors as devDependencies
-
-If any step you compile has an explicit adaptor import, that import is
-**preserved** in the compiled file, and the package has to be resolvable when
-your test imports it. See [the adaptor gotcha](#adaptor-imports) below for the
-two ways to handle this.
-
-### Running in CI
-
-```yaml title=".github/workflows/test.yml"
-name: Test job code
-
-on: [push, pull_request]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 24
-      - run: npm ci
-      - run: npm test
-```
-
-`npm test` runs `compile` first, so the tests always run against fresh output.
-
-
-## Full compilation
-
-Everything above uses `--exports-only`. Without that flag, `openfn compile`
-writes the **full** compiled output for **every** step - all declarations are
-kept, adaptor imports are added automatically, and operations are preserved in a
-default export:
-
-```js title="dist/sms-parser/upload.mjs"
-import { post } from '@openfn/language-http';
-export * from '@openfn/language-http';
-export default [post('/patients', { body: state.data })];
-```
-
-That's the code the runtime actually executes, and it's useful for understanding
-or debugging compilation. It is not useful for unit testing: importing it pulls
-in the adaptor and evaluates the operations. Use `--exports-only` for tests.
 
 ## Reference
 
