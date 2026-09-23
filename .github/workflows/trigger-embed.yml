@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  trigger-embed:
+  trigger-embed-staging:
     runs-on: ubuntu-latest
     steps:
       - name: Embed docs into staging
@@ -15,7 +15,21 @@ jobs:
         run: |
           curl -f -X POST https://apollo.staging.openfn.org/services/embed_docsite \
             -H "Content-Type: application/json" \
-            -d "{ \
-                "target": "postgres", \
-                \"api_key\": \"$APOLLO_STAGING_API_KEY\" \
-              }"
+            -d "{
+              \"target\": \"postgres\",
+              \"api_key\": \"$APOLLO_STAGING_API_KEY\"
+            }"
+
+  trigger-embed-prod:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Embed docs into prod
+        env:
+          APOLLO_PROD_API_KEY: ${{ secrets.APOLLO_PROD_API_KEY }}
+        run: |
+          curl -f -X POST https://apollo.openfn.org/services/embed_docsite \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"target\": \"postgres\",
+              \"api_key\": \"$APOLLO_PROD_API_KEY\"
+            }"
