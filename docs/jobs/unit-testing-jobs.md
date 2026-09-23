@@ -55,27 +55,9 @@ openfn compile --exports-only
 [CLI] ✔ Compiled 1 step(s) to /path/to/project/dist
 ```
 
-Compiled files land in `dist/`, mirroring your workflow structure:
-
-```
-workflows/
-  sms-parser/
-    sms-parser.yaml
-    parse-message.js      # source
-    upload.js
-dist/
-  sms-parser/
-    parse-message.mjs     # compiled
-```
-
-Two things to note:
-
-- **Output files use the `.mjs` extension.** Node always treats `.mjs` as an ES
+Compiled files land in `dist/`, mirroring your workflow structure. **Output files use the `.mjs` extension.** Node always treats `.mjs` as an ES
   module, so you don't need `"type": "module"` in your `package.json` for the
   compiled code to import cleanly.
-- **`upload.js` produced no file.** Steps whose compiled output is empty after
-  stripping - which is any step that is only operations - are skipped entirely.
-  See [Troubleshooting](#troubleshooting) below.
 
 :::warning Don't commit the generated `.mjs` files
 
@@ -88,8 +70,7 @@ dist/
 
 The `.mjs` files are build output, derived entirely from your `.js` steps.
 Tracking them gives you noisy diffs and merge conflicts on every edit, and lets
-`dist/` drift out of sync with `workflows/`. See
-[Gitignore the compiled output](#gitignore-the-compiled-output) for more.
+`dist/` drift out of sync with `workflows/`.
 
 :::
 
@@ -105,6 +86,7 @@ openfn compile --exports-only --clean
 # Just one workflow, by name
 openfn compile sms-parser --exports-only
 ```
+Run `openfn compile --help` for the complete list.
 
 You can also set the output folder permanently in `openfn.yaml`:
 
@@ -217,19 +199,6 @@ node --test --watch
 
 Now editing a step recompiles it, which changes a file in `dist/`, which re-runs
 your tests.
-
-## Reference
-
-### `openfn compile` flags
-Run `openfn compile --help` for the complete list.
-
-### `openfn.yaml` keys
-
-```yaml
-dirs:
-  workflows: workflows # where the CLI looks for workflows
-  compiled: dist # where openfn compile writes output
-```
 
 ## Related pages
 
