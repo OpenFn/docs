@@ -14,5 +14,5 @@ jobs:
           curl -f -X POST https://apollo.staging.openfn.org/services/embed_docsite \
             -H "Content-Type: application/json" \
             -d '{
-              "api_key": "${{ secrets.APOLLO_PROD_API_KEY }}"
+              "api_key": "${{ secrets.APOLLO_STAGING_API_KEY }}"
             }'
