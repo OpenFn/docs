@@ -227,15 +227,9 @@ running workflows via the CLI.
 
 ### Compile job code for unit testing
 
-So you want to write unit tests against your job code? Start here.
-
-::: tip
-
-Requires `@openfn/cli` v1.39.0 or later. See
+So you want to write unit tests against your job code? See
 [Writing unit tests for your jobs](/documentation/jobs/unit-testing-jobs) for
 the full guide.
-
-:::
 
 #### What "unit testing a job" means
 
