@@ -87,6 +87,9 @@ Translations go in their own PR per locale and do not count toward the 20.
   translated.
 - Images live in `static/img/` and are linked as `/img/filename`, with alt text
   that says what the image shows. "Screenshot" does not count.
+- Leave a blank line after an admonition's opening line (`:::tip`, `:::note`,
+  and so on) and before its closing `:::`. Without them, Prettier merges the
+  text into the opening line and Docusaurus shows it as the title.
 - It is spelled **adaptor**, never "adapter".
 - Use the approved terms in `glossary.yml`. If a page uses one of the listed
   `variants`, replace it.
