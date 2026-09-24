@@ -24,7 +24,8 @@ button labels, defaults, versions, limits. Check each against the code:
 `OpenFn/lightning` for the web app, `OpenFn/kit` for the CLI, `OpenFn/adaptors`
 for adaptor functions. Note the file and line. Anything you cannot check from
 code, such as pricing, policy, or per-deployment settings, is a question for the
-product team.
+product team. Try each external link twice: a 404 or 410 means it is dead, but a
+403 or 429 does not.
 
 ### Can a newcomer follow it?
 
@@ -39,7 +40,9 @@ Compare what the docs cover with what the product has: commands, screens,
 settings. Before calling something missing, search the whole site the way a user
 would type it; it may be documented elsewhere. If you can see user evidence
 (issues, forum posts), note how often the topic comes up. Do not invent demand.
-Feature-flagged or deliberately hidden things are not gaps.
+Feature-flagged or deliberately hidden things are not gaps. A page that is in no
+sidebar and linked from nowhere is an orphan; recommend adding or removing it,
+since someone may be drafting it.
 
 ### What has changed?
 

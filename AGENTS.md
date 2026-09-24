@@ -80,7 +80,8 @@ go in their own PR per locale and do not count toward the 20.
 - Internal links start with `/documentation/`, `/adaptors/`, or `/articles/`.
   Never use relative `.md` links; they break the build once a page is
   translated.
-- Images live in `static/img/` and are linked as `/img/filename`.
+- Images live in `static/img/` and are linked as `/img/filename`, with alt text
+  that says what the image shows. "Screenshot" does not count.
 - It is spelled **adaptor**, never "adapter".
 - Use the approved terms in `glossary.yml`. If a page uses one of the listed
   `variants`, replace it.
