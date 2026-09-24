@@ -105,6 +105,9 @@ what to do with it.
   Spanish uses "tú" and French uses "vous".
 - Copy code blocks and inline code exactly. You may translate comments inside
   code.
+- Keep the names of things in the app, like buttons, menus, tabs, and field
+  labels, exactly as they are in the English. The app is English only, so a
+  translated button name points the reader at a button that does not exist.
 - Keep the same structure: same headings at the same levels, same lists,
   same callouts, same components.
 - Keep internal links as they are in the English. Do not add `/es/` or

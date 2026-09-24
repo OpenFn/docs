@@ -46,11 +46,11 @@
 #     added_on: 2026-01-01
 #     source_pr: https://github.com/OpenFn/docs/pull/000
 #   - locale: fr
-#     kind: term
-#     source: "Save and Run"
-#     target: "Enregistrer et exécuter"
-#     instruction: UI button labels are translated to match the French UI strings in OpenFn/lightning.
-#     reason: Reviewer aligned button names with the app's own translations.
+#     kind: punctuation
+#     instruction: Put a non-breaking space before ":", ";", "?" and "!".
+#     example_source: "Next step: add a credential."
+#     example_target: "Étape suivante : ajoutez un identifiant."
+#     reason: Standard French typography.
 #     added_by: someone
 #     added_on: 2026-01-01
 #     source_pr: https://github.com/OpenFn/docs/pull/000
