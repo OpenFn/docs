@@ -78,5 +78,9 @@ go in their own PR per locale and do not count toward the 20.
 
 - Every page has a `title` in its front matter.
 - Internal links start with `/documentation/`, `/adaptors/`, or `/articles/`.
+  Never use relative `.md` links; they break the build once a page is
+  translated.
 - Images live in `static/img/` and are linked as `/img/filename`.
 - It is spelled **adaptor**, never "adapter".
+- Use the approved terms in `glossary.yml`. If a page uses one of the listed
+  `variants`, replace it.

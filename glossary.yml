@@ -6,8 +6,8 @@
 #
 #   1. The translate skill (.agents/skills/translate.md). Any term with
 #      `translate: false` must appear verbatim in every translated page.
-#   2. The update content skill (.agents/skills/update-content.md). Any
-#      spelling in `variants` is replaced with `term` in English pages.
+#   2. The house style in AGENTS.md. Any spelling in `variants` is replaced
+#      with `term` in English pages.
 #
 # Humans maintain this file. Add a term when a review shows the same
 # correction being made more than once.

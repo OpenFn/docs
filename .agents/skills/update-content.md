@@ -14,23 +14,11 @@ Change docs pages and open a PR.
 
 ## How to change it
 
+- Follow the house style in `AGENTS.md`.
 - Keep each edit small. Match the page's voice and structure. Do not rewrite a
   page and call it a fix.
 - Only write a new page or section if the report or the person asked for it.
 - If the docs and the code disagree and you cannot tell which is right, ask.
-
-## Tidy the pages you touch
-
-While you are on a page, fix these too:
-
-- Terms: replace any spelling listed under `variants` in `glossary.yml` with the
-  approved term. Always "adaptor", never "adapter".
-- Internal links are site-absolute (`/documentation/...`), not relative `.md`
-  paths, which break the build once one end is translated.
-- Front matter has a `title`, and the body has no `#` heading.
-- Headings do not skip a level.
-- Every fenced code block has a language.
-- Every image has alt text that says what it shows.
 
 ## Finish
 
