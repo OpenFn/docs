@@ -96,9 +96,16 @@ what to do with it.
   code.
 - Keep the same structure: same headings at the same levels, same lists,
   same callouts, same components.
-- Add the locale to internal links (`/es/documentation/...`), except links
-  into the generated adaptor pages, which are English only. Give translated
-  headings the original English anchor so existing links still work.
+- Keep internal links as they are in the English. Do not add `/es/` or
+  `/fr/`; Docusaurus adds the locale when it builds the page.
+- The one exception: a relative link like `../deploy/portability.md` breaks
+  if the page it points to has no translation yet. Write it as the page's
+  full address instead, like `/documentation/deploy/portability`. If the
+  target page sets a `slug` in its front matter, the address is
+  `/documentation` plus the slug: `slug: /api-tokens` gives
+  `/documentation/api-tokens`, not the folder path.
+- Give translated headings the original English anchor so existing links
+  still work.
 
 ## Before you commit
 
@@ -111,9 +118,13 @@ English and Spanish wrap at different points, so a multi-word term like "work
 order" can sit across a line break in one file and not the other. Check the
 code blocks are identical. Check the counts of headings, code blocks,
 callouts, images, and tables match. Check the front matter is complete. Check
-every fenced block survived. Then run a full `yarn build` and make sure it
-passes. Do not rely on `yarn build --locale <locale>`: it builds the locale at
-the site root, so every correct `/es/...` link is reported as broken.
+every fenced block survived. Then build the locale and make sure it passes:
+
+```bash
+yarn generate-library
+yarn generate-adaptors
+yarn build --locale <locale>
+```
 
 Open one PR per locale per section, separate from the English PR. Translated
 files do not count toward the 20-file limit, because a section's translations
