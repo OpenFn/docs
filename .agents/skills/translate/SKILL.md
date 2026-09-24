@@ -55,15 +55,17 @@ they also add `translation_reviewer` and `translation_review_date`.
 ## Decide what to do with each page
 
 - **No translation yet.** Translate the whole page.
-- **Translation exists, status is `machine` or `needs-review`.** Translate the
-  whole page again, but keep any fenced blocks (see below) exactly as they
-  were.
-- **Translation exists but has no `translation_review_status`.** Treat it as
-  `machine` and regenerate it.
-- **Status is `human-reviewed` and the hash matches the current English
-  file.** Skip it. It is up to date and approved.
-- **Status is `human-reviewed` and the hash no longer matches.** Do not touch
-  the file. Recover the English the reviewer saw with
+- **The hash matches the current English file.** Skip it, whatever its
+  status. The English has not changed since it was translated. The one
+  exception: if `glossary.yml` or `translation-rules.yml` was committed more
+  recently than the translation (compare `git log -1 --format=%ct -- <file>`),
+  treat a `machine` page as if the hash no longer matches, so it picks up the
+  new rules.
+- **The hash no longer matches, and the status is `machine`, `needs-review`,
+  or missing.** Translate the whole page again, but keep any fenced blocks
+  (see below) exactly as they were.
+- **The hash no longer matches, and the status is `human-reviewed`.** Do not
+  touch the file. Recover the English the reviewer saw with
   `git cat-file -p <recorded hash>`, diff it against the current English,
   translate only the changed parts, and open a separate PR with the proposed
   diff for the named reviewer. If the old blob is no longer in the repo,
