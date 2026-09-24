@@ -134,13 +134,17 @@ English and Spanish wrap at different points, so a multi-word term like "work
 order" can sit across a line break in one file and not the other. Check the
 code blocks are identical. Check the counts of headings, code blocks,
 callouts, images, and tables match. Check the front matter is complete. Check
-every fenced block survived. Then build the locale and make sure it passes:
+every fenced block survived. Then build the site and make sure it passes:
 
 ```bash
 yarn generate-library
 yarn generate-adaptors
-yarn build --locale <locale>
+yarn build
 ```
+
+Build the whole site, not just your locale. `yarn build --locale <locale>`
+builds the locale at the site root, so every correct `/es/...` link shows up
+as broken.
 
 Open one PR per locale, separate from the English PR. Translated files do not
 count toward the 20-file limit, because a locale's translations are reviewed
