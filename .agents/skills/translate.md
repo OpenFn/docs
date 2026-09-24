@@ -7,6 +7,11 @@ this repo, in the `i18n/` folder, mirroring the path of the English page.
 Never translate the generated adaptor pages, the job library, the old v1
 docs, or articles and blog posts.
 
+This skill covers markdown pages. Interface strings (navbar, footer, sidebar
+labels, homepage) live in JSON, and the build pitfalls that only show up on
+non-default locales are written up in `docs/contribute/translating.md`. Read
+it before your first translation.
+
 ## Before you start
 
 Check these three things. If any fails, stop and ask.

@@ -19,7 +19,9 @@ module.exports = {
   //
   // Local dev for a single locale (much faster than building everything):
   //   yarn start --locale es
-  //   yarn build --locale es
+  // Do not use `yarn build --locale es` to check a PR: it reports every
+  // /es/ link as broken. Run a full `yarn build`. See
+  // docs/contribute/translating.md.
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],

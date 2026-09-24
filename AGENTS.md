@@ -30,7 +30,8 @@ stands alone; read the one you need.
 
 **Special rules apply**
 
-- Translations in `i18n/`. See `translate.md`.
+- Translations in `i18n/`. See `translate.md` for how to translate, and
+  `docs/contribute/translating.md` for how each locale is built and served.
 - The three rule files: `glossary.yml`, `style-exceptions.yml`, and
   `translation-rules.yml`. Humans maintain these. Each explains its format at
   the top. Only add an entry if the user asks you to.
