@@ -75,12 +75,15 @@ they also add `translation_reviewer` and `translation_review_date`.
 - **The hash no longer matches, and the status is `machine`, `needs-review`,
   or missing.** Translate the whole page again, but keep any fenced blocks
   (see below) exactly as they were.
-- **The hash no longer matches, and the status is `human-reviewed`.** Do not
-  touch the file. Recover the English the reviewer saw with
-  `git cat-file -p <recorded hash>`, diff it against the current English,
-  translate only the changed parts, and open a separate PR with the proposed
-  diff for the named reviewer. If the old blob is no longer in the repo,
-  say so and offer a full retranslation as the suggested diff instead.
+- **The hash no longer matches, and the status is `human-reviewed`.** Leave
+  the file out of the translation PR. Instead, open a separate PR for the
+  named reviewer that changes only the affected parts. Recover the English the
+  reviewer saw with `git cat-file -p <recorded hash>`, diff it against the
+  current English, and translate only what changed. In the same PR, set
+  `translation_source_hash` to the current English hash and leave the status
+  as `human-reviewed`: the reviewer merging it approves it. If the old version
+  is no longer in the repo, say so and offer a full retranslation in that PR
+  instead.
 
 ## Fenced blocks
 
