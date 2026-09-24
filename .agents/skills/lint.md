@@ -26,6 +26,9 @@ Only look at prose. Ignore code blocks, URLs, and front matter.
 3. **Internal links.** Every link to another docs page must work. The easiest
    way to check is `yarn build`, which fails on broken links. Fix it if the
    right target is obvious. Otherwise ask.
+   Links must be site-absolute (`/documentation/...`), not relative `.md`
+   paths: relative links break the build once one end is translated. Convert
+   them. Fix.
 4. **External links.** Try each one twice. A 404 or 410 means it is dead.
    Replace it if there is a clear replacement; otherwise suggest removing it.
    A 403 or 429 does not mean dead, so leave those alone and note them.

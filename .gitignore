@@ -13,7 +13,7 @@
 .docusaurus
 .cache-loader
 
-# translation: i18n/ is committed (translations are generated artefacts kept in-repo, see AGENTS.md)
+# translation: i18n/ is committed (translations are generated artefacts kept in-repo, see .agents/skills/translate.md)
 
 # Misc
 .DS_Store

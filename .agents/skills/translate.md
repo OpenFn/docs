@@ -4,8 +4,8 @@ Translate English docs into Spanish (`es`) and French (`fr`). The English is
 always the source of truth. Translations are generated files that live in
 this repo, in the `i18n/` folder, mirroring the path of the English page.
 
-Never translate the generated adaptor pages, the job library, or the old v1
-docs.
+Never translate the generated adaptor pages, the job library, the old v1
+docs, or articles and blog posts.
 
 ## Before you start
 
@@ -99,7 +99,9 @@ English and Spanish wrap at different points, so a multi-word term like "work
 order" can sit across a line break in one file and not the other. Check the
 code blocks are identical. Check the counts of headings, code blocks,
 callouts, images, and tables match. Check the front matter is complete. Check
-every fenced block survived. Then build that locale and make sure it passes.
+every fenced block survived. Then run a full `yarn build` and make sure it
+passes. Do not rely on `yarn build --locale <locale>`: it builds the locale at
+the site root, so every correct `/es/...` link is reported as broken.
 
 Open one PR per locale per section, separate from the English PR. Translated
 files do not count toward the 20-file limit, because a section's translations
