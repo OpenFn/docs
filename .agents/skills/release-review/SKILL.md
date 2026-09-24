@@ -24,9 +24,15 @@ same way; docs changes always go in a PR on the docs repo.
 
 ## Build the list of changes
 
-1. **Read the changelogs, not the diffs.** Lightning has one `CHANGELOG.md`. Kit
-   and adaptors have one per package, under `packages/<name>/CHANGELOG.md`. Read
-   every entry released in the period. Skip the Unreleased section.
+1. **Read the changelogs, not the diffs.** Lightning has one `CHANGELOG.md`,
+   with a date on each release. Kit and adaptors have one per package, under
+   `packages/<name>/CHANGELOG.md`. Kit's have no dates, so get them from the
+   release tags:
+   `git tag --sort=-creatordate --format='%(creatordate:short) %(refname:short)'`.
+   Read every entry released in the period. Skip the Unreleased section.
+   Lightning often lists a release's changes under its `-pre` heading, such as
+   `2.18.2-pre`, and leaves the final `2.18.2` empty, so read the `-pre`
+   entries too and report them under the final version.
 2. **Rewrite each entry as a change a user would notice**: a new feature, a
    renamed button, a new CLI flag, a changed default, a removed option. Drop
    internal changes like refactors, dependency bumps, and tests. Open the linked
