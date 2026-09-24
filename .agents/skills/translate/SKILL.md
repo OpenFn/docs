@@ -12,7 +12,18 @@ disable-model-invocation: true
 
 Translate English docs into Spanish (`es`) and French (`fr`). The English is
 always the source of truth. Translations are generated files that live in
-this repo, in the `i18n/` folder, mirroring the path of the English page.
+this repo. Save each one at the same path as the English page, under
+`i18n/<locale>/docusaurus-plugin-content-docs/current/`. For example,
+`docs/build/triggers.md` goes to
+`i18n/es/docusaurus-plugin-content-docs/current/build/triggers.md`.
+Docusaurus ignores a file anywhere else without an error, and the page stays
+English.
+
+The sidebar headings come from `sidebars-main.js`, not from the pages. If it
+has new or renamed entries, run
+`yarn docusaurus write-translations --locale <locale>`. This adds them to
+`i18n/<locale>/docusaurus-plugin-content-docs/current.json` in English and
+keeps the ones already translated. Translate the new ones.
 
 Never translate the generated adaptor pages, the job library, the old v1
 docs, or articles and blog posts.
