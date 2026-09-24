@@ -48,7 +48,6 @@ Copy the English page's front matter. Translate only `title` and
 ```yaml
 translation_source_hash: <git hash-object of the English file>
 translation_review_status: machine
-translation_model: <the model you are running as>
 ```
 
 The hash is the content hash of the English file, from
@@ -143,7 +142,8 @@ yarn generate-adaptors
 yarn build --locale <locale>
 ```
 
-Open one PR per locale per section, separate from the English PR. Translated
-files do not count toward the 20-file limit, because a section's translations
-are reviewed as a set. If you spot a problem in the English while translating,
-note it for the next English pass; do not fix it here.
+Open one PR per locale, separate from the English PR. Translated files do not
+count toward the 20-file limit, because a locale's translations are reviewed
+as a set. In the PR description, say which tool and model translated the
+pages. If you spot a problem in the English while translating, note it for
+the next English pass; do not fix it here.
