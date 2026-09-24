@@ -3,7 +3,7 @@
 # Purpose
 # -------
 # Locale-specific phrasing rules learned from human edits to machine
-# translations. The translate skill (.agents/skills/translate.md) loads this
+# translations. The translate skill (.agents/skills/translate/SKILL.md) loads this
 # file after glossary.yml and applies every rule whose `locale` matches the
 # target locale.
 #

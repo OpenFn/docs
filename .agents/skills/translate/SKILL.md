@@ -1,3 +1,13 @@
+---
+name: translate
+description:
+  Translates English docs pages into Spanish and French under i18n/, respecting
+  glossary.yml, translation-rules.yml, review status, and do-not-retranslate
+  fences, and opens one PR per locale. Use when asked to translate or refresh
+  translations.
+disable-model-invocation: true
+---
+
 # Translate
 
 Translate English docs into Spanish (`es`) and French (`fr`). The English is

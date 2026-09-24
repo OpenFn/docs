@@ -1,7 +1,16 @@
+---
+name: release-review
+description:
+  Finds what shipped recently in OpenFn/lightning, OpenFn/kit, and
+  OpenFn/adaptors by reading their changelogs, then runs identify-gaps on the
+  docs those changes affect. Use when asked what shipped or changed this month,
+  whether the docs are up to date with a release, or for the monthly docs check.
+---
+
 # Release review
 
 Work out what the product shipped recently, then hand that list to
-`identify-gaps.md` to find the docs that need to catch up.
+`identify-gaps/SKILL.md` to find the docs that need to catch up.
 
 By default, cover every release in the last month across `OpenFn/lightning`,
 `OpenFn/kit`, and `OpenFn/adaptors`. Someone can narrow it to one repo, a date
@@ -31,10 +40,11 @@ user, and the old and new names if something was renamed.
 
 ## Hand it on
 
-Run `identify-gaps.md` with this list as its context. Put the list at the top of
-the report, after one line saying which repos, releases, and dates you covered.
+Run `identify-gaps/SKILL.md` with this list as its context. Put the list at the
+top of the report, after one line saying which repos, releases, and dates you
+covered.
 
 If nothing user-facing shipped in the period, say so and stop.
 
 If you were asked to update the docs as well, pass the report to
-`update-content.md`.
+`update-content/SKILL.md`.

@@ -4,8 +4,9 @@ You look after the OpenFn documentation site. It is a Docusaurus project. Your
 job is to make the docs accurate, easy to follow, complete, and (once the
 English is right) translated.
 
-The detailed instructions for each job live in `.agents/skills/`. Each one
-stands alone; read the one you need.
+The detailed instructions for each job live in `.agents/skills/<name>/SKILL.md`
+(`.claude/skills` links to the same folder). Each one stands alone; read the one
+you need.
 
 ## What you can and cannot edit
 
@@ -29,7 +30,7 @@ stands alone; read the one you need.
 
 **Special rules apply**
 
-- Translations in `i18n/`. See `translate.md`.
+- Translations in `i18n/`. See `translate/SKILL.md`.
 - The two rule files: `glossary.yml` and `translation-rules.yml`. Humans
   maintain these. Each explains its format at the top. Only add an entry if the
   user asks you to.
@@ -40,14 +41,18 @@ Never change them.
 
 ## The skills
 
-- **`identify-gaps.md`** reviews the docs and returns a report of
-  recommendations, each marked Must change, Should change, or Could change. It
-  does not edit anything.
-- **`update-content.md`** makes changes and opens a PR. It works from
-  instructions, or from an identify-gaps report.
-- **`release-review.md`** works out what the product shipped recently and passes
+- **`identify-gaps`** reviews the docs and returns a report of recommendations,
+  each marked Must change, Should change, or Could change. It does not edit
+  anything.
+- **`update-content`** makes changes and opens a PR. It works from instructions,
+  or from an identify-gaps report.
+- **`release-review`** works out what the product shipped recently and passes
   that to identify-gaps. Suited to a monthly schedule.
-- **`translate.md`** translates English pages, in its own PR per locale.
+- **`translate`** translates English pages, in its own PR per locale.
+
+`update-content` and `translate` open PRs, so they only run when someone asks
+for them by name (`/update-content`, `/translate`). When another skill hands off
+to one of them, read its `SKILL.md` directly.
 
 If you are just asked to "improve the docs" with nothing more specific, run
 identify-gaps and then update-content from its report, as one loop ending in one
@@ -71,8 +76,8 @@ category from the sidebar, one folder under `docs/`, or one page.
 
 ## When to stop
 
-Stop at 20 changed files and open a PR (see `update-content.md`). Translations
-go in their own PR per locale and do not count toward the 20.
+Stop at 20 changed files and open a PR (see `update-content/SKILL.md`).
+Translations go in their own PR per locale and do not count toward the 20.
 
 ## House style
 

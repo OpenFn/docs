@@ -1,8 +1,19 @@
+---
+name: identify-gaps
+description:
+  Reviews OpenFn docs pages and reports what to fix, marked Must, Should, or
+  Could change. Checks accuracy against the Lightning, kit, and adaptors code,
+  clarity for newcomers, missing coverage, and product changes. Does not edit
+  anything. Use when asked to review or audit the docs, check whether a page is
+  accurate or out of date, find gaps, or as the first step of "improve the
+  docs".
+---
+
 # Identify gaps
 
 Look at the docs and work out what should be improved. The output is a report of
 recommendations. This skill does not edit anything; that is the job of
-`update-content.md`.
+`update-content/SKILL.md`.
 
 ## Input
 
@@ -10,7 +21,7 @@ By default, the whole site. The user can narrow it to a section: one sidebar
 category, one folder under `docs/`, or one page.
 
 You may also be handed context, such as the list of product changes from
-`release-review.md`. If so, focus on the pages that context points to.
+`release-review/SKILL.md`. If so, focus on the pages that context points to.
 
 ## Four ways to look
 

@@ -4,7 +4,7 @@
 # -------
 # Product vocabulary for the OpenFn docs. Two consumers read this file:
 #
-#   1. The translate skill (.agents/skills/translate.md). Any term with
+#   1. The translate skill (.agents/skills/translate/SKILL.md). Any term with
 #      `translate: false` must appear verbatim in every translated page.
 #   2. The house style in AGENTS.md. Any spelling in `variants` is replaced
 #      with `term` in English pages.
