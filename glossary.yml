@@ -92,7 +92,7 @@ terms:
   - term: trigger
     translate: false
     product_noun: true
-    note: What starts a workflow. Types are webhook, cron, and kafka.
+    note: What starts a workflow. Types are webhook and cron.
 
   - term: cron
     translate: false
