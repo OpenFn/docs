@@ -6,8 +6,8 @@
 #
 #   1. The translate skill (.agents/skills/translate.md). Any term with
 #      `translate: false` must appear verbatim in every translated page.
-#   2. The lint skill (.agents/skills/lint.md). Any spelling in `variants`
-#      is flagged in English pages and replaced with `term`.
+#   2. The update content skill (.agents/skills/update-content.md). Any
+#      spelling in `variants` is replaced with `term` in English pages.
 #
 # Humans maintain this file. Add a term when a review shows the same
 # correction being made more than once.
@@ -115,7 +115,7 @@ terms:
     note: >-
       Legacy name for a run. Do not replace it in migration or historical
       pages. In pages about current v2 behaviour, prefer "run" and record the
-      change as a suggestion, not a fix.
+      change as a Should change, not a direct edit.
 
   - term: work order
     translate: false
