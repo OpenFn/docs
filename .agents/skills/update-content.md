@@ -9,8 +9,8 @@ Change docs pages and open a PR.
   Make Should changes where the right text is clear. Leave Could changes unless
   someone asked for them. Anything you did not do goes in the PR description
   with a reason.
-- **You were only told to improve the docs.** Run `identify-gaps.md` on the
-  section first, then work from its report here. One loop, one PR.
+- **You were only told to improve the docs.** Run `identify-gaps.md` first, then
+  work from its report here. One loop, one PR.
 
 ## How to change it
 
@@ -34,8 +34,9 @@ While you are on a page, fix these too:
 
 ## Finish
 
-Stop when the section is done or you reach 20 changed files. Run Prettier on the
-files you changed, then `yarn build`, which fails on broken links.
+Stop when you are done or reach 20 changed files. If work is left, list it in
+the PR for the next run. Run Prettier on the files you changed, then
+`yarn build`, which fails on broken links.
 
 Open a PR using the template in `.github/` and tick "I have used Claude Code".
 Say what changed, what you left and why, and any questions. If the work came

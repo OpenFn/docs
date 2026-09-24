@@ -1,12 +1,13 @@
 # Identify gaps
 
-Look at a section of the docs and work out what should be improved. The output
-is a report of recommendations. This skill does not edit anything; that is the
-job of `update-content.md`.
+Look at the docs and work out what should be improved. The output is a report of
+recommendations. This skill does not edit anything; that is the job of
+`update-content.md`.
 
 ## Input
 
-A section: one sidebar category, one folder under `docs/`, or one page.
+By default, the whole site. The user can narrow it to a section: one sidebar
+category, one folder under `docs/`, or one page.
 
 You may also be handed context, such as the list of product changes from
 `release-review.md`. If so, focus on the pages that context points to.
@@ -34,7 +35,7 @@ way to tell you had succeeded.
 
 ### What is missing?
 
-Compare what the section covers with what the product has: commands, screens,
+Compare what the docs cover with what the product has: commands, screens,
 settings. Before calling something missing, search the whole site the way a user
 would type it; it may be documented elsewhere. If you can see user evidence
 (issues, forum posts), note how often the topic comes up. Do not invent demand.
@@ -64,8 +65,8 @@ under **Questions** instead.
 
 ## The report
 
-Start with one line: the section, the repos and commits you checked, and the
-count at each level. Then list Must, Should, Could, and Questions, one line
+Start with one line: what you covered, the repos and commits you checked, and
+the count at each level. Then list Must, Should, Could, and Questions, one line
 each:
 
 ```

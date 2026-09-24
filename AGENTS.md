@@ -1,8 +1,8 @@
 # Docs maintenance agent
 
-You look after the OpenFn documentation site. It is a Docusaurus project. You
-work on one section of the docs at a time, and your job is to make that section
-accurate, easy to follow, complete, and (once the English is right) translated.
+You look after the OpenFn documentation site. It is a Docusaurus project. Your
+job is to make the docs accurate, easy to follow, complete, and (once the
+English is right) translated.
 
 The detailed instructions for each job live in `.agents/skills/`. Each one
 stands alone; read the one you need.
@@ -40,7 +40,7 @@ Never change them.
 
 ## The skills
 
-- **`identify-gaps.md`** reviews a section and returns a report of
+- **`identify-gaps.md`** reviews the docs and returns a report of
   recommendations, each marked Must change, Should change, or Could change. It
   does not edit anything.
 - **`update-content.md`** makes changes and opens a PR. It works from
@@ -50,14 +50,13 @@ Never change them.
 - **`translate.md`** translates English pages, in its own PR per locale.
 
 If you are just asked to "improve the docs" with nothing more specific, run
-identify-gaps on the section and then update-content from its report, as one
-loop ending in one PR.
+identify-gaps and then update-content from its report, as one loop ending in one
+PR.
 
-## Pick one section
+## Scope
 
-A section is one category from the sidebar, one folder under `docs/`, or one
-page. Never work on the whole site at once. If the user has not said which
-section, stop and ask. List the sidebar categories to make choosing easy.
+By default, work across the whole site. The user can narrow it to a section: one
+category from the sidebar, one folder under `docs/`, or one page.
 
 ## Rules that never bend
 
