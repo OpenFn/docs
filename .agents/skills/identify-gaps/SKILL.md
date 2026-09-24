@@ -62,6 +62,13 @@ For each product change you were given, search `docs/`, `articles/`, and
 page it touches is now wrong or now incomplete. A change with no home in the
 docs at all is a missing page.
 
+## House style
+
+In a general review, also list the pages that break the house style in
+`AGENTS.md` or use a `variants` spelling from `glossary.yml`. These are Could
+change. Group them by rule, with the pages under each, so one rule broken on 30
+pages is one recommendation, not 30.
+
 ## Classify every recommendation
 
 - **Must change.** A reader following the page will fail or be misled: it

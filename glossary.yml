@@ -22,8 +22,8 @@
 #                              #        (e.g. "run" the noun, not "run the command").
 #                              #        Translators keep the product noun and may
 #                              #        translate the ordinary-English use. Default false.
-#     case_sensitive: boolean  # true = lint flags case variants too (default false)
-#     variants: [string]       # spellings lint should flag and replace with `term`
+#     case_sensitive: boolean  # true = the house-style check flags case variants too (default false)
+#     variants: [string]       # spellings the house-style check flags, to replace with `term`
 #     note: string             # guidance for humans and the agent
 #     locales:                 # optional. Only used when translate: true, to pin a
 #       es: string             # specific rendering per locale instead of free
@@ -34,7 +34,7 @@
 #     note: string             # package names, CLI flags, env vars, ...)
 #
 # Matching is whole-word for `term` and `variants`. Code blocks, inline code,
-# URLs, and front matter are always exempt from lint and translation.
+# URLs, and front matter are always exempt from the house-style check and translation.
 
 terms:
   - term: OpenFn
