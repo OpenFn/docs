@@ -1,11 +1,8 @@
-build/
-.docusaurus/
-node_modules/
+# Prettier also reads .gitignore, so only list what is committed but must not be reformatted.
 .yarn/
 yarn.lock
-adaptors/packages/
-adaptors/library/jobs/auto/
+adaptors/library/
+generate-library/master.temp.json
 versioned_docs/
 versioned_sidebars/
-i18n/
 static/
