@@ -1,0 +1,11 @@
+build/
+.docusaurus/
+node_modules/
+.yarn/
+yarn.lock
+adaptors/packages/
+adaptors/library/jobs/auto/
+versioned_docs/
+versioned_sidebars/
+i18n/
+static/

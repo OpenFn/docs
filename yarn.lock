@@ -5148,6 +5148,7 @@ __metadata:
     form-data: 4.0.6
     glob: ^11.1.0
     mermaid: 11.15.0
+    prettier: 3.9.9
     prism-react-renderer: ^2.1.0
     raw-loader: ^4.0.2
     react: ^18.2.0
@@ -14025,6 +14026,15 @@ __metadata:
     picocolors: ^1.1.1
     source-map-js: ^1.2.1
   checksum: 02fe0aac9de34914104566b3fe3a29903dc7bae4a3fffffdca1331dc51e14aa62c48e8373fc4d107ef99f8f5cae98199d9a89fbcbf43371693b22a397ff5cc34
+  languageName: node
+  linkType: hard
+
+"prettier@npm:3.9.9":
+  version: 3.9.9
+  resolution: "prettier@npm:3.9.9"
+  bin:
+    prettier: bin/prettier.cjs
+  checksum: fbd41978e758c07ce493728c73c9011400446281aca707024e58f7b6ea5ad1dd2f12f8cc51ff76ceb7c7749947db876f6074030a5ec333d8e4084c29455ea948
   languageName: node
   linkType: hard
 

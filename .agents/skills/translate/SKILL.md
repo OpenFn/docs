@@ -38,7 +38,8 @@ Check these three things. If any fails, stop and ask.
 - `glossary.yml` and `translation-rules.yml` are valid YAML.
 
 Translate the English page as it is on disk after any fixes and after
-Prettier has run, so the hash you record matches what you translated.
+`yarn prettier --write <file>` has run on it, so the hash you record matches
+what you translated.
 
 ## Front matter
 
