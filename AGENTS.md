@@ -30,7 +30,8 @@ you need.
 
 **Special rules apply**
 
-- Translations in `i18n/`. See `translate/SKILL.md`.
+- Translations in `i18n/`. See `translate/SKILL.md` for how to translate, and
+  `docs/contribute/translating.md` for how each locale is built and served.
 - The two rule files: `glossary.yml` and `translation-rules.yml`. Humans
   maintain these. Each explains its format at the top. Only add an entry if the
   user asks you to.
