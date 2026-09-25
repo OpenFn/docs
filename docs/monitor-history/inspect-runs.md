@@ -3,14 +3,14 @@ title: Inspect Runs & Search via the History page
 sidebar_label: Inspect Runs
 ---
 
-A [Run](../get-started/terminology.md#run) is created each time
-OpenFn attempts to excute a Workflow for a given Work Order. All Runs can be
-viewed, filtered, and searched via the `History` page.
+A [Run](../get-started/terminology.md#run) is created each time OpenFn attempts
+to excute a Workflow for a given Work Order. All Runs can be viewed, filtered,
+and searched via the `History` page.
 
 In short, Runs tell us "what happened" when OpenFn tried to execute the
 Workflow. Runs have start times, end times, logs, and
-[status codes](./status-codes.md) that indicate
-when they took place, what they did, and whether or not they succeeded.
+[status codes](./status-codes.md) that indicate when they took place, what they
+did, and whether or not they succeeded.
 
 ## Inspect Runs
 

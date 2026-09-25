@@ -41,7 +41,8 @@ decisions. For customized migration support, ask your questions on our
    using the same GitHub repo and branch for both your v1 and v2 project,
    disable GitHub sync on v1 _before_ you enable it on v2. Otherwise every
    change you still make on v1 will trigger a GitHub > OpenFn sync on v2,
-   overwriting any changes you may not have synced yet from your v2 project to GitHub.
+   overwriting any changes you may not have synced yet from your v2 project to
+   GitHub.
 
    :::
 
@@ -105,6 +106,7 @@ decisions. For customized migration support, ask your questions on our
     your v1 `Project Settings` and select the `Delete Project` button.
 
 :::tip
+
 [See this XLS checklist](https://docs.google.com/spreadsheets/d/1pTw5_PZ0RNad-haqw_ydel5ka4ezSxcfF71un7Sga5I/edit?usp=sharing)
 of the above migration steps to help manage your migration. If you encounter
 questions or issues, post on the [Community](https://community.openfn.org).

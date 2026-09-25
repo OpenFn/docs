@@ -2,13 +2,16 @@
 sidebar_label: Design Process
 title: Design Process for OpenFn Solutions
 ---
+
 :::warning Under construction
 
-This docs page is under construction. Check back later for the complete docs, or check out the Docs Version "Platform (v1)". 
+This docs page is under construction. Check back later for the complete docs, or
+check out the Docs Version "Platform (v1)".
 
 :::
 
 # Getting started with workflow automation design for OpenFn projects
+
 Overview of design process and key outputs/artifacts...
 
 **Integration design begins with the functional or business requirements (not
@@ -76,8 +79,7 @@ information will be exchanged? With _whom_ (between which systems or users)?
 _When_ will the information be exchanged? And what are the human or automation
 steps that should facilitate and trigger this exchange? These business process
 questions are discussed in more detail on the
-[So, what is an integration?](/documentation/tutorials/tutorial/)
-page.
+[So, what is an integration?](/documentation/tutorials/tutorial/) page.
 
 :::tip
 
@@ -196,5 +198,5 @@ solution, as well as memorialize the business decisions and agreements made by
 implementing partners.
 
 Share this documentation with any technical implementation team, or check out
-the [Build](/documentation/build/workflows) documentation section to learn how to
-implement these design specifications using OpenFn.
+the [Build](/documentation/build/workflows) documentation section to learn how
+to implement these design specifications using OpenFn.

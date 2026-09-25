@@ -12,8 +12,8 @@ This document provides a reference to older versions of the specification.
 The v3 standard was created for the v2 platform and is linked to the Lightning
 project.
 
-V3 uses the legacy CLI deploy commands and protocols. It is still fully supported
-by the app and CLI, but is being phased out as of May 2026.
+V3 uses the legacy CLI deploy commands and protocols. It is still fully
+supported by the app and CLI, but is being phased out as of May 2026.
 
 [See the v3 specification here](/documentation/deploy/portability-v3)
 

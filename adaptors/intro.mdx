@@ -48,7 +48,15 @@ In short, _most_ adaptors follow the naming convention `@openfn/language-xyz`.
 
 Explore this YouTube playlist to gain a deeper understanding of OpenFn adaptors.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?si=mnfXiLEM83eUzADd&amp;list=PL1pD3-abjHJ1cSQAoMd_ODCU_AauvyZeL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe
+  width="560"
+  height="315"
+  src="https://www.youtube.com/embed/videoseries?si=mnfXiLEM83eUzADd&amp;list=PL1pD3-abjHJ1cSQAoMd_ODCU_AauvyZeL"
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
 
 ## Adaptors vs. Workflows
 
@@ -100,20 +108,24 @@ Workflows, and to handle authenticatio. See the below diagram.
             >
               API docs
             </a>
-            , <a
+            ,{' '}
+            <a
               href={`/adaptors/${
                 publicPaths.find(p => p.name == a.module).changelogId
               }`}
             >
               changelog
-            </a>, and <a
+            </a>
+            , and{' '}
+            <a
               href={`/adaptors/${
                 publicPaths.find(p => p.name == a.module).readmeId
               }`}
             >
               developer readme
-            </a> for <b>{a.module}</b> are available here. You can view the source
-            & documentation via these links:
+            </a>{' '}
+            for <b>{a.module}</b> are available here. You can view the source &
+            documentation via these links:
           </div>
         ) : (
           <div>
@@ -168,8 +180,9 @@ Or build your own (see below)!
 
 ## Building and extending adaptors
 
-See the [Github Adaptors wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for the
-technical guide to developing adaptors.
+See the
+[Github Adaptors wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md)
+for the technical guide to developing adaptors.
 
 Adaptors' source code and technical documentation for developing or extending
 existing adaptors can be found on this linked repository:

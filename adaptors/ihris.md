@@ -3,24 +3,35 @@ title: iHRIS Adaptor
 ---
 
 ## About iHRIS
-iHRIS is IntraHealth International's free, open source software that helps countries around the world track and manage their health workforce data to improve access to services. Countries use it to capture and maintain high-quality information for health workforce planning, management, regulation, and training.
+
+iHRIS is IntraHealth International's free, open source software that helps
+countries around the world track and manage their health workforce data to
+improve access to services. Countries use it to capture and maintain
+high-quality information for health workforce planning, management, regulation,
+and training.
 
 ## Integration Options
+
 iHRIS has an available [REST API](https://ihris.github.io/iHRIS/dev/fhir_http/).
-See [functions](/adaptors/packages/ihris-docs) for more on how to use this adaptor to work with the API.
-Visit the [iHRIS homepage](https://www.intrahealth.org/resources/ihris-software) for more details.
+See [functions](/adaptors/packages/ihris-docs) for more on how to use this
+adaptor to work with the API. Visit the
+[iHRIS homepage](https://www.intrahealth.org/resources/ihris-software) for more
+details.
 
 ## Authentication
-Users must specify a  `baseUrl`, `username` and `password` to login and get a `cookie` back. The cookie is then included as part of the headers in every HTTP request.
+
+Users must specify a `baseUrl`, `username` and `password` to login and get a
+`cookie` back. The cookie is then included as part of the headers in every HTTP
+request.
 
 OpenFn users can use the `iHRIS` credential type when
 [creating a credential](/documentation/manage-projects/manage-credentials).
 
-See the adaptor's [configuration schema docs](/adaptors/packages/ihris-configuration-schema)
+See the adaptor's
+[configuration schema docs](/adaptors/packages/ihris-configuration-schema)
 
-If working locally or
-if using a `Raw JSON` credential type, then your configuration will look
-something like this:
+If working locally or if using a `Raw JSON` credential type, then your
+configuration will look something like this:
 
 ```json
 {
@@ -32,8 +43,10 @@ something like this:
 
 ### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+Thanks for asking! We are a fully Open Source Digital Public Good, and we
+welcome contributions from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
-
-
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).

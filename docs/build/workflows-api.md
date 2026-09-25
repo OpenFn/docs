@@ -23,8 +23,8 @@ from the app.
 If you're using the http adaptor, set the `access_token` on the credential to
 your PAT.
 
-If you are using curl, add the bearer token (in the example below the token
-will be expanded from an env var):
+If you are using curl, add the bearer token (in the example below the token will
+be expanded from an env var):
 
 ```
 curl -H "Authorization: Bearer $OPENFN_PAT" https://app.openfn.org/api/projects/<project-id>/workflows

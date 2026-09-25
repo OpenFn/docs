@@ -44,7 +44,8 @@ you don't even need to declare variables.
 <details>
 <summary>What is functional programming?</summary>
 
-Functional programming is a style of programming, increasingly popular in modern Javascript.
+Functional programming is a style of programming, increasingly popular in modern
+Javascript.
 
 Broadly, the idea is to minimize the usage of control flow statements (like
 `if/else`,`for`) and instead use chains of functions. In functional programming
@@ -255,7 +256,8 @@ only a shallow clone, and non-primitive values use pointers, not copies.
 <details>
 <summary>What is a shallow clone?</summary>
 
-To shallow clone an object means to copy all the top-level keys and values of that object onto a new object.
+To shallow clone an object means to copy all the top-level keys and values of
+that object onto a new object.
 
 But this ONLY applies to top-level keys. And if a value contains an object,
 you're really just copying a _pointer_ to that object.
@@ -321,5 +323,3 @@ post('/api/myEndpoint', {
   body: (state) => state.payload
 });
 ```
-
-

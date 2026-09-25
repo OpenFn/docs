@@ -10,8 +10,7 @@ to your webhook.
 ## Adding a Webhook Authentication Method
 
 In your OpenFn projects, you can utilize webhooks to receive data from external
-applications using a
-[Webhook Trigger](../build/triggers.md). When using a
+applications using a [Webhook Trigger](../build/triggers.md). When using a
 webhook, you can require external applications to authenticate before sending
 your project data for more security.
 

@@ -3,7 +3,6 @@ sidebar_label: Compilation
 title: Compilation
 ---
 
-
 ## Compilation
 
 The code you write isn't technically executable JavaScript. You can't just run

@@ -110,7 +110,9 @@ function escapeMdx(content) {
 
 function generateJsDoc(a) {
   // Add line break before </dt> tags and escape MDX specials outside code blocks
-  const docsContent = escapeMdx(JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>'));
+  const docsContent = escapeMdx(
+    JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>')
+  );
 
   return `---
 title: ${a.name}@${a.version}

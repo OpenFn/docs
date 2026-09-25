@@ -153,7 +153,6 @@ account, choose the payment method they want to use, and then the transfer will
 be complete and _they_ will pay the next time a payment is owed for that
 subscription.
 
-
 ## How It Fits Together (for the engineers 🤓)
 
 ```mermaid
