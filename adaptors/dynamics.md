@@ -4,19 +4,37 @@ title: Dynamics Adaptor
 
 ## About Microsoft Dynamics
 
-[Microsoft Dynamics](https://www.microsoft.com/en-us/dynamics-365) is a suite of enterprise resource planning (ERP) and customer relationship management (CRM) applications. It helps organizations manage sales, customer service, marketing, operations, and more.
+[Microsoft Dynamics](https://www.microsoft.com/en-us/dynamics-365) is a suite of
+enterprise resource planning (ERP) and customer relationship management (CRM)
+applications. It helps organizations manage sales, customer service, marketing,
+operations, and more.
 
 ## Integration Options
 
-**1. Rest API:** Dynamics offers a REST API that enables external applications to interact with its database and perform bulk operations. This option is ideal for applications requiring scheduled or bulk synchronization with Dynamics. Refer to the Dynamics REST API [documentation](https://learn.microsoft.com/en-us/powerapps/developer/data-platform/webapi/overview) for detailed guidelines on endpoints and payload formats.
+**1. Rest API:** Dynamics offers a REST API that enables external applications
+to interact with its database and perform bulk operations. This option is ideal
+for applications requiring scheduled or bulk synchronization with Dynamics.
+Refer to the Dynamics REST API
+[documentation](https://learn.microsoft.com/en-us/powerapps/developer/data-platform/webapi/overview)
+for detailed guidelines on endpoints and payload formats.
 
-**2. Webhook:** Webhook or Data Forwarding to push data from Dynamics to external systems (see [docs](https://learn.microsoft.com/en-us/dynamics365/customer-engagement/developer/webhooks)). This option is suited for real-time, event-based data integration.
+**2. Webhook:** Webhook or Data Forwarding to push data from Dynamics to
+external systems (see
+[docs](https://learn.microsoft.com/en-us/dynamics365/customer-engagement/developer/webhooks)).
+This option is suited for real-time, event-based data integration.
 
 ## Authentication
 
-See [Microsoft docs](https://learn.microsoft.com/en-us/azure/active-directory/) for the latest on supported authentication methods. When integrating with Dynamics via OpenFn, **Access Token** is supported. See this adaptor's [Configuration docs](/adaptors/packages/dynamics-configuration-schema) for more on the required authentication parameters.
+See [Microsoft docs](https://learn.microsoft.com/en-us/azure/active-directory/)
+for the latest on supported authentication methods. When integrating with
+Dynamics via OpenFn, **Access Token** is supported. See this adaptor's
+[Configuration docs](/adaptors/packages/dynamics-configuration-schema) for more
+on the required authentication parameters.
 
-See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
+See platform docs on
+[managing credentials](/documentation/manage-projects/manage-credentials) for
+how to configure a credential in OpenFn. If working locally or if using a Raw
+JSON credential type, then your configuration will look something like this:
 
 ```
 {
@@ -38,6 +56,10 @@ _Comming soon!_
 
 ### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+Thanks for asking! We are a fully Open Source Digital Public Good, and we
+welcome contributions from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).

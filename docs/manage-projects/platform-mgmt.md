@@ -67,14 +67,16 @@ at a time.
 
 ### Sync-mode workflows
 
-Note that workflows triggered by webhook and set to respond synchronously are typically
-configured by your instance superuser to run in a priority queue (to reduce HTTP
-request/response times) and will IGNORE all concurrency limits. I.e., they will use the
-max number of available priority workers to reduce response times.
+Note that workflows triggered by webhook and set to respond synchronously are
+typically configured by your instance superuser to run in a priority queue (to
+reduce HTTP request/response times) and will IGNORE all concurrency limits.
+I.e., they will use the max number of available priority workers to reduce
+response times.
 
 :::warning Sync-mode workflows are not limited by project concurrency
 
-They use the maximum number of available workers, as configured by your instance administrator.
+They use the maximum number of available workers, as configured by your instance
+administrator.
 
 :::
 

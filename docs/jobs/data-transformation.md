@@ -5,8 +5,8 @@ title: Data Transformation
 
 ## Mapping Objects
 
-A common use-case in OpenFn `fn` is to map/convert/transform an object from system
-A to the format of system B.
+A common use-case in OpenFn `fn` is to map/convert/transform an object from
+system A to the format of system B.
 
 We often do this in multiple Jobs in the same workflow, so that we can use
 different adaptors. But in this example we'll work with three operations in one
@@ -34,7 +34,7 @@ fn(state => {
 });
 
 // Post it elsewhere
-post('https://system-b.com/api/v1/records/123', (state) => state.uploadData);
+post('https://system-b.com/api/v1/records/123', state => state.uploadData);
 ```
 
 :::tip Batch conversions
@@ -134,8 +134,8 @@ each(
 );
 ```
 
-Each participant is `upserted` into Salesforce, with its salesforce fields mapped
-to values in the `participants` array.
+Each participant is `upserted` into Salesforce, with its salesforce fields
+mapped to values in the `participants` array.
 
 :::info JSON paths
 

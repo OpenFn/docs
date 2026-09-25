@@ -33,7 +33,8 @@ get(state => state.endpoint);
 <details>
 <summary>Why the arrow function?</summary>
 
-If you've got some JavaScript experience, you'll notice the example above uses an arrow function to retrieve the endpoint key from state.
+If you've got some JavaScript experience, you'll notice the example above uses
+an arrow function to retrieve the endpoint key from state.
 
 But why not just do this?
 

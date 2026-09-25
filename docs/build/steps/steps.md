@@ -116,12 +116,12 @@ Versions for run f470a3da-8b90-480e-a94f-6dd982c91afe:
 
 While it may be beneficial to upgrade as part of your routine maintenance, these
 upgrades should be carefully tested. Most often, customers upgrade to a new
-adaptor version for an existing step when they are already making business-driven
-changes to that step. Some business-driven changes may actually _require_
-upgrading the version in order to use a new feature from the adaptor. Even if
-those changes don't require an upgrade, if the technical team must spend time
-testing step-specific changes anyway, it may be an ideal opportunity to also test
-an upgrade of the adaptor version.
+adaptor version for an existing step when they are already making
+business-driven changes to that step. Some business-driven changes may actually
+_require_ upgrading the version in order to use a new feature from the adaptor.
+Even if those changes don't require an upgrade, if the technical team must spend
+time testing step-specific changes anyway, it may be an ideal opportunity to
+also test an upgrade of the adaptor version.
 
 Adaptors follow [SEMVER](https://semver.org/) so you can be reasonably assured
 that upgrading from `x.1.z` to `x.2.z` will not lead to existing step code

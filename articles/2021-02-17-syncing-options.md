@@ -18,6 +18,7 @@ designing your data integration. These include:
 
 1. **Real-time, or event-based, syncs**
 2. **Scheduled syncs**
+
 <!--truncate-->
 
 For a

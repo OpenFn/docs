@@ -9,11 +9,11 @@ on their current state. Use **Retry** to re-execute completed work orders, or
 
 ## Available Actions by Work Order State
 
-| Work Order State                                                                              | Available Actions |
-| :-------------------------------------------------------------------------------------------- | :---------------- |
-| **Pending** (runs waiting in the queue)                                                       | Cancel            |
-| **Running**                                                                                   | None              |
-| **Final states** (Success, Failed, Crashed, Killed, Exception, Lost, Cancelled, Rejected)     | Retry, Retry from |
+| Work Order State                                                                          | Available Actions |
+| :---------------------------------------------------------------------------------------- | :---------------- |
+| **Pending** (runs waiting in the queue)                                                   | Cancel            |
+| **Running**                                                                               | None              |
+| **Final states** (Success, Failed, Crashed, Killed, Exception, Lost, Cancelled, Rejected) | Retry, Retry from |
 
 :::info Selecting work orders with mixed states
 

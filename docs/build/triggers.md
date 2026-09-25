@@ -80,7 +80,7 @@ system waits — sometimes seconds or minutes — for the result.
 - Body: a JSON object with the shape:
   ```json
   {
-    "data": { /* the final run state */ },
+    "data": {/* the final run state */},
     "meta": {
       "work_order_id": "abc123",
       "run_id": "xyz456",
@@ -93,10 +93,10 @@ system waits — sometimes seconds or minutes — for the result.
     }
   }
   ```
-  - `data` — the final run state (or a security message on failure, or a
-    custom body — see below)
-  - `meta` — run metadata, including run lifecycle timestamps and final
-    `state` (`"success"` or `"failed"`)
+  - `data` — the final run state (or a security message on failure, or a custom
+    body — see below)
+  - `meta` — run metadata, including run lifecycle timestamps and final `state`
+    (`"success"` or `"failed"`)
 
 :::note Security policy for failed runs
 
@@ -124,7 +124,8 @@ status codes, they only apply in sync mode.
 
 #### Customising the response from your job
 
-To return a custom body or status code from values at runtime, set `webhookResponse` in the state, e.g.:
+To return a custom body or status code from values at runtime, set
+`webhookResponse` in the state, e.g.:
 
 ```js
 fn(state => ({
@@ -136,20 +137,20 @@ fn(state => ({
 }));
 ```
 
-At the end of the run, the value of `state.webhookResponse` will be used to
-send the HTTP response back to the caller. Changing the value during the run
-does not affect the response, it's only the final state that counts.
+At the end of the run, the value of `state.webhookResponse` will be used to send
+the HTTP response back to the caller. Changing the value during the run does not
+affect the response, it's only the final state that counts.
 
 Both `status` and `body` are **optional** — you can include either or both:
 
-| Field    | Behaviour when set                                              |
-| -------- | --------------------------------------------------------------- |
+| Field    | Behaviour when set                                             |
+| -------- | -------------------------------------------------------------- |
 | `status` | Overrides the configured status code for this run              |
 | `body`   | Replaces the final run state under `data` in the response body |
 | neither  | Falls back to the configured status code and final run state   |
 
-`webhookResponse.body` only replaces the `data` portion of the response —
-`meta` is always included by OpenFn. So the example above produces:
+`webhookResponse.body` only replaces the `data` portion of the response — `meta`
+is always included by OpenFn. So the example above produces:
 
 ```json
 {

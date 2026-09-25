@@ -3,9 +3,9 @@ title: Manage changes with GitHub branches
 sidebar_label: Manage changes
 ---
 
-In the [Edit Steps Locally](../build/editing-locally.md) section, we walked through
-the process of creating and adding your changes to the `main` branch of a
-project.
+In the [Edit Steps Locally](../build/editing-locally.md) section, we walked
+through the process of creating and adding your changes to the `main` branch of
+a project.
 
 However, most code change to workflows involve sharing and reviewing changes
 before deployment. You can do this by creating, testing and sharing your changes
@@ -56,7 +56,7 @@ repo to your local folder.
 8. To keep your local copy up to date with the remote repo, switch to `main`
    with `git checkout main` and hit `git pull` to pull any changes.
 
-9. If you're still working on your separate branch while `main` has been
-   updated remotely and want integrate the remote changes, use `git checkout main`,
-   then `git pull`, then `git checkout {working_branch_name}` followed by
+9. If you're still working on your separate branch while `main` has been updated
+   remotely and want integrate the remote changes, use `git checkout main`, then
+   `git pull`, then `git checkout {working_branch_name}` followed by
    `git merge main` to merge changes from `main` into your working branch.
