@@ -94,11 +94,11 @@ with watch mode:
 yarn generate-adaptors -w
 ```
 
-Ensure that the OPENFN_ADAPTORS_REPO env var is set and points to the local
+Ensure that the `OPENFN_ADAPTORS_REPO` env var is set and points to the local
 monorepo.
 
 See
-(github.com/OpenFn/adaptors/wiki/How-to-test-docs-changes)[https://github.com/OpenFn/adaptors/wiki/How-to-test-docs-changes]
+[github.com/OpenFn/adaptors/wiki/How-to-test-docs-changes](https://github.com/OpenFn/adaptors/wiki/How-to-test-docs-changes)
 for more details
 
 ### Build and serve for full-featured testing
