@@ -65,6 +65,7 @@
     "@types/react-router-dom": "^5.1.7",
     "chokidar": "^3.6.0",
     "glob": "^11.1.0",
+    "prettier": "3.9.9",
     "typescript": "~5.2.2"
   },
   "resolutions": {
