@@ -27,7 +27,7 @@ OpenFn.
 
 Channels are currently an experimental feature. To use them, enable
 **Experimental Features** on your
-[user profile](../manage-users/user-profile.md) page. If you don't see a
+[user profile](/manage-users/user-profile.md) page. If you don't see a
 `Channels` item in your project sidebar, this flag is the reason.
 
 :::
@@ -62,7 +62,7 @@ You need:
 
 - The **Experimental Features** flag enabled on your user profile
 - A **project** where you have the `Owner`, `Admin`, or `Editor`
-  [role](../manage-projects/user-roles-permissions.md) (Viewers can see channels
+  [role](/manage-projects/user-roles-permissions.md) (Viewers can see channels
   and their logs, but cannot create or change them)
 - The **URL of the destination service** you want to proxy to (a public API like
   `https://hacker-news.firebaseio.com/v0` works great for testing)
@@ -72,12 +72,12 @@ You need:
 Channels use two kinds of credentials, and both are optional:
 
 - **Client credentials** control who can send requests _to your channel_. They
-  are the same [webhook auth methods](../manage-projects/webhook-auth.md) used
+  are the same [webhook auth methods](/manage-projects/webhook-auth.md) used
   to secure webhook triggers (Basic HTTP Authentication or API Key
   Authentication) and are managed under `Webhook Security` in your project
   settings.
 - A **destination credential** is how OpenFn authenticates _to the destination
-  service_. It is a regular [project credential](./credentials.md), and OpenFn
+  service_. It is a regular [project credential](/build/credentials.md), and OpenFn
   uses it to build the `Authorization` header on every forwarded request.
   Channels currently support these credential types:
 
@@ -199,7 +199,7 @@ its **Requests** count or **Last Activity** on the Channels page.
 :::info
 
 Whether request and response payloads are stored follows your project's
-[Data Storage](../manage-projects/io-data-storage.md) settings. If your project
+[Data Storage](/manage-projects/io-data-storage.md) settings. If your project
 doesn't store I/O data, channel request metadata is still logged, but the
 payloads are wiped.
 

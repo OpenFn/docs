@@ -26,7 +26,7 @@ Click on the inspect icon in front of the step you would like to view.
 
 ![Inspect](/img/inspect.webp)
 
-This will open the [inspector screen](../build/steps/step-editor.md) for that step in the run with all associated artifacts: logs and input/output data. On the inspector, you'll notice that you're in a read-only mode, and hovering on the workflow snapshot ID chip, you’ll see a message that reads “You are viewing a snapshot of this workflow that was taken on ….”
+This will open the [inspector screen](/build/steps/step-editor.md) for that step in the run with all associated artifacts: logs and input/output data. On the inspector, you'll notice that you're in a read-only mode, and hovering on the workflow snapshot ID chip, you’ll see a message that reads “You are viewing a snapshot of this workflow that was taken on ….”
 
 ![Snapshot2](/img/snapshots2.webp)
 
@@ -60,4 +60,4 @@ When retrying a run with a snapshot, the retry will be executed with the latest 
 
 As they save a workflow as a particular set of configuration, input data and job code, snapshots are mainly tools to help administrators with auditing and dealing with errors (such as, for example, why a case hasn't been updated correctly in a database). 
 
-OpenFn offers dedicated tools for [version control](../manage-projects/link-to-gh.md) that allows you and your team to manage changes in job code for faster and safer development, debugging and revision.
+OpenFn offers dedicated tools for [version control](/manage-projects/link-to-gh.md) that allows you and your team to manage changes in job code for faster and safer development, debugging and revision.

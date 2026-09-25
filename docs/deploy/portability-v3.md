@@ -282,7 +282,7 @@ OpenFn [CLI](https://github.com/OpenFn/kit/tree/main/packages/cli) comes with
 commands that can be used to pull project configurations down from a running
 Lightning server, and to deploy or push updates to existing projects on a
 Lightning server. To learn more about automated version control via pull and
-deploy, head over to our [Version Control](../manage-projects/link-to-gh.md)
+deploy, head over to our [Version Control](/manage-projects/link-to-gh.md)
 docs.
 
 :::info Don't have the CLI yet?

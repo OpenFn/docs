@@ -12,13 +12,13 @@ OpenFn v1 to v2.
 ### Trigger Types on v1
 
 We use
-[4 types of triggers](../../versioned_docs/version-legacy/build/triggers.md) on
+[4 types of triggers](/documentation/legacy/build/triggers) on
 v1: Message Filters, Cron Triggers, Flow Triggers, and Fail Triggers.
 
 ### Converting Cron Triggers
 
-Setting up a [Cron Trigger on v2](../build/triggers.md#cron-triggers) works just
-the same as on [v1](../../versioned_docs/version-legacy/build/triggers.md): when
+Setting up a [Cron Trigger on v2](/build/triggers.md#cron-triggers) works just
+the same as on [v1](/documentation/legacy/build/triggers): when
 you're building a Workflow, select Cron Schedule as Trigger type, and set the
 frequency.
 
@@ -28,7 +28,7 @@ With a Flow trigger, we can execute a job upon success of another specified job.
 With a Fail trigger, the job will run if an another specified job failed.
 
 On v2, we achieve the same conditional behavior with
-[Path Conditions](../build/paths.md): a job can run (1) always, (2), on success
+[Path Conditions](/build/paths.md): a job can run (1) always, (2), on success
 of another job, (3) on failure of another job, or (4) on a custom condition -
 we'll get to this last one in the next section.
 
@@ -64,7 +64,7 @@ workflows, instead of the previous common Inbox one.
 #### Path Conditions
 
 Once you've configured your
-[Webhook](../build/triggers.md#webhook-event-triggers), you can use a custom
+[Webhook](/build/triggers.md#webhook-event-triggers), you can use a custom
 Path Condition that matches a JavaScript expression to decide whether a
 subsequent job should be executed or not.
 

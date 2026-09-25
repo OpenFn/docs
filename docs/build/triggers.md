@@ -20,10 +20,10 @@ another OpenFn workflow, or manually (i.e., via cURL request).
 
 To learn about how to add an additional layer of security to your Webhook
 Trigger by adding authentication, head over to our
-[Webhook Security](../manage-projects/webhook-auth.md) page.
+[Webhook Security](/manage-projects/webhook-auth.md) page.
 
 Learn how a workflow's initial `state` gets built from a webhook trigger
-[here](../jobs/state#webhook-triggered-runs).
+[here](/jobs/state.md#webhook-triggered-runs).
 
 ## **Webhook Trigger Responses**
 

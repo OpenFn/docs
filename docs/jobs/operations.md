@@ -127,7 +127,7 @@ post('/some-other-data', state => state.data);
 When `post` executes, it resolves any function arguments by calling them with
 the current state. This lazy evaluation pattern is fundamental to writing
 correct OpenFn jobs. See also the
-[Lazy State operator](./lazy-state-operator.md) for a shorthand syntax.
+[Lazy State operator](/jobs/lazy-state-operator.md) for a shorthand syntax.
 
 ## Callbacks and fn()
 

@@ -15,9 +15,9 @@ To create a new Workflow in your Project:
 2. Click the **Create new workflow** button.
 3. Give your Workflow a descriptive `Name` (e.g., `Register patients`,
    `Refer cases`, `Monthly payroll`).
-4. Choose your [Trigger](../build/triggers.md)
-5. Edit your first [Step](../build/steps/steps.md)
-6. Modify the [Path Condition](../build/paths.md), if needed, to define _when_
+4. Choose your [Trigger](/build/triggers.md)
+5. Edit your first [Step](/build/steps/steps.md)
+6. Modify the [Path Condition](/build/paths.md), if needed, to define _when_
    the Workflow should proceed to the next Step.
 7. Configure more Steps as needed
 
