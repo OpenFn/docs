@@ -37,18 +37,18 @@ upsert(
     relationship('Nurse__r', 'Nurse_ID_code__c', dataValue('form.staff_id')),
     field('Phone_Number__c', dataValue('form.mobile_phone'))
   )
-),
-  each(
-    join('$.data.form.visits[*]', '$.references[0].id', 'Id'),
-    create(
-      'Visit__c',
-      fields(
-        field('Patient__c', dataValue('Id')),
-        field('Date__c', dataValue('date')),
-        field('Reason__c', dataValue('why_did_they_see_doctor'))
-      )
+);
+each(
+  join('$.data.form.visits[*]', '$.references[0].id', 'Id'),
+  create(
+    'Visit__c',
+    fields(
+      field('Patient__c', dataValue('Id')),
+      field('Date__c', dataValue('date')),
+      field('Reason__c', dataValue('why_did_they_see_doctor'))
     )
-  );
+  )
+);
 ```
 
 ### Accessing the "data array" in Open Data Kit submissions
