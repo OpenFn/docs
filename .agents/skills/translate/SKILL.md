@@ -37,10 +37,10 @@ Check these three things. If any fails, stop and ask.
 - `i18n/` is not in `.gitignore`.
 - `glossary.yml` and `translation-rules.yml` are valid YAML.
 
-Translate the English page as it is on disk after any fixes and after
-`yarn prettier --write <file>` has run on it, so the hash you record matches
-what you translated. After writing the translation, run
-`yarn prettier --write` on every file you changed under `i18n/`.
+Translate the English page exactly as it is on disk, so the hash you record
+matches what you translated. Do not reformat it; English changes belong in
+their own PR. After writing the translation, run
+`yarn prettier --write <files>` on only the files you changed under `i18n/`.
 
 ## Front matter
 

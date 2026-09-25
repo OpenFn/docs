@@ -6,3 +6,6 @@ generate-library/master.temp.json
 versioned_docs/
 versioned_sidebars/
 static/
+# Human-maintained; a reformat commit would mark every machine translation stale.
+glossary.yml
+translation-rules.yml
