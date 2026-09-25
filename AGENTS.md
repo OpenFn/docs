@@ -82,9 +82,11 @@ Translations go in their own PR per locale and do not count toward the 20.
 ## House style
 
 - Every page has a `title` in its front matter.
-- Internal links start with `/documentation/`, `/adaptors/`, or `/articles/`.
-  Never use relative `.md` links; they break the build once a page is
-  translated.
+- Link to another docs page by its file path from the top of `docs/`, like
+  `/deploy/portability.md`. Link to adaptor pages and articles by URL, starting
+  with `/adaptors/` or `/articles/`. Never use relative links like
+  `../deploy/portability.md`; they break the build once only one of the two
+  pages is translated.
 - Images live in `static/img/` and are linked as `/img/filename`, with alt text
   that says what the image shows. "Screenshot" does not count.
 - Leave a blank line after an admonition's opening line (`:::tip`, `:::note`,
