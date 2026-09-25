@@ -4,10 +4,10 @@
 # -------
 # Product vocabulary for the OpenFn docs. Two consumers read this file:
 #
-#   1. The translate skill (.agents/skills/translate.md). Any term with
+#   1. The translate skill (.agents/skills/translate/SKILL.md). Any term with
 #      `translate: false` must appear verbatim in every translated page.
-#   2. The lint skill (.agents/skills/lint.md). Any spelling in `variants`
-#      is flagged in English pages and replaced with `term`.
+#   2. The house style in AGENTS.md. Any spelling in `variants` is replaced
+#      with `term` in English pages.
 #
 # Humans maintain this file. Add a term when a review shows the same
 # correction being made more than once.
@@ -22,8 +22,8 @@
 #                              #        (e.g. "run" the noun, not "run the command").
 #                              #        Translators keep the product noun and may
 #                              #        translate the ordinary-English use. Default false.
-#     case_sensitive: boolean  # true = lint flags case variants too (default false)
-#     variants: [string]       # spellings lint should flag and replace with `term`
+#     case_sensitive: boolean  # true = the house-style check flags case variants too (default false)
+#     variants: [string]       # spellings the house-style check flags, to replace with `term`
 #     note: string             # guidance for humans and the agent
 #     locales:                 # optional. Only used when translate: true, to pin a
 #       es: string             # specific rendering per locale instead of free
@@ -34,7 +34,7 @@
 #     note: string             # package names, CLI flags, env vars, ...)
 #
 # Matching is whole-word for `term` and `variants`. Code blocks, inline code,
-# URLs, and front matter are always exempt from lint and translation.
+# URLs, and front matter are always exempt from the house-style check and translation.
 
 terms:
   - term: OpenFn
@@ -92,7 +92,7 @@ terms:
   - term: trigger
     translate: false
     product_noun: true
-    note: What starts a workflow. Types are webhook, cron, and kafka.
+    note: What starts a workflow. Types are webhook and cron.
 
   - term: cron
     translate: false
@@ -115,7 +115,7 @@ terms:
     note: >-
       Legacy name for a run. Do not replace it in migration or historical
       pages. In pages about current v2 behaviour, prefer "run" and record the
-      change as a suggestion, not a fix.
+      change as a Should change, not a direct edit.
 
   - term: work order
     translate: false

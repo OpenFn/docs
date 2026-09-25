@@ -1,12 +1,12 @@
 # Docs maintenance agent
 
-You look after the OpenFn documentation site. It is a Docusaurus project. You
-work on one section of the docs at a time, and your job is to make that
-section accurate, easy to follow, complete, and (once the English is right)
-translated.
+You look after the OpenFn documentation site. It is a Docusaurus project. Your
+job is to make the docs accurate, easy to follow, complete, and (once the
+English is right) translated.
 
-The detailed instructions for each job live in `.agents/skills/`. Each one
-stands alone; read the one you need.
+The detailed instructions for each job live in `.agents/skills/<name>/SKILL.md`
+(`.claude/skills` links to the same folder). Each one stands alone; read the one
+you need.
 
 ## What you can and cannot edit
 
@@ -18,9 +18,9 @@ stands alone; read the one you need.
 
 **Do not edit**
 
-- Anything in `adaptors/packages/` or `adaptors/library/`. These pages are
-  built automatically from code comments in the `OpenFn/adaptors` repo. If
-  something is wrong there, the fix belongs in that repo, not here.
+- Anything in `adaptors/packages/` or `adaptors/library/`. These pages are built
+  automatically from code comments in the `OpenFn/adaptors` repo. If something
+  is wrong there, the fix belongs in that repo, not here.
 - Anything in `versioned_docs/`. These are the old v1 docs and are frozen.
 
 **Ask before editing**
@@ -30,67 +30,46 @@ stands alone; read the one you need.
 
 **Special rules apply**
 
-- Translations in `i18n/`. See `translate.md` for how to translate, and
+- Translations in `i18n/`. See `translate/SKILL.md` for how to translate, and
   `docs/contribute/translating.md` for how each locale is built and served.
-- The three rule files: `glossary.yml`, `style-exceptions.yml`, and
-  `translation-rules.yml`. Humans maintain these. Each explains its format at
-  the top. Only add an entry if the user asks you to.
+- The two rule files: `glossary.yml` and `translation-rules.yml`. Humans
+  maintain these. Each explains its format at the top. Only add an entry if the
+  user asks you to.
 
-To check facts, you can read the product code. Clone `OpenFn/lightning` (the
-web app), `OpenFn/kit` (the CLI), and `OpenFn/adaptors` somewhere outside this
-repo. Never change them.
+To check facts, you can read the product code. Clone `OpenFn/lightning` (the web
+app), `OpenFn/kit` (the CLI), and `OpenFn/adaptors` somewhere outside this repo.
+Never change them.
 
-## The order of work
+## The skills
 
-1. **Lint.** Fix formatting, links, headings, and terminology.
-2. **Accuracy check.** Make sure every claim matches the code.
-3. **Fresh-user evaluation.** Read the page as a newcomer and see if it works.
-4. **Gap analysis.** Work out what is missing from the section.
-5. **Screenshot triage.** Scans the whole repo by default; runs on request
-   rather than every time.
-6. **Translate**, in its own PR per locale.
+- **`identify-gaps`** reviews the docs and returns a report of recommendations,
+  each marked Must change, Should change, or Could change. It does not edit
+  anything.
+- **`update-content`** makes changes and opens a PR. It works from instructions,
+  or from an identify-gaps report.
+- **`release-review`** works out what the product shipped recently and passes
+  that to identify-gaps. Suited to a monthly schedule.
+- **`translate`** translates English pages, in its own PR per locale.
 
-If the user asks for one skill only, run that one and still finish with a PR.
+`update-content` and `translate` open PRs, so they only run when someone asks
+for them by name (`/update-content`, `/translate`). When another skill hands off
+to one of them, read its `SKILL.md` directly.
 
-One skill runs from the other direction. **Release review** starts from what
-the product shipped, by default every release in the last month, and finds
-the docs pages that need to change because of it. Run it on a monthly
-schedule, or by hand after a big release, or narrowed to one PR if someone
-asks.
+If you are just asked to "improve the docs" with nothing more specific, run
+identify-gaps and then update-content from its report, as one loop ending in one
+PR.
 
-## Pick one section
+## Scope
 
-A section is one category from the sidebar, one folder under `docs/`, or one
-page. Never work on the whole site at once. If the user has not said which
-section, stop and ask. List the sidebar categories to make choosing easy.
-
-## Three kinds of finding
-
-Everything you notice falls into one of three buckets:
-
-- **Fix.** It is clearly wrong and you know the right answer from the code or
-  the build. Make the change. Keep it small. Do not rewrite a page's voice or
-  structure and call it a fix.
-- **Suggestion.** It is a judgement call. Do not change it. Write up what you
-  would change and why in the PR description, so a human can decide.
-- **Question.** The docs and the code disagree and you cannot tell which is
-  right, or the decision is not yours to make. Do not guess. Ask.
-
-If you are unsure which bucket something belongs in, pick the more cautious
-one.
-
-Write findings like this:
-
-```
-[fix] docs/build/triggers.md:42 — flag is called --force, not -f — corrected
-```
+By default, work across the whole site. The user can narrow it to a section: one
+category from the sidebar, one folder under `docs/`, or one page.
 
 ## Rules that never bend
 
-- Never edit a translated page marked `translation_review_status:
-  human-reviewed`. Offer a diff instead.
-- Never edit generated adaptor pages. Draft an issue for `OpenFn/adaptors`
-  and put it in the PR. Only file it if asked.
+- Never edit a translated page marked
+  `translation_review_status: human-reviewed`. Offer a diff instead.
+- Never edit generated adaptor pages. Draft an issue for `OpenFn/adaptors` and
+  put it in the PR. Only file it if asked.
 - Never retranslate text inside `<!-- do-not-retranslate -->` fences.
 - Never translate a term listed in `glossary.yml`.
 - Never retake, crop, or replace screenshots.
@@ -98,21 +77,20 @@ Write findings like this:
 
 ## When to stop
 
-Stop when the section is finished, or when you have changed 20 files,
-whichever comes first. Then open a PR. Translations are the exception: they go
-in their own PR per locale and do not count toward the 20.
-
-Before you open it: run Prettier on the files you changed, run `yarn build`
-(a broken link will fail the build), and read your own diff once more.
-
-Use the PR template in `.github/`. Tick "I have used Claude Code". Then add
-sections for: what changed, suggestions, questions, what you skipped and why,
-upstream issues, scores, gaps, and suspect screenshots. Leave out any that
-are empty.
+Stop at 20 changed files and open a PR (see `update-content/SKILL.md`).
+Translations go in their own PR per locale and do not count toward the 20.
 
 ## House style
 
 - Every page has a `title` in its front matter.
 - Internal links start with `/documentation/`, `/adaptors/`, or `/articles/`.
-- Images live in `static/img/` and are linked as `/img/filename`.
+  Never use relative `.md` links; they break the build once a page is
+  translated.
+- Images live in `static/img/` and are linked as `/img/filename`, with alt text
+  that says what the image shows. "Screenshot" does not count.
+- Leave a blank line after an admonition's opening line (`:::tip`, `:::note`,
+  and so on) and before its closing `:::`. Without them, Prettier merges the
+  text into the opening line and Docusaurus shows it as the title.
 - It is spelled **adaptor**, never "adapter".
+- Use the approved terms in `glossary.yml`. If a page uses one of the listed
+  `variants`, replace it.
