@@ -134,7 +134,7 @@ correct OpenFn jobs. See also the
 :::caution
 
 As of July 2024, callbacks are going to be phased out of the adaptor APIs. See
-[Promise-like Operations](#promise-like-operations) for tips on how to use
+[Promise-like Operations](#operations-and-promises) for tips on how to use
 callbacks with adaptors APIs that don't explicitly support them.
 
 :::

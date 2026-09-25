@@ -591,7 +591,7 @@ a structured and automated way.
 For example, if you have two steps in your workflow (GET users from system A &
 POST users to system B), you can set up your workflow to run all steps in
 sequence from start to finish. This imitates the
-[flow trigger patterns](/documentation/build/triggers#flow-triggers) on the
+[flow trigger patterns](/documentation/legacy/build/triggers#flow-triggers) on the
 OpenFn platform where a second job should run after the first one succeeds,
 using the data returned from the first job.
 

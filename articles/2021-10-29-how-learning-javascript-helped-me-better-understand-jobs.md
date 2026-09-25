@@ -97,7 +97,7 @@ phase of integration design, we often discuss how each answer choice for
 **picklist** values should map from the source system to the destination system.
 Sometimes the mapping is simple but other times, there is an extensive list of
 possible choices that can be found in the
-[message](/documentation/get-started/terminology/#message) and not all are
+[message](/documentation/legacy/getting-started/terminology#message) and not all are
 relevant to the destination system. Then the question is, **how should the job
 handle values which are not explicitly mapped?**
 
