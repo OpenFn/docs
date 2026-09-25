@@ -21,8 +21,8 @@ o pregunta en la [Comunidad](https://community.openfn.org)
 
 Ten en cuenta que si buscas un glosario de términos genéricos de integración de
 datos (en lugar de estos términos _específicos de OpenFn_), dirígete a la página
-[Glosario de integración](/es/documentation/get-started/glossary) en la sección
-de Diseño. Si no, ¡sigue leyendo!
+[Glosario de integración](/documentation/get-started/glossary) en la sección de
+Diseño. Si no, ¡sigue leyendo!
 
 ## Project
 
@@ -34,8 +34,8 @@ la configuración y al historial de tus Workflows de OpenFn. Los Projects tienen
 una persona propietaria y uno o más Collaborators.
 
 En despliegues y desarrollo local, un Project también corresponde a un archivo
-[`project.yaml`](/es/documentation/deploy/portability-versions#v2), que define
-la configuración de un Project.
+[`project.yaml`](/documentation/deploy/portability-versions#v2), que define la
+configuración de un Project.
 
 En cualquiera de los dos casos, un Project contiene Workflows, Triggers,
 Credentials y todo lo que necesitas para automatizar e integrar con OpenFn.
@@ -62,7 +62,7 @@ tarea específica. Un Workflow se configura desde el Canvas en la aplicación we
 o localmente (mediante código).
 
 La automatización en OpenFn gira en torno a los
-[Workflows](/es/documentation/build/workflows), que pueden tener uno o varios
+[Workflows](/documentation/build/workflows), que pueden tener uno o varios
 Steps. Los Workflows pueden ejecutarse en tiempo real (a partir de un evento,
 por ejemplo el registro de un nuevo paciente), de forma programada (por ejemplo,
 todos los días a las 8 a.m.) o manualmente, cuando se necesite.
@@ -135,10 +135,10 @@ ni queden al alcance de las personas equivocadas.
 
 :::
 
-Un [Trigger](/es/documentation/build/triggers) determina **cómo y cuándo** deben
+Un [Trigger](/documentation/build/triggers) determina **cómo y cuándo** deben
 ejecutarse los Workflows automáticamente (por ejemplo, en tiempo real o según
 una programación). Cuando se activan, los Triggers crean un nuevo
-[Work Order](/es/documentation/get-started/terminology#work-order) y ejecutan (o
+[Work Order](/documentation/get-started/terminology#work-order) y ejecutan (o
 "corren") el Workflow.
 
 Puedes configurar un Trigger de tipo "Webhook Event" si quieres que tu Workflow

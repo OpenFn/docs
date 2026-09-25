@@ -100,16 +100,14 @@ directories — one from `i18n/es/`, the other falling back from `docs/` — and
 Docusaurus cannot resolve the path. With `onBrokenLinks` set to `throw`, that
 fails the build.
 
-On a **translated** page, write the locale in: the `translate` skill asks for
-`/es/documentation/get-started/terminology`, and that is what these pages do.
-Links into the generated adaptor pages stay unprefixed, since those are English
-only.
+On a **translated** page, keep the link exactly as the English has it. Do not
+add `/es/`: Docusaurus adds the locale's base URL when it builds the page.
 
 Four such links were converted when Spanish was added. Roughly **100 relative
 `.md` links remain across ~35 pages** in `docs/`, which are house-style
-violations the `lint` skill should pick up section by section. They are harmless
-while both ends are English, and become build failures the moment either end is
-translated.
+violations the `identify-gaps` skill should pick up section by section. They are
+harmless while both ends are English, and become build failures the moment
+either end is translated.
 
 ### Translated headings need the English anchor
 
@@ -236,23 +234,29 @@ scales with the number of languages.
 
 ## Running it locally
 
-For a quick look at a single locale, use the dev server:
+The dev server shows one locale at a time. `yarn start` is English only, and
+`yarn start --locale es` is Spanish only, served at the root with no `/es/`
+prefix and no working language switcher:
 
 ```bash
 yarn start --locale es
 ```
 
+To see both languages side by side, build the site and serve it. English is at
+`/`, Spanish at `/es/`, and the switcher works:
+
+```bash
+yarn build
+yarn serve
+```
+
 :::danger `yarn build --locale es` is not a substitute for `yarn build`
 
-The two use different base URLs, and they disagree about locale-prefixed links.
-
-A full `yarn build` builds `es` as a sub-site at `baseUrl: /es/`, so its route
-paths are `/es/documentation/...` and the `/es/`-prefixed links in translated
-pages resolve. `yarn build --locale es` builds Spanish as though it were the
-only language, at `baseUrl: /`, so its route paths are `/documentation/...` —
-and every correctly written `/es/...` link in a translated page is reported as a
-broken link. With `onBrokenLinks: throw`, the single-locale build fails on pages
-the real build is perfectly happy with.
+The two use different base URLs. A full `yarn build` builds `es` as a sub-site
+at `baseUrl: /es/`, which is what gets deployed. `yarn build --locale es` builds
+Spanish as though it were the only language, at `baseUrl: /`, so its broken-link
+check runs against routes that are never deployed. Any `/es/...` link then shows
+up as broken, even though the real build resolves it.
 
 So treat a `--locale` failure as suspect until you have reproduced it with a
 full build, and always run plain `yarn build` before opening a PR. That is what

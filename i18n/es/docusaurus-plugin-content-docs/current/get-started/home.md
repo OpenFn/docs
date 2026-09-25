@@ -22,7 +22,7 @@ todos los niveles.
 
 OpenFn se puede desplegar localmente o en la
 [plataforma segura alojada en la nube](https://openfn.org/pricing). Consulta la
-[documentación de despliegue](/es/documentation/deploy/options) para conocer más
+[documentación de despliegue](/documentation/deploy/options) para conocer más
 sobre las opciones y los requisitos de despliegue.
 
 Para apoyar a quienes implementan, OpenFn cuenta con una
@@ -123,8 +123,8 @@ Puedes consultar la documentación técnica y el código fuente de las herramien
 de integración y los adaptors de OpenFn, que son totalmente de código abierto
 ("FOSS"), en sus respectivos repositorios en
 [GitHub.com/OpenFn](https://github.com/openfn), o revisar la sección
-[Despliegue](/es/documentation/deploy/options) para ver un resumen de las
-opciones FOSS y documentación adicional.
+[Despliegue](/documentation/deploy/options) para ver un resumen de las opciones
+FOSS y documentación adicional.
 
 :::
 

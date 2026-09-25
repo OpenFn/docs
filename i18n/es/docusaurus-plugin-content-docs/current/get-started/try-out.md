@@ -54,7 +54,7 @@ documentación para desarrolladores:
 
 Revisa esta documentación para conocer más detalles sobre funcionalidades
 específicas (ver el menú lateral), explora la
-[página principal de la documentación](/es/documentation/) o publica tus
-preguntas en la [Comunidad](https://community.openfn.org).
+[página principal de la documentación](/documentation/) o publica tus preguntas
+en la [Comunidad](https://community.openfn.org).
 
 :::
