@@ -7,19 +7,19 @@ sidebar_label: Translating Docs
 This page covers how translation is **wired into the site**: what the config
 does, where files go, and the build behaviour that will bite you. It does not
 cover how to translate a page — that is the `translate` skill in
-`.agents/skills/translate.md`, and the vocabulary rules live in `glossary.yml`
-and `translation-rules.yml`.
+`.agents/skills/translate/SKILL.md`, and the vocabulary rules live in
+`glossary.yml` and `translation-rules.yml`.
 
 Keep it that way. If you find yourself writing a terminology rule here, it
 belongs in `glossary.yml` instead.
 
-| Where                         | What it decides                             |
-| ----------------------------- | ------------------------------------------- |
-| `.agents/skills/translate.md` | How a page gets translated, and when        |
-| `glossary.yml`                | Which terms stay in English                 |
-| `translation-rules.yml`       | Locale phrasing, register, punctuation      |
-| `AGENTS.md`                   | Order of work, house style, what to edit    |
-| This page                     | How the site is built and served per locale |
+| Where                               | What it decides                             |
+| ----------------------------------- | ------------------------------------------- |
+| `.agents/skills/translate/SKILL.md` | How a page gets translated, and when        |
+| `glossary.yml`                      | Which terms stay in English                 |
+| `translation-rules.yml`             | Locale phrasing, register, punctuation      |
+| `AGENTS.md`                         | Order of work, house style, what to edit    |
+| This page                           | How the site is built and served per locale |
 
 English is always the source of truth. Translated content lives under
 `i18n/<locale>/` and mirrors the English path. Anything not translated falls
