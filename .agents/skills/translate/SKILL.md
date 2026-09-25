@@ -112,14 +112,11 @@ what to do with it.
   translated button name points the reader at a button that does not exist.
 - Keep the same structure: same headings at the same levels, same lists,
   same callouts, same components.
-- Keep internal links as they are in the English. Do not add `/es/` or
-  `/fr/`; Docusaurus adds the locale when it builds the page.
-- The one exception: a relative link like `../deploy/portability.md` breaks
-  if the page it points to has no translation yet. Write it as the page's
-  full address instead, like `/documentation/deploy/portability`. If the
-  target page sets a `slug` in its front matter, the address is
-  `/documentation` plus the slug: `slug: /api-tokens` gives
-  `/documentation/api-tokens`, not the folder path.
+- Keep links exactly as they are in the English. Do not add `/es/` or
+  `/fr/`; Docusaurus adds the locale when it builds the page. If the English
+  has a relative link like `../deploy/portability.md`, it breaks the
+  translated build, so fix it in the English first (see the house style in
+  `AGENTS.md`).
 - Give translated headings the original English anchor so existing links
   still work.
 

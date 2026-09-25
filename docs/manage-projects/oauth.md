@@ -33,8 +33,8 @@ For every application you need to connect to OpenFn, you need to set up at least
 one client for your project(s).
 
 Oauth clients can be set up either on the
-[project credentials page](../manage-projects/manage-credentials.md) or the
-[user credentials page](../manage-users/user-credentials.md).
+[project credentials page](/manage-projects/manage-credentials.md) or the
+[user credentials page](/manage-users/user-credentials.md).
 
 ### Creating an OAuth client
 
@@ -57,8 +57,8 @@ application. (Note: You should substitue `https://app.openfn.org/` with _your_
 OpenFn's deployment base URL if you're not using app.openfn.org.)
 
 For app-specific guidance (e.g., how to set up an Oauth Client
-[for Google Sheets](../adaptors/googlesheets)), refer to the relevant
-[Adaptor documentation](../adaptors) for app-specific guidance
+[for Google Sheets](/adaptors/googlesheets)), refer to the relevant
+[Adaptor documentation](/adaptors) for app-specific guidance
 
 :::
 
@@ -150,7 +150,7 @@ be permanently deleted after 7 days.
 ### More on Managing Credentials
 
 Go to the docs on
-[managing user credentials](../manage-users/user-credentials.md) to learn more
+[managing user credentials](/manage-users/user-credentials.md) to learn more
 about credential management for the applications you are integrating with on
 OpenFn.
 

@@ -9,8 +9,8 @@ title: Syncing your CommCare form submissions to a PostgreSQL database
   minute!)
 - You have checked out our glossary and have an understanding of basic OpenFn
   and API terminology. Check out the pages below to get started
-  - [OpenFn Concepts](../get-started/terminology.md)
-  - [A glossary for data integration](../get-started/glossary.md)
+  - [OpenFn Concepts](/get-started/terminology.md)
+  - [A glossary for data integration](/get-started/glossary.md)
 - You have a CommCare application with at least one form configured. This is
   your source system.
 - You have a PostgreSQL database configured. This is your destination system.
@@ -104,7 +104,7 @@ and will trigger your new workflow.
    configured the database
    [like this](https://docs.google.com/spreadsheets/d/1pi_oxImakhtaCCCIENkjTPZeuyWhpFEcNmH7hfvTBgo/edit?usp=sharing)
    to capture the CommCare form data. Check out the
-   [this page](../design/mapping-specs) for how to create your own
+   [this page](/design/mapping-specs.md) for how to create your own
    `mapping specification document` to map data elements to be exchanged.
 
 ![db_config](/img/db_config.webp)

@@ -68,7 +68,7 @@ To rerun your Workflow from the `Inspector` page:
 If runs are stuck in the queue or were created by mistake, you can cancel them.
 Cancelling moves runs from `available` to `cancelled` and updates the
 corresponding work order status from `pending` to `cancelled`. See
-[Status Codes](./status-codes.md) for more on what each status means.
+[Status Codes](/monitor-history/status-codes.md) for more on what each status means.
 
 There are several ways to cancel:
 
