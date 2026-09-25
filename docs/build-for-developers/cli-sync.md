@@ -323,6 +323,95 @@ straight into the main app project.
 Note that you have to have fetched the target project locally before you can
 deploy it.
 
+## Advanced Deployment
+
+By default, `openfn project deploy` will take the checked out project and upload
+it to the server it originally came from (as defined by the project file).
+
+But you can also use deploy to sync across projects. You might typically want to
+do this to promote a dev or staging sandbox into production. You may even want
+to use it to deploy a project from the SaaS app into another OpenFn instance
+entirely
+
+### Deploy straight from a spec or state file
+
+Given any project file (ie, main@app.openfn.org.yaml), or an exported spec (v1
+or v2 formats, as exported from the app settings), you can deploy straight to
+another instance without having to check anything out first.
+
+Just pass the source file name as the first argument. If you have super user
+access, you can create a new project like this:
+
+```
+openfn project deploy dev@localhost.yaml --new --endpoint https://app.openfn.org
+```
+
+If you already have a tracked project file locally (which you'll have if you
+fetched or pulled previously), you can pass the alias (eg `main`) to deploy to
+that instance.
+
+```
+openfn project deploy dev@localhost.yaml main
+```
+
+You probably want to force the deployment, even if divergence is detected. Pass
+the `-f` flag to do this.
+
+Pass `--no-confirm` or `-y` to skip any confirmation prompts (this is important
+if you're running automated scripts)
+
+### Managing Credentials
+
+Managing credentials during a deployment can be tricky.
+
+Credentials from the source project MUST exist on the target project, or else an
+error will be thrown.
+
+There is as yet no way to fully automated the creation of credentials, as this
+comes loaded with security concerns.
+
+However, the CLI does provide some options.
+
+You can strip credentials entirely from the deployment by passing
+`--credentials none`. Bear in mind that the workflow will not run on the target
+until credentials have been manually connected to the required steps.
+
+:::tip
+
+The `--credentials` argument can be passed as `-c` or `--cred` .
+
+:::
+
+You can also map credentials, if the owner or name of the credentials is
+different in the destination system.
+
+You can do this through the CLI by passing comma-separated map:
+
+```
+openfn project deploy spec.yaml --credentials a:service@openfn.org|cred-a,b:service@openfn.org|cred-b
+```
+
+This takes two credentials, `a` and `b`, and maps them to name `cred-a` and
+`cred-b` and change the owner to `service@openfn.org`.
+
+You can also define these mappings in a yaml file (the same as used in
+execution). Set the `alias` key under the credential identifier:
+
+```
+somedev@gmail.com|a:
+  alias: service@openfn.org|cred-a
+
+somedev@gmail.com|a:
+  alias: service@openfn.org|cred-b
+
+```
+
+Then pass the file path to the CLI via `--credentials`:
+
+```
+openfn project deploy spec.yaml --credentials credentials.yaml
+```
+
 ## Sandboxes
 
 The CLI is fully compatible with sandboxes. Treat them like any other project:

@@ -19,7 +19,9 @@ decision-making into action and automated execution.
 
 :::
 
-![AI Assistant](/img/ai-assistant.webp)
+<p align="center">
+  <img src="/img/ai-assistant.webp" width="427" />
+</p>
 
 :::caution Assistant Unavailable? Can't find it?
 
@@ -75,6 +77,75 @@ return a response in the chat interface.
 
 You can close a chat session by clicking the `(X)` button on the top right of
 the chat interface, which will take you back to the list of sessions.
+
+## Data scrubbing
+
+If you choose to send the Assistant your run input/output data, the Assistant is
+sent the shape of your data, not the data itself. Every value is replaced by the
+kind of thing it was. Field names are kept, because the Assistant needs them to
+talk about your data usefully. Note that run logs and code are not scrubbed.
+
+So if a step ran on this:
+
+```json
+{
+  "patient": {
+    "name": "Amina Yusuf",
+    "dob": "2000-01-01",
+    "phone": "+123456789",
+    "visits": 3,
+    "consented": true,
+    "notes": null
+  },
+  "records": [
+    { "id": "R-001", "weight": 61.5 },
+    { "id": "R-002", "weight": 58.0 },
+    { "id": "R-003", "weight": 70.2 },
+    { "id": "R-004", "weight": 64.1 }
+  ]
+}
+```
+
+this is what the Assistant receives:
+
+```json
+{
+  "patient": {
+    "consented": "boolean",
+    "dob": "string",
+    "name": "string",
+    "notes": "null",
+    "phone": "string",
+    "visits": "number"
+  },
+  "records": [
+    { "id": "string", "weight": "number" },
+    { "id": "string", "weight": "number" },
+    "...2 more"
+  ]
+}
+```
+
+The name, the date of birth and the phone number never leave OpenFn. The
+Assistant can still see that there is a patient with a phone number and four
+records, which is usually all it needs to help you fix your job code.
+
+### A few other things it does
+
+- Long lists are cut to two examples. The rest are counted, as `"...2 more"`
+  above.
+- Very wide records are cut to 50 fields. The rest are counted under a `"..."`
+  field.
+- If a step's data was already deleted by your project's retention policy, the
+  Assistant is told `[erased by this project's retention policy]` instead. It is
+  told when data was skipped rather than left to assume it saw everything.
+- Very large data is not sent. You will see `[too large to summarise]`.
+
+### The one thing to know
+
+Field names are sent exactly as they are. If your data uses a person's name or a
+national ID number as a field name, that name or number will be sent. Values are
+safe; keys are not.
 
 :::caution Feedback or Questions about the Assistant?
 
