@@ -4,7 +4,8 @@ fn(async state => {
   console.log('Here we break large arrays into smaller chunks.');
   const chunk = (arr, chunkSize) => {
     var R = [];
-    for (var i = 0, len = arr.length; i < len; i += chunkSize) R.push(arr.slice(i, i + chunkSize));
+    for (var i = 0, len = arr.length; i < len; i += chunkSize)
+      R.push(arr.slice(i, i + chunkSize));
     return R;
   };
 
@@ -34,7 +35,9 @@ fn(async state => {
   });
 
   let countInbox = 0;
-  console.log('Then we define our async function that make multiple posts requests,');
+  console.log(
+    'Then we define our async function that make multiple posts requests,'
+  );
   console.log('each after a fix period of time.');
   const postToInbox = async data => {
     countInbox++;
@@ -44,7 +47,9 @@ fn(async state => {
     await post(state.configuration.inboxUrl, { body: data })(state);
   };
 
-  console.log('For each one of our chunks, we send one by one awaiting response.');
+  console.log(
+    'For each one of our chunks, we send one by one awaiting response.'
+  );
   for (const patient of patientChunks) {
     await postToInbox(patient);
   }

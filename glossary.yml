@@ -50,9 +50,9 @@ terms:
     translate: false
     case_sensitive: true
     note: >-
-      The OpenFn web app (OpenFn/lightning). In user-facing docs prefer
-      "the OpenFn platform" or "the web app"; keep "Lightning" when the docs
-      refer to the repo or to self-hosting.
+      The OpenFn web app (OpenFn/lightning). In user-facing docs prefer "the
+      OpenFn platform" or "the web app"; keep "Lightning" when the docs refer to
+      the repo or to self-hosting.
 
   - term: adaptor
     translate: false
@@ -80,9 +80,8 @@ terms:
     translate: false
     product_noun: true
     note: >-
-      In v2 the job is the JavaScript expression a Step runs. Do not
-      "correct" v1 usage inside pages that are explicitly about v1 or
-      migration.
+      In v2 the job is the JavaScript expression a Step runs. Do not "correct"
+      v1 usage inside pages that are explicitly about v1 or migration.
 
   - term: credential
     translate: false
@@ -106,16 +105,16 @@ terms:
     translate: false
     product_noun: true
     note: >-
-      One execution of a workflow for a work order. Only the noun is
-      protected. "Run the CLI" is ordinary English and may be translated.
+      One execution of a workflow for a work order. Only the noun is protected.
+      "Run the CLI" is ordinary English and may be translated.
 
   - term: attempt
     translate: false
     product_noun: true
     note: >-
-      Legacy name for a run. Do not replace it in migration or historical
-      pages. In pages about current v2 behaviour, prefer "run" and record the
-      change as a Should change, not a direct edit.
+      Legacy name for a run. Do not replace it in migration or historical pages.
+      In pages about current v2 behaviour, prefer "run" and record the change as
+      a Should change, not a direct edit.
 
   - term: work order
     translate: false
@@ -143,7 +142,9 @@ terms:
   - term: collection
     translate: false
     product_noun: true
-    note: The Collections key-value store feature. Ordinary English use may be translated.
+    note:
+      The Collections key-value store feature. Ordinary English use may be
+      translated.
 
   - term: sandbox
     translate: false
@@ -163,14 +164,14 @@ terms:
   - term: CLI
     translate: false
     case_sensitive: true
-    note: "@openfn/cli. Also keep every CLI command and flag verbatim."
+    note: '@openfn/cli. Also keep every CLI command and flag verbatim.'
 
   - term: state
     translate: false
     product_noun: true
     note: >-
-      The `state` object passed between operations. Protected only when it
-      names the object (usually rendered in code as `state`).
+      The `state` object passed between operations. Protected only when it names
+      the object (usually rendered in code as `state`).
 
   - term: operation
     translate: false
@@ -178,10 +179,10 @@ terms:
     note: A function exported by an adaptor, e.g. `get()`, `upsert()`.
 
 patterns:
-  - pattern: "@openfn/[a-z0-9-]+"
+  - pattern: '@openfn/[a-z0-9-]+'
     note: npm package names (adaptors, CLI, runtime).
 
-  - pattern: "language-[a-z0-9-]+"
+  - pattern: 'language-[a-z0-9-]+'
     note: Bare adaptor package names as they appear in the adaptor picker.
 
   - pattern: "\\bopenfn [a-z][a-z-]*"

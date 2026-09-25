@@ -1,4 +1,4 @@
-each(
+(each(
   join('$.data.data[*]', '$.data.formId', 'formId'),
   create(
     'ODK_Submission__c',
@@ -75,4 +75,4 @@ each(
         })
       )
     )
-  );
+  ));

@@ -29,7 +29,7 @@ receipt to upsert a `Patient__c` record in Salesforce and create multiple new
 `Patient_Visit__c` (child to Patient) records.
 
 ```js
-upsert(
+(upsert(
   'Patient__c',
   'Patient_Id__c',
   fields(
@@ -48,7 +48,7 @@ upsert(
         field('Reason__c', dataValue('why_did_they_see_doctor'))
       )
     )
-  );
+  ));
 ```
 
 ### Accessing the "data array" in Open Data Kit submissions
@@ -122,7 +122,7 @@ each(
 ### Create many child records WITHOUT a repeat group in ODK
 
 ```js
-beta.each(
+(beta.each(
   '$.data.data[*]',
   upsert(
     'Outlet__c',
@@ -153,7 +153,7 @@ beta.each(
         field('Comments__c', dataValue('comments'))
       )
     )
-  );
+  ));
 ```
 
 ### Salesforce: perform an update
@@ -306,7 +306,7 @@ dataValueSet(
 ### sample openMRS expression, creates a person and then a patient
 
 ```js
-person(
+(person(
   fields(
     field('gender', 'F'),
     field('names', function (state) {
@@ -333,7 +333,7 @@ person(
         ];
       })
     )
-  );
+  ));
 ```
 
 ### merge many values into a child path

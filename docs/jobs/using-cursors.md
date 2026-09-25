@@ -19,12 +19,12 @@ which is built-in to most adaptors, to make cursor management easier.
 <details>
 <summary>Version support</summary>
 
-The cursor operation was introduced to <code>@openfn/language-common</code> in version
-<code>1.13.0</code> (released April 2024).
+The cursor operation was introduced to <code>@openfn/language-common</code> in
+version <code>1.13.0</code> (released April 2024).
 
 Any adaptor which uses common <code>1.12.0</code> or less will not support the
-cursor operation. Consider updating to the latest adaptor version to take advantage
-of this functionality.
+cursor operation. Consider updating to the latest adaptor version to take
+advantage of this functionality.
 
 </details>
 

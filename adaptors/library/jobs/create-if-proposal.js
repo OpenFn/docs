@@ -3,7 +3,7 @@
 
 upsertIf(
   // a path which resolves to true/false
-  dataValue('form.legal.allowedToSync'), 
+  dataValue('form.legal.allowedToSync'),
   'Patient__c',
   'Patient_ID__c',
   fields(
