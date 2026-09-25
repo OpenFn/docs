@@ -14,9 +14,7 @@
     "deploy": "docusaurus deploy",
     "serve": "docusaurus serve",
     "clear": "docusaurus clear",
-    "add-help-sections": "node scripts/add-help-section.js",
-    "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "add-help-sections": "node scripts/add-help-section.js"
   },
   "dependencies": {
     "@babel/helper-module-transforms": "^7.17.7",
