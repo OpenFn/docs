@@ -105,6 +105,7 @@ decisions. For customized migration support, ask your questions on our
     your v1 `Project Settings` and select the `Delete Project` button.
 
 :::tip
+
 [See this XLS checklist](https://docs.google.com/spreadsheets/d/1pTw5_PZ0RNad-haqw_ydel5ka4ezSxcfF71un7Sga5I/edit?usp=sharing)
 of the above migration steps to help manage your migration. If you encounter
 questions or issues, post on the [Community](https://community.openfn.org).
