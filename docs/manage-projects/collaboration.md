@@ -69,6 +69,10 @@ To remove a Collaborator from a project, an owner or admin can click the
 `Remove Collaborator` button on the `Collaboration` page and confirm the removal
 through the pop up window. The owner of a project cannot be removed.
 
-:::tip The project collaborators page is also where you can configure failure
-alerts and digests for your projects. Learn more about it
-[in this guide](../manage-projects/notifications.md). :::
+:::tip
+
+The project collaborators page is also where you can configure failure alerts
+and digests for your projects. Learn more about it
+[in this guide](../manage-projects/notifications.md).
+
+:::
