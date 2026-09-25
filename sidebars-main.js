@@ -52,6 +52,7 @@ module.exports = {
         'jobs/image-handling',
         'jobs/best-practices',
         'jobs/compilation',
+        'jobs/unit-testing-jobs',
         'build-for-developers/security-for-devs',
       ],
     },

@@ -76,3 +76,27 @@ individual items and write them to state. That way one bad item won't ruin a
 whole batch, and you know which items succeeded and which failed. You can then
 throw an exception to recognise that the job has failed.
 
+
+## Writing Testable Functions
+
+To make functions in an OpenFn workflow testable, move the real logic (mapping, validation, formatting, filtering) out of operation blocks and into pure helper functions that take plain inputs and return plain outputs, with no dependence on `state`, globals or external systems. Export each helper, and let the operations do nothing more than pass data from state into them:
+
+```js
+// workflows/patient-sync/transform.js
+export function isValid(record) {
+  return Boolean(record.first_name && record.birth_date);
+}
+
+export const mapPatient = record => ({
+  name: `${record.first_name} ${record.last_name ?? ''}`.trim(),
+  dob: record.birth_date,
+  sex: record.gender?.toLowerCase() === 'f' ? 'female' : 'male',
+});
+
+fn(state => ({
+  ...state,
+  data: state.data.filter(isValid).map(mapPatient),
+}));
+```
+
+To test the export helpers [See Unit testing jobs](/documentation/jobs/unit-testing-jobs)
