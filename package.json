@@ -27,7 +27,6 @@
     "@docusaurus/theme-mermaid": "3.10.2",
     "@mdx-js/react": "^3.0.0",
     "axios": "1.18.0",
-    "brace-expansion": "^5.0.8",
     "clsx": "^1.1.1",
     "compare-versions": "^5.0.1",
     "date-fns": "2.21.3",
@@ -71,8 +70,9 @@
     "trim": "^0.0.3",
     "got": "^11.8.5",
     "cytoscape": "3.28.1",
-    "mermaid@>=11.6.0": "11.15.0",
-    "glob": "^11.1.0"
+    "glob": "^11.1.0",
+    "brace-expansion": "1.1.18",
+    "image-size": "^2.0.4"
   },
   "engines": {
     "node": ">=18.0"
