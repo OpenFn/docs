@@ -35,7 +35,8 @@ Consider these questions to determine your integration options–even if an API 
     - Is there a way to import/export files? (JSON, CSV, XLS, or XML)
     - Is there a legacy API (e.g., SOAP) that we can communicate with via HTTP requests? 
 
-:::tip 
+:::tip
+
 OpenFn can connect any app, even if an API is not supported. See the [“Adaptors”](/adaptors) section to learn more.
 
 :::
