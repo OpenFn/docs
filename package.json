@@ -72,7 +72,7 @@
     "cytoscape": "3.28.1",
     "glob": "^11.1.0",
     "brace-expansion": "1.1.18",
-    "image-size": "^2.0.3"
+    "image-size": "^2.0.4"
   },
   "engines": {
     "node": ">=18.0"

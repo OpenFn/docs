@@ -10605,7 +10605,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"image-size@npm:^2.0.3":
+"image-size@npm:^2.0.4":
   version: 2.0.4
   resolution: "image-size@npm:2.0.4"
   bin:
