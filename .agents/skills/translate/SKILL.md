@@ -39,7 +39,8 @@ Check these three things. If any fails, stop and ask.
 
 Translate the English page as it is on disk after any fixes and after
 `yarn prettier --write <file>` has run on it, so the hash you record matches
-what you translated.
+what you translated. After writing the translation, run
+`yarn prettier --write` on every file you changed under `i18n/`.
 
 ## Front matter
 
