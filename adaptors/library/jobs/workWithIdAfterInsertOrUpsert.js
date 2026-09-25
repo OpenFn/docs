@@ -14,7 +14,7 @@ fn(state => {
 
 //NOTE: We've even got some helper functions for accessing that last reference ID.
 create('Visit__c', fields(
-  field('Date__c', state.data.date)
+  field('Date__c', state.data.date),
   field('Patient__c', lastReferenceValue('id'))
   // Or write it like this...
   // field(Patient__c, state.references[0].id)
