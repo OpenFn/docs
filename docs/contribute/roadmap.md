@@ -183,4 +183,4 @@ We encourage users to post their questions on the OpenFn Community at
 [community.openfn.org](https://community.openfn.org), or consider creating
 issues for bugs via product repository. You can also independently start
 contributing to the OpenFn software, adaptors, or documentation by getting
-started [here](./writing-code.md).
+started [here](/contribute/writing-code.md).

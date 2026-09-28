@@ -21,8 +21,8 @@ Here are some we assume you've looked over before you begin this process.
 
 - You have checked out our glossary and have an understanding of basic OpenFn &
   API concepts. Check out the pages below to get started
-  - [OpenFn Concepts](../get-started/terminology.md)
-  - [A glossary for data integration](../get-started/glossary.md)
+  - [OpenFn Concepts](/get-started/terminology.md)
+  - [A glossary for data integration](/get-started/glossary.md)
 - You have a Google Account. We will use it to create a credential to authorize
   with Google Sheets.
 - You have access to an OpenFn project (either on a locally installed
@@ -49,8 +49,8 @@ To create a new Workflow in your Project:
 1. Go to the `project dashboard` page.
 2. Click `Create new workflow` button.
 3. Give your Workflow a descriptive `Name` (e.g., `Sync Users List`).
-4. Choose your [Trigger](../build/triggers.md)
-5. Edit your first [Step](../build/steps/steps.md)
+4. Choose your [Trigger](/build/triggers.md)
+5. Edit your first [Step](/build/steps/steps.md)
 
 ## 2. Configure your first Step to get data from the REST API
 
@@ -72,14 +72,14 @@ following options
 :::tip Need help writing job code?
 
 Check out the docs on the ["http" Adaptor](/adaptors/packages/http-readme),
-[configuring Steps](../build/steps/steps.md), and
-[job-writing](../jobs/job-writing-guide.md).
+[configuring Steps](/build/steps/steps.md), and
+[job-writing](/jobs/job-writing-guide.md).
 
 :::
 
 **Once you are finished configuring and writing your Step, save and run it!**
 
-- See the [Workflows section](../build/workflows.md) for more guidance on
+- See the [Workflows section](/build/workflows.md) for more guidance on
   building & running Workflows.
 
 **Check out the `Output & Log` panel to see if your run succeeded.** If it
@@ -162,8 +162,8 @@ test `Sync Users` Step. Select the input from the input panel and click
 5. Finally check your spreadsheet to see the synced users data
 
 Encountering errors or getting stuck? Check out the
-[Workflow](../build/workflows.md) or
-[Troubleshooting](../monitor-history/troubleshooting.md) docs.
+[Workflow](/build/workflows.md) or
+[Troubleshooting](/monitor-history/troubleshooting.md) docs.
 
 :::tip Are you blocked? Have questions?
 

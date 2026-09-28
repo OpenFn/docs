@@ -288,7 +288,7 @@ For scenarios where you have a global list of variables or mapping rules that
 you would like to reference throughout your workflows, you can add these to your
 job as a constant that can be referenced repeatedly throughout the job
 expression. See the documentation on
-[mapping specifications](../design/mapping-specs.md) for more information on
+[mapping specifications](/design/mapping-specs.md) for more information on
 globals.
 
 ```js

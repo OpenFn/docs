@@ -37,7 +37,7 @@ sovereignty.
 :::tip
 
 Check out the docs page on
-[Security & Compliance](../get-started/security-compliance.md) for more on data
+[Security & Compliance](/get-started/security-compliance.md) for more on data
 storage and solution architectures that rely on OpenFn "zero-persistence" data
 pipelines.
 

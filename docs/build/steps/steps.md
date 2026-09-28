@@ -141,5 +141,5 @@ want this and to avoid the risk of accidental upgrades on live Workflows.
 
 Click the code button `</>` displayed on the configuration panel to write or
 edit a Job expression to define the "rules" or the specific tasks to be
-completed by your Step. See the pages on [the Inspector](./step-editor.md) and
+completed by your Step. See the pages on [the Inspector](/build/steps/step-editor.md) and
 [writing Jobs](/documentation/jobs/job-writing-guide) to learn more.

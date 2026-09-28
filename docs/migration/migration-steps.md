@@ -16,25 +16,25 @@ decisions. For customized migration support, ask your questions on our
    OpenFn-hosted platform ([register here](https://www.openfn.org/pricing) for
    free & paid plans) or deploy your own instance of
    [OpenFn/lightning](https://github.com/OpenFn/lightning).
-2. [Customize your Project](../manage-projects/platform-mgmt.md) with a custom
+2. [Customize your Project](/manage-projects/platform-mgmt.md) with a custom
    name and description.
 3. Think about how long you want OpenFn to retain your input and output data and
    configure data storage accordingly.
-   [See this page](../manage-projects/io-data-storage.md) to learn more.
+   [See this page](/manage-projects/io-data-storage.md) to learn more.
 4. Migrate your v1 project's `Jobs` configuration to the v2, as `Workflows`. See
    the below sections to determine if you prefer to automatically (recommended)
    or manually migrate your OpenFn configuration from your v1 to v2 project.
-5. Create [Credentials](../build/credentials.md) for your test and production
+5. Create [Credentials](/build/credentials.md) for your test and production
    systems. **First test your Workflows using your "test" or "sandbox"
    credentials.**
 6. Once your Workflow Steps are fully configured, add a new custom input and
-   [run your workflow](../build/steps/step-editor.md) to start testing.
-7. Check out the [History](../monitor-history/activity-history.md) page to
+   [run your workflow](/build/steps/step-editor.md) to start testing.
+7. Check out the [History](/monitor-history/activity-history.md) page to
    monitor and review your Runs to confirm your Workflows are running
    successfully.
 8. Test and iterate.
 9. Once your Workflows are tested, sync your new v2 configuration to GitHub for
-   version control. Follow [this guide](../manage-projects/link-to-gh.md) to
+   version control. Follow [this guide](/manage-projects/link-to-gh.md) to
    learn how it works and set it up.
 
    :::warning Turn off GitHub sync on v1 before setting it up on v2 If you're
@@ -69,7 +69,7 @@ decisions. For customized migration support, ask your questions on our
 
 11. If your Workflows use a Webhook Trigger, you can add an extra layer of
     security by requiring webhook authentication
-    ([see relevant docs](../manage-projects/webhook-auth.md)). Note that if you
+    ([see relevant docs](/manage-projects/webhook-auth.md)). Note that if you
     do this, you will need to update the webhook configuration in the external
     app that points to OpenFn.
 12. Fine-tune your security configuration by following our
@@ -80,7 +80,7 @@ decisions. For customized migration support, ask your questions on our
     adjusted your Project Settings.
 14. When all Workflows run successfully, update each Step in your Workflows to
     use a "production" Credential to connect to live systems.
-15. While you're testing, you may be using [Path Conditions](../build/paths.md)
+15. While you're testing, you may be using [Path Conditions](/build/paths.md)
     to allow only test data, such as `test_case == yes`. If you then want to
     exclude test data from your production systems, don't forget to update edge
     conditions, eg. `test_case == no`. Check out [this
@@ -91,7 +91,7 @@ decisions. For customized migration support, ask your questions on our
     locate your Workflow's new webhook endpoint URL by clicking n the Trigger).
 17. You’re now done with your new v2 Project setup! You can "turn on" your
     Workflows and monitor usage on your
-    [Workflows Dashboard](../manage-projects/workflow-dashboard.md). Now time to
+    [Workflows Dashboard](/manage-projects/workflow-dashboard.md). Now time to
     shut down your v1 project.
 18. Turn "off" your Jobs on v1.
 19. You have the option to export some of your v1 data: `Messages` and
@@ -114,7 +114,7 @@ questions or issues, post on the [Community](https://community.openfn.org).
 ## How to automatically migrate your OpenFn project configuration to v2
 
 Check out our docs on
-[Self-Guided Migration](../migration/automated-migration.md) to learn more about
+[Self-Guided Migration](/migration/automated-migration.md) to learn more about
 how to _automatically_ migrate your configuration from v1 to v2. **This is the
 recommended process** but requires admin-level user access to both your v1 and
 v2 Projects.
@@ -122,23 +122,23 @@ v2 Projects.
 ### How to manually migrate your OpenFn project configuration to v2
 
 1. On v2, the Jobs you use for automating tasks are organized as
-   [Workflows](../tutorials/tutorial.md), where each Job is 1 "Step" in a
+   [Workflows](/tutorials/tutorial.md), where each Job is 1 "Step" in a
    Workflow. Build out a skeleton to get started: set up
-   [Triggers](../build/triggers.md) and the key
+   [Triggers](/build/triggers.md) and the key
    [Steps](https://docs.openfn.org/documentation/build/steps) to get started.
 2. While configuring the Steps in your workflow, consider _which conditions_
    define when the next Step should execute. On v2, you can define
    [Path conditions](https://docs.openfn.org/documentation/build/paths) to
    configure whether a Step should run "on success", "on failure", or based on
    custom logic. Follow
-   [our guide on converting your v1 "triggers" to v2 configuration](../migration/converting-triggers.md)
+   [our guide on converting your v1 "triggers" to v2 configuration](/migration/converting-triggers.md)
    to learn more.
 3. Once the basic Steps and Paths are configured, copy your job code from your
    GitHub repository or directly from your v1 project and paste it into each
    Step's Inspector view. Get familiar with the revamped Job Inspector for code
-   editing [here](../build/steps/step-editor.md).
+   editing [here](/build/steps/step-editor.md).
 4. Make sure the Adaptor and Adaptor Version match your v1 jobs exactly. See the
-   [Steps docs](../build/steps/step-editor.md) for more info on these.
+   [Steps docs](/build/steps/step-editor.md) for more info on these.
 
 :::info
 
