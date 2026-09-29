@@ -13,7 +13,7 @@ including:
 - adjust logging level
 - maintain adaptors repo
 - run a workflow
-- compile job code for unit testing
+- preparing job code for unit tests
 - load adaptor documentation
 
 ---
@@ -225,28 +225,17 @@ running workflows via the CLI.
 
 ---
 
-### Compile job code for unit testing
+### Prepare job code for unit testing
 
 So you want to write unit tests against your job code? See
 [Writing unit tests for your jobs](/documentation/jobs/unit-testing-jobs) for
 the full guide.
 
-#### What "unit testing a job" means
+Unit tests only work against pure functions in your code (top level function
+declarations): they do not qork against operations or adaptor functions because
+they require connected backend services.
 
-A job is made of two different kinds of code, and only one of them is unit
-testable:
-
-- **Pure JavaScript functions you write and export** - These take input and
-  return output without calling adaptor or library code.
-- **Operations** - Such as `fn`, `http.get`, `each` and the rest of the adaptor
-  API. These need a runtime, a state object and often a live connection to run.
-  You cannot unit test these.
-
-Unit testing a job means taking the pure functions of your job cod and testing
-that they return the correct output for a given input. It does not mean
-_running_ the job and testing the final output.
-
-#### How it works
+To unit test functions in your job code:
 
 1. **Compile your project** using `openfn compile`. This compiles your workflows
    and writes them out as ordinary ES modules.
@@ -254,20 +243,16 @@ _running_ the job and testing the final output.
    native JS module.
 3. **Write tests as usual** against those pure functions.
 
-Compilation is what makes this possible: a job expression is not valid
-JavaScript on its own, so it can't be imported by a test runner until it has
-been compiled. See [Compilation](/documentation/jobs/compilation) for why.
-
 **Compile every workflow in the project, keeping only exported declarations:**
 
 ```bash
 openfn compile --exports-only
 ```
 
-Compiled files are written to `dist/` as `.mjs` files. Operations are stripped
-out entirely, so what's left is only the helper functions you exported - which
-is exactly the part you can test. Anything you don't export is dropped too, so
-export every helper you want a test to reach.
+Compiled files are written to `dist/` as `.mjs` files.
+
+With `--exports-only` Operations are stripped out entirely, leaving only
+exported functions and variables .
 
 **Compile a single workflow by name:**
 
