@@ -2,13 +2,13 @@
 sidebar_label: Unit Testing Jobs
 title: Writing unit tests for your jobs
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 Most job code goes like this: fetch some records, reshape them, send them
-somewhere else. But the reshaping bit often grows into complex logic - parsing
-a string into a structured record, mapping local codes onto DHIS2 data
-elements, normalising a dozen date formats into one.
+somewhere else. But the reshaping bit often grows into complex logic - parsing a
+string into a structured record, mapping local codes onto DHIS2 data elements,
+normalising a dozen date formats into one.
 
 Unit testing that logic helps to validate that the code runs correctly, and
 helps to prevent errors occurring when the code is modified later.
@@ -31,10 +31,10 @@ checking out and deploying projects.
 
 :::
 
-
 ## Step 1: Export any helper you want to test
 
 The functions that you want to test must be exported:
+
 ```js title="testable code"
 export const FIELDS = ['id', 'name', 'dob'];
 
@@ -43,6 +43,7 @@ export const parseSms = text =>
 
 fn(state => ({ ...state, data: state.data.messages.map(parseSms) }));
 ```
+
 ## Step 2: Compile your workflows
 
 From your project root (the folder with `openfn.yaml`):
@@ -55,9 +56,10 @@ openfn compile --exports-only
 [CLI] ✔ Compiled 1 step(s) to /path/to/project/dist
 ```
 
-Compiled files land in `dist/`, mirroring your workflow structure. **Output files use the `.mjs` extension.** Node always treats `.mjs` as an ES
-  module, so you don't need `"type": "module"` in your `package.json` for the
-  compiled code to import cleanly.
+Compiled files land in `dist/`, mirroring your workflow structure. **Output
+files use the `.mjs` extension.** Node always treats `.mjs` as an ES module, so
+you don't need `"type": "module"` in your `package.json` for the compiled code
+to import cleanly.
 
 :::warning Don't commit the generated `.mjs` files
 
@@ -86,6 +88,7 @@ openfn compile --exports-only --clean
 # Just one workflow, by name
 openfn compile sms-parser --exports-only
 ```
+
 Run `openfn compile --help` for the complete list.
 
 You can also set the output folder permanently in `openfn.yaml`:
@@ -98,8 +101,9 @@ dirs:
 
 ## Step 3: Write a test
 
-We recommend Node's built-in test runner here because it needs no dependencies, but
-nothing about this is Node-specific. You can use any test runner that can import an ES module.
+We recommend Node's built-in test runner here because it needs no dependencies,
+but nothing about this is Node-specific. You can use any test runner that can
+import an ES module.
 
 :::tip Name your test files `.test.mjs`
 
@@ -109,10 +113,12 @@ Node will warn about reparsing them as ES modules. Naming them `.test.mjs`
 avoids the warning without touching your `package.json`.
 
 :::
+
+<!-- prettier ignore -->
 <Tabs groupId="write-a-test">
   <TabItem value="source" label="The job code">
-    ```js title="workflows/sms-parser/parse-message.js"
-    export const FIELDS = ['id', 'name', 'dob', 'weight'];
+```js title="workflows/sms-parser/parse-message.js" export const FIELDS = ['id',
+'name', 'dob', 'weight'];
 
     export const parseSms = text => {
       const parts = text.trim().split('#');
@@ -127,6 +133,7 @@ avoids the warning without touching your `package.json`.
       data: state.data.messages.map(parseSms),
     }));
     ```
+
   </TabItem>
   <TabItem value="output" label="The compiled output">
   
@@ -144,6 +151,7 @@ avoids the warning without touching your `package.json`.
     };
     ```
     The `fn(...)` operation is gone. Both exports survived.
+
   </TabItem>
   <TabItem value="test" label="The test">
     Note the import path: it points at `dist/`, **not** at your source file.
@@ -163,9 +171,9 @@ avoids the warning without touching your `package.json`.
       });
     });
     ```
+
   </TabItem>
 </Tabs>
-
 
 ### Running the test
 
@@ -181,7 +189,6 @@ openfn compile --exports-only && node --test
 ℹ pass 1
 ℹ fail 0
 ```
-
 
 ## Step 4: Running test in watch mode
 
