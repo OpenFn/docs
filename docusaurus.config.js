@@ -12,16 +12,23 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
-  // English only for now. Translated content will live in i18n/<locale>/,
-  // and anything not translated falls back to the English source.
+  // --- i18n (internationalization) ---
+  // Spanish is built at /es/ but not linked from the navbar until it launches.
+  // Translated content lives in i18n/<locale>/. Anything not translated
+  // falls back to the English source automatically.
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'es'],
     localeConfigs: {
       en: {
         label: 'English',
         direction: 'ltr',
         htmlLang: 'en',
+      },
+      es: {
+        label: 'Español',
+        direction: 'ltr',
+        htmlLang: 'es',
       },
     },
   },
