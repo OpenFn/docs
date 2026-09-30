@@ -62,6 +62,16 @@ yarn start-offline
 This command skips the adaptor docs step, which requires an active internet
 connection.
 
+### Start in another language
+
+```
+yarn start --locale es
+```
+
+The development server shows one language at a time. This serves the Spanish
+site at the root, with English wherever a page isn't translated yet. To see
+both languages together at `/` and `/es/`, build and serve the site as below.
+
 ### Building the job library
 
 ```
