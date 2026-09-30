@@ -48,7 +48,8 @@ Never change them.
   or from an identify-gaps report.
 - **`release-review`** works out what the product shipped recently and passes
   that to identify-gaps. Suited to a monthly schedule.
-- **`translate`** translates English pages, in its own PR per locale.
+- **`translate`** translates English pages (`/translate pages`) or the
+  interface text (`/translate interface`), in its own PR per locale.
 
 `update-content` and `translate` open PRs, so they only run when someone asks
 for them by name (`/update-content`, `/translate`). When another skill hands off
