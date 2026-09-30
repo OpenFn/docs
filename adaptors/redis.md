@@ -4,19 +4,29 @@ title: Redis Adaptor
 
 ## About Redis
 
-[Redis (Remote Dictionary Server)](https://redis.io/) is an open-source, in-memory data store used as a database, cache, and message broker. It is commonly used for caching, real-time analytics, session management, and pub/sub messaging.
-
+[Redis (Remote Dictionary Server)](https://redis.io/) is an open-source,
+in-memory data store used as a database, cache, and message broker. It is
+commonly used for caching, real-time analytics, session management, and pub/sub
+messaging.
 
 ## Integration Options
 
-The `redis` adaptor provides direct database connections for accessing data and executing NoSQL and standard database operations. See [functions](/adaptors/packages/redis-docs) for more on how to use this adaptor.
-
+The `redis` adaptor provides direct database connections for accessing data and
+executing NoSQL and standard database operations. See
+[functions](/adaptors/packages/redis-docs) for more on how to use this adaptor.
 
 ## Authentication
 
-See [Redis](https://redis.io/docs/latest/) for the latest on supported authentication methods. When integrating with a NoSQL database via OpenFn, you authenticate via SSH using authorized database credentials. See this adaptor's [Configuration docs](/adaptors/packages/redis-configuration-schema) for more on the required authentication parameters.
+See [Redis](https://redis.io/docs/latest/) for the latest on supported
+authentication methods. When integrating with a NoSQL database via OpenFn, you
+authenticate via SSH using authorized database credentials. See this adaptor's
+[Configuration docs](/adaptors/packages/redis-configuration-schema) for more on
+the required authentication parameters.
 
-See platform docs on [managing credentials](/documentation/manage-projects/manage-credentials) for how to configure a credential in OpenFn. If working locally or if using a Raw JSON credential type, then your configuration will look something like this:
+See platform docs on
+[managing credentials](/documentation/manage-projects/manage-credentials) for
+how to configure a credential in OpenFn. If working locally or if using a Raw
+JSON credential type, then your configuration will look something like this:
 
 ```
 {
@@ -30,13 +40,16 @@ See platform docs on [managing credentials](/documentation/manage-projects/manag
 
 1. [Redis Documentation](https://redis.io/documentation)
 
-
 ### Implementation Examples
 
 _Coming soon!_
 
 ### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+Thanks for asking! We are a fully Open Source Digital Public Good, and we
+welcome contributions from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).

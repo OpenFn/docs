@@ -31,7 +31,7 @@ elements should be mapped, reassigned, cleaned, transformed, and/or calculated.
    file with “dummy” data.
 3. Start “mapping” the data elements and recording transformation rules!
 
-|            ![mapping](/img/mapping_process.webp)            |
+|           ![mapping](/img/mapping_process.webp)            |
 | :--------------------------------------------------------: |
 | _The data mapping process for data integration solutions._ |
 

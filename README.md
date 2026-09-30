@@ -119,8 +119,8 @@ Builds to `main` will automatically be deployed to
 [docs.openfn.org](https://docs.openfn.org). This branch is protected, but we
 welcome pull requests!
 
-
 ### To add help sections to all adaptor files:
+
 ```bash
 yarn run add-help-sections
 # or
@@ -128,5 +128,6 @@ node scripts/add-help-section.js
 ```
 
 ### For new adaptor files:
-When creating new adaptor documentation files, make sure to run `npm run add-help-sections` to add the standard help section.
 
+When creating new adaptor documentation files, make sure to run
+`npm run add-help-sections` to add the standard help section.

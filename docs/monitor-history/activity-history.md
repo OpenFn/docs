@@ -35,8 +35,8 @@ OpenFn Workflows are executed as follows:
    Order will be updated with a `success` status.
 
 You can also **cancel** pending runs or **retry** completed work orders directly
-from the History page. See [Retry & Cancel Runs](/monitor-history/rerunning-workflow.md) for
-details.
+from the History page. See
+[Retry & Cancel Runs](/monitor-history/rerunning-workflow.md) for details.
 
 ![History Page](/img/history-page-annotated.webp)
 

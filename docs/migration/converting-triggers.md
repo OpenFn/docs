@@ -11,16 +11,14 @@ OpenFn v1 to v2.
 
 ### Trigger Types on v1
 
-We use
-[4 types of triggers](/documentation/legacy/build/triggers) on
-v1: Message Filters, Cron Triggers, Flow Triggers, and Fail Triggers.
+We use [4 types of triggers](/documentation/legacy/build/triggers) on v1:
+Message Filters, Cron Triggers, Flow Triggers, and Fail Triggers.
 
 ### Converting Cron Triggers
 
 Setting up a [Cron Trigger on v2](/build/triggers.md#cron-triggers) works just
-the same as on [v1](/documentation/legacy/build/triggers): when
-you're building a Workflow, select Cron Schedule as Trigger type, and set the
-frequency.
+the same as on [v1](/documentation/legacy/build/triggers): when you're building
+a Workflow, select Cron Schedule as Trigger type, and set the frequency.
 
 ### Converting Flow and Fail Triggers
 
@@ -28,9 +26,9 @@ With a Flow trigger, we can execute a job upon success of another specified job.
 With a Fail trigger, the job will run if an another specified job failed.
 
 On v2, we achieve the same conditional behavior with
-[Path Conditions](/build/paths.md): a job can run (1) always, (2), on success
-of another job, (3) on failure of another job, or (4) on a custom condition -
-we'll get to this last one in the next section.
+[Path Conditions](/build/paths.md): a job can run (1) always, (2), on success of
+another job, (3) on failure of another job, or (4) on a custom condition - we'll
+get to this last one in the next section.
 
 So, if on v1 you had a Flow Trigger, on v2 you'll need to choose the
 `On Success` condition between your jobs. If you had a Fail Trigger, select the
@@ -64,9 +62,9 @@ workflows, instead of the previous common Inbox one.
 #### Path Conditions
 
 Once you've configured your
-[Webhook](/build/triggers.md#webhook-event-triggers), you can use a custom
-Path Condition that matches a JavaScript expression to decide whether a
-subsequent job should be executed or not.
+[Webhook](/build/triggers.md#webhook-event-triggers), you can use a custom Path
+Condition that matches a JavaScript expression to decide whether a subsequent
+job should be executed or not.
 
 For example, if on v1 you had a Message Filter trigger that looked like this:
 

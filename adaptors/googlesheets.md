@@ -60,15 +60,16 @@ consent flow, making them more reliable and auditable for integration workflows.
 
 When setting up a service account for Google Sheets:
 
-- Grant only the scopes your workflow requires, following the principle of
-  least privilege. See
+- Grant only the scopes your workflow requires, following the principle of least
+  privilege. See
   [Google's documentation on OAuth scopes](https://developers.google.com/identity/protocols/oauth2/scopes#sheets)
   for the available Sheets scopes.
 - Share the specific Google Sheet(s) with the service account's email address
   (e.g. `my-service-account@my-project.iam.gserviceaccount.com`) at the
   appropriate permission level (Viewer for read-only, Editor for write access).
 
-See the [Credentials page](/documentation/build/credentials#creating-a-dedicated-integration-user-for-your-openfn-workflow)
+See the
+[Credentials page](/documentation/build/credentials#creating-a-dedicated-integration-user-for-your-openfn-workflow)
 for broader guidance on why dedicated integration users and service accounts are
 recommended for all OpenFn workflows.
 
@@ -169,10 +170,13 @@ that shows us how to get data via a REST API and push it to Google Sheet.
 - [Google Sheets API Overview](https://developers.google.com/sheets/api/guides/concepts)
 - OpenFn Workflow Tutorial:
   [HTTP-to-GoogleSheets](https://docs.openfn.org/documentation/tutorials/http-to-googlesheets)
-  
 
 ### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+Thanks for asking! We are a fully Open Source Digital Public Good, and we
+welcome contributions from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).

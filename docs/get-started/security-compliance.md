@@ -75,8 +75,8 @@ Learn more at [openfn.org/trust](https://www.openfn.org/trust#encryption).
 
 ## Credentials
 
-[Credentials](/manage-projects/manage-credentials.md), used to grant OpenFn
-API access to your various technologies, are encrypted at rest so that, in the
+[Credentials](/manage-projects/manage-credentials.md), used to grant OpenFn API
+access to your various technologies, are encrypted at rest so that, in the
 unlikely event of a database breach, without access to multiple, independently
 secured boxes an attacker would be unable to read your authentication
 information.

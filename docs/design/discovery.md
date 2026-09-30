@@ -159,6 +159,6 @@ requirements. Check out the example solution architecture diagrams below.
 
 **Example 2:**
 
-|                                                      ![Workflow](/img/solution_diagram2.webp)                                                       |
+|                                                      ![Workflow](/img/solution_diagram2.webp)                                                      |
 | :------------------------------------------------------------------------------------------------------------------------------------------------: |
 | _[Source](https://lucid.app/lucidchart/1e997197-2d67-4393-8394-a532d83561b2/edit?invitationId=inv_85b809a1-6fbd-4275-abdc-618fbd56e90d&page=0_0#)_ |

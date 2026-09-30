@@ -9,11 +9,11 @@ on their current state. Use **Retry** to re-execute completed work orders, or
 
 ## Available Actions by Work Order State
 
-| Work Order State                                                                              | Available Actions |
-| :-------------------------------------------------------------------------------------------- | :---------------- |
-| **Pending** (runs waiting in the queue)                                                       | Cancel            |
-| **Running**                                                                                   | None              |
-| **Final states** (Success, Failed, Crashed, Killed, Exception, Lost, Cancelled, Rejected)     | Retry, Retry from |
+| Work Order State                                                                          | Available Actions |
+| :---------------------------------------------------------------------------------------- | :---------------- |
+| **Pending** (runs waiting in the queue)                                                   | Cancel            |
+| **Running**                                                                               | None              |
+| **Final states** (Success, Failed, Crashed, Killed, Exception, Lost, Cancelled, Rejected) | Retry, Retry from |
 
 :::info Selecting work orders with mixed states
 
@@ -68,7 +68,8 @@ To rerun your Workflow from the `Inspector` page:
 If runs are stuck in the queue or were created by mistake, you can cancel them.
 Cancelling moves runs from `available` to `cancelled` and updates the
 corresponding work order status from `pending` to `cancelled`. See
-[Status Codes](/monitor-history/status-codes.md) for more on what each status means.
+[Status Codes](/monitor-history/status-codes.md) for more on what each status
+means.
 
 There are several ways to cancel:
 
