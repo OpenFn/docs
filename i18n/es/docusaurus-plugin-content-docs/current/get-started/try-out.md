@@ -2,7 +2,7 @@
 title: Prueba la v2⚡
 id: try-out
 sidebar_label: Prueba la v2⚡
-translation_source_hash: 23289e04c3acffebfc62930b673c2f85e50f6d82
+translation_source_hash: db46fdc098158685d394de5d453cfab4c27680e3
 translation_review_status: machine
 ---
 
@@ -54,7 +54,7 @@ documentación para desarrolladores:
 
 Revisa esta documentación para conocer más detalles sobre funcionalidades
 específicas (ver el menú lateral), explora la
-[página principal de la documentación](/documentation/) o publica tus preguntas
-en la [Comunidad](https://community.openfn.org).
+[página principal de la documentación](/get-started/home.md) o publica tus
+preguntas en la [Comunidad](https://community.openfn.org).
 
 :::
