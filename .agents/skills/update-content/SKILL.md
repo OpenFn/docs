@@ -32,8 +32,9 @@ Change docs pages and open a PR.
 ## Finish
 
 Stop when you are done or reach 20 changed files. If work is left, list it in
-the PR for the next run. Run Prettier on the files you changed, then build the
-site as CI does, which fails on broken links:
+the PR for the next run. Format the files you changed with
+`yarn prettier --write <files>`, then build the site as CI does, which fails on
+broken links:
 
 ```bash
 yarn generate-library

@@ -74,7 +74,7 @@ local/government-managed servers, you might:
 8. **Monitor & adjust your strategy** as and when required by your country’s
    usage and data sovereignty requirements evolve over time.
 
-\*Head over to the [Requirements](./requirements.md) page for more information
+\*Head over to the [Requirements](/deploy/requirements.md) page for more information
 on recommended server specifications.
 
 ## Moving from cloud to local (v1 or v2)

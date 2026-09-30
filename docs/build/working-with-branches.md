@@ -3,7 +3,7 @@ title: Manage changes with GitHub branches
 sidebar_label: Manage changes
 ---
 
-In the [Edit Steps Locally](../build/editing-locally.md) section, we walked through
+In the [Edit Steps Locally](/build/editing-locally.md) section, we walked through
 the process of creating and adding your changes to the `main` branch of a
 project.
 
@@ -30,7 +30,7 @@ repo to your local folder.
    branch, managed separately from `main`.
 
 2. To test the changes locally, check out the
-   [The CLI](../build-for-developers/cli-intro.md) docs.
+   [The CLI](/build-for-developers/cli-intro.md) docs.
 
 3. Just as you've seen when working on `main`, when you're done check which
    files you changed with `git status`.

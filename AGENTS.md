@@ -80,12 +80,31 @@ category from the sidebar, one folder under `docs/`, or one page.
 Stop at 20 changed files and open a PR (see `update-content/SKILL.md`).
 Translations go in their own PR per locale and do not count toward the 20.
 
+Mechanical changes that the build or a script checks, such as rewriting links
+or running Prettier, can go in one PR of any size. Keep that PR to the
+mechanical change only, so it stays quick to review.
+
+## Checking a change
+
+Before opening any PR, build the site as CI does. It fails on broken links:
+
+```bash
+yarn generate-library
+yarn generate-adaptors
+yarn build
+```
+
+Broken-anchor warnings do not fail the build, and `main` already has some. Fix
+only the ones your change adds.
+
 ## House style
 
 - Every page has a `title` in its front matter.
-- Internal links start with `/documentation/`, `/adaptors/`, or `/articles/`.
-  Never use relative `.md` links; they break the build once a page is
-  translated.
+- Link to another docs page by its file path from the top of `docs/`, like
+  `/deploy/portability.md`. Link to adaptor pages and articles by URL, starting
+  with `/adaptors/` or `/articles/`. Never use relative links like
+  `../deploy/portability.md`; they break the build once only one of the two
+  pages is translated.
 - Images live in `static/img/` and are linked as `/img/filename`, with alt text
   that says what the image shows. "Screenshot" does not count.
 - Leave a blank line after an admonition's opening line (`:::tip`, `:::note`,

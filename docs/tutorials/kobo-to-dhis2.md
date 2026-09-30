@@ -65,7 +65,7 @@ configuration
 
 In this Step we want to be fetch form submissions from this demo form with the
 id `aBpweTNdaGJQFb5EBBwUeo`. To do so, open the
-[Inspector Editor](../build/steps/step-editor.md) and add the following Job
+[Inspector Editor](/build/steps/step-editor.md) and add the following Job
 code:
 
 ```javascript
@@ -76,8 +76,8 @@ getSubmissions({ formId: 'aBpweTNdaGJQFb5EBBwUeo' });
 ::: tip Need help writing job code?
 
 Check out the docs on the ["kobotoolbox" Adaptor](/adaptors/kobotoolbox),
-[configuring Steps](../build/steps/steps.md), and
-[job-writing](../jobs/job-writing-guide.md).
+[configuring Steps](/build/steps/steps.md), and
+[job-writing](/jobs/job-writing-guide.md).
 
 :::
 
@@ -90,7 +90,7 @@ Check out the docs on the ["kobotoolbox" Adaptor](/adaptors/kobotoolbox),
 #### Testing:
 
 Create an empty input `{}` then click `Create New Work Order` button to run the
-workflow. [See docs](../build/workflows.md) for more on running Workflows
+workflow. [See docs](/build/workflows.md) for more on running Workflows
 manually.
 
 The expected ` output` should contain 17 records in `state.data.results`
@@ -105,7 +105,7 @@ Create a second Step after `Get Kobo Form Submission` as follows:
 - Credential: none needd
 
 In this step we are going to count all records with `"OPV0_dose_given": "yes"`.
-To add this logic, open the [Inspector](../build/steps/step-editor.md) and add
+To add this logic, open the [Inspector](/build/steps/step-editor.md) and add
 the following JOb code in the Editor:
 
 ```javascript
@@ -122,8 +122,8 @@ fn(state => {
 :::tip Need help writing job code? Or modifying this logic?
 
 Check out the docs on the ["common" Adaptor](/adaptors/packages/common-docs),
-[configuring Steps](../build/steps/steps.md), and
-[job-writing](../jobs/job-writing-guide.md).
+[configuring Steps](/build/steps/steps.md), and
+[job-writing](/jobs/job-writing-guide.md).
 
 :::
 
@@ -137,7 +137,7 @@ Check out the docs on the ["common" Adaptor](/adaptors/packages/common-docs),
 #### Testing:
 
 Select the first step `Get Kobo Form Submission` and `Create New Work Order`
-with an empty input ([see Workflow docs](../build/workflows.md) if you need help
+with an empty input ([see Workflow docs](/build/workflows.md) if you need help
 with running and testing steps). Both steps should be executed successfully and
 you should see in the final state `opvDosesGivenCount: 3` added.
 
@@ -161,7 +161,7 @@ Create a third Step after `Count OPV Dose Given` as follows:
 In this Step, we want to add logic to import `dataValues` to DHIS2 to "report"
 on the aggregated OPV0 immunization does count calculated in Step 2.
 
-To do so, open the [Inspector](../build/steps/step-editor.md), add the following
+To do so, open the [Inspector](/build/steps/step-editor.md), add the following
 Job code in the Editor:
 
 ```javascript
@@ -183,8 +183,8 @@ create('dataValueSets', state => ({
 :::tip Need help writing job code? Or modifying this logic?
 
 Check out the docs on the ["dhis2" Adaptor](/adaptors/dhis2),
-[configuring Steps](../build/steps/steps.md), and
-[job-writing](../jobs/job-writing-guide.md).
+[configuring Steps](/build/steps/steps.md), and
+[job-writing](/jobs/job-writing-guide.md).
 
 :::
 
@@ -201,7 +201,7 @@ Check out the docs on the ["dhis2" Adaptor](/adaptors/dhis2),
 Save your changes then navigate to the first step(Get Kobo Form Submission) and
 create an empty input `{}` then click `Create New Work Order` button to run the
 workflow. All steps should be executed successful and you should see the
-`OPV0 doses given` updated in DHIS2. See [Workflow docs](../build/workflows.md)
+`OPV0 doses given` updated in DHIS2. See [Workflow docs](/build/workflows.md)
 if you need help running or testing Workflows.
 
 ### Conclusion

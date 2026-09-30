@@ -26,7 +26,7 @@ below:
 | Viewer | A user with access to a project but only limited to viewing the project settings and artifacts.                                                                                |
 
 You can learn more about the permissions of each role
-[here](../manage-projects/user-roles-permissions.md)
+[here](/manage-projects/user-roles-permissions.md)
 
 ### Add project collaborator(s)
 
@@ -71,4 +71,4 @@ through the pop up window. The owner of a project cannot be removed.
 
 :::tip The project collaborators page is also where you can configure failure
 alerts and digests for your projects. Learn more about it
-[in this guide](../manage-projects/notifications.md). :::
+[in this guide](/manage-projects/notifications.md). :::

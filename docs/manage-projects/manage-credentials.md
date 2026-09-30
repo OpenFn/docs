@@ -181,4 +181,4 @@ Example Raw JSON credential body or `configuration`:
 
 All credentials are stored encrypted at rest, and credential secrets can only be
 viewed by credential owners. See OpenFn
-[Security docs](../get-started/security-compliance.md) for more information.
+[Security docs](/get-started/security-compliance.md) for more information.

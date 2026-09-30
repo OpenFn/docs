@@ -37,18 +37,18 @@ upsert(
     relationship('Nurse__r', 'Nurse_ID_code__c', dataValue('form.staff_id')),
     field('Phone_Number__c', dataValue('form.mobile_phone'))
   )
-),
-  each(
-    join('$.data.form.visits[*]', '$.references[0].id', 'Id'),
-    create(
-      'Visit__c',
-      fields(
-        field('Patient__c', dataValue('Id')),
-        field('Date__c', dataValue('date')),
-        field('Reason__c', dataValue('why_did_they_see_doctor'))
-      )
+);
+each(
+  join('$.data.form.visits[*]', '$.references[0].id', 'Id'),
+  create(
+    'Visit__c',
+    fields(
+      field('Patient__c', dataValue('Id')),
+      field('Date__c', dataValue('date')),
+      field('Reason__c', dataValue('why_did_they_see_doctor'))
     )
-  );
+  )
+);
 ```
 
 ### Accessing the "data array" in Open Data Kit submissions
@@ -133,27 +133,27 @@ beta.each(
       field('Location__Longitude__s', dataValue('gps:Longitude'))
     )
   )
-),
-  beta.each(
-    '$.data.data[*]',
-    upsert(
-      'Outlet_Call__c',
-      'Invoice_Number__c',
-      fields(
-        field('Invoice_Number__c', dataValue('invoice_number')),
-        relationship('Outlet__r', 'Outlet_Code__c', dataValue('outlet_code')),
-        relationship('RecordType', 'name', 'No Call Card'),
-        field('Trip__c', 'a0FN0000008jPue'),
-        relationship(
-          'Sales_Person__r',
-          'Sales_Rep_Code__c',
-          dataValue('sales_rep_code')
-        ),
-        field('Date__c', dataValue('date')),
-        field('Comments__c', dataValue('comments'))
-      )
+);
+beta.each(
+  '$.data.data[*]',
+  upsert(
+    'Outlet_Call__c',
+    'Invoice_Number__c',
+    fields(
+      field('Invoice_Number__c', dataValue('invoice_number')),
+      relationship('Outlet__r', 'Outlet_Code__c', dataValue('outlet_code')),
+      relationship('RecordType', 'name', 'No Call Card'),
+      field('Trip__c', 'a0FN0000008jPue'),
+      relationship(
+        'Sales_Person__r',
+        'Sales_Rep_Code__c',
+        dataValue('sales_rep_code')
+      ),
+      field('Date__c', dataValue('date')),
+      field('Comments__c', dataValue('comments'))
     )
-  );
+  )
+);
 ```
 
 ### Salesforce: perform an update
@@ -318,22 +318,22 @@ person(
       ];
     })
   )
-),
-  patient(
-    fields(
-      field('person', lastReferenceValue('uuid')),
-      field('identifiers', function (state) {
-        return [
-          {
-            identifier: '1234',
-            identifierType: '8d79403a-c2cc-11de-8d13-0010c6dffd0f',
-            location: '8d6c993e-c2cc-11de-8d13-0010c6dffd0f',
-            preferred: true,
-          },
-        ];
-      })
-    )
-  );
+);
+patient(
+  fields(
+    field('person', lastReferenceValue('uuid')),
+    field('identifiers', function (state) {
+      return [
+        {
+          identifier: '1234',
+          identifierType: '8d79403a-c2cc-11de-8d13-0010c6dffd0f',
+          location: '8d6c993e-c2cc-11de-8d13-0010c6dffd0f',
+          preferred: true,
+        },
+      ];
+    })
+  )
+);
 ```
 
 ### merge many values into a child path
