@@ -161,6 +161,7 @@ module.exports = {
         'contribute/writing-code',
         'contribute/writing-docs',
         'contribute/style-guide',
+        'contribute/translating',
       ],
     },
     'get-help/support',

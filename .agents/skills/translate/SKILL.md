@@ -28,6 +28,9 @@ keeps the ones already translated. Translate the new ones.
 Never translate the generated adaptor pages, the job library, the old v1
 docs, or articles and blog posts.
 
+The build pitfalls that only show up on non-default locales are written up in
+`docs/contribute/translating.md`. Read it before your first translation.
+
 ## Before you start
 
 Check these three things. If any fails, stop and ask.
