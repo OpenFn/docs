@@ -243,8 +243,8 @@ The Inspector has 3 key interfaces: `Input`, `Editor`, & `Output`.
 ### Input
 
 An Input is the data (`json`) that is used as the starting Input for a Workflow
-Step to utilise when it's run. Every Run will have an Input (initial state) and
-Output (final state).
+Step to utilise when it's run. Every Run has an Input (the initial `state`) and
+an Output (the final `state`).
 
 Inputs may be created automatically by a webhook event (e.g., a message
 forwarded or JSON payload posted to OpenFn) or another Workflow Step, or
