@@ -84,7 +84,7 @@ Workflows are fully configurable and reusable. They can also be chained together
 to automate multi-step processes and two-way data syncs to keep data consistent
 between multiple applications (using multi-app Saga patterns).
 
-:::note
+:::
 
 ### Adaptor
 
