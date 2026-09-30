@@ -12,6 +12,19 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
+  // English only for now. Translated content will live in i18n/<locale>/,
+  // and anything not translated falls back to the English source.
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en',
+      },
+    },
+  },
   markdown: {
     hooks: { onBrokenMarkdownLinks: 'warn' },
     mermaid: true,
@@ -151,6 +164,9 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars-main.js'),
           routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/main',
+          // Point "Edit this page" at the translated file rather than the
+          // English source when reading a non-default locale.
+          editLocalizedFiles: true,
           lastVersion: 'current',
           versions: {
             current: {
