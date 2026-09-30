@@ -79,13 +79,13 @@ These are all real failures we hit enabling Spanish, and they only show up on
 non-default locales — English keeps passing, which makes them confusing to
 debug.
 
-### Link to docs with site-absolute paths, not relative `.md` paths
+### Link to docs by file path from the docs root, not relative `.md` paths
 
 This is already the house style in `AGENTS.md`, and i18n is why it matters. On
 an English page, use:
 
 ```md
-[Key Concepts](/documentation/get-started/terminology)
+[Key Concepts](/get-started/terminology.md)
 ```
 
 not:
