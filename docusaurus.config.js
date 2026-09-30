@@ -16,12 +16,6 @@ module.exports = {
   // Spanish is built at /es/ but not linked from the navbar until it launches.
   // Translated content lives in i18n/<locale>/. Anything not translated
   // falls back to the English source automatically.
-  //
-  // Local dev for a single locale (much faster than building everything):
-  //   yarn start --locale es
-  // Do not use `yarn build --locale es` to check a PR: it reports every
-  // /es/ link as broken. Run a full `yarn build`. See
-  // docs/contribute/translating.md.
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'es'],
