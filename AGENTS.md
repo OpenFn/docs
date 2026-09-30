@@ -48,8 +48,8 @@ Never change them.
   or from an identify-gaps report.
 - **`release-review`** works out what the product shipped recently and passes
   that to identify-gaps. Suited to a monthly schedule.
-- **`translate`** translates English pages (`/translate pages`) or the
-  interface text (`/translate interface`), in its own PR per locale.
+- **`translate`** translates English pages (`/translate pages`) or the interface
+  text (`/translate interface`), in its own PR per locale.
 
 `update-content` and `translate` open PRs, so they only run when someone asks
 for them by name (`/update-content`, `/translate`). When another skill hands off
@@ -80,9 +80,9 @@ category from the sidebar, one folder under `docs/`, or one page.
 Stop at 20 changed files and open a PR (see `update-content/SKILL.md`).
 Translations go in their own PR per locale and do not count toward the 20.
 
-Mechanical changes that the build or a script checks, such as rewriting links
-or running Prettier, can go in one PR of any size. Keep that PR to the
-mechanical change only, so it stays quick to review.
+Mechanical changes that the build or a script checks, such as rewriting links or
+running Prettier, can go in one PR of any size. Keep that PR to the mechanical
+change only, so it stays quick to review.
 
 ## Checking a change
 

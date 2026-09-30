@@ -18,7 +18,7 @@ It writes more than we want. Keep only these:
 
 | File                                          | Keep                                                                       |
 | --------------------------------------------- | -------------------------------------------------------------------------- |
-| `code.json`                                   | The `homepage.*` entries                                                   |
+| `code.json`                                   | Everything except the `theme.*` entries                                    |
 | `docusaurus-theme-classic/navbar.json`        | Everything. Leave `title` and `logo.alt` as `OpenFn`                       |
 | `docusaurus-theme-classic/footer.json`        | Everything except `copyright`                                              |
 | `docusaurus-plugin-content-docs/current.json` | Everything. These are the sidebar headings. Leave `version.label` as it is |

@@ -3,18 +3,18 @@ name: translate
 description:
   Translates the docs under i18n/ into each language enabled in
   docusaurus.config.js, either a set of English pages or the interface text
-  (navbar, footer, sidebar headings, homepage). Respects glossary.yml, translation-rules.yml, review status, and
-  do-not-retranslate fences, and opens one PR per locale. Use when asked to
-  translate or refresh translations.
+  (navbar, footer, sidebar headings, homepage). Respects glossary.yml,
+  translation-rules.yml, review status, and do-not-retranslate fences, and opens
+  one PR per locale. Use when asked to translate or refresh translations.
 disable-model-invocation: true
 ---
 
 # Translate
 
 Translate English docs into each locale in `i18n.locales` in
-`docusaurus.config.js`, other than English. The English is always the source
-of truth. Translations are generated files that live in
-this repo, under `i18n/<locale>/`.
+`docusaurus.config.js`, other than English. The English is always the source of
+truth. Translations are generated files that live in this repo, under
+`i18n/<locale>/`.
 
 There are two tasks. Each has its own file in this folder; read the one you
 need.
@@ -30,8 +30,8 @@ need.
 If you are not told which task, work out which ones are needed from what has
 changed in English, say so, and ask before starting.
 
-Never translate the generated adaptor pages, the job library, the old v1
-docs, or articles and blog posts.
+Never translate the generated adaptor pages, the job library, the old v1 docs,
+or articles and blog posts.
 
 ## Before you start
 
@@ -47,8 +47,8 @@ Check these three things. If any fails, stop and ask.
 These apply to both tasks.
 
 - Words in `glossary.yml` stay in English. For ordinary words that are also
-  product terms, like "run" or "step", keep the English only when the word
-  means the OpenFn thing.
+  product terms, like "run" or "step", keep the English only when the word means
+  the OpenFn thing.
 - Follow any rules for the locale in `translation-rules.yml`. By default,
   Spanish uses "tú".
 - Copy code blocks and inline code exactly. You may translate comments inside
@@ -68,12 +68,12 @@ yarn build
 ```
 
 Build the whole site, not just your locale. `yarn build --locale <locale>`
-builds the locale at the site root, so every correct `/es/...` link shows up
-as broken.
+builds the locale at the site root, so every correct `/es/...` link shows up as
+broken.
 
 Open one PR per locale, separate from the English PR. Translated files do not
-count toward the 20-file limit, because a locale's translations are reviewed
-as a set. In the PR description, say which tool and model translated the
-text. If you spot a problem in the English while translating, list it in the
-PR description under "Problems in the English", with the file and line. Do
-not fix it in this PR.
+count toward the 20-file limit, because a locale's translations are reviewed as
+a set. In the PR description, say which tool and model translated the text. If
+you spot a problem in the English while translating, list it in the PR
+description under "Problems in the English", with the file and line. Do not fix
+it in this PR.
