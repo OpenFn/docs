@@ -36,10 +36,11 @@ decisions. For customized migration support, ask your questions on our
    version control. Follow [this guide](/manage-projects/link-to-gh.md) to learn
    how it works and set it up.
 
-   :::warning Turn off GitHub sync on v1 before setting it up on v2 If you're
-   using the same GitHub repo and branch for both your v1 and v2 project,
-   disable GitHub sync on v1 _before_ you enable it on v2. Otherwise every
-   change you still make on v1 will trigger a GitHub > OpenFn sync on v2,
+   :::warning Turn off GitHub sync on v1 before setting it up on v2
+
+   If you're using the same GitHub repo and branch for both your v1 and v2
+   project, disable GitHub sync on v1 _before_ you enable it on v2. Otherwise
+   every change you still make on v1 will trigger a GitHub > OpenFn sync on v2,
    overwriting any changes you may not have synced yet from your v2 project to
    GitHub.
 
