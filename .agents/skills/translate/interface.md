@@ -16,12 +16,13 @@ Translate the `message` value of each new entry. Leave the keys and
 
 It writes more than we want. Keep only these:
 
-| File                                          | Keep                                                                       |
-| --------------------------------------------- | -------------------------------------------------------------------------- |
-| `code.json`                                   | Everything except the `theme.*` entries                                    |
-| `docusaurus-theme-classic/navbar.json`        | Everything. Leave `title` and `logo.alt` as `OpenFn`                       |
-| `docusaurus-theme-classic/footer.json`        | Everything except `copyright`                                              |
-| `docusaurus-plugin-content-docs/current.json` | Everything. These are the sidebar headings. Leave `version.label` as it is |
+| File                                           | Keep                                                                                         |
+| ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `code.json`                                    | Everything except the `theme.*` entries                                                      |
+| `docusaurus-theme-classic/navbar.json`         | Everything. Leave `title` and `logo.alt` as `OpenFn`                                         |
+| `docusaurus-theme-classic/footer.json`         | Everything except `copyright`                                                                |
+| `docusaurus-plugin-content-docs/current.json`  | Everything. These are the sidebar headings. Leave `version.label` as it is                   |
+| `docusaurus-plugin-content-blog*/options.json` | Everything. These are the titles and sidebar heading of the blog and articles, not the posts |
 
 Remove the rest before you commit:
 
@@ -31,8 +32,7 @@ Remove the rest before you commit:
 - The `copyright` entry in `footer.json`. The site works out the year when it
   builds, and a translated copy would freeze it.
 - Every other file: the adaptor sidebar
-  (`docusaurus-plugin-content-docs-adaptors/`), the old v1 docs
-  (`version-legacy.json`), and blog and articles
-  (`docusaurus-plugin-content-blog*/`). Those stay in English.
+  (`docusaurus-plugin-content-docs-adaptors/`) and the old v1 docs
+  (`version-legacy.json`). Those stay in English.
 
 Then build and open the PR as `SKILL.md` describes.
