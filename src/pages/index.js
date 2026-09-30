@@ -375,7 +375,7 @@ function Home() {
           {highlights.map(h => (
             <div className="highlight-card">
               <h3>
-                <a href={h.link}>{h.title}</a>
+                <Link to={`/${h.link}`}>{h.title}</Link>
               </h3>
               <p>{h.description}</p>
             </div>

@@ -25,8 +25,8 @@ you need.
 
 **Ask before editing**
 
-- `docusaurus.config.js`, `package.json`, and anything in `.github/`. These
-  change how the site builds and deploys.
+- `docusaurus.config.js`, `package.json`, `sidebars-adaptors.js`, and anything
+  in `.github/`. These change how the site builds and deploys.
 
 **Special rules apply**
 
