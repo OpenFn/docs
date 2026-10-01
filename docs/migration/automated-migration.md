@@ -13,9 +13,9 @@ You can export your existing project configuration containing the jobs and
 triggers from v1, then use the OpenFn
 [CLI](https://github.com/OpenFn/kit/tree/main/packages/cli) tool to deploy it to
 your v2 project space. To start, make sure you have the latest version of the
-CLI installed ([see CLI docs](/documentation/cli)). To learn more about the
-project configuration as code, head over to our
-[Portability](/documentation/deploy/portability) page.
+CLI installed ([see CLI docs](/build-for-developers/cli-intro.md)). To learn
+more about the project configuration as code, head over to our
+[Portability](/deploy/portability.md) page.
 
 In order to be able to deploy the project, you need to have at least `admin`
 access to the v2 project you're deploying to. In addition, if you're migrating
@@ -38,8 +38,8 @@ workflows, runs, and features you desire for your v2 project.
 4. In a code editor on your computer, create a new `config.json` file with the
    following content:
 
-- `apiKey`: Specify your API Key/ Personal Access Token from your v2 user
-  account. See [this page](/documentation/api-tokens) for how to to create one.
+- `apiKey`: Specify your API Key/Personal Access Token from your v2 user
+  account. See [this page](/manage-users/api-tokens.md) for how to create one.
 - `specPath`: Specify the path to the `project.yaml` file exported from your v1
   project (wherever you saved it on your computer - e.g.,
   `/usr/rita/Downloads/my_downloaded_project.yaml` file).
@@ -58,7 +58,7 @@ See below example `config.json` file to use as a template.
 }
 ```
 
-1. Next open up the OpenFn CLI. First, you need to pull the config of your v2
+5. Next open up the OpenFn CLI. First, you need to pull the config of your v2
    project. Start by copying the project ID from the URL of your v2 project like
    so:
 
@@ -79,9 +79,9 @@ project configuration, including any Workflows already configured on v2).
 
 ![Select Workflows](/img/select_workflow_to_add.webp)
 
-8. Paste the copied config in the bottom of `workflows` section of your the
-   newly created v2 `project.yaml`. (You are manually copying over the v1 config
-   over to your v2 project's Workflows.)
+8. Paste the copied config in the bottom of `workflows` section of the newly
+   created v2 `project.yaml`. (You are manually copying the v1 config over to
+   your v2 project's Workflows.)
 
 ![Existing Workflows](/img/migration_existing-workflows.webp)
 
@@ -116,13 +116,13 @@ openfn deploy -c config.json
 
 When prompted, confirm you want to deploy by typing `y` ("yes").
 
-10. If successful, verify the new Project config on your v2 app.
+11. If successful, verify the new Project config on your v2 app.
 
 :::tip Questions?
 
 Ask on [Community](https://community.openfn.org) if you run into issues or
 questions. For an overview of all the recommended v1-to-v2 migration steps,
-check out the [Migration Steps docs](/documentation/migration-steps).
+check out the [Migration Steps docs](/migration/migration-steps.md).
 
 :::
 
@@ -130,9 +130,9 @@ check out the [Migration Steps docs](/documentation/migration-steps).
 
 If you want to migrate a project from one instance of OpenFn v2 (e.g., the
 cloud-hosted [app.openfn.org](https://app.openfn.org)) to another (e.g., your
-local deployment of the v2), you can also leverage the OpenFn CLI. To start,
-make sure you have the latest version of the CLI installed
-([see CLI docs](/documentation/cli)).
+local deployment of v2), you can also leverage the OpenFn CLI. To start, make
+sure you have the latest version of the CLI installed
+([see CLI docs](/build-for-developers/cli-intro.md)).
 
 1. Export the project you want to migrate from your v2 instance. Go to
    `Settings`, and under `Setup` click `Export project`. Your `project.yaml`
@@ -144,7 +144,7 @@ make sure you have the latest version of the CLI installed
 :::info More on local deployment
 
 To learn more about OpenFn deployment, be sure to check out our
-[planning guide](/documentation/deploy/options) and
-[technical guidelines](/documentation/deploy/options#technical-guidelines).
+[planning guide](/deploy/options.md) and
+[technical guidelines](/deploy/options.md#technical-guidelines).
 
 :::

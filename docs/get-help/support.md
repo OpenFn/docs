@@ -14,7 +14,7 @@ examples, and circulate product updates.
 
 If you're using the hosted OpenFn platform SaaS, and have a private question
 about your project, account, or billing, contact our core team at
-[support@openfn.org](mailto://support@openfn.org).
+[support@openfn.org](mailto:support@openfn.org).
 
 ## Need helping hands?
 
