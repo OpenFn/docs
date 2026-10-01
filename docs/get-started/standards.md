@@ -9,7 +9,7 @@ solutions. Read on to learn how OpenFn complies with specific standards.
 ## Digital Public Good
 
 OpenFn is recognised by the
-[Ditial Public Goods Alliance](https://digitalpublicgoods.net/) as a Digital
+[Digital Public Goods Alliance](https://digitalpublicgoods.net/) as a Digital
 Public Good, or "DPG".
 
 :::info Digital Public Goods Definition
@@ -46,7 +46,7 @@ You can read more about Global Goods for Health
 
 ## OpenHIE Standard Architecture
 
-OpenFn is considered a OpenHIE reference technology and is compliant with the
+OpenFn is considered an OpenHIE reference technology and is compliant with the
 OpenHIE standard architecture for digital health implementations.
 
 _This section assumes you are familiar with the OpenHIE specification–a
@@ -64,10 +64,10 @@ point of care systems), and to (2) handle data mapping and transformation.
 
 If your organization is implementing the OpenHIE standard architecture, then
 OpenFn provides a workflow engine that interfaces with your interoperability
-later component (“IOL”). OpenFn can be implemented to automate:
+layer component (“IOL”). OpenFn can be implemented to automate:
 
 - Workflows between point of service systems;
-- Workflows between across core HIE components;
+- Workflows across core HIE components;
 - Data transformation steps required to prepare data before routing it to other
   HIE components via the IOL. (Note that OpenFn workflows serve as a
   web-UI-accessible and manageable alternative to OpenHIM “mediators”.)
@@ -76,7 +76,7 @@ OpenFn supports the
 [functional requirements](https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-interoperability-layer-iol#openhie-iol-functional-requirements)
 of the OpenHIE IOL, therefore some organizations also use OpenFn as their
 central interoperability layer. That said, please note that OpenFn cannot yet be
-used as a fully OpenHIE-compliant **\_interoperability layer _**because it does
+used as a fully OpenHIE-compliant **_interoperability layer_** because it does
 not leverage the IHE ATNA profile (see
 [requirement IOL-WF1](https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-interoperability-layer-iol#openhie-iol-workflow-requirements)).
 
@@ -102,7 +102,7 @@ fully OpenHIE-compliant since it does not yet leverage the IHE ATNA profile_
 - Provides out-of-box interfaces to connect to point of care systems
 - Handles complex data mapping and transformation to reformat data for receipt
   by a destination system (e.g., map data from point of care system to the data
-  model of a OpenHIE component, and/or map non-FHIR data to FHIR profiles)
+  model of an OpenHIE component, and/or map non-FHIR data to FHIR profiles)
 - Routes data to the interoperability layer
 - Can keep track of the long running state of a patient's care and perform
   actions based on this context (such as sending alerts) to improve patient
@@ -133,7 +133,7 @@ OpenFn is compliant with
 [GovStack's standard specification](https://govstack.gitbook.io/bb-workflow/2-description)
 for workflow engines.
 
-## Pricinciples for Digital Development
+## Principles for Digital Development
 
 OpenFn was designed for the social sector and has been actively prioritizing the
 [Principles of Digital Development](https://digitalprinciples.org/) since its
@@ -198,14 +198,14 @@ all FHIR versions.
 :::info Fhir 4 support
 
 The `fhir-4` adaptor is new to OpenFn as of March 2025. It introduces richer
-levels of support from the generic [fhir](/adaptors/fhir)adaptor. Support for
+levels of support from the generic [fhir](/adaptors/fhir) adaptor. Support for
 other FHIR versions is coming soon
 
 :::
 
 See the
 [Adaptors Wiki](https://github.com/OpenFn/adaptors/wiki/Generating-Fhir-Adaptors)
-to learn how to build your own FHIR adpator specific to your target FHIR
+to learn how to build your own FHIR adaptor specific to your target FHIR
 Implementation Guide
 
 ## Other Data Standards
@@ -214,5 +214,5 @@ OpenFn Workflows can automate data transformation, cleaning, and formatting
 rules to ensure compliance with _your_ organization's specific standards.
 
 Ask on the [community](https://community.openfn.org) to explore how OpenFn can
-be leverage to help automate application and enforcement of other data
+be leveraged to help automate application and enforcement of other data
 standards.
