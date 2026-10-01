@@ -98,17 +98,5 @@ only the ones your change adds.
 
 ## House style
 
-- Every page has a `title` in its front matter.
-- Link to another docs page by its file path from the top of `docs/`, like
-  `/deploy/portability.md`. Link to adaptor pages and articles by URL, starting
-  with `/adaptors/` or `/articles/`. Never use relative links like
-  `../deploy/portability.md`; they break the build once only one of the two
-  pages is translated.
-- Images live in `static/img/` and are linked as `/img/filename`, with alt text
-  that says what the image shows. "Screenshot" does not count.
-- Leave a blank line after an admonition's opening line (`:::tip`, `:::note`,
-  and so on) and before its closing `:::`. Without them, Prettier merges the
-  text into the opening line and Docusaurus shows it as the title.
-- It is spelled **adaptor**, never "adapter".
-- Use the approved terms in `glossary.yml`. If a page uses one of the listed
-  `variants`, replace it.
+Before writing or editing any page in `docs/`, read `STYLE.md`. It holds the
+rules for links, images, formatting, and wording.

@@ -115,7 +115,7 @@ to do with it.
 - Keep links exactly as they are in the English. Do not add `/es/` or `/fr/`;
   Docusaurus adds the locale when it builds the page. If the English has a
   relative link like `../deploy/portability.md`, it breaks the translated build,
-  so fix it in the English first (see the house style in `AGENTS.md`).
+  so fix it in the English first (see `STYLE.md`).
 - Give translated headings the original English anchor so existing links still
   work.
 

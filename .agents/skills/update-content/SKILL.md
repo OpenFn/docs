@@ -23,7 +23,7 @@ Change docs pages and open a PR.
 
 ## How to change it
 
-- Follow the house style in `AGENTS.md`.
+- Follow the house style in `STYLE.md`.
 - Keep each edit small. Match the page's voice and structure. Do not rewrite a
   page and call it a fix.
 - Only write a new page or section if the report or the person asked for it.

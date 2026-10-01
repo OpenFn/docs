@@ -177,6 +177,17 @@ terms:
     product_noun: true
     note: A function exported by an adaptor, e.g. `get()`, `upsert()`.
 
+  - term: KoboToolbox
+    translate: false
+    case_sensitive: true
+    variants:
+      - KoboToolBox
+      - Kobo Toolbox
+      - Kobo ToolBox
+    note: >-
+      The data collection platform. Lower-case "b". "Kobo" on its own is fine
+      as a short name.
+
 patterns:
   - pattern: "@openfn/[a-z0-9-]+"
     note: npm package names (adaptors, CLI, runtime).
