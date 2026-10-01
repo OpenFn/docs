@@ -84,6 +84,15 @@ terms:
       "correct" v1 usage inside pages that are explicitly about v1 or
       migration.
 
+  - term: credential
+    translate: true
+    note: >-
+      Stored authentication configuration attached to a Step. Spanish translates
+      it because "credencial" looks almost the same as the English in the app.
+      Decide separately for each new locale.
+    locales:
+      es: credencial
+
   - term: trigger
     translate: false
     product_noun: true
@@ -123,12 +132,30 @@ terms:
     translate: false
     note: Billing and hosting unit on the hosted OpenFn app.
 
+  - term: project
+    translate: true
+    note: >-
+      Administrative grouping of workflows, credentials, and collaborators.
+      Spanish translates it because "proyecto" looks almost the same as the
+      English in the app. Decide separately for each new locale.
+    locales:
+      es: proyecto
+
   - term: dataclip
     translate: false
     variants:
       - data clip
       - data-clip
     note: A stored input or output state object.
+
+  - term: collection
+    translate: true
+    note: >-
+      The Collections key-value store feature. Spanish translates it because
+      "colección" looks almost the same as the English in the app. Decide
+      separately for each new locale.
+    locales:
+      es: colección
 
   - term: sandbox
     translate: false
@@ -156,6 +183,15 @@ terms:
     note: >-
       The `state` object passed between operations. Protected only when it
       names the object (usually rendered in code as `state`).
+
+  - term: operation
+    translate: true
+    note: >-
+      A function exported by an adaptor, e.g. `get()`, `upsert()`. Spanish
+      translates it because "operación" looks almost the same as the English in
+      the app. Decide separately for each new locale.
+    locales:
+      es: operación
 
 patterns:
   - pattern: "@openfn/[a-z0-9-]+"
