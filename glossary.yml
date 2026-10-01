@@ -84,11 +84,6 @@ terms:
       "correct" v1 usage inside pages that are explicitly about v1 or
       migration.
 
-  - term: credential
-    translate: false
-    product_noun: true
-    note: Stored authentication configuration attached to a Step.
-
   - term: trigger
     translate: false
     product_noun: true
@@ -128,22 +123,12 @@ terms:
     translate: false
     note: Billing and hosting unit on the hosted OpenFn app.
 
-  - term: project
-    translate: false
-    product_noun: true
-    note: Administrative grouping of workflows, credentials, and collaborators.
-
   - term: dataclip
     translate: false
     variants:
       - data clip
       - data-clip
     note: A stored input or output state object.
-
-  - term: collection
-    translate: false
-    product_noun: true
-    note: The Collections key-value store feature. Ordinary English use may be translated.
 
   - term: sandbox
     translate: false
@@ -171,11 +156,6 @@ terms:
     note: >-
       The `state` object passed between operations. Protected only when it
       names the object (usually rendered in code as `state`).
-
-  - term: operation
-    translate: false
-    product_noun: true
-    note: A function exported by an adaptor, e.g. `get()`, `upsert()`.
 
 patterns:
   - pattern: "@openfn/[a-z0-9-]+"
