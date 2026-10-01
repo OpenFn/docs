@@ -8,19 +8,19 @@ translation_review_status: machine
 ---
 
 **OpenFn es el principal
-[Bien Público Digital](https://digitalpublicgoods.net/digital-public-goods/)
+[bien público digital](https://digitalpublicgoods.net/digital-public-goods/)
 para la automatización de flujos de trabajo**.
 
 Es una plataforma que más de 70 ONG y ministerios de gobierno han usado para
 automatizar e integrar procesos de negocio y sistemas de información críticos.
 
-**Conecta cualquier aplicación** con la biblioteca de [Adaptors](/adaptors/) (es
+**Conecta cualquier aplicación** con la biblioteca de [adaptors](/adaptors/) (es
 decir, conectores) de código abierto de OpenFn. Desde los servicios de última
 milla hasta los informes a nivel nacional, OpenFn mejora la eficiencia y la
-eficacia, a la vez que hace posible una interoperabilidad segura, estable y
-escalable a todos los niveles.
+eficacia, y hace posible una interoperabilidad segura, estable y escalable en
+todos los niveles.
 
-OpenFn puede desplegarse localmente o en la segura
+Puedes desplegar OpenFn localmente o usar la segura
 [plataforma alojada en la nube](https://openfn.org/pricing). Consulta la
 [documentación de despliegue](/documentation/deploy/options) para saber más
 sobre las opciones y los requisitos de despliegue.
@@ -43,14 +43,13 @@ impacto del mundo.
 
 ## Nuestros productos {#our-products}
 
-OpenFn tiene un conjunto de productos que son totalmente interoperables entre
-sí. Esto da a nuestros usuarios la libertad de cambiar entre cualquiera de los
-productos de OpenFn, o todos ellos.
+OpenFn ofrece un conjunto de productos totalmente interoperables entre sí, así
+que nuestros usuarios pueden pasar libremente de uno a otro o usarlos todos.
 
 Todos los productos de OpenFn, salvo la iPaaS OpenFn v1, forman parte del
-`OpenFn Integration Toolkit`, libre y de código abierto, que es un **Bien
-Público Digital** (un "DPG", por sus siglas en inglés) reconocido en el
-[Registro de DPG](https://digitalpublicgoods.net/registry/) y en la
+`OpenFn Integration Toolkit`, libre y de código abierto, que es un **bien
+público digital** (un "DPG", por sus siglas en inglés) reconocido en el
+[registro de DPG](https://digitalpublicgoods.net/registry/) y en la
 [Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook)
 de Digital Square.
 
@@ -60,7 +59,7 @@ Los productos principales de OpenFn son:
   plataforma de código abierto de integración de datos y automatización de
   flujos de trabajo. Es la versión "v2", la que se usa actualmente.
 - OpenFn/platform: la primera versión de nuestra plataforma. Reemplazada por la
-  v2 y con retirada prevista en 2025
+  v2, su retiro está previsto para 2025
 - [**OpenFn/adaptors**](https://github.com/OpenFn/adaptors): código fuente de
   los adaptors
 - [**OpenFn/kit**](https://github.com/OpenFn/kit): CLI, herramientas para
@@ -77,20 +76,20 @@ Cuando oigas "OpenFn", piensa en
 [OpenFn/lightning](https://github.com/OpenFn/lightning/). La v2 es una
 aplicación web de automatización de flujos de trabajo _totalmente de código
 abierto_ que puede desplegarse y ejecutarse en cualquier lugar. Está pensada
-para gobiernos y ONG que quieren capacidades de vanguardia de automatización de
-flujos de trabajo y de integración e interoperabilidad de datos, con gestión de
-usuarios y auditoría completas, mediante una plataforma gestionada _o_
-totalmente autoalojada.
+para gobiernos y ONG que buscan capacidades de vanguardia en automatización de
+flujos de trabajo e integración e interoperabilidad de datos, con gestión de
+usuarios y auditoría completas, en una plataforma gestionada _o_ totalmente
+autoalojada.
 
-La versión 2 aprovecha la misma tecnología central, probada y fiable, que OpenFn
-v1, e incluye una interfaz visual mejorada para crear integraciones.
+La versión 2 aprovecha la misma tecnología central, probada y confiable, que
+OpenFn v1, e incluye una interfaz visual mejorada para crear integraciones.
 
-![Canvas de workflow de OpenFn](/img/case_referral_workflow.webp)
+![Canvas de un workflow de OpenFn](/img/case_referral_workflow.webp)
 
 **Mira la lista de reproducción
 [OpenFn v2 Basics](https://www.youtube.com/watch?v=U0MXYRXkDnI&list=PL1pD3-abjHJ0L01RjouO2xOWKtEUYi8e4&ab_channel=OpenFn.org)**
-en Youtube para ver videos que te ayudarán a empezar rápidamente, o consulta las
-demás páginas de la documentación del sitio.
+en Youtube, con videos que te ayudarán a empezar rápido, o consulta las demás
+páginas de la documentación.
 
 :::info OpenFn v2 reemplaza a v1
 
@@ -103,18 +102,18 @@ antes de finales de 2024.
 ### OpenFn v1
 
 OpenFn v1 es la _plataforma de integración como servicio_ o "iPaaS" heredada de
-OpenFn, lanzada por primera vez en 2015. OpenFn v1 era open-core, con una
-aplicación web propietaria.
+OpenFn, lanzada en 2015. OpenFn v1 era open-core, con una aplicación web
+propietaria.
 
-La plataforma v1 se retirará en 2025 y será reemplazada por OpenFn v2,
-totalmente de código abierto (ver arriba).
+La plataforma v1 se retirará en 2025 y la reemplazará OpenFn v2, totalmente de
+código abierto (ver arriba).
 
 ### Herramientas para desarrolladores de OpenFn {#openfn-developer-tooling}
 
 [OpenFn/kit](https://github.com/OpenFn/kit) ofrece una CLI y un conjunto de
-herramientas para desarrolladores para escribir y probar workflows, gestionar
-proyectos de OpenFn y desarrollar
-[Adaptors](https://github.com/openfn/adaptors).
+herramientas para desarrolladores con las que puedes escribir y probar
+workflows, gestionar proyectos de OpenFn y desarrollar
+[adaptors](https://github.com/openfn/adaptors).
 
 :::note Explora todo el código de OpenFn
 
@@ -131,8 +130,8 @@ resumen de las opciones FOSS y más documentación.
 Para hacer preguntas, reportar problemas o aprender de otras personas que
 implementan OpenFn, visita nuestro foro de Discourse en
 [community.openfn.org](https://community.openfn.org). Regístrate y únete a la
-conversación. Normalmente es la forma más rápida de obtener ayuda si tienes
-preguntas que no se responden aquí.
+conversación. Suele ser la forma más rápida de obtener ayuda si tienes preguntas
+que no se responden aquí.
 
 Si tienes preguntas sobre nuestros productos, pregunta en la comunidad o escribe
 al equipo principal a [support@openfn.org](mailto:support@openfn.org).
@@ -141,11 +140,11 @@ al equipo principal a [support@openfn.org](mailto:support@openfn.org).
 
 El principal responsable de OpenFn es
 [Open Function Group](https://openfn.org/about), un equipo global de
-especialistas en automatización de flujos de trabajo e integración de datos y
-colaboradores principales de OpenFn. Más información sobre la gobernanza de
-OpenFn [aquí](https://github.com/OpenFn/governance).
+especialistas en automatización de flujos de trabajo e integración de datos, y
+colaboradores principales de OpenFn. Conoce más sobre la gobernanza de OpenFn
+[aquí](https://github.com/OpenFn/governance).
 
-El [Bien Público Digital](https://app.digitalpublicgoods.net/a/11038) OpenFn ha
+El [bien público digital](https://app.digitalpublicgoods.net/a/11038) OpenFn ha
 sido creado por y para la creciente comunidad de ONG, gobiernos, socios de
 "tecnología para el bien" y colaboradores de código abierto que trabajan en
 intervenciones de salud y humanitarias en países de ingresos bajos y medianos

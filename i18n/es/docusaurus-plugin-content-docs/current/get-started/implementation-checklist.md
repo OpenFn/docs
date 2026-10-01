@@ -1,8 +1,6 @@
 ---
 sidebar_label: Lista de verificación de implementación
-title:
-  Lista de verificación de implementación para planificar tu próximo proyecto de
-  integración
+title: Lista de verificación de implementación para planificar tu próximo proyecto de integración
 translation_source_hash: 2776efe8363e6ba09f194f27ccf75b6531694f33
 translation_review_status: machine
 ---
@@ -11,25 +9,24 @@ translation_review_status: machine
 
 Esta
 [lista de verificación de implementación](https://docs.google.com/spreadsheets/d/1_XY0nx0OLNUsogrIHnRaSTyZ-KdcSXks-tqwm3ZfMc4/edit#gid=72612093)
-se basa en la experiencia de implementar proyectos de interoperabilidad con
-organismos gubernamentales de distintos países (incluidas oficinas de país de
-UNICEF, el Ministerio de Servicios Sociales de Camboya y el Ministerio de Salud
-de Tailandia) para ofrecer una guía de implementación y planificación que cubre
-los hitos clave de la mayoría de los proyectos de interoperabilidad e
-integración.
+se basa en nuestra experiencia en proyectos de interoperabilidad con organismos
+gubernamentales de distintos países (como oficinas de país de UNICEF, el
+Ministerio de Servicios Sociales de Camboya y el Ministerio de Salud de
+Tailandia). Ofrece una guía de implementación y planificación con los hitos
+clave de la mayoría de los proyectos de interoperabilidad e integración.
 
-Aunque esta lista de verificación debe adaptarse a cada implementación, las
-tareas que describe ofrecen un plan de trabajo modelo que puede ayudar a
+Aunque conviene adaptar esta lista de verificación a cada implementación, las
+tareas que describe forman un plan de trabajo modelo que puede ayudar a
 cualquier organización a prepararse para su próxima implementación. **El proceso
 de implementación se divide en las siete fases que se resumen a continuación.
 Consulta la lista de verificación para ver los pasos en detalle.**
 
 :::tip
 
-Mira un ejemplo real: consulta el repositorio de UNICEF Camboya para ver los
-resultados documentados a partir de esta lista de verificación en un proyecto de
-interoperabilidad implementado para el Ministerio de Asuntos Sociales, Veteranos
-y Rehabilitación Juvenil de Camboya y ONG asociadas:
+Mira un ejemplo real: el repositorio de UNICEF Camboya documenta los resultados
+de esta lista de verificación en un proyecto de interoperabilidad implementado
+para el Ministerio de Asuntos Sociales, Veteranos y Rehabilitación Juvenil de
+Camboya y ONG asociadas:
 [openfn.github.io/unicef-cambodia/](https://openfn.github.io/unicef-cambodia/)
 
 :::
@@ -43,8 +40,8 @@ su viabilidad técnica.
 Resultados clave:
 
 - Evaluación del valor de negocio
-- Requisitos de alto nivel de los workflows
-- Evaluación de la viabilidad técnica
+- Requisitos generales de los workflows
+- Evaluación de viabilidad técnica
 - Evaluación de capacidades
 
 ## (2) Descubrimiento y diseño: requisitos funcionales de los workflows {#2-discovery--design---functional-workflow-requirements}
@@ -61,9 +58,9 @@ Resultados clave:
 ## (3) Descubrimiento y diseño: especificaciones técnicas {#3-discovery--design---technical-specifications}
 
 Itera sobre los requisitos de los workflows para definir las especificaciones
-técnicas de cómo se implementará el workflow. Por ejemplo, ten en cuenta qué
-endpoints concretos de la API hay que usar y qué métodos u operaciones HTTP usar
-en cada uno.
+técnicas de cómo se implementará cada workflow. Por ejemplo, define a qué
+endpoints de la API concretos hay que acceder y qué métodos u operaciones HTTP
+usar en cada uno.
 
 Resultados clave:
 
@@ -74,57 +71,57 @@ Resultados clave:
 ## (4) Desarrollo {#4-build}
 
 Configura el workflow en OpenFn.org y desarrolla y prueba los jobs y adaptors
-que se usarán en el workflow.
+que se usarán en él.
 
 Resultados clave:
 
 - Configuración del proyecto de OpenFn
 - Jobs
 - Adaptors nuevos o actualizados (si hacen falta)
-- Borrador de la “Project Security Configuration Checklist” para documentar los
+- Borrador de la "Project Security Configuration Checklist" para documentar los
   ajustes de configuración implementados
 
 ## (5) Pruebas {#5-testing}
 
 Crea un conjunto de pruebas y realiza las pruebas de aceptación de usuario
-(UAT). Después de las UAT, incorpora los comentarios recibidos e itera sobre el
-proceso de pruebas.
+(UAT). Después, incorpora los comentarios recibidos e itera sobre el proceso de
+pruebas.
 
 Resultados clave:
 
-- Conjunto de pruebas completado
+- Conjunto de pruebas completo
 - Lista de nuevas solicitudes pendientes (si los comentarios identifican
   necesidades para fases futuras)
-- “Project Security Configuration Checklist” completada
+- "Project Security Configuration Checklist" completa
 
 ## (6) Capacitación y preparación para la puesta en marcha {#6-training--prep-for-go-live}
 
 Capacita a los administradores de OpenFn y a los usuarios finales de los
-sistemas de destino, y documenta lo que se ha implementado. En esta fase también
-se migran la configuración y el código a los entornos de producción.
+sistemas de destino, y documenta lo que se implementó. En esta fase también se
+migran la configuración y el código a los entornos de producción.
 
 Resultados clave:
 
 - Documentación publicada
 - Grabación en video de la capacitación
-- “Project Security Configuration Checklist” aprobada
+- "Project Security Configuration Checklist" aprobada
 - Proyecto de OpenFn listo para usar
 
 ## (7) Despliegue y soporte {#7-rollout--support}
 
-“Activa” los workflows de OpenFn para la puesta en marcha y establece
+"Activa" los workflows de OpenFn para la puesta en marcha y establece
 estructuras de soporte y un modelo de gobernanza para la gestión del cambio.
 
 Resultados clave:
 
-- Proyecto de OpenFn “en producción”
+- Proyecto de OpenFn "en producción"
 - Modelo de soporte documentado
 
 ## ¿Preguntas o comentarios? {#questions-or-feedback}
 
-Si tienes aportaciones, comentarios o preguntas, ¡contribuye! Envía una pull
-request a esta página de documentación en GitHub o deja un comentario en la
+Si tienes aportes, comentarios o preguntas, ¡contribuye! Envía una pull request
+a esta página de documentación en GitHub o deja un comentario en la
 [OpenFn Community](https://community.openfn.org/).
 
 ¿Te interesa recibir **capacitación sobre el proceso de implementación de
-OpenFn**? Escribe a [partnerships@openfn.org](mailto:partnerships@openfn.org).
+OpenFn**? Contacta a [partnerships@openfn.org](mailto:partnerships@openfn.org).

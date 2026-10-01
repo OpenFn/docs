@@ -7,28 +7,27 @@ translation_review_status: machine
 
 # Directrices de seguridad para implementaciones de integración de datos {#security-guidelines-for-data-integration-implementations}
 
-Aunque las tecnologías que usa tu solución de integración puedan considerarse
+Aunque las tecnologías de tu solución de integración puedan considerarse
 seguras, la integración de datos sigue teniendo muchos riesgos de seguridad,
 sobre todo durante la implementación. Por eso, con el apoyo de Digital Square,
-hemos elaborado una **Guía de seguridad para implementaciones de integración de
+elaboramos una **Guía de seguridad para implementaciones de integración de
 datos**.
 
 Desde 2014, en Open Function Group (los principales responsables de OpenFn)
 hemos ayudado a implementar casi 100 soluciones de integración de datos para más
-de 45 socios de ONG y gobiernos de todo el mundo. Gracias a nuestro trabajo con
-los equipos de seguridad de distintos socios, a nuestra propia investigación y
+de 45 ONG y gobiernos de todo el mundo. Gracias a nuestro trabajo con los
+equipos de seguridad de distintos socios, a nuestra propia investigación y
 desarrollo, a las consultas con expertos en seguridad internos y externos, y a
-las alianzas con otras comunidades de práctica, hemos adquirido un sólido
-conocimiento de las buenas prácticas y las consideraciones de seguridad para
-proyectos de integración de datos, que queremos compartir con la comunidad más
-amplia del desarrollo digital.
+las alianzas con otras comunidades de práctica, conocemos bien las buenas
+prácticas y las consideraciones de seguridad para proyectos de integración de
+datos, y queremos compartirlas con toda la comunidad del desarrollo digital.
 
-**Esta guía pretende ayudar a quienes implementan soluciones digitales en las
-comunidades de Bienes Públicos Digitales y de Global Goods a entender mejor los
-riesgos de seguridad, y presenta 23 buenas prácticas para las distintas fases de
-implementación de los proyectos de integración de datos.** También enlaza a
-algunos recursos de OFG de código abierto que nuestro equipo usa en su propio
-proceso de implementación de proyectos de OpenFn.
+**Esta guía busca ayudar a quienes implementan soluciones digitales en las
+comunidades de bienes públicos digitales y de bienes globales a entender mejor
+los riesgos de seguridad, y presenta 23 buenas prácticas para las distintas
+fases de implementación de los proyectos de integración de datos.** También
+enlaza a algunos recursos de código abierto de OFG que nuestro equipo usa en su
+propio proceso de implementación de proyectos de OpenFn.
 
 Más abajo en esta página encontrarás la lista completa de las 23 buenas
 prácticas.
@@ -57,7 +56,7 @@ enlace para compartirla y descargarla:**
 <li>Recurso: plantilla de especificación de mapeo</li>
 <li>Recurso: diagrama de flujo de datos de la arquitectura</li>
 <li>Recurso: Project Security Configuration & Go-Live Checklist (lista de verificación de configuración de seguridad y puesta en marcha del proyecto)</li>
-<li>Ten en cuenta la idempotencia, los identificadores únicos y las operaciones de tipo “upsert” para garantizar la integridad de los datos</li>
+<li>Ten en cuenta la idempotencia, los identificadores únicos y las operaciones de tipo "upsert" para garantizar la integridad de los datos</li>
 <li>Diseña pensando en los fallos y en el reprocesamiento de transacciones</li>
 <li>Ten en cuenta la validación de datos</li>
 </ol>
@@ -65,7 +64,7 @@ enlace para compartirla y descargarla:**
 <ol start="12"> 
 <li>Usa el seguimiento de cambios y el control de versiones</li>
 <li>Cifra siempre que puedas</li>
-<li>Usa una autenticación sólida;  no hables con desconocidos</li>
+<li>Usa una autenticación sólida; no hables con desconocidos</li>
 <li>Usa ámbitos de autorización para limitar el acceso</li>
 <li>Registra las transacciones para supervisar la actividad y controla qué información se registra</li>
 </ol>
@@ -74,7 +73,7 @@ enlace para compartirla y descargarla:**
 <li>Vuelve a probar, sobre todo las credenciales, antes del despliegue</li>
 <li>Capacita a los usuarios y a los administradores de sistemas en la seguridad de la integración</li>
 <li>Revisa de nuevo tus requisitos de seguridad antes de la puesta en marcha</li>
-<li>Define los puntos de contacto para informar de problemas de seguridad</li> 
+<li>Define los puntos de contacto para reportar problemas de seguridad</li> 
 </ol>
 <h4>Supervisión y gestión continuas</h4>
 <ol start="21"> 
@@ -101,8 +100,8 @@ te pueden interesar.
 ### Recursos de OpenFn {#openfn-resources}
 
 Encontrarás más orientación sobre implementación en todo este sitio de
-documentación. Si usas OpenFn, puedes saber más sobre la seguridad y el
-cumplimiento en OpenFn en [openfn.org/trust](http://openfn.org/trust) y
+documentación. Si usas OpenFn, puedes saber más sobre su seguridad y
+cumplimiento normativo en [openfn.org/trust](http://openfn.org/trust) y
 [openfn.org/compliance](http://openfn.org/compliance).
 
 Estas son las principales plantillas y recursos de OpenFn citados en la guía:
