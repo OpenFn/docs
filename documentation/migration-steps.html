@@ -19,7 +19,7 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.9f645c63.css">
-<script src="/assets/js/runtime~main.8179330e.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.37486796.js" defer="defer"></script>
 <script src="/assets/js/main.220ecb79.js" defer="defer"></script>
 </head>
 <body>
@@ -66,21 +66,21 @@ credentials.</strong></p>
 <a class="" href="/documentation/build/steps/step-editor">run your workflow</a> to start testing.</p>
 </li>
 <li class="">
-<p>Check out the <a class="" href="/documentation/monitor-history/activity-history">History</a> page to
-monitor and review your Runs to confirm your Workflows are running
-successfully.</p>
+<p>Check out the <a class="" href="/documentation/monitor-history/activity-history">History</a> page to monitor
+and review your Runs to confirm your Workflows are running successfully.</p>
 </li>
 <li class="">
 <p>Test and iterate.</p>
 </li>
 <li class="">
 <p>Once your Workflows are tested, sync your new v2 configuration to GitHub for
-version control. Follow <a class="" href="/documentation/link-to-GitHub">this guide</a> to
-learn how it works and set it up.</p>
-<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Turn off GitHub sync on v1 before setting it up on v2 If you&#x27;re</div><div class="admonitionContent_BuS1"><p>using the same GitHub repo and branch for both your v1 and v2 project,
-disable GitHub sync on v1 <em>before</em> you enable it on v2. Otherwise every
-change you still make on v1 will trigger a GitHub &gt; OpenFn sync on v2,
-overwriting any changes you may not have synced yet from your v2 project to GitHub.</p></div></div>
+version control. Follow <a class="" href="/documentation/link-to-GitHub">this guide</a> to learn
+how it works and set it up.</p>
+<div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>Turn off GitHub sync on v1 before setting it up on v2</div><div class="admonitionContent_BuS1"><p>If you&#x27;re using the same GitHub repo and branch for both your v1 and v2
+project, disable GitHub sync on v1 <em>before</em> you enable it on v2. Otherwise
+every change you still make on v1 will trigger a GitHub &gt; OpenFn sync on v2,
+overwriting any changes you may not have synced yet from your v2 project to
+GitHub.</p></div></div>
 <div class="theme-admonition theme-admonition-warning admonition_xJq3 alert alert--warning"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 16 16"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"></path></svg></span>GitHub sync works differently in v2</div><div class="admonitionContent_BuS1"><p>Once the GitHub sync is live, consider that all changes will be synced with
 the <code>project.yaml</code> file. Therefore, any job changes made via GitHub, must be
 applied directly to this file. (Unlike the v1 GitHub sync, edits to
@@ -102,9 +102,9 @@ the processes are truly distinct and not part of one workflow. The
 <li class="">
 <p>If your Workflows use a Webhook Trigger, you can add an extra layer of
 security by requiring webhook authentication
-(<a class="" href="/documentation/webhook-security">see relevant docs</a>). Note that if you
-do this, you will need to update the webhook configuration in the external
-app that points to OpenFn.</p>
+(<a class="" href="/documentation/webhook-security">see relevant docs</a>). Note that if you do
+this, you will need to update the webhook configuration in the external app
+that points to OpenFn.</p>
 </li>
 <li class="">
 <p>Fine-tune your security configuration by following our
@@ -121,8 +121,8 @@ adjusted your Project Settings.</p>
 use a &quot;production&quot; Credential to connect to live systems.</p>
 </li>
 <li class="">
-<p>While you&#x27;re testing, you may be using <a class="" href="/documentation/build/paths">Path Conditions</a>
-to allow only test data, such as <code>test_case == yes</code>. If you then want to
+<p>While you&#x27;re testing, you may be using <a class="" href="/documentation/build/paths">Path Conditions</a> to
+allow only test data, such as <code>test_case == yes</code>. If you then want to
 exclude test data from your production systems, don&#x27;t forget to update edge
 conditions, eg. <code>test_case == no</code>. Check out [this
 guide(<a href="https://docs.openfn.org/documentation/converting-triggers#converting-message-filters" target="_blank" rel="noopener noreferrer" class="">https://docs.openfn.org/documentation/converting-triggers#converting-message-filters</a>)]<!-- -->
@@ -160,11 +160,10 @@ your v1 <code>Project Settings</code> and select the <code>Delete Project</code>
 of the above migration steps to help manage your migration. If you encounter
 questions or issues, post on the <a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer" class="">Community</a>.</p></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-to-automatically-migrate-your-openfn-project-configuration-to-v2">How to automatically migrate your OpenFn project configuration to v2<a href="#how-to-automatically-migrate-your-openfn-project-configuration-to-v2" class="hash-link" aria-label="Direct link to How to automatically migrate your OpenFn project configuration to v2" title="Direct link to How to automatically migrate your OpenFn project configuration to v2" translate="no">​</a></h2>
-<p>Check out our docs on
-<a class="" href="/documentation/migration/automated-migration">Self-Guided Migration</a> to learn more about
-how to <em>automatically</em> migrate your configuration from v1 to v2. <strong>This is the
-recommended process</strong> but requires admin-level user access to both your v1 and
-v2 Projects.</p>
+<p>Check out our docs on <a class="" href="/documentation/migration/automated-migration">Self-Guided Migration</a>
+to learn more about how to <em>automatically</em> migrate your configuration from v1 to
+v2. <strong>This is the recommended process</strong> but requires admin-level user access to
+both your v1 and v2 Projects.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="how-to-manually-migrate-your-openfn-project-configuration-to-v2">How to manually migrate your OpenFn project configuration to v2<a href="#how-to-manually-migrate-your-openfn-project-configuration-to-v2" class="hash-link" aria-label="Direct link to How to manually migrate your OpenFn project configuration to v2" title="Direct link to How to manually migrate your OpenFn project configuration to v2" translate="no">​</a></h3>
 <ol>
 <li class="">On v2, the Jobs you use for automating tasks are organized as

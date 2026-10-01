@@ -270,9 +270,9 @@ phase of integration design, we often discuss how each answer choice for
 <strong>picklist</strong> values should map from the source system to the destination system.
 Sometimes the mapping is simple but other times, there is an extensive list of
 possible choices that can be found in the
-<a class="" href="https://docs.openfn.org/documentation/legacy/getting-started/terminology#message">message</a> and not all are
-relevant to the destination system. Then the question is, <strong>how should the job
-handle values which are not explicitly mapped?</strong></p>
+<a class="" href="https://docs.openfn.org/documentation/legacy/getting-started/terminology#message">message</a> and not all
+are relevant to the destination system. Then the question is, <strong>how should the
+job handle values which are not explicitly mapped?</strong></p>
 <p>Sometimes we hear clients say to "ignore" those values. <strong>But what does it
 really mean to "ignore" a value?</strong> Should we set it to <code>0</code>? An empty string? How
 about <code>null</code>, <code>undefined</code> or <code>NaN</code>? In Javascript these are all <code>falsy</code> values.</p>
@@ -643,9 +643,9 @@ unfair in my opinion. Although having similar objectives, they are wildly
 different in implementation and in features.</p>
 <p>So <strong>speed</strong> is the big selling point. But thinking back to other bundlers, what
 made us switch (thinking of gulp, grunt, mixing in babel, browserify etc). Those
-changes were never about speed, at least a drop in build time was nice - a bit of
-caching goes a long way. The changes were about being able to use the syntax and
-libraries we wanted with as little fuss as possible.</p>
+changes were never about speed, at least a drop in build time was nice - a bit
+of caching goes a long way. The changes were about being able to use the syntax
+and libraries we wanted with as little fuss as possible.</p>
 <p>Webpack <em>can</em> do almost anything. I'm not convinced esbuild can match that, and
 as an open-source maintainer I'd argue it shouldn't break its original goals to
 match Webpack.</p>
@@ -679,8 +679,7 @@ in a few files (or even one).</p>
 <li class="">The splitting doesn't know about <code>app.js</code>, it puts everything that resolves to
 <code>node_modules</code> in <code>vendor.js</code>. Subtle but worth pointing out.</li>
 </ul>
-<p><a name="lodash"><sup>*</sup></a>
-Could probably ignore this and refactor some
+<p><a name="lodash"><sup>*</sup></a> Could probably ignore this and refactor some
 files and check that tree-shaking is working properly.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-we-need-esbuild-to-provide">What we need esbuild to provide<a href="https://docs.openfn.org/articles/2021/10/15/webpack-to-esbuild-part1#what-we-need-esbuild-to-provide" class="hash-link" aria-label="Direct link to What we need esbuild to provide" title="Direct link to What we need esbuild to provide" translate="no">​</a></h2>
 <p>Like I mentioned before, webpack is super versatile and it would be
@@ -713,7 +712,7 @@ who's going to be working with this, and respect the varying skill sets and
 focuses of our peers.</p>
 <p>So we know what we want, but can any of this work? Let's give it a go with the
 simplest of steps:</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">./node_modules/.bin/esbuild js/app.js --bundle --outfile=out.js                                    </span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"> &gt; js/app.js:58:2: error: Unexpected "&lt;"</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    58 │   &lt;React.StrictMode&gt;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       ╵   ^</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">1 error</span><br></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">./node_modules/.bin/esbuild js/app.js --bundle --outfile=out.js</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain"> &gt; js/app.js:58:2: error: Unexpected "&lt;"</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    58 │   &lt;React.StrictMode&gt;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">       ╵   ^</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">1 error</span><br></div></code></pre></div></div>
 <p>Bang! Right, that one makes sense to me, it doesn't know what JSX is yet. I'm
 gonna take a wild guess and say it won't know about the CSS or our referenced
 images.</p>
@@ -729,10 +728,10 @@ cleaning up.</li>
 <p>Jeepers! 651ms! That's nuts.</p>
 <p>We can see it's copied our images and css into the build folder. Note that we're
 not doing any bundle splitting right now and from the looks of it</p>
-<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">... \ </span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">&gt;   --minify</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  out/app.js                               3.4mb ⚠️</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  ...</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">⚡ Done in 611ms</span><br></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">... \</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">&gt;   --minify</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  out/app.js                               3.4mb ⚠️</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  ...</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">⚡ Done in 611ms</span><br></div></code></pre></div></div>
 <p>That's better, wow. It's kinda difficult to not be amazed. For context, a
-minified and split production build takes about 34s with webpack and that's on my
-i7 desktop machine, and 197s (3+ mins) on CI/CD.</p>
+minified and split production build takes about 34s with webpack and that's on
+my i7 desktop machine, and 197s (3+ mins) on CI/CD.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="whats-next">What's next?<a href="https://docs.openfn.org/articles/2021/10/15/webpack-to-esbuild-part1#whats-next" class="hash-link" aria-label="Direct link to What's next?" title="Direct link to What's next?" translate="no">​</a></h2>
 <p>So our 'can we actually do this' seems to have gone pretty well so far. I'm
 really excited about what this will give us in the end.</p>
@@ -747,8 +746,10 @@ really excited about what this will give us in the end.</p>
 </ol>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resources">Resources<a href="https://docs.openfn.org/articles/2021/10/15/webpack-to-esbuild-part1#resources" class="hash-link" aria-label="Direct link to Resources" title="Direct link to Resources" translate="no">​</a></h2>
 <ul>
-<li class=""><a href="https://fly.io/blog/phoenix-moves-to-esbuild-for-assets/" target="_blank" rel="noopener noreferrer" class="">FYI: Phoenix drops webpack and npm for esbuild</a> <a name="ref1"><sup>1</sup></a></li>
-<li class=""><a href="https://caniuse.com/es6-module" target="_blank" rel="noopener noreferrer" class="">JavaScript modules via script tag</a> <a name="esm"><sup>2</sup></a></li>
+<li class=""><a href="https://fly.io/blog/phoenix-moves-to-esbuild-for-assets/" target="_blank" rel="noopener noreferrer" class="">FYI: Phoenix drops webpack and npm for esbuild</a>
+<a name="ref1"><sup>1</sup></a></li>
+<li class=""><a href="https://caniuse.com/es6-module" target="_blank" rel="noopener noreferrer" class="">JavaScript modules via script tag</a>
+<a name="esm"><sup>2</sup></a></li>
 </ul>]]></content>
         <author>
             <name>Stuart Corbishley</name>
@@ -1334,8 +1335,8 @@ considerations for both options.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-saas">What is SaaS?<a href="https://docs.openfn.org/articles/2021/02/03/hosted-or-local-deployment#what-is-saas" class="hash-link" aria-label="Direct link to What is SaaS?" title="Direct link to What is SaaS?" translate="no">​</a></h2>
 <p>SaaS is software that is installed and <em>runs</em> on computers maintained by
 software professionals, rather than on your own computer. While those computers
-might be anywhere in the world, typically you'll access and <em>use</em> this software via
-the Internet.</p>
+might be anywhere in the world, typically you'll access and <em>use</em> this software
+via the Internet.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="some-benefits-of-saas">Some benefits of SaaS<a href="https://docs.openfn.org/articles/2021/02/03/hosted-or-local-deployment#some-benefits-of-saas" class="hash-link" aria-label="Direct link to Some benefits of SaaS" title="Direct link to Some benefits of SaaS" translate="no">​</a></h3>
 <p>With SaaS, the software vendor is responsible for the expenses of managing and
 monitoring all of the technical components and issues associated with the
