@@ -41,9 +41,10 @@ also add `translation_reviewer` and `translation_review_date`.
 - **No translation yet.** Translate the whole page.
 - **The hash matches the current English file.** Skip it, whatever its status.
   The English has not changed since it was translated. The one exception: if
-  `glossary.yml` or `translation-rules.yml` was committed more recently than the
-  translation (compare `git log -1 --format=%ct -- <file>`), translate a
-  `machine` page again in full, so it picks up the new rules.
+  `glossary.yml`, `translation-rules.yml`, or the locale's house style
+  (`<locale>.md`) was committed more recently than the translation (compare
+  `git log -1 --format=%ct -- <file>`), translate a `machine` page again in
+  full, so it picks up the new rules.
 - **The hash no longer matches, and the status is `machine`, `needs-review`, or
   missing.** Translate only what changed (see "Updating a page" below).
 - **The hash no longer matches, and the status is `human-reviewed`.** Leave the

@@ -4,8 +4,9 @@ description:
   Translates the docs under i18n/ into each language enabled in
   docusaurus.config.js, either a set of English pages or the interface text
   (navbar, footer, sidebar headings, homepage). Respects glossary.yml,
-  translation-rules.yml, review status, and do-not-retranslate fences, and opens
-  one PR per locale. Use when asked to translate or refresh translations.
+  translation-rules.yml, each locale's house style, review status, and
+  do-not-retranslate fences, and opens one PR per locale. Use when asked to
+  translate or refresh translations.
 disable-model-invocation: true
 ---
 
@@ -35,12 +36,13 @@ or articles and blog posts.
 
 ## Before you start
 
-Check these three things. If any fails, stop and ask.
+Check these four things. If any fails, stop and ask.
 
 - The locale is enabled in `docusaurus.config.js`. Do not enable it yourself;
   that changes what gets deployed.
 - `i18n/` is not in `.gitignore`.
 - `glossary.yml` and `translation-rules.yml` are valid YAML.
+- The locale has a house style guide, `<locale>.md`, in this folder.
 
 ## How to translate
 
@@ -49,8 +51,12 @@ These apply to both tasks.
 - Words in `glossary.yml` stay in English. For ordinary words that are also
   product terms, like "run" or "step", keep the English only when the word means
   the OpenFn thing.
-- Follow any rules for the locale in `translation-rules.yml`. By default,
-  Spanish uses "tú".
+- Follow the house style for the locale in `<locale>.md` in this folder, such as
+  `es.md`, and any rules for the locale in `translation-rules.yml`.
+- Write the way a native writer would, not word for word. Reorder or split a
+  sentence when the literal version is awkward, drop a subject the sentence has
+  already given, and cut an aside that repeats what the sentence says. Keep the
+  meaning and the facts; change only the wording.
 - Copy code blocks and inline code exactly. You may translate comments inside
   code.
 - Keep the names of things in the app, like buttons, menus, tabs, and field
