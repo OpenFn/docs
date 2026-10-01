@@ -8,7 +8,7 @@ slug: /cli-challenges
 
 :::tip Important Notes
 
-- A developer with a bit of Javascript experience should be able to write, run,
+- A developer with a bit of JavaScript experience should be able to write, run,
   and debug complex, multi-step jobs with OpenFn, using nothing but a text
   editor and their terminal.
 - If you are stuck and need help, please post in
@@ -49,12 +49,12 @@ Create a new `hello.js` job to display a personalized greeting with your name.
 
 **Objective:**
 
-Compose a OpenFn job using [common adaptor](/adaptors/packages/common-docs) that
-outputs a greeting message containing your name.
+Compose an OpenFn job using the [common adaptor](/adaptors/packages/common-docs)
+that outputs a greeting message containing your name.
 
 **Requirements:**
 
-1. Install the latest version of common adaptor.
+1. Install the latest version of the common adaptor.
 
    ```
    openfn repo install @openfn/language-common
@@ -82,8 +82,8 @@ outputs a greeting message containing your name.
 **Overview:**
 
 Write a job to fetch user data from the
-[JSONPlaceholder API](https://jsonplaceholder.typicode.com/users) using OpenFn
-[http adaptor](/adaptors/packages/http-docs).
+[JSONPlaceholder API](https://jsonplaceholder.typicode.com/users) using the
+OpenFn [http adaptor](/adaptors/packages/http-docs).
 
 **Objective:**
 
@@ -91,7 +91,7 @@ Fetch and print the details of the first user from the JSONPlaceholder API.
 
 **Requirements:**
 
-1. Install the latest version of http adaptor.
+1. Install the latest version of the http adaptor.
 
 ```bash
 openfn repo install @openfn/language-http
@@ -128,12 +128,12 @@ Fetch and present COVID-19 metadata using
 
 **Objective:**
 
-Write a job that retrieves COVID-19 data from the API and calculate some
-aggregate values across a length of time of your chosing.
+Write a job that retrieves COVID-19 data from the API and calculates some
+aggregate values across a length of time of your choosing.
 
 **Requirements:**
 
-1. Install the latest version of http adaptor.
+1. Install the latest version of the http adaptor.
 
 ```bash
 openfn repo install @openfn/language-http
@@ -141,7 +141,7 @@ openfn repo install @openfn/language-http
 
 **Tasks:**
 
-1. Write an OpenFn operation to pull COVID-19 metadata from the
+1. Write an OpenFn operation to pull COVID-19 metadata from
    [The Atlantic's COVID Tracking Project API](https://covidtracking.com/data/api).
    - Utilize `https://api.covidtracking.com` as your **baseUrl** in
      `state.configuration`.
@@ -206,7 +206,7 @@ Write a job that retrieves comments for post ID 1, extracts the "name" and
 ### 🏆 Control error messages
 
 Debug what is causing an error on the following line of code and display the
-error message
+error message.
 
 ```jsx
 // Get post where id is 180
@@ -225,12 +225,12 @@ that fetch and filter posts by user ID.
 
 **Objective:**
 
-Write a job that retrieves posts by a specified user ID `1`
+Write a job that retrieves posts by a specified user ID `1`.
 
 **Requirements:**
 
 1. Utilize JSONPlaceholder API `https://jsonplaceholder.typicode.com`.
-2. Install the latest version of http adaptor.
+2. Install the latest version of the http adaptor.
 
 ```
 openfn repo install @openfn/language-http

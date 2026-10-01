@@ -40,7 +40,7 @@ slug: /cli-walkthrough
 
     <details>
       <summary>What is a job?</summary>
-      An OpenFn job is Javascript code which follows a particular set of conventions.
+      An OpenFn job is JavaScript code which follows a particular set of conventions.
       Typically a job has one or more <i>operations</i> which perform a particular
       task (like pulling information from a database, creating a record, etc.) and
       return state for the next operation to use.
@@ -76,20 +76,20 @@ slug: /cli-walkthrough
 
   </details>
 
-Note that our `console.log` statement was printed as `[JOB] Hello world!`. Using
+Note that our `console.log` statement was printed as `[JOB] Hello World!`. Using
 the console like this is helpful for debugging and/or understanding what's
 happening inside our steps.
 
 ### 2. Using adaptor helper functions
 
-Adaptors are Javascript or [Typescript](https://www.typescriptlang.org/) (a
+Adaptors are JavaScript or [TypeScript](https://www.typescriptlang.org/) (a
 strongly typed super-set of JavaScript) modules that provide OpenFn users with a
 set of helper functions for simplifying communication with a specific external
 system. Learn more about adaptors here: [docs.openfn.org/adaptors](/adaptors/)
 
 #### Basic usage:
 
-Let’s use
+Let’s use the
 [@openfn/language-http](https://www.npmjs.com/package/@openfn/language-http)
 adaptor to fetch a list of forms from
 [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
@@ -121,7 +121,7 @@ Run `openfn help` to see the full list of CLI arguments.
 :::
 
 Since it is our first time using the `http` adaptor, we are installing the
-adaptor using `-i` argument
+adaptor using the `-i` argument.
 
 <details>
   <summary>3. Expand to see expected CLI logs</summary>
@@ -152,7 +152,7 @@ adaptor using `-i` argument
 
 :::warning Placeholder Data
 
-The data displayed in this CLI logs is generated from a
+The data displayed in these CLI logs is generated from a
 [JSONPlaceholder](https://jsonplaceholder.typicode.com/) API and does not
 represent real-world information. It is intended for testing and development
 purposes only.
@@ -166,7 +166,7 @@ For accurate testing, consider using real data from your API or service.
 If a job expression is a set of instructions for a chef (a recipe?) then the
 initial state is all of the ingredients they need tied up in a perfect little
 bundle. See
-["It all starts with state​"](/articles/2021/07/05/wrapping-my-head-around-jobs/#it-all-starts-with-state)
+[It all starts with state](/articles/2021/07/05/wrapping-my-head-around-jobs/#it-all-starts-with-state)
 in the knowledge base for extra context.
 
 <details>
@@ -206,7 +206,7 @@ Note that `console.log(state)` will display the whole state, including
 log whenever you're done debugging to avoid accidentally exposing sensitive
 information when the job is successfully deployed on production.
 
-The OpenFn platform has built in protections to "scrub" state from the logs, but
+The OpenFn platform has built-in protections to "scrub" state from the logs, but
 when you're using the CLI directly you're on your own!
 
 :::
@@ -217,10 +217,11 @@ This key is where we put data related to a specific job run. On the platform,
 it's the work-order-specific data from a triggering HTTP request or some bit of
 information that's passed from one job to another.
 
-Using CLI, `state.json` will be loaded automatically from the current directory
+Using the CLI, `state.json` will be loaded automatically from the current
+directory.
 
 Or you can specify the path to the state file by passing the option -s,
---state-path
+--state-path.
 
 Specify a path to your `state.json` file with this command:
 
@@ -245,8 +246,9 @@ GET request succeeded with 200 ✓
 #### How can we use state?
 
 Each adaptor has a configuration schema that's recommended for use in your
-`state.json`. [Here is an example](/adaptors/packages/http-configuration-schema)
-of how to set up `state.configuration` for `language-http`.
+`state.json`. The
+[http configuration schema](/adaptors/packages/http-configuration-schema) shows
+how to set up `state.configuration` for `language-http`:
 
 ```json
 {
@@ -273,9 +275,9 @@ of how to set up `state.configuration` for `language-http`.
 
    </details>
 
-Since we have update our configuration in our `state.json` we can now use
-`get()` helper function without the need to specify the **baseUrl**—i.e
-`get('posts')`
+Since we have updated our configuration in our `state.json`, we can now use the
+`get()` helper function without the need to specify the **baseUrl**—i.e.,
+`get('posts')`.
 
 2. Update your `getPosts.js` job to look like this:
 
@@ -395,12 +397,10 @@ console.log(sumWithInitial); // Expected output: 10
 
 ```
 
-You can learn more about `array.reduce` from
-[this article](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+You can learn more about `array.reduce` from the
+[MDN reference for Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce).
 
 </details>
-
->
 
 <details>
   <summary>Expand to see expected CLI logs</summary>
@@ -480,15 +480,14 @@ fn(state => {
 
 </details>
 
-As you can see from our logs that helper function `dataValue` has a TypeError,
-to troubleshoot this you can go to the documentation for **dataValue ->
-[docs.openfn.org/adaptors/packages/common-docs/#datavalue](/adaptors/packages/common-docs/#datavalue)
-**
+As you can see from our logs, the helper function `dataValue` has a TypeError.
+To troubleshoot this, you can go to the documentation for **dataValue ->
+[docs.openfn.org/adaptors/packages/common-docs/#datavalue](/adaptors/packages/common-docs/#datavalue)**.
 
 According to the docs, dataValue takes a path as input, which is of the string
 type. But in our operation we were passing an integer, that’s why we have a
-_TypeError_. You can fix the error by passing a string in dataValue i.e
-`console.log(dataValue(“1”))`
+_TypeError_. You can fix the error by passing a string in dataValue i.e.,
+`console.log(dataValue("1"))`.
 
 <details>
   <summary>Expected CLI logs</summary>
@@ -508,7 +507,7 @@ GET request succeeded with 200 ✓
 If you need more information for debugging you can pass `-l debug`. This sets
 the log level to _debug_, which logs all information about the run.
 
-i.e `openfn debug.js -a http -l debug`
+i.e., `openfn debug.js -a http -l debug`.
 
 ### 6. Each and array iteration
 
@@ -618,9 +617,9 @@ defined as a JSON object that consists of the following properties:
       {
         "id": "a",
         "expression": "fn((state) => state)", // code or a path
-        "adaptor": "@openfn/language-common@1.75", // specifiy the adaptor to use (version optional)
+        "adaptor": "@openfn/language-common@1.75", // specify the adaptor to use (version optional)
         "state": {
-          "data": {} // optionally pre-populate the data object (this will be overriden by keys in in previous state)
+          "data": {} // optionally pre-populate the data object (this will be overridden by keys in previous state)
         },
         "configuration": {}, // Use this to pass credentials
         "next": {
@@ -853,7 +852,7 @@ project directory, this would be the project structure:
 openfn workflow.json -o tmp/output.json
 ```
 
-On execution, this workflow will first run the `getPatients.js` job. If is
+On execution, this workflow will first run the `getPatients.js` job. If it is
 successful, `getGlobalOrgUnits.js` will run using the final state of
 `getPatients.js`. If `getGlobalOrgUnits.js` is successful, `createTEIs.js` will
 run using the final state of `getGlobalOrgUnits.js`.
@@ -866,7 +865,7 @@ openfn workflow.json -o tmp/output.json
 ```
 
 On execution, this workflow will first auto-install the adaptors then run the
-workflow
+workflow.
 
 :::danger Important
 
@@ -875,9 +874,9 @@ information, such as credentials and initial input data, in a secure manner. To
 ensure the protection of your sensitive data, please follow the guidelines
 outlined below:
 
-1. Configuration Key: In the `workflow.json` file, specify a path to a git
-   ignored configuration file that will contain necessary credentials that will
-   be used to access the destination system. For example:
+1. Configuration Key: In the `workflow.json` file, specify a path to a
+   gitignored configuration file that will contain necessary credentials that
+   will be used to access the destination system. For example:
 
    ```json
    {
@@ -887,7 +886,7 @@ outlined below:
    ```
 
 2. Data Key: In case you need to pass initial data to your job, specify a path
-   to a gitignored data file
+   to a gitignored data file:
    ```json
    {
    ...
