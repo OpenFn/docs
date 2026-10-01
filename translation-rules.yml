@@ -58,3 +58,44 @@ rules:
     reason: '"Actualiza tu plan" reads as "update your plan".'
     added_by: lmac-1
     added_on: 2026-10-01
+
+  - locale: es
+    kind: term
+    source: PII
+    target: información de identificación personal (PII)
+    instruction: >-
+      Write "información de identificación personal" and keep "PII" next to it,
+      so readers can match it to the English term.
+    example_source: Remove any data that should not be output (like PII).
+    example_target: >-
+      Elimina los datos que no deberían formar parte de la salida (como
+      información de identificación personal o PII).
+    reason: The Write Jobs pages translated PII two different ways.
+    added_by: lmac-1
+    added_on: 2026-10-01
+
+  - locale: es
+    kind: term
+    source: core team
+    target: equipo principal
+    instruction: '"Core team" is "equipo principal", not "equipo central".'
+    example_source: Ask the OpenFn core team.
+    example_target: Pregunta al equipo principal de OpenFn.
+    reason: Every other Spanish page already uses "equipo principal".
+    added_by: lmac-1
+    added_on: 2026-10-01
+
+  - locale: es
+    kind: avoid
+    source: feature
+    target: función
+    instruction: >-
+      Translate "feature" as "característica" (or "funcionalidad"), not
+      "función".
+    example_source: OpenFn supports all modern JavaScript features.
+    example_target: OpenFn admite todas las características modernas de JavaScript.
+    reason: >-
+      On developer pages "función" reads as a JavaScript function, not a
+      feature.
+    added_by: lmac-1
+    added_on: 2026-10-01
