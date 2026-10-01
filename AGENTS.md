@@ -112,8 +112,8 @@ only the ones your change adds.
   as code; code formatting is for code and literal values.
 - Link text names the page or section it goes to. Do not put quotes around it,
   and do not use "here" or "this" as link text.
-- Email links are `mailto:support@openfn.org`, not
-  `mailto://support@openfn.org`.
+- An email address in the text does not have to be a link. When it is one, use
+  `mailto:support@openfn.org`, not `mailto://support@openfn.org`.
 - Images live in `static/img/` and are linked as `/img/filename`, with alt text
   that says what the image shows. "Screenshot" does not count.
 - Leave a blank line after an admonition's opening line (`:::tip`, `:::note`,
