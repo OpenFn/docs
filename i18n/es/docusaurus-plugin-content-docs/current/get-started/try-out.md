@@ -2,7 +2,7 @@
 title: Prueba la v2⚡
 id: try-out
 sidebar_label: Prueba la v2⚡
-translation_source_hash: db46fdc098158685d394de5d453cfab4c27680e3
+translation_source_hash: 4e28f15f405f837836a724296995294f1761e78d
 translation_review_status: machine
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: Estándares
 title: Estándares y OpenFn
-translation_source_hash: 620530cc517690a1f22053913d30d7c6a1491f03
+translation_source_hash: 4268e67655414b5830b8194dd7e98e23d283a613
 translation_review_status: machine
 ---
 
@@ -145,7 +145,7 @@ OpenFn cumple la
 [especificación estándar de GovStack](https://govstack.gitbook.io/bb-workflow/2-description)
 para motores de workflows.
 
-## Principios para el Desarrollo Digital {#pricinciples-for-digital-development}
+## Principios para el Desarrollo Digital {#principles-for-digital-development}
 
 OpenFn se diseñó para el sector social y ha dado prioridad activamente a los
 [Principios para el Desarrollo Digital](https://digitalprinciples.org/) desde

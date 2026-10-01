@@ -1,6 +1,6 @@
 ---
 title: Conceptos clave
-translation_source_hash: 6a3d4db1e7dbc79e94f255a29ad76b5957032f83
+translation_source_hash: 2885a84bfad099adf8223a97458e5d5dbe03e5b4
 translation_review_status: machine
 ---
 
@@ -21,8 +21,8 @@ o pregunta en la [comunidad](https://community.openfn.org)
 
 Ten en cuenta que, si buscas un glosario de términos genéricos de integración de
 datos (en lugar de estos términos _propios de OpenFn_), puedes ir a la página
-[Glosario de integración](/documentation/get-started/glossary) de la sección de
-diseño. Si no, ¡sigue leyendo!
+[Glosario de integración](/documentation/get-started/glossary) de la sección
+Primeros pasos. Si no, ¡sigue leyendo!
 
 ## Proyecto {#project}
 

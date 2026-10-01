@@ -3,7 +3,7 @@ title: ¿Qué es OpenFn?
 id: home
 sidebar_label: ¿Qué es OpenFn?
 slug: /
-translation_source_hash: c4af9efb3157acd6020bb65eaa98b3d278887e0b
+translation_source_hash: 97ba6c3bda9542d0d78cd1b33c23496cd233e174
 translation_review_status: machine
 ---
 
@@ -27,8 +27,8 @@ sobre las opciones y los requisitos de despliegue.
 
 Para apoyar a quienes implementan, OpenFn cuenta con una
 [comunidad](https://community.openfn.org) en línea, documentación y
-[soporte](mailto://support@openfn.org). Escribe a
-[partnerships@openfn.org](mailto://partnerships@openfn.org) para conocer a los
+[soporte](mailto:support@openfn.org). Escribe a
+[partnerships@openfn.org](mailto:partnerships@openfn.org) para conocer a los
 socios de implementación de OpenFn y el Programa de Socios de OpenFn.
 
 :::tip Automatización, integración e interoperabilidad

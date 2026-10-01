@@ -3,7 +3,7 @@ sidebar_label: Lista de comprobación de implementación
 title:
   Lista de comprobación de implementación para planificar tu próximo proyecto de
   integración
-translation_source_hash: 1b3c7d85269852b239f4eb80a83574229c16d264
+translation_source_hash: 2776efe8363e6ba09f194f27ccf75b6531694f33
 translation_review_status: machine
 ---
 
@@ -26,7 +26,7 @@ Consulta la lista de comprobación para ver los pasos en detalle.**
 
 :::tip
 
-Mira un ejemplo real. Consulta el repositorio de UNICEF Camboya para ver los
+Mira un ejemplo real: consulta el repositorio de UNICEF Camboya para ver los
 resultados documentados a partir de esta lista de comprobación en un proyecto de
 interoperabilidad implementado para el Ministerio de Asuntos Sociales, Veteranos
 y Rehabilitación Juvenil de Camboya y ONG asociadas:
@@ -127,4 +127,4 @@ request a esta página de documentación en GitHub o deja un comentario en la
 [OpenFn Community](https://community.openfn.org/).
 
 ¿Te interesa recibir **formación sobre el proceso de implementación de OpenFn**?
-Escribe a [partnerships@openfn.org](mailto://partnerships@openfn.org).
+Escribe a [partnerships@openfn.org](mailto:partnerships@openfn.org).

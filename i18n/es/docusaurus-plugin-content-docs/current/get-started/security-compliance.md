@@ -1,7 +1,7 @@
 ---
 sidebar_label: Seguridad y cumplimiento
 title: Seguridad y cumplimiento
-translation_source_hash: 321aae7e59bc099d8bc12a552ed39c0b52be62fa
+translation_source_hash: e7615c14f8ea9167b2580775204ed61653b87ce7
 translation_review_status: machine
 ---
 
@@ -53,7 +53,8 @@ cualquier lugar ([ver documentación](/deploy/options.md)) y los workflows puede
 configurarse para respetar los acuerdos de intercambio de datos y las políticas
 de seguridad específicos de tu organización.
 
-Consulta las páginas de documentación de `Manage Projects` para saber más sobre
+Consulta las páginas de documentación de
+[Gestionar proyectos](/manage-projects/platform-mgmt.md) para saber más sobre
 los ajustes de proyecto y de
 [almacenamiento de datos](/manage-projects/io-data-storage.md).
 
