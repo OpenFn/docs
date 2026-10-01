@@ -19,7 +19,7 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.9f645c63.css">
-<script src="/assets/js/runtime~main.9fe996a6.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.76eae33e.js" defer="defer"></script>
 <script src="/assets/js/main.220ecb79.js" defer="defer"></script>
 </head>
 <body>
@@ -68,13 +68,13 @@ project&#x27;s workflows and some of its options. But we do not sync any associa
 data, credential values, usage history or AI sessions.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="project-structure">Project Structure<a href="#project-structure" class="hash-link" aria-label="Direct link to Project Structure" title="Direct link to Project Structure" translate="no">​</a></h2>
 <p>OpenFn Sync writes a Project to the file system using a number of conventions.
-Whether using the CLI or GitHub Sync, a Project has the following structure</p>
+Whether using the CLI or GitHub Sync, a Project has the following structure:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── openfn.yaml</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── .projects</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">│   ├── main@app.openfn.org.yaml</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">└── workflows</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ├── my-workflow</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    │   ├── my-workflow.yaml</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    │   ├── my-step.js</span><br></div></code></pre></div></div>
 <p>Briefly, these files are:</p>
 <ul>
 <li class=""><code>openfn.yaml</code> declares this folder to be an OpenFn Project, and contains
 metadata and settings</li>
-<li class="">The <code>projects</code> folder contains a complete YAML representation of each Project</li>
+<li class="">The <code>.projects</code> folder contains a complete YAML representation of each Project</li>
 <li class="">The <code>workflows</code> folder shows the contents of the project - the steps and edges
 and so on.</li>
 </ul>
@@ -105,8 +105,8 @@ compare/merge them against each other directly.</p>
 <p>A workflow.yaml file defines the steps of a workflow and the edges which connect
 them.</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">id: my-workflow</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">name: My Workflow</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">start: webhook</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">steps:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  - id: my-step</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    name: My Step</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    adaptor: &#x27;@openfn/language-http@7.2.9&#x27;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    expression: ./my-step.js</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  - id: webhook</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    type: webhook</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    enabled: true</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    next:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      my-step:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        disabled: false</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        condition: always</span><br></div></code></pre></div></div>
-<p>The <code>next</code> key on each step defines any downstream edges for that step - ie, the
-steps to execute next. In the example above, the <code>webhook</code> step is executed
+<p>The <code>next</code> key on each step defines any downstream edges for that step - i.e.,
+the steps to execute next. In the example above, the <code>webhook</code> step is executed
 first (determined by the <code>start</code> key), and it defines a single edge to
 <code>my-step</code>, which always executes.</p>
 <p>The actual code for each step lives in its own .js file. You can modify the code
@@ -123,10 +123,9 @@ checked out project.</p>
 some authorization.</p>
 <p>The best way to do this is to set an environment variable called
 <code>OPENFN_API_KEY</code>. Set it to the value of your
-<a href="https://docs.openfn.org/documentation/api-tokens#about-api-tokens" target="_blank" rel="noopener noreferrer" class="">Personal Access Token</a>.</p>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Personal Access Tokens</div><div class="admonitionContent_BuS1"><p>See
-<a href="https://docs.openfn.org/documentation/api-tokens" target="_blank" rel="noopener noreferrer" class="">Create and Manage API Tokens</a>
-for help setting up a token.</p></div></div>
+<a class="" href="/documentation/api-tokens#about-api-tokens">Personal Access Token</a>.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Personal Access Tokens</div><div class="admonitionContent_BuS1"><p>See <a class="" href="/documentation/api-tokens">Create and Manage API Tokens</a> for help setting
+up a token.</p></div></div>
 <p>If you connect to multiple OpenFn projects or apps, you can create a <code>.env</code> file
 and set any environment variables you need there. The CLI will load this file
 and report which keys it&#x27;s using. Values in your <code>.env</code> file will be preferred
@@ -160,7 +159,7 @@ workflows and steps to their own files.</li>
 can use an <em>alias</em>.</p>
 <p>Each local project is saved to a file like <code>main@app.openfn.org.yaml</code>, where the
 <code>main</code> bit is the local alias of a project.</p>
-<p>You can pull a project and set the alias at the same time by running</p>
+<p>You can pull a project and set the alias at the same time by running:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project pull &lt;uuid&gt; --alias dev</span><br></div></code></pre></div></div>
 <p>This will save the project to <code>dev@app.openfn.org.yaml</code>.</p>
 <p>To change the alias, you can simply rename the file. Whatever goes before the
@@ -169,7 +168,7 @@ can use an <em>alias</em>.</p>
 <p>You can checkout a project any time with:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project checkout &lt;alias|id|uuid&gt;</span><br></div></code></pre></div></div>
 <p>This will update your local workflows folder with the target project.</p>
-<p>If a checkout will cause changes to be lost (ie, you&#x27;ve changed a step.js file
+<p>If a checkout will cause changes to be lost (i.e., you&#x27;ve changed a step.js file
 but haven&#x27;t deployed it), you will be warned. Add <code>--force</code> to ignore the
 change, or run <code>openfn project clean</code> to wipe and reset the <code>workflows</code> folder.</p>
 <p>Checking out will only modify files managed by the CLI - basically workflow and
@@ -218,39 +217,39 @@ it to the server it originally came from (as defined by the project file).</p>
 <p>But you can also use deploy to sync across projects. You might typically want to
 do this to promote a dev or staging sandbox into production. You may even want
 to use it to deploy a project from the SaaS app into another OpenFn instance
-entirely</p>
+entirely.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="deploy-straight-from-a-spec-or-state-file">Deploy straight from a spec or state file<a href="#deploy-straight-from-a-spec-or-state-file" class="hash-link" aria-label="Direct link to Deploy straight from a spec or state file" title="Direct link to Deploy straight from a spec or state file" translate="no">​</a></h3>
-<p>Given any project file (ie, <a href="mailto:main@app.openfn.org.yaml" target="_blank" rel="noopener noreferrer" class="">main@app.openfn.org.yaml</a>), or an exported spec (v1
+<p>Given any project file (i.e., <a href="mailto:main@app.openfn.org.yaml" target="_blank" rel="noopener noreferrer" class="">main@app.openfn.org.yaml</a>), or an exported spec (v1
 or v2 formats, as exported from the app settings), you can deploy straight to
 another instance without having to check anything out first.</p>
-<p>Just pass the source file name as the first argument. If you have super user
+<p>Just pass the source file name as the first argument. If you have superuser
 access, you can create a new project like this:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy dev@localhost.yaml --new --endpoint https://app.openfn.org</span><br></div></code></pre></div></div>
 <p>If you already have a tracked project file locally (which you&#x27;ll have if you
-fetched or pulled previously), you can pass the alias (eg <code>main</code>) to deploy to
-that instance.</p>
+fetched or pulled previously), you can pass the alias (e.g., <code>main</code>) to deploy
+to that instance.</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy dev@localhost.yaml main</span><br></div></code></pre></div></div>
 <p>You probably want to force the deployment, even if divergence is detected. Pass
 the <code>-f</code> flag to do this.</p>
 <p>Pass <code>--no-confirm</code> or <code>-y</code> to skip any confirmation prompts (this is important
-if you&#x27;re running automated scripts)</p>
+if you&#x27;re running automated scripts).</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="managing-credentials">Managing Credentials<a href="#managing-credentials" class="hash-link" aria-label="Direct link to Managing Credentials" title="Direct link to Managing Credentials" translate="no">​</a></h3>
 <p>Managing credentials during a deployment can be tricky.</p>
 <p>Credentials from the source project MUST exist on the target project, or else an
 error will be thrown.</p>
-<p>There is as yet no way to fully automated the creation of credentials, as this
+<p>There is as yet no way to fully automate the creation of credentials, as this
 comes loaded with security concerns.</p>
 <p>However, the CLI does provide some options.</p>
 <p>You can strip credentials entirely from the deployment by passing
 <code>--credentials none</code>. Bear in mind that the workflow will not run on the target
 until credentials have been manually connected to the required steps.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>The <code>--credentials</code> argument can be passed as <code>-c</code> or <code>--cred</code> .</p></div></div>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>The <code>--credentials</code> argument can be passed as <code>-c</code> or <code>--cred</code>.</p></div></div>
 <p>You can also map credentials, if the owner or name of the credentials is
 different in the destination system.</p>
-<p>You can do this through the CLI by passing comma-separated map:</p>
+<p>You can do this through the CLI by passing a comma-separated map:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy spec.yaml --credentials a:service@openfn.org|cred-a,b:service@openfn.org|cred-b</span><br></div></code></pre></div></div>
-<p>This takes two credentials, <code>a</code> and <code>b</code>, and maps them to name <code>cred-a</code> and
-<code>cred-b</code> and change the owner to <code>service@openfn.org</code>.</p>
+<p>This takes two credentials, <code>a</code> and <code>b</code>, and maps them to the names <code>cred-a</code> and
+<code>cred-b</code> and changes the owner to <code>service@openfn.org</code>.</p>
 <p>You can also define these mappings in a yaml file (the same as used in
 execution). Set the <code>alias</code> key under the credential identifier:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">somedev@gmail.com|a:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  alias: service@openfn.org|cred-a</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">somedev@gmail.com|a:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  alias: service@openfn.org|cred-b</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div></code></pre></div></div>
@@ -274,7 +273,7 @@ was recreated - so the sandbox doesn&#x27;t know about it. Merging will cause th
 change on main to be lost.</p>
 <p>You can resolve these conflicts locally using the CLI and git (or equivalent
 version control), then push the resolved project back to the app.</p>
-<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>You do not need GitHub repo to use git!</p><p>Git is a simply a program that runs in your shell on your local system.</p><p>GitHub is an application hosted in the cloud which a) provides remote access to
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>You do not need a GitHub repo to use git!</p><p>Git is simply a program that runs in your shell on your local system.</p><p>GitHub is an application hosted in the cloud which a) provides remote access to
 git repositories and b) provides a rich UI on top of a git-controlled file
 system.</p></div></div>
 <p>Here&#x27;s how to do it with git. This example assumes you are trying to merge a
@@ -318,7 +317,7 @@ triggered by GitHub Actions, to sync your projects.</p>
 <p>Note that by default, GitHub Sync will use the legacy format, with <code>state.json</code>,
 <code>project.yaml</code> and <code>config.json</code> files. When setting up a new GitHub Sync, you
 can choose to select the v2 format. V2 sync is only suitable for pulling a
-single Project per branch to github, as multiple projects will overwrite the
+single Project per branch to GitHub, as multiple projects will overwrite the
 same <code>workflows/</code> folder.</p>
 <p>See <a class="" href="/documentation/link-to-GitHub">Version Control</a> for more details about
 GitHub Sync.</p>
