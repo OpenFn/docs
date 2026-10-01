@@ -68,7 +68,7 @@ run cuando terminan todas estas operaciones.
 
 Una buena práctica es incluir un último paso de limpieza del state que elimine
 los datos que no deberían conservarse entre runs ni formar parte de la salida
-(como datos personales identificables), por ejemplo:
+(como información de identificación personal o PII), por ejemplo:
 
 ```js
 // get data from a data source
@@ -183,13 +183,13 @@ objeto de JavaScript vacío: `{}`
 
 Siempre puedes ejecutar manualmente un workflow con trigger cron con:
 
-- **Entrada vacía**: `{}`: empieza de cero, sin el state anterior.
+- **Entrada vacía** (`{}`): empieza de cero, sin el state anterior.
 - **Entrada personalizada**: tus propios datos, para probar escenarios
   concretos.
 - **Entrada predeterminada**: usa la misma entrada que los runs programados.
 
-Si la ejecución manual tiene éxito, el siguiente run programado del cron
-empezará con el state de salida que haya producido tu ejecución manual.
+Si el run manual tiene éxito, el siguiente run programado del cron empezará con
+el state de salida que haya producido tu run manual.
 
 ## State de entrada y de salida de los steps {#input--output-state-for-steps}
 

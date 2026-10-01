@@ -62,7 +62,7 @@ workflows.
 :::info ¿Preguntas?
 
 Si tienes preguntas sobre cómo escribir jobs, pregunta en la
-[comunidad](https://community.openfn.org) para recibir ayuda del equipo central
-de OpenFn y de otros implementadores.
+[comunidad](https://community.openfn.org) para recibir ayuda del equipo
+principal de OpenFn y de otros implementadores.
 
 :::

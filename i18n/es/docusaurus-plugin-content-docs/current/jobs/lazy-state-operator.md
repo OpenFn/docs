@@ -7,10 +7,10 @@ translation_review_status: machine
 
 ## El operador lazy state {#the-lazy-state-operator}
 
-:::tip Función experimental
+:::tip Funcionalidad experimental
 
 El operador lazy state llegó a OpenFn en abril de 2024. Todavía se considera una
-función experimental, pero funciona muy bien, ¡y te animamos a usarlo!
+funcionalidad experimental, pero funciona muy bien, ¡y te animamos a usarlo!
 
 Si tienes comentarios, problemas o sugerencias sobre el operador lazy state,
 ¡nos encantaría saber de ti en la [comunidad](https://community.openfn.org)!

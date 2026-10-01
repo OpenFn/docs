@@ -5,10 +5,10 @@ translation_source_hash: 7faca517b9178d0323cb188a0b80fdb54558b6ff
 translation_review_status: machine
 ---
 
-OpenFn admite todas las funciones modernas de JavaScript.
+OpenFn admite todas las características modernas de JavaScript.
 
-Esta sección destaca algunas funciones y operadores útiles de JavaScript que
-pueden ayudarte a escribir código más limpio. No pretende ser una guía
+Esta sección destaca algunas características y operadores útiles de JavaScript
+que pueden ayudarte a escribir código más limpio. No pretende ser una guía
 exhaustiva, sino una referencia a algunas buenas técnicas sobre los aspectos más
 nuevos del lenguaje.
 
@@ -167,7 +167,7 @@ usuarios ya sabe usarlas.
 Una función flecha es otra forma de escribir una función de JavaScript. Hay
 varias razones por las que son populares en el JavaScript moderno:
 
-- Se sienten ligeras, porque requieren menos sintaxis
+- Resultan ligeras, porque requieren menos sintaxis
 - No tienen un alcance `this`, aunque esto es en gran parte irrelevante para
   programar en OpenFn (y, de hecho, para la mayoría de los frameworks modernos
   de JS)

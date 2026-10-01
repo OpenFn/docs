@@ -100,8 +100,8 @@ metadata($.data.photoBase64);
 ```
 
 Cada operación acepta una cadena Base64 o un Buffer y escribe su resultado en
-`state.data` (normalmente como `buffer`; si necesitas una cadena, en algunos
-casos tienes disponible `parseAs: 'base64'`).
+`state.data` (normalmente como `buffer`; si necesitas una cadena, tienes
+disponible `parseAs: 'base64'`).
 
 Consulta la
 [documentación del adaptor `image-utils`](/adaptors/packages/image-utils-docs)

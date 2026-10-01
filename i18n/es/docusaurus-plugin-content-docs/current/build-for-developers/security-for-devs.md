@@ -17,7 +17,7 @@ seguridad al crear workflows de OpenFn.
 ## Errores comunes y cómo evitarlos {#common-mistakes-and-how-to-avoid-them}
 
 Escribir jobs de OpenFn puede ser sencillo, pero hay errores comunes que los
-desarrolladores suelen cometer. Estos son algunos de ellos y consejos para
+desarrolladores pueden cometer. Estos son algunos de ellos y consejos para
 evitarlos:
 
 ### Información sensible escrita en el código {#hardcoding-sensitive-information}

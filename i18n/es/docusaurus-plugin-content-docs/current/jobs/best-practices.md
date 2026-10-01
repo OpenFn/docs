@@ -63,8 +63,8 @@ No te preocupes, ¡los errores pasan todo el tiempo! Incluso los workflows más
 consolidados lanzan algún error de vez en cuando por datos inesperados en algún
 punto del proceso. Es parte de la vida; lo más importante es enterarse.
 
-Lanza los errores desde el job sin mucha ceremonia: el runtime los atrapa y los
-procesa como corresponde.
+Los errores deberían lanzarse desde el job sin mucha ceremonia: el runtime los
+atrapa y los procesa como corresponde.
 
 Si un job lanza un error, este se registra en el log y se escribe en el state
 final, así que debería ser fácil encontrarlo e identificar la causa.

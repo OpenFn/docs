@@ -94,7 +94,7 @@ solo maneja esto correctamente en el alcance superior. La buena práctica es
 construir cada operación del pipeline en el nivel superior y dejar que el state
 pase de una a otra de forma natural.
 
-Si alguna vez necesitas sin falta una operación anidada, puedes invocarla de
+Si alguna vez de verdad necesitas una operación anidada, puedes invocarla de
 inmediato y pasarle el state directamente, pero esto es un antipatrón y deberías
 evitarlo:
 
@@ -134,8 +134,7 @@ post('/some-other-data', state => state.data);
 Cuando `post` se ejecuta, resuelve cualquier argumento que sea una función
 llamándola con el state actual. Este patrón de evaluación diferida es
 fundamental para escribir jobs de OpenFn correctos. Consulta también el
-[operador de state diferido](/jobs/lazy-state-operator.md) para una sintaxis
-abreviada.
+[operador lazy state](/jobs/lazy-state-operator.md) para una sintaxis abreviada.
 
 ## Callbacks y fn() {#callbacks-and-fn}
 

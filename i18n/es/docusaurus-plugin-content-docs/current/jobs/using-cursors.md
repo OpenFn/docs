@@ -27,7 +27,7 @@ versión <code>1.13.0</code> (publicada en abril de 2024).
 
 Los adaptors que usan common <code>1.12.0</code> o anterior no admiten la
 operación cursor. Considera actualizar a la versión más reciente del adaptor
-para aprovechar esta función.
+para aprovechar esta funcionalidad.
 
 </details>
 
@@ -111,7 +111,7 @@ cursor('now');
 
 A menudo conviene definir la posición del cursor a mano, normalmente al probar o
 depurar. Quizás el run de ayer falló y quieres repetirlo, o estás probando una
-función nueva y quieres experimentar con distintos cursores.
+funcionalidad nueva y quieres experimentar con distintos cursores.
 
 Para hacerlo, define un valor de cursor en el state de entrada, así:
 
