@@ -16,10 +16,10 @@ indicadores clave), con los [adaptors](/adaptors) `kobotoolbox` y `dhis2`.
 
 ### Video explicativo {#video-walkthrough}
 
-:::tip Tutorial de introducción a workflows e History
+:::tip Tutorial de introducción a workflows y History
 
 Mira este
-[tutorial de introducción a workflows e History](https://youtu.be/hae8eM0iYnM?si=LGbv1TK0W9L9y12u)
+[tutorial de introducción a workflows y History](https://youtu.be/hae8eM0iYnM?si=LGbv1TK0W9L9y12u)
 para que te guíe en la configuración de este workflow.
 
 :::
@@ -90,11 +90,11 @@ Consulta la documentación sobre el
 
 #### Prueba {#testing}
 
-Crea un input vacío `{}` y haz clic en el botón `Create New Work Order` para
+Crea una entrada vacía `{}` y haz clic en el botón `Create New Work Order` para
 ejecutar el workflow. Consulta [la documentación](/build/workflows.md) para
 saber más sobre cómo ejecutar workflows manualmente.
 
-El `output` esperado debe contener 17 registros en `state.data.results`.
+El `output` esperado debería contener 17 registros en `state.data.results`.
 
 ### Step 2: Contar las dosis de OPV aplicadas {#step-2-count-opv-dose-given}
 
@@ -141,7 +141,7 @@ Consulta la documentación sobre el
 #### Prueba {#testing-1}
 
 Selecciona el primer step, `Get Kobo Form Submission`, y haz clic en
-`Create New Work Order` con un input vacío (consulta la
+`Create New Work Order` con una entrada vacía (consulta la
 [documentación de workflows](/build/workflows.md) si necesitas ayuda para
 ejecutar y probar steps). Los dos steps deberían ejecutarse con éxito y en el
 state final deberías ver que se agregó `opvDosesGivenCount: 3`.
@@ -203,9 +203,9 @@ Consulta la documentación sobre el [adaptor "dhis2"](/adaptors/dhis2), sobre
 
 #### Prueba {#testing-2}
 
-Guarda los cambios, ve al primer step (Get Kobo Form Submission), crea un input
-vacío `{}` y haz clic en el botón `Create New Work Order` para ejecutar el
-workflow. Todos los steps deberían ejecutarse con éxito y deberías ver
+Guarda los cambios, ve al primer step (Get Kobo Form Submission), crea una
+entrada vacía `{}` y haz clic en el botón `Create New Work Order` para ejecutar
+el workflow. Todos los steps deberían ejecutarse con éxito y deberías ver
 actualizado `OPV0 doses given` en DHIS2. Consulta la
 [documentación de workflows](/build/workflows.md) si necesitas ayuda para
 ejecutar o probar workflows.
@@ -219,7 +219,7 @@ OPV aplicadas a los beneficiarios y reporta ese total a DHIS2 como `dataValues`.
 :::tip ¿No puedes avanzar? ¿Tienes preguntas?
 
 Mira este
-[tutorial de introducción a workflows e History](https://youtu.be/hae8eM0iYnM?si=LGbv1TK0W9L9y12u)
+[tutorial de introducción a workflows y History](https://youtu.be/hae8eM0iYnM?si=LGbv1TK0W9L9y12u)
 o publica tus preguntas en la [comunidad](https://community.openfn.org) para
 recibir ayuda.
 

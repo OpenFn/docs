@@ -151,14 +151,14 @@ usuarios en tu GoogleSheet de destino. Configura el step con estas opciones:
 
 - Input - `Final output of Fetch Users`
 
-Si ya ejecutaste el step `Fetch Users`, tendrás un input inicial para probar el
-step `Sync Users`. Selecciona el input en el panel de input y haz clic en
+Si ya ejecutaste el step `Fetch Users`, tendrás una entrada inicial para probar
+el step `Sync Users`. Selecciona la entrada en el panel Input y haz clic en
 `Create New Work Order` para ejecutar este step.
 
 ## 4. ¡Hora de probar! {#4-time-to-test}
 
 1. Selecciona el step `Fetch Users` y ábrelo en el Inspector.
-2. Crea un input nuevo vacío `{}`.
+2. Crea una entrada nueva vacía `{}`.
 3. Haz clic en `Create New Work Order` para ejecutar el step.
 4. Revisa los resultados en el panel `Output & Logs` y comprueba que los dos
    steps terminaron con el estado `success`.

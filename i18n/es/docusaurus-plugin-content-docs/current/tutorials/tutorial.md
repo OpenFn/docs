@@ -21,7 +21,7 @@ translation_review_status: machine
    [Inspector](/build/steps/step-editor.md) y agrega el código del job en el
    panel `Editor` para definir la lógica de negocio o las reglas de
    transformación de este workflow.
-6. En el panel `Input` de la izquierda, agrega un input personalizado (por
+6. En el panel `Input` de la izquierda, agrega una entrada personalizada (por
    ejemplo, el payload de una solicitud de webhook) o simplemente agrega llaves
    vacías (`{}`) para ejecutar un workflow con un trigger cron. Consulta la
    [documentación de workflows](docs/build/workflows.md) si necesitas ayuda para

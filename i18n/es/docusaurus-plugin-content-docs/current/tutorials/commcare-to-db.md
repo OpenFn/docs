@@ -41,9 +41,9 @@ formulario `Register a New Patient`.
 
 Cada vez que un usuario de CommCare registre a un paciente nuevo, sus datos se
 sincronizarán automáticamente con una base de datos PostgreSQL ya configurada.
-Así podrás monitorear y analizar en tiempo real los datos recolectados en
-terreno. Por ejemplo, puedes conectar rápidamente esta base de datos a un
-tablero que muestre datos agregados de los pacientes registrados.
+Así podrás monitorear y analizar en tiempo real los datos recolectados en campo.
+Por ejemplo, puedes conectar rápidamente esta base de datos a un tablero que
+muestre datos agregados de los pacientes registrados.
 
 :::
 
