@@ -44,7 +44,7 @@ As an open source Digital Public Good, OpenFn can be deployed anywhere
 ([see docs](/deploy/options.md)) and workflows can be configured to adhere to
 your organization's specific data sharing agreements and security policies.
 
-Consult the `Manage Projects` docs pages for more on project and
+Consult the Manage Projects docs pages for more on project and
 [data storage settings](/manage-projects/io-data-storage.md).
 
 See the below diagram for an example architecture where even the OpenFn Cloud

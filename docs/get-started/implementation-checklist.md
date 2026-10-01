@@ -7,10 +7,10 @@ title: Implementation Checklist for planning your next integration project
 
 This
 [Implementation Checklist](https://docs.google.com/spreadsheets/d/1_XY0nx0OLNUsogrIHnRaSTyZ-KdcSXks-tqwm3ZfMc4/edit#gid=72612093)
-checklist draws from experience of implementing interoperability projects with
-in-country government agencies (incl. UNICEF country offices, Ministry of Social
-Services Cambodia, MoH Thailand) to offer an implementation & planning guide
-covering key milestones in most interoperability and integration projects.
+draws from experience of implementing interoperability projects with in-country
+government agencies (incl. UNICEF country offices, Ministry of Social Services
+Cambodia, MoH Thailand) to offer an implementation & planning guide covering key
+milestones in most interoperability and integration projects.
 
 While this checklist should be tailored for each implementation, the tasks
 outlined provide a template workplan that can help any organization prepare for
@@ -19,17 +19,17 @@ the seven phases summarized below. Check out the checklist for detailed steps.**
 
 :::tip
 
-Check out a real-world example See the UNICEF Cambodia repository for documented
-outputs from this checklist from an interoperability project implemented for the
-Cambodia Ministry of Social Affairs, Veterans, and Youth Rehabilitation and
-partner NGOs:
+Check out a real-world example: see the UNICEF Cambodia repository for
+documented outputs from this checklist from an interoperability project
+implemented for the Cambodia Ministry of Social Affairs, Veterans, and Youth
+Rehabilitation and partner NGOs:
 [openfn.github.io/unicef-cambodia/](https://openfn.github.io/unicef-cambodia/)
 
 :::
 
 ## (1) Preparing for the Implementation
 
-Set the project up for success by creating a project plan, defining roles
+Set the project up for success by creating a project plan, defining roles and
 responsibilities, documenting the business value of the implementation, and
 confirming the technical feasibility of the implementation.
 
@@ -116,4 +116,4 @@ request to this documentation page on GitHub or leave a comment in
 [OpenFn Community](https://community.openfn.org/).
 
 Interested in receiving **training on the OpenFn implementation process**?
-Contact [partnerships@openfn.org](mailto://partnerships@openfn.org).
+Contact [partnerships@openfn.org](mailto:partnerships@openfn.org).

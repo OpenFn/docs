@@ -95,7 +95,7 @@ data systems or databases is the kind of information stored, data vs. files.
 ## ETL
 
 ETL stands for "extract, transform, and load". These are often thought of as the
-three constituent parts of a data integration. First, we extract (push of pull
+three constituent parts of a data integration. First, we extract (push or pull
 data from a data source). Then, we transform (make any changes to the data to
 make it acceptable to the destination system or application). Then, we load
 (send it to the destination).
