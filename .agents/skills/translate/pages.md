@@ -42,11 +42,10 @@ also add `translation_reviewer` and `translation_review_date`.
 - **The hash matches the current English file.** Skip it, whatever its status.
   The English has not changed since it was translated. The one exception: if
   `glossary.yml` or `translation-rules.yml` was committed more recently than the
-  translation (compare `git log -1 --format=%ct -- <file>`), treat a `machine`
-  page as if the hash no longer matches, so it picks up the new rules.
+  translation (compare `git log -1 --format=%ct -- <file>`), translate a
+  `machine` page again in full, so it picks up the new rules.
 - **The hash no longer matches, and the status is `machine`, `needs-review`, or
-  missing.** Translate the whole page again, but keep any fenced blocks (see
-  below) exactly as they were.
+  missing.** Translate only what changed (see "Updating a page" below).
 - **The hash no longer matches, and the status is `human-reviewed`.** Leave the
   file out of the translation PR. Instead, open a separate PR for the named
   reviewer that changes only the affected parts. Recover the English the
@@ -56,6 +55,43 @@ also add `translation_reviewer` and `translation_review_date`.
   `human-reviewed`: the reviewer merging it approves it. If the old version is
   no longer in the repo, say so and offer a full retranslation in that PR
   instead.
+
+## Updating a page
+
+Retranslating a whole page rewords text that has not changed, and a reviewer can
+no longer see what did. So translate only the blocks whose English changed:
+
+```bash
+node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md --json
+```
+
+This lists the blocks of the current English. Each has the existing
+`translation` to reuse, or `null` where the English is new or changed. Write the
+page as those blocks in order, separated by blank lines: copy each reused
+translation exactly, and translate each `null` block. Then update the front
+matter and run Prettier as usual.
+
+- A block with `fenced: true` was inside a `<!-- do-not-retranslate -->` fence.
+  Put the fence back around it. If `unusedFenced` is not empty, the English a
+  fenced block corresponds to has changed or gone. Keep the block and ask what
+  to do with it.
+- If the result has an `error`, or `aligned` is `false`, the old translation
+  cannot be matched to its English. Translate the whole page again, keeping
+  fenced blocks, and say so in the PR.
+
+In the PR description, list for each page how many blocks were translated.
+
+## Reviewing
+
+To read a translation next to the English it was translated from:
+
+```bash
+node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md... > review.html
+```
+
+Add `--base <ref>`, such as `--base origin/i18n`, to highlight the blocks that
+changed since the translation at that ref. Put both commands in the PR
+description, with the page paths filled in.
 
 ## Fenced blocks
 
@@ -87,13 +123,19 @@ These are on top of the translation rules in `SKILL.md`.
 
 ## Check each page
 
-Check that the fixed glossary terms (the ones without `product_noun: true`, such
-as OpenFn, Lightning, adaptor, webhook) appear as many times as in the English.
-Product nouns like "run" and "step" are allowed to differ, since their
-ordinary-English uses get translated. Before counting, join each file into one
-line with single spaces: Prettier wraps prose at 80 columns, and English and
-Spanish wrap at different points, so a multi-word term like "work order" can sit
-across a line break in one file and not the other. Check the code blocks are
+Check that no fixed glossary term was translated:
+
+```bash
+node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md... --check --base HEAD
+```
+
+This lists each block where a fixed term (OpenFn, Lightning, adaptor, work
+order, and so on) appears fewer times in the translation than in the English.
+With `--base HEAD`, it checks only blocks whose English changed since the last
+commit, so a block that was already looked at is not raised again. Look at each
+one. If the term was translated, put the English term back. If the sentence just
+uses it fewer times, for example because Spanish drops a repeated subject, leave
+it: do not add the term back to match the count. Check the code blocks are
 identical. Check the counts of headings, code blocks, callouts, images, and
 tables match. Check the front matter is complete. Check every fenced block
 survived. Then build and open the PR as `SKILL.md` describes.
