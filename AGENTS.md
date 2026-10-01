@@ -51,8 +51,8 @@ Never change them.
 - **`translate`** translates English pages (`/translate pages`) or the interface
   text (`/translate interface`), in its own PR per locale.
 - **`review-translation`** checks translated pages against the English, fixes
-  clear problems, and reports the rest. Run it in a fresh session after
-  `/translate pages`, before committing.
+  clear problems, and reports the rest. Commit the translation, then run it in a
+  fresh session.
 
 `update-content` and `translate` open PRs, so they only run when someone asks
 for them by name (`/update-content`, `/translate`). When another skill hands off
