@@ -48,17 +48,6 @@
 rules:
   - locale: es
     kind: term
-    source: deliverables
-    target: entregables
-    instruction: >-
-      In project plans, "deliverables" are "entregables", not "resultados".
-    example_source: "Key deliverables:"
-    example_target: "Entregables clave:"
-    reason: The standard project-management term in Latin America.
-    added_by: lmac-1
-    added_on: 2026-10-01
-  - locale: es
-    kind: term
     source: upgrade (a plan)
     target: mejorar
     instruction: >-
