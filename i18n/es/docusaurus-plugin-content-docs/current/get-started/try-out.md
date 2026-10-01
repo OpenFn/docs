@@ -14,7 +14,7 @@ Regístrate para obtener una cuenta gratuita en el servicio alojado de OpenFn.or
 y crear tu propio proyecto privado. Para hacerlo, visita:
 [www.openfn.org/register](https://www.openfn.org/register)
 
-Ten en cuenta que esta cuenta gratuita tiene límites. Mejora tu plan para
+Ten en cuenta que esta cuenta gratuita tiene límites. Actualiza tu plan para
 acceder a más funciones en la plataforma alojada y segura de OpenFn. Más
 información en [nuestro sitio web](https://www.openfn.org/pricing).
 

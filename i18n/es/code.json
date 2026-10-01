@@ -6,10 +6,10 @@
     "message": "¿Vas a escribir un job para OpenFn? Empieza aquí"
   },
   "homepage.highlights.cliUsage.title": {
-    "message": "Ejemplos de uso del CLI"
+    "message": "Ejemplos de uso de la CLI"
   },
   "homepage.highlights.cliUsage.description": {
-    "message": "Mira de un vistazo lo que puede hacer el CLI"
+    "message": "Mira de un vistazo lo que puede hacer la CLI"
   },
   "homepage.highlights.javascriptTips.title": {
     "message": "Trucos y consejos de JavaScript"

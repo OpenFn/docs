@@ -171,8 +171,7 @@ Las soluciones de OpenFn son:
 ## FHIR para el intercambio de datos de salud {#fhir-for-health-data-exchange}
 
 [FHIR](https://www.hl7.org/fhir/) (se pronuncia "fire", fuego en inglés 🔥) es
-un estándar para el intercambio de datos de atención sanitaria, publicado por
-HL7®.
+un estándar para el intercambio de datos de salud, publicado por HL7®.
 
 Las organizaciones de salud usan OpenFn para conectar varios sistemas,
 compatibles con FHIR o no, de forma segura, estable y escalable. OpenFn puede

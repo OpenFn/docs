@@ -55,4 +55,33 @@
 #     added_on: 2026-01-01
 #     source_pr: https://github.com/OpenFn/docs/pull/000
 
-rules: []
+rules:
+  - locale: es
+    kind: register
+    instruction: >-
+      Write neutral Latin American Spanish (es-419). Address the reader as
+      "tú", never "vosotros" or "vos". Prefer words used across the region:
+      computadora, capacitación (training), lista de verificación (checklist),
+      contactar a, recolección de datos, la CLI. Avoid Spain-only forms such as
+      ordenador, formación for training, lista de comprobación, contactar con,
+      and plantearse, and avoid slang from any one country.
+    reason: >-
+      The Spanish docs are for readers across Latin America, and one neutral
+      variety reads naturally to all of them.
+    added_by: lmac-1
+    added_on: 2026-10-01
+  - locale: es
+    kind: structure
+    instruction: >-
+      English terms kept from glossary.yml take a fixed gender and an English
+      plural with "-s". Feminine: la work order, la CLI, la API. Masculine:
+      el workflow, el step, el job, el run, el trigger, el adaptor, el
+      webhook, el dataclip, el sandbox, el Canvas, el Inspector, el cron.
+      Any English term not listed here is masculine.
+    example_source: The work order creates two runs.
+    example_target: La work order crea dos runs.
+    reason: >-
+      Kept English terms have no gender of their own, so without a rule each
+      page could pick a different one.
+    added_by: lmac-1
+    added_on: 2026-10-01

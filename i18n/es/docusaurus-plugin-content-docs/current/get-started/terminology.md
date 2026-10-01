@@ -266,7 +266,7 @@ ej., un mensaje reenviado o un payload JSON enviado a OpenFn) o de otro Step del
 Workflow, o manualmente por un usuario de OpenFn.
 
 Ejemplo de Input a partir del envío de un formulario desde una aplicación móvil
-de recogida de datos (p. ej., Kobo, ODK, CommCare):
+de recolección de datos (p. ej., Kobo, ODK, CommCare):
 
 ```json
 {

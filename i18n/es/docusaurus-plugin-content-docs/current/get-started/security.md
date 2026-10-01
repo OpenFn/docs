@@ -56,7 +56,7 @@ enlace para compartirla y descargarla:**
 <ol start="6"> 
 <li>Recurso: plantilla de especificación de mapeo</li>
 <li>Recurso: diagrama de flujo de datos de la arquitectura</li>
-<li>Recurso: Project Security Configuration & Go-Live Checklist (lista de comprobación de configuración de seguridad y puesta en marcha del proyecto)</li>
+<li>Recurso: Project Security Configuration & Go-Live Checklist (lista de verificación de configuración de seguridad y puesta en marcha del proyecto)</li>
 <li>Ten en cuenta la idempotencia, los identificadores únicos y las operaciones de tipo “upsert” para garantizar la integridad de los datos</li>
 <li>Diseña pensando en los fallos y en el reprocesamiento de transacciones</li>
 <li>Ten en cuenta la validación de datos</li>
@@ -72,14 +72,14 @@ enlace para compartirla y descargarla:**
 <h4>Desplegar</h4>
 <ol start="17"> 
 <li>Vuelve a probar, sobre todo las credenciales, antes del despliegue</li>
-<li>Forma a los usuarios y a los administradores de sistemas en la seguridad de la integración</li>
+<li>Capacita a los usuarios y a los administradores de sistemas en la seguridad de la integración</li>
 <li>Revisa de nuevo tus requisitos de seguridad antes de la puesta en marcha</li>
 <li>Define los puntos de contacto para informar de problemas de seguridad</li> 
 </ol>
 <h4>Supervisión y gestión continuas</h4>
 <ol start="21"> 
-<li>Plantéate modelos de gobernanza para la gestión continua y los cambios de requisitos</li>
-<li>Forma a los socios en la gestión del cambio</li>
+<li>Considera modelos de gobernanza para la gestión continua y los cambios de requisitos</li>
+<li>Capacita a los socios en la gestión del cambio</li>
 <li>Ten una estrategia de gestión del acceso</li>
 </ol>
 

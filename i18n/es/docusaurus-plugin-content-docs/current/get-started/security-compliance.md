@@ -22,7 +22,7 @@ de tus políticas
 ✓ Crea canalizaciones de datos de "persistencia cero" para controlar por
 completo dónde se almacenan los datos
 
-✓ Formación y orientación sobre la implementación de la seguridad para los
+✓ Capacitación y orientación sobre la implementación de la seguridad para los
 equipos de tus proyectos ([más información](/get-started/security.md))
 
 Consulta nuestro sitio web principal para saber más sobre
@@ -36,8 +36,8 @@ cualquier lugar para ayudar a garantizar el cumplimiento de las políticas de
 privacidad y seguridad de datos de tu país o de tu organización.
 
 **Para saber más sobre cómo entendemos el cumplimiento, sobre todo con normas
-como el RGPD o la HIPAA, consulta nuestra página web de
-[Cumplimiento](https://www.openfn.org/compliance).** Contacta con
+como el GDPR o la HIPAA, consulta nuestra página web de
+[Cumplimiento](https://www.openfn.org/compliance).** Contacta a
 [nuestro equipo principal](mailto:support@openfn.org) si te interesa recibir
 consultoría y asesoramiento sobre cómo desplegar y configurar tu implementación
 de OpenFn para garantizar el cumplimiento al 100 %.
@@ -135,7 +135,7 @@ Primero, consulta las páginas de [Confianza](https://www.openfn.org/trust) y
 la [Guía de implementación segura](/get-started/security.md).
 
 Haz tus preguntas en la [comunidad](https://community.openfn.org/) o
-[contacta con nuestro equipo principal](mailto:security@openfn.org) para
-consultas privadas.
+[contacta a nuestro equipo principal](mailto:security@openfn.org) para consultas
+privadas.
 
 :::

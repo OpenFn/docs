@@ -78,7 +78,7 @@ más complejo de esas otras cosas, normalmente uno que permite a un usuario
 interactuar más fácilmente con todos los datos a los que debería tener acceso.
 El sistema de datos suele servir como punto de entrada a la multitud de bases de
 datos, aplicaciones, tablas, etc., que, si no, el usuario tendría que buscar en
-12 sitios distintos.
+12 lugares distintos.
 
 ## Cifrado {#encryption}
 
@@ -92,13 +92,13 @@ nuestra plataforma.
 
 Un sistema de archivos es a los archivos lo que un sistema de datos es a los
 datos. Estructura tus archivos de forma que te resulte fácil recuperarlos de
-manera estandarizada (piensa en el sistema de archivos de tu ordenador de casa,
-con sus rutas de archivo). Los sistemas de archivos también pueden existir en
-otros contextos, y a veces necesitas acceder a ellos para recuperar un archivo
-(un documento de Word, un CSV, un archivo de texto plano, etc., pueden ser
-relevantes según tu caso de uso). La única diferencia real entre los sistemas de
-archivos y los sistemas de datos o las bases de datos es el tipo de información
-que se almacena: datos frente a archivos.
+manera estandarizada (piensa en el sistema de archivos de tu computadora de
+casa, con sus rutas de archivo). Los sistemas de archivos también pueden existir
+en otros contextos, y a veces necesitas acceder a ellos para recuperar un
+archivo (un documento de Word, un CSV, un archivo de texto plano, etc., pueden
+ser relevantes según tu caso de uso). La única diferencia real entre los
+sistemas de archivos y los sistemas de datos o las bases de datos es el tipo de
+información que se almacena: datos frente a archivos.
 
 ## ETL
 
