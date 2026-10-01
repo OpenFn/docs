@@ -42,9 +42,9 @@ also add `translation_reviewer` and `translation_review_date`.
 - **The hash matches the current English file.** Skip it, whatever its status.
   The English has not changed since it was translated. The one exception: if
   `glossary.yml`, `translation-rules.yml`, or the locale's house style
-  (`<locale>.md`) was committed more recently than a `machine` or
-  `needs-review` page (compare `git log -1 --format=%ct -- <file>`), apply the
-  new rules to it (see "When the rules change" below).
+  (`<locale>.md`) was committed more recently than a `machine` or `needs-review`
+  page (compare `git log -1 --format=%ct -- <file>`), apply the new rules to it
+  (see "When the rules change" below).
 - **The hash no longer matches, and the status is `machine`, `needs-review`, or
   missing.** Translate only what changed (see "Updating a page" below).
 - **The hash no longer matches, and the status is `human-reviewed`.** Leave the
@@ -73,8 +73,8 @@ reviewer can no longer see what the new rules changed.
 3. Leave fenced blocks as they are. If one breaks a new rule, say so in the PR.
 
 If nothing breaks the new rules, there is nothing to commit, and the page is
-checked again on the next run. That is quick, because only the changed rules
-are checked.
+checked again on the next run. That is quick, because only the changed rules are
+checked.
 
 To retranslate a page from scratch on purpose, for example while tuning the
 rules on a first section, delete it first. It then counts as having no
@@ -134,6 +134,9 @@ node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md... > revie
 Add `--base <ref>`, such as `--base origin/i18n`, to highlight the blocks that
 changed since the translation at that ref. Put both commands in the PR
 description, with the page paths filled in.
+
+To check a translation against the English and fix it, run `/review-translation`
+in a fresh session.
 
 ## Fenced blocks
 
