@@ -2,13 +2,14 @@
 #
 # Purpose
 # -------
-# Locale-specific phrasing rules learned from human edits to machine
-# translations. The translate skill (.agents/skills/translate/SKILL.md) loads this
-# file after glossary.yml and applies every rule whose `locale` matches the
-# target locale.
+# Fixes learned from human review of machine translations: a phrase that must
+# always be translated one way, or a rendering a reviewer rejected. The
+# translate skill (.agents/skills/translate/SKILL.md) loads this file after
+# glossary.yml and applies every rule whose `locale` matches the target locale.
 #
-# Glossary terms (never translate) belong in glossary.yml, not here. This file
-# is for how to translate, not what to leave alone.
+# Glossary terms (never translate) belong in glossary.yml. A locale's general
+# style (voice, word choice, capitals, punctuation) belongs in its house style
+# guide, .agents/skills/translate/<locale>.md. This file is for single phrases.
 #
 # Humans maintain this file. Add a rule when you correct a translation in a
 # way that should apply to other pages too.
@@ -18,13 +19,9 @@
 # rules:
 #   - locale: string        # "es" or "fr" (or "*" for every locale)
 #     kind: string          # one of:
-#                           #   term        - a fixed rendering for a phrase
-#                           #   register    - tone/voice guidance (formal vs informal "you")
-#                           #   punctuation - spacing, quotation marks, list punctuation
-#                           #   structure   - how to handle headings, admonition titles, UI labels
-#                           #   avoid       - a rendering the reviewer rejected
-#     source: string        # English phrase or pattern the rule applies to (for
-#                           # kind: term and avoid). Omit for global rules.
+#                           #   term  - a fixed rendering for a phrase
+#                           #   avoid - a rendering the reviewer rejected
+#     source: string        # English phrase the rule applies to
 #     target: string        # required rendering (kind: term) or rejected rendering
 #                           # (kind: avoid)
 #     instruction: string   # plain-language rule the translator must follow
@@ -39,49 +36,36 @@
 # -------
 # rules:
 #   - locale: es
-#     kind: register
-#     instruction: Address the reader as "tú", not "usted".
-#     reason: Matches the informal tone of the English docs.
-#     added_by: someone
-#     added_on: 2026-01-01
-#     source_pr: https://github.com/OpenFn/docs/pull/000
-#   - locale: fr
-#     kind: punctuation
-#     instruction: Put a non-breaking space before ":", ";", "?" and "!".
-#     example_source: "Next step: add a credential."
-#     example_target: "Étape suivante : ajoutez un identifiant."
-#     reason: Standard French typography.
+#     kind: avoid
+#     source: report (a problem)
+#     target: informar de
+#     instruction: Use "reportar", not "informar de".
+#     reason: "Informar de" is Spain-only; the Spanish docs target es-419.
 #     added_by: someone
 #     added_on: 2026-01-01
 #     source_pr: https://github.com/OpenFn/docs/pull/000
 
 rules:
   - locale: es
-    kind: register
+    kind: term
+    source: deliverables
+    target: entregables
     instruction: >-
-      Write neutral Latin American Spanish (es-419). Address the reader as
-      "tú", never "vosotros" or "vos". Prefer words used across the region:
-      computadora, capacitación (training), lista de verificación (checklist),
-      contactar a, recolección de datos, la CLI. Avoid Spain-only forms such as
-      ordenador, formación for training, lista de comprobación, contactar con,
-      and plantearse, and avoid slang from any one country.
-    reason: >-
-      The Spanish docs are for readers across Latin America, and one neutral
-      variety reads naturally to all of them.
+      In project plans, "deliverables" are "entregables", not "resultados".
+    example_source: "Key deliverables:"
+    example_target: "Entregables clave:"
+    reason: The standard project-management term in Latin America.
     added_by: lmac-1
     added_on: 2026-10-01
   - locale: es
-    kind: structure
+    kind: term
+    source: upgrade (a plan)
+    target: mejorar
     instruction: >-
-      English terms kept from glossary.yml take a fixed gender and an English
-      plural with "-s". Feminine: la work order, la CLI, la API. Masculine:
-      el workflow, el step, el job, el run, el trigger, el adaptor, el
-      webhook, el dataclip, el sandbox, el Canvas, el Inspector, el cron.
-      Any English term not listed here is masculine.
-    example_source: The work order creates two runs.
-    example_target: La work order crea dos runs.
-    reason: >-
-      Kept English terms have no gender of their own, so without a rule each
-      page could pick a different one.
+      "Upgrade" a plan or account is "mejorar", not "actualizar", which means
+      "update".
+    example_source: Upgrade to access more features.
+    example_target: Mejora tu plan para acceder a más funciones.
+    reason: '"Actualiza tu plan" reads as "update your plan".'
     added_by: lmac-1
     added_on: 2026-10-01

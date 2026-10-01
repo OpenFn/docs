@@ -31,9 +31,9 @@ you need.
 **Special rules apply**
 
 - Translations in `i18n/`. See `translate/SKILL.md`.
-- The two rule files: `glossary.yml` and `translation-rules.yml`. Humans
-  maintain these. Each explains its format at the top. Only add an entry if the
-  user asks you to.
+- The rule files: `glossary.yml`, `translation-rules.yml`, and the house style
+  for each locale in `.agents/skills/translate/<locale>.md`. Humans maintain
+  these. Only add an entry if the user asks you to.
 
 To check facts, you can read the product code. Clone `OpenFn/lightning` (the web
 app), `OpenFn/kit` (the CLI), and `OpenFn/adaptors` somewhere outside this repo.
