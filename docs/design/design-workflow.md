@@ -16,12 +16,12 @@ steps or use existing documentation on a business process/protocol. **For
 example:**
 
 1. New patient visits clinic
-2. Worker registers patient in mobile app (KoboToolBox)
+2. Worker registers patient in mobile app (KoboToolbox)
 3. Every day, sync new patients to national health information system (DHIS2)
 
 Next, consider visually outlining the structure and flow of a workflow to ensure
-it can be more easily understood by various stakeholders. Diagraming can help to
-capture:
+it can be more easily understood by various stakeholders. Diagramming can help
+to capture:
 
 1. The right flow/sequence of steps,
 2. Dependencies,

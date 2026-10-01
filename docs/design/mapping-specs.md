@@ -60,14 +60,14 @@ After your organization (or “the business”) determines the functional data
 element mapping rules for source/target systems, you'll need to consider which
 other technical data elements are required in order for the integration to work.
 These may include system-specific fields, IDs, and/or API parameters that are
-“under the hood" and may not be visible to the end user, but are required by the
+“under the hood” and may not be visible to the end user, but are required by the
 target system to share the data.
 
 ### Global variables and mapping rules
 
 Sometimes when mapping lists of values or option sets (e.g., lists of diagnoses,
 geographic hierarchies, list of services globally offered at the organization),
-these values are "global" and need to referenced repeated throughout your
+these values are "global" and need to be referenced repeatedly throughout your
 workflow implementation.
 
 For example, imagine that your source app has a list of coded location IDs
@@ -87,7 +87,7 @@ spec. See an example of this specification in the
 [template mapping specification](https://docs.google.com/spreadsheets/d/19sPRLP4zeFgFbtOL1wKh-rc7D0KPMu3etmOOG_x5t68/edit).
 
 Then, when building your workflow to implement this globals mapping table
-specification, your job expression might looks something like the below code
+specification, your job expression might look something like the below code
 snippet.
 
 ```js
@@ -106,7 +106,7 @@ fn(state => {
     // Here we build the payload of our http request body...
     // We assume the input is an array of records
     const payload = state.data.map(record => ({
-        location: locationMap[record.location_id] //translate location_id to the mapped value
+        location: locationMap[record.location_id], //translate location_id to the mapped value
         external_id: record.case_id
     }));
 
@@ -159,9 +159,9 @@ OpenMRS data to DHIS2.
 ### Mapping to Individual or Aggregate Entities
 
 Consider if your integration requires a 1-to-1 exchange of individual records,
-or if there is a need for individual records to be summaries or aggregated. Your
-workflow may require you to map individual entities (i.e., 1-to-1 mapping). For
-example, you can map a patient from KoboToolBox to a patient in DHIS2. You
+or if there is a need for individual records to be summarized or aggregated.
+Your workflow may require you to map individual entities (i.e., 1-to-1 mapping).
+For example, you can map a patient from KoboToolbox to a patient in DHIS2. You
 should use the
 [default OpenFn mapping template](https://docs.google.com/spreadsheets/d/19sPRLP4zeFgFbtOL1wKh-rc7D0KPMu3etmOOG_x5t68/edit#gid=1275153608)
 for such scenarios.
@@ -170,5 +170,5 @@ However, if your workflow requires mapping individual entities to an
 aggregate/summarized entity (i.e., many-to-1 mapping), then you can use OpenFn’s
 [aggregate mapping template](https://docs.google.com/spreadsheets/d/1JVcM7FEkCeezHXONRaAaEPFks9lS8xO_q51jql_hUtc/edit)
 to start. For example, you might collect individual patient records in
-KoboToolBox, but want to send an aggregated count of patients to DHIS2 for key
-indicator results reporting (e.g. the number of patients under 18 years old).
+KoboToolbox, but want to send an aggregated count of patients to DHIS2 for key
+indicator results reporting (e.g., the number of patients under 18 years old).

@@ -9,7 +9,7 @@ This article outlines key discovery and scoping questions to confirm the
 business value, core workflow requirements, technical feasibility, and client
 capacity when starting a new implementation. This article will be referencing
 the example use case introduced in the
-[series introduction](/documentation/design/design-overview#example-use-case).
+[series introduction](/design/design-overview.md#example-use-case).
 
 :::tip
 
@@ -32,17 +32,17 @@ valuable outcomes to be used to monitor success.
 2. How are the workflows currently being managed?
    - Is there an existing manual or semi-automatic business process?
    - If yes, how much staff time is spent managing these workflows?
-3. What problem(s) will automation solve for? What efficiencies or benefits to
-   be gained? What is the cost of inaction?
+3. What problem(s) will automation solve for? What efficiencies or benefits are
+   to be gained? What is the cost of inaction?
    - If we do not automate these workflows, then what is the status quo?
    - Is the current workflow slow, insecure, or leading to poor data quality or
      service delivery?
 
 **Example:**
 
-1. I want to automate the syncing of case data from KoboToolBox to DHIS2
+1. I want to automate the syncing of case data from KoboToolbox to DHIS2
    Tracker.
-2. Our team currently spends 3 hours a week manually exporting the Kobo Data and
+2. Our team currently spends 3 hours a week manually exporting the Kobo data and
    entering it into DHIS2.
 3. This automation will eliminate the risk of human error in manually entering
    the data, save us money and time, and enable us to work with more patients.
@@ -70,9 +70,9 @@ notation).
 3. What are the expected data volumes? (e.g., 100 referrals every month, 12k
    forms every year)
 
-**Example:** The workflow should sync patient data from KoboToolBox to DHIS2
-each time a form is submitted (i.e. real-time sync). There are a maximum of 5000
-patients registered in Kobo per month.
+**Example:** The workflow should sync patient data from KoboToolbox to DHIS2
+each time a form is submitted (i.e., real-time sync). There are a maximum of
+5000 patients registered in Kobo per month.
 
 ![Workflow](/img/functional_example.webp)
 
@@ -82,7 +82,7 @@ The answers to the questions below will help you draft a solution diagram to
 document specifically which instances will be connected & which integration
 interfaces to use.
 
-1. How many instances of the target systems exist? (I.e., Are you connecting to
+1. How many instances of the target systems exist? (i.e., are you connecting to
    1 or 2 DB instances?)
 2. Are the target systems built? Is any configuration expected to change?
    - If config is still in progress, then consider revisiting this project when
@@ -105,9 +105,9 @@ interfaces to use.
    on the same version that you’re currently running so that we can test the
    APIs?)
 
-Example: Only one instance of PatientCare and DHIS2 exist for this integration
-and they have already been built with REST APIs. They are both hosted on
-PatientCare managed servers that require IP whitelisting for access.
+**Example:** Only one instance of PatientCare and DHIS2 exist for this
+integration and they have already been built with REST APIs. They are both
+hosted on PatientCare managed servers that require IP whitelisting for access.
 
 ![Workflow](/img/technical_example.webp)
 
@@ -124,7 +124,7 @@ ongoing administration, and support.
    - Who will learn how to administer OpenFn?
 2. What are their technical backgrounds?
    - What are other resources available to provide ongoing support?
-   - Does anyone in the organization have experience with Javascript or JSON?
+   - Does anyone in the organization have experience with JavaScript or JSON?
 3. Is there a desire to learn how to manage the OpenFn implementation
    independently?
 4. Who at the organization will be responsible for ongoing governance of the
@@ -147,7 +147,7 @@ Once you’ve gathered the key solution requirements, consider creating a
 
 1. Different solution components
 2. Data flows between these components (highlighting data exchange within the
-   organization and between third party services)
+   organization and between third-party services)
 3. Types of data exchanged
 4. Authentication/access points
 
