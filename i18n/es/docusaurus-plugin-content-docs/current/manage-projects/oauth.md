@@ -9,9 +9,10 @@ translation_review_status: machine
 Algunas aplicaciones exigen [OAuth](https://oauth.net/2/) como método de
 autenticación para conectarse con aplicaciones de terceros y hacer solicitudes a
 través de sus API. OpenFn te permite conectarte con aplicaciones mediante su
-autenticación OAuth. Para usar esta función en tus workflows de OpenFn, tienes
-que configurar clientes y credenciales OAuth para tus instancias o proyectos.
-Esta guía te explica cómo gestionar los clientes y las credenciales OAuth.
+autenticación OAuth. Para usar esta funcionalidad en tus workflows de OpenFn,
+tienes que configurar clientes y credenciales OAuth para tus instancias o
+proyectos. Esta guía te explica cómo gestionar los clientes y las credenciales
+OAuth.
 
 ## Clientes OAuth {#oauth-clients}
 

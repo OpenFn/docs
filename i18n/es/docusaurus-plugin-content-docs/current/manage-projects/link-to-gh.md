@@ -64,9 +64,9 @@ pasos:
 
    :::caution La mayoría de los usuarios deja "Path to config" en blanco.
 
-   Esta función avanzada te permite conectarte a un repositorio de GitHub que
-   _ya_ tiene un `project.yaml` y un `config.json` de OpenFn. (La mayoría de las
-   personas puede saltarse este paso.) Es útil cuando quieres que la primera
+   Esta funcionalidad avanzada te permite conectarte a un repositorio de GitHub
+   que _ya_ tiene un `project.yaml` y un `config.json` de OpenFn. (La mayoría de
+   las personas puede saltarse este paso.) Es útil cuando quieres que la primera
    sincronización traiga datos de GitHub a OpenFn. La mayoría de los usuarios
    prefiere que la primera sincronización salga _de_ OpenFn y que la aplicación
    cree por ellos los archivos `config.json` y `project.yaml` necesarios.
@@ -84,8 +84,8 @@ pasos:
    OpenFn y lo enviamos a GitHub para empezar el control de versiones. Si en
    cambio eliges tomar un archivo `project.yaml` de GitHub y sobrescribir tu
    proyecto actual de OpenFn, no podrás recuperar tus workflows existentes en
-   OpenFn. Esta función cubre ciertos casos de uso avanzados y, a menos que
-   sepas lo que estás haciendo, deberías empezar sincronizando de "OpenFn to
+   OpenFn. Esta funcionalidad cubre ciertos casos de uso avanzados y, a menos
+   que sepas lo que estás haciendo, deberías empezar sincronizando de "OpenFn to
    GitHub".
 
    :::
@@ -120,10 +120,10 @@ estos pasos:
 
 ## Usar el control de versiones y gestionar los cambios {#using-version-control--managing-changes}
 
-La función `Sync to GitHub` usa GitHub Actions para desplegar automáticamente
-(después de un commit en GitHub) o traer (cuando se hace clic en el botón
-**"Initiate Sync to Branch"** en OpenFn) los cambios del proyecto, y así
-mantener un repositorio sincronizado con tu proyecto de OpenFn.
+La funcionalidad `Sync to GitHub` usa GitHub Actions para desplegar
+automáticamente (después de un commit en GitHub) o traer (cuando se hace clic en
+el botón **"Initiate Sync to Branch"** en OpenFn) los cambios del proyecto, y
+así mantener un repositorio sincronizado con tu proyecto de OpenFn.
 
 ### Sincronizar de OpenFn a GitHub {#sync-from-openfn-to-github}
 

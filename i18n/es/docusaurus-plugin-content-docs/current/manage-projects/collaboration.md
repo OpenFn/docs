@@ -8,10 +8,10 @@ translation_review_status: machine
 
 OpenFn permite que usuarios técnicos y no técnicos colaboren de forma eficaz y
 se mantengan alineados al diseñar y gestionar los workflows de un proyecto. Esto
-es posible gracias al Canvas, un editor visual de workflows, y a otras funciones
-de colaboración, como el control de versiones, la incorporación de colaboradores
-y el uso compartido de credenciales, entre otras. Esta guía te explica cómo
-gestionar los colaboradores de un proyecto.
+es posible gracias al Canvas, un editor visual de workflows, y a otras
+funcionalidades de colaboración, como el control de versiones, la incorporación
+de colaboradores y el uso compartido de credenciales, entre otras. Esta guía te
+explica cómo gestionar los colaboradores de un proyecto.
 
 ### ¿Quiénes son los colaboradores de un proyecto? {#who-are-project-collaborators}
 

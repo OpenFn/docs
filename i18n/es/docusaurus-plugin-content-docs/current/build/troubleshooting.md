@@ -111,7 +111,7 @@ sombrero de producto, invierto la pirámide. Aunque un problema se pueda resolve
 en 15 minutos escribiendo una línea nueva en la `expression` (consulta la
 pregunta 4), ¿es un problema generalizable? ¿Podría ahorrarles esos 15 minutos a
 _futuros implementadores_ haciendo un cambio en el adaptor (consulta la
-pregunta 5) que ofrezca esta corrección o función "de serie"?
+pregunta 5) que ofrezca esta corrección o funcionalidad "de serie"?
 
 Mejor aún... ¿podría hacer algún cambio en la plataforma OpenFn (o en Primero,
 CommCare o DHIS2) que permitiera adaptors más fáciles o mejores y resolviera
@@ -121,8 +121,8 @@ este problema con clics, no con código?
 
 ¿Recuerdas esos jobs que escribíamos que no hacían nada (simplemente devolvían
 el state) si se cumplía una condición? Pues bien, con exactamente este enfoque
-incorporamos a OpenFn una función de "filtro de exclusión" que permite a un
-usuario omitir ciertos mensajes entrantes según unos criterios, en lugar de
+incorporamos a OpenFn una funcionalidad de "filtro de exclusión" que permite a
+un usuario omitir ciertos mensajes entrantes según unos criterios, en lugar de
 tener que evaluar esos mensajes en el job.
 
 Llevó mucho más trabajo que escribir ese único bloque `fn(...)` al principio del

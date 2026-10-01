@@ -47,7 +47,7 @@ control administrativo total de la plataforma. Esto incluye la gestión de
 usuarios, proyectos, el registro de auditoría y la autenticación de terceros,
 con los siguientes privilegios de superusuario:
 
-| Aspecto               | Descripción                                                      | Funciones y permisos                                                                        |
+| Aspecto               | Descripción                                                      | Funcionalidades y permisos                                                                  |
 | --------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | Gestión de usuarios   | La gestión de los usuarios de una instancia de OpenFn            | Crear, editar y eliminar usuarios                                                           |
 | Gestión de proyectos  | Cómo se crean y gestionan los proyectos en la instancia          | Crear, eliminar y editar un proyecto, y asignarle usuarios                                  |

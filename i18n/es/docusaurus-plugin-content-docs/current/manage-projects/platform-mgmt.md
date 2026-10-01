@@ -51,8 +51,8 @@ aplicación). Ahí puedes ver o editar el nombre y la descripción del proyecto.
 ![Resumen del proyecto](/img/lightning_project_overview.webp)
 
 También puedes exportar todo tu proyecto "como código", ya sea para guardarlo o
-para editarlo localmente. Encontrarás más información sobre esta función en
-nuestra [página de portabilidad](/deploy/portability.md).
+para editarlo localmente. Encontrarás más información sobre esta funcionalidad
+en nuestra [página de portabilidad](/deploy/portability.md).
 
 ## Gestionar la concurrencia del proyecto {#managing-project-concurrency}
 

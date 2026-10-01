@@ -27,9 +27,9 @@ usado una herramienta independiente como OpenHIM para este fin. Los canales
 ofrecen esa funcionalidad básica de proxy inverso de forma nativa dentro de
 OpenFn.
 
-:::tip Función experimental
+:::tip Funcionalidad experimental
 
-Los canales son actualmente una función experimental. Para usarlos, activa
+Los canales son actualmente una funcionalidad experimental. Para usarlos, activa
 **Experimental Features** en la página de tu
 [perfil de usuario](/manage-users/user-profile.md). Si no ves el elemento
 `Channels` en la barra lateral de tu proyecto, el motivo es esta opción.

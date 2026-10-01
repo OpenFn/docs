@@ -93,10 +93,11 @@ la [documentación de los adaptors](/adaptors) para ver los detalles de cada uno
 Los adaptors cambian con el tiempo. Son de código abierto y fomentamos todas las
 contribuciones posibles: publicamos versiones nuevas para usarlas en OpenFn.org
 en cuanto pasan nuestras revisiones de seguridad. Puede que se agreguen
-funciones nuevas y se corrijan errores, pero, para asegurarte de que una
+funcionalidades nuevas y se corrijan errores, pero, para asegurarte de que una
 integración existente no se rompa, te recomendamos seleccionar una versión
-concreta (en lugar de usar la función de "actualización automática") cuando
-elijas un adaptor. La versión publicada más alta es la opción predeterminada.
+concreta (en lugar de usar la funcionalidad de "actualización automática")
+cuando elijas un adaptor. La versión publicada más alta es la opción
+predeterminada.
 
 :::tip
 
@@ -125,11 +126,11 @@ Aunque actualizar puede ser útil como parte del mantenimiento habitual, estas
 actualizaciones se deberían probar con cuidado. Lo más común es que los clientes
 actualicen a una versión nueva del adaptor de un step existente cuando ya están
 haciendo cambios en ese step por motivos de negocio. Algunos cambios de negocio
-pueden incluso _requerir_ actualizar la versión para usar una función nueva del
-adaptor. Aunque esos cambios no requieran una actualización, si el equipo
-técnico tiene que dedicar tiempo de todos modos a probar cambios en un step,
-puede ser el momento ideal para probar también una actualización de la versión
-del adaptor.
+pueden incluso _requerir_ actualizar la versión para usar una funcionalidad
+nueva del adaptor. Aunque esos cambios no requieran una actualización, si el
+equipo técnico tiene que dedicar tiempo de todos modos a probar cambios en un
+step, puede ser el momento ideal para probar también una actualización de la
+versión del adaptor.
 
 Los adaptors siguen [SEMVER](https://semver.org/), así que puedes estar
 razonablemente seguro de que actualizar de `x.1.z` a `x.2.z` no hará que falle

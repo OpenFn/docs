@@ -5,8 +5,8 @@ translation_source_hash: 45f6e0cb7820464901f65a1cb95e99a8f3cea5d0
 translation_review_status: machine
 ---
 
-Los sandboxes te permiten desarrollar correcciones y funciones nuevas en tus
-workflows sin afectar los runs en vivo, o de "producción".
+Los sandboxes te permiten desarrollar correcciones y funcionalidades nuevas en
+tus workflows sin afectar los runs en vivo, o de "producción".
 
 Un sandbox es, en esencia, un clon de un proyecto, con su propio historial
 privado, workflows, colecciones y configuración. Comparte las credenciales y la
@@ -64,8 +64,8 @@ lateral y luego en **Create Sandbox**.
 
 Tienes que ponerle un nombre al sandbox. Debe ser único entre los sandboxes del
 proyecto. Si conoces git, trátalo como el nombre de una rama. Si no, puedes
-darle un nombre general, como `testing`, o nombrarlo según una función concreta,
-como `new-patient-workflow`.
+darle un nombre general, como `testing`, o nombrarlo según una funcionalidad
+concreta, como `new-patient-workflow`.
 
 Se elige un color al azar para asociarlo al sandbox. Verás ese color en el
 selector de proyectos de la ruta de navegación mientras estés dentro del
@@ -308,8 +308,8 @@ que ayudan:
 Los sandboxes se corresponden muy bien con las ramas de git, y las formas de
 trabajo que mejor funcionan los tratan de la misma manera.
 
-**Crea un sandbox por cada tarea.** Dale a cada función nueva, corrección o
-issue su propio sandbox, en lugar de compartir un único sandbox `testing` de
+**Crea un sandbox por cada tarea.** Dale a cada funcionalidad nueva, corrección
+o issue su propio sandbox, en lugar de compartir un único sandbox `testing` de
 larga duración entre varias personas y varios cambios. Los sandboxes pequeños y
 de corta duración son más fáciles de revisar y es mucho menos probable que
 generen conflictos al hacer merge.
@@ -320,7 +320,7 @@ una ventana de lanzamiento) y quieres empezar algo que se apoya en él, crea un
 sandbox de ese sandbox en lugar de hacer merge antes de tiempo solo para
 desbloquearte. Los sandboxes se pueden anidar hasta la profundidad configurada.
 Haz lo mismo en git: crea la rama del trabajo dependiente a partir de la rama de
-la función, no de main.
+la funcionalidad, no de main.
 
 **Evita trabajar directamente en el proyecto principal.** Los cambios que hagas
 ahí están en vivo y aparecen como workflow divergente en el merge de todos los

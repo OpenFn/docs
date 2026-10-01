@@ -18,7 +18,7 @@ o validación de la base de datos bloquea una importación de datos). El
 administrador de la instancia de OpenFn define un período de retención de datos
 predeterminado, pero puede modificarse según los requisitos de cada proyecto.
 
-Una de las funciones más potentes de la plataforma es la posibilidad de
+Una de las funcionalidades más potentes de la plataforma es la posibilidad de
 "reproducir" work orders. Si tienes un workflow de varios steps (por ejemplo,
 obtener datos de una base de datos, transformar y mapear los datos, e
 importarlos a tu sistema de información de salud), este almacenamiento temporal
@@ -34,9 +34,9 @@ Algunos de nuestros usuarios procesan datos extremadamente sensibles (como
 historias clínicas) y quizás quieran asegurarse de que, una vez ejecutado un
 workflow, no queden datos de pacientes en los servidores de OpenFn.
 
-Activar esta función de "persistencia cero" ("zero-persistence") para los datos
-de entrada y salida es una opción atractiva para quienes quieren usar OpenFn en
-la nube, pero les preocupa la soberanía de los datos.
+Activar esta funcionalidad de "persistencia cero" ("zero-persistence") para los
+datos de entrada y salida es una opción atractiva para quienes quieren usar
+OpenFn en la nube, pero les preocupa la soberanía de los datos.
 
 :::tip
 

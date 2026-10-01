@@ -12,7 +12,7 @@ autoalojadas, estos límites se pueden configurar. Consulta la
 [guía de despliegue](https://openfn.github.io/lightning/deployment.html#limits)
 para más detalles.
 
-| Función                               | Descripción                                                                              | DPG          | Free  | Core  | Growth | Scale     | Unlimited |
+| Funcionalidad                         | Descripción                                                                              | DPG          | Free  | Core  | Growth | Scale     | Unlimited |
 | ------------------------------------- | ---------------------------------------------------------------------------------------- | ------------ | ----- | ----- | ------ | --------- | --------- |
 | Runs                                  | Número máximo de runs permitidos por mes                                                 | Ilimitado    | 100   | 2000  | 5000   | 10 000    | Ilimitado |
 | Duración de ejecución del workflow    | Tiempo máximo que puede ejecutarse un workflow antes de que se detenga                   | Configurable | 60 s  | 5 min | 20 min | 30 min    | 30 min    |
