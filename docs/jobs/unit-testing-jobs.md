@@ -117,8 +117,8 @@ avoids the warning without touching your `package.json`.
 <!-- prettier ignore -->
 <Tabs groupId="write-a-test">
   <TabItem value="source" label="The job code">
-```js title="workflows/sms-parser/parse-message.js" export const FIELDS = ['id',
-'name', 'dob', 'weight'];
+    ```js title="workflows/sms-parser/parse-message.js" 
+    export const FIELDS = ['id','name', 'dob', 'weight'];
 
     export const parseSms = text => {
       const parts = text.trim().split('#');
@@ -133,7 +133,6 @@ avoids the warning without touching your `package.json`.
       data: state.data.messages.map(parseSms),
     }));
     ```
-
   </TabItem>
   <TabItem value="output" label="The compiled output">
   
