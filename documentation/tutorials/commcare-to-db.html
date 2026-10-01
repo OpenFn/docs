@@ -19,7 +19,7 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.9f645c63.css">
-<script src="/assets/js/runtime~main.24a8a4ba.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.b7bcdff9.js" defer="defer"></script>
 <script src="/assets/js/main.220ecb79.js" defer="defer"></script>
 </head>
 <body>
@@ -44,8 +44,9 @@ and API terminology. Check out the pages below to get started<!-- -->
 your source system.</li>
 <li class="">You have a PostgreSQL database configured. This is your destination system.</li>
 </ul>
-<p><strong>If you don’t have a CommCare application or PostgreSQL database setup, you can
-also follow along with the prebuilt solution. Follow along at the links below:</strong></p>
+<p><strong>If you don’t have a CommCare application or PostgreSQL database set up, you
+can also follow along with the prebuilt solution. Follow along at the links
+below:</strong></p>
 <ol>
 <li class=""><a href="https://docs.google.com/spreadsheets/d/1pi_oxImakhtaCCCIENkjTPZeuyWhpFEcNmH7hfvTBgo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="">Mapping specifications document</a></li>
 <li class="">Commcare application to download:<!-- -->
@@ -116,7 +117,7 @@ and will trigger your new workflow.</p>
 read and write data in your target DB tables.</strong> For this demo, we have
 configured the database
 <a href="https://docs.google.com/spreadsheets/d/1pi_oxImakhtaCCCIENkjTPZeuyWhpFEcNmH7hfvTBgo/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="">like this</a>
-to capture the CommCare form data. Check out the
+to capture the CommCare form data. Check out
 <a class="" href="/documentation/design/mapping-specs">this page</a> for how to create your own
 <code>mapping specification document</code> to map data elements to be exchanged.</li>
 </ol>
@@ -145,7 +146,7 @@ configuration according to your mapping specifications.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="time-to-test">Time to test!<a href="#time-to-test" class="hash-link" aria-label="Direct link to Time to test!" title="Direct link to Time to test!" translate="no">​</a></h2>
 <ol>
 <li class="">Submit a form in CommCare</li>
-<li class="">If you have enabled data forwarding, your workflow should should be triggered
+<li class="">If you have enabled data forwarding, your workflow should be triggered
 automatically.</li>
 <li class="">If you have not enabled data forwarding and set up a FETCH step instead, run
 the step (ensure the <code>received_on_start</code> and <code>received_on_start</code> dates in the
@@ -155,7 +156,7 @@ automatically run.</li>
 <li class="">Check out the <code>History</code> and ensure that the work order was successful.</li>
 </ol>
 <p><img decoding="async" loading="lazy" alt="activity_history_final" src="/assets/images/activity_history_success-bfc053662366825120766e1f8eafcb79.webp" width="2878" height="1000" class="img_ev3q"></p>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p><strong>What do do if your run fails:</strong></p><ol>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>info</div><div class="admonitionContent_BuS1"><p><strong>What to do if your run fails:</strong></p><ol>
 <li class="">Open the run to inspect the error log</li>
 <li class="">Adjust the step to resolve the issue and re-run the step as needed by
 clicking the &quot;rerun&quot; button in <code>History</code> or the &quot;Re-run from here&quot; button on

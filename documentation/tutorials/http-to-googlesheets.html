@@ -19,7 +19,7 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.9f645c63.css">
-<script src="/assets/js/runtime~main.24a8a4ba.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.b7bcdff9.js" defer="defer"></script>
 <script src="/assets/js/main.220ecb79.js" defer="defer"></script>
 </head>
 <body>
@@ -37,7 +37,7 @@ the <code>http</code> and <code>GoogleSheets</code> <a class="" href="/adaptors"
 <p>Watch the video and follow along with the steps below.</p>
 <iframe width="784" height="441" src="https://www.youtube.com/embed/PMj8445gLA4?si=WbJ4tmr_jnKyBfg8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="before-you-start">Before you start<a href="#before-you-start" class="hash-link" aria-label="Direct link to Before you start" title="Direct link to Before you start" translate="no">​</a></h2>
-<p>Here are some we assume you&#x27;ve looked over before you begin this process.</p>
+<p>Here are some things we assume you&#x27;ve looked over before you begin this process.</p>
 <ul>
 <li class="">You have checked out our glossary and have an understanding of basic OpenFn &amp;
 API concepts. Check out the pages below to get started<!-- -->
@@ -66,7 +66,7 @@ data from a web REST API, and import this data to a GoogleSheet</strong>.</p>
 <p>To create a new Workflow in your Project:</p>
 <ol>
 <li class="">Go to the <code>project dashboard</code> page.</li>
-<li class="">Click <code>Create new workflow</code> button.</li>
+<li class="">Click the <code>Create new workflow</code> button.</li>
 <li class="">Give your Workflow a descriptive <code>Name</code> (e.g., <code>Sync Users List</code>).</li>
 <li class="">Choose your <a class="" href="/documentation/build/triggers">Trigger</a></li>
 <li class="">Edit your first <a class="" href="/documentation/build/steps">Step</a></li>
@@ -76,8 +76,8 @@ data from a web REST API, and import this data to a GoogleSheet</strong>.</p>
 fake API for testing and prototyping. We will be using the
 <a href="https://jsonplaceholder.typicode.com/users" target="_blank" rel="noopener noreferrer" class="">Users Rest API</a> for extracting
 users data. This involves configuring a step in OpenFn to fetch users data via a
-<code>GET</code> HTTP request. Click your first step to set up!, Configurate the step with
-following options</p>
+<code>GET</code> HTTP request. Click your first step to set it up. Configure the step with
+the following options</p>
 <ul>
 <li class="">Name <code>Fetch Users</code></li>
 <li class="">Adaptor <code>http</code></li>
@@ -99,7 +99,7 @@ configured the &quot;Raw JSON&quot; credential for the jsonplaceholder as the ba
 succeeded, you should see:</p>
 <ul>
 <li class="">Status <code>success</code></li>
-<li class="">Log tab end with <code>Run complete with status: success</code></li>
+<li class="">Log tab ends with <code>Run complete with status: success</code></li>
 <li class="">Input tab has <code>{}</code></li>
 <li class="">Output tab has <code>{ data: [ {...}]}</code></li>
 </ul>
@@ -107,15 +107,15 @@ succeeded, you should see:</p>
 <p>Create a new Googlesheet <code>Credential</code> using your Google account&#x27;s email. (Make
 sure this Google user has edit access to the GoogleSheet you want to integrate
 with.)</p>
-<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Don&#x27;t see a GoogleSheets credential option?</div><div class="admonitionContent_BuS1"><p>If your instance superuser hasn&#x27;t configured a global Oauth client, you may need
-to set one up for yourself. Learn about Oauth Clients
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Don&#x27;t see a GoogleSheets credential option?</div><div class="admonitionContent_BuS1"><p>If your instance superuser hasn&#x27;t configured a global OAuth client, you may need
+to set one up for yourself. Learn about OAuth Clients
 <a class="" href="/documentation/oauth#oauth-clients">here</a> and specifics for a GoogleSheet
 Client <a class="" href="/adaptors/googlesheets#permissions-scopes">here</a>.</p></div></div>
 <p>For this demo, we configured the Googlesheet
 <a href="https://docs.google.com/spreadsheets/d/1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc/edit?usp=sharing" target="_blank" rel="noopener noreferrer" class="">like this</a>
 to store the <code>users</code> data.</p>
-<p>Create a new step with the <code>googlesheet</code> adaptor for loading the users data into
-your destination GoogleSheet. Configure the step with the following options</p>
+<p>Create a new step with the <code>googlesheets</code> adaptor for loading the users data
+into your destination GoogleSheet. Configure the step with the following options</p>
 <ul>
 <li class="">
 <p>Name <code>Sync Users</code></p>
@@ -139,7 +139,7 @@ add an array of rows to the spreadsheet. Make sure you update the
 <p>Input - <code>Final output of Fetch Users</code></p>
 </li>
 </ul>
-<p>If you have already ran the <code>Fetch Users</code> Step, you will have initial input to
+<p>If you have already run the <code>Fetch Users</code> Step, you will have initial input to
 test <code>Sync Users</code> Step. Select the input from the input panel and click
 <code>Create New Work Order</code> to run this Step.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-time-to-test">4. Time to test!<a href="#4-time-to-test" class="hash-link" aria-label="Direct link to 4. Time to test!" title="Direct link to 4. Time to test!" translate="no">​</a></h2>
