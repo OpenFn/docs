@@ -15,8 +15,9 @@ title: Syncing your CommCare form submissions to a PostgreSQL database
   your source system.
 - You have a PostgreSQL database configured. This is your destination system.
 
-**If you don’t have a CommCare application or PostgreSQL database setup, you can
-also follow along with the prebuilt solution. Follow along at the links below:**
+**If you don’t have a CommCare application or PostgreSQL database set up, you
+can also follow along with the prebuilt solution. Follow along at the links
+below:**
 
 1. [Mapping specifications document](https://docs.google.com/spreadsheets/d/1pi_oxImakhtaCCCIENkjTPZeuyWhpFEcNmH7hfvTBgo/edit?usp=sharing)
 2. Commcare application to download:
@@ -103,7 +104,7 @@ and will trigger your new workflow.
    read and write data in your target DB tables.** For this demo, we have
    configured the database
    [like this](https://docs.google.com/spreadsheets/d/1pi_oxImakhtaCCCIENkjTPZeuyWhpFEcNmH7hfvTBgo/edit?usp=sharing)
-   to capture the CommCare form data. Check out the
+   to capture the CommCare form data. Check out
    [this page](/design/mapping-specs.md) for how to create your own
    `mapping specification document` to map data elements to be exchanged.
 
@@ -148,7 +149,7 @@ configuration according to your mapping specifications.
 ## Time to test!
 
 1. Submit a form in CommCare
-2. If you have enabled data forwarding, your workflow should should be triggered
+2. If you have enabled data forwarding, your workflow should be triggered
    automatically.
 3. If you have not enabled data forwarding and set up a FETCH step instead, run
    the step (ensure the `received_on_start` and `received_on_start` dates in the
@@ -161,7 +162,7 @@ configuration according to your mapping specifications.
 
 :::info
 
-**What do do if your run fails:**
+**What to do if your run fails:**
 
 1. Open the run to inspect the error log
 2. Adjust the step to resolve the issue and re-run the step as needed by
