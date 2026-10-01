@@ -116,6 +116,9 @@ only the ones your change adds.
   text into the opening line and Docusaurus shows it as the title. Close an
   admonition with a bare `:::`, never `:::note` or similar, which opens a new
   one instead.
+- Write the admonition type straight after the colons: `:::tip` or
+  `:::tip Your title`, never `::: tip`. With a space there, Docusaurus does not
+  make a callout and the page shows the colons as text.
 - Emphasis markers sit right against the text: `**_like this_**`, not
   `**_like this _**`. With a space inside, the formatting does not show and the
   page prints the markers.
