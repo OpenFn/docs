@@ -15,7 +15,7 @@ The Workflows API was introduced in version 2.10.10, January 2025
 
 ## Authentication
 
-All requests must be Authenticated.
+All requests must be authenticated.
 
 Authentication uses the Authorization header with a Personal Access Token (PAT)
 from the app.
@@ -32,7 +32,7 @@ curl -H "Authorization: Bearer $OPENFN_PAT" https://app.openfn.org/api/projects/
 
 ## REST API
 
-The Workflow API has the following RESTful structure:
+The Workflows API has the following RESTful structure:
 
 - `GET /api/projects/:projectId/workflows` - get a list of workflows for a
   project. Returns an array of Workflows.
@@ -90,9 +90,9 @@ When creating a new Workflow, the server will generate UUIDs for the workflow
 and all steps and edges. You can use any id string you like in the creation of
 new nodes and edges - so long as id usage is consistent.
 
-When matching a PUT or PATCH request, new steps and edges MUST be assigned
-UUIDs. If using the `http` adaptor, you can use `util.uuid()` for this (see the
-example below).
+When making a PUT or PATCH request, new steps and edges MUST be assigned UUIDs.
+If using the `http` adaptor, you can use `util.uuid()` for this (see the example
+below).
 
 You MUST ensure that any steps and triggers referenced by an edge are defined
 within the same workflow.
@@ -100,7 +100,7 @@ within the same workflow.
 ## HTTP Adaptor Examples
 
 You will need to create a credential with `access_token` set to your Personal
-Access Token (PAT) and `baseUrl` set to your OpenFn instance (ie,
+Access Token (PAT) and `baseUrl` set to your OpenFn instance (e.g.,
 `"https://app.openfn.org"`)
 
 Create new Workflow:

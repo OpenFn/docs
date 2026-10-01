@@ -14,7 +14,7 @@ state persists across runs. We can take advantage of that to pick up where we
 left off.
 
 You can use the [`cursor()`](/adaptors/packages/common-docs#cursor) operation,
-which is built-in to most adaptors, to make cursor management easier.
+which is built into most adaptors, to make cursor management easier.
 
 <details>
 <summary>Version support</summary>
@@ -46,7 +46,7 @@ job started).
 
 :::tip Timezones
 
-Relative dates like "today" will be converted into a Javascript Date using the
+Relative dates like "today" will be converted into a JavaScript Date using the
 system locale.
 
 If you're in the CLI that means times will be calculated in your local system
@@ -79,7 +79,7 @@ fn(/* do something good with your data */);
 ```
 
 This will read the cursor value off the state object, insert it into a string,
-and pass it into a HTTP query.
+and pass it into an HTTP query.
 
 Or perhaps you want to build the cursor into an object:
 
@@ -94,7 +94,7 @@ get('registrations', state => {
 The actual value of a cursor is arbitrary. You can use a string, a Date, a page
 number or object, or anything you like.
 
-You may want to advance the cursor at the end of a job ready, for the next run:
+You may want to advance the cursor at the end of a job, ready for the next run:
 
 ```js
 cursor(state => state.cursor, { defaultValue: 'today' });
@@ -119,8 +119,8 @@ You can do this by setting a cursor value on input state, like this:
 ```
 
 You can do this by triggering a manual run in the platform's
-[Job Inspector](/documentation/build/steps/step-editor), or you can pass the
-state as input to the CLI:
+[Job Inspector](/build/steps/step-editor.md), or you can pass the state as input
+to the CLI:
 
 ```bash
 $ openfn job.js -s state.json -a http
@@ -141,8 +141,8 @@ cursor('2024-03-12');
 
 This line should be commented out in production runs.
 
-Alternatively, you can use the defaultValue option. This will work so long you
-run without any initial state:
+Alternatively, you can use the defaultValue option. This will work so long as
+you run without any initial state:
 
 ```js
 cursor(state => state.cursor, { defaultValue: '2024-03-12' });
@@ -153,7 +153,7 @@ cursor(state => state.cursor, { defaultValue: '2024-03-12' });
 ### Cursor Options
 
 The second argument to `cursor()` is an options object. You can use this to set
-the `defaultValue` or the `key` the cursor should use (defaults to `cursor`)
+the `defaultValue` or the `key` the cursor should use (defaults to `cursor`):
 
 ```js
 cursor(state => state.cursor, { defaultValue: '2024-03-12', key: 'page' });
@@ -169,7 +169,7 @@ to map a number of input formats into a consistent standard, you can use the
 and returns a formatted or updated value. This is called just before the cursor
 is assigned to state.
 
-For example, to use a Javascript Date as your cursor:
+For example, to use a JavaScript Date as your cursor:
 
 ```js
 cursor('today', { format: c => new Date(c) });
@@ -187,7 +187,7 @@ cursor('today', { format: c => dateFns.format(new Date(c), 'dd/mm/yyyy') });
 ```
 
 You can add as much logic as you wish to your formatter - it's just a regular
-Javascript function
+JavaScript function:
 
 ```js
 cursor('today', {

@@ -154,7 +154,7 @@ on OpenFn’s cloud-hosted platform offering.
 Many users find that temporarily retaining data in OpenFn can be helpful for
 troubleshooting. For example, if you have a 3-step workflow and the workflow
 fails at step 3, it might be helpful to retain the Input for this failed step so
-that you can inspect the data, quickly troubleshoot, and re-try from that point
+that you can inspect the data, quickly troubleshoot, and retry from that point
 of failure. To enable this more user-friendly troubleshooting experience, most
 users opt to leave temporary data retention on, and the retention period can be
 adjusted by the OpenFn super admin.

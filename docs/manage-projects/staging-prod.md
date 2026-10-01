@@ -22,7 +22,7 @@ one for existing projects where you want to add a staging project and branch.
 
 ![Prod and Main Branches](/img/staging_prod_branches_gh.webp)
 
-3. Connect your projects to the `main` and `staging` respectively - use
+3. Connect your projects to the `main` and `staging` branches respectively - use
    [this guide](/manage-projects/link-to-gh.md) to set up the connection
 4. In each repo, create an empty `.js` file for your job. Make sure they have
    the same name and path on each repo (e.g. `upsert-contacts.js`). These will
@@ -42,9 +42,9 @@ one for existing projects where you want to add a staging project and branch.
    app**, go to your `Staging` project on OpenFn and make edits to your job.
    Then go to your project's `Settings` > Sync to `GitHub`, and click
    `Initiate Sync to Branch`.
-8. Alternatively, you can make edits directly to the job code on Github, and
-   commit them to the `staging` branch on Github.
-9. Once you've committed edits to your `staging` branch, on Github you'll see an
+8. Alternatively, you can make edits directly to the job code on GitHub, and
+   commit them to the `staging` branch on GitHub.
+9. Once you've committed edits to your `staging` branch, on GitHub you'll see an
    update that there have been recent changes. Click `Compare & pull request`.
 
 ![Create Pull Request](/img/staging_pushes.webp)
@@ -54,16 +54,16 @@ one for existing projects where you want to add a staging project and branch.
 
 ![Save Pull Request](/img/create_pr.webp)
 
-11. Depending on your team's Github workflow, either have someone to approve and
+11. Depending on your team's GitHub workflow, either have someone approve and
     merge the Pull Request, or click `Merge pull request`.
 
 12. Your changes will now be automatically deployed to your OpenFn `Production`
-    project (linked to the `main` Github branch).
+    project (linked to the `main` GitHub branch).
 
 ### Setup for existing projects
 
-1. First, make sure that the code of all your jobs are stored in separate `.js`
-   files (like `Notify-CHW-upload-successful.js`) on Github that are linked in
+1. First, make sure that the code of all your jobs is stored in separate `.js`
+   files (like `Notify-CHW-upload-successful.js`) on GitHub that are linked in
    your `spec.yaml` like so:
 
 ```yaml
@@ -80,11 +80,11 @@ Notify-CHW-upload-successful:
 ```
 
 You can find more information on this setup in our
-[Github docs](/manage-projects/link-to-gh.md#sync-from-github-to-openfn).
+[GitHub docs](/manage-projects/link-to-gh.md#sync-from-github-to-openfn).
 
-2. When this is set up, create a new `staging` branch on Github based on your
+2. When this is set up, create a new `staging` branch on GitHub based on your
    existing production `main` branch that stores your current project. To do
-   this, on your Github repo click into `Branches` (where it show `1 Branch` in
+   this, on your GitHub repo click into `Branches` (where it shows `1 Branch` in
    the screenshot below).
 
 ![Branches](/img/1_branch.webp)
@@ -92,27 +92,27 @@ You can find more information on this setup in our
 3. Click `New branch`, give it a name like `staging`, make sure the source is
    `main` if you have multiple branches already. Then click `Create new branch`.
 
-![New Branche](/img/new_branch.webp)
+![New Branch](/img/new_branch.webp)
 
 4. Navigate over to your new `staging` branch. **Here comes an important step.
-   Note how the new branch now contains the 3 configurations files
+   Note how the new branch now contains the 3 configuration files
    (`config.json`, `spec.yaml` and `state.json`) that were present on the main
    branch. Delete these from the `staging` branch.** New ones specific to the
    staging branch will be created in the subsequent steps.
 
 5. Now head over to OpenFn, and create a new `Staging` project.
 
-6. Following [this guide](/manage-projects/link-to-gh.md), set up Github
+6. Following [this guide](/manage-projects/link-to-gh.md), set up GitHub
    connection with your `staging` branch, and click `Initiate a sync` (via the
-   project `Settings > Sync to Github` page). This will create the necessary
-   config files in the Github branch.
+   project `Settings > Sync to GitHub` page). This will create the necessary
+   config files in the GitHub branch.
 
-7. In the newly generated `spec.yaml` file on the `staging` branch on Github,
+7. In the newly generated `spec.yaml` file on the `staging` branch on GitHub,
    link your job `.js` files as explained in Step 1.
 
 8. When you initiate a new sync from OpenFn, the job code from the workflows
    configured in the app will be synced to the individual OpenFn job files on
-   Github.
+   GitHub.
 
 9. To make future changes to your "Staging" project, see steps #7-12 above in
    the `Setup for new projects` section of this guide.

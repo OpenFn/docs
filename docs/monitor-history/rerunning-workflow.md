@@ -50,14 +50,14 @@ To rerun your Workflow from the `Inspector` page:
 
 1. Locate your failed `Work Order` (use the search bar or filters, if needed)
 2. Collapse the Work Order to view related `Runs`
-3. Click `inspect` next to the Step that you want open up in the `Inspector`
+3. Click `inspect` next to the Step that you want to open up in the `Inspector`
    view for further troubleshooting.
 4. This will open up the `Inspector` view so that you can see the `Input` and
    `Output` of the failed Step. You can make edits to the custom logic, as
    needed, in the `Editor` panel.
 5. When ready to retry the workflow against the same Input, click
    `Rerun from here`. This will create a new `Run` for the same Work Order. Go
-   to `History` page to check the `Status` to see if this Run successfully
+   to the `History` page to check the `Status` to see if this Run successfully
    completed the Work Order.
 6. If you prefer to create a _new_ Work Order (instead of retrying the same Work
    Order), you can click the dropdown next to "Rerun from here" and _instead_

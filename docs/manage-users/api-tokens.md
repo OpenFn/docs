@@ -10,9 +10,9 @@ This article shows you how to create a personal access API token.
 
 OpenFn provides API permission for users to build or interact with their project
 on the platform via the API. You need a Personal Access Token to be able to
-access the platform via the API. You can find out more about creating or
-updating your project programmatically, visit our
-[Portability](/deploy/portability.md) page.
+access the platform via the API. To find out more about creating or updating
+your project programmatically, visit our [Portability](/deploy/portability.md)
+page.
 
 Your API access provides you the same level of permission as you have as a user
 on OpenFn (for example, if your profile has Admin level access, your API user

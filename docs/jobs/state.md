@@ -20,7 +20,7 @@ The final state from a Job must always be a serializable JavaScript object
 :::tip A note on terminology
 
 Input state is often referred to as _initial state_, and output state is often
-referred as _final state_. These terms can safely be used interchangeably.
+referred to as _final state_. These terms can safely be used interchangeably.
 
 :::
 
@@ -28,7 +28,7 @@ referred as _final state_. These terms can safely be used interchangeably.
 
 State objects tend to have the following keys:
 
-- `data`: a temporary information store, usually used to save the result of
+- `data`: a temporary information store, usually used to save the result of a
   particular operation
 - `configuration`: an object containing credential data
 - `references`: a history of previous `data` values
@@ -38,7 +38,7 @@ State objects tend to have the following keys:
   name.
 
 At the end of a Job, the configuration key will be removed, along with any other
-non serializable keys.
+non-serializable keys.
 
 Adaptors will occasionally write extra information to state during a run - for
 example, database Adaptors tend to write a `client` key to state, used to track
@@ -149,7 +149,7 @@ The input state will look something like this:
     method: "POST",
     path: ['i', 'your-webhook-url-uuid'] // an ordered array with optional additional paths
     headers: { "content-type": "application/json" }, // an object containing the headers of the request
-    query_params: {} // an object containig any query parameters
+    query_params: {} // an object containing any query parameters
   },
 }
 ```

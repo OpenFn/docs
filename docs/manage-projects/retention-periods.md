@@ -20,13 +20,13 @@ dataclips.
 
 ### Why would I want to reduce my history retention period for a project?
 
-Some project administrators chose to store history for a shorter duration (a
-month or 90-days) to reduce data storage costs or to limit their data footprint.
+Some project administrators choose to store history for a shorter duration (a
+month or 90 days) to reduce data storage costs or to limit their data footprint.
 
 ### What happens when old work orders, runs, logs, or dataclips get removed?
 
-All history is removed from OpenFn and cannot be accessible on the platform. If
+All history is removed from OpenFn and cannot be accessed on the platform. If
 you have previously requested
-[work order history exports,](/documentation/manage-projects/io-data-storage?_gl=1*1x5ctqh*_gcl_au*MTE3Njc2MDkyMC4xNzI0MjQzMTAwLjY0NTI0ODAyMC4xNzI3MTY5OTM5LjE3MjcxNjk5NDA.#export-history)
+[work order history exports](/manage-projects/io-data-storage.md#export-history),
 you'll still be able to access exported CSVs via the history export page in
 project settings.

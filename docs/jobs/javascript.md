@@ -1,6 +1,6 @@
 ---
-title: Javascript Tips
-sidebar_label: Javascript Tips
+title: JavaScript Tips
+sidebar_label: JavaScript Tips
 ---
 
 OpenFn supports all modern JavaScript features.
@@ -33,7 +33,7 @@ a bit confusing.
   `var` multiple times.
 - `let` is basically the same as a var, but cannot be redeclared and has subtly
   different scoping rules.
-- `const` is used for variable whose values do not change.
+- `const` is used for variables whose values do not change.
 
 It doesn't really matter which style you use (except perhaps if you try to
 assign to a `const`).
@@ -45,11 +45,11 @@ you don't even need to declare variables.
 <summary>What is functional programming?</summary>
 
 Functional programming is a style of programming, increasingly popular in modern
-Javascript.
+JavaScript.
 
 Broadly, the idea is to minimize the usage of control flow statements (like
-`if/else`,`for`) and instead use chains of functions. In functional programming
-we pass data through a pipeline to get the result we want sound familiar?.
+`if/else`, `for`) and instead use chains of functions. In functional programming
+we pass data through a pipeline to get the result we want. Sound familiar?
 
 ```js
 const items = [10, 109, 55];
@@ -77,7 +77,7 @@ actually make your code more readable and intentional, and the rules are
 actually pretty simple:
 
 - Use a `const` if you don't want a variable value to change.
-- Use a `let` if you expect variable value to change.
+- Use a `let` if you expect a variable value to change.
 
 This can get a little tricky with objects and arrays. We can assign an object to
 a const, but still change the properties of the object. The same for arrays.
@@ -144,8 +144,8 @@ const x = a.b?.();
 
 You can combine optional chaining with the wonderfully named **"nullish
 coalescing"** operator. This works a bit like a ternary expression or an or - if
-anything to left of the operator returns `null` or `undefined`, the value to the
-right will be returned.
+anything to the left of the operator returns `null` or `undefined`, the value to
+the right will be returned.
 
 ```js
 const x = a.b?.c?.d?.e ?? 22;
@@ -202,8 +202,8 @@ expression:
 post('wwww', () => ({ id: 'a', name: 'adam' }))
 ```
 
-When Javascript sees a brace `{` after an arrow, it expects to see a block of
-statements, not an object. Wrapping the object in brackets tells Javascript to
+When JavaScript sees a brace `{` after an arrow, it expects to see a block of
+statements, not an object. Wrapping the object in brackets tells JavaScript to
 parse an expression instead of a block.
 
 :::
@@ -213,7 +213,7 @@ parse an expression instead of a block.
 The spread or rest operator `...` can be used for several purposes. It can be
 quite complex to understand, but in OpenFn it has a couple of strong uses.
 
-First, you can **"spread"** or **"apply"** the properties and value of one (or
+First, you can **"spread"** or **"apply"** the properties and values of one (or
 more) objects to a new object. This is a really convenient way to shallow clone
 objects.
 
@@ -302,7 +302,7 @@ const locationMap = {
     02: 'Eastern Cape',
     03: 'Gauteng'
 }
-//First we use fn() to tranform, map & clean our data
+//First we use fn() to transform, map & clean our data
 fn(state => {
     // Here we build the payload of our http request body...
     // We assume the input is an array of records

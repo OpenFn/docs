@@ -238,7 +238,8 @@ explicit choice to overwrite the target's version with the sandbox's. There's no
 in-app conflict resolver: it's accept-the-sandbox or leave the workflow out.
 
 You can use git and the CLI to resolve conflicts on diverged workflows locally:
-see [Resolving Merge Conflicts](/documentation/sync#resolving-merge-conflicts)
+see
+[Resolving Merge Conflicts](/build-for-developers/cli-sync.md#resolving-merge-conflicts).
 
 If you need to combine changes from both sides, pull both projects via the CLI,
 resolve the differences locally, and push the result back.
