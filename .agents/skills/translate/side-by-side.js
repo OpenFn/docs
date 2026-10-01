@@ -267,7 +267,7 @@ async function page(locale, enPath, base) {
 const esc = s =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
-function html(pages, locale) {
+function html(pages) {
   const sections = pages.map(p => {
     const notes = [p.error, ...(p.notes || [])]
       .filter(Boolean)
@@ -276,22 +276,24 @@ function html(pages, locale) {
     const rows = (p.rows || [])
       .map(
         r =>
-          `<tr${r.changed ? ' class="changed"' : ''}><td>${esc(r.english)}</td><td>${esc(r.translation)}</td></tr>`
+          `<div class="block${r.changed ? ' changed' : ''}"><div class="en">${esc(r.english)}</div><div class="tr">${esc(r.translation)}</div></div>`
       )
       .join('\n');
-    return `<h2>${esc(p.page)}</h2>${notes}${rows ? `<table><tr><th>English</th><th>${esc(locale)}</th></tr>\n${rows}</table>` : ''}`;
+    return `<h2>${esc(p.page)}</h2>${notes}${rows}`;
   });
   return `<!doctype html>
 <html><head><meta charset="utf-8"><title>Translation review</title>
 <style>
-body { font-family: system-ui, sans-serif; margin: 16px; }
-table { border-collapse: collapse; width: 100%; table-layout: fixed; margin-bottom: 32px; }
-td, th { border: 1px solid #ccc; padding: 8px; vertical-align: top; text-align: left; white-space: pre-wrap; overflow-wrap: anywhere; font-size: 14px; }
-tr.changed td { background: #fff3c4; }
+body { font-family: system-ui, sans-serif; margin: 24px auto; padding: 0 16px; max-width: 40em; background: #f4f4f4; line-height: 1.5; }
+.block { background: #fff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 16px; font-size: 15px; overflow: hidden; }
+.block.changed { border: 2px solid #e0b000; }
+.en, .tr { padding: 12px 16px; white-space: pre-wrap; overflow-wrap: anywhere; }
+.en { background: #fafafa; color: #666; border-bottom: 1px solid #eee; }
+.block.changed .en { background: #fff8dc; }
 .note { color: #a33; }
 </style></head><body>
 <h1>Translation review</h1>
-<p>Each row is one block of the English the page was translated from, next to its translation. Highlighted rows changed since the base.</p>
+<p>Each box is one block of the English the page was translated from (grey, on top), with its translation underneath. Boxes with a yellow border changed since the base.</p>
 ${sections.join('\n')}
 </body></html>
 `;
@@ -334,7 +336,7 @@ async function main() {
     const out = pages.map(({ rows, termDrops, ...p }) => p);
     console.log(JSON.stringify(out, null, 2));
   } else {
-    process.stdout.write(html(pages, locale));
+    process.stdout.write(html(pages));
   }
 }
 
