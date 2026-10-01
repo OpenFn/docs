@@ -58,7 +58,7 @@ data, credential values, usage history or AI sessions.
 ## Project Structure
 
 OpenFn Sync writes a Project to the file system using a number of conventions.
-Whether using the CLI or GitHub Sync, a Project has the following structure
+Whether using the CLI or GitHub Sync, a Project has the following structure:
 
 ```
 ├── openfn.yaml
@@ -74,7 +74,7 @@ Briefly, these files are:
 
 - `openfn.yaml` declares this folder to be an OpenFn Project, and contains
   metadata and settings
-- The `projects` folder contains a complete YAML representation of each Project
+- The `.projects` folder contains a complete YAML representation of each Project
 - The `workflows` folder shows the contents of the project - the steps and edges
   and so on.
 
@@ -136,8 +136,8 @@ steps:
         condition: always
 ```
 
-The `next` key on each step defines any downstream edges for that step - ie, the
-steps to execute next. In the example above, the `webhook` step is executed
+The `next` key on each step defines any downstream edges for that step - i.e.,
+the steps to execute next. In the example above, the `webhook` step is executed
 first (determined by the `start` key), and it defines a single edge to
 `my-step`, which always executes.
 
@@ -160,13 +160,12 @@ some authorization.
 
 The best way to do this is to set an environment variable called
 `OPENFN_API_KEY`. Set it to the value of your
-[Personal Access Token](https://docs.openfn.org/documentation/api-tokens#about-api-tokens).
+[Personal Access Token](/manage-users/api-tokens.md#about-api-tokens).
 
 :::info Personal Access Tokens
 
-See
-[Create and Manage API Tokens](https://docs.openfn.org/documentation/api-tokens)
-for help setting up a token.
+See [Create and Manage API Tokens](/manage-users/api-tokens.md) for help setting
+up a token.
 
 :::
 
@@ -232,7 +231,7 @@ can use an _alias_.
 Each local project is saved to a file like `main@app.openfn.org.yaml`, where the
 `main` bit is the local alias of a project.
 
-You can pull a project and set the alias at the same time by running
+You can pull a project and set the alias at the same time by running:
 
 ```bash
 openfn project pull <uuid> --alias dev
@@ -253,7 +252,7 @@ openfn project checkout <alias|id|uuid>
 
 This will update your local workflows folder with the target project.
 
-If a checkout will cause changes to be lost (ie, you've changed a step.js file
+If a checkout will cause changes to be lost (i.e., you've changed a step.js file
 but haven't deployed it), you will be warned. Add `--force` to ignore the
 change, or run `openfn project clean` to wipe and reset the `workflows` folder.
 
@@ -331,15 +330,15 @@ it to the server it originally came from (as defined by the project file).
 But you can also use deploy to sync across projects. You might typically want to
 do this to promote a dev or staging sandbox into production. You may even want
 to use it to deploy a project from the SaaS app into another OpenFn instance
-entirely
+entirely.
 
 ### Deploy straight from a spec or state file
 
-Given any project file (ie, main@app.openfn.org.yaml), or an exported spec (v1
+Given any project file (i.e., main@app.openfn.org.yaml), or an exported spec (v1
 or v2 formats, as exported from the app settings), you can deploy straight to
 another instance without having to check anything out first.
 
-Just pass the source file name as the first argument. If you have super user
+Just pass the source file name as the first argument. If you have superuser
 access, you can create a new project like this:
 
 ```
@@ -347,8 +346,8 @@ openfn project deploy dev@localhost.yaml --new --endpoint https://app.openfn.org
 ```
 
 If you already have a tracked project file locally (which you'll have if you
-fetched or pulled previously), you can pass the alias (eg `main`) to deploy to
-that instance.
+fetched or pulled previously), you can pass the alias (e.g., `main`) to deploy
+to that instance.
 
 ```
 openfn project deploy dev@localhost.yaml main
@@ -358,7 +357,7 @@ You probably want to force the deployment, even if divergence is detected. Pass
 the `-f` flag to do this.
 
 Pass `--no-confirm` or `-y` to skip any confirmation prompts (this is important
-if you're running automated scripts)
+if you're running automated scripts).
 
 ### Managing Credentials
 
@@ -367,7 +366,7 @@ Managing credentials during a deployment can be tricky.
 Credentials from the source project MUST exist on the target project, or else an
 error will be thrown.
 
-There is as yet no way to fully automated the creation of credentials, as this
+There is as yet no way to fully automate the creation of credentials, as this
 comes loaded with security concerns.
 
 However, the CLI does provide some options.
@@ -378,21 +377,21 @@ until credentials have been manually connected to the required steps.
 
 :::tip
 
-The `--credentials` argument can be passed as `-c` or `--cred` .
+The `--credentials` argument can be passed as `-c` or `--cred`.
 
 :::
 
 You can also map credentials, if the owner or name of the credentials is
 different in the destination system.
 
-You can do this through the CLI by passing comma-separated map:
+You can do this through the CLI by passing a comma-separated map:
 
 ```
 openfn project deploy spec.yaml --credentials a:service@openfn.org|cred-a,b:service@openfn.org|cred-b
 ```
 
-This takes two credentials, `a` and `b`, and maps them to name `cred-a` and
-`cred-b` and change the owner to `service@openfn.org`.
+This takes two credentials, `a` and `b`, and maps them to the names `cred-a` and
+`cred-b` and changes the owner to `service@openfn.org`.
 
 You can also define these mappings in a yaml file (the same as used in
 execution). Set the `alias` key under the credential identifier:
@@ -440,9 +439,9 @@ version control), then push the resolved project back to the app.
 
 :::tip
 
-You do not need GitHub repo to use git!
+You do not need a GitHub repo to use git!
 
-Git is a simply a program that runs in your shell on your local system.
+Git is simply a program that runs in your shell on your local system.
 
 GitHub is an application hosted in the cloud which a) provides remote access to
 git repositories and b) provides a rich UI on top of a git-controlled file
@@ -494,10 +493,10 @@ triggered by GitHub Actions, to sync your projects.
 Note that by default, GitHub Sync will use the legacy format, with `state.json`,
 `project.yaml` and `config.json` files. When setting up a new GitHub Sync, you
 can choose to select the v2 format. V2 sync is only suitable for pulling a
-single Project per branch to github, as multiple projects will overwrite the
+single Project per branch to GitHub, as multiple projects will overwrite the
 same `workflows/` folder.
 
-See [Version Control](/documentation/link-to-GitHub) for more details about
+See [Version Control](/manage-projects/link-to-gh.md) for more details about
 GitHub Sync.
 
 ## Cheatsheet

@@ -32,7 +32,7 @@ against the state produced by the previous Step.
 state.data.form['@name'] === "Register New Patient"
 ```
 
-This is a regular Javsacript expression with `state` in scope. If the expression
+This is a regular JavaScript expression with `state` in scope. If the expression
 evaluates to true (or anything _truthy_), the Path will be followed and the next
 Step will be executed.
 
@@ -45,13 +45,14 @@ Examples of valid conditions include:
 - Run if a data array contains any items: `state.data.length > 0`
 - Run if data includes one item which matches criteria:
   `state.data.includes(item => item.age > 18)`
-- Run if the last Step received a HTTP error: `state.response.statusCode >= 400`
+- Run if the last Step received an HTTP error:
+  `state.response.statusCode >= 400`
 
 In a custom expression you **cannot** do any of the following:
 
 - Use adaptor functions
 - Use Lazy State references (`$`).
-- Use control statements like `if`, `while`, `for`, etc
+- Use control statements like `if`, `while`, `for`, etc.
 
 ## Disabling Paths
 
@@ -62,5 +63,5 @@ This can be a useful way of temporarily deactivating part of your workflow.
 
 To disable a path:
 
-1. Click on the `Path` you want to deactive
+1. Click on the `Path` you want to deactivate
 2. Select the `Disable this path` checkbox

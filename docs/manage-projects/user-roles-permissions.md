@@ -18,7 +18,7 @@ table below for the permissions available to each role.
 | Workflows | Select the 5 latest Inputs for a Job in a Workflow                  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
 | History   | View/search/filter on the History page                              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | History   | View a Run from the Work Order history                              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| History   | View a Input from a Work Order history                              | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| History   | View an Input from a Work Order history                             | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | History   | Run from the Work Order history                                     | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :x:                |
 | Settings  | View Project name                                                   | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Settings  | Edit Project name                                                   | :heavy_check_mark: | :heavy_check_mark: | :x:                | :x:                |

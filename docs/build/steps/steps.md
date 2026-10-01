@@ -31,8 +31,8 @@ A Step includes these key components:
 - `Adaptor` - The selected [Adaptor](/adaptors/) that is used to provide
   app-specific functionality for this Step (e.g., `dhis2` or `commcare`).
 - `Adaptor Version` - The version of the selected Adaptor, which determines
-  which API endpoints and Adaptor functions are available. See below section
-  `Choose an Adaptor Version` to learn more.
+  which API endpoints and Adaptor functions are available. See the section
+  [Choose an Adaptor Version](#3-choose-an-adaptor-version) below to learn more.
 - `Credentials` - The Credential used to authorize connections to the target app
   related to this Step.
 - `Job` - The custom code that defines the business logic and/or sequence of
@@ -42,15 +42,15 @@ A Step includes these key components:
 
 Writing Jobs to add custom logic for business or data transformation rules
 typically requires basic knowledge of JavaScript. See the
-[Job-writing docs](/documentation/build/workflows) for a detailed overview and
-the [Library Examples](/adaptors/library) for sample code.
+[Job-writing docs](/jobs/job-writing-guide.md) for a detailed overview and the
+[Library Examples](/adaptors/library) for sample code.
 
 :::
 
 ## 1. Name your Step
 
 First, give your Step a `Name` that describes its purpose (e.g.,
-`create patient`, `map form data`);
+`create patient`, `map form data`).
 
 ## 2. Choose an Adaptor
 
@@ -76,7 +76,7 @@ For example, `create` means one thing in the `salesforce` Adaptor and another
 thing entirely in `dhis2`. For this reason, before you can begin writing a step
 you have to decide which [Adaptor](/adaptors/) to work with.
 
-### 3.Choose an Adaptor Version
+### 3. Choose an Adaptor Version
 
 Pick the Adaptor Version you want to use. We recommend selecting the latest
 version available, unless you want to use an older version that is compatible
@@ -94,7 +94,7 @@ is the default choice here.
 :::tip
 
 The _first 4 lines_ in the log of any run on OpenFn will tell you what adaptor
-you're running. (As well as the version of worker, engine and NodeJs) This is
+you're running. (As well as the version of worker, engine and Node.js.) This is
 incredibly important, particularly if you're trying to troubleshoot steps in
 various environments (like your own shell, app.openfn.org etc.).
 
@@ -143,4 +143,4 @@ Click the code button `</>` displayed on the configuration panel to write or
 edit a Job expression to define the "rules" or the specific tasks to be
 completed by your Step. See the pages on
 [the Inspector](/build/steps/step-editor.md) and
-[writing Jobs](/documentation/jobs/job-writing-guide) to learn more.
+[writing Jobs](/jobs/job-writing-guide.md) to learn more.

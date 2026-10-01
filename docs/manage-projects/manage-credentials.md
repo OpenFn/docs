@@ -43,12 +43,12 @@ etc.).
 
 While creating a new credential form, if you're not sure what some of these
 fields require (e.g., "security token"), then head over to the relevant
-`Adaptors` docs page to learn more and read about the "configuration schema" or
-ask on [Community](https://community.openfn.org).
+[Adaptors](/adaptors) docs page to learn more and read about the "configuration
+schema" or ask on [Community](https://community.openfn.org).
 
 :::
 
-3. Click `Save` and you'll see it listed in your `Credentials` page. You can now
+4. Click `Save` and you'll see it listed in your `Credentials` page. You can now
    use it across the Project when building and running Workflows.
 
 ![New Credential Ready](/img/lightning_new_cred_ready.webp)
@@ -85,8 +85,8 @@ dataclip for a given run looks like this:
 ```
 
 Then the keychain credential will search for abc123 in your project credentials
-and provide those secrets to the same job. I.e., the will run with the “Taylor’s
-Login” credential.
+and provide those secrets to the same job. I.e., the job will run with the
+“Taylor’s Login” credential.
 
 If another run is executed, and the initial dataclip for that run is:
 
@@ -142,7 +142,7 @@ the keychain credential.
 
 If you own a Credential, you can choose which Project has access to it. To
 update which Projects your Credential is shared with, follow the steps on the
-[User Credentials docs page](/documentation/user-credentials).
+[User Credentials docs page](/manage-users/user-credentials.md).
 
 ## `Raw JSON` Credentials
 

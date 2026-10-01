@@ -47,9 +47,9 @@ get((state) => state.data.url);
 ```
 
 We call it "lazy state" because the reference will be resolved by the runtime
-engine immediately before its used. This bypasses a lot of the asynchronicity
-problems of Javascript which are discussed in
-[Reading State Lazily](/documentation/jobs/operations#reading-state-lazily).
+engine immediately before it's used. This bypasses a lot of the asynchronicity
+problems of JavaScript which are discussed in
+[Reading State Lazily](/jobs/operations.md#reading-state-lazily).
 
 :::tip $ Only works within Operations
 
@@ -111,7 +111,7 @@ create('user', {
 });
 ```
 
-And you can use it in nested operations like, with `each()`:
+And you can use it in nested operations, like with `each()`:
 
 ```js
 each($.data.patients,
@@ -125,10 +125,10 @@ The `$` operator is **not** an alias for `state`.
 
 It cannot be used in place of the `state` variable. It cannot be assigned to, or
 be on the left hand side of an assignment, and can only be used inside an
-argument to a function
+argument to a function.
 
-This also means that Lazy State Operator can only be used to READ from state. It
-cannot be used to assign to state directly.
+This also means that the Lazy State Operator can only be used to READ from
+state. It cannot be used to assign to state directly.
 
 These examples are all errors:
 

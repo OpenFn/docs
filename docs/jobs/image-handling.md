@@ -2,23 +2,22 @@
 title: Handling Images
 ---
 
-OpenFn jobs run in Javascript, and most commonly we're handling JSON data from
-REST APIs or webhooks. We receive JSON, manipulate it with Javascript, then send
+OpenFn jobs run in JavaScript, and most commonly we're handling JSON data from
+REST APIs or webhooks. We receive JSON, manipulate it with JavaScript, then send
 JSON to some other REST API. Sometimes, however, you need to work with images or
 other binaries. This page explains how you do it.
 
 :::success The tl;dr:
 
-Images and other binaries mostly **_Just Work™️_**. Edges cases might need
+Images and other binaries mostly **_Just Work™️_**. Edge cases might need
 additions to adaptors.
 
 :::
 
 :::info Advanced image manipulation
 
-Need to resize, compress, strip embed EXIF metadata, or read metadata from an
-image? Use the
-[`image-utils` adaptor](https://docs.openfn.org/adaptors/packages/image-utils-docs),
+Need to resize, compress, strip or embed EXIF metadata, or read metadata from an
+image? Use the [`image-utils` adaptor](/adaptors/packages/image-utils-docs),
 which runs these operations natively in your job, no external microservice
 required. See
 [Image manipulation with the `image-utils` adaptor](#image-manipulation-with-the-image-utils-adaptor)
@@ -43,16 +42,16 @@ to a downstream system's API.
 
 The HTTP adaptor already contains everything you need to do this. Check out:
 
-1. [Request Options (`parseAs`)](https://docs.openfn.org/adaptors/packages/http-docs#requestoptions)
-2. [Encode](https://docs.openfn.org/adaptors/packages/http-docs#util_encode) a
-   given string into Base64 format.
-3. [Decode](https://docs.openfn.org/adaptors/packages/http-docs#util_decode) a
-   Base64 encoded string back to its original format.
+1. [Request Options (`parseAs`)](/adaptors/packages/http-docs#requestoptions)
+2. [Encode](/adaptors/packages/http-docs#util_encode) a given string into Base64
+   format.
+3. [Decode](/adaptors/packages/http-docs#util_decode) a Base64 encoded string
+   back to its original format.
 
 ## Adaptor Native Support
 
-Some adaptors (DHIS2, FHIR-4, Sunbird-RC) have built in binary handling for
-known image/file endpoints. When you request a file (and image, a PDF, etc.) the
+Some adaptors (DHIS2, FHIR-4, Sunbird-RC) have built-in binary handling for
+known image/file endpoints. When you request a file (an image, a PDF, etc.) the
 response will be automatically converted to a base64 encoded string.
 
 ## Working with Buffers
@@ -78,9 +77,8 @@ fn(state => {
 ## Image manipulation with the `image-utils` adaptor
 
 For workflows that need to actually transform an image rather than just move it,
-use the
-[`image-utils` adaptor](https://docs.openfn.org/adaptors/packages/image-utils-docs).
-It provides:
+use the [`image-utils` adaptor](/adaptors/packages/image-utils-docs). It
+provides:
 
 ```js
 // resize an image to given `width`/`height` dimensions.
@@ -100,13 +98,12 @@ Each operation accepts a Base64 string or Buffer and writes its result to
 you need a string instead).
 
 See the
-[`image-utils` adaptor documentation](https://docs.openfn.org/adaptors/packages/image-utils-docs)
-for full details on each function's options and return values.
+[`image-utils` adaptor documentation](/adaptors/packages/image-utils-docs) for
+full details on each function's options and return values.
 
 ## Summary
 
 Most use cases — fetching an image from one system and uploading it to another —
 should **_Just Work ™️_**. For workflows that require transforming the image
 itself (resize, compress, strip/embed EXIF data, or read metadata), use the
-[`image-utils` adaptor](https://docs.openfn.org/adaptors/packages/image-utils-docs)
-as described above.
+[`image-utils` adaptor](/adaptors/packages/image-utils-docs) as described above.

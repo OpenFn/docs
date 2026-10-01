@@ -17,9 +17,9 @@ billing accounts and subscriptions.
 :::tip Need OpenFn on _Your_ Servers?
 
 OpenFn can be deployed anywhere. Check out the
-[Deployment docs](/documentation/deploy/options) to learn about supported
-options and the "do-it-yourself" local deployment pathway. If you seek expert
-help to manage your local deployment, check out the
+[Deployment docs](/deploy/options.md) to learn about supported options and the
+"do-it-yourself" local deployment pathway. If you seek expert help to manage
+your local deployment, check out the
 [managed deployment services](https://www.openfn.org/pricing?hostingType=selfHosted)
 offered by the OpenFn core team.
 
@@ -45,7 +45,7 @@ your:
 ### Billing Account Users
 
 By default, you are the owner of your own personal billing account. You can
-invite other **managers** to add of modify payment methods and change the
+invite other **managers** to add or modify payment methods and change the
 subscription for a project. You can also add other **viewers** who can see the
 project subscriptions in your account, the payment methods, and the other
 billing account users but cannot modify any of them.
@@ -74,12 +74,12 @@ the OpenFn.org team before you can use it.
 
 :::tip Adding an Invoice Payment Method
 
-To add an invoice payment method, click "Add a new invoice method" button on the
-payment methods page. This will open a form that you can fill out and submit.
-When you have successfully submitted the form, your invoice payment request will
-listed and marked as `pending`.
+To add an invoice payment method, click the "Add a new invoice method" button on
+the payment methods page. This will open a form that you can fill out and
+submit. When you have successfully submitted the form, your invoice payment
+request will be listed and marked as `pending`.
 
-Someone from OpenFn billing team will contact you to verify the provided
+Someone from the OpenFn billing team will contact you to verify the provided
 information before approving the payment method.
 
 _Please note that you can only have ONE pending invoice payment method at a
@@ -90,17 +90,17 @@ time._
 #### Credit Card Payment
 
 When adding credit card payment methods, the card details will be verified by
-Stripe.com immediately and you can upgrade you subscriptions right away.
+Stripe.com immediately and you can upgrade your subscriptions right away.
 
 :::tip Adding a Credit Card Payment Method
 
-To add a credit card payment method, click "Add a new card" button on the
-payment methods page. This will open a form that you can fill out your card
+To add a credit card payment method, click the "Add a new card" button on the
+payment methods page. This will open a form where you can fill out your card
 details. Your card will be verified by Stripe.com immediately and you can use
 the card to upgrade your subscription or create a new project subscription.
 
 If you are not able to successfully add your card, please contact us at
-support@openfn.org with the error(if any).
+support@openfn.org with the error (if any).
 
 :::
 
@@ -119,7 +119,7 @@ details.
 
 :::
 
-To upgrade you subscription;
+To upgrade your subscription:
 
 1. Click "Subscription" from your project dashboard
 2. Click "Manage Subscription"
@@ -161,7 +161,7 @@ erDiagram
     "User" }|--|{ "Billing Account" : "A user can access many billing accounts"
     "Project" ||--|| "Subscription" : "A project has one active subscription"
     "Billing Account" ||--o{ "Payment Method" : "A billing account has many payment methods"
-    "Payment Method" ||--o{ "Subscription" : "A payment method can be use for many subscriptions"
+    "Payment Method" ||--o{ "Subscription" : "A payment method can be used for many subscriptions"
     "Billing Account" ||--o{ "Subscription" : "A billing account has many subscriptions"
     "Plan" ||--o{ "Subscription" : "Many subscriptions use the same plan"
 ```

@@ -78,7 +78,7 @@ You can specify a step as an exact id, or a partial substring from the name or
 id.
 
 ```bash
-openfn path/to.job.js --start cf628d9e -s path/to/input.json
+openfn path/to/job.js --start cf628d9e -s path/to/input.json
 ```
 
 If you have previously cached this workflow's results, the CLI will
@@ -86,7 +86,7 @@ automatically load the correct input from the cache if you omit the `-s`
 argument:
 
 ```bash
-openfn path/to.job.js --start cf628d9e
+openfn path/to/job.js --start cf628d9e
 ```
 
 You can also pass `--end` to make the workflow exit early.
@@ -97,7 +97,7 @@ You can also pass `--end` to make the workflow exit early.
 name or id, and input will be automatically loaded from the cache.
 
 ```bash
-openfn path/to.job.js --only cf628d9e
+openfn path/to/job.js --only cf628d9e
 ```
 
 ---
@@ -125,9 +125,10 @@ openfn path/to/job.js -a adaptor-name -O
 openfn path/to/workflow.json --cache-steps
 ```
 
-Each step will write its output to `./cli-cache/<workflow-name>/<step-id>.json`.
-The `.cli-cache` folder will be git-ignored and the cache will be cleared when
-the workflow is re-run with `--cache-steps` enabled.
+Each step will write its output to
+`./.cli-cache/<workflow-name>/<step-id>.json`. The `.cli-cache` folder will be
+git-ignored and the cache will be cleared when the workflow is re-run with
+`--cache-steps` enabled.
 
 To _always_ cache, set the `OPENFN_ALWAYS_CACHE_STEPS` env var to `"true"`, and
 pass `--no-cache-steps` to disable it temporarily.
@@ -137,7 +138,7 @@ pass `--no-cache-steps` to disable it temporarily.
 ### Adjust logging level
 
 You can pass `-l info` or `--log info` to get more feedback about what's
-happening during runtime. Below is the list of different log levels
+happening during runtime. Below is the list of different log levels:
 
 | log level                                     | description                                              |
 | --------------------------------------------- | -------------------------------------------------------- |
@@ -186,14 +187,14 @@ openfn repo clean
   "options": {
     "start": "a" // optionally specify the start node (defaults to steps[0])
   },
-  "workflows": {
+  "workflow": {
     "steps": [
       {
         "id": "a",
         "expression": "fn((state) => state)", // code or a path
-        "adaptor": "@openfn/language-common@1.75", // specifiy the adaptor to use (version optional)
+        "adaptor": "@openfn/language-common@1.75", // specify the adaptor to use (version optional)
         "state": {
-          "data": {} // optionally pre-populate the data object (this will be overriden by keys in in previous state)
+          "data": {} // optionally pre-populate the data object (this will be overridden by keys in previous state)
         },
         "configuration": {}, // Use this to pass credentials
         "next": {
@@ -219,7 +220,8 @@ openfn repo clean
 openfn path/to/workflow.json -o tmp/output.json
 ```
 
-Check out this detailed [tutorial](cli-walkthrough#7-running-workflows) on
+Check out this detailed
+[tutorial](/build-for-developers/cli-walkthrough.md#7-running-workflows) on
 running workflows via the CLI.
 
 ---

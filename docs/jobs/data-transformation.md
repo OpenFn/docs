@@ -22,7 +22,7 @@ fn(state => {
   // Read the data we fetched
   const obj = state.data;
 
-  // convert it by mapping properties from one object to the o ther
+  // convert it by mapping properties from one object to the other
   state.uploadData = {
     id: obj.id,
     name: `${obj.first_name} ${obj.last_name}`,
@@ -44,7 +44,7 @@ convert many objects at once.
 
 See the each() example below to see how we can do this with the each operator.
 
-You can also use a Javascript map() or forEach() function inside a callback or
+You can also use a JavaScript map() or forEach() function inside a callback or
 `fn` block.
 
 Generally it's easier to spread your job logic across many top-level operations,
@@ -54,7 +54,7 @@ operations.
 :::
 
 This is fine - and actually, having lots of operations which each do a small
-task is best practices. It makes code more readable and testable, as well as
+task is best practice. It makes code more readable and testable, as well as
 easier to reason about and debug when things go wrong.
 
 However, every operation argument accepts a function (allowing lazy state
@@ -134,14 +134,14 @@ each(
 );
 ```
 
-Each participant is `upserted` into Salesforce, with its salesforce fields
+Each participant is `upserted` into Salesforce, with its Salesforce fields
 mapped to values in the `participants` array.
 
 :::info JSON paths
 
 The use of a JSON path string as the first argument to `each()` allows the
 runtime to lazily evaluate the value at that path -
-[See Reading state lazily](/documentation/jobs/operations#reading-state-lazily).
+[See Reading state lazily](/jobs/operations.md#reading-state-lazily).
 
 Not all operations support a JSON path string - refer to
 [individual adaptor docs](/adaptors) for guidance.
@@ -156,7 +156,7 @@ Not all operations support a JSON path string - refer to
   Is the fn block really better practice?
 -->
 
-A common pattern is to need to declare some variables at the state of the job.
+A common pattern is to need to declare some variables at the start of the job.
 These could be static values to use later, functions to be called multiple times
 through the job, or bits of state that we want to return at the end.
 

@@ -9,13 +9,13 @@ alignment in the design and management of workflows within a project. This is
 possible through a visual workflow design canvas and other collaboration
 features such as version control, adding collaborators and sharing credentials
 among others. This guide walks you through how to manage collaborators in a
-projects.
+project.
 
 ### Who are project collaborators?
 
-A **project collaborator** is any one who has been granted administrative
-editing or viewing privileges on a OpenFn Project. Collaborators are granted ONE
-of four key roles in a project they that can access as highlighted in the table
+A **project collaborator** is anyone who has been granted administrative editing
+or viewing privileges on an OpenFn Project. Collaborators are granted ONE of
+four key roles in a project that they can access as highlighted in the table
 below:
 
 | Role   | Description                                                                                                                                                                    |
@@ -26,7 +26,7 @@ below:
 | Viewer | A user with access to a project but only limited to viewing the project settings and artifacts.                                                                                |
 
 You can learn more about the permissions of each role
-[here](/manage-projects/user-roles-permissions.md)
+[here](/manage-projects/user-roles-permissions.md).
 
 ### Add project collaborator(s)
 
@@ -67,7 +67,7 @@ contact your Super Admin or [support@openfn.org](mailto:support@openfn.org).
 
 To remove a Collaborator from a project, an owner or admin can click the
 `Remove Collaborator` button on the `Collaboration` page and confirm the removal
-through the pop up window. The owner of a project cannot be removed.
+through the pop-up window. The owner of a project cannot be removed.
 
 :::tip
 

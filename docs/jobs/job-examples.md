@@ -115,8 +115,8 @@ each(
 
 > **NB - there was a known bug with the `combine` function which has been
 > resolved. `combine` can be used to combine two operations into one and is
-> commonly used to run multiple `create`'s inside an `each(path, operation)`.
-> The source code for combine can be found here:
+> commonly used to run multiple `create`s inside an `each(path, operation)`. The
+> source code for combine can be found here:
 > [language-common: combine](https://github.com/OpenFn/language-common/blob/master/src/index.js#L204-L222)**
 
 ### Create many child records WITHOUT a repeat group in ODK
@@ -303,7 +303,7 @@ dataValueSet(
 );
 ```
 
-### sample openMRS expression, creates a person and then a patient
+### sample OpenMRS expression, creates a person and then a patient
 
 ```js
 person(
@@ -400,7 +400,7 @@ each(
 );
 ```
 
-### Login in to a server with a custom SSL Certificate
+### Log in to a server with a custom SSL Certificate
 
 This snippet describes how you would connect to a secure server ignoring SSL
 certificate verification. Set `strictSSL: false` in the options argument of the

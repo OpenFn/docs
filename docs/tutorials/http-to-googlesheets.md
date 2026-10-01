@@ -17,7 +17,7 @@ Watch the video and follow along with the steps below.
 
 ## Before you start
 
-Here are some we assume you've looked over before you begin this process.
+Here are some things we assume you've looked over before you begin this process.
 
 - You have checked out our glossary and have an understanding of basic OpenFn &
   API concepts. Check out the pages below to get started
@@ -47,7 +47,7 @@ Let’s get started!
 To create a new Workflow in your Project:
 
 1. Go to the `project dashboard` page.
-2. Click `Create new workflow` button.
+2. Click the `Create new workflow` button.
 3. Give your Workflow a descriptive `Name` (e.g., `Sync Users List`).
 4. Choose your [Trigger](/build/triggers.md)
 5. Edit your first [Step](/build/steps/steps.md)
@@ -58,8 +58,8 @@ To create a new Workflow in your Project:
 fake API for testing and prototyping. We will be using the
 [Users Rest API](https://jsonplaceholder.typicode.com/users) for extracting
 users data. This involves configuring a step in OpenFn to fetch users data via a
-`GET` HTTP request. Click your first step to set up!, Configurate the step with
-following options
+`GET` HTTP request. Click your first step to set it up. Configure the step with
+the following options
 
 - Name `Fetch Users`
 - Adaptor `http`
@@ -86,7 +86,7 @@ Check out the docs on the ["http" Adaptor](/adaptors/packages/http-readme),
 succeeded, you should see:
 
 - Status `success`
-- Log tab end with `Run complete with status: success`
+- Log tab ends with `Run complete with status: success`
 - Input tab has `{}`
 - Output tab has `{ data: [ {...}]}`
 
@@ -98,9 +98,9 @@ with.)
 
 :::info Don't see a GoogleSheets credential option?
 
-If your instance superuser hasn't configured a global Oauth client, you may need
-to set one up for yourself. Learn about Oauth Clients
-[here](/documentation/oauth#oauth-clients) and specifics for a GoogleSheet
+If your instance superuser hasn't configured a global OAuth client, you may need
+to set one up for yourself. Learn about OAuth Clients
+[here](/manage-projects/oauth.md#oauth-clients) and specifics for a GoogleSheet
 Client [here](/adaptors/googlesheets#permissions-scopes).
 
 :::
@@ -109,8 +109,8 @@ For this demo, we configured the Googlesheet
 [like this](https://docs.google.com/spreadsheets/d/1gT4cpHSDQp8A_JIX_5lqTLTwV0xBo_u8u3ZNWALmCLc/edit?usp=sharing)
 to store the `users` data.
 
-Create a new step with the `googlesheet` adaptor for loading the users data into
-your destination GoogleSheet. Configure the step with the following options
+Create a new step with the `googlesheets` adaptor for loading the users data
+into your destination GoogleSheet. Configure the step with the following options
 
 - Name `Sync Users`
 - Adaptor `googlesheets`
@@ -148,7 +148,7 @@ your destination GoogleSheet. Configure the step with the following options
 
 - Input - `Final output of Fetch Users`
 
-If you have already ran the `Fetch Users` Step, you will have initial input to
+If you have already run the `Fetch Users` Step, you will have initial input to
 test `Sync Users` Step. Select the input from the input panel and click
 `Create New Work Order` to run this Step.
 

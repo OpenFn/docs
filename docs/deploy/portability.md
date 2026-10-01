@@ -22,7 +22,7 @@ approach and implementation of this commitment have taken many forms.
 
 This document describes the latest Portability Specification, published in
 May 2026. For older specifications, see
-[Portability Versions](portability-versions)
+[Portability Versions](/deploy/portability-versions.md)
 
 :::
 
@@ -148,13 +148,14 @@ workflows:
     start: cron
 ```
 
-The latest schema for a project spec file is defined in TypeScript
-[here](https://github.com/OpenFn/kit/blob/main/packages/lexicon/portability.d.ts)
+The latest schema for a project spec file is defined in TypeScript in
+[portability.d.ts](https://github.com/OpenFn/kit/blob/main/packages/lexicon/portability.d.ts).
 
 ## Syncing Projects
 
 For more details about how a project can be deployed, executed, pulled and
-edited, see our extensive documentation on [CLI Sync](/documentation/sync).
+edited, see our extensive documentation on
+[CLI Sync](/build-for-developers/cli-sync.md).
 
 ## Linked Resources
 
@@ -182,4 +183,4 @@ may need to be pre-configured to have matching resources.
 ## Legacy Portability Specifications
 
 For older versions of our approach, see
-[Portability Versions](portability-versions)
+[Portability Versions](/deploy/portability-versions.md)
