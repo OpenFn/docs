@@ -104,6 +104,9 @@ only the ones your change adds.
   with `/adaptors/` or `/articles/`. Never use relative links like
   `../deploy/portability.md`; they break the build once only one of the two
   pages is translated.
+- Never link with the old site URLs, `/documentation/...` or
+  `https://docs.openfn.org/...`. Use the file path. Remove tracking strings such
+  as `?_gl=` from any URL.
 - When the text names another docs page or section, make the name a link to it,
   like `[Manage Projects](/manage-projects/platform-mgmt.md)`. Do not format it
   as code; code formatting is for code and literal values.
@@ -126,7 +129,16 @@ only the ones your change adds.
   page prints the markers.
 - Do not write plans with dates, like "will be sunsetted in 2025". They go out
   of date. Say what is true now.
+- Start a page's sections at `##` and don't skip levels. Don't make heading text
+  bold, and don't repeat the page title as the first heading.
+- Code examples must be valid code. Check them before publishing.
+- Put "the" before the name of a button, page or menu: "click the `Save`
+  button", not "click `Save` button".
 - It is spelled **adaptor**, never "adapter".
-- Put a comma after "e.g." and "i.e.", like "(e.g., a form submission)".
+- Write these names with this capitalisation in prose, headings and alt text:
+  **JavaScript**, **Node.js**, **GitHub**, **OAuth**, **CommCare**. Leave code
+  and file paths as they are.
+- Use "e.g." to introduce an example and "i.e." to restate, never "ie". Put a
+  comma after both, like "(e.g., a form submission)".
 - Use the approved terms in `glossary.yml`. If a page uses one of the listed
   `variants`, replace it.
