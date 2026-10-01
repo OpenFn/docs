@@ -12,8 +12,9 @@
 // an update.
 //
 // --json lists the blocks of the current English, each with the translation
-// that can be reused for it, or null where the English is new or changed. See
-// "Updating a page" in pages.md.
+// that can be reused for it, or null where the English is new or changed. A
+// changed block also gets the old English and translation it replaced, with a
+// word diff, under previous. See "Updating a page" in pages.md.
 //
 // --check lists blocks where a fixed glossary term appears fewer times in the
 // translation than in the English, which can mean it was translated. With
@@ -54,6 +55,38 @@ const termDrops = (english, translation) =>
     en: (prose(english).match(re) || []).length,
     es: (prose(translation).match(re) || []).length,
   })).filter(c => c.es < c.en);
+
+// Word diff in git's --word-diff=plain style: [-removed-]{+added+}.
+function wordDiff(a, b) {
+  const x = a.split(/\s+/);
+  const y = b.split(/\s+/);
+  const lcs = x.map(() => Array(y.length + 1).fill(0));
+  lcs.push(Array(y.length + 1).fill(0));
+  for (let i = x.length - 1; i >= 0; i--)
+    for (let j = y.length - 1; j >= 0; j--)
+      lcs[i][j] =
+        x[i] === y[j]
+          ? lcs[i + 1][j + 1] + 1
+          : Math.max(lcs[i + 1][j], lcs[i][j + 1]);
+  const out = [];
+  let i = 0;
+  let j = 0;
+  while (i < x.length || j < y.length) {
+    if (i < x.length && j < y.length && x[i] === y[j]) {
+      out.push(x[i++]);
+      j++;
+    } else if (
+      i < x.length &&
+      (j === y.length || lcs[i + 1][j] >= lcs[i][j + 1])
+    )
+      out.push(`[-${x[i++]}-]`);
+    else out.push(`{+${y[j++]}+}`);
+  }
+  return out
+    .join(' ')
+    .replace(/-\] \[-/g, ' ')
+    .replace(/\+\} \{\+/g, ' ');
+}
 
 const git = (...args) =>
   execFileSync('git', args, {
@@ -155,6 +188,40 @@ async function page(locale, enPath, base) {
       fenced: t ? t.fenced : false,
     };
   });
+  // Pair each changed block with the old block it replaced: a run of changed
+  // blocks between two reused ones takes the old blocks in the same gap, when
+  // the counts match. Otherwise the block is new, or the pairing is unclear.
+  if (result.aligned) {
+    // Repeated blocks like ":::" match in order, so the next unused one.
+    let last = -1;
+    const at = current.map(b => {
+      const i = source.blocks.findIndex(
+        (s, k) => k > last && s.text === b.text
+      );
+      if (i !== -1) last = i;
+      return i === -1 ? undefined : i;
+    });
+    for (let i = 0; i < current.length;) {
+      if (at[i] !== undefined) {
+        i++;
+        continue;
+      }
+      let j = i;
+      while (j < current.length && at[j] === undefined) j++;
+      const from = i === 0 ? 0 : at[i - 1] + 1;
+      const to = j === current.length ? source.blocks.length : at[j];
+      if (to - from === j - i)
+        for (let k = 0; k < j - i; k++) {
+          const old = source.blocks[from + k].text;
+          result.blocks[i + k].previous = {
+            english: old,
+            translation: esBlocks[from + k].text,
+            diff: wordDiff(old, current[i + k].text),
+          };
+        }
+      i = j;
+    }
+  }
   result.unusedFenced = esBlocks
     .filter((b, i) => b.fenced && !used.has(i))
     .map(b => b.text);

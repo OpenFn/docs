@@ -65,11 +65,28 @@ no longer see what did. So translate only the blocks whose English changed:
 node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md --json
 ```
 
-This lists the blocks of the current English. Each has the existing
-`translation` to reuse, or `null` where the English is new or changed. Write the
-page as those blocks in order, separated by blank lines: copy each reused
-translation exactly, and translate each `null` block. Then update the front
-matter and run Prettier as usual.
+This prints a JSON array with one entry per page. Its `blocks` are the blocks of
+the current English. Each has the existing `translation` to reuse, or `null`
+where the English is new or changed. Write the page as those blocks in order,
+separated by blank lines: copy each reused translation exactly, and work out
+each `null` block. Then update the front matter and run Prettier as usual.
+
+A changed block usually has a `previous` field: the old English, its old
+translation, and a word `diff` between the old and new English, marked
+`[-removed-]` and `{+added+}`. Use the diff to decide:
+
+- If only links, inline code, or heading anchors changed, keep the old
+  translation and copy those changes into it.
+- If the prose changed but the old translation already says what the new English
+  says, keep it as it is. A typo fix in the English often needs nothing.
+- Otherwise, translate the block. Reuse the old wording where it still fits, so
+  the reviewer sees only what changed.
+
+A block with no `previous` is new, or could not be paired with an old block.
+Translate it.
+
+Update `translation_source_hash` even if no translated text changed. It records
+that the translation was checked against this English.
 
 - A block with `fenced: true` was inside a `<!-- do-not-retranslate -->` fence.
   Put the fence back around it. If `unusedFenced` is not empty, the English a
@@ -79,7 +96,8 @@ matter and run Prettier as usual.
   cannot be matched to its English. Translate the whole page again, keeping
   fenced blocks, and say so in the PR.
 
-In the PR description, list for each page how many blocks were translated.
+In the PR description, list for each page how many blocks changed and how many
+of those needed new translated text.
 
 ## Reviewing
 
