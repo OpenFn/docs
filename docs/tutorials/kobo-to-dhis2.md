@@ -65,8 +65,7 @@ configuration
 
 In this Step we want to be fetch form submissions from this demo form with the
 id `aBpweTNdaGJQFb5EBBwUeo`. To do so, open the
-[Inspector Editor](/build/steps/step-editor.md) and add the following Job
-code:
+[Inspector Editor](/build/steps/step-editor.md) and add the following Job code:
 
 ```javascript
 // Step 1: Fetch Form Submissions from Kobotoolbox
@@ -105,8 +104,8 @@ Create a second Step after `Get Kobo Form Submission` as follows:
 - Credential: none needd
 
 In this step we are going to count all records with `"OPV0_dose_given": "yes"`.
-To add this logic, open the [Inspector](/build/steps/step-editor.md) and add
-the following JOb code in the Editor:
+To add this logic, open the [Inspector](/build/steps/step-editor.md) and add the
+following JOb code in the Editor:
 
 ```javascript
 // Filter and Count OPV Dose Given
@@ -201,8 +200,8 @@ Check out the docs on the ["dhis2" Adaptor](/adaptors/dhis2),
 Save your changes then navigate to the first step(Get Kobo Form Submission) and
 create an empty input `{}` then click `Create New Work Order` button to run the
 workflow. All steps should be executed successful and you should see the
-`OPV0 doses given` updated in DHIS2. See [Workflow docs](/build/workflows.md)
-if you need help running or testing Workflows.
+`OPV0 doses given` updated in DHIS2. See [Workflow docs](/build/workflows.md) if
+you need help running or testing Workflows.
 
 ### Conclusion
 

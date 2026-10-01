@@ -7,8 +7,8 @@ title: Best Practices
 
 If you must reference credential secrets in your job code, you can map keys from
 your `state.configuration`. The example below dynamically maps the username and
-password from your `state.configuration` (or "credential" if using the app) into your
-http request body.
+password from your `state.configuration` (or "credential" if using the app) into
+your http request body.
 
 ```js
 post('/api/v1/auth/login', {
@@ -75,4 +75,3 @@ When processing batches of data, you might want to catch errors occurring on
 individual items and write them to state. That way one bad item won't ruin a
 whole batch, and you know which items succeeded and which failed. You can then
 throw an exception to recognise that the job has failed.
-

@@ -4,14 +4,23 @@ title: Mogli Adaptor
 
 ## About Mogli
 
-Mogli is a mobile messaging platform that enables SMS communication and management through its API. The platform provides capabilities for sending, receiving, and managing SMS messages, making it suitable for organizations that need reliable mobile messaging integration for notifications, alerts, and two-way communication workflows.
+Mogli is a mobile messaging platform that enables SMS communication and
+management through its API. The platform provides capabilities for sending,
+receiving, and managing SMS messages, making it suitable for organizations that
+need reliable mobile messaging integration for notifications, alerts, and
+two-way communication workflows.
 
-
-Mogli is particularly useful for organizations needing mobile engagement capabilities, emergency notifications, field communication, and customer outreach via SMS.
+Mogli is particularly useful for organizations needing mobile engagement
+capabilities, emergency notifications, field communication, and customer
+outreach via SMS.
 
 ## Integration Options
 
-**REST API**: Mogli provides a REST API that enables external applications to send SMS messages, receive inbound messages, and manage communication workflows. The API supports authentication through multiple security layers including username/password, security tokens, and API secrets for comprehensive access control.
+**REST API**: Mogli provides a REST API that enables external applications to
+send SMS messages, receive inbound messages, and manage communication workflows.
+The API supports authentication through multiple security layers including
+username/password, security tokens, and API secrets for comprehensive access
+control.
 
 ## Authentication
 
@@ -28,14 +37,15 @@ Mogli uses multiple authentication components for secure API access:
 ```
 
 **Authentication Components:**
+
 - **loginUrl**: The Mogli API endpoint URL
 - **username**: Your Mogli account username
 - **password**: Your Mogli account password
 - **securityToken**: Base64-encoded security token for API access
 - **secret**: Additional secret key for enhanced security
 
-All API requests require this multi-layer authentication approach to ensure secure message transmission.
-
+All API requests require this multi-layer authentication approach to ensure
+secure message transmission.
 
 ## Helpful Links
 
@@ -44,6 +54,10 @@ All API requests require this multi-layer authentication approach to ensure secu
 
 ### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+Thanks for asking! We are a fully Open Source Digital Public Good, and we
+welcome contributions from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).

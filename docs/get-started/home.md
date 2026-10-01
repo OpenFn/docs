@@ -24,16 +24,16 @@ and requirements.
 
 To support implementers, OpenFn has an online
 [community](https://community.openfn.org), documentation, and
-[support](mailto://support@openfn.org). Contact
-[partnerships@openfn.org](mailto://partnerships@openfn.org) to learn about
-OpenFn implementation partners and the OpenFn Partner Program.
+[support](mailto:support@openfn.org). Contact
+[partnerships@openfn.org](mailto:partnerships@openfn.org) to learn about OpenFn
+implementation partners and the OpenFn Partner Program.
 
 :::tip Automation, integration, & interoperability
 
 OpenFn is open source software that makes it easier for governments and NGOs to
 _connect_ the different technologies they use, automate critical business
 processes, and scale their interventions. OpenFn enables automation,
-integration, and data interoperability for the worlds most impactful
+integration, and data interoperability for the world's most impactful
 organizations.
 
 :::

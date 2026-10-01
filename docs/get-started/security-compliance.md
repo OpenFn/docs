@@ -44,7 +44,8 @@ As an open source Digital Public Good, OpenFn can be deployed anywhere
 ([see docs](/deploy/options.md)) and workflows can be configured to adhere to
 your organization's specific data sharing agreements and security policies.
 
-Consult the `Manage Projects` docs pages for more on project and
+Consult the [Manage Projects](/manage-projects/platform-mgmt.md) docs pages for
+more on project and
 [data storage settings](/manage-projects/io-data-storage.md).
 
 See the below diagram for an example architecture where even the OpenFn Cloud
@@ -75,8 +76,8 @@ Learn more at [openfn.org/trust](https://www.openfn.org/trust#encryption).
 
 ## Credentials
 
-[Credentials](/manage-projects/manage-credentials.md), used to grant OpenFn
-API access to your various technologies, are encrypted at rest so that, in the
+[Credentials](/manage-projects/manage-credentials.md), used to grant OpenFn API
+access to your various technologies, are encrypted at rest so that, in the
 unlikely event of a database breach, without access to multiple, independently
 secured boxes an attacker would be unable to read your authentication
 information.

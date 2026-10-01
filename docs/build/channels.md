@@ -26,9 +26,9 @@ OpenFn.
 :::tip Experimental Feature
 
 Channels are currently an experimental feature. To use them, enable
-**Experimental Features** on your
-[user profile](/manage-users/user-profile.md) page. If you don't see a
-`Channels` item in your project sidebar, this flag is the reason.
+**Experimental Features** on your [user profile](/manage-users/user-profile.md)
+page. If you don't see a `Channels` item in your project sidebar, this flag is
+the reason.
 
 :::
 
@@ -72,13 +72,12 @@ You need:
 Channels use two kinds of credentials, and both are optional:
 
 - **Client credentials** control who can send requests _to your channel_. They
-  are the same [webhook auth methods](/manage-projects/webhook-auth.md) used
-  to secure webhook triggers (Basic HTTP Authentication or API Key
-  Authentication) and are managed under `Webhook Security` in your project
-  settings.
+  are the same [webhook auth methods](/manage-projects/webhook-auth.md) used to
+  secure webhook triggers (Basic HTTP Authentication or API Key Authentication)
+  and are managed under `Webhook Security` in your project settings.
 - A **destination credential** is how OpenFn authenticates _to the destination
-  service_. It is a regular [project credential](/build/credentials.md), and OpenFn
-  uses it to build the `Authorization` header on every forwarded request.
+  service_. It is a regular [project credential](/build/credentials.md), and
+  OpenFn uses it to build the `Authorization` header on every forwarded request.
   Channels currently support these credential types:
 
 | Credential type | Header sent to the destination                        |

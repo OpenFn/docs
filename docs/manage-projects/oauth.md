@@ -149,9 +149,8 @@ be permanently deleted after 7 days.
 
 ### More on Managing Credentials
 
-Go to the docs on
-[managing user credentials](/manage-users/user-credentials.md) to learn more
-about credential management for the applications you are integrating with on
-OpenFn.
+Go to the docs on [managing user credentials](/manage-users/user-credentials.md)
+to learn more about credential management for the applications you are
+integrating with on OpenFn.
 
 ### Example Oauth Client Configuration

@@ -17,8 +17,8 @@ To create a new Workflow in your Project:
    `Refer cases`, `Monthly payroll`).
 4. Choose your [Trigger](/build/triggers.md)
 5. Edit your first [Step](/build/steps/steps.md)
-6. Modify the [Path Condition](/build/paths.md), if needed, to define _when_
-   the Workflow should proceed to the next Step.
+6. Modify the [Path Condition](/build/paths.md), if needed, to define _when_ the
+   Workflow should proceed to the next Step.
 7. Configure more Steps as needed
 
 Check out the video overview below to learn how to create a Workflow.

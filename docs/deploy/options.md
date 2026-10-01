@@ -11,13 +11,14 @@ outside your country's borders.
 
 :::success Portability
 
-Because of OpenFn's [portability specification](/documentation/deploy/portability) and open-source
+Because of OpenFn's
+[portability specification](/documentation/deploy/portability) and open-source
 deployment tools you can transition between these various pathways at any time.
 We're committed to a **no vendor lock-in** experience.
 
 :::
 
-|        Pathway        |                                             Free Cloud                                            |                                                   OpenFn Cloud                                                    |                                                                Dedicated                                                                |                                                Do-it-yourself (DIY)                                                |
+|        Pathway        |                                          Free Cloud                                          |                                                 OpenFn Cloud                                                  |                                                                Dedicated                                                                |                                                Do-it-yourself (DIY)                                                |
 | :-------------------: | :------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------: |
 |      Description      |                     Go live today on OpenFn.org for small scale projects                     |                                 Scale up and down, pay only for what you need                                 |                       A dedicated, unrestricted OpenFn installation anywhere in the world on our servers or yours                       |                                  Deploy and manage your own solutions with OpenFn                                  |
 |        License        |                             Free forever with usage limitations                              | **SaaS** [plans](https://www.openfn.org/pricing); contact enterprise@openfn.org for custom/invoice agreements | **SDaaS** includes deployment, maintenance, security patches, upgrades, and troubleshooting as a service; contact enterprise@openfn.org | LGPLv3 means use freely as part of any closed or open-source solution, but make all _derivative_ works open source |
@@ -74,8 +75,8 @@ local/government-managed servers, you might:
 8. **Monitor & adjust your strategy** as and when required by your country’s
    usage and data sovereignty requirements evolve over time.
 
-\*Head over to the [Requirements](/deploy/requirements.md) page for more information
-on recommended server specifications.
+\*Head over to the [Requirements](/deploy/requirements.md) page for more
+information on recommended server specifications.
 
 ## Moving from cloud to local (v1 or v2)
 

@@ -19,8 +19,8 @@ or ask on the [Community](https://community.openfn.org)
 
 Please note that if you're looking for a glossary for generic terms used in
 data-integration (rather than this _OpenFn-specific_ stuff) head over to the
-[Glossary for Integration](/documentation/get-started/glossary) page in the
-Design section. Otherwise, read on!
+[Glossary for Integration](/documentation/get-started/glossary) page in the Get
+Started section. Otherwise, read on!
 
 ## Project
 
@@ -32,7 +32,7 @@ Collaborators.
 
 In local deployment and development, Project also corresponds to a
 [`project.yaml`](/documentation/deploy/portability-versions#v2) file, which
-defines a project' configuration.
+defines a project's configuration.
 
 In either case, a Project contains Workflows, Triggers, Credentials, and
 everything you need to automate and integrate with OpenFn.
@@ -76,7 +76,7 @@ Common Workflows automate:
 - Referrals between partner systems
 - Task assignments or approvals
 - Grievance or case reporting
-- Financial tansactions or payments
+- Financial transactions or payments
 
 :::note Workflows are reusable
 
@@ -153,9 +153,9 @@ A Work Order is created every time a Workflow's Trigger is activated, or
 manually by an Admin user.
 
 For a Work Order to be completed successfully, the Work Order should reach an
-ending Step succesfully (without errors) - this ensures that the processing has
+ending Step successfully (without errors) - this ensures that the processing has
 been completed. Multiple Workflow "Runs" may be required for a given Work Order
-to be considered succesful.
+to be considered successful.
 
 Work Orders enable users to closely monitor whether unique inputs (e.g.,
 "patient record 123") are successfully processed by a given workflow, for a
@@ -210,9 +210,8 @@ whenever a new case is opened in CommCare. Today if 1 patient is created, then:
   or patient is missing required information), then the "Status" of that Run and
   related Work Order will show as `failed`.
 - OpenFn users can correct the error and then choose to "rerun" that failed Run.
-  This will create a 2nd Run related to the original Work Order. If it
-  successed, then the "Status" of the 2nd Run and Work Order will show as
-  "success".
+  This will create a 2nd Run related to the original Work Order. If it succeeds,
+  then the "Status" of the 2nd Run and Work Order will show as "success".
 
 ### Logs
 

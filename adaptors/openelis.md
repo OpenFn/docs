@@ -3,24 +3,34 @@ title: OpenELIS Adaptor
 ---
 
 ## About OpenELIS
-OpenELIS (Open Enterprise Laboratory Information System) Global is an open-source, web-based software designed to manage laboratory workflows, specifically tailored for public health and reference laboratories in low- and middle-income countries. It automates laboratory processes—from sample tracking to reporting—supporting ISO and SLIPTA quality standards.
+
+OpenELIS (Open Enterprise Laboratory Information System) Global is an
+open-source, web-based software designed to manage laboratory workflows,
+specifically tailored for public health and reference laboratories in low- and
+middle-income countries. It automates laboratory processes—from sample tracking
+to reporting—supporting ISO and SLIPTA quality standards.
 
 ## Integration Options
-OpenELIS has an available REST API. See [functions](/adaptors/packages/openelis-docs) for more on how to use this adaptor to work with the API.
-Visit the [OpenELIS homepage](https://openelis.org/) for more details.
 
+OpenELIS has an available REST API. See
+[functions](/adaptors/packages/openelis-docs) for more on how to use this
+adaptor to work with the API. Visit the
+[OpenELIS homepage](https://openelis.org/) for more details.
 
 ## Authentication
-Users must specify a `baseUrl`, `username` and `password`. The `username` and `password` are then encoded into a basic authentication header and sent as part of every HTTP request.
+
+Users must specify a `baseUrl`, `username` and `password`. The `username` and
+`password` are then encoded into a basic authentication header and sent as part
+of every HTTP request.
 
 OpenFn users can use the `OpenELIS` credential type when
 [creating a credential](/documentation/manage-projects/manage-credentials).
 
-See the adaptor's [configuration schema docs](/adaptors/packages/openelis-configuration-schema)
+See the adaptor's
+[configuration schema docs](/adaptors/packages/openelis-configuration-schema)
 
-If working locally or
-if using a `Raw JSON` credential type, then your configuration will look
-something like this:
+If working locally or if using a `Raw JSON` credential type, then your
+configuration will look something like this:
 
 ```json
 {
@@ -32,8 +42,10 @@ something like this:
 
 ### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+Thanks for asking! We are a fully Open Source Digital Public Good, and we
+welcome contributions from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
-
-
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).
