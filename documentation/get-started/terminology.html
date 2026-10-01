@@ -19,7 +19,7 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.9f645c63.css">
-<script src="/assets/js/runtime~main.7d1cb5e8.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.24a8a4ba.js" defer="defer"></script>
 <script src="/assets/js/main.220ecb79.js" defer="defer"></script>
 </head>
 <body>
@@ -40,8 +40,8 @@ suggest an edit to
 or ask on the <a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer" class="">Community</a></p></div></div>
 <p>Please note that if you&#x27;re looking for a glossary for generic terms used in
 data-integration (rather than this <em>OpenFn-specific</em> stuff) head over to the
-<a class="" href="/documentation/get-started/glossary">Glossary for Integration</a> page in the
-Design section. Otherwise, read on!</p>
+<a class="" href="/documentation/get-started/glossary">Glossary for Integration</a> page in the Get
+Started section. Otherwise, read on!</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="project">Project<a href="#project" class="hash-link" aria-label="Direct link to Project" title="Direct link to Project" translate="no">​</a></h2>
 <p>A Project is an administrative grouping in OpenFn like a &quot;workspace&quot;.</p>
 <p>On the platform (OpenFn/lightning), Projects define who can access your OpenFn
@@ -49,7 +49,7 @@ workflow configuration &amp; history. Projects have an owner and one or more
 Collaborators.</p>
 <p>In local deployment and development, Project also corresponds to a
 <a class="" href="/documentation/deploy/portability-versions#v2"><code>project.yaml</code></a> file, which
-defines a project&#x27; configuration.</p>
+defines a project&#x27;s configuration.</p>
 <p>In either case, a Project contains Workflows, Triggers, Credentials, and
 everything you need to automate and integrate with OpenFn.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="workflow">Workflow<a href="#workflow" class="hash-link" aria-label="Direct link to Workflow" title="Direct link to Workflow" translate="no">​</a></h2>
@@ -80,11 +80,13 @@ reporting)</li>
 <li class="">Referrals between partner systems</li>
 <li class="">Task assignments or approvals</li>
 <li class="">Grievance or case reporting</li>
-<li class="">Financial tansactions or payments</li>
+<li class="">Financial transactions or payments</li>
 </ul>
 <div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>Workflows are reusable</div><div class="admonitionContent_BuS1"><p>Workflows are fully configurable and reusable. They can also be chained together
 to automate multi-step processes and two-way data syncs to keep data consistent
-between multiple applications (using multi-app Saga patterns).</p><div class="theme-admonition theme-admonition-note admonition_xJq3 alert alert--secondary"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_BuS1"><h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="adaptor">Adaptor<a href="#adaptor" class="hash-link" aria-label="Direct link to Adaptor" title="Direct link to Adaptor" translate="no">​</a></h3><div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Adaptors are the <strong>&quot;where to do it&quot;</strong> part of automation!</p></div></div></div></div></div></div>
+between multiple applications (using multi-app Saga patterns).</p></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="adaptor">Adaptor<a href="#adaptor" class="hash-link" aria-label="Direct link to Adaptor" title="Direct link to Adaptor" translate="no">​</a></h3>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_BuS1"><p>Adaptors are the <strong>&quot;where to do it&quot;</strong> part of automation!</p></div></div>
 <p>OpenFn <a class="" href="/adaptors">Adaptors</a> are open-source modules that provide your Workflows
 with the features they need to communicate with a particular system&#x27;s API. Some
 examples are <a class="" href="/adaptors/dhis2">dhis</a>, <a class="" href="/adaptors/postgresql"><code>postgresql</code></a>, and
@@ -119,9 +121,9 @@ form submission or patient record that needs to be processed).</p>
 <p>A Work Order is created every time a Workflow&#x27;s Trigger is activated, or
 manually by an Admin user.</p>
 <p>For a Work Order to be completed successfully, the Work Order should reach an
-ending Step succesfully (without errors) - this ensures that the processing has
+ending Step successfully (without errors) - this ensures that the processing has
 been completed. Multiple Workflow &quot;Runs&quot; may be required for a given Work Order
-to be considered succesful.</p>
+to be considered successful.</p>
 <p>Work Orders enable users to closely monitor whether unique inputs (e.g.,
 &quot;patient record 123&quot;) are successfully processed by a given workflow, for a
 &quot;case-management&quot; auditing experience.</p>
@@ -158,9 +160,8 @@ create the patient in OpenMRS.</li>
 or patient is missing required information), then the &quot;Status&quot; of that Run and
 related Work Order will show as <code>failed</code>.</li>
 <li class="">OpenFn users can correct the error and then choose to &quot;rerun&quot; that failed Run.
-This will create a 2nd Run related to the original Work Order. If it
-successed, then the &quot;Status&quot; of the 2nd Run and Work Order will show as
-&quot;success&quot;.</li>
+This will create a 2nd Run related to the original Work Order. If it succeeds,
+then the &quot;Status&quot; of the 2nd Run and Work Order will show as &quot;success&quot;.</li>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="logs">Logs<a href="#logs" class="hash-link" aria-label="Direct link to Logs" title="Direct link to Logs" translate="no">​</a></h3>
 <p>Logs are the records generated by the workflow execution engine to capture the
