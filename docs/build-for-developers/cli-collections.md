@@ -5,8 +5,7 @@ slug: /collections-cli
 ---
 
 The OpenFn CLI includes support for reading from and writing to
-[Collections](/documentation/build/collections): a key/value store built into
-OpenFn.
+[Collections](/build/collections.md): a key/value store built into OpenFn.
 
 :::caution Versions
 
@@ -31,12 +30,11 @@ to [community.openfn.org](https://community.openfn.org/c/feature-requests)!
 
 :::
 
-Get started with the Collections API with `openfn collections --help`
+Get started with the Collections API with `openfn collections --help`.
 
 You'll need a Personal Access Token (PAT) to access a collection. You'll also
 need to ensure a collection has been created before you can read or write to
-it - see
-[Managing Collections](/documentation/build/collections#managing-collections)
+it - see [Managing Collections](/build/collections.md#managing-collections).
 
 :::info Trying to use Collections in a CLI workflow?
 
@@ -44,7 +42,7 @@ These docs explain how to use the `openfn collections` CLI command.
 
 If you're running an expression or workflow through the CLI, you need to use the
 collections adaptor - check out the
-[Collections Adaptor Docs](/adaptors/collections#cli-usage) for detauls
+[Collections Adaptor Docs](/adaptors/collections#cli-usage) for details
 
 :::
 
@@ -55,10 +53,10 @@ strictly only allowed to users with access to that Project. So if you want to
 access a Collection, you have to tell the server who you are.
 
 We do this using Personal Access Tokens. See
-[Create and Manage API Tokens](/documentation/api-tokens#about-api-tokens) for
+[Create and Manage API Tokens](/manage-users/api-tokens.md#about-api-tokens) for
 more details.
 
-One you have a PAT, you need to pass it in to the CLI. The easiest way to do
+Once you have a PAT, you need to pass it in to the CLI. The easiest way to do
 this is to set an env var `OPENFN_API_KEY`, or use a `.env` file. The CLI will
 automatically use this value for all requests.
 
@@ -114,10 +112,10 @@ Any requests to the collections API will attempt to resolve a collection name to
 a single collection. But if there are conflicts, the server will return a 409
 error code.
 
-To resolve this, pass a project id
+To resolve this, pass a project id:
 
 ```bash
-openfn collections get <collection-name> <key> --project_id 1d28c76c-e4ef-4e58-ac1e-464dc479946c
+openfn collections get <collection-name> <key> --project-id 1d28c76c-e4ef-4e58-ac1e-464dc479946c
 ```
 
 You can also set the project ID through an env var, or use the `-p` shortcut.
@@ -126,7 +124,7 @@ You can also set the project ID through an env var, or use the `-p` shortcut.
 
 You can fetch items from a Collection by passing a collection name and a key, or
 key pattern (like `*` for "everything", or `2024*` for keys starting with
-`2024`)
+`2024`).
 
 ```bash
 openfn collections get <collection-name> <key>
@@ -140,7 +138,7 @@ openfn collections get my-collection \*
 
 :::tip
 
-In unix shells (MacOS or Linux), the `*` character has special meaning. So if
+In Unix shells (macOS or Linux), the `*` character has special meaning. So if
 you want to get all items, you have to escape it or quote it:
 
 ```

@@ -118,7 +118,7 @@ In sync mode you can set custom HTTP status codes on the trigger (under
 :::note Switching back to Async
 
 Switching a trigger back to async mode clears any configured success or error
-status codes, they only apply in sync mode.
+status codes; they only apply in sync mode.
 
 :::
 
@@ -139,7 +139,7 @@ fn(state => ({
 
 At the end of the run, the value of `state.webhookResponse` will be used to send
 the HTTP response back to the caller. Changing the value during the run does not
-affect the response, it's only the final state that counts.
+affect the response; it's only the final state that counts.
 
 Both `status` and `body` are **optional** — you can include either or both:
 
@@ -197,18 +197,18 @@ times.
 
 Every time a cron-triggered workflow is run it will _start_ with the final
 output of the last successful run. This allows users to build workflows that
-make use of a ["cursor"](/documentation/jobs/using-cursors) that tracks what
-happened last time the workflow ran. (Only processing data that changed since
-that last run, for example.)
+make use of a ["cursor"](/jobs/using-cursors.md) that tracks what happened last
+time the workflow ran. (Only processing data that changed since that last run,
+for example.)
 
 ![Cron Trigger](/img/cron_trigger.webp)
 
-Be default, the input state for the next cron run will be the final output state
+By default, the input state for the next cron run will be the final output state
 of the previous run, but you can configure this to use the output state from a
 specific step in your earlier run by changing the "Cron Input Source".
 
 More on `state` in cron-triggered runs can be found in the
-["Input and Output State"](/documentation/jobs/state#cron-triggered-runs) docs.
+["Input and Output State"](/jobs/state.md#cron-triggered-runs) docs.
 
 ### Managing the size of `state` for Cron Workflows
 

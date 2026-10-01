@@ -144,8 +144,8 @@ Filter only named inputs by clicking the tag button.
 
 Workflow **concurrency** is the number of runs that will be allowed for a given
 workflow **_at the same time_**. In OpenFn, project owners and administrators
-are able to limit the maximum number of the runs that can be executed at the
-same time for a workflow. You might do this to ensure "one at a time" serial
+are able to limit the maximum number of runs that can be executed at the same
+time for a workflow. You might do this to ensure "one at a time" serial
 processing or to keep a fast OpenFn workflow from overwhelming the API rate
 limit of some other connected system.
 
@@ -168,9 +168,9 @@ the workflow. For example:
 - **Concurrency = 1**: Runs for this workflow will only take place 1-at-a-time.
   Each run must _finish_ before the next run can start.
 - **Concurrency = 2**: No more than 2 runs for this workflow can be executed at
-  a time and other runs will have stay `enqueued`. If runs "A", "B", and "C" are
-  all enqueued, "A" and "B" will start executing. Once "A" finishes, "C" will
-  start. (No more than 2-at-a-time.)
+  a time and other runs will have to stay `enqueued`. If runs "A", "B", and "C"
+  are all enqueued, "A" and "B" will start executing. Once "A" finishes, "C"
+  will start. (No more than 2-at-a-time.)
 
 ### Setting Concurrency for a workflow
 
@@ -200,4 +200,4 @@ via the workflow configuration modal by a project owner or administrator.
 
 From the canvas you can perform certain common actions (e.g., save) using
 keystrokes. Check out the full list of keyboard shortcuts
-[here](/documentation/keyboard-shortcuts).
+[here](/keyboard-shortcuts.md).

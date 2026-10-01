@@ -34,11 +34,11 @@ aggregated, filtered or transformed results to the next system.
 
 ### Mapping Structures
 
-A typical use-case is data integrations is to store large mapping objects. These
+A typical use-case in data integrations is to store large mapping objects. These
 objects themselves are key-value pairs which map strings from one system into
 matching strings from another system. For example, mapping medical codes into
-SNOMED, or mapping city codes into human-readable strings, or mappings some
-input string to a DHIS2 attribute code.
+SNOMED, or mapping city codes into human-readable strings, or mapping some input
+string to a DHIS2 attribute code.
 
 These objects are often very large and hard to maintain, and can bloat job code.
 
@@ -152,7 +152,7 @@ collections.set('openfn-demo', 'commcare-fhir-value-mappings', {
 ```
 
 If setting multiple values at once, pass a key generator function instead of an
-id to generate a key for each item. For example, if several value are saved in
+id to generate a key for each item. For example, if several values are saved in
 an array on `state.data`:
 
 ```js
@@ -169,7 +169,7 @@ Collections can be created, destroyed or renamed from the Admin menu.
 
 Before it can be used, a collection must be created. Collection names must be
 unique to the deployment, so we recommend using your organisation (and maybe
-project) as a prefix, ie, `openfn-demo`.
+project) as a prefix, e.g., `openfn-demo`.
 
 ## Using Collections
 
@@ -192,5 +192,5 @@ The Collections API provides four basic verbs:
 - [`collections.remove()`](/adaptors/packages/collections-docs#collections_remove)
   will remove values by key or key pattern.
 
-The Collection API is backed by a special adaptor: see the
+The Collections API is backed by a special adaptor: see the
 [Collections Adaptor API](/adaptors/collections) for more details.

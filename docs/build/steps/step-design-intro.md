@@ -8,14 +8,14 @@ will be executed by the individual Step. Read on for a brief overview.
 
 :::tip
 
-Check out the [Workflow Design](/documentation/design/design-overview) docs for
-more details on solution design and links to templates.
+Check out the [Workflow Design](/design/design-overview.md) docs for more
+details on solution design and links to templates.
 
 :::
 
 In short, to design a Workflow Step, you will need to follow the below list of
 actions, and consider summarizing your design specifications in a
-[workflow diagram](/documentation/design/design-workflow).
+[workflow diagram](/design/design-workflow.md).
 
 ![Example Workflow](/img/example-workflow-state.webp)
 
@@ -29,9 +29,9 @@ actions, and consider summarizing your design specifications in a
 
 ## 2. Map your data elements
 
-[See here](/documentation/design/mapping-specs) for detailed guidance on mapping
-data elements or "data dictionaries" between your source and destination apps.
-To get started:
+[See here](/design/mapping-specs.md) for detailed guidance on mapping data
+elements or "data dictionaries" between your source and destination apps. To get
+started:
 
 1. Export the metadata (or "form", "field list", or "data elements") of your
    source app (input) & destination app (output).
@@ -39,7 +39,7 @@ To get started:
 
 ![Sample mapping sheet](/img/data-element-mapping.webp)
 
-3. Map the source and destinationdata elements & define rules for data cleaning
+3. Map the source and destination data elements & define rules for data cleaning
    and transformation. Consider:
 
 - How should the data collected be translated into your destination system’s
@@ -58,10 +58,10 @@ To get started:
    - Example from [language-postgresql](/adaptors/packages/postgresql-docs)
      - `insert(...)`, `insertMany(...)`
      - `update(...)`, `updateMany(...)`
-     - `upsert(...)`, `upsertMany(...)`  → update if record exists or insert if
-       it doesn’t; references an external Id b. Example from
-       [language-dhis2](/adaptors/packages/dhis2-docs) using Tracked Entity
-       Instances (TEI)
+     - `upsert(...)`, `upsertMany(...)` → update if record exists or insert if
+       it doesn’t; references an external Id
+   - Example from [language-dhis2](/adaptors/packages/dhis2-docs) using Tracked
+     Entity Instances (TEI)
      - `updateTEI(...)`
      - `upsertTEI(...)`
 
@@ -79,5 +79,4 @@ upsert('mainDataTable', 'AnswerId', {
 });
 ```
 
-See [Job Writing Guide](/documentation/jobs/job-writing-guide) for further
-information.
+See [Job Writing Guide](/jobs/job-writing-guide.md) for further information.

@@ -1,6 +1,6 @@
 ---
 sidebar_label: API Discovery
-title: API Discovery for Workflow Design 
+title: API Discovery for Workflow Design
 ---
 
 # Discovering APIs to inform your workflow automation design
@@ -21,7 +21,7 @@ APIs tell applications how to communicate. An API is the “messenger” that:
 | :-----------------------------------------------------------------: |
 | _[Source](https://snipcart.com/blog/integrating-apis-introduction)_ |
 
-OpenFn connects with APIs via http requests sent via the web. OpenFn can
+OpenFn connects with APIs via HTTP requests sent via the web. OpenFn can
 automate any tasks supported by the APIs of the applications it integrates with
 (e.g., if an app’s API supports sending payments, then OpenFn can automate
 sending payments).
@@ -33,12 +33,12 @@ API documentation to determine the options for integration.
 
 ### Determine integration options
 
-Consider these questions to determine your integration options–even if an API is
-not available. :
+Consider these questions to determine your integration options—even if an API is
+not available:
 
 1. Is there a RESTful API?
-   - If yes, OpenFn can connect out-of-box! REST API is the gold standard for
-     most modern web apps, and typically supports JSON data format.
+   - If yes, OpenFn can connect out of the box! REST API is the gold standard
+     for most modern web apps, and typically supports JSON data format.
 2. Is there a webhook?
    - Most mobile data collection apps offer this feature. Some call it “data
      forwarding”, “web callback”, or “HTTP push API”.
@@ -92,13 +92,13 @@ example HTTP requests you can send to the API.
 **HTTP request methods will inform you which operations are supported by the
 API.**
 
-1. __C__reate → POST
-2. __R__ead → GET
-3. __U__pdate → PUT or PATCH
-4. __D__elete → DELETE
+1. **C**reate → POST
+2. **R**ead → GET
+3. **U**pdate → PUT or PATCH
+4. **D**elete → DELETE
 
 For example, if you want to query Patient records from an app, see if the API
-documentation supports `GET ‘/patients’`.
+documentation supports `GET /patients`.
 
 ### Limits
 
@@ -112,7 +112,7 @@ automation.
 
 The output of API discovery should be a “technical” workflow diagram. This
 diagram is different from the functional workflow diagram produced during
-[“Discovery”](/documentation/design/discovery) in that it captures the technical
+[“Discovery”](/design/discovery.md) in that it captures the technical
 specifications for how to integrate with target applications. These
 specifications include the specific methods/operations (e.g., GET, POST) and the
 database/API names of the target resources (i.e., specific API endpoints or
@@ -134,20 +134,20 @@ database tables).
    - Unique codes (e.g., HOUSEHOLD-10013) and
    - Unique combination of attributes (e.g., familyName + phoneNumber +
      village + districtCode)
-3. **If the target system does not have native “upsert” operation or built-in
+3. **If the target system does not have a native “upsert” operation or built-in
    duplicate-checking before insert, implement an upsert (“update or insert”)
    pattern to…**
    - Check if a record exists using a unique identifier…
    - If yes, update the record.
    - If not, insert a new record.
 4. **Don’t forget to consider data volumes. Depending on whether you need to
-   handle 1, 10000, or 1M+ records, your workflow approach may need change.**
+   handle 1, 10000, or 1M+ records, your workflow approach may need to change.**
    - Estimate the file size of the data to be extracted
    - Consider API limits (records returned per page, request rate limits)
    - Consider bulk operations & batching requests
 
-Check out the technical workflow diagram below for syncing forms submissions
-from KoboToolBox to DHIS2. The original functional diagram can be found
-[here](/documentation/design/discovery#workflow-requirements-gathering).
+Check out the technical workflow diagram below for syncing form submissions from
+KoboToolbox to DHIS2. The original functional diagram can be found
+[here](/design/discovery.md#workflow-requirements-gathering).
 
 ![Workflow](/img/technical_example.webp)

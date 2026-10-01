@@ -2,7 +2,7 @@
 title: Limits
 ---
 
-OpenFn cloud hosted instance has a number of limits that help ensure smooth
+The OpenFn cloud hosted instance has a number of limits that help ensure smooth
 operation. The table below shows the limits for different plans. For a more
 detailed list of limits, see the
 [OpenFn pricing page](https://openfn.org/pricing). For self hosted instances,
@@ -15,8 +15,8 @@ for more details.
 | Runs                        | Maximum number of runs allowed per month                                  | Unlimited    | 100     | 2,000  | 5,000   | 10,000    | Unlimited |
 | Workflow Execution Duration | Maximum time a workflow can run before being killed                       | Configurable | 60 secs | 5 mins | 20 mins | 30 mins   | 30 mins   |
 | Memory Usage                | Maximum memory allowed per workflow attempt                               | Configurable | 128MB   | 256MB  | 512MB   | 1GB       | 1GB       |
-| State Size                  | Maximum size of state objects inside the runtime VM (25% of Memory Usage) | Dynamic      | 32mb    | 64MB   | 128MB   | 256MB     | 256MB     |
-| Dataclip Size               | Maximum size for data clips persisted from run output                     | Configurable | 512KB   | 2MB    | 10MB    | 10MB      | 10MB      |
+| State Size                  | Maximum size of state objects inside the runtime VM (25% of Memory Usage) | Dynamic      | 32MB    | 64MB   | 128MB   | 256MB     | 256MB     |
+| Dataclip Size               | Maximum size for dataclips persisted from run output                      | Configurable | 512KB   | 2MB    | 10MB    | 10MB      | 10MB      |
 | AI Assistant                | Maximum AI tokens available                                               | Configurable | 500K    | 1.5M   | 5M      | 10M       | 10M       |
 | Data Collections (Storage)  | Maximum storage for data collections                                      | Configurable | 1MB     | 5MB    | 10MB    | 50MB      | 50MB      |
 | Data Collections (Number)   | Maximum number of data collections per project                            | Configurable | 2       | 5      | 10      | Unlimited | Unlimited |
@@ -31,7 +31,7 @@ To add this back in the future
 
 For standard plans, you can increase your limits by upgrading to a higher plan
 by following the
-[upgrade plan instructions](/documentation/hosted/overview#upgrading-your-subscription).
+[upgrade plan instructions](/hosted/overview.md#upgrading-your-subscription).
 
 For custom limits or upgrades in dedicated deployments, contact
 enterprise@openfn.org.
@@ -45,8 +45,8 @@ duration of each attempt by clicking on the attempt ID. If an attempt exceeds
 this limit, it will be killed by the worker and you'll see a `Killed:Timeout`
 badge as your attempt state.
 
-> _Instance superusers can control this limit the `MAX_RUN_DURATION` environment
-> variable._
+> _Instance superusers can control this limit via the `MAX_RUN_DURATION`
+> environment variable._
 
 ## Memory Usage (1GB)
 

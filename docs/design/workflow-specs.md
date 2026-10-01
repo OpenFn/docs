@@ -5,15 +5,15 @@ title: Writing Workflow Automation Specifications
 
 # Writing specifications for workflow automation solutions
 
-**The key outputs of the the design process are:**
+**The key outputs of the design process are:**
 
-1. [Functional Workflow diagram](/documentation/design/discovery#workflow-requirements-gathering)
-2. [Technical Workflow diagram](/documentation/design/discovery#workflow-requirements-gathering)
-3. [Solution Architecture Diagram](/documentation/design/discovery#documenting-the-solution-architecture)
-4. [Data element mapping specifications](/documentation/design/mapping-specs)
+1. [Functional Workflow diagram](/design/discovery.md#workflow-requirements-gathering)
+2. [Technical Workflow diagram](/design/discovery.md#workflow-requirements-gathering)
+3. [Solution Architecture Diagram](/design/discovery.md#documenting-the-solution-architecture)
+4. [Data element mapping specifications](/design/mapping-specs.md)
 
-Given these, you’ll be ready to finalize your workflow specifications and
-hand-off to developers for job-writing!
+Given these, you’ll be ready to finalize your workflow specifications and hand
+off to developers for job-writing!
 
 Each “task” or “step” in the OpenFn swimlane of your technical diagram can be
 implemented as a distinct operation in your workflow configuration. In the

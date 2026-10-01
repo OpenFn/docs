@@ -43,11 +43,11 @@ streamlined, automated, and managed by a workflow automation tool.
 Workflow automation design features 5 main steps that are covered in depth in
 other articles:
 
-1. [Discovery & Scoping](/documentation/design/discovery)
-2. [Workflow Design](/documentation/design/design-workflow)
-3. [API Discovery and Technical Design](/documentation/design/api-discovery)
-4. [Data Element Mapping Specifications](/documentation/design/mapping-specs)
-5. [Workflow Specifications](/documentation/design/workflow-specs)
+1. [Discovery & Scoping](/design/discovery.md)
+2. [Workflow Design](/design/design-workflow.md)
+3. [API Discovery and Technical Design](/design/api-discovery.md)
+4. [Data Element Mapping Specifications](/design/mapping-specs.md)
+5. [Workflow Specifications](/design/workflow-specs.md)
 
 ### Example Use Case
 
@@ -56,6 +56,6 @@ collection & workflow automation scenario below:
 
 _PatientCare is a health NGO that runs a network of community health workers who
 provide care to patients in remote areas in Guinea. PatientCare workers collect
-patient data in [KoboToolBox](https://www.kobotoolbox.org/). The Guinean
+patient data in [KoboToolbox](https://www.kobotoolbox.org/). The Guinean
 government uses [DHIS2](http://dhis2.org) as its national health information
 system (HIS) and requires PatientCare to register all patient data in the HIS._

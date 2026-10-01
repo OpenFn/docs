@@ -76,7 +76,7 @@ versions.
 
 ### 6. Does the target API support/enable the implementation in the adaptor?
 
-Whoa... if you've made it down here you're in now "big serious" land. Tread
+Whoa... if you've made it down here you're now in "big serious" land. Tread
 lightly! I'm guessing that you've found lots of Stack Overflow threads
 describing the issue you're facing. What you're getting at is that _despite_ the
 API docs we used to build this adaptor, there's something different about the
@@ -116,7 +116,7 @@ problem with clicks, not code?
 Remember those jobs we used to write that did nothing (simply returning state)
 if a condition was met? Well, using exactly this approach we delivered an
 "exclusion filter" feature to OpenFn which allows a user to skip certain inbound
-messages based on criteria, rather than having to evaluate those message in the
+messages based on criteria, rather than having to evaluate those messages in the
 job.
 
 It took much more work than writing that one `fn(...)` block at the top of a
@@ -130,7 +130,7 @@ future.
 These questions are always knocking around inside my head and I try to weigh
 this product perspective against the implementation perspective. In the end,
 it's always about balance (no surprise there) in how we _solve_ these problems,
-but by following the implementation perspective in how you approach, understand,
+but following the implementation perspective in how you approach, understand,
 debug, and produce estimates will get more information out onto the table faster
 and enable a better "OK, how should we solve this given the current
 chronological and commercial constraints" conversation between the

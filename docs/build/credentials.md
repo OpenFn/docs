@@ -3,10 +3,10 @@ title: Credentials
 ---
 
 Credentials are used to authorize connections to external systems. Some Adaptors
-will use credentials to fetch meta-data from source and destination applications
+will use credentials to fetch metadata from source and destination applications
 and make the job writing process easier.
 
-A Credentials' values can only be viewed or edited by a single user — their
+A Credential's values can only be viewed or edited by a single user — their
 "owner" (the user that created that credential). All the collaborators on a
 Project can choose from all credentials for the Project when defining a job.
 
@@ -16,8 +16,8 @@ Project can choose from all credentials for the Project when defining a job.
 
 You can create a new Credential while configuring a new Step in your Workflow,
 or via the Settings > Credentials page.
-[Read this](/documentation/manage-projects/manage-credentials) for more on
-managing credentials.
+[Read this](/manage-projects/manage-credentials.md) for more on managing
+credentials.
 
 ### Understand the app-specific credentials
 
@@ -49,7 +49,7 @@ gracefully, when in doubt you should leave it off. For example:
 ### Use OAuth2 credentials
 
 If OAuth2 _clients_ have been configured on your OpenFn instance, you can use
-them create OAuth credentials:
+them to create OAuth credentials:
 
 1. First you pick an OAuth credential type from the "New Credential" interface.
 2. Then you give it a name.
@@ -69,7 +69,7 @@ credential type for your app, please contact the superuser responsible for your
 instance setup and request them to set up OAuth clients for your application.
 Users of the hosted OpenFn platform SaaS can post on
 [community.openfn.org](https://community.openfn.org) or send an email to
-[support@openfn.org](mailto://support@openfn.org).
+[support@openfn.org](mailto:support@openfn.org).
 
 :::
 
@@ -83,7 +83,7 @@ Note the credential selects only required scopes for Google Sheets.
 
 Note that you can choose which scopes to access on Salesforce.
 
-![Salseforce OAuth](/img/salesforce-oauth2.webp)
+![Salesforce OAuth](/img/salesforce-oauth2.webp)
 
 :::tip
 
@@ -110,7 +110,7 @@ Service Account is the recommended approach for automated workflows.
 API-only users might not be available in every target system, but many do offer
 the creation of user roles that have API-only access permissions, and may allow
 you to determine the scopes for which APIs or endpoints users can access. Even
-when an API only user is not available in the target system, best practices
+when an API-only user is not available in the target system, best practices
 dictate that an integration/service user is used for all automation tasks to
 maintain a secure audit trail.
 
@@ -123,11 +123,11 @@ API-only access minimizes the risks of data breaches by:
   change vs. an automated system action via the API user.
 
 - **Minimizing breach impact**: The user can be deactivated if compromised, and
-  log in to the frontend with the breached API credential is automatically
+  logging in to the frontend with the breached API credential is automatically
   disallowed, limiting attack vectors.
 
 - **Ensuring the principle of least privilege**: Each integration user need only
   have access to the subset of data supporting its specific use case.
 
-Check out the docs on
-[Security Best Practices](/documentation/get-started/security) to learn more.
+Check out the docs on [Security Best Practices](/get-started/security.md) to
+learn more.

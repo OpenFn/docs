@@ -18,8 +18,7 @@ One of the most helpful pages for troubleshooting on OpenFn is the
 [History](/monitor-history/activity-history.md) page. This page provides a list
 of all of the runs executed for a Work Order and their status. Project
 administrators can troubleshoot errors by clicking into the run to review the
-run details. Learn more about runs [here](/monitor-history/inspect-runs.md)
-here.
+run details. Learn more about runs [here](/monitor-history/inspect-runs.md).
 
 ### Status codes
 
@@ -60,7 +59,7 @@ can have a **"Data received from source system"** section and a **"Data to be
 uploaded to destination system"** section.
 
 These logs can help admins verify that the source data and the data being
-uploaded to the destination system is correct. For example, seeing in the logs
+uploaded to the destination system are correct. For example, seeing in the logs
 that a unique identifier is being mapped to `undefined` in the destination
 system can help you understand the root cause of an error. This Salesforce error
 message might be caused by an `undefined` mapping:
@@ -85,7 +84,7 @@ Other error messages are not as clear and can take some time to debug:
 **`TypeErrors`** usually indicate that the job received a part of the input that
 it wasn't expecting, or there is a syntax error in your job code. It means that
 the job needs to be updated to know how to handle the input. In this case, the
-job received an old version of the Commcare form which was missing a field on
+job received an old version of the CommCare form which was missing a field on
 which the job called the `split` function. You can determine this by reviewing
 the job for which fields the split function is being called on and checking that
 they are all present in the message.
@@ -97,7 +96,7 @@ with its error messages you become.
 
 OpenFn has outlined several of the more common error messages specific to some
 of the systems that we have integrated in the past. Explore these systems and
-their error messages [here](/adaptors#connect-anything).
+their error messages [here](/adaptors).
 
 :::
 

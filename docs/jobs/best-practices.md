@@ -8,7 +8,7 @@ title: Best Practices
 If you must reference credential secrets in your job code, you can map keys from
 your `state.configuration`. The example below dynamically maps the username and
 password from your `state.configuration` (or "credential" if using the app) into
-your http request body.
+your HTTP request body.
 
 ```js
 post('/api/v1/auth/login', {
@@ -20,7 +20,7 @@ post('/api/v1/auth/login', {
 });
 ```
 
-> **Note:** While most adaptors handles authentication automatically, The
+> **Note:** While most adaptors handle authentication automatically, the
 > `@openfn/language-common` adaptor allows manual authentication handling.
 
 **Recommended approach:** Instead of accessing credentials in your job code, you
@@ -57,7 +57,7 @@ If something goes wrong, it's usually best to let your jobs fail.
 Failing jobs will generate the right status on the OpenFn app and communicate
 that something is wrong.
 
-Don't worry, errors happen all the time! Even well established workflows will
+Don't worry, errors happen all the time! Even well-established workflows will
 occasionally throw an error because of some unexpected data somewhere in the
 pipeline. It's a fact of life, but the most important thing is to be aware of
 it.
