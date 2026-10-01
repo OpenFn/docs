@@ -118,14 +118,14 @@ workflow. A diferencia del diagrama funcional que se hace durante el
 técnicas para integrarse con las aplicaciones de destino. Esas especificaciones
 incluyen los métodos u operaciones concretos (por ejemplo, GET o POST) y los
 nombres de los recursos de destino en la base de datos o la API (es decir, los
-endpoints de la API o las tablas de la base de datos concretos).
+endpoints concretos de la API o las tablas concretas de la base de datos).
 
 ![Workflow](/img/api_example.webp)
 
 **Al hacer el borrador de tus especificaciones técnicas, ten en cuenta lo
 siguiente:**
 
-1. **Planifica para los errores. Tus workflows van a fallar. Piensa qué pasa
+1. **Prepárate para los fallos. Tus workflows van a fallar. Piensa qué pasa
    cuando fallen…**
    - ¿Hay que avisar a alguien?
    - ¿Cómo se puede volver a procesar el workflow de forma segura?

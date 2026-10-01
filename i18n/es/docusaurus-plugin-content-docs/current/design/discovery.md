@@ -10,7 +10,7 @@ translation_review_status: machine
 Este artículo reúne las preguntas clave de descubrimiento y alcance para
 confirmar el valor de negocio, los requisitos centrales del workflow, la
 viabilidad técnica y la capacidad del cliente al empezar una implementación
-nueva. Usa como referencia el caso de uso de ejemplo presentado en la
+nueva. Se basa en el caso de uso de ejemplo presentado en la
 [introducción de la serie](/design/design-overview.md#example-use-case).
 
 :::tip
@@ -129,7 +129,7 @@ capacitación, el despliegue, la administración continua y el soporte.
      integración?
    - ¿Los administradores podrán ofrecer un entorno de pruebas o de desarrollo?
    - ¿Quién aprenderá a administrar OpenFn?
-2. ¿Qué formación técnica tienen?
+2. ¿Qué conocimientos técnicos tienen?
    - ¿Qué otros recursos hay para dar soporte continuo?
    - ¿Alguien en la organización tiene experiencia con JavaScript o JSON?
 3. ¿Hay interés en aprender a gestionar la implementación de OpenFn de forma
@@ -140,12 +140,12 @@ capacitación, el despliegue, la administración continua y el soporte.
 
 **Ejemplo:**
 
-| Nombre | Rol                                                                                                                                                                                                                                                              |
-| ------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Ian    | Administrador del sistema OpenFn, que se encargará de la gestión y el monitoreo continuos                                                                                                                                                                        |
-| Melody | Administradora de PatientCare, que capacitará en el workflow a los usuarios de su sistema                                                                                                                                                                        |
-| Arnis  | Administrador de DHIS2, que capacitará en el workflow a los usuarios de su sistema                                                                                                                                                                               |
-| Ramona | Punto focal de programas, que acompañará a los usuarios, aportará a los requisitos del workflow y se reunirá con regularidad con los usuarios para recoger comentarios, proponer cambios y revisar las solicitudes de cambio con los administradores de sistemas |
+| Nombre | Rol                                                                                                                                                                                                                                                                                                   |
+| ------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Ian    | Administrador del sistema OpenFn, que se encargará de la gestión y el monitoreo continuos                                                                                                                                                                                                             |
+| Melody | Administradora de PatientCare, que capacitará en el workflow a los usuarios de su sistema                                                                                                                                                                                                             |
+| Arnis  | Administrador de DHIS2, que capacitará en el workflow a los usuarios de su sistema                                                                                                                                                                                                                    |
+| Ramona | Punto focal de programas, que defenderá los intereses de los usuarios, aportará información para definir los requisitos del workflow y se reunirá con regularidad con los usuarios para recoger comentarios, proponer cambios y revisar las solicitudes de cambio con los administradores de sistemas |
 
 ### Documentar la arquitectura de la solución {#documenting-the-solution-architecture}
 

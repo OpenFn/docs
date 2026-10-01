@@ -19,12 +19,12 @@ monitoreo y la gestión del workflow se hacen en OpenFn.
 Antes de empezar, asegúrate de entender bien estos términos clave, que usaremos
 en toda esta documentación:
 
-### Flujo de trabajo (workflow) {#workflow}
+### Workflow (flujo de trabajo) {#workflow}
 
 El conjunto de instrucciones que determinan cómo resolver un problema o realizar
 una tarea. A menudo se divide en tareas más pequeñas e independientes.
 
-![Flujo de trabajo](/img/workflow.webp)
+![Workflow](/img/workflow.webp)
 
 ### Automatización de workflows {#workflow-automation}
 

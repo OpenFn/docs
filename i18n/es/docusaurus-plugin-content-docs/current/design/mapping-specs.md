@@ -55,10 +55,10 @@ OpenFn y la mantiene el equipo de OpenFn.
 ### Mantener las especificaciones de mapeo {#maintaining-mapping-specifications}
 
 Cuando tu proyecto de OpenFn esté en producción, el documento de
-especificaciones de mapeo puede ser la forma más sencilla para que el personal
-no técnico entienda tu solución. Si haces cambios, asegúrate de que la
-especificación de mapeo siempre coincida con el código de tus jobs. Considera
-también versionar tus especificaciones de mapeo para que las personas
+especificaciones de mapeo puede ser la forma en que tus usuarios interactúan con
+tu solución, en un lenguaje que entiende el negocio. Si haces cambios, asegúrate
+de que la especificación de mapeo siempre coincida con el código de tus jobs.
+Considera también versionar tus especificaciones de mapeo para que las personas
 involucradas tengan acceso a las implementaciones anteriores de la solución.
 
 ### Mapeo funcional y mapeo técnico {#functional-vs-technical-mapping}
