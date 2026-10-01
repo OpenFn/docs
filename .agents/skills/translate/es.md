@@ -49,6 +49,10 @@ runs".
 Before a kept English term, choose "y" or "e", and "o" or "u", by how the
 English word sounds: "workflows y History", "Canvas e Inspector".
 
+In a section that defines terms, you may explain a glossary term once in
+brackets, with the English first: "Workflow (flujo de trabajo)". Everywhere
+else, use the English term on its own.
+
 ## Capitals
 
 Follow Spanish capitalization, not the English. Spanish capitalizes far less,
