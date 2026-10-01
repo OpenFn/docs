@@ -42,9 +42,9 @@ also add `translation_reviewer` and `translation_review_date`.
 - **The hash matches the current English file.** Skip it, whatever its status.
   The English has not changed since it was translated. The one exception: if
   `glossary.yml`, `translation-rules.yml`, or the locale's house style
-  (`<locale>.md`) was committed more recently than the translation (compare
-  `git log -1 --format=%ct -- <file>`), translate a `machine` page again in
-  full, so it picks up the new rules.
+  (`<locale>.md`) was committed more recently than a `machine` or
+  `needs-review` page (compare `git log -1 --format=%ct -- <file>`), apply the
+  new rules to it (see "When the rules change" below).
 - **The hash no longer matches, and the status is `machine`, `needs-review`, or
   missing.** Translate only what changed (see "Updating a page" below).
 - **The hash no longer matches, and the status is `human-reviewed`.** Leave the
@@ -56,6 +56,29 @@ also add `translation_reviewer` and `translation_review_date`.
   `human-reviewed`: the reviewer merging it approves it. If the old version is
   no longer in the repo, say so and offer a full retranslation in that PR
   instead.
+
+## When the rules change
+
+Do not retranslate the page. A full retranslation rewords every block, and a
+reviewer can no longer see what the new rules changed.
+
+1. See what changed in the rules since the page was last committed:
+
+   ```bash
+   git diff $(git log -1 --format=%H -- <translated page>) -- glossary.yml translation-rules.yml .agents/skills/translate/<locale>.md
+   ```
+
+2. Fix only the text that breaks a rule that was added or changed. Leave
+   everything else, even wording you would now write differently.
+3. Leave fenced blocks as they are. If one breaks a new rule, say so in the PR.
+
+If nothing breaks the new rules, there is nothing to commit, and the page is
+checked again on the next run. That is quick, because only the changed rules
+are checked.
+
+To retranslate a page from scratch on purpose, for example while tuning the
+rules on a first section, delete it first. It then counts as having no
+translation.
 
 ## Updating a page
 
