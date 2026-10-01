@@ -128,7 +128,7 @@ resumen de las opciones FOSS y más documentación.
 
 ## Comunidad {#community}
 
-Para hacer preguntas, informar de problemas o aprender de otras personas que
+Para hacer preguntas, reportar problemas o aprender de otras personas que
 implementan OpenFn, visita nuestro foro de Discourse en
 [community.openfn.org](https://community.openfn.org). Regístrate y únete a la
 conversación. Normalmente es la forma más rápida de obtener ayuda si tienes
