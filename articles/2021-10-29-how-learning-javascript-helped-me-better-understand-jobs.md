@@ -97,9 +97,9 @@ phase of integration design, we often discuss how each answer choice for
 **picklist** values should map from the source system to the destination system.
 Sometimes the mapping is simple but other times, there is an extensive list of
 possible choices that can be found in the
-[message](/documentation/legacy/getting-started/terminology#message) and not all are
-relevant to the destination system. Then the question is, **how should the job
-handle values which are not explicitly mapped?**
+[message](/documentation/legacy/getting-started/terminology#message) and not all
+are relevant to the destination system. Then the question is, **how should the
+job handle values which are not explicitly mapped?**
 
 Sometimes we hear clients say to "ignore" those values. **But what does it
 really mean to "ignore" a value?** Should we set it to `0`? An empty string? How

@@ -79,9 +79,9 @@ category from the sidebar, one folder under `docs/`, or one page.
 Stop at 20 changed files and open a PR (see `update-content/SKILL.md`).
 Translations go in their own PR per locale and do not count toward the 20.
 
-Mechanical changes that the build or a script checks, such as rewriting links
-or running Prettier, can go in one PR of any size. Keep that PR to the
-mechanical change only, so it stays quick to review.
+Mechanical changes that the build or a script checks, such as rewriting links or
+running Prettier, can go in one PR of any size. Keep that PR to the mechanical
+change only, so it stays quick to review.
 
 ## Checking a change
 

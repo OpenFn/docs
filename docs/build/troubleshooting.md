@@ -8,8 +8,8 @@ and complications, that might help you get to the bottom of it.
 
 :::tip
 
-Check out the [Troubleshooting page](/monitor-history/troubleshooting.md) in
-the "Monitor History" section for more specific tips and common errors.
+Check out the [Troubleshooting page](/monitor-history/troubleshooting.md) in the
+"Monitor History" section for more specific tips and common errors.
 
 :::
 

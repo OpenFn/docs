@@ -11,7 +11,9 @@ capacity when starting a new implementation. This article will be referencing
 the example use case introduced in the
 [series introduction](/documentation/design/design-overview#example-use-case).
 
-:::tip To quickly export and/or share these questions, please see this
+:::tip
+
+To quickly export and/or share these questions, please see this
 [slide deck](https://docs.google.com/presentation/d/1WIc_uNAqapILF7redhTnZXpPRo1jFPSmAjoAplGt42w/edit?usp=sharing).
 
 :::
@@ -159,6 +161,6 @@ requirements. Check out the example solution architecture diagrams below.
 
 **Example 2:**
 
-|                                                      ![Workflow](/img/solution_diagram2.webp)                                                       |
+|                                                      ![Workflow](/img/solution_diagram2.webp)                                                      |
 | :------------------------------------------------------------------------------------------------------------------------------------------------: |
 | _[Source](https://lucid.app/lucidchart/1e997197-2d67-4393-8394-a532d83561b2/edit?invitationId=inv_85b809a1-6fbd-4275-abdc-618fbd56e90d&page=0_0#)_ |

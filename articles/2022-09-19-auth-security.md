@@ -64,7 +64,7 @@ Morten from DHIS2, Dev and Biyeun from Dimagi.
 
 **To more widely share these learnings, we have drafted this resource
 documenting the specific security measures that should be considered at each
-stage of product development _specifically with regards to authentication and
+stage of product development \_specifically with regards to authentication and
 authorization. _**Our hope is that this article will help other product managers
 in the Global Good (GG) and Digital Public Good (DPG) communities consider these
 features into their backlog/roadmap from the outset and make sure they are

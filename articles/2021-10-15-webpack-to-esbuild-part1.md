@@ -42,9 +42,9 @@ different in implementation and in features.
 
 So **speed** is the big selling point. But thinking back to other bundlers, what
 made us switch (thinking of gulp, grunt, mixing in babel, browserify etc). Those
-changes were never about speed, at least a drop in build time was nice - a bit of
-caching goes a long way. The changes were about being able to use the syntax and
-libraries we wanted with as little fuss as possible.
+changes were never about speed, at least a drop in build time was nice - a bit
+of caching goes a long way. The changes were about being able to use the syntax
+and libraries we wanted with as little fuss as possible.
 
 Webpack _can_ do almost anything. I'm not convinced esbuild can match that, and
 as an open-source maintainer I'd argue it shouldn't break its original goals to
@@ -78,10 +78,8 @@ here.
 - The splitting doesn't know about `app.js`, it puts everything that resolves to
   `node_modules` in `vendor.js`. Subtle but worth pointing out.
 
-<a name="lodash"><sup>*</sup></a>
-Could probably ignore this and refactor some
+<a name="lodash"><sup>*</sup></a> Could probably ignore this and refactor some
 files and check that tree-shaking is working properly.
-
 
 ## What we need esbuild to provide
 
@@ -120,7 +118,7 @@ So we know what we want, but can any of this work? Let's give it a go with the
 simplest of steps:
 
 ```
-./node_modules/.bin/esbuild js/app.js --bundle --outfile=out.js                                    
+./node_modules/.bin/esbuild js/app.js --bundle --outfile=out.js
  > js/app.js:58:2: error: Unexpected "<"
     58 │   <React.StrictMode>
        ╵   ^
@@ -181,7 +179,7 @@ We can see it's copied our images and css into the build folder. Note that we're
 not doing any bundle splitting right now and from the looks of it
 
 ```
-... \ 
+... \
 >   --minify
 
   out/app.js                               3.4mb ⚠️
@@ -190,8 +188,8 @@ not doing any bundle splitting right now and from the looks of it
 ```
 
 That's better, wow. It's kinda difficult to not be amazed. For context, a
-minified and split production build takes about 34s with webpack and that's on my
-i7 desktop machine, and 197s (3+ mins) on CI/CD.
+minified and split production build takes about 34s with webpack and that's on
+my i7 desktop machine, and 197s (3+ mins) on CI/CD.
 
 ## What's next?
 
@@ -209,5 +207,7 @@ But a shell command doth not a replacement for webpack make. We still need to:
 
 ## Resources
 
-- [FYI: Phoenix drops webpack and npm for esbuild](https://fly.io/blog/phoenix-moves-to-esbuild-for-assets/) <a name="ref1"><sup>1</sup></a>
-- [JavaScript modules via script tag](https://caniuse.com/es6-module) <a name="esm"><sup>2</sup></a>
+- [FYI: Phoenix drops webpack and npm for esbuild](https://fly.io/blog/phoenix-moves-to-esbuild-for-assets/)
+  <a name="ref1"><sup>1</sup></a>
+- [JavaScript modules via script tag](https://caniuse.com/es6-module)
+  <a name="esm"><sup>2</sup></a>

@@ -17,8 +17,8 @@ CommCare cloud-hosted platform SaaS.
 
 :::info CommCare API Access
 
-If using CommCare SaaS, as of October '24, only 
-projects with the Pro Plan or above include API access
+If using CommCare SaaS, as of October '24, only projects with the Pro Plan or
+above include API access
 ([see CommCare docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143958022/API+Access)).
 
 :::
@@ -45,8 +45,9 @@ CommCare supports 2 primary integration options:
    that enable external services like OpenFn to _pull_ data from CommCare, or
    push data from external apps to CommCare. This option is suited for
    _scheduled, bulk syncs_ or workflows that must update data in CommCare with
-   external information. Also [see here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview) 
-   for more on the API Explorer. 
+   external information. Also
+   [see here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview)
+   for more on the API Explorer.
 
 This OpenFn adaptor is designed for option #2
 [CommCare's APIs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2279637003/CommCare+API+Overview).
@@ -179,13 +180,15 @@ methods supported:
 [Configuration docs](/adaptors/packages/commcare-configuration-schema) for more
 on required authentication parameters.**
 
-See platform docs [on managing credentials](/documentation/manage-projects/manage-credentials) for
+See platform docs
+[on managing credentials](/documentation/manage-projects/manage-credentials) for
 how to configure a credential in OpenFn and see the below CommCare credential
 example.
 
 ![CommCare Cred](/img/commcare_credential_edit.webp)
 
-If you're using the `Raw JSON` credential type, your configuration may look like this:
+If you're using the `Raw JSON` credential type, your configuration may look like
+this:
 
 ```json
 {
@@ -217,7 +220,6 @@ note:
 
 :::
 
-
 ## Integration Design Tips
 
 ### CommCare Data Model
@@ -238,46 +240,71 @@ for a detailed description of the types of data.
 ![CommCare-data-model](/img/commcare-data-model.webp)
 
 ### Mapping CommCare Metadata to External Systems
-Use the [CommCare App Summary](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143956371/App+Summary) to view and export case or form metadata to XLS. This will help you discover what data is available to be mapped to an external system. 
+
+Use the
+[CommCare App Summary](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143956371/App+Summary)
+to view and export case or form metadata to XLS. This will help you discover
+what data is available to be mapped to an external system.
 
 ### Unique Identifiers
 
 - As CommCare data is stored in forms and cases, there are two types of UIDs in
-  CommCare: `case_id` & form `id`. 
-- You can search for a particular case or form submission in CommCare by using the `Find Data by ID` feature [here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955380/Find+Data+by+ID).
-- [See docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143946126/Generating+a+Unique+ID+for+beneficiaries) for more on generating custom unique IDs.
+  CommCare: `case_id` & form `id`.
+- You can search for a particular case or form submission in CommCare by using
+  the `Find Data by ID` feature
+  [here](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143955380/Find+Data+by+ID).
+- [See docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143946126/Generating+a+Unique+ID+for+beneficiaries)
+  for more on generating custom unique IDs.
 
 :::tip Embedding External IDs and Hidden Values in Forms
 
-If integrating with CommCare `forms`, you may need to make sure that any unique identifiers or external IDs you want to reference in your integration are configured in your forms. You may consider using
-[hidden values](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954117/Hidden+Values+Tutorial+Part+1+Adding+Two+Questions+Using+a+Hidden+Value) to capture external IDs in form data, without affecting the end user experience.
+If integrating with CommCare `forms`, you may need to make sure that any unique
+identifiers or external IDs you want to reference in your integration are
+configured in your forms. You may consider using
+[hidden values](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143954117/Hidden+Values+Tutorial+Part+1+Adding+Two+Questions+Using+a+Hidden+Value)
+to capture external IDs in form data, without affecting the end user experience.
 
 :::
 
 ### Lookup Tables in CommCare
-Lookup tables in CommCare store reference data that can be used across multiple forms and workflows. They are often used for predefined lists such as as health facility names, geographic locations, product catalogs, or standardized response options.
+
+Lookup tables in CommCare store reference data that can be used across multiple
+forms and workflows. They are often used for predefined lists such as as health
+facility names, geographic locations, product catalogs, or standardized response
+options.
 
 #### Querying Lookup Tables
-When fetching lookup table data in using CommCare APIs, there are two main approaches:
+
+When fetching lookup table data in using CommCare APIs, there are two main
+approaches:
 
 **1. Using the Fixture API**
-[See here](https://commcare-hq.readthedocs.io/api/fixture.html) for the CommCare docs on this API. FYI `fixture` is a more technical term that the CommCare docs sometimes use to refer to a `lookup table`.
+[See here](https://commcare-hq.readthedocs.io/api/fixture.html) for the CommCare
+docs on this API. FYI `fixture` is a more technical term that the CommCare docs
+sometimes use to refer to a `lookup table`.
+
 ```
 //sample openfn job to get a specific 'diagnosis' lookup table
 get("fixture/?fixture_type=diagnosis")
 ```
 
 **Pros:**
-- Simple and direct API for querying a specific lookup table; response include lookup table metadata and data. 
-- Works well when items from only a couple of tables (e.g., 1-3) need to be queried.
+
+- Simple and direct API for querying a specific lookup table; response include
+  lookup table metadata and data.
+- Works well when items from only a couple of tables (e.g., 1-3) need to be
+  queried.
 
 **Cons:**
-- Requires multiple API calls if several tables are needed, which can be inefficient at scale. 
+
+- Requires multiple API calls if several tables are needed, which can be
+  inefficient at scale.
 - See `lookup_table_item` API if querying data across multiple lookup tables.
 
 **2. Using the lookup_table_item API**
-[See here](https://commcare-hq.readthedocs.io/api/fixture.html#list-lookup-table-row) for the CommCare docs on this API. 
-You can use this API to query _and_ update lookup table items or rows.
+[See here](https://commcare-hq.readthedocs.io/api/fixture.html#list-lookup-table-row)
+for the CommCare docs on this API. You can use this API to query _and_ update
+lookup table items or rows.
 
 ```
 get('lookup_table_item', //to list all lookup table items across multiple tables -> bulk query
@@ -286,41 +313,61 @@ get('lookup_table_item', //to list all lookup table items across multiple tables
 fn(state => {
   //custom function to then assign & group lookup_table_items to new variables
   const findLookupById = (id) => state.data.filter((i) => i.data_type_id === id);
- 
+
   //assign to facility, product, medications variables to use later in WF
-  state.facility = findLookupById("facility_table_id"); 
+  state.facility = findLookupById("facility_table_id");
   state.product = findLookupById("product_table_id");
   state.medications = findLookupById("medications_table_id");
-  return state; 
+  return state;
 })
 ```
 
 **Pros:**
-- Good for bulk querying lookup table rows in a single request, reducing API calls.
+
+- Good for bulk querying lookup table rows in a single request, reducing API
+  calls.
 - Useful for OpenFn workflows requiring data from multiple lookup tables.
 - Support for create & update of lookup table items.
 
 **Cons:**
-- Retrieves all lookup tables and filters them in-memory, which can be inefficient if only a few tables are needed.
+
+- Retrieves all lookup tables and filters them in-memory, which can be
+  inefficient if only a few tables are needed.
 
 #### Updating Lookup Tables
-You can bulk update rows in lookup tables using the [`bulk()` function](/adaptors/packages/commcare-docs#bulk) in the CommCare adaptor that will utilize this [CommCare bulk upload API](https://commcare-hq.readthedocs.io/api/fixture.html#bulk-upload-lookup-tables). **Tip:** Set the `replace` option as `false` if you want to _update_ (and not overwrite) tables.
 
-Or, you can edit or delete an individual lookup table row via the [lookup_table_item API](https://commcare-hq.readthedocs.io/api/fixture.html#edit-or-delete-lookup-table-row). 
+You can bulk update rows in lookup tables using the
+[`bulk()` function](/adaptors/packages/commcare-docs#bulk) in the CommCare
+adaptor that will utilize this
+[CommCare bulk upload API](https://commcare-hq.readthedocs.io/api/fixture.html#bulk-upload-lookup-tables).
+**Tip:** Set the `replace` option as `false` if you want to _update_ (and not
+overwrite) tables.
+
+Or, you can edit or delete an individual lookup table row via the
+[lookup_table_item API](https://commcare-hq.readthedocs.io/api/fixture.html#edit-or-delete-lookup-table-row).
+
 ```
 request('PUT', `/a/${$.configuration.domain}/api/v1/lookup_table_item/${item-id}`} //to update 1 row
 
 request('DELETE', `/a/${$.configuration.domain}/api/v1/lookup_table_item/${item-id}`} //to delete 1 row
 ```
-  
+
 #### Best Practices
-- Use the `Fixture` API when fetching data for only a couple of (1-3) lookup tables.
-- Use the `lookup_table` API for scenarios where data from multiple lookup tables needs to be queried in bulk. 
-- Consider performance trade-offs when selecting which API to use, balancing API efficiency with data processing overhead. [See CommCare docs](https://commcare-hq.readthedocs.io/api/index.html#data-apis) for all available data APIs. 
+
+- Use the `Fixture` API when fetching data for only a couple of (1-3) lookup
+  tables.
+- Use the `lookup_table` API for scenarios where data from multiple lookup
+  tables needs to be queried in bulk.
+- Consider performance trade-offs when selecting which API to use, balancing API
+  efficiency with data processing overhead.
+  [See CommCare docs](https://commcare-hq.readthedocs.io/api/index.html#data-apis)
+  for all available data APIs.
 
 #### Troubleshooting tips
-If some tables are throwing errors when being fetched using the fixtures API, the lookup table might be corrupted. Consider exporting the table and re-importing it.
 
+If some tables are throwing errors when being fetched using the fixtures API,
+the lookup table might be corrupted. Consider exporting the table and
+re-importing it.
 
 ## Helpful Links
 
@@ -342,7 +389,8 @@ CommCare has different APIs for reading vs. modifying data. Some helpful links:
 
 ### Implementation Examples
 
-- Mercy Corps Kenya (CommCare-Azure SQL DB): https://github.com/OpenFn/mercycorps-kenya
+- Mercy Corps Kenya (CommCare-Azure SQL DB):
+  https://github.com/OpenFn/mercycorps-kenya
 - MiracleFeet (CommCare-to-Salesforce sync):
   https://github.com/OpenFn/miracle-feet
 - Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
@@ -350,6 +398,10 @@ CommCare has different APIs for reading vs. modifying data. Some helpful links:
 
 ### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+Thanks for asking! We are a fully Open Source Digital Public Good, and we
+welcome contributions from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).

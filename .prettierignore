@@ -9,3 +9,5 @@ static/
 # Human-maintained; a reformat commit would mark every machine translation stale.
 glossary.yml
 translation-rules.yml
+# Prettier would format this as YAML and rewrite the JSON keys in single quotes.
+.prettierrc

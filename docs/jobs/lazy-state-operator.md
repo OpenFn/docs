@@ -41,7 +41,6 @@ The `$` symbol is really just syntactic sugar for `(state) => state` (in most
 cases, we just do a string replace when compiling your code). These two
 statements behave in exactly the same way:
 
-<!-- prettier-ignore -->
 ```js
 get($.data.url);
 get((state) => state.data.url);
@@ -114,7 +113,6 @@ create('user', {
 
 And you can use it in nested operations like, with `each()`:
 
-<!-- prettier-ignore -->
 ```js
 each($.data.patients,
   post(`patients/${$.data.patient.id}`, $.data.patient)

@@ -76,7 +76,7 @@ OpenFn supports the
 [functional requirements](https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-interoperability-layer-iol#openhie-iol-functional-requirements)
 of the OpenHIE IOL, therefore some organizations also use OpenFn as their
 central interoperability layer. That said, please note that OpenFn cannot yet be
-used as a fully OpenHIE-compliant **_interoperability layer _**because it does
+used as a fully OpenHIE-compliant **\_interoperability layer _**because it does
 not leverage the IHE ATNA profile (see
 [requirement IOL-WF1](https://guides.ohie.org/arch-spec/openhie-component-specifications-1/openhie-interoperability-layer-iol#openhie-iol-workflow-requirements)).
 

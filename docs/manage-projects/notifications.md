@@ -37,6 +37,8 @@ failed runs for each of your workflows.
 
 :::note
 
-If you want to adjust your notifications settings and you are a Collaborator on more than 1 Project, then you will need to go to the `Project Settings > Collaboration` page for _each_ Project you belong to. 
+If you want to adjust your notifications settings and you are a Collaborator on
+more than 1 Project, then you will need to go to the
+`Project Settings > Collaboration` page for _each_ Project you belong to.
 
 :::

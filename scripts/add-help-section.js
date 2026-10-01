@@ -1,7 +1,5 @@
-
 const fs = require('fs');
 const path = require('path');
-
 
 const TEMPLATE_PATH = path.join(__dirname, '_help-section-template.md');
 const HELP_SECTION = '\n\n' + fs.readFileSync(TEMPLATE_PATH, 'utf8');
@@ -9,15 +7,16 @@ const HELP_SECTION = '\n\n' + fs.readFileSync(TEMPLATE_PATH, 'utf8');
 function addHelpSectionToFile(filePath) {
   try {
     let content = fs.readFileSync(filePath, 'utf8');
-    
 
-    if (content.includes("I've noticed a problem with this Adaptor") || 
-        content.includes("something is out of date, what can I do?")) {
+    if (
+      content.includes("I've noticed a problem with this Adaptor") ||
+      content.includes('something is out of date, what can I do?')
+    ) {
       return false;
     }
 
     content = content.trimEnd() + HELP_SECTION;
-    
+
     fs.writeFileSync(filePath, content);
     console.log(`Added help section to: ${path.basename(filePath)}`);
     return true;
@@ -29,17 +28,21 @@ function addHelpSectionToFile(filePath) {
 
 function main() {
   const adaptorsDir = path.join(__dirname, '../adaptors');
-  
+
   if (!fs.existsSync(adaptorsDir)) {
     console.error('Adaptors directory not found!');
     process.exit(1);
   }
-  
+
   const files = fs.readdirSync(adaptorsDir);
-  const markdownFiles = files.filter(file => file.endsWith('.md') && file !== 'intro.mdx');
-  
-  console.log(`Found ${markdownFiles.length} markdown files in adaptors directory`);
-  
+  const markdownFiles = files.filter(
+    file => file.endsWith('.md') && file !== 'intro.mdx'
+  );
+
+  console.log(
+    `Found ${markdownFiles.length} markdown files in adaptors directory`
+  );
+
   let updated = 0;
   for (const file of markdownFiles) {
     const filePath = path.join(adaptorsDir, file);
@@ -47,8 +50,10 @@ function main() {
       updated++;
     }
   }
-  
-  console.log(`\nProcessed ${markdownFiles.length} files, updated ${updated} files`);
+
+  console.log(
+    `\nProcessed ${markdownFiles.length} files, updated ${updated} files`
+  );
 }
 
 if (require.main === module) {
