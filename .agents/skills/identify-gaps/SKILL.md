@@ -65,7 +65,7 @@ docs at all is a missing page.
 ## House style
 
 In a general review, also list the pages that break the house style in
-`AGENTS.md` or use a `variants` spelling from `glossary.yml`. These are Could
+`STYLE.md` or use a `variants` spelling from `glossary.yml`. These are Could
 change. Group them by rule, with the pages under each, so one rule broken on 30
 pages is one recommendation, not 30.
 

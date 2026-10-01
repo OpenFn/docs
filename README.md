@@ -7,6 +7,8 @@ site._**
 
 Visit: https://docs.openfn.org/documentation/writing-docs/
 
+Follow the house style in [STYLE.md](STYLE.md) when you write or edit a page.
+
 This website is built using [Docusaurus](https://docusaurus.io/), a static
 website generator that uses Markdown and Javascript.
 
