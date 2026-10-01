@@ -1,0 +1,22 @@
+{
+  "title": {
+    "message": "OpenFn",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "OpenFn",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Docs": {
+    "message": "Documentación",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.Adaptors": {
+    "message": "Adaptors",
+    "description": "Navbar item with label Adaptors"
+  },
+  "item.label.Articles": {
+    "message": "Artículos",
+    "description": "Navbar item with label Articles"
+  }
+}
