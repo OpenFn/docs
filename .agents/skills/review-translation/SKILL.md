@@ -4,14 +4,15 @@ description:
   Checks translated docs pages against the English in a fresh session, fixes
   clear problems (changed meaning, literal phrasing, broken house style rules),
   and reports the rest. Does not commit or open a PR. Use after /translate
-  pages, before committing a section.
+  pages, once the section is committed.
 disable-model-invocation: true
 ---
 
 # Review a translation
 
 Run `/review-translation <scope>` in a fresh session, not the one that
-translated the pages: a translator is poor at spotting its own mistakes. The
+translated the pages: a translator is poor at spotting its own mistakes. Commit
+the translation first, so the review's fixes show up as their own diff. The
 scope is the same as for `/translate pages`: one page, one folder under `docs/`,
 or one sidebar category. If no scope is given, ask.
 
@@ -39,8 +40,13 @@ Then read the rules listed above.
 These need no judgement, so search for them across the whole scope rather than
 reading for them:
 
-- Run the glossary check from "Check each page" in
-  `.agents/skills/translate/pages.md`.
+- Run the glossary check on every block. Leave out `--base`: the translation is
+  already committed, so `--base HEAD` would skip every block.
+
+  ```bash
+  node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md... --check
+  ```
+
 - Every word or phrase `<locale>.md` says not to use, such as the "Not" column
   of a word table.
 - Punctuation `<locale>.md` rules out, such as curly quotes.
