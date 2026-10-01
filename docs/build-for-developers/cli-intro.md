@@ -20,7 +20,7 @@ developer experience with OpenFn. You can use the OpenFn CLI to:
 
 ### Before you start
 
-Before you begin with the @openfn/cli, make sure to setup some key tooling:
+Before you begin with the @openfn/cli, make sure to set up some key tooling:
 
 1. **Code Editor:** Ensure you have a code editor installed on your machine. You
    can use popular editors like [VS Code](https://code.visualstudio.com/) or
@@ -31,9 +31,9 @@ Before you begin with the @openfn/cli, make sure to setup some key tooling:
    [install Node.js directly](https://kinsta.com/blog/how-to-install-node-js/)
    by following this guide.
 
-You should also **understand OpenFn Basic concepts**, particularly steps and
-adaptors. Check out the [Intro section](/documentation) on this site to get
-caught up.
+You should also **understand OpenFn basic concepts**, particularly steps and
+adaptors. Check out the [Intro section](/get-started/home.md) on this site to
+get caught up.
 
 ---
 
