@@ -31,8 +31,8 @@ same way; docs changes always go in a PR on the docs repo.
    `git tag --sort=-creatordate --format='%(creatordate:short) %(refname:short)'`.
    Read every entry released in the period. Skip the Unreleased section.
    Lightning often lists a release's changes under its `-pre` heading, such as
-   `2.18.2-pre`, and leaves the final `2.18.2` empty, so read the `-pre`
-   entries too and report them under the final version.
+   `2.18.2-pre`, and leaves the final `2.18.2` empty, so read the `-pre` entries
+   too and report them under the final version.
 2. **Rewrite each entry as a change a user would notice**: a new feature, a
    renamed button, a new CLI flag, a changed default, a removed option. Drop
    internal changes like refactors, dependency bumps, and tests. Open the linked

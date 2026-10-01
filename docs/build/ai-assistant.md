@@ -40,7 +40,7 @@ paid plans for usage of OpenFn's cloud-hosted platform.
 ## About the Assistant
 
 The AI Assistant is a custom multi-agent system. It has access to OpenFn
-documentation and implementation best practices, so it can answer your questions 
+documentation and implementation best practices, so it can answer your questions
 in the context of the platform.
 
 All chat sessions are shared between all users of the project. You can start a
@@ -53,12 +53,12 @@ confidential or sensitive before sending it.
 
 ## A Note on Responsible AI Usage
 
-The AI Assistant leverages Large Language Models. Like other
-chatbots, its capabilities are impressive, but imperfect.
+The AI Assistant leverages Large Language Models. Like other chatbots, its
+capabilities are impressive, but imperfect.
 
-Remember that ultimately, all responses are automatically generated and YOU,
-the human in charge, are responsible for how its output is used. You should
-consider all responses critically and verify the output where possible.
+Remember that ultimately, all responses are automatically generated and YOU, the
+human in charge, are responsible for how its output is used. You should consider
+all responses critically and verify the output where possible.
 
 **You can read more about our approach to AI in our
 [Responsible AI Policy](https://www.openfn.org/ai).**

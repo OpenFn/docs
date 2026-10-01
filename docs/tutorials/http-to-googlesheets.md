@@ -79,8 +79,8 @@ Check out the docs on the ["http" Adaptor](/adaptors/packages/http-readme),
 
 **Once you are finished configuring and writing your Step, save and run it!**
 
-- See the [Workflows section](/build/workflows.md) for more guidance on
-  building & running Workflows.
+- See the [Workflows section](/build/workflows.md) for more guidance on building
+  & running Workflows.
 
 **Check out the `Output & Log` panel to see if your run succeeded.** If it
 succeeded, you should see:

@@ -6,9 +6,9 @@ Credentials are used to authorize connections to external systems. Some Adaptors
 will use credentials to fetch meta-data from source and destination applications
 and make the job writing process easier.
 
-A Credentials' values can only be viewed or edited by a single user — their "owner"
-(the user that created that credential). All the collaborators on a Project can
-choose from all credentials for the Project when defining a job.
+A Credentials' values can only be viewed or edited by a single user — their
+"owner" (the user that created that credential). All the collaborators on a
+Project can choose from all credentials for the Project when defining a job.
 
 ![Credentials Page](/img/settings_credentials.webp)
 
@@ -96,35 +96,35 @@ credential guidance.
 
 To keep target systems as secure and controlled as possible, we recommend that
 credentials used in the integration be granted API-only access to the target
-application. 
+application.
 
-You _can_ use your personal user as an OpenFn credential for your
-workflow, but we recommend that you create a dedicated "OpenFn" integration user
-or service account user to access your target applications. For example, in
+You _can_ use your personal user as an OpenFn credential for your workflow, but
+we recommend that you create a dedicated "OpenFn" integration user or service
+account user to access your target applications. For example, in
 [Salesforce](/adaptors/salesforce#salesforce-credentials), you can create an
 API-only user with a special API-only license type to perform automated tasks
 and integrations without requiring full user access. For Google APIs such as
-[Google Sheets](/adaptors/googlesheets#using-a-google-service-account), a
-Google Service Account is the recommended approach for automated workflows.
+[Google Sheets](/adaptors/googlesheets#using-a-google-service-account), a Google
+Service Account is the recommended approach for automated workflows.
 
-API-only users might not be available in every target system, but many do offer the
-creation of user roles that have API-only access permissions, and may allow you
-to determine the scopes for which APIs or endpoints users can access. Even when an
-API only user is not available in the target system, best practices dictate that an
-integration/service user is used for all automation tasks to maintain a secure audit
-trail.
+API-only users might not be available in every target system, but many do offer
+the creation of user roles that have API-only access permissions, and may allow
+you to determine the scopes for which APIs or endpoints users can access. Even
+when an API only user is not available in the target system, best practices
+dictate that an integration/service user is used for all automation tasks to
+maintain a secure audit trail.
 
 API-only access minimizes the risks of data breaches by:
 
-- **Ensuring Traceability**: Accessing with an integration user provides an audit
-  trail of who logged in when and what changes were made. For example, if you used
-  your personal user login for a system in an integration implementation, it
-  would be hard to know if it was YOU, a human, who made a change vs. an
-  automated system action via the API user.
+- **Ensuring Traceability**: Accessing with an integration user provides an
+  audit trail of who logged in when and what changes were made. For example, if
+  you used your personal user login for a system in an integration
+  implementation, it would be hard to know if it was YOU, a human, who made a
+  change vs. an automated system action via the API user.
 
-- **Minimizing breach impact**: The user can be deactivated if compromised, and log
-  in to the frontend with the breached API credential is automatically disallowed,
-  limiting attack vectors.
+- **Minimizing breach impact**: The user can be deactivated if compromised, and
+  log in to the frontend with the breached API credential is automatically
+  disallowed, limiting attack vectors.
 
 - **Ensuring the principle of least privilege**: Each integration user need only
   have access to the subset of data supporting its specific use case.

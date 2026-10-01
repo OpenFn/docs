@@ -4,8 +4,7 @@ id: try-out
 sidebar_label: Try out v2⚡
 ---
 
-If you're interested in trying out the OpenFn v2⚡ today, you can have 3
-options:
+If you're interested in trying out the OpenFn v2⚡ today, you have 3 options:
 
 ## 1. Register for a free account
 
@@ -21,14 +20,14 @@ OpenFn's secure hosted platform. Learn more on
 
 Visit [www.openfn.org/login](https://www.openfn.org/login) to login to your
 Lightning v2 account. If you only have a v1 user, then you will need to create a
-new v2 acount at [www.openfn.org/register](https://www.openfn.org/register).
+new v2 account at [www.openfn.org/register](https://www.openfn.org/register).
 
 :::
 
 ## 2. Log into the OpenFn demo site
 
 Visit [demo.openfn.org](https://demo.openfn.org) and use the following
-credentions to log in and explore the platform:
+credentials to log in and explore the platform:
 
 - username: `demo@openfn.org`
 - password: `welcome12345`

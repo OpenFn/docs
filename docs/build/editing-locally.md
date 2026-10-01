@@ -49,8 +49,8 @@ for more info.)
 
 7. When using VS Code, make sure you install the
    [Prettier VSCode Extension](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-   and set it as the default formatter in Settings as seen below. This will apply
-   the correct code formatting to the files you change.
+   and set it as the default formatter in Settings as seen below. This will
+   apply the correct code formatting to the files you change.
 
 ![Prettier](/img/prettier.webp)
 

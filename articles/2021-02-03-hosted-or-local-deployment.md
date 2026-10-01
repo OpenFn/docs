@@ -22,8 +22,8 @@ considerations for both options.
 
 SaaS is software that is installed and _runs_ on computers maintained by
 software professionals, rather than on your own computer. While those computers
-might be anywhere in the world, typically you'll access and _use_ this software via
-the Internet.
+might be anywhere in the world, typically you'll access and _use_ this software
+via the Internet.
 
 ### Some benefits of SaaS
 

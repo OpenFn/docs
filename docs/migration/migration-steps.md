@@ -29,19 +29,20 @@ decisions. For customized migration support, ask your questions on our
    credentials.**
 6. Once your Workflow Steps are fully configured, add a new custom input and
    [run your workflow](/build/steps/step-editor.md) to start testing.
-7. Check out the [History](/monitor-history/activity-history.md) page to
-   monitor and review your Runs to confirm your Workflows are running
-   successfully.
+7. Check out the [History](/monitor-history/activity-history.md) page to monitor
+   and review your Runs to confirm your Workflows are running successfully.
 8. Test and iterate.
 9. Once your Workflows are tested, sync your new v2 configuration to GitHub for
-   version control. Follow [this guide](/manage-projects/link-to-gh.md) to
-   learn how it works and set it up.
+   version control. Follow [this guide](/manage-projects/link-to-gh.md) to learn
+   how it works and set it up.
 
-   :::warning Turn off GitHub sync on v1 before setting it up on v2 If you're
-   using the same GitHub repo and branch for both your v1 and v2 project,
-   disable GitHub sync on v1 _before_ you enable it on v2. Otherwise every
-   change you still make on v1 will trigger a GitHub > OpenFn sync on v2,
-   overwriting any changes you may not have synced yet from your v2 project to GitHub.
+   :::warning Turn off GitHub sync on v1 before setting it up on v2
+
+   If you're using the same GitHub repo and branch for both your v1 and v2
+   project, disable GitHub sync on v1 _before_ you enable it on v2. Otherwise
+   every change you still make on v1 will trigger a GitHub > OpenFn sync on v2,
+   overwriting any changes you may not have synced yet from your v2 project to
+   GitHub.
 
    :::
 
@@ -69,9 +70,9 @@ decisions. For customized migration support, ask your questions on our
 
 11. If your Workflows use a Webhook Trigger, you can add an extra layer of
     security by requiring webhook authentication
-    ([see relevant docs](/manage-projects/webhook-auth.md)). Note that if you
-    do this, you will need to update the webhook configuration in the external
-    app that points to OpenFn.
+    ([see relevant docs](/manage-projects/webhook-auth.md)). Note that if you do
+    this, you will need to update the webhook configuration in the external app
+    that points to OpenFn.
 12. Fine-tune your security configuration by following our
     [Project Security and Go-Live Checklist](https://docs.google.com/document/d/1XtiiKszeK5MAltPyqvlL4KCjkHC87YYlX8OPh6fZn4c/edit?usp=sharing)
     to consider other v2-specific security features
@@ -80,8 +81,8 @@ decisions. For customized migration support, ask your questions on our
     adjusted your Project Settings.
 14. When all Workflows run successfully, update each Step in your Workflows to
     use a "production" Credential to connect to live systems.
-15. While you're testing, you may be using [Path Conditions](/build/paths.md)
-    to allow only test data, such as `test_case == yes`. If you then want to
+15. While you're testing, you may be using [Path Conditions](/build/paths.md) to
+    allow only test data, such as `test_case == yes`. If you then want to
     exclude test data from your production systems, don't forget to update edge
     conditions, eg. `test_case == no`. Check out [this
     guide(https://docs.openfn.org/documentation/converting-triggers#converting-message-filters)]
@@ -105,6 +106,7 @@ decisions. For customized migration support, ask your questions on our
     your v1 `Project Settings` and select the `Delete Project` button.
 
 :::tip
+
 [See this XLS checklist](https://docs.google.com/spreadsheets/d/1pTw5_PZ0RNad-haqw_ydel5ka4ezSxcfF71un7Sga5I/edit?usp=sharing)
 of the above migration steps to help manage your migration. If you encounter
 questions or issues, post on the [Community](https://community.openfn.org).
@@ -113,11 +115,10 @@ questions or issues, post on the [Community](https://community.openfn.org).
 
 ## How to automatically migrate your OpenFn project configuration to v2
 
-Check out our docs on
-[Self-Guided Migration](/migration/automated-migration.md) to learn more about
-how to _automatically_ migrate your configuration from v1 to v2. **This is the
-recommended process** but requires admin-level user access to both your v1 and
-v2 Projects.
+Check out our docs on [Self-Guided Migration](/migration/automated-migration.md)
+to learn more about how to _automatically_ migrate your configuration from v1 to
+v2. **This is the recommended process** but requires admin-level user access to
+both your v1 and v2 Projects.
 
 ### How to manually migrate your OpenFn project configuration to v2
 

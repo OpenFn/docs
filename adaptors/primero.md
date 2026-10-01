@@ -21,7 +21,8 @@ Primero data is primarily stored in **cases**, **services** and **referrals**.
 Learn more about Primero records using the user guides at the Primero
 documentation site: https://support.primero.org/documentation
 
-**[See Primero admin guide](https://support.primero.org/assets/books-v2/1sP6VhT70WHhi5ZPbio6EszX-i4jZsBkO/#h.r1lefowgvf0n) for guidance on unique identifiers.**
+**[See Primero admin guide](https://support.primero.org/assets/books-v2/1sP6VhT70WHhi5ZPbio6EszX-i4jZsBkO/#h.r1lefowgvf0n)
+for guidance on unique identifiers.**
 
 ## Integration Use Cases
 
@@ -63,10 +64,11 @@ See the examples section more sample Primero jobs.
 ### Integration tips
 
 - Data forwarding can be enabled in Primero. There is a webhook that can forward
-  case information to a designated URL endpoint (e.g., OpenFn Inbox). This feature requires a backend configuration update that the Primero support team can help with. The data
-  forwarding can happen automatically on insert of a new case, as well as
-  on-demand when a user clicks the `Sync` button (which may be added to the page
-  layout if this feature is in use).
+  case information to a designated URL endpoint (e.g., OpenFn Inbox). This
+  feature requires a backend configuration update that the Primero support team
+  can help with. The data forwarding can happen automatically on insert of a new
+  case, as well as on-demand when a user clicks the `Sync` button (which may be
+  added to the page layout if this feature is in use).
 - Each Primero `case` has a `case_id` which can be used as an external
   identifier in the destination system.
 - Each Primero case also has a `record_id` which is the id in the URL for each
@@ -107,9 +109,12 @@ Primero API V1 (to be deprecated).
 4. Thailand: UNICEF Primero < > MoPH HIS:
    https://github.com/OpenFn/primero-thailand
 
-
 ### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we welcome contributions from our community. Check out our [Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for more information on how you can update Adaptors!
+Thanks for asking! We are a fully Open Source Digital Public Good, and we
+welcome contributions from our community. Check out our
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
+more information on how you can update Adaptors!
 
-Or, you can always reach out to the Community through our [Community Forum here](https://community.openfn.org/).
+Or, you can always reach out to the Community through our
+[Community Forum here](https://community.openfn.org/).
