@@ -104,11 +104,23 @@ only the ones your change adds.
   with `/adaptors/` or `/articles/`. Never use relative links like
   `../deploy/portability.md`; they break the build once only one of the two
   pages is translated.
+- When the text names another docs page or section, make the name a link to it,
+  like `[Manage Projects](/manage-projects/platform-mgmt.md)`. Do not format it
+  as code; code formatting is for code and literal values.
+- Email links are `mailto:support@openfn.org`, not
+  `mailto://support@openfn.org`.
 - Images live in `static/img/` and are linked as `/img/filename`, with alt text
   that says what the image shows. "Screenshot" does not count.
 - Leave a blank line after an admonition's opening line (`:::tip`, `:::note`,
   and so on) and before its closing `:::`. Without them, Prettier merges the
-  text into the opening line and Docusaurus shows it as the title.
+  text into the opening line and Docusaurus shows it as the title. Close an
+  admonition with a bare `:::`, never `:::note` or similar, which opens a new
+  one instead.
+- Emphasis markers sit right against the text: `**_like this_**`, not
+  `**_like this _**`. With a space inside, the formatting does not show and the
+  page prints the markers.
+- Do not write plans with dates, like "will be sunsetted in 2025". They go out
+  of date. Say what is true now.
 - It is spelled **adaptor**, never "adapter".
 - Use the approved terms in `glossary.yml`. If a page uses one of the listed
   `variants`, replace it.
