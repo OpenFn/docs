@@ -36,13 +36,18 @@ or articles and blog posts.
 
 ## Before you start
 
-Check these four things. If any fails, stop and ask.
+Check these five things. If any fails, stop and ask.
 
 - The locale is enabled in `docusaurus.config.js`. Do not enable it yourself;
   that changes what gets deployed.
 - `i18n/` is not in `.gitignore`.
 - `glossary.yml` and `translation-rules.yml` are valid YAML.
 - The locale has a house style guide, `<locale>.md`, in this folder.
+- Your branch has everything on `main`. Run `git fetch origin main` and then
+  `git merge-base --is-ancestor origin/main HEAD`. If it fails, the English you
+  would translate is out of date, and the hashes you record will not match
+  `main`. Ask to merge `main` in first. If your branch comes off another branch,
+  merge `main` into that one, then that one into yours.
 
 ## How to translate
 
