@@ -164,7 +164,15 @@ These are on top of the translation rules in `SKILL.md`.
   relative link like `../deploy/portability.md`, it breaks the translated build,
   so fix it in the English first (see `STYLE.md`).
 - Give translated headings the original English anchor so existing links still
-  work.
+  work. Write it after the heading as `{#anchor}`. To list the anchors for a
+  page, the way Docusaurus makes them:
+
+  ```bash
+  node -e "const s=new (require('github-slugger'))();for(const l of require('fs').readFileSync(process.argv[1],'utf8').split('\n')){const m=l.match(/^#+ (.*?)(?: \{#(.+)\})?$/);if(m)console.log(m[2]||s.slug(m[1]),' ',l)}" docs/<path>.md
+  ```
+
+  Run it on the English page, not the translation. A heading that already has
+  a `{#anchor}` in the English keeps that anchor.
 
 ## Check each page
 

@@ -62,8 +62,8 @@ These apply to both tasks.
   sentence when the literal version is awkward, drop a subject the sentence has
   already given, and cut an aside that repeats what the sentence says. Keep the
   meaning and the facts; change only the wording.
-- Copy code blocks and inline code exactly. You may translate comments inside
-  code.
+- Copy code blocks and inline code exactly, comments included. The page checks
+  compare code blocks with the English, so any change shows up as an error.
 - Keep the names of things in the app, like buttons, menus, tabs, and field
   labels, exactly as they are in the English. The app is English only, so a
   translated button name points the reader at a button that does not exist.
