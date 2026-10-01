@@ -7,7 +7,7 @@ In the [Edit Steps Locally](/build/editing-locally.md) section, we walked
 through the process of creating and adding your changes to the `main` branch of
 a project.
 
-However, most code change to workflows involve sharing and reviewing changes
+However, most code changes to workflows involve sharing and reviewing changes
 before deployment. You can do this by creating, testing and sharing your changes
 on a new GitHub branch, then, once final, merging them into `main` for
 deployment.
@@ -30,7 +30,7 @@ repo to your local folder.
    branch, managed separately from `main`.
 
 2. To test the changes locally, check out the
-   [The CLI](/build-for-developers/cli-intro.md) docs.
+   [CLI](/build-for-developers/cli-intro.md) docs.
 
 3. Just as you've seen when working on `main`, when you're done check which
    files you changed with `git status`.
@@ -57,6 +57,6 @@ repo to your local folder.
    with `git checkout main` and hit `git pull` to pull any changes.
 
 9. If you're still working on your separate branch while `main` has been updated
-   remotely and want integrate the remote changes, use `git checkout main`, then
-   `git pull`, then `git checkout {working_branch_name}` followed by
+   remotely and want to integrate the remote changes, use `git checkout main`,
+   then `git pull`, then `git checkout {working_branch_name}` followed by
    `git merge main` to merge changes from `main` into your working branch.

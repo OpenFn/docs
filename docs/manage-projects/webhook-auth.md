@@ -48,7 +48,7 @@ You can edit or delete your auth methods on this page as well.
 
 // screenshot
 
-Once you added an auth method to a webhook, it will show up under
+Once you've added an auth method to a webhook, it will show up under
 `Linked Triggers`.
 
 ![Linked Triggers](/img/lightning_linked_triggers.webp)

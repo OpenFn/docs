@@ -32,7 +32,7 @@ different OpenFn users and accessible to different projects.
 For every application you need to connect to OpenFn, you need to set up at least
 one client for your project(s).
 
-Oauth clients can be set up either on the
+OAuth clients can be set up either on the
 [project credentials page](/manage-projects/manage-credentials.md) or the
 [user credentials page](/manage-users/user-credentials.md).
 
@@ -53,12 +53,12 @@ to. To create a new client, click the `Add new` button and select
 
 Make sure you add https://app.openfn.org/authenticate/callback as the callback
 URL for the application when enabling OAuth authentication for the third party
-application. (Note: You should substitue `https://app.openfn.org/` with _your_
+application. (Note: You should substitute `https://app.openfn.org/` with _your_
 OpenFn's deployment base URL if you're not using app.openfn.org.)
 
-For app-specific guidance (e.g., how to set up an Oauth Client
+For app-specific guidance (e.g., how to set up an OAuth Client
 [for Google Sheets](/adaptors/googlesheets)), refer to the relevant
-[Adaptor documentation](/adaptors) for app-specific guidance
+[Adaptor documentation](/adaptors).
 
 :::
 
@@ -97,7 +97,7 @@ project access to the client.
 
 ![Share OAuth client](/img/share_oauth_client.webp)
 
-## Oauth Credentials
+## OAuth Credentials
 
 ### Creating a credential from an OAuth client
 
@@ -105,20 +105,20 @@ Every client requires an authentication token to authenticate requests made to
 the application on behalf of the user. On OpenFn, these tokens are created as
 credentials and are associated with clients.
 
-1. To create a credential from an Oauth client, click on "Add new" button and
-   select `Credential` from the dropdown or click on the
+1. To create a credential from an OAuth client, click on the "Add new" button
+   and select `Credential` from the dropdown or click on the
    `create a new credential` button.
 
 ![New credential](/img/oauth_dropdown.webp)
 
 ![Create new cred](/img/create_new_cred.webp)
 
-2. Then, in the credential type modal, find and select the Oauth client to use
+2. Then, in the credential type modal, find and select the OAuth client to use
    for creating the OAuth credential. This will open a new modal for you to
    configure the credential by providing the name, scopes/permissions required
    and API version.
 3. When you’ve filled the form, click on the
-   `Sign in with [your OAuth Client name]` button to authorize the Oauth client.
+   `Sign in with [your OAuth Client name]` button to authorize the OAuth client.
    Clicking this button will open a new tab for you to grant OpenFn an
    authorization token to authenticate your requests.
 
@@ -126,9 +126,9 @@ credentials and are associated with clients.
 
 When you have signed in, you will be required to grant OpenFn access by clicking
 `Allow` on the permissions modal. Please note that this might look different for
-different applications but the intent is to grant OpenFn perimission to carry
-out certain actions to the application on your behalf. The user authenticating
-OAuth clients should have the required permissions in the application.
+different applications but the intent is to grant OpenFn permission to carry out
+certain actions to the application on your behalf. The user authenticating OAuth
+clients should have the required permissions in the application.
 
 :::
 
@@ -153,4 +153,4 @@ Go to the docs on [managing user credentials](/manage-users/user-credentials.md)
 to learn more about credential management for the applications you are
 integrating with on OpenFn.
 
-### Example Oauth Client Configuration
+### Example OAuth Client Configuration

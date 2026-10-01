@@ -10,9 +10,8 @@ components.
 ## History
 
 The `History` page provides a list of all of the
-[Work Orders](/documentation/get-started/terminology#work-order) and
-[Runs](/documentation/get-started/terminology#run) that have been processed in a
-Project.
+[Work Orders](/get-started/terminology.md#work-order) and
+[Runs](/get-started/terminology.md#run) that have been processed in a Project.
 
 ![History](/img/case-referral-history.webp)
 
@@ -23,13 +22,13 @@ OpenFn Workflows are executed as follows:
 1. A Workflow `Trigger` is activated by a webhook event, cron timer, or manual
    action.
 2. This creates a `Work Order` - a request to run a Workflow with a given input
-   (e.g, a new form submission or patient record that needs to be processed).
+   (e.g., a new form submission or patient record that needs to be processed).
    For a `Work Order` to be completed, it should reach an ending Step
-   succesfully (without errors) - this ensures that the processing has been
+   successfully (without errors) - this ensures that the processing has been
    completed.
 3. A `Run` is then executed to try to complete the Workflow successfully. This
-   Run will have a [status code](/documentation/monitor-history/status-codes),
-   indicating whether the Workflow Steps were successfully processed.
+   Run will have a [status code](/monitor-history/status-codes.md), indicating
+   whether the Workflow Steps were successfully processed.
 4. If the 1st `Run` fails, then you can rerun it to "retry" the workflow. A 2nd
    `Run` will be created. If successful, then both the Run and related Work
    Order will be updated with a `success` status.
@@ -52,7 +51,7 @@ three options:
 
 ![Search Options](/img/search-options.webp)
 
-1. OpenFn UUIDs for workorders, runs, or steps
+1. OpenFn UUIDs for work orders, runs, or steps
 2. Input/Output dataclip bodies
 3. Run logs
 
@@ -63,11 +62,10 @@ and across the "keys" and "values" of your dataclips.
 
 :::caution Very large/complex input dataclips may not be indexed
 
-It's not currently possible to create `ts_vector` indexes larger than 1MB, and
-as a result very large or complex input dataclips may not appear in search
-results. This typically won't happen until you're nearing 10MB of JSON, but the
-number of distinct lexemes & positions in your JSON will impact the final index
-size.
+It's not currently possible to create `tsvector` indexes larger than 1MB, and as
+a result very large or complex input dataclips may not appear in search results.
+This typically won't happen until you're nearing 10MB of JSON, but the number of
+distinct lexemes & positions in your JSON will impact the final index size.
 
 More at the Postgres
 ["text search limitations" docs page](https://www.postgresql.org/docs/current/textsearch-limitations.html).
@@ -83,5 +81,4 @@ for items matching `"newPatient"` it's better to search for `"newPat"` than for
 Even though you can search for text strings that appear in specific run logs or
 dataclips, it's important to remember that the results returned are still **work
 orders**. If the output dataclips of the third step in the first run of work
-order "123" matches your text search, you'll see work order "123" in your
-results.
+order "123" match your text search, you'll see work order "123" in your results.

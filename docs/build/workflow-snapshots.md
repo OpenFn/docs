@@ -13,7 +13,7 @@ debugging, auditing, and improving overall workflow performance.
 
 Snapshots are created in 2 ways:
 
-1. When a user saves changes to their workflow either through the canvas or the
+1. When a user saves changes to their workflow either through the Canvas or the
    Inspector
 2. When a run is made either by creating a new work order or retrying a run
 
@@ -35,22 +35,22 @@ Click on the inspect icon in front of the step you would like to view.
 
 ![Inspect](/img/inspect.webp)
 
-This will open the [inspector screen](/build/steps/step-editor.md) for that step
+This will open the [Inspector screen](/build/steps/step-editor.md) for that step
 in the run with all associated artifacts: logs and input/output data. On the
-inspector, you'll notice that you're in a read-only mode, and hovering on the
+Inspector, you'll notice that you're in a read-only mode, and hovering on the
 workflow snapshot ID chip, you’ll see a message that reads “You are viewing a
 snapshot of this workflow that was taken on ….”
 
 ![Snapshot2](/img/snapshots2.webp)
 
-To view the corresponding canvas for this snapshot, close this inspector view by
+To view the corresponding Canvas for this snapshot, close this Inspector view by
 clicking the `X` on the top right corner of the page. This will open the
-associated canvas with the step selected as shown below.
+associated Canvas with the step selected as shown below.
 
 ![Snapshot3](/img/snapshots3.webp)
 
-From the canvas, you can inspect any step by clicking on the step and opening
-the inspector for the run associated with the step and snapshot.
+From the Canvas, you can inspect any step by clicking on the step and opening
+the Inspector for the run associated with the step and snapshot.
 
 #### Viewing a snapshot from the Run view
 
@@ -59,8 +59,8 @@ From the expanded history view, click on the run ID to open the run view.
 ![Snapshot4](/img/snapshots4.webp)
 
 From this view, click on the Workflow name (Simple Flow) to open the workflow
-canvas for this snapshot. Similar to viewing a snapshot by inspecting a step,
-you can click the inspect icon in front of the steps to open the inspector for
+Canvas for this snapshot. Similar to viewing a snapshot by inspecting a step,
+you can click the inspect icon in front of the steps to open the Inspector for
 the step.
 
 ### Editing a Snapshot
@@ -68,7 +68,7 @@ the step.
 Snapshots are read-only and serve as a reference for the state of a workflow
 when saved or a run is executed. As only the latest version can be edited, in
 order to edit the workflow you can click on the `Switch to latest version` on
-the canvas or use the toggle at the bottom right of the inspector page to switch
+the Canvas or use the toggle at the bottom right of the Inspector page to switch
 to the latest version of the workflow.
 
 When you switch to the latest version, the snapshot ID tag will change to blue
@@ -92,6 +92,6 @@ dealing with errors (such as, for example, why a case hasn't been updated
 correctly in a database).
 
 OpenFn offers dedicated tools for
-[version control](/manage-projects/link-to-gh.md) that allows you and your team
+[version control](/manage-projects/link-to-gh.md) that allow you and your team
 to manage changes in job code for faster and safer development, debugging and
 revision.

@@ -28,7 +28,7 @@ decision-making into action and automated execution.
 For local deployments of OpenFn, the instance administrator needs to configure
 the AI Assistant before it is available. See
 [deployment docs](https://github.com/OpenFn/lightning/blob/main/DEPLOYMENT.md#ai-chat)
-here for help or contact the super user of your instance.
+here for help or contact the superuser of your instance.
 
 The Assistant is available on app.openfn.org, with usage credits subject to your
 project's plan. See [openfn.org/pricing](https://www.openfn.org/pricing) or

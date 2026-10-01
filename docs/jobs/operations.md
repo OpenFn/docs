@@ -3,7 +3,7 @@ sidebar_label: Operations
 title: Operations
 ---
 
-Operations are Javascript functions exposed by an adaptor which are used in job
+Operations are JavaScript functions exposed by an adaptor which are used in job
 code to _do stuff_.
 
 Operations are provided by an Adaptor (connector). Each adaptor exports a list
@@ -11,7 +11,7 @@ of functions designed to interact with a particular data source - for example,
 take a look at the [dhis2](/adaptors/packages/dhis2-docs) and
 [salesforce](/adaptors/packages/salesforce-docs) adaptors.
 
-Everything you can achieve in OpenFn can be achieve with existing JavaScript
+Everything you can achieve in OpenFn can be achieved with existing JavaScript
 libraries or calls to REST APIs. The value of Adaptors is that they provide
 functions to make this stuff easier: taking care of authorization, providing
 cleaner syntax, and hiding away implementation details for you.
@@ -43,11 +43,10 @@ get(state.endpoint);
 ```
 
 Well, the problem is that the state value must be resolved lazily (ie, just
-before the get actually runs). Because of how Javascript works, if we just
-inline the value it might read before state.endpoint has been actually been
-assigned.
+before the get actually runs). Because of how JavaScript works, if we just
+inline the value it might read before state.endpoint has actually been assigned.
 
-For more details, jump ahead to [Reading State Lazily](#reading-state-lazily)
+For more details, jump ahead to [Reading State Lazily](#reading-state-lazily).
 
 </details>
 
@@ -136,7 +135,7 @@ correct OpenFn jobs. See also the
 
 As of July 2024, callbacks are going to be phased out of the adaptor APIs. See
 [Promise-like Operations](#operations-and-promises) for tips on how to use
-callbacks with adaptors APIs that don't explicitly support them.
+callbacks with adaptor APIs that don't explicitly support them.
 
 :::
 
@@ -174,7 +173,7 @@ console.log(array); // ['a', 'b', 'c'];
 console.log(result); // ['A', 'B', 'C'];
 ```
 
-Because functions are data in JavaScript, we can we-write that code like this
+Because functions are data in JavaScript, we can re-write that code like this
 (which might be a bit more readable)
 
 ```js
@@ -189,13 +188,13 @@ console.log(result); // ['A', 'B', 'C'];
 
 </details>
 
-The `fn()` function, for example, ONLY allows you define a callback. This is
+The `fn()` function, for example, ONLY allows you to define a callback. This is
 useful for running arbitrary code - if you want to drop down to raw JavaScript
 mode, this is how you do it:
 
 ```js
 fn(state => {
-  // declare a help function
+  // declare a helper function
   const convertToFhir = item => {
     /* ... */
   };
@@ -209,7 +208,7 @@ fn(state => {
 ```
 
 Many other operations provide a callback argument, in which case, your callback
-will be invoked with state, and most return the final state as a result of the
+will be invoked with state, and must return the final state as a result of the
 operation.
 
 For example, say you fetch some data from a data source and get back a block of
@@ -261,12 +260,12 @@ Remember! Always return state from a callback.
 :::tip
 
 Promise support was added in July 2024 to `@openfn/compiler@0.2.0`. It is
-available in the CLI from version 1.7.0 and the Lightning Worker from versison
+available in the CLI from version 1.7.0 and the Lightning Worker from version
 1.4.0.
 
 :::
 
-Operations behave like Javascript Promises in that they have `.then()` and
+Operations behave like JavaScript Promises in that they have `.then()` and
 `.catch()` functions. This is useful for creating your own callbacks and error
 handling.
 
@@ -321,7 +320,7 @@ each($.items, post(`patient/${$.data.id}`, $.data));
 :::tip
 
 You can read more about the `each()` operation in
-[Iteration with Each](/documentation/jobs/data-transformation#iteration-with-each).
+[Iteration with Each](/jobs/data-transformation.md#iteration-with-each).
 
 :::
 

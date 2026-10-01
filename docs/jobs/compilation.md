@@ -6,7 +6,7 @@ title: Compilation
 ## Compilation
 
 The code you write isn't technically executable JavaScript. You can't just run
-it through node.js. It needs to be transformed or compiled into portable vanilla
+it through Node.js. It needs to be transformed or compiled into portable vanilla
 JS code.
 
 :::warning
@@ -31,7 +31,7 @@ aware that the code you write is not the code you run.
 
 If you're a JavaScript developer, understanding some of these changes might help
 you better understand how OpenFn works. Using the CLI, you can run
-`openfn compile path/to/job.ja -a <adaptor-name>` to see compiled code.
+`openfn compile path/to/job.js -a <adaptor-name>` to see compiled code.
 
 Here's an example of how a simple job looks in compilation:
 

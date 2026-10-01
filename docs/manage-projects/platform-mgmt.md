@@ -10,8 +10,8 @@ contains their Workflows, Credentials and Collaborators scoped to that project.
 ## Managing Projects
 
 We introduced a `Projects` table in `v2.7.14` to help users manage their OpenFn
-projects in a table view. This is the new page that you'll see everytime your
-login to your OpenFn account. When users click `Projects` in the menu sidebar,
+projects in a table view. This is the new page that you'll see every time you
+log in to your OpenFn account. When users click `Projects` in the menu sidebar,
 you will see the list of projects where you have been granted collaborator
 access.
 
@@ -21,7 +21,7 @@ access.
 
 To create a new Project, follow the following steps:
 
-1. Log in into your OpenFn account or navigate to projects table by clicking
+1. Log in to your OpenFn account or navigate to projects table by clicking
    `Projects` on the breadcrumb if you're in a different project.
 2. On the projects table, click on `Create project`. This will open a modal for
    you to provide the details of the project.
@@ -48,7 +48,7 @@ sidebar). Setup allows you to view or edit the project name and description.
 
 You can also export your entire project "as code" - either to save it, or to
 edit your project locally. You can learn more about this feature on our
-[Portability page](/documentation/deploy/portability).
+[Portability page](/deploy/portability.md).
 
 ## Managing Project Concurrency
 

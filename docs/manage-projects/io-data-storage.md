@@ -9,7 +9,7 @@ processed (or produced) by your workflow runs.
 ### Why would I store input/output data along with run logs?
 
 Users may configure OpenFn to temporarily store data (e.g., forms fetched from
-CommCare mobile app) so that transactions can be easily troubleshooted and
+CommCare mobile app) so that transactions can be easily troubleshot and
 rectified in case of errors (e.g., destination DHIS2 system is down, or a
 database constraint/validation blocks a data import). Data retention periods
 have a default time period set by the OpenFn instance administrator, but can be
@@ -24,7 +24,7 @@ failed step, rather than re-running the workflow from the very beginning. This
 allows administrators to reprocess the failed work orders without having to
 fetch (or re-send) the data (Inputs) from a source system.
 
-### Why would I chose to _NOT_ store input/output data?
+### Why would I choose to _NOT_ store input/output data?
 
 Some of our users are processing incredibly sensitive data (such as medical
 records) and might want to ensure that after a workflow is run there is no
@@ -46,7 +46,7 @@ pipelines.
 ### Export History
 
 Users can also export all work orders and their associated artefacts (runs,
-steps, runsteps, input and output data clips) in a project. Work order history
+steps, runsteps, input and output dataclips) in a project. Work order history
 export is managed at a project level and available to all collaborators (viewer,
 editor, admin, owner) in a project.
 
@@ -69,8 +69,9 @@ associated email address.
 :::info FOR LOCAL DEPLOYMENTS
 
 For local deployments, OpenFn uses Swoosh as a mailbox service for development
-purposes and can access the mailbox via http://localhost:4000/dev/mailbox. You
-can substitute localhost:4000 to match the port hosting your OpenFn instance.
+purposes and you can access the mailbox via http://localhost:4000/dev/mailbox.
+You can substitute localhost:4000 to match the port hosting your OpenFn
+instance.
 
 :::
 
@@ -80,11 +81,11 @@ Users can view all history exports via the `History Exports` page in the project
 settings. Click on `Settings` on the side menu and click on `History Exports` to
 see the list of work order exports in your project.
 
-On the `History Export`s page, you will see the list of exports showing your
+On the `History Exports` page, you will see the list of exports showing your
 latest request and previous requests with the other information such as
 filename, date of export, user who requested the export and the status.
 
-![List of history exports ](/img/history_exports_page.webp)
+![List of history exports](/img/history_exports_page.webp)
 
 :::caution Configuring storage for exports
 

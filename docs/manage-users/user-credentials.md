@@ -5,7 +5,7 @@ slug: /user-credentials
 ---
 
 You can manage all the Credentials you own under the `Credentials` page of your
-profile. This article, we'll walk you through how to manage and share the
+profile. In this article, we'll walk you through how to manage and share the
 Credentials you own across projects.
 
 ### All your Credentials in one place
