@@ -136,8 +136,8 @@ only the ones your change adds.
   button", not "click `Save` button".
 - It is spelled **adaptor**, never "adapter".
 - Write these names with this capitalisation in prose, headings and alt text:
-  **JavaScript**, **Node.js**, **GitHub**, **OAuth**, **CommCare**. Leave code
-  and file paths as they are.
+  **JavaScript**, **Node.js**, **GitHub**, **OAuth**, **CommCare**, **Docker**,
+  **Linux**, **Unix**, **macOS**. Leave code and file paths as they are.
 - Use "e.g." to introduce an example and "i.e." to restate, never "ie". Put a
   comma after both, like "(e.g., a form submission)".
 - Use the approved terms in `glossary.yml`. If a page uses one of the listed
