@@ -107,6 +107,8 @@ only the ones your change adds.
 - When the text names another docs page or section, make the name a link to it,
   like `[Manage Projects](/manage-projects/platform-mgmt.md)`. Do not format it
   as code; code formatting is for code and literal values.
+- Link text names the page or section it goes to. Do not put quotes around it,
+  and do not use "here" or "this" as link text.
 - Email links are `mailto:support@openfn.org`, not
   `mailto://support@openfn.org`.
 - Images live in `static/img/` and are linked as `/img/filename`, with alt text
@@ -125,5 +127,6 @@ only the ones your change adds.
 - Do not write plans with dates, like "will be sunsetted in 2025". They go out
   of date. Say what is true now.
 - It is spelled **adaptor**, never "adapter".
+- Put a comma after "e.g." and "i.e.", like "(e.g., a form submission)".
 - Use the approved terms in `glossary.yml`. If a page uses one of the listed
   `variants`, replace it.
