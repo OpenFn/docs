@@ -1,7 +1,7 @@
 ---
 sidebar_label: Buenas prácticas
 title: Buenas prácticas
-translation_source_hash: 2b213c173bb8185ac3a204f6a237b0b17e1e5811
+translation_source_hash: db347090195ee9bfd115330405094e81c8cf3cef
 translation_review_status: machine
 ---
 
@@ -76,3 +76,33 @@ Al procesar lotes de datos, quizás quieras atrapar los errores de cada elemento
 y escribirlos en el state. Así, un elemento con problemas no arruina todo el
 lote, y sabes qué elementos funcionaron y cuáles fallaron. Después puedes lanzar
 una excepción para indicar que el job falló.
+
+## Escribir funciones que se puedan probar {#writing-testable-functions}
+
+Para que las funciones de un workflow de OpenFn se puedan probar, saca la lógica
+real (mapeo, validación, formato, filtrado) de los bloques de operaciones y
+ponla en funciones auxiliares puras que reciban entradas simples y devuelvan
+salidas simples, sin depender de `state`, de variables globales ni de sistemas
+externos. Exporta cada función auxiliar y deja que las operaciones solo pasen
+los datos del state a esas funciones:
+
+```js
+// workflows/patient-sync/transform.js
+export function isValid(record) {
+  return Boolean(record.first_name && record.birth_date);
+}
+
+export const mapPatient = record => ({
+  name: `${record.first_name} ${record.last_name ?? ''}`.trim(),
+  dob: record.birth_date,
+  sex: record.gender?.toLowerCase() === 'f' ? 'female' : 'male',
+});
+
+fn(state => ({
+  ...state,
+  data: state.data.filter(isValid).map(mapPatient),
+}));
+```
+
+Para probar las funciones auxiliares exportadas, consulta
+[Pruebas unitarias de jobs](/documentation/jobs/unit-testing-jobs).

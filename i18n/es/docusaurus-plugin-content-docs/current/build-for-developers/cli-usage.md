@@ -2,7 +2,7 @@
 title: Uso básico de la CLI de OpenFn
 sidebar_label: Uso básico
 slug: /cli-usage
-translation_source_hash: 7f9249533167dbd2f99d20f84089330325908f60
+translation_source_hash: 0cf56f75d2c15049193e021867c97df6d9a9ed09
 translation_review_status: machine
 ---
 
@@ -14,6 +14,7 @@ Esta página muestra ejemplos de algunos de los usos más comunes de la CLI, com
 - ajustar el nivel de logs
 - mantener el repositorio de adaptors
 - ejecutar un workflow
+- preparar el código de los jobs para pruebas unitarias
 - cargar la documentación de un adaptor
 
 ---
@@ -227,6 +228,51 @@ Consulta este
 detallado sobre cómo ejecutar workflows con la CLI.
 
 ---
+
+### Preparar el código de los jobs para pruebas unitarias {#prepare-job-code-for-unit-testing}
+
+¿Quieres escribir pruebas unitarias para el código de tus jobs? Consulta
+[Escribir pruebas unitarias para tus jobs](/documentation/jobs/unit-testing-jobs)
+para ver la guía completa.
+
+Las pruebas unitarias solo funcionan con las funciones puras de tu código
+(declaraciones de funciones de nivel superior): no funcionan con operaciones ni
+con funciones de adaptors, porque estas necesitan servicios de backend
+conectados.
+
+Para hacer pruebas unitarias de las funciones del código de tus jobs:
+
+1. **Compila tu proyecto** con `openfn compile`. Esto compila tus workflows y
+   los escribe como módulos ES normales.
+2. **Importa las funciones compiladas** en tu archivo de pruebas, igual que
+   cualquier otro módulo JS nativo.
+3. **Escribe las pruebas como siempre** para esas funciones puras.
+
+**Compila todos los workflows del proyecto y conserva solo las declaraciones
+exportadas:**
+
+```bash
+openfn compile --exports-only
+```
+
+Los archivos compilados se escriben en `dist/` como archivos `.mjs`.
+
+Con `--exports-only`, las operaciones se eliminan por completo y solo quedan las
+funciones y variables exportadas.
+
+**Compila un solo workflow por nombre:**
+
+```bash
+openfn compile my-workflow --exports-only
+```
+
+**Vuelve a compilar cada vez que cambie el código de un job:**
+
+```bash
+openfn compile --exports-only --watch
+```
+
+Sin `--exports-only`, obtienes la salida compilada completa del step.
 
 ### Cargar la documentación de un adaptor {#load-adaptor-documentation}
 

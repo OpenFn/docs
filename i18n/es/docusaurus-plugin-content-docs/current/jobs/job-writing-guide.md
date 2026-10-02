@@ -1,7 +1,7 @@
 ---
 sidebar_label: Introducción
 title: Guía para escribir jobs
-translation_source_hash: f515b2837d8e8b3bcab8376a929063ec3bac3fff
+translation_source_hash: 9d3ec7d47868cbee41ed5f200085af202ed96bfe
 translation_review_status: machine
 ---
 
@@ -58,6 +58,13 @@ Si ya quieres empezar a usar la app, mira esta guía para
 El diseño de workflows no es un problema trivial, así que quizás también quieras
 revisar la [documentación del proceso de diseño](/design/design-overview.md) de
 workflows.
+
+A medida que tus jobs crecen, empezarás a escribir funciones auxiliares dentro
+de ellos para analizar, mapear o reformatear datos. Puedes hacer pruebas
+unitarias de esas funciones como con cualquier otro código JavaScript:
+expórtalas en el nivel superior, compila tu proyecto con la CLI y apunta un
+ejecutor de pruebas a la salida. Consulta
+[Escribir pruebas unitarias para tus jobs](/documentation/jobs/unit-testing-jobs).
 
 :::info ¿Preguntas?
 
