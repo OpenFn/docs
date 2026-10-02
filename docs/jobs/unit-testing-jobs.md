@@ -182,6 +182,8 @@ openfn compile --exports-only && node --test
 
 ```
 ✔ parses a well-formed message into a record (0.9ms)
+✔ trims whitespace around each field (0.1ms)
+✔ fills missing trailing fields with null (0.1ms)
 ℹ tests 1
 ℹ pass 1
 ℹ fail 0
