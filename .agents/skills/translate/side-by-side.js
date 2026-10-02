@@ -1,15 +1,8 @@
 #!/usr/bin/env node
 // Lines up an English page with its translation, block by block.
 //
-//   node .agents/skills/translate/side-by-side.js es docs/get-started/*.md > review.html
-//   node .agents/skills/translate/side-by-side.js es docs/build/triggers.md --base origin/i18n > review.html
 //   node .agents/skills/translate/side-by-side.js es docs/build/triggers.md --json
-//   node .agents/skills/translate/side-by-side.js es docs/get-started/*.md --check --base HEAD
-//
-// The HTML pairs each block of the English the page was translated from (its
-// translation_source_hash) with the translated block. --base <ref> highlights
-// the blocks whose English changed since the translation at <ref>, to review
-// an update.
+//   node .agents/skills/translate/side-by-side.js es docs/get-started/*.md --check
 //
 // --json lists the blocks of the current English, each with the translation
 // that can be reused for it, or null where the English is new or changed. A
@@ -17,9 +10,9 @@
 // word diff, under previous. See "Updating a page" in pages.md.
 //
 // --check lists blocks where a fixed glossary term appears fewer times in the
-// translation than in the English, which can mean it was translated. With
-// --base, only blocks whose English changed since <ref> are checked, so a
-// difference someone has already looked at is not raised again.
+// translation than in the English, which can mean it was translated. It also
+// lists blocks that may break a rule for the locale in translation-rules.yml,
+// or use a word from the "Not" column in <locale>.md.
 //
 // A block is a run of lines between blank lines, after formatting with
 // Prettier, and a fenced code block is one block. Both sides go through
@@ -54,7 +47,70 @@ const termDrops = (english, translation) =>
     term,
     en: (prose(english).match(re) || []).length,
     es: (prose(translation).match(re) || []).length,
-  })).filter(c => c.es < c.en);
+  }))
+    .filter(c => c.es < c.en)
+    .map(c => `"${c.term}" ${c.en} in English, ${c.es} in translation`);
+
+// Phrase matching for the locale's rules. Accents and case are ignored, and
+// inline code is skipped. "a / b" matches either. A word may take a plural, so
+// "feature" finds "features" and "función" finds "funciones" but not
+// "funcionalidad". An English phrase also matches its -d, -ed, and -ing forms,
+// so "enable" finds "enabled" and "enabling". A one-word Spanish verb matches
+// its conjugations, so "mejorar" finds "mejora" and "mejorado" but not "mejor".
+const fold = s =>
+  s.normalize('NFD').replace(/\p{M}/gu, '').toLowerCase().replace(/\s+/g, ' ');
+const has = (text, phrase, english = false) => {
+  const t = fold(prose(text).replace(/`[^`]*`/g, ''));
+  return phrase.split('/').some(alt => {
+    const p = fold(alt.replace(/\s*\(.*?\)/g, '').trim());
+    const verb = !english && !p.includes(' ') && /(ar|er|ir)$/.test(p);
+    const stem = english
+      ? p.replace(/e$/, '')
+      : verb
+        ? p.replace(/(ar|er|ir)$/, '')
+        : p;
+    const end = english
+      ? '(?:e|es|s|ed|d|ing)?(?!\\p{L})'
+      : verb
+        ? '[aeio]\\p{L}*'
+        : '(?:e?s)?(?!\\p{L})';
+    const escaped = stem.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`(?<!\\p{L})${escaped}${end}`, 'u').test(t);
+  });
+};
+
+// Rules for one locale: translation-rules.yml, and the "Not" column of the
+// word table in <locale>.md. Each returns the problems in one block. A rule
+// whose source names its context, like "upgrade (a plan)", is left out: only a
+// reader can tell which uses it covers.
+function rulesFor(locale) {
+  const rules = (
+    yaml.load(fs.readFileSync('translation-rules.yml', 'utf8')).rules || []
+  ).filter(
+    r => (r.locale === locale || r.locale === '*') && !r.source.includes('(')
+  );
+  const styleFile = `.agents/skills/translate/${locale}.md`;
+  const banned = fs.existsSync(styleFile)
+    ? fs
+        .readFileSync(styleFile, 'utf8')
+        .split('\n')
+        .map(l => l.match(/^\|([^|]+)\|([^|]+)\|$/))
+        .filter(m => m && !/^[\s-]+$/.test(m[2]) && m[2].trim() !== 'Not')
+        .map(m => ({ use: m[1].trim(), not: m[2].trim() }))
+    : [];
+  return (english, translation) => [
+    ...rules
+      .filter(r =>
+        r.kind === 'avoid'
+          ? has(english, r.source, true) && has(translation, r.target)
+          : has(english, r.source, true) && !has(translation, r.target)
+      )
+      .map(r => `rule "${r.source}": ${r.instruction.replace(/\s+/g, ' ')}`),
+    ...banned
+      .filter(b => has(translation, b.not))
+      .map(b => `${locale}.md: use "${b.use}", not "${b.not}"`),
+  ];
+}
 
 // Word diff in git's --word-diff=plain style: [-removed-]{+added+}.
 function wordDiff(a, b) {
@@ -153,7 +209,7 @@ async function sourceOf(esText, enPath) {
   }
 }
 
-async function page(locale, enPath, base) {
+async function page(locale, enPath) {
   const rel = enPath.replace(/^docs\//, '');
   const esPath = `i18n/${locale}/docusaurus-plugin-content-docs/current/${rel}`;
   const result = { page: rel, notes: [] };
@@ -226,117 +282,61 @@ async function page(locale, enPath, base) {
     .filter((b, i) => b.fenced && !used.has(i))
     .map(b => b.text);
 
-  // For the HTML view: the source English next to the translation.
-  result.rows = source.blocks.map((b, i) => ({
-    english: b.text,
-    translation: esBlocks[i]?.text ?? '',
-  }));
-  for (const b of esBlocks.slice(source.blocks.length))
-    result.rows.push({ english: '', translation: b.text });
-
-  if (base) {
-    let before;
-    try {
-      before = git('show', `${base}:${esPath}`);
-    } catch {
-      result.notes.push(`New translation since ${base}.`);
-    }
-    if (before) {
-      const old = await sourceOf(before, enPath);
-      const oldTexts = new Set((old.blocks || []).map(b => b.text));
-      for (const row of result.rows)
-        row.changed = row.english !== '' && !oldTexts.has(row.english);
-    }
-  }
-
-  // Compare block by block where the blocks line up, otherwise the whole page.
+  // Compare the source English with the translation block by block where the
+  // blocks line up, otherwise the whole page.
   const toCheck = result.aligned
-    ? result.rows.filter(r => r.changed !== false)
+    ? source.blocks.map((b, i) => ({
+        english: b.text,
+        translation: esBlocks[i].text,
+      }))
     : [
         {
           english: source.blocks.map(b => b.text).join('\n\n'),
           translation: esBlocks.map(b => b.text).join('\n\n'),
         },
       ];
-  result.termDrops = toCheck
-    .map(r => ({ ...r, drops: termDrops(r.english, r.translation) }))
-    .filter(r => r.drops.length);
+  const ruleBreaks = rulesFor(locale);
+  result.problems = toCheck
+    .map(r => ({
+      ...r,
+      found: [
+        ...termDrops(r.english, r.translation),
+        ...ruleBreaks(r.english, r.translation),
+      ],
+    }))
+    .filter(r => r.found.length);
   return result;
-}
-
-const esc = s =>
-  s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-
-function html(pages) {
-  const sections = pages.map(p => {
-    const notes = [p.error, ...(p.notes || [])]
-      .filter(Boolean)
-      .map(n => `<p class="note">${esc(n)}</p>`)
-      .join('');
-    const rows = (p.rows || [])
-      .map(
-        r =>
-          `<div class="block${r.changed ? ' changed' : ''}"><div class="en">${esc(r.english)}</div><div class="tr">${esc(r.translation)}</div></div>`
-      )
-      .join('\n');
-    return `<h2>${esc(p.page)}</h2>${notes}${rows}`;
-  });
-  return `<!doctype html>
-<html><head><meta charset="utf-8"><title>Translation review</title>
-<style>
-body { font-family: system-ui, sans-serif; margin: 24px auto; padding: 0 16px; max-width: 40em; background: #f4f4f4; line-height: 1.5; }
-.block { background: #fff; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 16px; font-size: 15px; overflow: hidden; }
-.block.changed { border: 2px solid #e0b000; }
-.en, .tr { padding: 12px 16px; white-space: pre-wrap; overflow-wrap: anywhere; }
-.en { background: #fafafa; color: #666; border-bottom: 1px solid #eee; }
-.block.changed .en { background: #fff8dc; }
-.note { color: #a33; }
-</style></head><body>
-<h1>Translation review</h1>
-<p>Each box is one block of the English the page was translated from (grey, on top), with its translation underneath. Boxes with a yellow border changed since the base.</p>
-${sections.join('\n')}
-</body></html>
-`;
 }
 
 async function main() {
   const args = process.argv.slice(2);
   const json = args.includes('--json');
   const check = args.includes('--check');
-  const baseAt = args.indexOf('--base');
-  const base = baseAt === -1 ? null : args[baseAt + 1];
-  const [locale, ...files] = args.filter(
-    (a, i) => !a.startsWith('--') && (baseAt === -1 || i !== baseAt + 1)
-  );
-  if (!locale || !files.length) {
+  const [locale, ...files] = args.filter(a => !a.startsWith('--'));
+  if (!locale || !files.length || json === check) {
     console.error(
-      'Usage: side-by-side.js <locale> <docs/page.md>... [--base <ref>] [--json | --check]'
+      'Usage: side-by-side.js <locale> <docs/page.md>... --json | --check'
     );
     process.exit(1);
   }
   const pages = [];
-  for (const f of files) pages.push(await page(locale, f, base));
+  for (const f of files) pages.push(await page(locale, f));
   if (check) {
     const flat = s => s.replace(/\s+/g, ' ');
     let found = 0;
     for (const p of pages) {
       if (p.error) console.log(`${p.page}: ${p.error}`);
-      for (const r of p.termDrops || []) {
+      for (const r of p.problems || []) {
         found++;
-        const counts = r.drops.map(
-          d => `"${d.term}" ${d.en} in English, ${d.es} in translation`
-        );
         console.log(
-          `${p.page}: ${counts.join('; ')}\n  en: ${flat(r.english)}\n  ${locale}: ${flat(r.translation)}\n`
+          `${p.page}: ${r.found.join('; ')}\n  en: ${flat(r.english)}\n  ${locale}: ${flat(r.translation)}\n`
         );
       }
     }
-    if (!found) console.log('No glossary terms missing.');
-  } else if (json) {
-    const out = pages.map(({ rows, termDrops, ...p }) => p);
-    console.log(JSON.stringify(out, null, 2));
+    if (!found) console.log('No glossary terms missing and no rules broken.');
   } else {
-    process.stdout.write(html(pages));
+    const out = pages.map(({ problems, ...p }) => p);
+    console.log(JSON.stringify(out, null, 2));
   }
 }
 
