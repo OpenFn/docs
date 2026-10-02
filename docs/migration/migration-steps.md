@@ -7,8 +7,8 @@ slug: /migration-steps
 In this article, we walk you through the steps of migrating your project from
 OpenFn v1 to v2. Some of these steps may require you to make new design
 decisions. For customized migration support, ask your questions on our
-[Community](https://.community.openfn.org) or get in touch at
-[support@openfn.org](mailto://support@openfn.org).
+[Community](https://community.openfn.org) or get in touch at
+[support@openfn.org](mailto:support@openfn.org).
 
 ## Guide for migrating your v1 project to v2
 
@@ -21,9 +21,9 @@ decisions. For customized migration support, ask your questions on our
 3. Think about how long you want OpenFn to retain your input and output data and
    configure data storage accordingly.
    [See this page](/manage-projects/io-data-storage.md) to learn more.
-4. Migrate your v1 project's `Jobs` configuration to the v2, as `Workflows`. See
-   the below sections to determine if you prefer to automatically (recommended)
-   or manually migrate your OpenFn configuration from your v1 to v2 project.
+4. Migrate your v1 project's `Jobs` configuration to v2, as `Workflows`. See the
+   below sections to determine if you prefer to automatically (recommended) or
+   manually migrate your OpenFn configuration from your v1 to v2 project.
 5. Create [Credentials](/build/credentials.md) for your test and production
    systems. **First test your Workflows using your "test" or "sandbox"
    credentials.**
@@ -56,12 +56,12 @@ decisions. For customized migration support, ask your questions on our
 
    :::
 
-10. You may have other design decisions to make, too. For example, if in your v1
-    project, you may have a workflow where Job #1 sends a http `post` request
+10. You may have other design decisions to make, too. For example, in your v1
+    project, you may have a workflow where Job #1 sends an HTTP `post` request
     with data to your Project's Inbox, which then triggers a Job #2 (or step 2
     in your workflow). In v2, the Project Inbox does not exist, so we recommend
-    that your re-configure Job #1 and #2 as one combined Workflow with 2 Steps
-    (1 Step for each Job you had in the v1 configuration).
+    that you re-configure Job #1 and #2 as one combined Workflow with 2 Steps (1
+    Step for each Job you had in the v1 configuration).
 
     Note that in v2 you can still configure one Workflow to trigger another
     Workflow via a `post` request, but we recommend this should only be done if
@@ -76,7 +76,7 @@ decisions. For customized migration support, ask your questions on our
 12. Fine-tune your security configuration by following our
     [Project Security and Go-Live Checklist](https://docs.google.com/document/d/1XtiiKszeK5MAltPyqvlL4KCjkHC87YYlX8OPh6fZn4c/edit?usp=sharing)
     to consider other v2-specific security features
-    ([such as input/output data storage](docs/manage-projects/io-data-storage.md)).
+    ([such as input/output data storage](/manage-projects/io-data-storage.md)).
 13. Test some more to validate the correct configuration, especially if you've
     adjusted your Project Settings.
 14. When all Workflows run successfully, update each Step in your Workflows to
@@ -84,12 +84,12 @@ decisions. For customized migration support, ask your questions on our
 15. While you're testing, you may be using [Path Conditions](/build/paths.md) to
     allow only test data, such as `test_case == yes`. If you then want to
     exclude test data from your production systems, don't forget to update edge
-    conditions, eg. `test_case == no`. Check out [this
-    guide(https://docs.openfn.org/documentation/converting-triggers#converting-message-filters)]
+    conditions, e.g., `test_case == no`. Check out
+    [this guide](/migration/converting-triggers.md#converting-message-filters)
     for a specific example.
 16. If webhooks are used in your source applications, update the webhook
     configurations in these apps to point to your v2 OpenFn Workflows (you can
-    locate your Workflow's new webhook endpoint URL by clicking n the Trigger).
+    locate your Workflow's new webhook endpoint URL by clicking on the Trigger).
 17. You’re now done with your new v2 Project setup! You can "turn on" your
     Workflows and monitor usage on your
     [Workflows Dashboard](/manage-projects/workflow-dashboard.md). Now time to
@@ -100,8 +100,8 @@ decisions. For customized migration support, ask your questions on our
     page in your v1 project. Your most recent downloadable `receipts archives`
     and `runs archives` are at the bottom of the export list. You can generate a
     new export by navigating to the `Inbox` or `Activity History` page,
-    filtering your view to query the desired data to export, and then select the
-    cloud ☁ icon to `Export to csv`.
+    filtering your view to query the desired data to export, and then selecting
+    the cloud ☁ icon to `Export to csv`.
 20. Finally, when ready, request to delete your project on v1. To do this, go to
     your v1 `Project Settings` and select the `Delete Project` button.
 
@@ -125,13 +125,12 @@ both your v1 and v2 Projects.
 1. On v2, the Jobs you use for automating tasks are organized as
    [Workflows](/tutorials/tutorial.md), where each Job is 1 "Step" in a
    Workflow. Build out a skeleton to get started: set up
-   [Triggers](/build/triggers.md) and the key
-   [Steps](https://docs.openfn.org/documentation/build/steps) to get started.
+   [Triggers](/build/triggers.md) and the key [Steps](/build/steps/steps.md) to
+   get started.
 2. While configuring the Steps in your workflow, consider _which conditions_
    define when the next Step should execute. On v2, you can define
-   [Path conditions](https://docs.openfn.org/documentation/build/paths) to
-   configure whether a Step should run "on success", "on failure", or based on
-   custom logic. Follow
+   [Path conditions](/build/paths.md) to configure whether a Step should run "on
+   success", "on failure", or based on custom logic. Follow
    [our guide on converting your v1 "triggers" to v2 configuration](/migration/converting-triggers.md)
    to learn more.
 3. Once the basic Steps and Paths are configured, copy your job code from your
@@ -145,7 +144,7 @@ both your v1 and v2 Projects.
 
 The OpenFn v1 platform will be sunsetted in 2025. If you need support migrating
 your project, post on [Community](https://community.openfn.org) or contact
-[support@openfn.org](mailto://support@openfn.org) for paid support options and
+[support@openfn.org](mailto:support@openfn.org) for paid support options and
 private queries.
 
 :::
