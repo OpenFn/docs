@@ -1,7 +1,7 @@
 ---
 sidebar_label: Pruebas unitarias de jobs
 title: Escribir pruebas unitarias para tus jobs
-translation_source_hash: 369e5ac7657b845d19a55455f37d27edf0e714ab
+translation_source_hash: 10c76a4fa251a5d9afb0b0df0d7b2dfe65f8ef6a
 translation_review_status: machine
 ---
 
@@ -190,6 +190,8 @@ openfn compile --exports-only && node --test
 
 ```
 ✔ parses a well-formed message into a record (0.9ms)
+✔ trims whitespace around each field (0.1ms)
+✔ fills missing trailing fields with null (0.1ms)
 ℹ tests 1
 ℹ pass 1
 ℹ fail 0
