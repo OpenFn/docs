@@ -65,7 +65,7 @@ especificación... ¡quizás hay un bug en el adaptor! Puede que algo en cómo s
 implementó esa función auxiliar no haga lo que pretendía el autor del adaptor, y
 eso podría estar produciendo el "bug".
 
-Si empiezas a trabajar en el adaptor, ya _deberías_ haber reducido el problema a
+Si empiezas a trabajar en el adaptor, _ya_ deberías haber reducido el problema a
 un **_PROBLEMA GENERAL_**, dejando de lado todos los detalles específicos de
 esta implementación. Estás empezando a cambiar la forma en que este adaptor
 interactúa con la API de destino. Tienes a mano la documentación de la API y

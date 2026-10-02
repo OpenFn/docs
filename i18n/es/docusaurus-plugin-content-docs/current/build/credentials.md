@@ -57,9 +57,9 @@ para crear credenciales OAuth:
 
 1. Primero, elige un tipo de credencial OAuth en la interfaz "New Credential".
 2. Luego, ponle un nombre.
-3. Si quieres, selecciona "scopes" adicionales que quieras usar. (Según la
-   aplicación que uses, consulta el enlace a la documentación del tercero sobre
-   scopes que aparece en la aplicación).
+3. Opcionalmente, selecciona los "scopes" adicionales que quieras usar. (Según
+   la aplicación que uses, consulta el enlace a la documentación del tercero
+   sobre scopes que aparece en la aplicación).
 4. Por último, haz clic en "Sign in with \_\_\_\_\_\_".
 
 La aplicación del tercero te pedirá que verifiques tu identidad y que confirmes

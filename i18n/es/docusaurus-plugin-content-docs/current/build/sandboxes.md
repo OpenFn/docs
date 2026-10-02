@@ -30,7 +30,7 @@ recomendamos tener pocos para reducir el riesgo de conflictos al hacer merge.
 Un sandbox es una copia aislada de tu proyecto original, con su propio contexto.
 La mayoría de las cosas de un sandbox son privadas:
 
-- Workflows (jobs, edges y triggers; los triggers se desactivan al crearlo)
+- Workflows (jobs, edges y triggers; los triggers se deshabilitan al crearlo)
 - Colecciones (se copian los nombres, no los datos)
 - Credenciales de Keychain
 - Miembros del proyecto (se copian del proyecto principal al crearlo y después
@@ -83,10 +83,10 @@ pasan a `admin` y los demás miembros mantienen su rol original. A partir de ah�
 el sandbox gestiona sus propios miembros: agregar o quitar a alguien en el
 proyecto principal no afecta a los sandboxes que ya existen debajo.
 
-Todos los triggers de workflow del nuevo sandbox empiezan **desactivados**. Así
-se evita duplicar runs de producción desde el momento en que existe el sandbox.
-Puedes volver a activar cualquier trigger que quieras probar desde la página del
-workflow en el sandbox.
+Todos los triggers de workflow del nuevo sandbox empiezan **deshabilitados**.
+Así se evita duplicar runs de producción desde el momento en que existe el
+sandbox. Puedes volver a habilitar cualquier trigger que quieras probar desde la
+página del workflow en el sandbox.
 
 Después de crearlo, la acción Edit de la tarjeta de un sandbox te permite
 renombrarlo y cambiar su color. Todo lo demás (workflows, credenciales,
@@ -99,13 +99,13 @@ Hay dos límites prácticos para crear sandboxes:
 
 - **Cantidad de sandboxes activos.** Tu suscripción incluye un tope de sandboxes
   activos (no programados para eliminarse) que puedes tener. Cuando llegas al
-  tope, el botón **Create Sandbox** se desactiva y muestra un mensaje emergente
-  que explica por qué. Los sandboxes programados para eliminarse no cuentan, así
-  que puedes liberar un lugar eliminando uno que ya no necesites.
+  tope, el botón **Create Sandbox** se deshabilita y muestra un mensaje
+  emergente que explica por qué. Los sandboxes programados para eliminarse no
+  cuentan, así que puedes liberar un lugar eliminando uno que ya no necesites.
 - **Profundidad de anidamiento.** Un sandbox puede tener a su vez sandboxes
   debajo, y así sucesivamente, hasta una profundidad configurable (5 por
   defecto). Cuando el proyecto principal llega al tope, el botón **Create
-  Sandbox** de su página de sandboxes se desactiva y muestra el mensaje
+  Sandbox** de su página de sandboxes se deshabilita y muestra el mensaje
   emergente "Maximum sandbox nesting depth reached".
 
 ## Quién puede hacer qué {#who-can-do-what}
@@ -210,7 +210,7 @@ mismo nombre en ambos lados no se toca: no se copian los elementos de ninguno de
 los dos.
 
 Para hacer merge de un sandbox, debes ser `admin` u `owner` del **origen** (el
-sandbox desde el que haces merge); si no, el botón Merge está desactivado.
+sandbox desde el que haces merge); si no, el botón Merge está deshabilitado.
 También necesitas el rol `editor` o superior en el proyecto de destino; si no,
 se rechaza el merge.
 
@@ -267,15 +267,15 @@ CLI, resuelve las diferencias localmente y vuelve a enviar el resultado.
 Cuando se elimina un sandbox, ya sea de forma explícita o como parte de un
 merge, no se borra de inmediato. El sandbox (y cualquier sandbox que tenga
 debajo) queda programado para eliminarse, con todos los triggers de sus
-workflows desactivados, y un worker lo borra definitivamente cuando termina el
+workflows deshabilitados, y un worker lo borra definitivamente cuando termina el
 período de gracia configurado.
 
 Durante ese plazo, el sandbox aparece en la sección "Scheduled for deletion", al
 final de la lista de sandboxes. Cualquier persona con permisos de `admin` u
 `owner` en el sandbox (o en la raíz del espacio de trabajo) puede hacer clic en
 **Restore** para cancelar la eliminación programada. Al restaurarlo, se
-reactivan el sandbox y sus descendientes; los triggers siguen desactivados y hay
-que volver a activarlos a mano.
+reactivan el sandbox y sus descendientes; los triggers siguen deshabilitados y
+hay que volver a habilitarlos a mano.
 
 ![Sección Scheduled for deletion](/img/scheduled_for_deletion.webp)
 

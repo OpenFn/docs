@@ -31,8 +31,8 @@ Para configurar bien un step, tienes que entender su anatomía básica.
 Un step incluye estos componentes principales:
 
 - `Name`: un nombre legible que describe el step y su propósito.
-- `Adaptor`: el [adaptor](/adaptors/) seleccionado, que aporta las funciones
-  específicas de la aplicación para este step (por ejemplo, `dhis2` o
+- `Adaptor`: el [adaptor](/adaptors/) seleccionado, que aporta la funcionalidad
+  específica de la aplicación para este step (por ejemplo, `dhis2` o
   `commcare`).
 - `Adaptor Version`: la versión del adaptor seleccionado, que determina qué
   endpoints de la API y qué funciones del adaptor están disponibles. Consulta la

@@ -257,7 +257,7 @@ de las solicitudes del canal se siguen registrando, pero los payloads se borran.
 | Crear y gestionar canales     | `Project` → `Channels`                                            |
 | URL de proxy                  | Haz clic para copiarla desde la lista de canales, o abre el canal |
 | Patrón del endpoint del proxy | `https://{instance}/channels/{channel-id}/{path}`                 |
-| Ver los logs                  | Pestaña `Project` → `History` → `Channel Logs`                    |
+| Ver los logs                  | `Project` → `History` → pestaña `Channel Logs`                    |
 | Logs filtrados de un canal    | Haz clic en la cantidad de `Requests` en la página Channels       |
 | Credenciales de cliente       | `Project Settings` → `Webhook Security`                           |
 | Credenciales de destino       | `Project Settings` → `Credentials`                                |
