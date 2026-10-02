@@ -19,7 +19,7 @@
 
 
 <script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/assets/css/styles.9f645c63.css">
-<script src="/assets/js/runtime~main.8224d096.js" defer="defer"></script>
+<script src="/assets/js/runtime~main.07df3a8a.js" defer="defer"></script>
 <script src="/assets/js/main.48ba2e21.js" defer="defer"></script>
 </head>
 <body>
@@ -122,7 +122,7 @@ running workflows via the CLI.</p>
 <a class="" href="/documentation/jobs/unit-testing-jobs">Writing unit tests for your jobs</a> for
 the full guide.</p>
 <p>Unit tests only work against pure functions in your code (top level function
-declarations): they do not qork against operations or adaptor functions because
+declarations): they do not work against operations or adaptor functions because
 they require connected backend services.</p>
 <p>To unit test functions in your job code:</p>
 <ol>
@@ -135,11 +135,11 @@ native JS module.</li>
 <p><strong>Compile every workflow in the project, keeping only exported declarations:</strong></p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn compile --exports-only</span><br></div></code></pre></div></div>
 <p>Compiled files are written to <code>dist/</code> as <code>.mjs</code> files.</p>
-<p>With <code>--exports-only</code> Operations are stripped out entirely, leaving only
-exported functions and variables .</p>
+<p>With <code>--exports-only</code>, operations are stripped out entirely, leaving only
+exported functions and variables.</p>
 <p><strong>Compile a single workflow by name:</strong></p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn compile my-workflow --exports-only</span><br></div></code></pre></div></div>
-<p><strong>Recompile whenever a job code changes:</strong></p>
+<p><strong>Recompile whenever job code changes:</strong></p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn compile --exports-only --watch</span><br></div></code></pre></div></div>
 <p>Without <code>--exports-only</code> you get the full compiled output of the step.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="load-adaptor-documentation">Load adaptor documentation<a href="#load-adaptor-documentation" class="hash-link" aria-label="Direct link to Load adaptor documentation" title="Direct link to Load adaptor documentation" translate="no">​</a></h3>
