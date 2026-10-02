@@ -107,7 +107,7 @@ para no perderte nuestras demos, seminarios web y actualizaciones de producto.
 
 :::info Consejo
 
-Al describir la función, nos ayuda mucho entender el problema, la solución
+Al describir la función, nos ayuda mucho que expliques el problema, la solución
 propuesta (si la hay) y soluciones similares de las que podamos sacar ideas, _si
 existen_.
 
