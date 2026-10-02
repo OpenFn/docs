@@ -114,11 +114,11 @@ avoids the warning without touching your `package.json`.
 
 :::
 
-<!-- prettier ignore -->
+<!-- prettier-ignore -->
 <Tabs groupId="write-a-test">
   <TabItem value="source" label="The job code">
-    ```js title="workflows/sms-parser/parse-message.js" 
-    export const FIELDS = ['id','name', 'dob', 'weight'];
+    ```js title="workflows/sms-parser/parse-message.js"
+    export const FIELDS = ['id', 'name', 'dob', 'weight'];
 
     export const parseSms = text => {
       const parts = text.trim().split('#');
@@ -135,7 +135,7 @@ avoids the warning without touching your `package.json`.
     ```
   </TabItem>
   <TabItem value="output" label="The compiled output">
-  
+
     After `openfn compile --exports-only`:
 
     ```js title="dist/sms-parser/parse-message.mjs"
@@ -182,8 +182,6 @@ openfn compile --exports-only && node --test
 
 ```
 ✔ parses a well-formed message into a record (0.9ms)
-✔ trims whitespace around each field (0.1ms)
-✔ fills missing trailing fields with null (0.1ms)
 ℹ tests 1
 ℹ pass 1
 ℹ fail 0
