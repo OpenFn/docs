@@ -20,7 +20,7 @@ sidebar_label: Workflow QuickStart
    workflow
 6. In the `Input` panel on the left, add a custom input (e.g., a payload from a
    webhook request) or simply add empty brackets (`{}`) to run a Workflow with a
-   cron trigger. See the [Workflow docs](docs/build/workflows.md) for help with
+   cron trigger. See the [Workflow docs](/build/workflows.md) for help with
    running and testing Workflow.
 7. If the Step suceeds, navigate back to the Canvase view and click the `+` icon
    to add a second Step.
