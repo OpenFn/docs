@@ -11,16 +11,16 @@ You can write content using
 :::tip
 
 We use a `.prettierrc` file to enforce standard styles via the "Prettier" code
-formatter. If you are using VsCode, you can install prettier via
+formatter. If you are using VS Code, you can install Prettier via
 https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode
 
-Make sure to format you work before opening a PR.
+Make sure to format your work before opening a PR.
 
 :::
 
 ## Markdown Syntax
 
-To serve as an example page when styling markdown based Docusaurus sites.
+To serve as an example page when styling Markdown-based Docusaurus sites.
 
 ## Headers
 
@@ -118,9 +118,9 @@ Images can be sized using inline HTML.
 
 ---
 
-## Gifs
+## GIFs
 
-Gifs are helpful for demonstrating short sequences of user behaviour.
+GIFs are helpful for demonstrating short sequences of user behavior.
 
 ![img](/img/how-to-gif.gif)
 

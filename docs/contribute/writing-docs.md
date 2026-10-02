@@ -6,7 +6,8 @@ Please feel free to point out [issues](https://github.com/openfn/docs/issues)
 with this documentation or, if you can't find the right repo, issues with the
 tools themselves. (The more feedback the better!). If you want to propose some
 new language for the documentation, you can make those changes by clicking the
-**"Edit this page"** link at the bottom of any page and submit a pull request!
+**"Edit this page"** link at the bottom of any page and submitting a pull
+request!
 
 ## Intro
 
