@@ -2,7 +2,7 @@
 title: Uso básico de la CLI de OpenFn
 sidebar_label: Uso básico
 slug: /cli-usage
-translation_source_hash: 5edba45d12a4ebf880a214f7091ba01bdd560690
+translation_source_hash: 0cf56f75d2c15049193e021867c97df6d9a9ed09
 translation_review_status: machine
 ---
 

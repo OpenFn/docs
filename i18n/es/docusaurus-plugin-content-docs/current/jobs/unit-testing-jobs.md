@@ -1,7 +1,7 @@
 ---
 sidebar_label: Pruebas unitarias de jobs
 title: Escribir pruebas unitarias para tus jobs
-translation_source_hash: 6499f848fcc9f9c81283ae56a0bafce3bbbe9b03
+translation_source_hash: 369e5ac7657b845d19a55455f37d27edf0e714ab
 translation_review_status: machine
 ---
 
