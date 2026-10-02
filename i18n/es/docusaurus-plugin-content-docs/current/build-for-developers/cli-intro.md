@@ -2,7 +2,7 @@
 title: Primeros pasos con la CLI de OpenFn
 sidebar_label: Primeros pasos
 slug: /cli
-translation_source_hash: ca52becdb9d7d721ea9e5555863476dc2a187af0
+translation_source_hash: 944be784d36e841ea14f6d763d05830a7da98a18
 translation_review_status: machine
 ---
 
@@ -17,6 +17,8 @@ de OpenFn puedes:
 - Sincronizar workflows entre OpenFn y un sistema de archivos local o GitHub
 - Ejecutar workflows de OpenFn de forma segura
 - Diagnosticar y depurar steps de OpenFn
+- [Hacer pruebas unitarias del código de los jobs](/documentation/jobs/unit-testing-jobs)
+  con JavaScript estándar
 - Leer y escribir datos de colecciones
 
 ---
