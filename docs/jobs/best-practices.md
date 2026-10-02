@@ -102,5 +102,5 @@ fn(state => ({
 }));
 ```
 
-To test the export helpers
-[See Unit testing jobs](/documentation/jobs/unit-testing-jobs)
+To test the exported helpers, see
+[Unit testing jobs](/documentation/jobs/unit-testing-jobs).
