@@ -595,8 +595,8 @@ Por ejemplo, si tu workflow tiene dos steps (GET de usuarios del sistema A y
 POST de usuarios al sistema B), puedes configurarlo para que ejecute todos los
 steps en secuencia, de principio a fin. Esto imita los
 [patrones de flow triggers](/documentation/legacy/build/triggers#flow-triggers)
-de la plataforma OpenFn, donde un segundo job debe ejecutarse después de que el
-primero termine con éxito, usando los datos que devolvió el primer job.
+de la plataforma OpenFn, donde un segundo job debería ejecutarse después de que
+el primero termine con éxito, usando los datos que devolvió el primer job.
 
 :::info En resumen
 
@@ -607,8 +607,8 @@ anterior se pasa automáticamente al job siguiente como state inicial.
 
 ##### Workflow {#workflow}
 
-Un workflow es el plan de ejecución para correr varios steps en secuencia. Se
-define como un objeto JSON con las siguientes propiedades:
+Un workflow es el plan de ejecución de varios steps en secuencia. Se define como
+un objeto JSON con las siguientes propiedades:
 
 ```json
 {
@@ -855,10 +855,10 @@ tu proyecto, esta sería la estructura del proyecto:
 openfn workflow.json -o tmp/output.json
 ```
 
-Al ejecutarse, este workflow corre primero el job `getPatients.js`. Si termina
-con éxito, `getGlobalOrgUnits.js` se ejecuta con el state final de
-`getPatients.js`. Si `getGlobalOrgUnits.js` termina con éxito, `createTEIs.js`
-se ejecuta con el state final de `getGlobalOrgUnits.js`.
+Al ejecutarse, este workflow empieza por el job `getPatients.js`. Si termina con
+éxito, `getGlobalOrgUnits.js` se ejecuta con el state final de `getPatients.js`.
+Si `getGlobalOrgUnits.js` termina con éxito, `createTEIs.js` se ejecuta con el
+state final de `getGlobalOrgUnits.js`.
 
 Ten en cuenta que los adaptors indicados en `workflow.json` se instalan
 automáticamente cuando ejecutas el workflow. Para ejecutar el workflow, usa este

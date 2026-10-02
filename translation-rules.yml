@@ -120,3 +120,28 @@ rules:
       Triggers pages call "deshabilitados".
     added_by: lmac-1
     added_on: 2026-10-02
+
+  - locale: es
+    kind: term
+    source: Expand to see
+    target: Expande para ver
+    instruction: >-
+      In dropdown summaries, "Expand to see..." is "Expande para ver...", not
+      "Despliega para ver...".
+    example_source: Expand to see the expected output
+    example_target: Expande para ver la salida esperada
+    reason: The CLI pages used "Despliega" on two pages and "Expande" on another.
+    added_by: lmac-1
+    added_on: 2026-10-02
+
+  - locale: es
+    kind: avoid
+    source: run (the verb)
+    target: correr
+    instruction: >-
+      "Run" a job, step, workflow, or command is "ejecutar", not "correr".
+    example_source: A workflow is the execution plan for running several steps.
+    example_target: Un workflow es el plan de ejecución de varios steps.
+    reason: The CLI walkthrough mixed "correr" with "ejecutar" for the same verb.
+    added_by: lmac-1
+    added_on: 2026-10-02

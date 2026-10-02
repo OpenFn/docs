@@ -13,7 +13,7 @@ Puedes crear un proyecto en la aplicación, descargarlo a tu computadora para
 desarrollar sin conexión, volver a subirlo a la aplicación o incluso desplegarlo
 en otro servidor de OpenFn.
 
-A esto lo llamamos OpenFn Sync, y es una de las funciones más potentes que
+A esto lo llamamos OpenFn Sync, y es una de las funcionalidades más potentes que
 ofrecen los proyectos de OpenFn.
 
 ## ¿Qué es un proyecto? {#what-is-a-project}
@@ -102,12 +102,12 @@ proyecto. El dominio es el de la instancia de OpenFn desde la que se descargó e
 proyecto.
 
 No deberías editar el archivo de proyecto localmente, porque cualquier cambio se
-perderá en la siguiente obtención.
+perderá la próxima vez que lo obtengas.
 
 Puedes obtener tantos proyectos como quieras, y cada uno se guardará en su
 propio archivo project.yaml.
 
-La carpeta `.projects` puede y debe incluirse en el control de versiones.
+La carpeta `.projects` puede y debería incluirse en el control de versiones.
 
 ### workflows {#workflows}
 
@@ -164,7 +164,7 @@ archivo del step y la ruta de la clave `expression` en `workflow.yaml`.
 Es un archivo de configuración de nivel superior que, en general, puedes
 ignorar. Las herramientas de OpenFn lo usan para reconocer la carpeta raíz de un
 proyecto. También contiene opciones de configuración para todos los proyectos
-locales y metadatos sobre el proyecto con checkout actual.
+locales y metadatos sobre el proyecto que tienes con checkout.
 
 ## Autorización {#authorization}
 
@@ -228,7 +228,7 @@ Por ejemplo, el UUID es la parte en negrita de:
 
 Después de descargar un proyecto por primera vez, no hace falta volver a indicar
 el UUID. Puedes usar el alias, el id o dejar el identificador en blanco para
-usar el proyecto con checkout actual.
+usar el proyecto que tienes con checkout.
 
 El comando `project pull` hace tres cosas:
 
@@ -302,7 +302,7 @@ Para subir tus cambios locales de nuevo a la aplicación, ejecuta:
 openfn project deploy
 ```
 
-Esto toma el proyecto con checkout actual y lo sube a la aplicación. También
+Esto toma el proyecto que tienes con checkout y lo sube a la aplicación. También
 indica qué cambió en el proyecto local.
 
 Antes de subirlo, la CLI obtiene la última versión del proyecto desde la
@@ -510,8 +510,8 @@ Así, los commits en GitHub despliegan automáticamente los cambios en un proyec
 de OpenFn, y al presionar Save & Sync en la aplicación se hace commit de vuelta
 en GitHub.
 
-Internamente, GitHub Sync usa los comandos `pull` y `deploy` de la CLI, que
-disparan GitHub Actions, para sincronizar tus proyectos.
+Internamente, GitHub Sync usa los comandos `pull` y `deploy` de la CLI, que se
+ejecutan desde GitHub Actions, para sincronizar tus proyectos.
 
 Ten en cuenta que, de forma predeterminada, GitHub Sync usa el formato antiguo,
 con los archivos `state.json`, `project.yaml` y `config.json`. Al configurar un

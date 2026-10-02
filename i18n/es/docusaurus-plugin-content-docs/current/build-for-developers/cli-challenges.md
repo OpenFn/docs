@@ -16,7 +16,7 @@ translation_review_status: machine
 - Si te quedas atascado y necesitas ayuda, publica en
   [community.openfn.org](https://community.openfn.org).
   <details>
-  <summary>Despliega para ver la plantilla de reporte de errores</summary>
+  <summary>Expande para ver la plantilla de reporte de errores</summary>
 
   ```markdown
   Subject: Bug Report - [Brief Description]

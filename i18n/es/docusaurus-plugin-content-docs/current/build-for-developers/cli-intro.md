@@ -62,7 +62,7 @@ La palabra `openfn` invoca la CLI. La palabra `test` invoca el comando de
 prueba.
 
 <details>
-<summary>Despliega para ver la salida esperada</summary>
+<summary>Expande para ver la salida esperada</summary>
 
 ```
 [CLI] ♦ Versions:
@@ -117,7 +117,7 @@ prueba.
 
 </details>
 
-El resto de la salida es la CLI contándonos lo que hace internamente.
+El resto de la salida es la CLI contándote lo que hace internamente.
 
 **Consultar la versión**
 
@@ -146,8 +146,8 @@ npm install -g @openfn/cli
 
 ### Solución de problemas {#troubleshooting}
 
-Si tienes problemas con la instalación, prueba a desinstalar primero la versión
-actual y luego vuelve a instalarla.
+Si tienes problemas con la instalación, intenta desinstalar primero la versión
+actual y luego volver a instalarla.
 
 ```bash
 npm uninstall -g @openfn/cli

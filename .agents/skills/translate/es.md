@@ -29,6 +29,7 @@ Avoid slang from any one country.
 | considerar                         | plantearse            |
 | por ejemplo, or como before a list | p. ej.                |
 | en campo (in the field)            | en terreno            |
+| intentar (try to)                  | probar a              |
 | entrada (input)                    | input                 |
 
 Keep `Input` when it names the panel in the app. "Payload" stays in English.

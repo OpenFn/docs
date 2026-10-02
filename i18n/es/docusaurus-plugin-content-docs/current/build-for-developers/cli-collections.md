@@ -205,7 +205,7 @@ Si usas un patrón de claves para obtener datos, el valor se devuelve en modo
 multielemento: un objeto JSON donde la clave es la clave del elemento y el valor
 es el valor del elemento.
 
-Así que, si obtenemos todos los elementos cuya clave empieza por `item-`:
+Así que, si obtienes todos los elementos cuya clave empieza por `item-`:
 
 ```bash
 $ openfn collections get my-collection item-1*
@@ -229,7 +229,7 @@ Los datos resultantes se verán así:
 ## Subir elementos {#uploading-items}
 
 Puedes usar el comando `collections` para subir datos a una colección. Al subir,
-los valores siempre vienen de un archivo en disco. En este ejemplo usaremos
+los valores siempre vienen de un archivo en disco. En este ejemplo se usan
 archivos JSON, pero si subes un solo valor, no hace falta que sea JSON válido.
 
 El comando `set` tiene dos modos. Para subir un solo elemento, usa:
