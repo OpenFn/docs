@@ -12,6 +12,26 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
+  // --- i18n (internationalization) ---
+  // Spanish is built at /es/ and linked from the navbar's language dropdown.
+  // Translated content lives in i18n/<locale>/. Anything not translated
+  // falls back to the English source automatically.
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'es'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en',
+      },
+      es: {
+        label: 'Español',
+        direction: 'ltr',
+        htmlLang: 'es',
+      },
+    },
+  },
   markdown: {
     hooks: { onBrokenMarkdownLinks: 'warn' },
     mermaid: true,
@@ -73,6 +93,10 @@ module.exports = {
         },
         {
           type: 'docsVersionDropdown',
+          position: 'right',
+        },
+        {
+          type: 'localeDropdown',
           position: 'right',
         },
         {
@@ -151,6 +175,9 @@ module.exports = {
           sidebarPath: require.resolve('./sidebars-main.js'),
           routeBasePath: '/documentation',
           editUrl: 'https://github.com/openfn/docs/edit/main',
+          // Point "Edit this page" at the translated file rather than the
+          // English source when reading a non-default locale.
+          editLocalizedFiles: true,
           lastVersion: 'current',
           versions: {
             current: {
