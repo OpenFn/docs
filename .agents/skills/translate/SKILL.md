@@ -36,13 +36,15 @@ or articles and blog posts.
 
 ## Before you start
 
-Check these five things. If any fails, stop and ask.
+Check these six things. If any fails, stop and ask.
 
 - The locale is enabled in `docusaurus.config.js`. Do not enable it yourself;
   that changes what gets deployed.
 - `i18n/` is not in `.gitignore`.
 - `glossary.yml` and `translation-rules.yml` are valid YAML.
 - The locale has a house style guide, `<locale>.md`, in this folder.
+- Every `glossary.yml` term marked `translate: true` has a word for the locale
+  under `locales`. If one is missing, a person decides it.
 - Your branch has everything on `main`. Run `git fetch origin main` and then
   `git merge-base --is-ancestor origin/main HEAD`. If it fails, the English you
   would translate is out of date, and the hashes you record will not match
@@ -53,17 +55,18 @@ Check these five things. If any fails, stop and ask.
 
 These apply to both tasks.
 
-- Words in `glossary.yml` stay in English. For ordinary words that are also
-  product terms, like "run" or "step", keep the English only when the word means
-  the OpenFn thing.
+- Terms in `glossary.yml` stay in English, unless they are marked
+  `translate: true`. Those use the word under `locales.<locale>` every time,
+  such as "proyecto" for project. For ordinary words that are also product
+  terms, like "run" or "step", keep the English only when the word means the
+  OpenFn thing.
 - Follow the house style for the locale in `<locale>.md` in this folder, such as
   `es.md`, and any rules for the locale in `translation-rules.yml`.
 - Write the way a native writer would, not word for word. Reorder or split a
   sentence when the literal version is awkward, drop a subject the sentence has
   already given, and cut an aside that repeats what the sentence says. Keep the
   meaning and the facts; change only the wording.
-- Copy code blocks and inline code exactly, comments included. The page checks
-  compare code blocks with the English, so any change shows up as an error.
+- Copy code blocks and inline code exactly, comments included.
 - Keep the names of things in the app, like buttons, menus, tabs, and field
   labels, exactly as they are in the English. The app is English only, so a
   translated button name points the reader at a button that does not exist.

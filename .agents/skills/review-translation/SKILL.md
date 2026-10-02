@@ -40,20 +40,20 @@ Then read the rules listed above.
 These need no judgement, so search for them across the whole scope rather than
 reading for them:
 
-- Run the glossary check on every block. Leave out `--base`: the translation is
-  already committed, so `--base HEAD` would skip every block.
+- Run the check:
 
   ```bash
   node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md... --check
   ```
 
-- Every word or phrase `<locale>.md` says not to use, such as the "Not" column
-  of a word table.
+  Each block it lists is a candidate, not a verdict: read it against the
+  English. It skips rules with their context in brackets, like "upgrade (a
+  plan)", so search for those by hand.
+
 - Punctuation `<locale>.md` rules out, such as curly quotes.
 - English terms kept from `glossary.yml` written with a capital mid-sentence, if
   `<locale>.md` says to lower-case them. Case-sensitive terms (OpenFn, Canvas,
   Inspector) and names of things in the app keep their capitals.
-- Every `term` and `avoid` rule for the locale in `translation-rules.yml`.
 
 ## 3. Read each block against its English
 
@@ -79,33 +79,34 @@ the translation matching it.
 Fix a block when the problem and the fix are both clear. Change only the words
 that are wrong, so the diff shows just the fix. Leave the front matter alone.
 Then run `yarn prettier --write <files>` on the pages you changed, and run the
-glossary check again.
+check again.
 
 ## 5. Report
 
-Report in the chat, grouped like this, with the file and line for each item:
+Build the site and serve it (`yarn serve`), so each item can point to the page
+as the reader sees it. Report in the chat. Place each item by the page URL, such
+as `http://localhost:3000/es/documentation/build/triggers`, and the section
+heading, not by file and line. Group the items like this:
 
-- **Fixed.** Before and after, and why, one line each.
+- **Fixed.** For each fix, give the English sentence, the translation before,
+  and the translation after, all in full, with the changed words in bold. Then
+  say why in one line.
 - **Needs a decision.** Problems you were not sure how to fix, or where the fix
-  changes meaning.
+  changes meaning. Quote the English and the current translation.
 - **Problems in the English.**
 - **Suggested rules.** A problem found on more than one page, or likely to come
   back in later sections, with the line you would add to `<locale>.md` or
   `translation-rules.yml`. Add it only if asked.
-- **Page to spot-check.** The page with the most fixes, and the command to open
-  it side by side:
-
-  ```bash
-  node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md > review.html
-  ```
+- **Page to spot-check.** The page with the most fixes, with its URL.
 
 ## Marking a page human-reviewed
 
 Only a person who reads the language well marks a page `human-reviewed`. It
 means they checked the meaning against the English, not only that the
 translation reads well: a page can read perfectly and still say something
-different. Using `review.html`, they check every block for the points in step 3,
-fix what is wrong, and then set in the front matter:
+different. With the translated page open next to the English one on the built
+site, they check every paragraph for the points in step 3, fix what is wrong,
+and then set in the front matter:
 
 ```yaml
 translation_review_status: human-reviewed
