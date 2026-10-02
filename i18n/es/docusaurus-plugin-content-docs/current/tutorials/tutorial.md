@@ -1,7 +1,7 @@
 ---
 title: Tutorial
 sidebar_label: Guía rápida de workflows
-translation_source_hash: 00443ad3e6806b7f5cc0acdc0ee8bbd04a959b7c
+translation_source_hash: ee5eee9bd2e17a736919bba3e005069daac0a44f
 translation_review_status: machine
 ---
 
