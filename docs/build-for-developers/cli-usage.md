@@ -13,6 +13,7 @@ including:
 - adjust logging level
 - maintain adaptors repo
 - run a workflow
+- preparing job code for unit tests
 - load adaptor documentation
 
 ---
@@ -225,6 +226,49 @@ Check out this detailed
 running workflows via the CLI.
 
 ---
+
+### Prepare job code for unit testing
+
+So you want to write unit tests against your job code? See
+[Writing unit tests for your jobs](/documentation/jobs/unit-testing-jobs) for
+the full guide.
+
+Unit tests only work against pure functions in your code (top level function
+declarations): they do not qork against operations or adaptor functions because
+they require connected backend services.
+
+To unit test functions in your job code:
+
+1. **Compile your project** using `openfn compile`. This compiles your workflows
+   and writes them out as ordinary ES modules.
+2. **Import the compiled functions** into your test file, just like any other
+   native JS module.
+3. **Write tests as usual** against those pure functions.
+
+**Compile every workflow in the project, keeping only exported declarations:**
+
+```bash
+openfn compile --exports-only
+```
+
+Compiled files are written to `dist/` as `.mjs` files.
+
+With `--exports-only` Operations are stripped out entirely, leaving only
+exported functions and variables .
+
+**Compile a single workflow by name:**
+
+```bash
+openfn compile my-workflow --exports-only
+```
+
+**Recompile whenever a job code changes:**
+
+```bash
+openfn compile --exports-only --watch
+```
+
+Without `--exports-only` you get the full compiled output of the step.
 
 ### Load adaptor documentation
 
