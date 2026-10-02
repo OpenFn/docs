@@ -24,7 +24,7 @@ translation_review_status: machine
 6. En el panel `Input` de la izquierda, agrega una entrada personalizada (por
    ejemplo, el payload de una solicitud de webhook) o simplemente agrega llaves
    vacías (`{}`) para ejecutar un workflow con un trigger cron. Consulta la
-   [documentación de workflows](docs/build/workflows.md) si necesitas ayuda para
+   [documentación de workflows](/build/workflows.md) si necesitas ayuda para
    ejecutar y probar workflows.
 7. Si el step funciona, vuelve a la vista del Canvas y haz clic en el ícono `+`
    para agregar un segundo step.
