@@ -79,5 +79,8 @@
   },
   "homepage.highlights.heading": {
     "message": "✨Destacados de la documentación✨"
+  },
+  "untranslatedNotice.message": {
+    "message": "Esta página no tiene versión en español, así que te la mostramos en inglés."
   }
 }
