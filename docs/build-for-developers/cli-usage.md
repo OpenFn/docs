@@ -253,7 +253,7 @@ openfn compile --exports-only
 
 Compiled files are written to `dist/` as `.mjs` files.
 
-With `--exports-only` Operations are stripped out entirely, leaving only
+With `--exports-only`, operations are stripped out entirely, leaving only
 exported functions and variables.
 
 **Compile a single workflow by name:**
@@ -262,7 +262,7 @@ exported functions and variables.
 openfn compile my-workflow --exports-only
 ```
 
-**Recompile whenever a job code changes:**
+**Recompile whenever job code changes:**
 
 ```bash
 openfn compile --exports-only --watch
