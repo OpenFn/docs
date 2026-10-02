@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 Most job code goes like this: fetch some records, reshape them, send them
 somewhere else. But the reshaping bit often grows into complex logic - parsing a
 string into a structured record, mapping local codes onto DHIS2 data elements,
-normalising a dozen date formats into one.
+normalizing a dozen date formats into one.
 
 Unit testing that logic helps to validate that the code runs correctly, and
 helps to prevent errors occurring when the code is modified later.
@@ -114,11 +114,11 @@ avoids the warning without touching your `package.json`.
 
 :::
 
-<!-- prettier ignore -->
+<!-- prettier-ignore -->
 <Tabs groupId="write-a-test">
   <TabItem value="source" label="The job code">
-    ```js title="workflows/sms-parser/parse-message.js" 
-    export const FIELDS = ['id','name', 'dob', 'weight'];
+    ```js title="workflows/sms-parser/parse-message.js"
+    export const FIELDS = ['id', 'name', 'dob', 'weight'];
 
     export const parseSms = text => {
       const parts = text.trim().split('#');
@@ -135,7 +135,7 @@ avoids the warning without touching your `package.json`.
     ```
   </TabItem>
   <TabItem value="output" label="The compiled output">
-  
+
     After `openfn compile --exports-only`:
 
     ```js title="dist/sms-parser/parse-message.mjs"
