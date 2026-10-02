@@ -18,9 +18,9 @@ actualizar tu contraseña.
 
 ![Change Email Password](/img/lightning_change_email_pw.webp)
 
-### Activar la autenticación multifactor {#enable-multi-factor-authentication}
+### Habilitar la autenticación multifactor {#enable-multi-factor-authentication}
 
-Al activar la autenticación multifactor, agregas una capa extra de seguridad a
+Al habilitar la autenticación multifactor, agregas una capa extra de seguridad a
 tu cuenta, porque para iniciar sesión se necesita algo más que una contraseña.
 
 ![Enable MFA](/img/lightning_enable_MFA.webp)

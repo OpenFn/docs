@@ -140,7 +140,7 @@ Al mejorar el plan, se te cobrará de inmediato la _diferencia_ entre tu plan
 actual y el nuevo. Al final de tu ciclo, el siguiente cargo será solo el costo
 del nuevo plan.
 
-### Bajar de plan tu suscripción {#downgrading-your-subscription}
+### Bajar el plan de tu suscripción {#downgrading-your-subscription}
 
 Al bajar de plan, puedes seguir usando tu plan actual hasta que termine el
 ciclo, porque ya pagaste por adelantado el uso de ese ciclo. Cuando termina el
