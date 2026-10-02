@@ -7,7 +7,7 @@ sidebar_label: Roadmap
 
 This page details the planned roadmaps for the key products in the OpenFn
 product suite, including Lightning, Adaptors, and this Docs site. While this
-page will be updated periodically, you can track our realtime roadmap and
+page will be updated periodically, you can track our real-time roadmap and
 progress [here](#what-are-we-currently-working-on).
 
 ## Our approach to product development
@@ -60,14 +60,14 @@ also keep track of all new features, changes, and bug fixes in real-time via our
 
 We collect feedback and new feature requests via our
 [Community](https://community.openfn.org/c/feature-requests/) site. This allows
-OpenFn core team and users to track, engage by upvoting their favorite and
-mission critical feature requests.
+the OpenFn core team and users to track and upvote their favorite and
+mission-critical feature requests.
 
 :::info Join our weekly product update
 
 We encourage you to join our weekly product updates where we present what's new
 and coming next. It's also a good opportunity for you to ask us questions about
-OpenFn. The call holds every Friday at 11 AM GMT (London)
+OpenFn. The call is held every Friday at 11 AM GMT (London)
 [here](https://meet.google.com/vaw-qvfq-mru) -
 (https://meet.google.com/vaw-qvfq-mru). You can also
 [add our events to your calendar](https://calendar.google.com/calendar/u/0?cid=Y182Y2Y4NWY0NjlhNWVlMzA4NzEwMWE5MWNhYmRjZTRkMDZlZDU1OGY1OTM3ZGUzNTQ0NWNkYmQ2NDFhMDY3MGFjQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20)
@@ -94,7 +94,7 @@ so you never miss out on our demos, webinars, and product updates.
    "Make the new workflow button green")
 4. Describe the feature request in detail and why it's important to you. Helpful
    if you can add reference images and links.
-5. Share the feature request on across your professional network for upvotes
+5. Share the feature request across your professional network for upvotes
 
 :::info Tip
 
@@ -109,7 +109,7 @@ insights from _if they exist_.
 If you prefer the direct approach, you can search across all tracked issues in
 OpenFn's GitHub org [here](https://github.com/OpenFn), comment on them, or even
 pick them up to work on yourself. If you don't find what you're looking for,
-please go ahead an create an issue in the relevant repo. We'll do our best to
+please go ahead and create an issue in the relevant repo. We'll do our best to
 respond promptly!
 
 <!-- ## Summary Roadmaps
@@ -181,6 +181,6 @@ workflow engine, enable automated workflows that cut across digital systems.
 
 We encourage users to post their questions on the OpenFn Community at
 [community.openfn.org](https://community.openfn.org), or consider creating
-issues for bugs via product repository. You can also independently start
+issues for bugs via the product repository. You can also independently start
 contributing to the OpenFn software, adaptors, or documentation by getting
 started [here](/contribute/writing-code.md).
