@@ -24,8 +24,8 @@ para que tu socio de despliegue pueda estimar mejor el costo total de propiedad.
    institución es única, y OpenFn es flexible: según tus procesos actuales de
    DevOps, te recomendaremos distintos mecanismos de despliegue.
 2. ¿Qué personal de TI y de DevOps hay disponible para apoyar el despliegue y el
-   mantenimiento de OpenFn? ¿Tiene experiencia con Docker y Kubernetes? ¿Tiene
-   experiencia con bases de datos Postgres?
+   mantenimiento de OpenFn? ¿Ese personal tiene experiencia con Docker y
+   Kubernetes? ¿Y con bases de datos Postgres?
 3. ¿El despliegue requerirá alta disponibilidad? (Es decir, si OpenFn va a
    recibir solicitudes en tiempo real desde otras aplicaciones en lugar de
    ejecutar jobs basados en cron, se deberían ejecutar al menos dos instancias
