@@ -225,13 +225,13 @@ de las solicitudes del canal se siguen registrando, pero los payloads se borran.
   cliente configuradas, cualquiera que conozca la URL del canal puede enviar
   solicitudes a través de él. Configura siempre credenciales de cliente para los
   canales de producción.
-- Al cambiar un canal a **desactivado**, deja de aceptar solicitudes de
+- Al cambiar un canal a **deshabilitado**, deja de aceptar solicitudes de
   inmediato (los clientes reciben un `404`).
 - Cada solicitud se registra junto con una instantánea de la configuración que
   tenía el canal en ese momento, así que tienes un registro de auditoría incluso
   después de que el canal cambie.
 - Un canal con historial de solicitudes no se puede eliminar, porque hay que
-  conservar su historial; desactívalo en su lugar.
+  conservar su historial; deshabilítalo en su lugar.
 
 ## Limitaciones {#limitations}
 
@@ -244,11 +244,11 @@ de las solicitudes del canal se siguen registrando, pero los payloads se borran.
 
 | Problema                                              | Causa probable                                                                           | Solución                                                                                                     |
 | ----------------------------------------------------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| `404` en la URL del canal                             | El canal está desactivado, o el ID del canal es incorrecto                               | Comprueba que el canal esté activado y que el ID coincida                                                    |
+| `404` en la URL del canal                             | El canal está deshabilitado, o el ID del canal es incorrecto                             | Comprueba que el canal esté habilitado y que el ID coincida                                                  |
 | `401` en la URL del canal                             | Hay credenciales de cliente configuradas y tu solicitud no coincide con ninguna          | Envía las credenciales correctas con tu solicitud, o desmarca las credenciales de cliente para hacer pruebas |
 | `502` en la URL del canal                             | OpenFn no pudo usar la credencial de destino (por ejemplo, hay que volver a autorizarla) | Revisa la credencial de destino y el mensaje de error en `Channel Logs`                                      |
 | La solicitud pasa, pero el destino devuelve un error  | La URL de destino o la ruta es incorrecta                                                | Revisa bien la URL de destino y la ruta que agregas al final                                                 |
-| No aparece el elemento `Channels` en la barra lateral | La opción Experimental Features está desactivada                                         | Activa `Experimental Features` en tu perfil de usuario                                                       |
+| No aparece el elemento `Channels` en la barra lateral | La opción Experimental Features está desactivada                                         | Habilita `Experimental Features` en tu perfil de usuario                                                     |
 
 ## Referencia rápida {#quick-reference}
 
