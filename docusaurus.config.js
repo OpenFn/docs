@@ -13,7 +13,7 @@ module.exports = {
   organizationName: 'openfn',
   projectName: 'docs',
   // --- i18n (internationalization) ---
-  // Spanish is built at /es/ but not linked from the navbar until it launches.
+  // Spanish is built at /es/ and linked from the navbar's language dropdown.
   // Translated content lives in i18n/<locale>/. Anything not translated
   // falls back to the English source automatically.
   i18n: {
@@ -93,6 +93,10 @@ module.exports = {
         },
         {
           type: 'docsVersionDropdown',
+          position: 'right',
+        },
+        {
+          type: 'localeDropdown',
           position: 'right',
         },
         {
