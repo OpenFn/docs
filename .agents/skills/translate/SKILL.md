@@ -36,15 +36,13 @@ or articles and blog posts.
 
 ## Before you start
 
-Check these six things. If any fails, stop and ask.
+Check these five things. If any fails, stop and ask.
 
 - The locale is enabled in `docusaurus.config.js`. Do not enable it yourself;
   that changes what gets deployed.
 - `i18n/` is not in `.gitignore`.
 - `glossary.yml` and `translation-rules.yml` are valid YAML.
 - The locale has a house style guide, `<locale>.md`, in this folder.
-- Every `glossary.yml` term marked `translate: true` has a word for the locale
-  under `locales`. If one is missing, a person decides it.
 - Your branch has everything on `main`. Run `git fetch origin main` and then
   `git merge-base --is-ancestor origin/main HEAD`. If it fails, the English you
   would translate is out of date, and the hashes you record will not match
@@ -55,11 +53,10 @@ Check these six things. If any fails, stop and ask.
 
 These apply to both tasks.
 
-- Terms in `glossary.yml` stay in English, unless they are marked
-  `translate: true`. Those use the word under `locales.<locale>` every time,
-  such as "proyecto" for project. For ordinary words that are also product
-  terms, like "run" or "step", keep the English only when the word means the
-  OpenFn thing.
+- Terms in `glossary.yml` stay in English, unless the term lists a word for the
+  locale under `locales`, such as `es: proyecto`. For ordinary words that are
+  also product terms, like "run" or "step", keep the English only when the word
+  means the OpenFn thing.
 - Follow the house style for the locale in `<locale>.md` in this folder, such as
   `es.md`, and any rules for the locale in `translation-rules.yml`.
 - Write the way a native writer would, not word for word. Reorder or split a
