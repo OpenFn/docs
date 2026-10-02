@@ -74,8 +74,8 @@ category from the sidebar, one folder under `docs/`, or one page.
 - Never edit generated adaptor pages. Draft an issue for `OpenFn/adaptors` and
   put it in the PR. Only file it if asked.
 - Never retranslate text inside `<!-- do-not-retranslate -->` fences.
-- Never translate a term listed in `glossary.yml`, unless it is marked
-  `translate: true`. Then use the word given for the locale.
+- Never translate a term listed in `glossary.yml`, unless the term lists a word
+  for the locale under `locales`.
 - Never retake, crop, or replace screenshots.
 - Never disable a check to make the build pass.
 
