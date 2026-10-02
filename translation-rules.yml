@@ -87,15 +87,36 @@ rules:
 
   - locale: es
     kind: avoid
-    source: feature
+    source: feature (on pages about code)
     target: función
     instruction: >-
-      Translate "feature" as "característica" (or "funcionalidad"), not
-      "función".
+      On pages that also talk about JavaScript or adaptor functions, translate
+      "feature" as "característica" or "funcionalidad", not "función". Elsewhere,
+      "función" is fine and usually the most natural word.
     example_source: OpenFn supports all modern JavaScript features.
     example_target: OpenFn admite todas las características modernas de JavaScript.
     reason: >-
       On developer pages "función" reads as a JavaScript function, not a
-      feature.
+      feature. On other pages "función" is what Latin American apps say.
     added_by: lmac-1
     added_on: 2026-10-01
+
+  - locale: es
+    kind: avoid
+    source: enable / disable
+    target: activar / desactivar
+    instruction: >-
+      "Enable" and "disable" (a workflow, trigger, setting, or button) are
+      "habilitar" and "deshabilitar". Keep "activar" and "desactivar" for "turn
+      on", "turn off", and flipping a toggle.
+    example_source: >-
+      Workflows will run automatically when they are "enabled", i.e., when their
+      trigger is turned on.
+    example_target: >-
+      Los workflows se ejecutan automáticamente cuando están "habilitados", es
+      decir, cuando su trigger está activado.
+    reason: >-
+      The Sandboxes page used "desactivados" for triggers that the Workflows and
+      Triggers pages call "deshabilitados".
+    added_by: lmac-1
+    added_on: 2026-10-02
