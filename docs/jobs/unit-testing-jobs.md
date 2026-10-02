@@ -8,7 +8,7 @@ import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 Most job code goes like this: fetch some records, reshape them, send them
 somewhere else. But the reshaping bit often grows into complex logic - parsing a
 string into a structured record, mapping local codes onto DHIS2 data elements,
-normalising a dozen date formats into one.
+normalizing a dozen date formats into one.
 
 Unit testing that logic helps to validate that the code runs correctly, and
 helps to prevent errors occurring when the code is modified later.
