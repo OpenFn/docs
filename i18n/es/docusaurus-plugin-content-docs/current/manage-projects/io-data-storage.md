@@ -34,8 +34,8 @@ Algunos de nuestros usuarios procesan datos extremadamente sensibles (como
 historias clínicas) y quizás quieran asegurarse de que, una vez ejecutado un
 workflow, no queden datos de pacientes en los servidores de OpenFn.
 
-Activar esta funcionalidad de "persistencia cero" ("zero-persistence") para los
-datos de entrada y salida es una opción atractiva para quienes quieren usar
+Habilitar esta funcionalidad de "persistencia cero" ("zero-persistence") para
+los datos de entrada y salida es una opción atractiva para quienes quieren usar
 OpenFn en la nube, pero les preocupa la soberanía de los datos.
 
 :::tip

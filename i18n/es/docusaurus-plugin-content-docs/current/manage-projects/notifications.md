@@ -15,8 +15,8 @@ electrónico para hacer seguimiento de tus workflows.
 
 ### Alertas de fallos {#failure-alerts}
 
-En `Project Settings > Collaboration` puedes activar las alertas de fallos para
-recibir notificaciones por correo electrónico cuando falla un job.
+En `Project Settings > Collaboration` puedes habilitar las alertas de fallos
+para recibir notificaciones por correo electrónico cuando falla un job.
 
 ![Alerta de fallo](/img/lightning_failure_alert.webp)
 

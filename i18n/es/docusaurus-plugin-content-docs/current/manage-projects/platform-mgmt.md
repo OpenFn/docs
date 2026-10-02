@@ -65,9 +65,9 @@ configuración del proyecto.
 
 ![Concurrencia del proyecto](/img/configuring-project-concurrency.webp)
 
-Puedes activar o desactivar la ejecución en paralelo de un proyecto. Cuando la
-ejecución en paralelo está desactivada, solo puede ejecutarse un run a la vez de
-un workflow del proyecto.
+Puedes habilitar o deshabilitar la ejecución en paralelo de un proyecto. Cuando
+la ejecución en paralelo está deshabilitada, solo puede ejecutarse un run a la
+vez de un workflow del proyecto.
 
 ### Workflows en modo síncrono {#sync-mode-workflows}
 
@@ -90,7 +90,7 @@ administrador de tu instancia.
 :::info Concurrencia por proyecto frente a concurrencia por workflow
 
 La concurrencia por proyecto tiene prioridad sobre la concurrencia por workflow.
-Esto significa que, si la ejecución en paralelo está desactivada en un proyecto,
-se ignora la configuración de concurrencia de sus workflows.
+Esto significa que, si la ejecución en paralelo está deshabilitada en un
+proyecto, se ignora la configuración de concurrencia de sus workflows.
 
 :::

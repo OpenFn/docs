@@ -57,8 +57,8 @@ cliente nuevo, haz clic en el botón `Add new` y selecciona
 :::tip
 
 Asegúrate de agregar https://app.openfn.org/authenticate/callback como URL de
-callback de la aplicación cuando actives la autenticación OAuth en la aplicación
-de terceros. (Nota: si no usas app.openfn.org, reemplaza
+callback de la aplicación cuando habilites la autenticación OAuth en la
+aplicación de terceros. (Nota: si no usas app.openfn.org, reemplaza
 `https://app.openfn.org/` por la URL base de _tu_ despliegue de OpenFn).
 
 Para ver indicaciones específicas de cada aplicación (por ejemplo, cómo
@@ -149,7 +149,7 @@ Aparece un mensaje para que confirmes la acción.
 En cuanto confirmes que quieres eliminar una credencial, recibirás un correo
 electrónico que te avisa de que la credencial quedó programada para eliminarse.
 
-La fecha de eliminación depende de un periodo de gracia que configura el
+La fecha de eliminación depende de un período de gracia que configura el
 administrador de tu instancia. En la
 [instancia alojada de OpenFn](https://app.openfn.org/), la credencial se elimina
 de forma permanente al cabo de 7 días.

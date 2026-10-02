@@ -228,8 +228,8 @@ producción y de staging, o varios sandboxes, con el mismo repositorio de GitHub
 
 Esto no funciona con el nuevo protocolo de sincronización, porque la nueva
 sincronización comparte una carpeta `workflows`. Así que cada vez que GitHub
-trae los cambios de tu proyecto, sobrescribe `workflows` y borra el state de tus
-otros proyectos.
+trae los cambios de tu proyecto, sobrescribe `workflows` y borra el estado de
+tus otros proyectos.
 
 Para hacer esto en Sync v2, puedes:
 

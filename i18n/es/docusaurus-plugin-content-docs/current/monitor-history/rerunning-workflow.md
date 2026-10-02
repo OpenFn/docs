@@ -21,8 +21,8 @@ completadas, o **Cancel** para quitar runs pendientes de la cola.
 
 Si seleccionas varias work orders de categorías de estado distintas (por
 ejemplo, algunas pendientes y otras fallidas), los botones Retry y Cancel se
-desactivan. Para usar las acciones en bloque, selecciona solo work orders de la
-misma categoría de estado.
+deshabilitan. Para usar las acciones en bloque, selecciona solo work orders de
+la misma categoría de estado.
 
 :::
 
@@ -104,7 +104,7 @@ casillas de verificación de la página History:
 - **Reintentar en bloque:** selecciona work orders en un estado final (por
   ejemplo, Failed o Crashed) y haz clic en el botón `Retry`.
 
-Los botones de acciones en bloque solo se activan cuando todas las work orders
+Los botones de acciones en bloque solo se habilitan cuando todas las work orders
 seleccionadas pertenecen a la misma categoría de estado. Si seleccionas work
 orders con estados distintos (por ejemplo, algunas pendientes y otras fallidas)
-o solo work orders en ejecución, se desactivan todos los botones de acción.
+o solo work orders en ejecución, se deshabilitan todos los botones de acción.

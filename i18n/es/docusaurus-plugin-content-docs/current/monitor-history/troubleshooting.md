@@ -62,11 +62,12 @@ se mapeó entre el sistema de origen y el sistema de destino. En resumen, el log
 puede tener una sección **"Datos recibidos del sistema de origen"** y una
 sección **"Datos que se cargarán en el sistema de destino"**.
 
-Estos logs ayudan a los administradores a verificar que los datos de origen y
-los datos que se cargan en el sistema de destino son correctos. Por ejemplo, ver
-en los logs que un identificador único se está mapeando a `undefined` en el
-sistema de destino puede ayudarte a entender la causa raíz de un error. Este
-mensaje de error de Salesforce podría deberse a un mapeo a `undefined`:
+Estos logs pueden ayudar a los administradores a verificar que los datos de
+origen y los datos que se cargan en el sistema de destino son correctos. Por
+ejemplo, ver en los logs que un identificador único se está mapeando a
+`undefined` en el sistema de destino puede ayudarte a entender la causa raíz de
+un error. Este mensaje de error de Salesforce podría deberse a un mapeo a
+`undefined`:
 
 `METHOD_NOT_ALLOWED: HTTP Method 'PATCH' not allowed. Allowed are GET,HEAD,POST at HttpApi.getError`.
 
@@ -107,9 +108,9 @@ error [aquí](/adaptors).
 
 ## Aprovechar la búsqueda y los filtros en OpenFn {#leveraging-search-and-filtering-in-openfn}
 
-Aprovecha las distintas funciones de búsqueda de OpenFn para encontrar los runs
-que te ayuden a solucionar problemas. En la página History puedes buscar por IDs
-de OpenFn, entradas o logs.
+Aprovecha las distintas funcionalidades de búsqueda de OpenFn para encontrar los
+runs que te ayuden a solucionar problemas. En la página History puedes buscar
+por IDs de OpenFn, entradas o logs.
 
 Mira este [video](https://youtu.be/XIUykmLCxwQ?si=hquc8rPTJrAZkbbD) para
 aprender a usar la búsqueda.
