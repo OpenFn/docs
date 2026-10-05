@@ -35,10 +35,14 @@ not survive squash merges.
 
 - **No translation yet.** Translate the whole page. To retranslate a page from
   scratch on purpose, delete it first.
-- **The hash matches the current English.** Skip it, unless `glossary.yml`,
-  `translation-rules.yml`, or `<locale>.md` was committed after a `machine` or
-  `needs-review` page (compare `git log -1 --format=%ct -- <file>`). Then see
-  "When the rules change".
+- **The hash matches the current English.** Skip it, unless the page is
+  `machine` or `needs-review` and this lists any commits:
+
+  ```bash
+  git log --oneline $(git log -1 --format=%H -- <translated page>)..HEAD -- glossary.yml translation-rules.yml .agents/skills/translate/<locale>.md
+  ```
+
+  Then see "When the rules change".
 - **The hash does not match, and the status is `machine`, `needs-review`, or
   missing.** See "Updating a page".
 - **The hash does not match, and the status is `human-reviewed`.** Leave it out
