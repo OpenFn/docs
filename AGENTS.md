@@ -98,6 +98,10 @@ yarn generate-adaptors
 yarn build
 ```
 
+`yarn build` builds every locale, so an English change can break a translated
+page, for example by moving a page it links to. Don't add `--locale` to speed it
+up.
+
 Broken-anchor warnings do not fail the build, and `main` already has some. Fix
 only the ones your change adds.
 
