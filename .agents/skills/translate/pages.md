@@ -134,7 +134,7 @@ These are on top of the translation rules in `SKILL.md`.
 ## Check each page
 
 ```bash
-node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md... --check
+node .agents/skills/translate/check-translation.js <locale> docs/<path>.md...
 ```
 
 This lists blocks where a fixed glossary term appears fewer times in the

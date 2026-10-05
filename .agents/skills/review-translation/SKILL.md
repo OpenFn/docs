@@ -40,7 +40,7 @@ reading for them:
 - Run the check:
 
   ```bash
-  node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md... --check
+  node .agents/skills/translate/check-translation.js <locale> docs/<path>.md...
   ```
 
   Each block it lists is a candidate, not a verdict: read it against the

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // Checks translated pages against the English they were translated from.
 //
-//   node .agents/skills/translate/side-by-side.js es docs/get-started/*.md --check
+//   node .agents/skills/translate/check-translation.js es docs/get-started/*.md
 //
 // Lists blocks where a fixed glossary term appears fewer times in the
 // translation than in the English, which can mean it was translated. It also
@@ -152,7 +152,8 @@ async function blocks(text, filepath) {
 async function page(locale, enPath) {
   const rel = enPath.replace(/^docs\//, '');
   const esPath = `i18n/${locale}/docusaurus-plugin-content-docs/current/${rel}`;
-  if (!fs.existsSync(esPath)) return { page: rel, error: 'No translation yet.' };
+  if (!fs.existsSync(esPath))
+    return { page: rel, error: 'No translation yet.' };
 
   // Check against the English the page was translated from.
   const esText = fs.readFileSync(esPath, 'utf8');
@@ -160,7 +161,10 @@ async function page(locale, enPath) {
     /^translation_source_hash: *(.*)$/m
   ) || [])[1];
   if (!hash)
-    return { page: rel, error: 'No translation_source_hash in the front matter.' };
+    return {
+      page: rel,
+      error: 'No translation_source_hash in the front matter.',
+    };
   let enBlocks;
   try {
     const english = execFileSync('git', ['cat-file', '-p', hash], {
@@ -203,9 +207,9 @@ async function page(locale, enPath) {
 
 async function main() {
   const args = process.argv.slice(2);
-  const [locale, ...files] = args.filter(a => !a.startsWith('--'));
-  if (!locale || !files.length || !args.includes('--check')) {
-    console.error('Usage: side-by-side.js <locale> <docs/page.md>... --check');
+  const [locale, ...files] = args;
+  if (!locale || !files.length) {
+    console.error('Usage: check-translation.js <locale> <docs/page.md>...');
     process.exit(1);
   }
   const flat = s => s.replace(/\s+/g, ' ');
