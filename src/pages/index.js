@@ -276,9 +276,6 @@ function Home() {
           <h1 className="hero__title">
             <Translate id="homepage.hero.title">OpenFn Documentation</Translate>
           </h1>
-          {/* The English copy here mirrors `tagline` in docusaurus.config.js.
-              Site-level config values are not extracted for translation, so the
-              hero subtitle is declared as a translatable string instead. */}
           <p className="hero__subtitle">
             <Translate id="homepage.hero.subtitle">
               The leading digital public good for workflow automation, OpenFn
