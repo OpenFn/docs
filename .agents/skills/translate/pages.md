@@ -35,18 +35,23 @@ not survive squash merges.
 
 - **No translation yet.** Translate the whole page. To retranslate a page from
   scratch on purpose, delete it first.
-- **The hash matches the current English.** Skip it, unless `glossary.yml`,
-  `translation-rules.yml`, or `<locale>.md` was committed after a `machine` or
-  `needs-review` page (compare `git log -1 --format=%ct -- <file>`). Then see
-  "When the rules change".
+- **The hash matches the current English.** Skip it, unless the page is
+  `machine` or `needs-review` and this lists any commits:
+
+  ```bash
+  git log --oneline $(git log -1 --format=%H -- <translated page>)..HEAD -- glossary.yml translation-rules.yml .agents/skills/translate/<locale>.md
+  ```
+
+  Then see "When the rules change".
+
 - **The hash does not match, and the status is `machine`, `needs-review`, or
   missing.** See "Updating a page".
 - **The hash does not match, and the status is `human-reviewed`.** Leave it out
-  of the translation PR. Open a separate PR for the named reviewer: recover the
-  English they saw with `git cat-file -p <recorded hash>`, diff it against the
-  current English, and translate only what changed. Set the new hash and leave
-  the status as `human-reviewed`; the reviewer merging it approves it. If the
-  old English is no longer in the repo, say so and offer a full retranslation.
+  of the translation PR. Open a separate PR for the named reviewer: diff the
+  English they saw against the current English as in "Updating a page", and
+  translate only what changed. Set the new hash and leave the status as
+  `human-reviewed`; the reviewer merging it approves it. If the old English is
+  no longer in the repo, say so and offer a full retranslation.
 
 ## When the rules change
 
@@ -66,32 +71,24 @@ If nothing breaks the new rules, there is nothing to commit.
 
 ## Updating a page
 
-Translate only the blocks whose English changed, so the reviewer sees only what
-changed:
+Change only what the English changed, so the reviewer sees only that. Diff the
+English the page was translated from against the current English:
 
 ```bash
-node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md --json
+git diff --word-diff <translation_source_hash> HEAD:docs/<path>.md
 ```
 
-Each page's `blocks` are the blocks of the current English, each with the
-`translation` to reuse, or `null` where the English is new or changed. Write the
-page as those blocks in order, separated by blank lines: copy each reused
-translation exactly, and work out each `null` block.
-
-A changed block usually has a `previous` field: the old English, its old
-translation, and a word `diff` marked `[-removed-]` and `{+added+}`.
+Edit the existing translation in place, block by block:
 
 - If only links, inline code, or heading anchors changed, copy those changes
-  into the old translation.
-- If the old translation already says what the new English says, keep it. A typo
-  fix often needs nothing.
-- Otherwise, translate the block, reusing the old wording where it still fits.
+  into the translation.
+- If the translation already says what the new English says, keep it. A typo fix
+  often needs nothing.
+- Otherwise, translate the changed text, reusing the old wording where it still
+  fits.
 
-A block with no `previous` is new. Translate it.
-
-If the result has an `error`, or `aligned` is `false`, the old translation
-cannot be matched to its English. Translate the whole page again, keeping fenced
-blocks, and say so in the PR.
+If the recorded English is not in the repo (`git diff` fails), translate the
+whole page again, keeping fenced blocks, and say so in the PR.
 
 Update `translation_source_hash` even if no translated text changed. In the PR
 description, list for each page how many blocks changed and how many needed new
@@ -108,10 +105,9 @@ Text a reviewer has corrected by hand.
 <!-- /do-not-retranslate -->
 ```
 
-Copy fenced blocks exactly, in the same place. In the `--json` output they have
-`fenced: true`; put the fence back around them. If `unusedFenced` is not empty,
-the English a fenced block belongs to has changed or gone: keep the block and
-ask what to do with it. If a fenced block breaks a rule, say so in the PR.
+Leave fenced blocks exactly as they are, in the same place. If the English a
+fenced block belongs to has changed or gone, keep the block and ask what to do
+with it. If a fenced block breaks a rule, say so in the PR.
 
 ## Page rules
 
@@ -123,17 +119,22 @@ These are on top of the translation rules in `SKILL.md`.
   adds it. A relative link like `../deploy/portability.md` breaks the translated
   build, so fix it in the English first (see `STYLE.md`).
 - Give each translated heading its English anchor, as `{#anchor}` after the
-  heading, so existing links still work. To list the anchors, run this on the
-  English page:
+  heading, so existing links still work. To get the anchors, let Docusaurus
+  write them into a copy of the English page:
 
   ```bash
-  node -e "const s=new (require('github-slugger'))();for(const l of require('fs').readFileSync(process.argv[1],'utf8').split('\n')){const m=l.match(/^#+ (.*?)(?: \{#(.+)\})?$/);if(m)console.log(m[2]||s.slug(m[1]),' ',l)}" docs/<path>.md
+  cp docs/<path>.md <scratch>/page.md
+  yarn docusaurus write-heading-ids . <scratch>/page.md
   ```
+
+  It keeps the underscores from `_italic_` text in the anchor, which the site
+  does not: `See _Now_` gives `see-_now_`, but the site uses `see-now`. Drop
+  them.
 
 ## Check each page
 
 ```bash
-node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md... --check
+node .agents/skills/translate/check-translation.js <locale> docs/<path>.md...
 ```
 
 This lists blocks where a fixed glossary term appears fewer times in the

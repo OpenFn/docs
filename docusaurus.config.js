@@ -2,8 +2,6 @@ const path = require('path');
 
 module.exports = {
   title: 'OpenFn/docs',
-  tagline:
-    'The leading digital public good for workflow automation, OpenFn makes ICT4D more efficient.',
   url: 'https://docs.openfn.org',
   baseUrl: '/',
   trailingSlash: false,
