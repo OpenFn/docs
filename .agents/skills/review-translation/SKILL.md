@@ -27,11 +27,8 @@ reports the rest. It does not commit, open a PR, or add rules. Never edit a
 
 ## 1. Lay out the pages
 
-Get each block of English next to its translation:
-
-```bash
-node .agents/skills/translate/side-by-side.js <locale> docs/<path>.md... --json
-```
+Read each translated page next to its English page in `docs/`. The translation
+keeps the same structure, so the blocks line up in order.
 
 Then read the rules listed above.
 
