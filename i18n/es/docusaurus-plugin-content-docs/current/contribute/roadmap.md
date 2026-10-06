@@ -50,13 +50,13 @@ Todo el trabajo de nuestro equipo se sigue públicamente en un GitHub Project.
 Tres vistas clave te muestran al minuto qué estamos haciendo y qué hay en
 nuestra hoja de ruta inmediata.
 
-### Consulta [**_Now_**](https://github.com/orgs/OpenFn/projects/3/views/24?layout=table&sortedBy%5Bdirection%5D=desc&sortedBy%5BcolumnId%5D=Status) 🚧 para ver lo que se está construyendo ahora {#see-_now_httpsgithubcomorgsopenfnprojects3views24layouttablesortedby5bdirection5ddescsortedby5bcolumnid5dstatus--for-whats-currently-being-built}
+### Consulta [**_Now_**](https://github.com/orgs/OpenFn/projects/3/views/24?layout=table&sortedBy%5Bdirection%5D=desc&sortedBy%5BcolumnId%5D=Status) 🚧 para ver lo que se está construyendo ahora {#see-now--for-whats-currently-being-built}
 
-### Consulta [**_Next_**](https://github.com/orgs/OpenFn/projects/3/views/2?layout=table&sortedBy%5Bdirection%5D=desc&sortedBy%5BcolumnId%5D=Status) ⏭️ para ver lo que se está considerando para el próximo sprint {#see-_next_httpsgithubcomorgsopenfnprojects3views2layouttablesortedby5bdirection5ddescsortedby5bcolumnid5dstatus-️-for-whats-being-considered-for-the-next-sprint}
+### Consulta [**_Next_**](https://github.com/orgs/OpenFn/projects/3/views/2?layout=table&sortedBy%5Bdirection%5D=desc&sortedBy%5BcolumnId%5D=Status) ⏭️ para ver lo que se está considerando para el próximo sprint {#see-next-️-for-whats-being-considered-for-the-next-sprint}
 
-### Consulta [**_Epics_**](https://github.com/orgs/OpenFn/projects/3/views/7) 🤔 para ver una lista de proyectos que estamos considerando, con una prioridad aproximada {#see-_epics_httpsgithubcomorgsopenfnprojects3views7--for-a-list-of-projects-that-were-considering-roughly-prioritized}
+### Consulta [**_Epics_**](https://github.com/orgs/OpenFn/projects/3/views/7) 🤔 para ver una lista de proyectos que estamos considerando, con una prioridad aproximada {#see-epics--for-a-list-of-projects-that-were-considering-roughly-prioritized}
 
-### Consulta [**_Bugs_**](https://github.com/orgs/OpenFn/projects/3/views/22) 🐞 para ver los bugs conocidos que estamos siguiendo {#see-_bugs_httpsgithubcomorgsopenfnprojects3views22--for-known-bugs-were-tracking}
+### Consulta [**_Bugs_**](https://github.com/orgs/OpenFn/projects/3/views/22) 🐞 para ver los bugs conocidos que estamos siguiendo {#see-bugs--for-known-bugs-were-tracking}
 
 Actualizaremos este sitio cada mes para reflejar nuestro progreso en los temas
 principales. También puedes seguir en tiempo real todas las funciones nuevas,
