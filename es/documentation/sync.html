@@ -1,0 +1,348 @@
+<!doctype html>
+<html lang="es" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-build-for-developers/cli-sync" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.10.2">
+<title data-rh="true">OpenFn Sync | OpenFn/docs</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" property="og:url" content="https://docs.openfn.org/es/documentation/sync"><meta data-rh="true" property="og:locale" content="es"><meta data-rh="true" property="og:locale:alternate" content="en"><meta data-rh="true" name="docusaurus_locale" content="es"><meta data-rh="true" name="docsearch:language" content="es"><meta data-rh="true" name="keywords" content="OpenFn, workflow automation, ICT4D, integration, automation, documentation"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" name="twitter:site" content="@openfn"><meta data-rh="true" name="twitter:title" content="OpenFn Documentation"><meta data-rh="true" name="twitter:description" content="The leading digital public good for workflow automation, OpenFn makes ICT4D more efficient."><meta data-rh="true" name="twitter:image" content="https://docs.openfn.org/img/og-image.png"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="OpenFn Sync | OpenFn/docs"><meta data-rh="true" name="description" content="Los proyectos de OpenFn son totalmente portables, es decir, se pueden mover a"><meta data-rh="true" property="og:description" content="Los proyectos de OpenFn son totalmente portables, es decir, se pueden mover a"><link data-rh="true" rel="icon" href="/es/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://docs.openfn.org/es/documentation/sync"><link data-rh="true" rel="alternate" href="https://docs.openfn.org/documentation/sync" hreflang="en"><link data-rh="true" rel="alternate" href="https://docs.openfn.org/es/documentation/sync" hreflang="es"><link data-rh="true" rel="alternate" href="https://docs.openfn.org/documentation/sync" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://O729P2PJGT-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Sync","item":"https://docs.openfn.org/es/documentation/sync"}]}</script><link rel="preconnect" href="https://www.googletagmanager.com">
+<script>window.dataLayer=window.dataLayer||[]</script>
+<script>!function(e,t,a,n){e[n]=e[n]||[],e[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"});var g=t.getElementsByTagName(a)[0],m=t.createElement(a);m.async=!0,m.src="https://www.googletagmanager.com/gtm.js?id=GTM-5RNRM5NC",g.parentNode.insertBefore(m,g)}(window,document,"script","dataLayer")</script>
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="OpenFn/docs" href="/es/opensearch.xml">
+
+
+
+<link rel="alternate" type="application/rss+xml" href="/es/articles/rss.xml" title="OpenFn Help Articles RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/es/articles/atom.xml" title="OpenFn Help Articles Atom Feed">
+<link rel="alternate" type="application/json" href="/es/articles/feed.json" title="OpenFn Help Articles JSON Feed">
+
+
+<script data-jsd-embedded data-key="8583229a-a951-405e-b269-25a100d04641" data-base-url="https://jsd-widget.atlassian.com" src="https://jsd-widget.atlassian.com/assets/embed.js" async></script><link rel="stylesheet" href="/es/assets/css/styles.9f645c63.css">
+<script src="/es/assets/js/runtime~main.a5a0d858.js" defer="defer"></script>
+<script src="/es/assets/js/main.0a8d1b67.js" defer="defer"></script>
+</head>
+<body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5RNRM5NC" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||"light"),document.documentElement.setAttribute("data-theme-choice",t||"light")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><div role="region" aria-label="Saltar al contenido principal"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Saltar al contenido principal</a></div><nav aria-label="Principal" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Alternar barra lateral" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/es/"><div class="navbar__logo"><img src="/es/img/logo.svg" alt="OpenFn" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/es/img/logo.svg" alt="OpenFn" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">OpenFn</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/es/documentation">Documentación</a><a class="navbar__item navbar__link" href="/es/adaptors">Adaptors</a><a class="navbar__item navbar__link" href="/es/articles">Artículos</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a aria-current="page" class="navbar__link active" aria-haspopup="true" aria-expanded="false" role="button" href="/es/documentation/sync">v2 ⚡</a><ul class="dropdown__menu"><li><a aria-current="page" class="dropdown__link dropdown__link--active" href="/es/documentation/sync">v2 ⚡</a></li><li><a class="dropdown__link" href="/es/documentation/legacy">v1.105</a></li></ul></div><div class="navbar__item dropdown dropdown--hoverable dropdown--right"><a href="#" aria-haspopup="true" aria-expanded="false" role="button" class="navbar__link"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" class="iconLanguage_nlXk"><path fill="currentColor" d="M12.87 15.07l-2.54-2.51.03-.03c1.74-1.94 2.98-4.17 3.71-6.53H17V4h-7V2H8v2H1v1.99h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"></path></svg>Español</a><ul class="dropdown__menu"><li><a href="/documentation/sync" target="_self" rel="noopener noreferrer" class="dropdown__link" lang="en">English</a></li><li><a href="/es/documentation/sync" target="_self" rel="noopener noreferrer" class="dropdown__link dropdown__link--active" lang="es">Español</a></li></ul></div><a href="https://github.com/openfn/docs" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link header-github-link" aria-label="GitHub repository"></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="modo del sistema" aria-label="Cambiar entre modo oscuro y claro (actualmente modo del sistema)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Buscar (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Buscar</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Volver al principio" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Barra lateral de Documentos" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/es/documentation"><span class="categoryLinkLabel_W154">Primeros pasos</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/es/documentation/tutorials/http-to-googlesheets"><span class="categoryLinkLabel_W154">Tutoriales</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/es/documentation/design/design-overview"><span class="categoryLinkLabel_W154">Diseñar workflows</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/es/documentation/jobs/job-writing-guide"><span class="categoryLinkLabel_W154">Escribir jobs</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/es/documentation/build/workflows"><span class="categoryLinkLabel_W154">Plataforma ⚡</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/es/documentation/cli"><span class="categoryLinkLabel_W154">CLI</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/es/documentation/cli"><span class="linkLabel_WmDU">Primeros pasos</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/es/documentation/cli-usage"><span class="linkLabel_WmDU">Uso básico</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/es/documentation/sync"><span class="linkLabel_WmDU">Sync</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/es/documentation/collections-cli"><span class="linkLabel_WmDU">Colecciones</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/es/documentation/cli-walkthrough"><span class="linkLabel_WmDU">Recorrido por la CLI</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/es/documentation/cli-challenges"><span class="linkLabel_WmDU">Desafíos de la CLI</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/es/documentation/deploy/options"><span class="categoryLinkLabel_W154">Despliegue</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/es/documentation/migration-steps"><span class="categoryLinkLabel_W154">Migrar a v2</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/es/documentation/contribute/roadmap"><span class="categoryLinkLabel_W154">Contribuir</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/es/documentation/get-help/support"><span class="linkLabel_WmDU">Obtener ayuda</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer" class="menu__link menuExternalLink_NmtK"><span class="linkLabel_WmDU">Foro de la comunidad</span><svg width="13.5" height="13.5" aria-label="(se abre en una nueva pestaña)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></nav><button type="button" title="Colapsar barra lateral" aria-label="Colapsar barra lateral" class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width="20" height="20" aria-hidden="true" class="collapseSidebarButtonIcon_kv0_"><g fill="#7a7a7a"><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"></path><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"></path></g></svg></button></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Rastro de navegación"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Página de Inicio" class="breadcrumbs__link" href="/es/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">CLI</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Sync</span></li></ul></nav><span class="theme-doc-version-badge badge badge--secondary">Versión: v2 ⚡</span><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">En esta página</button></div><div class="theme-doc-markdown markdown"><header><h1>OpenFn Sync</h1></header><p>Los proyectos de OpenFn son totalmente portables, es decir, se pueden mover a
+otros lugares.</p>
+<p>Puedes crear un proyecto en la aplicación, descargarlo a tu computadora para
+desarrollar sin conexión, volver a subirlo a la aplicación o incluso desplegarlo
+en otro servidor de OpenFn.</p>
+<p>A esto lo llamamos OpenFn Sync, y es una de las funcionalidades más potentes que
+ofrecen los proyectos de OpenFn.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-is-a-project">¿Qué es un proyecto?<a href="#what-is-a-project" class="hash-link" aria-label="Enlace directo al ¿Qué es un proyecto?" title="Enlace directo al ¿Qué es un proyecto?" translate="no">​</a></h2>
+<p>Un proyecto es un conjunto de workflows que resuelve, automatiza o integra
+alguna función de negocio.</p>
+<p>Un proyecto vive en la aplicación de OpenFn (ya sea en la instancia SaaS en la
+nube o en una instancia desplegada de forma privada), pero también puede existir
+como archivos en un sistema de archivos.</p>
+<p>Cada proyecto lleva asociados algunos metadatos (como un nombre y una
+descripción) y cierta configuración, como credenciales y colecciones.</p>
+<p>Dentro de la aplicación de OpenFn, un proyecto es una entidad de nivel superior
+facturable, y todos sus workflows y su configuración se guardan en tablas de la
+base de datos.</p>
+<p>El proyecto de la aplicación incluye muchas cosas más: la configuración de
+canales, el historial de runs, los dataclips guardados y las sesiones de chat
+con el asistente de IA.</p>
+<p>El proyecto también puede existir en un sistema de archivos local. En ese caso,
+es un conjunto de archivos que la CLI puede leer y ejecutar. Esta representación
+local de un proyecto es bastante básica: aquí solo encontrarás workflows y
+código.</p>
+<p>En el sistema de archivos pueden existir a la vez varios proyectos relacionados.
+Cada uno vive en un único archivo de proyecto. Puedes hacer &quot;checkout&quot; o
+&quot;expandir&quot; un proyecto a la vez en una carpeta local, lo que crea un archivo por
+cada workflow y un archivo por cada step.</p>
+<p>Es habitual que un mismo proyecto conceptual (es decir, el código y la
+configuración que impulsan una función de negocio) exista en varios lugares a la
+vez. Puede tener varias representaciones en la aplicación a través de sandboxes,
+tener una copia de seguridad en GitHub, ejecutarse localmente en la computadora
+de un desarrollador y distribuirse a varias instancias remotas para ejecutarse
+en producción.</p>
+<p>A veces llamamos espacio de trabajo a este conjunto de todos los proyectos
+conocidos, relacionados y distribuidos. El problema de la sincronización
+consiste en cómo se copian, despliegan o replican el código y la configuración
+entre las instancias de un proyecto.</p>
+<p>No todos los elementos de un proyecto se incluyen en una sincronización. Por lo
+general, sincronizamos los workflows del proyecto y algunas de sus opciones.
+Pero no sincronizamos los datos asociados, los valores de las credenciales, el
+historial de uso ni las sesiones de IA.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="project-structure">Estructura del proyecto<a href="#project-structure" class="hash-link" aria-label="Enlace directo al Estructura del proyecto" title="Enlace directo al Estructura del proyecto" translate="no">​</a></h2>
+<p>OpenFn Sync escribe un proyecto en el sistema de archivos siguiendo una serie de
+convenciones. Tanto si usas la CLI como GitHub Sync, un proyecto tiene la
+siguiente estructura:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── openfn.yaml</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">├── .projects</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">│   ├── main@app.openfn.org.yaml</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">└── workflows</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    ├── my-workflow</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    │   ├── my-workflow.yaml</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    │   ├── my-step.js</span><br></div></code></pre></div></div>
+<p>En resumen, estos archivos son:</p>
+<ul>
+<li class=""><code>openfn.yaml</code> declara que esta carpeta es un proyecto de OpenFn y contiene
+metadatos y ajustes</li>
+<li class="">La carpeta <code>.projects</code> contiene una representación YAML completa de cada
+proyecto</li>
+<li class="">La carpeta <code>workflows</code> muestra el contenido del proyecto: los steps, las
+conexiones, etc.</li>
+</ul>
+<p>Veamos esta estructura con un poco más de detalle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="projectyaml">project.yaml<a href="#projectyaml" class="hash-link" aria-label="Enlace directo al project.yaml" title="Enlace directo al project.yaml" translate="no">​</a></h3>
+<p>El archivo de proyecto guarda una copia de todo el estado de un proyecto tal
+como está guardado en la aplicación. Si lo abres, verás los workflows
+representados como texto plano.</p>
+<p>El nombre de un archivo de proyecto tiene la forma <code>&lt;alias&gt;@&lt;domain&gt;.yaml</code>. El
+alias es un nombre local que sirve para referirse a una versión concreta del
+proyecto. El dominio es el de la instancia de OpenFn desde la que se descargó el
+proyecto.</p>
+<p>No deberías editar el archivo de proyecto localmente, porque cualquier cambio se
+perderá la próxima vez que lo obtengas.</p>
+<p>Puedes obtener tantos proyectos como quieras, y cada uno se guardará en su
+propio archivo project.yaml.</p>
+<p>La carpeta <code>.projects</code> puede y debería incluirse en el control de versiones.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="workflows">workflows<a href="#workflows" class="hash-link" aria-label="Enlace directo al workflows" title="Enlace directo al workflows" translate="no">​</a></h3>
+<p>Tener todo el proyecto dentro de un único archivo no es una buena forma de leer
+o editar workflows. Por eso la CLI puede hacer &quot;checkout&quot; o &quot;expandir&quot; un
+archivo de proyecto en el sistema de archivos.</p>
+<p>Hacer checkout es el proceso de escribir cada workflow en un archivo
+workflow.yaml y cada step en un archivo step.js. Todo esto vive en el directorio
+<code>workflows</code>.</p>
+<p>Aquí puedes editar los archivos todo lo que quieras, y los cambios se
+registrarán cuando subas o despliegues de nuevo a la aplicación.</p>
+<p>Solo puedes hacer checkout de un proyecto a la vez. En realidad, esto viene muy
+bien para trabajar con git, porque puedes hacer checkout de dos proyectos en
+ramas distintas y compararlos o fusionarlos directamente entre sí.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="workflowyaml">workflow.yaml<a href="#workflowyaml" class="hash-link" aria-label="Enlace directo al workflow.yaml" title="Enlace directo al workflow.yaml" translate="no">​</a></h3>
+<p>Un archivo workflow.yaml define los steps de un workflow y las conexiones que
+los unen.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">id: my-workflow</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">name: My Workflow</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">start: webhook</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">steps:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  - id: my-step</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    name: My Step</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    adaptor: &#x27;@openfn/language-http@7.2.9&#x27;</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    expression: ./my-step.js</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  - id: webhook</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    type: webhook</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    enabled: true</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">    next:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">      my-step:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        disabled: false</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">        condition: always</span><br></div></code></pre></div></div>
+<p>La clave <code>next</code> de cada step define las conexiones de salida de ese step, es
+decir, los steps que se ejecutan a continuación. En el ejemplo anterior, el step
+<code>webhook</code> se ejecuta primero (lo determina la clave <code>start</code>) y define una única
+conexión a <code>my-step</code>, que se ejecuta siempre.</p>
+<p>El código de cada step vive en su propio archivo .js. Puedes modificar el código
+libremente y sincronizarlo de nuevo con el servidor en cualquier momento. Si
+quieres cambiar el nombre de un step, asegúrate de actualizar el nombre del
+archivo del step y la ruta de la clave <code>expression</code> en <code>workflow.yaml</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="openfnyaml">openfn.yaml<a href="#openfnyaml" class="hash-link" aria-label="Enlace directo al openfn.yaml" title="Enlace directo al openfn.yaml" translate="no">​</a></h3>
+<p>Es un archivo de configuración de nivel superior que, en general, puedes
+ignorar. Las herramientas de OpenFn lo usan para reconocer la carpeta raíz de un
+proyecto. También contiene opciones de configuración para todos los proyectos
+locales y metadatos sobre el proyecto que tienes con checkout.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="authorization">Autorización<a href="#authorization" class="hash-link" aria-label="Enlace directo al Autorización" title="Enlace directo al Autorización" translate="no">​</a></h2>
+<p>Antes de usar la CLI para obtener algo de la aplicación, tendrás que
+proporcionar una autorización.</p>
+<p>La mejor forma de hacerlo es definir una variable de entorno llamada
+<code>OPENFN_API_KEY</code>. Dale el valor de tu
+<a class="" href="/es/documentation/api-tokens#about-api-tokens">token de acceso personal</a>.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>Tokens de acceso personal</div><div class="admonitionContent_BuS1"><p>Consulta <a class="" href="/es/documentation/api-tokens">Crear y administrar tokens de API</a> para
+obtener ayuda con la configuración de un token.</p></div></div>
+<p>Si te conectas a varios proyectos o aplicaciones de OpenFn, puedes crear un
+archivo <code>.env</code> y definir ahí las variables de entorno que necesites. La CLI
+cargará este archivo e indicará qué claves está usando. Los valores de tu
+archivo <code>.env</code> tienen prioridad sobre los definidos en tu sistema.</p>
+<p>También puedes pasar <code>--api-key</code> directamente como opción en la mayoría de los
+comandos.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>información</div><div class="admonitionContent_BuS1"><p>Esta guía da por hecho que quieres sincronizar con nuestra aplicación SaaS
+alojada en <a href="https://app.openfn.org" target="_blank" rel="noopener noreferrer" class="">app.openfn.org</a></p><p>Puedes sincronizar con otra instancia de OpenFn definiendo la variable de
+entorno <code>OPENFN_ENDPOINT</code> o pasando el argumento <code>--endpoint</code> en la mayoría de
+los comandos.</p></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="downloading-a-project">Descargar un proyecto<a href="#downloading-a-project" class="hash-link" aria-label="Enlace directo al Descargar un proyecto" title="Enlace directo al Descargar un proyecto" translate="no">​</a></h2>
+<p>Para descargar un proyecto de la aplicación a tu computadora, ejecuta:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project pull &lt;uuid&gt;</span><br></div></code></pre></div></div>
+<p>Esto crea un archivo en tu directorio de trabajo llamado
+<code>.projects/main@app.openfn.org.yaml</code>.</p>
+<div class="theme-admonition theme-admonition-info admonition_xJq3 alert alert--info"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-3.14 2.56-5.7 5.7-5.7zM7 1C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7-3.14-7-7-7zm1 3H6v5h2V4zm0 6H6v2h2v-2z"></path></svg></span>información</div><div class="admonitionContent_BuS1"><p>Cada proyecto de la aplicación tiene un identificador único, llamado UUID, que
+sirve para referirse a él. Es un número de 32 dígitos con la forma
+<code>a6cc5bdd-b04f-4413-b4b8-132a5115acac</code></p><p>Puedes copiar el UUID de un proyecto desde la URL al abrirlo en la aplicación.
+Es la cadena larga que va después de <code>projects</code>.</p><p>Por ejemplo, el UUID es la parte en negrita de:</p>https://openfn.org/projects/<b>abc087dd-3963-4260-8d09-ced2e1ff2bb0</b>/w</div></div>
+<p>Después de descargar un proyecto por primera vez, no hace falta volver a indicar
+el UUID. Puedes usar el alias, el id o dejar el identificador en blanco para
+usar el proyecto que tienes con checkout.</p>
+<p>El comando <code>project pull</code> hace tres cosas:</p>
+<ul>
+<li class="">Si no tienes un archivo <code>openfn.yaml</code>, crea uno</li>
+<li class=""><em>Obtiene</em> (descarga) tu proyecto de la aplicación y lo guarda en un único
+archivo en <code>.projects/main@app.openfn.org.yaml</code></li>
+<li class="">Hace <em>checkout</em> (expande) de ese proyecto en tu sistema de archivos, con cada
+workflow y cada step en su propio archivo.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="aliases">Alias<a href="#aliases" class="hash-link" aria-label="Enlace directo al Alias" title="Enlace directo al Alias" translate="no">​</a></h2>
+<p>En lugar de identificar un proyecto local con un UUID o un id largo, puedes usar
+un <em>alias</em>.</p>
+<p>Cada proyecto local se guarda en un archivo como <code>main@app.openfn.org.yaml</code>,
+donde la parte <code>main</code> es el alias local del proyecto.</p>
+<p>Puedes descargar un proyecto y definir el alias al mismo tiempo ejecutando:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project pull &lt;uuid&gt; --alias dev</span><br></div></code></pre></div></div>
+<p>Esto guarda el proyecto en <code>dev@app.openfn.org.yaml</code>.</p>
+<p>Para cambiar el alias, basta con cambiar el nombre del archivo. Lo que vaya
+antes de <code>@</code> se tratará como el alias.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="checking-out">Hacer checkout<a href="#checking-out" class="hash-link" aria-label="Enlace directo al Hacer checkout" title="Enlace directo al Hacer checkout" translate="no">​</a></h2>
+<p>Puedes hacer checkout de un proyecto en cualquier momento con:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project checkout &lt;alias|id|uuid&gt;</span><br></div></code></pre></div></div>
+<p>Esto actualiza tu carpeta local de workflows con el proyecto indicado.</p>
+<p>Si un checkout va a hacer que se pierdan cambios (es decir, cambiaste un archivo
+step.js pero no lo desplegaste), recibirás una advertencia. Agrega <code>--force</code>
+para ignorar el cambio, o ejecuta <code>openfn project clean</code> para borrar y
+restablecer la carpeta <code>workflows</code>.</p>
+<p>El checkout solo modifica los archivos que gestiona la CLI, básicamente los
+archivos de workflows y de steps. Si tienes otros archivos en el sistema de
+archivos (como archivos de state o de pruebas), no se tocan.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="running-workflows-in-projects">Ejecutar workflows en proyectos<a href="#running-workflows-in-projects" class="hash-link" aria-label="Enlace directo al Ejecutar workflows en proyectos" title="Enlace directo al Ejecutar workflows en proyectos" translate="no">​</a></h2>
+<p>Puedes ejecutar cualquier workflow del proyecto con checkout por su nombre:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn my-workflow</span><br></div></code></pre></div></div>
+<p>La CLI busca el workflow en tu carpeta <code>workflows</code> y lo ejecuta. Puedes pasar
+state con <code>-s</code> y definir los niveles de log como de costumbre.</p>
+<p>Al ejecutar un workflow por su nombre de esta forma, obtienes dos ventajas:</p>
+<ul>
+<li class="">Las <strong>credenciales</strong> se cargan automáticamente desde el mapa de credenciales
+de <code>openfn.yaml</code>, así que no necesitas pasar <code>--credential-map</code></li>
+<li class="">Las <strong>colecciones</strong> usan el servidor configurado en <code>openfn.yaml</code>, así que no
+necesitas pasar <code>--collections-endpoint</code> ni nada más.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="deploying-a-project">Desplegar un proyecto<a href="#deploying-a-project" class="hash-link" aria-label="Enlace directo al Desplegar un proyecto" title="Enlace directo al Desplegar un proyecto" translate="no">​</a></h2>
+<p>Para subir tus cambios locales de nuevo a la aplicación, ejecuta:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy</span><br></div></code></pre></div></div>
+<p>Esto toma el proyecto que tienes con checkout y lo sube a la aplicación. También
+indica qué cambió en el proyecto local.</p>
+<p>Antes de subirlo, la CLI obtiene la última versión del proyecto desde la
+aplicación y comprueba si hay <strong>divergencia</strong>, es decir, si alguno de los
+workflows que cambiaste localmente también se editó en la aplicación desde la
+última vez que lo descargaste. Si es así, el despliegue falla con un error para
+evitar que sobrescribas por accidente el trabajo de otra persona.</p>
+<p>Si quieres subirlo de todos modos, pasa <code>--force</code>:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy --force</span><br></div></code></pre></div></div>
+<p>Para ver qué cambiaría sin subir nada, usa <code>--dry-run</code>. Esto registra en el log
+el payload final de la actualización que se enviaría a la aplicación (como una
+estructura JSON).</p>
+<p>Puedes desplegar el proyecto con checkout como un proyecto nuevo en la
+aplicación de destino agregando la opción <code>--new</code>. Solo está disponible si
+tienes privilegios de superusuario en la instancia de destino.</p>
+<p>También puedes desplegar el proyecto con checkout en otro proyecto de la
+aplicación pasando su alias, id o uuid:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy main</span><br></div></code></pre></div></div>
+<p>Si tienes un sandbox de desarrollo con checkout, esto lo fusionaría directamente
+en el proyecto principal de la aplicación.</p>
+<p>Ten en cuenta que tienes que haber obtenido el proyecto de destino localmente
+antes de poder desplegarlo.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="advanced-deployment">Despliegue avanzado<a href="#advanced-deployment" class="hash-link" aria-label="Enlace directo al Despliegue avanzado" title="Enlace directo al Despliegue avanzado" translate="no">​</a></h2>
+<p>De forma predeterminada, <code>openfn project deploy</code> toma el proyecto con checkout y
+lo sube al servidor del que vino originalmente (según lo define el archivo de
+proyecto).</p>
+<p>Pero también puedes usar deploy para sincronizar entre proyectos. Normalmente lo
+harás para promover un sandbox de desarrollo o de staging a producción. Incluso
+puedes usarlo para desplegar un proyecto de la aplicación SaaS en otra instancia
+de OpenFn completamente distinta.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="deploy-straight-from-a-spec-or-state-file">Desplegar directamente desde un archivo de spec o de state<a href="#deploy-straight-from-a-spec-or-state-file" class="hash-link" aria-label="Enlace directo al Desplegar directamente desde un archivo de spec o de state" title="Enlace directo al Desplegar directamente desde un archivo de spec o de state" translate="no">​</a></h3>
+<p>Con cualquier archivo de proyecto (por ejemplo, <a href="mailto:main@app.openfn.org.yaml" target="_blank" rel="noopener noreferrer" class="">main@app.openfn.org.yaml</a>) o una
+spec exportada (en formato v1 o v2, tal como se exporta desde la configuración
+de la aplicación), puedes desplegar directamente en otra instancia sin tener que
+hacer checkout de nada antes.</p>
+<p>Solo tienes que pasar el nombre del archivo de origen como primer argumento. Si
+tienes acceso de superusuario, puedes crear un proyecto nuevo así:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy dev@localhost.yaml --new --endpoint https://app.openfn.org</span><br></div></code></pre></div></div>
+<p>Si ya tienes un archivo de proyecto registrado localmente (lo tendrás si lo
+obtuviste o descargaste antes), puedes pasar el alias (por ejemplo, <code>main</code>) para
+desplegar en esa instancia.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy dev@localhost.yaml main</span><br></div></code></pre></div></div>
+<p>Lo más probable es que quieras forzar el despliegue, aunque se detecte
+divergencia. Para eso, pasa la opción <code>-f</code>.</p>
+<p>Pasa <code>--no-confirm</code> o <code>-y</code> para omitir las preguntas de confirmación (esto es
+importante si ejecutas scripts automatizados).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="managing-credentials">Gestionar credenciales<a href="#managing-credentials" class="hash-link" aria-label="Enlace directo al Gestionar credenciales" title="Enlace directo al Gestionar credenciales" translate="no">​</a></h3>
+<p>Gestionar las credenciales durante un despliegue puede ser complicado.</p>
+<p>Las credenciales del proyecto de origen TIENEN que existir en el proyecto de
+destino; de lo contrario, se producirá un error.</p>
+<p>Todavía no hay forma de automatizar por completo la creación de credenciales,
+porque plantea muchos problemas de seguridad.</p>
+<p>Sin embargo, la CLI ofrece algunas opciones.</p>
+<p>Puedes quitar por completo las credenciales del despliegue pasando
+<code>--credentials none</code>. Ten en cuenta que el workflow no se ejecutará en el
+destino hasta que se conecten manualmente las credenciales a los steps que las
+necesitan.</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>consejo</div><div class="admonitionContent_BuS1"><p>El argumento <code>--credentials</code> se puede pasar como <code>-c</code> o <code>--cred</code>.</p></div></div>
+<p>También puedes mapear credenciales, si el propietario o el nombre de las
+credenciales es distinto en el sistema de destino.</p>
+<p>Puedes hacerlo con la CLI pasando un mapa separado por comas:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy spec.yaml --credentials a:service@openfn.org|cred-a,b:service@openfn.org|cred-b</span><br></div></code></pre></div></div>
+<p>Esto toma dos credenciales, <code>a</code> y <code>b</code>, las mapea a los nombres <code>cred-a</code> y
+<code>cred-b</code> y cambia el propietario a <code>service@openfn.org</code>.</p>
+<p>También puedes definir estos mapeos en un archivo yaml (el mismo que se usa en
+la ejecución). Define la clave <code>alias</code> debajo del identificador de la
+credencial:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">somedev@gmail.com|a:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  alias: service@openfn.org|cred-a</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">somedev@gmail.com|a:</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain">  alias: service@openfn.org|cred-b</span><br></div><div class="token-line" style="color:#bfc7d5"><span class="token plain" style="display:inline-block"></span><br></div></code></pre></div></div>
+<p>Luego pasa la ruta del archivo a la CLI con <code>--credentials</code>:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><div class="token-line" style="color:#bfc7d5"><span class="token plain">openfn project deploy spec.yaml --credentials credentials.yaml</span><br></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="sandboxes">Sandboxes<a href="#sandboxes" class="hash-link" aria-label="Enlace directo al Sandboxes" title="Enlace directo al Sandboxes" translate="no">​</a></h2>
+<p>La CLI es totalmente compatible con los sandboxes. Trátalos como cualquier otro
+proyecto: obtenlos la primera vez con su UUID.</p>
+<p>Usa el comando <code>checkout</code> para cambiar entre sandboxes y proyectos localmente.
+Recuerda que solo puedes tener un proyecto con checkout a la vez. La CLI te
+avisará si un checkout va a hacer que pierdas cambios locales.</p>
+<p>Al obtener un sandbox, el alias del proyecto será, de forma predeterminada, el
+nombre del sandbox.</p>
+<p>Puedes fusionar dos proyectos localmente con <code>openfn project merge</code> y desplegar
+el proyecto resultante en la aplicación (probablemente tendrás que forzar la
+subida del cambio). Esto es útil para resolver conflictos.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resolving-merge-conflicts">Resolver conflictos de fusión<a href="#resolving-merge-conflicts" class="hash-link" aria-label="Enlace directo al Resolver conflictos de fusión" title="Enlace directo al Resolver conflictos de fusión" translate="no">​</a></h2>
+<p>A veces, fusionar un sandbox puede sobrescribir cambios en el proyecto de
+destino. Esto puede pasar si un workflow del proyecto principal cambió <em>después</em>
+de que se volviera a crear el sandbox, así que el sandbox no lo conoce. Al
+fusionar, se perdería ese cambio en main.</p>
+<p>Puedes resolver estos conflictos localmente con la CLI y git (u otro control de
+versiones equivalente) y luego subir el proyecto resuelto a la aplicación.</p>
+<div class="theme-admonition theme-admonition-tip admonition_xJq3 alert alert--success"><div class="admonitionHeading_Gvgb"><span class="admonitionIcon_Rf37"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>consejo</div><div class="admonitionContent_BuS1"><p>¡No necesitas un repositorio de GitHub para usar git!</p><p>Git es simplemente un programa que se ejecuta en la terminal de tu sistema
+local.</p><p>GitHub es una aplicación alojada en la nube que a) ofrece acceso remoto a
+repositorios git y b) ofrece una interfaz completa sobre un sistema de archivos
+controlado por git.</p></div></div>
+<p>Así se hace con git. Este ejemplo da por hecho que quieres fusionar un sandbox
+<code>dev</code> en tu proyecto principal <code>main</code>.</p>
+<ul>
+<li class="">Asegúrate de tener lista una carpeta local para trabajar. Tiene que ser un
+repositorio git. Ejecuta <code>git init</code> en cualquier carpeta para configurar git
+(no necesitas un repositorio de GitHub conectado)</li>
+<li class="">Descarga tu proyecto principal localmente: <code>openfn project pull &lt;main-uuid&gt;</code>
+(da por hecho que OPENFN_API_KEY está definida)</li>
+<li class="">Haz commit de tus cambios en git:
+<code>git add . &amp;&amp; git commit -m &quot;checkout main project&quot;</code></li>
+<li class="">Ahora descarga tu sandbox localmente: <code>openfn project pull &lt;dev-uuid&gt;</code></li>
+<li class="">Esto hace que tu carpeta local <code>workflows/</code> se vea como tu sandbox</li>
+<li class="">Si ahora ejecutas <code>git status</code> y <code>git diff</code>, verás todos los cambios que se
+aplicarían al proyecto principal al hacer la fusión</li>
+<li class="">Comprueba que estás conforme con las diferencias. Quizás quieras revertir
+algunos archivos para que queden como en main
+(<code>git checkout main workflows/my-workflow/job.js</code>). O quizás quieras combinar
+a mano cambios de los dos proyectos.</li>
+<li class="">Cuando termines, sube el proyecto a la aplicación con la CLI:
+<code>openfn project deploy main</code></li>
+<li class="">Si quieres, puedes hacer commit de tus cambios en git (pero para este ejemplo
+no hace falta)</li>
+</ul>
+<p>Para cambios más complejos, puedes probar este enfoque:</p>
+<ul>
+<li class="">Descarga <code>main</code> localmente y haz commit</li>
+<li class="">Crea una rama nueva, y descarga <code>dev</code> y haz commit en esa rama</li>
+<li class="">Vuelve a la rama principal: <code>git checkout main</code></li>
+<li class="">Fusiona la rama <code>dev</code> en main: <code>git merge dev</code></li>
+<li class="">Resuelve los conflictos que indique git (cada conflicto de git debería
+corresponder a un lugar donde tanto main como el sandbox hicieron cambios)</li>
+<li class="">Cuando termines, usa la CLI para forzar el despliegue de tus cambios</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="github">GitHub<a href="#github" class="hash-link" aria-label="Enlace directo al GitHub" title="Enlace directo al GitHub" translate="no">​</a></h2>
+<p>Puedes configurar un proyecto para que se sincronice automáticamente con GitHub.
+Así, los commits en GitHub despliegan automáticamente los cambios en un proyecto
+de OpenFn, y al presionar Save &amp; Sync en la aplicación se hace commit de vuelta
+en GitHub.</p>
+<p>Internamente, GitHub Sync usa los comandos <code>pull</code> y <code>deploy</code> de la CLI, que se
+ejecutan desde GitHub Actions, para sincronizar tus proyectos.</p>
+<p>Ten en cuenta que, de forma predeterminada, GitHub Sync usa el formato antiguo,
+con los archivos <code>state.json</code>, <code>project.yaml</code> y <code>config.json</code>. Al configurar un
+nuevo GitHub Sync, puedes elegir el formato v2. La sincronización v2 solo sirve
+para descargar un único proyecto por rama en GitHub, porque varios proyectos
+sobrescribirían la misma carpeta <code>workflows/</code>.</p>
+<p>Consulta <a class="" href="/es/documentation/link-to-GitHub">Control de versiones</a> para obtener más
+detalles sobre GitHub Sync.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cheatsheet">Referencia rápida<a href="#cheatsheet" class="hash-link" aria-label="Enlace directo al Referencia rápida" title="Enlace directo al Referencia rápida" translate="no">​</a></h2>
+<table><thead><tr><th>Comando</th><th>Descripción</th></tr></thead><tbody><tr><td><code>openfn project pull &lt;uuid&gt;</code></td><td>Descarga un proyecto de la aplicación por primera vez</td></tr><tr><td><code>openfn project pull</code></td><td>Vuelve a descargar el proyecto actual</td></tr><tr><td><code>openfn project pull &lt;uuid&gt; --alias dev</code></td><td>Descarga y define un alias local</td></tr><tr><td><code>openfn project fetch &lt;alias/id/uuid&gt;</code></td><td>Obtiene un proyecto sin hacer checkout</td></tr><tr><td><code>openfn project</code></td><td>Lista todos los proyectos locales de la carpeta de trabajo actual</td></tr><tr><td><code>openfn project checkout &lt;alias&gt;</code></td><td>Cambia a otro proyecto local</td></tr><tr><td><code>openfn project deploy</code></td><td>Despliega en la aplicación el proyecto con checkout</td></tr><tr><td><code>openfn project deploy --dry-run</code></td><td>Prueba un despliegue, pero omite el paso de subida</td></tr><tr><td><code>openfn project deploy --force</code></td><td>Fuerza la subida del proyecto con checkout, ignorando cualquier advertencia de divergencia</td></tr><tr><td><code>openfn &lt;workflow-name&gt;</code></td><td>Ejecuta un workflow del proyecto con checkout</td></tr><tr><td><code>openfn project clean</code></td><td>Borra la carpeta <code>workflows</code> y todo su contenido, y luego hace checkout del proyecto</td></tr></tbody></table></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/openfn/docs/edit/main/i18n/es/docusaurus-plugin-content-docs/current/build-for-developers/cli-sync.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Editar esta página</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Página del documento"><a class="pagination-nav__link pagination-nav__link--prev" href="/es/documentation/cli-usage"><div class="pagination-nav__sublabel">Anterior</div><div class="pagination-nav__label">Uso básico</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/es/documentation/collections-cli"><div class="pagination-nav__sublabel">Siguiente</div><div class="pagination-nav__label">Colecciones</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#what-is-a-project" class="table-of-contents__link toc-highlight">¿Qué es un proyecto?</a></li><li><a href="#project-structure" class="table-of-contents__link toc-highlight">Estructura del proyecto</a><ul><li><a href="#projectyaml" class="table-of-contents__link toc-highlight">project.yaml</a></li><li><a href="#workflows" class="table-of-contents__link toc-highlight">workflows</a></li><li><a href="#workflowyaml" class="table-of-contents__link toc-highlight">workflow.yaml</a></li><li><a href="#openfnyaml" class="table-of-contents__link toc-highlight">openfn.yaml</a></li></ul></li><li><a href="#authorization" class="table-of-contents__link toc-highlight">Autorización</a></li><li><a href="#downloading-a-project" class="table-of-contents__link toc-highlight">Descargar un proyecto</a></li><li><a href="#aliases" class="table-of-contents__link toc-highlight">Alias</a></li><li><a href="#checking-out" class="table-of-contents__link toc-highlight">Hacer checkout</a></li><li><a href="#running-workflows-in-projects" class="table-of-contents__link toc-highlight">Ejecutar workflows en proyectos</a></li><li><a href="#deploying-a-project" class="table-of-contents__link toc-highlight">Desplegar un proyecto</a></li><li><a href="#advanced-deployment" class="table-of-contents__link toc-highlight">Despliegue avanzado</a><ul><li><a href="#deploy-straight-from-a-spec-or-state-file" class="table-of-contents__link toc-highlight">Desplegar directamente desde un archivo de spec o de state</a></li><li><a href="#managing-credentials" class="table-of-contents__link toc-highlight">Gestionar credenciales</a></li></ul></li><li><a href="#sandboxes" class="table-of-contents__link toc-highlight">Sandboxes</a></li><li><a href="#resolving-merge-conflicts" class="table-of-contents__link toc-highlight">Resolver conflictos de fusión</a></li><li><a href="#github" class="table-of-contents__link toc-highlight">GitHub</a></li><li><a href="#cheatsheet" class="table-of-contents__link toc-highlight">Referencia rápida</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Este sitio</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/es/articles">Artículos</a></li><li class="footer__item"><a class="footer__link-item" href="/es/adaptors">Adaptors</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Comunidad</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://community.openfn.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">Foro<svg width="13.5" height="13.5" aria-label="(se abre en una nueva pestaña)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(se abre en una nueva pestaña)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://twitter.com/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-label="(se abre en una nueva pestaña)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Más</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://www.openfn.org" target="_blank" rel="noopener noreferrer" class="footer__link-item">OpenFn.org</a></li><li class="footer__item"><a href="https://github.com/openfn" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(se abre en una nueva pestaña)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Open Function Group LLC</div></div></div></footer></div>
+</body>
+</html>
