@@ -12,6 +12,9 @@ Avoid slang from any one country.
   ("podrías crear").
 - When an English example switches to "I" or "we", keep it addressed to the
   reader.
+- Keep how strong the English is. "Must" is "debe" or "tienes que", "should" is
+  "debería" or "deberías", and "can" is "puede" or "puedes". Do not write "debe"
+  for "should".
 
 | Use                                | Not                   |
 | ---------------------------------- | --------------------- |
@@ -25,6 +28,11 @@ Avoid slang from any one country.
 | actualmente (currently)            | ahora mismo           |
 | considerar                         | plantearse            |
 | por ejemplo, or como before a list | p. ej.                |
+| en campo (in the field)            | en terreno            |
+| intentar (try to)                  | probar a              |
+| entrada (input)                    | input                 |
+
+Keep `Input` when it names the panel in the app. "Payload" stays in English.
 
 ## English terms kept in Spanish
 
@@ -38,6 +46,13 @@ English plural with "-s".
 
 For example, "The work order creates two runs" becomes "La work order crea dos
 runs".
+
+Before a kept English term, choose "y" or "e", and "o" or "u", by how the
+English word sounds: "workflows y History", "Canvas e Inspector".
+
+In a section that defines terms, you may explain a glossary term once in
+brackets, with the English first: "Workflow (flujo de trabajo)". Everywhere
+else, use the English term on its own.
 
 ## Capitals
 
