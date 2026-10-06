@@ -21,9 +21,9 @@ in `.agents/skills/translate/SKILL.md`, the house style in
 `.agents/skills/translate/<locale>.md`, the rules for the locale in
 `translation-rules.yml`, and `glossary.yml`.
 
-The review fixes clear problems in `machine` and `needs-review` pages and
-reports the rest. It does not commit, open a PR, or add rules. Never edit a
-`human-reviewed` page or a fenced block; report the problem instead.
+The review fixes clear problems in `machine` pages and reports the rest. It does
+not commit, open a PR, or add rules. Never edit a `human-reviewed` page or a
+fenced block; report the problem instead.
 
 ## 1. Lay out the pages
 

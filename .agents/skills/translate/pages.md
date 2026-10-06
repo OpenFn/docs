@@ -27,16 +27,16 @@ translation_review_status: machine
 The hash is the English file's content hash, not a commit, because commits do
 not survive squash merges.
 
-`translation_review_status` can be `machine`, `needs-review`, or
-`human-reviewed`. Only a human sets `human-reviewed`, and adds
-`translation_reviewer` and `translation_review_date` with it.
+`translation_review_status` is `machine` or `human-reviewed`. Only a human sets
+`human-reviewed`, and adds `translation_reviewer` and `translation_review_date`
+with it.
 
 ## Decide what to do with each page
 
 - **No translation yet.** Translate the whole page. To retranslate a page from
   scratch on purpose, delete it first.
 - **The hash matches the current English.** Skip it, unless the page is
-  `machine` or `needs-review` and this lists any commits:
+  `machine` and this lists any commits:
 
   ```bash
   git log --oneline $(git log -1 --format=%H -- <translated page>)..HEAD -- glossary.yml translation-rules.yml .agents/skills/translate/<locale>.md
@@ -44,14 +44,17 @@ not survive squash merges.
 
   Then see "When the rules change".
 
-- **The hash does not match, and the status is `machine`, `needs-review`, or
-  missing.** See "Updating a page".
+- **The hash does not match, and the status is `machine` or missing.** See
+  "Updating a page".
 - **The hash does not match, and the status is `human-reviewed`.** Leave it out
   of the translation PR. Open a separate PR for the named reviewer: diff the
   English they saw against the current English as in "Updating a page", and
   translate only what changed. Set the new hash and leave the status as
   `human-reviewed`; the reviewer merging it approves it. If the old English is
   no longer in the repo, say so and offer a full retranslation.
+- **The English page has moved or been deleted.** Move the translation to match
+  with `git mv`, or delete it. Docusaurus silently ignores a translation with no
+  English page.
 
 ## When the rules change
 

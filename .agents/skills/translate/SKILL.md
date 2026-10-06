@@ -25,8 +25,8 @@ need.
   covers every page that needs it. See `pages.md`.
 - **`/translate interface`** translates the text that is not in a page: the
   navbar, footer, sidebar headings, and homepage. Run it when
-  `sidebars-main.js`, the navbar or footer in `docusaurus.config.js`, or the
-  homepage in `src/pages/` has changed. See `interface.md`.
+  `sidebars-main.js`, the navbar or footer in `docusaurus.config.js`, or any
+  `<Translate>` text in `src/` has changed. See `interface.md`.
 
 If you are not told which task, work out which ones are needed from what has
 changed in English, say so, and ask before starting.
