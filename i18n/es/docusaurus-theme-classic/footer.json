@@ -1,0 +1,42 @@
+{
+  "link.title.This Site": {
+    "message": "Este sitio",
+    "description": "The title of the footer links column with title=This Site in the footer"
+  },
+  "link.title.Community": {
+    "message": "Comunidad",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "Más",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.item.label.Articles": {
+    "message": "Artículos",
+    "description": "The label of footer link with label=Articles linking to articles"
+  },
+  "link.item.label.Adaptors": {
+    "message": "Adaptors",
+    "description": "The label of footer link with label=Adaptors linking to adaptors"
+  },
+  "link.item.label.Forum": {
+    "message": "Foro",
+    "description": "The label of footer link with label=Forum linking to https://community.openfn.org"
+  },
+  "link.item.label.Stack Overflow": {
+    "message": "Stack Overflow",
+    "description": "The label of footer link with label=Stack Overflow linking to https://stackoverflow.com/questions/tagged/openfn"
+  },
+  "link.item.label.Twitter": {
+    "message": "Twitter",
+    "description": "The label of footer link with label=Twitter linking to https://twitter.com/openfn"
+  },
+  "link.item.label.OpenFn.org": {
+    "message": "OpenFn.org",
+    "description": "The label of footer link with label=OpenFn.org linking to https://www.openfn.org"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/openfn"
+  }
+}

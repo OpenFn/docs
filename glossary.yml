@@ -5,8 +5,9 @@
 # Product vocabulary for the OpenFn docs. Two consumers read this file:
 #
 #   1. The translate skill (.agents/skills/translate/SKILL.md). Any term with
-#      `translate: false` must appear verbatim in every translated page.
-#   2. The house style in AGENTS.md. Any spelling in `variants` is replaced
+#      `translate: false` must appear verbatim in every translated page,
+#      unless `locales` gives a word for that page's locale.
+#   2. The house style in STYLE.md. Any spelling in `variants` is replaced
 #      with `term` in English pages.
 #
 # Humans maintain this file. Add a term when a review shows the same
@@ -25,9 +26,9 @@
 #     case_sensitive: boolean  # true = the house-style check flags case variants too (default false)
 #     variants: [string]       # spellings the house-style check flags, to replace with `term`
 #     note: string             # guidance for humans and the agent
-#     locales:                 # optional. Only used when translate: true, to pin a
-#       es: string             # specific rendering per locale instead of free
-#       fr: string             # translation.
+#     locales:                 # optional. The word a locale uses instead of the
+#       es: string             # English. Overrides translate: false for that
+#       fr: string             # locale only; other locales keep the English.
 #
 # patterns:                    # regexes that are never translated, for families
 #   - pattern: string          # of identifiers too numerous to list (adaptor
@@ -87,7 +88,12 @@ terms:
   - term: credential
     translate: false
     product_noun: true
-    note: Stored authentication configuration attached to a Step.
+    note: >-
+      Stored authentication configuration attached to a Step. Spanish translates
+      it because "credencial" looks almost the same as the English in the app.
+      Decide separately for each new locale.
+    locales:
+      es: credencial
 
   - term: trigger
     translate: false
@@ -131,7 +137,12 @@ terms:
   - term: project
     translate: false
     product_noun: true
-    note: Administrative grouping of workflows, credentials, and collaborators.
+    note: >-
+      Administrative grouping of workflows, credentials, and collaborators.
+      Spanish translates it because "proyecto" looks almost the same as the
+      English in the app. Decide separately for each new locale.
+    locales:
+      es: proyecto
 
   - term: dataclip
     translate: false
@@ -143,7 +154,12 @@ terms:
   - term: collection
     translate: false
     product_noun: true
-    note: The Collections key-value store feature. Ordinary English use may be translated.
+    note: >-
+      The Collections key-value store feature. Spanish translates it because
+      "colección" looks almost the same as the English in the app. Decide
+      separately for each new locale.
+    locales:
+      es: colección
 
   - term: sandbox
     translate: false
@@ -175,7 +191,12 @@ terms:
   - term: operation
     translate: false
     product_noun: true
-    note: A function exported by an adaptor, e.g. `get()`, `upsert()`.
+    note: >-
+      A function exported by an adaptor, e.g. `get()`, `upsert()`. Spanish
+      translates it because "operación" looks almost the same as the English in
+      the app. Decide separately for each new locale.
+    locales:
+      es: operación
 
   - term: KoboToolbox
     translate: false

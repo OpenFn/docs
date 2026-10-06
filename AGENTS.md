@@ -25,15 +25,15 @@ you need.
 
 **Ask before editing**
 
-- `docusaurus.config.js`, `package.json`, and anything in `.github/`. These
-  change how the site builds and deploys.
+- `docusaurus.config.js`, `package.json`, `sidebars-adaptors.js`, and anything
+  in `.github/`. These change how the site builds and deploys.
 
 **Special rules apply**
 
 - Translations in `i18n/`. See `translate/SKILL.md`.
-- The two rule files: `glossary.yml` and `translation-rules.yml`. Humans
-  maintain these. Each explains its format at the top. Only add an entry if the
-  user asks you to.
+- The rule files: `glossary.yml`, `translation-rules.yml`, and the house style
+  for each locale in `.agents/skills/translate/<locale>.md`. Humans maintain
+  these. Only add an entry if the user asks you to.
 
 To check facts, you can read the product code. Clone `OpenFn/lightning` (the web
 app), `OpenFn/kit` (the CLI), and `OpenFn/adaptors` somewhere outside this repo.
@@ -48,7 +48,11 @@ Never change them.
   or from an identify-gaps report.
 - **`release-review`** works out what the product shipped recently and passes
   that to identify-gaps. Suited to a monthly schedule.
-- **`translate`** translates English pages, in its own PR per locale.
+- **`translate`** translates English pages (`/translate pages`) or the interface
+  text (`/translate interface`), in its own PR per locale.
+- **`review-translation`** checks translated pages against the English, fixes
+  clear problems, and reports the rest. Commit the translation, then run it in a
+  fresh session.
 
 `update-content` and `translate` open PRs, so they only run when someone asks
 for them by name (`/update-content`, `/translate`). When another skill hands off
@@ -70,7 +74,8 @@ category from the sidebar, one folder under `docs/`, or one page.
 - Never edit generated adaptor pages. Draft an issue for `OpenFn/adaptors` and
   put it in the PR. Only file it if asked.
 - Never retranslate text inside `<!-- do-not-retranslate -->` fences.
-- Never translate a term listed in `glossary.yml`.
+- Never translate a term listed in `glossary.yml`, unless the term lists a word
+  for the locale under `locales`.
 - Never retake, crop, or replace screenshots.
 - Never disable a check to make the build pass.
 
@@ -92,6 +97,10 @@ yarn generate-library
 yarn generate-adaptors
 yarn build
 ```
+
+`yarn build` builds every locale, so an English change can break a translated
+page, for example by moving a page it links to. Don't add `--locale` to speed it
+up.
 
 Broken-anchor warnings do not fail the build, and `main` already has some. Fix
 only the ones your change adds.

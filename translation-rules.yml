@@ -2,13 +2,14 @@
 #
 # Purpose
 # -------
-# Locale-specific phrasing rules learned from human edits to machine
-# translations. The translate skill (.agents/skills/translate/SKILL.md) loads this
-# file after glossary.yml and applies every rule whose `locale` matches the
-# target locale.
+# Fixes learned from human review of machine translations: a phrase that must
+# always be translated one way, or a rendering a reviewer rejected. The
+# translate skill (.agents/skills/translate/SKILL.md) loads this file after
+# glossary.yml and applies every rule whose `locale` matches the target locale.
 #
-# Glossary terms (never translate) belong in glossary.yml, not here. This file
-# is for how to translate, not what to leave alone.
+# Glossary terms (never translate) belong in glossary.yml. A locale's general
+# style (voice, word choice, capitals, punctuation) belongs in its house style
+# guide, .agents/skills/translate/<locale>.md. This file is for single phrases.
 #
 # Humans maintain this file. Add a rule when you correct a translation in a
 # way that should apply to other pages too.
@@ -18,13 +19,9 @@
 # rules:
 #   - locale: string        # "es" or "fr" (or "*" for every locale)
 #     kind: string          # one of:
-#                           #   term        - a fixed rendering for a phrase
-#                           #   register    - tone/voice guidance (formal vs informal "you")
-#                           #   punctuation - spacing, quotation marks, list punctuation
-#                           #   structure   - how to handle headings, admonition titles, UI labels
-#                           #   avoid       - a rendering the reviewer rejected
-#     source: string        # English phrase or pattern the rule applies to (for
-#                           # kind: term and avoid). Omit for global rules.
+#                           #   term  - a fixed rendering for a phrase
+#                           #   avoid - a rendering the reviewer rejected
+#     source: string        # English phrase the rule applies to
 #     target: string        # required rendering (kind: term) or rejected rendering
 #                           # (kind: avoid)
 #     instruction: string   # plain-language rule the translator must follow
@@ -39,20 +36,112 @@
 # -------
 # rules:
 #   - locale: es
-#     kind: register
-#     instruction: Address the reader as "tú", not "usted".
-#     reason: Matches the informal tone of the English docs.
-#     added_by: someone
-#     added_on: 2026-01-01
-#     source_pr: https://github.com/OpenFn/docs/pull/000
-#   - locale: fr
-#     kind: punctuation
-#     instruction: Put a non-breaking space before ":", ";", "?" and "!".
-#     example_source: "Next step: add a credential."
-#     example_target: "Étape suivante : ajoutez un identifiant."
-#     reason: Standard French typography.
+#     kind: avoid
+#     source: report (a problem)
+#     target: informar de
+#     instruction: Use "reportar", not "informar de".
+#     reason: "Informar de" is Spain-only; the Spanish docs target es-419.
 #     added_by: someone
 #     added_on: 2026-01-01
 #     source_pr: https://github.com/OpenFn/docs/pull/000
 
-rules: []
+rules:
+  - locale: es
+    kind: term
+    source: upgrade (a plan)
+    target: mejorar
+    instruction: >-
+      "Upgrade" a plan or account is "mejorar", not "actualizar", which means
+      "update".
+    example_source: Upgrade to access more features.
+    example_target: Mejora tu plan para acceder a más funciones.
+    reason: '"Actualiza tu plan" reads as "update your plan".'
+    added_by: lmac-1
+    added_on: 2026-10-01
+
+  - locale: es
+    kind: term
+    source: PII
+    target: información de identificación personal (PII)
+    instruction: >-
+      Write "información de identificación personal" and keep "PII" next to it,
+      so readers can match it to the English term.
+    example_source: Remove any data that should not be output (like PII).
+    example_target: >-
+      Elimina los datos que no deberían formar parte de la salida (como
+      información de identificación personal o PII).
+    reason: The Write Jobs pages translated PII two different ways.
+    added_by: lmac-1
+    added_on: 2026-10-01
+
+  - locale: es
+    kind: term
+    source: core team
+    target: equipo principal
+    instruction: '"Core team" is "equipo principal", not "equipo central".'
+    example_source: Ask the OpenFn core team.
+    example_target: Pregunta al equipo principal de OpenFn.
+    reason: Every other Spanish page already uses "equipo principal".
+    added_by: lmac-1
+    added_on: 2026-10-01
+
+  - locale: es
+    kind: avoid
+    source: feature (on pages about code)
+    target: función
+    instruction: >-
+      On pages that also talk about JavaScript or adaptor functions, translate
+      "feature" as "característica" or "funcionalidad", not "función". Elsewhere,
+      "función" is fine and usually the most natural word.
+    example_source: OpenFn supports all modern JavaScript features.
+    example_target: OpenFn admite todas las características modernas de JavaScript.
+    reason: >-
+      On developer pages "función" reads as a JavaScript function, not a
+      feature. On other pages "función" is what Latin American apps say.
+    added_by: lmac-1
+    added_on: 2026-10-01
+
+  - locale: es
+    kind: avoid
+    source: enable / disable
+    target: activar / desactivar
+    instruction: >-
+      "Enable" and "disable" (a workflow, trigger, setting, or button) are
+      "habilitar" and "deshabilitar". Keep "activar" and "desactivar" for "turn
+      on", "turn off", and flipping a toggle.
+    example_source: >-
+      Workflows will run automatically when they are "enabled", i.e., when their
+      trigger is turned on.
+    example_target: >-
+      Los workflows se ejecutan automáticamente cuando están "habilitados", es
+      decir, cuando su trigger está activado.
+    reason: >-
+      The Sandboxes page used "desactivados" for triggers that the Workflows and
+      Triggers pages call "deshabilitados".
+    added_by: lmac-1
+    added_on: 2026-10-02
+
+  - locale: es
+    kind: term
+    source: Expand to see
+    target: Expande para ver
+    instruction: >-
+      In dropdown summaries, "Expand to see..." is "Expande para ver...", not
+      "Despliega para ver...".
+    example_source: Expand to see the expected output
+    example_target: Expande para ver la salida esperada
+    reason: The CLI pages used "Despliega" on two pages and "Expande" on another.
+    added_by: lmac-1
+    added_on: 2026-10-02
+
+  - locale: es
+    kind: avoid
+    source: run (the verb)
+    target: correr
+    instruction: >-
+      "Run" a job, step, workflow, or command is "ejecutar", not "correr".
+    example_source: A workflow is the execution plan for running several steps.
+    example_target: Un workflow es el plan de ejecución de varios steps.
+    reason: The CLI walkthrough mixed "correr" with "ejecutar" for the same verb.
+    added_by: lmac-1
+    added_on: 2026-10-02
