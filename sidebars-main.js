@@ -75,6 +75,7 @@ module.exports = {
             'build/collections',
             'build/limits',
             'build/sandboxes',
+            'build/migrate-workflows',
             'build/editing-locally',
             'build/working-with-branches',
             'build/troubleshooting',
