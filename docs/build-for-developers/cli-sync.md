@@ -62,52 +62,52 @@ Whether using the CLI or GitHub Sync, a Project has the following structure:
 
 ```
 ├── openfn.yaml
+├── resources.yaml
 ├── .projects
 │   ├── main@app.openfn.org.yaml
 └── workflows
     ├── my-workflow
     │   ├── my-workflow.yaml
     │   ├── my-step.js
+├──.openfn
 ```
 
 Briefly, these files are:
 
-- `openfn.yaml` declares this folder to be an OpenFn Project, and contains
-  metadata and settings
-- The `.projects` folder contains a complete YAML representation of each Project
-- The `workflows` folder shows the contents of the project - the steps and edges
-  and so on.
+- `openfn.yaml` declares this folder to be an OpenFn Project, and contains some
+  configuration options
+- `resources.yaml` contains details of connected resources, like channels or
+  collections.
+- `workflows` contains one sub folder per workflow, and "expands" a workflow to
+  the file system for convenient editing.
+- The `.projects` folder contains a complete YAML representation of each
+  Project. This is rarely used by humans
+- The `.openfn` folder contains metadata used by the CLI. It is not used by
+  humans and should not be checked-in to git.
+
+::: note
+
+For users well-versed in the OpenFn portability specification, this folder
+structure represents a project _spec_. The `.projects` folder contains project
+_state_.
+
+:::
 
 Let's look at this structure in a bit more detail.
 
-### project.yaml
-
-The project file saves a copy of the whole state of a project as saved in the
-app. If you look inside you'll see the workflows represented as plain text.
-
-A project file is named like `<alias>@<domain>.yaml`. The alias is a local name
-used to refer to a particular version of the project. The domain comes from the
-OpenFn instance the project was downloaded from.
-
-The project file should not be edited locally as any changes will be dropped on
-the next fetch.
-
-You can fetch as many projects as you like, and each will be saved to its own
-project.yaml file.
-
-The `.projects` folder can and should be committed to source control.
-
 ### workflows
 
-Having your whole project inside a single file isn't actually a great way to
-read or edit workflows. So the CLI can "checkout" or "expand" a project file
-onto the file system.
+Each workflow lives as a bunch of files, which makes editing and merging those
+workflows a little easier.
 
-Checking out is the process of writing each workflow to a workflow.yaml file and
-each step to a step.js file. This all lives in the `workflows` directory.
+A workflow can be defined as a single yaml file - you'll see that if you hit
+"View workflow as YAML" in the app, or if you look at the project state files in
+`.projects. But for convenience, the workflow can also be "checked out" or
+expanded so that each step has its job code (its expression) written to a .js
+file.
 
-Here you can edit files as much as you like, and changes will be tracked when
-you push/deploy back to the app.
+You edit these expanded workflow files as much as you like, and changes will be
+tracked when you push/deploy back to the app.
 
 You can only check out one project at a time. This is actually great for working
 with git, because you can checkout two projects on different branches and
@@ -150,8 +150,24 @@ key in `workflow.yaml`.
 
 This is a top-level configuration file which can mostly be ignored. It is used
 by OpenFn tooling to recognise a project root folder. It also holds
-configuration options for all local projects, and metadata about the currently
-checked out project.
+configuration options for all local projects.
+
+### project.yaml
+
+The project file saves a copy of the whole state of a project as saved in the
+app. If you look inside you'll see the workflows represented as plain text.
+
+A project file is named like `<alias>@<domain>.yaml`. The alias is a local name
+used to refer to a particular version of the project. The domain comes from the
+OpenFn instance the project was downloaded from.
+
+The project file should not be edited locally as any changes will be dropped on
+the next fetch. It strictly represents server-side state.
+
+You can fetch as many projects as you like, and each will be saved to its own
+project.yaml file.
+
+The `.projects` folder can and should be committed to source control.
 
 ## Authorization
 
