@@ -244,8 +244,8 @@ module.exports = {
             to: '/documentation',
             from: [
               '/documentation/legacy',
-              '/documentation/migration/migration-steps',
-              '/documentation/migration/converting-triggers',
+              '/documentation/migration-steps',
+              '/documentation/converting-triggers',
               '/documentation/migration/automated-migration',
               '/documentation/release-notes',
             ],
