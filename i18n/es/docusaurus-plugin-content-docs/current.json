@@ -1,8 +1,5 @@
 {
-  "version.label": {
-    "message": "v2 ⚡",
-    "description": "The label for version current"
-  },
+
   "sidebar.docs.category.Get Started": {
     "message": "Primeros pasos",
     "description": "The label for category 'Get Started' in sidebar 'docs'"
@@ -47,10 +44,7 @@
     "message": "Despliegue",
     "description": "The label for category 'Deployment' in sidebar 'docs'"
   },
-  "sidebar.docs.category.Migrate to v2": {
-    "message": "Migrar a v2",
-    "description": "The label for category 'Migrate to v2' in sidebar 'docs'"
-  },
+
   "sidebar.docs.category.Contribute": {
     "message": "Contribuir",
     "description": "The label for category 'Contribute' in sidebar 'docs'"

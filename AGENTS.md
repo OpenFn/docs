@@ -21,7 +21,6 @@ you need.
 - Anything in `adaptors/packages/` or `adaptors/library/`. These pages are built
   automatically from code comments in the `OpenFn/adaptors` repo. If something
   is wrong there, the fix belongs in that repo, not here.
-- Anything in `versioned_docs/`. These are the old v1 docs and are frozen.
 
 **Ask before editing**
 

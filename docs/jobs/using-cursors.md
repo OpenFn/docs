@@ -126,29 +126,6 @@ to the CLI:
 $ openfn job.js -s state.json -a http
 ```
 
-<details>
-<summary>Manual cursors on v1</summary>
-
-Platform v1 does not allow input states to be freely defined, so setting a
-manual cursor is a little more difficult.
-
-You have to hard-code the manual cursor into the run so that the state cursor is
-ignored:
-
-```js
-cursor('2024-03-12');
-```
-
-This line should be commented out in production runs.
-
-Alternatively, you can use the defaultValue option. This will work so long as
-you run without any initial state:
-
-```js
-cursor(state => state.cursor, { defaultValue: '2024-03-12' });
-```
-
-</details>
 
 ### Cursor Options
 

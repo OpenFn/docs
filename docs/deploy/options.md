@@ -77,11 +77,11 @@ local/government-managed servers, you might:
 \*Head over to the [Requirements](/deploy/requirements.md) page for more
 information on recommended server specifications.
 
-## Moving from cloud to local (v1 or v2)
+## Moving from cloud to local
 
 For users that are planning a self-hosted implementation, we recommend
-developing and testing the initial solution on the OpenFn SaaS (v1 or v2,
-possibly on a free tier) and then exporting for use in Lightning (v2).
+developing and testing the initial solution on the OpenFn SaaS (possibly on a
+free tier) and then exporting for use in a local deployment of Lightning.
 
 This allows the implementer to focus on ironing out the business and technical
 requirements of the automation before incurring deployment costs. Focus on the

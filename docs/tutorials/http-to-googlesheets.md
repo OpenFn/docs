@@ -26,7 +26,7 @@ Here are some things we assume you've looked over before you begin this process.
 - You have a Google Account. We will use it to create a credential to authorize
   with Google Sheets.
 - You have access to an OpenFn project (either on a locally installed
-  [OpenFn v2 app](https://github.com/OpenFn/lightning) or on
+  [OpenFn app](https://github.com/OpenFn/lightning) or on
   [app.openfn.org](https://app.openfn.org)).
 
 ## Getting started
