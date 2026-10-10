@@ -43,8 +43,8 @@ organizations.
 OpenFn has a suite of products, which are all fully interoperable. This gives
 our users the freedom to switch between any and all of the OpenFn products.
 
-All OpenFn products, other than the OpenFn v1 iPaaS, are part of the free and
-open-source `OpenFn Integration Toolkit`, which is a **Digital Public Good** (a
+All OpenFn products are part of the free and open-source
+`OpenFn Integration Toolkit`, which is a **Digital Public Good** (a
 "DPG") recognized in the
 [DPG Registry](https://digitalpublicgoods.net/registry/) and Digital Square's
 [Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook).
@@ -52,10 +52,7 @@ open-source `OpenFn Integration Toolkit`, which is a **Digital Public Good** (a
 The core OpenFn products include:
 
 - **[OpenFn/lightning](https://github.com/OpenFn/lightning)**: our open source
-  data integration & workflow automation platform. This is the "v2" version
-  currently in use.
-- OpenFn/platform: the first version of our platform. Replaced by v2 and due to
-  be sunsetted in 2025
+  data integration & workflow automation platform
 - [**OpenFn/adaptors**](https://github.com/OpenFn/adaptors): source code for
   adaptors
 - [**OpenFn/kit**](https://github.com/OpenFn/kit): CLI, developer tools and
@@ -65,40 +62,24 @@ The core OpenFn products include:
 
 See all products and code at [GitHub.com/OpenFn](https://github.com/OpenFn).
 
-### OpenFn v2: Lightning ⚡
+### OpenFn Lightning
 
 When you hear "OpenFn", think
-[OpenFn/lightning](https://github.com/OpenFn/lightning/). v2 is a _fully open
-source_ workflow automation web application which can be deployed and run
+[OpenFn/lightning](https://github.com/OpenFn/lightning/). Lightning is a _fully
+open source_ workflow automation web application which can be deployed and run
 anywhere. It is designed for governments and NGOs who want state-of-the-art
 workflow automation and data integration/interoperability capabilities with
 fully-fledged user management and auditing capabilities through a managed _or_
-entirely self-hosted platform.
-
-Version 2 leverages the same tried-and-trusted core technology as the OpenFn v1
-and comes with an improved, visual interface for building integrations.
+entirely self-hosted platform, with a visual interface for building
+integrations.
 
 ![OpenFn Workflow Canvas](/img/case_referral_workflow.webp)
 
 **Check out the
-[OpenFn v2 Basics playlist](https://www.youtube.com/watch?v=U0MXYRXkDnI&list=PL1pD3-abjHJ0L01RjouO2xOWKtEUYi8e4&ab_channel=OpenFn.org)**
+[OpenFn Basics playlist](https://www.youtube.com/watch?v=U0MXYRXkDnI&list=PL1pD3-abjHJ0L01RjouO2xOWKtEUYi8e4&ab_channel=OpenFn.org)**
 on Youtube to watch videos that will help you get started quickly, or check out
 the other docs pages on the site.
 
-:::info OpenFn v2 replaces v1
-
-OpenFn v2 is available to any new users. All organizations currently using the
-legacy OpenFn v1 platform will be migrated to OpenFn v2 by the end of 2024.
-
-:::
-
-### OpenFn v1
-
-OpenFn v1 is the legacy OpenFn _integration-platform-as-a-service_ or "iPaaS"
-first launched in 2015. OpenFn v1 was open-core with a proprietary web app.
-
-The v1 platform will be sunsetted by 2025 and replaced by the fully open-source
-OpenFn v2 (see above).
 
 ### OpenFn developer tooling
 

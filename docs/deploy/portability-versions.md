@@ -9,8 +9,7 @@ This document provides a reference to older versions of the specification.
 
 ## v3
 
-The v3 standard was created for the v2 platform and is linked to the Lightning
-project.
+The v3 standard was created for Lightning.
 
 V3 uses the legacy CLI deploy commands and protocols. It is still fully
 supported by the app and CLI, but is being phased out as of May 2026.
@@ -19,7 +18,7 @@ supported by the app and CLI, but is being phased out as of May 2026.
 
 ## v2
 
-Used for export from the legacy platform.
+Used for export from the original OpenFn platform, which has been retired.
 
 ```yaml
 jobs:

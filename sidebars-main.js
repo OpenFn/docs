@@ -143,15 +143,6 @@ module.exports = {
       label: 'Deployment',
       items: ['deploy/options', 'deploy/requirements', 'deploy/portability'],
     },
-    {
-      type: 'category',
-      label: 'Migrate to v2',
-      items: [
-        'migration/migration-steps',
-        'migration/converting-triggers',
-        'migration/automated-migration',
-      ],
-    },
 
     {
       type: 'category',

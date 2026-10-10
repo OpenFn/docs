@@ -138,7 +138,7 @@ date.
 
 OpenFn/Lightning is the fully open-source workflow automation platform at the
 core of the OpenFn Digital Public Good (learn more about the product
-[here](/documentation#openfn-v2-lightning-)).
+[What is OpenFn?](/get-started/home.md#openfn-lightning)).
 
 |                         **ID**                          | **Feature**                                            | **Status** | **Timeline** |  **Δ**   | **Description**                                                                                                                                                                                |
 | :-----------------------------------------------------: | :----------------------------------------------------- | :--------: | :----------: | :------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

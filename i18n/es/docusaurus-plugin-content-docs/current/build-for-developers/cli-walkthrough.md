@@ -593,10 +593,10 @@ sistemas de forma estructurada y automatizada.
 
 Por ejemplo, si tu workflow tiene dos steps (GET de usuarios del sistema A y
 POST de usuarios al sistema B), puedes configurarlo para que ejecute todos los
-steps en secuencia, de principio a fin. Esto imita los
-[patrones de flow triggers](/documentation/legacy/build/triggers#flow-triggers)
-de la plataforma OpenFn, donde un segundo job debería ejecutarse después de que
-el primero termine con éxito, usando los datos que devolvió el primer job.
+steps en secuencia, de principio a fin. Esto funciona como los
+[paths](/build/paths.md) de la plataforma OpenFn, donde un segundo step se
+ejecuta después de que el primero termine con éxito, usando los datos que
+devolvió el primer step.
 
 :::info En resumen
 
