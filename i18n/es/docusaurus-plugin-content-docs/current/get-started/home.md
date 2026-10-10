@@ -3,7 +3,7 @@ title: ¿Qué es OpenFn?
 id: home
 sidebar_label: ¿Qué es OpenFn?
 slug: /
-translation_source_hash: 97ba6c3bda9542d0d78cd1b33c23496cd233e174
+translation_source_hash: 53acc9cf17b5191b88bf0f64a2799989a27a07bf
 translation_review_status: machine
 ---
 
@@ -46,9 +46,9 @@ impacto del mundo.
 OpenFn ofrece un conjunto de productos totalmente interoperables entre sí, así
 que nuestros usuarios pueden pasar libremente de uno a otro o usarlos todos.
 
-Todos los productos de OpenFn, salvo la iPaaS OpenFn v1, forman parte del
-`OpenFn Integration Toolkit`, libre y de código abierto, que es un **bien
-público digital** (un "DPG", por sus siglas en inglés) reconocido en el
+Todos los productos de OpenFn forman parte del `OpenFn Integration Toolkit`,
+libre y de código abierto, que es un **bien público digital** (un "DPG", por sus
+siglas en inglés) reconocido en el
 [registro de DPG](https://digitalpublicgoods.net/registry/) y en la
 [Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook)
 de Digital Square.
@@ -57,9 +57,7 @@ Los productos principales de OpenFn son:
 
 - **[OpenFn/lightning](https://github.com/OpenFn/lightning)**: nuestra
   plataforma de código abierto de integración de datos y automatización de
-  flujos de trabajo. Es la versión "v2", la que se usa actualmente.
-- OpenFn/platform: la primera versión de nuestra plataforma. Reemplazada por la
-  v2, su retiro está previsto para 2025
+  flujos de trabajo
 - [**OpenFn/adaptors**](https://github.com/OpenFn/adaptors): código fuente de
   los adaptors
 - [**OpenFn/kit**](https://github.com/OpenFn/kit): CLI, herramientas para
@@ -70,43 +68,23 @@ Los productos principales de OpenFn son:
 Consulta todos los productos y el código en
 [GitHub.com/OpenFn](https://github.com/OpenFn).
 
-### OpenFn v2: Lightning ⚡
+### OpenFn Lightning {#openfn-lightning}
 
 Cuando oigas "OpenFn", piensa en
-[OpenFn/lightning](https://github.com/OpenFn/lightning/). La v2 es una
+[OpenFn/lightning](https://github.com/OpenFn/lightning/). Lightning es una
 aplicación web de automatización de flujos de trabajo _totalmente de código
 abierto_ que puede desplegarse y ejecutarse en cualquier lugar. Está pensada
 para gobiernos y ONG que buscan capacidades de vanguardia en automatización de
 flujos de trabajo e integración e interoperabilidad de datos, con gestión de
 usuarios y auditoría completas, en una plataforma gestionada _o_ totalmente
-autoalojada.
-
-La versión 2 aprovecha la misma tecnología central, probada y confiable, que
-OpenFn v1, e incluye una interfaz visual mejorada para crear integraciones.
+autoalojada, con una interfaz visual para crear integraciones.
 
 ![Canvas de un workflow de OpenFn](/img/case_referral_workflow.webp)
 
 **Mira la lista de reproducción
-[OpenFn v2 Basics](https://www.youtube.com/watch?v=U0MXYRXkDnI&list=PL1pD3-abjHJ0L01RjouO2xOWKtEUYi8e4&ab_channel=OpenFn.org)**
+[OpenFn Basics](https://www.youtube.com/watch?v=U0MXYRXkDnI&list=PL1pD3-abjHJ0L01RjouO2xOWKtEUYi8e4&ab_channel=OpenFn.org)**
 en Youtube, con videos que te ayudarán a empezar rápido, o consulta las demás
 páginas de la documentación.
-
-:::info OpenFn v2 reemplaza a v1
-
-OpenFn v2 está disponible para cualquier usuario nuevo. Todas las organizaciones
-que usan actualmente la plataforma heredada OpenFn v1 se migrarán a OpenFn v2
-antes de finales de 2024.
-
-:::
-
-### OpenFn v1
-
-OpenFn v1 es la _plataforma de integración como servicio_ o "iPaaS" heredada de
-OpenFn, lanzada en 2015. OpenFn v1 era open-core, con una aplicación web
-propietaria.
-
-La plataforma v1 se retirará en 2025 y la reemplazará OpenFn v2, totalmente de
-código abierto (ver arriba).
 
 ### Herramientas para desarrolladores de OpenFn {#openfn-developer-tooling}
 
