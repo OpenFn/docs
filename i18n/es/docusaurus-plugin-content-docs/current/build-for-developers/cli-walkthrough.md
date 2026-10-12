@@ -2,7 +2,7 @@
 title: Recorrido por la CLI
 sidebar_label: Recorrido por la CLI
 slug: /cli-walkthrough
-translation_source_hash: a044b0a82a85cef420e88d48a916f20e81f5ddb0
+translation_source_hash: f6e40abe147cf1757485734356bb2833ba568ea0
 translation_review_status: machine
 ---
 

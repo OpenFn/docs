@@ -1,6 +1,6 @@
 ---
 title: Versiones de la propuesta de portabilidad
-translation_source_hash: 6f60d19ea47e10d8a98feb1db3e323c0fe2297d1
+translation_source_hash: 11e575ccfd8fe9094731418336a90f33d7023c9d
 translation_review_status: machine
 ---
 
@@ -13,8 +13,7 @@ especificación.
 
 ## v3 {#v3}
 
-El estándar v3 se creó para la plataforma v2 y está vinculado al proyecto
-Lightning.
+El estándar v3 se creó para Lightning.
 
 La v3 usa los comandos y protocolos de despliegue antiguos de la CLI. La app y
 la CLI todavía la admiten por completo, pero se está retirando desde mayo
@@ -24,7 +23,7 @@ de 2026.
 
 ## v2 {#v2}
 
-Se usa para exportar desde la plataforma antigua.
+Se usa para exportar desde la plataforma OpenFn original, que ya se retiró.
 
 ```yaml
 jobs:

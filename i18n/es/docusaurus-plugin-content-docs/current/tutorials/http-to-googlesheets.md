@@ -1,7 +1,7 @@
 ---
 sidebar_label: De HTTP a GoogleSheets
 title: Workflow de HTTP a GoogleSheets
-translation_source_hash: dda6b88cd13c6a33fde0ac1765e545b6c743d03c
+translation_source_hash: d8c01fffb2054934c716dff19b6e1bd720100e9c
 translation_review_status: machine
 ---
 
@@ -28,8 +28,8 @@ Antes de comenzar, damos por hecho que revisaste lo siguiente:
 - Tienes una cuenta de Google. La usaremos para crear una credencial que
   autorice el acceso a Google Sheets.
 - Tienes acceso a un proyecto de OpenFn (en una
-  [aplicación OpenFn v2](https://github.com/OpenFn/lightning) instalada
-  localmente o en [app.openfn.org](https://app.openfn.org)).
+  [aplicación OpenFn](https://github.com/OpenFn/lightning) instalada localmente
+  o en [app.openfn.org](https://app.openfn.org)).
 
 ## Primeros pasos {#getting-started}
 

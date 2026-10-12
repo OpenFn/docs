@@ -1,7 +1,7 @@
 ---
 sidebar_label: Transformación de datos
 title: Transformación de datos
-translation_source_hash: a4731145379c6ab801d158a4696762e407360d24
+translation_source_hash: 74160841b1b073c6b2663006d35d4673137511fd
 translation_review_status: machine
 ---
 
@@ -154,7 +154,7 @@ No todas las operaciones admiten una cadena de JSON path. Consulta la
 ## Inicialización de variables {#variable-initialisation}
 
 <!--
-  I'm a bit iffy on this because actually in v2 you can just do const result = [] at the top of your job
+  I'm a bit iffy on this because actually you can just do const result = [] at the top of your job
 
   Is the fn block really better practice?
 -->
