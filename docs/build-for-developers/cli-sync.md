@@ -83,7 +83,7 @@ Briefly, these files are:
 - The `.projects` folder contains a complete YAML representation of each
   Project. This is rarely used by humans
 - The `.openfn` folder contains metadata used by the CLI. It is not used by
-  humans and should not be checked-in to git.
+  humans. It should be checked into git for GitHub Sync to work properly.
 
 ::: note
 
