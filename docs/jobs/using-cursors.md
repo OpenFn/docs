@@ -126,7 +126,6 @@ to the CLI:
 $ openfn job.js -s state.json -a http
 ```
 
-
 ### Cursor Options
 
 The second argument to `cursor()` is an options object. You can use this to set

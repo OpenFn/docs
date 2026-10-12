@@ -6,7 +6,6 @@ A Step is a specific task or activity in a workflow. Each Step is linked to an
 [Adaptor](/adaptors/) and contains business logic to perform a specific task or
 operation in that target app.
 
-
 ## Create or edit a Step
 
 Via the Workflow Canvas, click the plus `+` icon to create a _new_ Step, or

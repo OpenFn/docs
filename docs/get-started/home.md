@@ -44,9 +44,9 @@ OpenFn has a suite of products, which are all fully interoperable. This gives
 our users the freedom to switch between any and all of the OpenFn products.
 
 All OpenFn products are part of the free and open-source
-`OpenFn Integration Toolkit`, which is a **Digital Public Good** (a
-"DPG") recognized in the
-[DPG Registry](https://digitalpublicgoods.net/registry/) and Digital Square's
+`OpenFn Integration Toolkit`, which is a **Digital Public Good** (a "DPG")
+recognized in the [DPG Registry](https://digitalpublicgoods.net/registry/) and
+Digital Square's
 [Global Goods Guidebook](https://digitalsquare.org/resourcesrepository/global-goods-guidebook).
 
 The core OpenFn products include:
@@ -79,7 +79,6 @@ integrations.
 [OpenFn Basics playlist](https://www.youtube.com/watch?v=U0MXYRXkDnI&list=PL1pD3-abjHJ0L01RjouO2xOWKtEUYi8e4&ab_channel=OpenFn.org)**
 on Youtube to watch videos that will help you get started quickly, or check out
 the other docs pages on the site.
-
 
 ### OpenFn developer tooling
 
