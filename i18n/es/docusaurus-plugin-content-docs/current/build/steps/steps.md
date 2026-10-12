@@ -1,6 +1,6 @@
 ---
 title: Configurar steps
-translation_source_hash: f3b468fed875c666bcf0648dfc5959c97beb923c
+translation_source_hash: 388ffbf59f27959950b3b8c2a091c1f336d09c78
 translation_review_status: machine
 ---
 

@@ -1,7 +1,7 @@
 ---
 sidebar_label: Estándares
 title: Estándares y OpenFn
-translation_source_hash: c37d116cea5e898bc435f82f866ce7f417e9d185
+translation_source_hash: d1780d669aef33d173ebd71502e8da2856b6ff49
 translation_review_status: machine
 ---
 
