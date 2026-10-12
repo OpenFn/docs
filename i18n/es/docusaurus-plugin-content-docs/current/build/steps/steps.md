@@ -41,7 +41,7 @@ Escribir jobs para agregar lógica personalizada con reglas de negocio o de
 transformación de datos suele requerir conocimientos básicos de JavaScript.
 Consulta la [documentación sobre cómo escribir jobs](/jobs/job-writing-guide.md)
 para ver una descripción detallada, y los
-[ejemplos de la biblioteca](/adaptors/library) para ver código de muestra.
+[ejemplos de código de jobs](/jobs/job-examples.md) para ver código de muestra.
 
 :::
 

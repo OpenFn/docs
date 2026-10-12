@@ -37,7 +37,6 @@ the PR for the next run. Format the files you changed with
 broken links:
 
 ```bash
-yarn generate-library
 yarn generate-adaptors
 yarn build
 ```

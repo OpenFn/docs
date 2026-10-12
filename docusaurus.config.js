@@ -190,12 +190,6 @@ module.exports = {
     ],
   ],
   plugins: [
-    [
-      path.resolve(__dirname, 'generate-library'),
-      {
-        apiUrl: 'https://v1.openfn.org/api/public',
-      },
-    ],
     [path.resolve(__dirname, 'generate-adaptors'), {}],
     [
       '@docusaurus/plugin-content-docs',

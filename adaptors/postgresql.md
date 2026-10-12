@@ -79,7 +79,7 @@ insert(
 );
 ```
 
-See the [Job Library](/adaptors/library) for more sample jobs.
+See [Job Code Examples](/documentation/jobs/job-examples) for more sample code.
 
 ### Integration tips
 

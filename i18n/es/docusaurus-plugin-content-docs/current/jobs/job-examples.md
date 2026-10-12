@@ -10,9 +10,9 @@ datos que puedes usar en tus jobs.
 
 :::tip
 
-Para ver jobs de ejemplo escritos por el equipo principal de OpenFn y otros
-usuarios, consulta la [biblioteca](/adaptors/library) u otros repositorios de
-proyectos en [GitHub.com/OpenFn](https://github.com/OpenFn).
+Para ver jobs de ejemplo completos escritos por el equipo principal de OpenFn,
+consulta los repositorios de proyectos en
+[GitHub.com/OpenFn](https://github.com/OpenFn).
 
 :::
 

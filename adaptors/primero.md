@@ -73,11 +73,8 @@ See the examples section more sample Primero jobs.
   identifier in the destination system.
 - Each Primero case also has a `record_id` which is the id in the URL for each
   case
-- It is helpful to set up a job that only fetches a case from Primero like the
-  one
-  [here](/adaptors/library/jobs/auto/Get-cases-from-Primero-2021-09-23/#expression).
-  This job can come in handy when it's time to test and troubleshoot your
-  solution and validate any test data that was setup in Primero.
+- It is helpful to set up a job that only fetches a case from Primero, using
+  `getCases()`.
 
 ## Common Errors
 

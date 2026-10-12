@@ -23,6 +23,5 @@ jobs:
         run: yarn install
       - name: Test build website
         run: |
-          yarn generate-library
           yarn generate-adaptors
           yarn build

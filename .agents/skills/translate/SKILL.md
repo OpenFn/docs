@@ -31,8 +31,7 @@ need.
 If you are not told which task, work out which ones are needed from what has
 changed in English, say so, and ask before starting.
 
-Never translate the generated adaptor pages, the job library, or articles and
-blog posts.
+Never translate the generated adaptor pages, or articles and blog posts.
 
 ## Before you start
 
@@ -73,7 +72,6 @@ These apply to both tasks.
 Build the site and make sure it passes:
 
 ```bash
-yarn generate-library
 yarn generate-adaptors
 yarn build
 ```

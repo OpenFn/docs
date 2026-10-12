@@ -373,8 +373,7 @@ Read through the ["What is an integration"](/documentation/tutorials/tutorial),
 ["OpenFn Concepts"](/documentation/get-started/terminology), and
 ["Build"](/documentation/build/workflows) sections if you're a thorough,
 background-first kind of learner. If you crave snippets and sample job code,
-head directly to the [Job Library](/adaptors/library) to see how other OpenFn
-users are creating their jobs.
+head directly to the [Job Code Examples](/documentation/jobs/job-examples).
 
 Either way, keep the community posted on your progress in the forum—you'll find
 lots of helpful folks willing to lend you a hand in your integration journey.
