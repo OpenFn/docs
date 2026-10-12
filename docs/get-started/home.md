@@ -7,10 +7,10 @@ slug: /
 
 **OpenFn is the leading
 [Digital Public Good](https://digitalpublicgoods.net/digital-public-goods/) for
-workflow automation**.
+public service automation & AI orchestration**.
 
 It is a platform that's been used by 70+ NGOs and government ministries to
-automate and integrate critical business processes and information systems.
+automate workflows and integrate critical systems.
 
 **Connect any app** with OpenFn's library of open-source [Adaptors](/adaptors/)
 (i.e., connectors). From last-mile services to national-level reporting, OpenFn
