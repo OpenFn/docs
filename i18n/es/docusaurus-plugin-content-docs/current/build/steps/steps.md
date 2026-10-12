@@ -1,20 +1,12 @@
 ---
 title: Configurar steps
-translation_source_hash: 157984301b15b94a4df45d57fcf4b28494fa4e69
+translation_source_hash: f3b468fed875c666bcf0648dfc5959c97beb923c
 translation_review_status: machine
 ---
 
 Un step es una tarea o actividad concreta dentro de un workflow. Cada step está
 vinculado a un [adaptor](/adaptors/) y contiene la lógica de negocio para hacer
 una tarea u operación concreta en esa aplicación de destino.
-
-:::note
-
-En OpenFn V1 no existía el concepto de `Workflow Steps`: se llamaban `Jobs`. En
-V2, los `Jobs` se definen como _las expresiones de job o los scripts que definen
-la lógica de negocio y las reglas de transformación de cada uno de los `Steps`_.
-
-:::
 
 ## Crear o editar un step {#create-or-edit-a-step}
 

@@ -1,6 +1,6 @@
 ---
 title: Planificación
-translation_source_hash: 0bf6b304d3c23534195b5a7bdc18065b53aec01c
+translation_source_hash: 3e987c2fd49a72145781ac9cb9a7612098b50195
 translation_review_status: machine
 ---
 
@@ -84,11 +84,11 @@ sensibles en servidores locales o administrados por el gobierno, podrías:
 \*Visita la página [Requisitos](/deploy/requirements.md) para obtener más
 información sobre las especificaciones de servidor recomendadas.
 
-## Pasar de la nube a un despliegue local (v1 o v2) {#moving-from-cloud-to-local-v1-or-v2}
+## Pasar de la nube a un despliegue local {#moving-from-cloud-to-local}
 
 Si planeas una implementación autoalojada, te recomendamos desarrollar y probar
-la solución inicial en el SaaS de OpenFn (v1 o v2, quizás en un plan gratuito) y
-luego exportarla para usarla en Lightning (v2).
+la solución inicial en el SaaS de OpenFn (quizás en un plan gratuito) y luego
+exportarla para usarla en un despliegue local de Lightning.
 
 Así, el implementador puede concentrarse en resolver los requisitos de negocio y
 técnicos de la automatización antes de asumir los costos del despliegue.
