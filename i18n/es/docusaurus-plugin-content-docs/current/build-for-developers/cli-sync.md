@@ -2,7 +2,7 @@
 title: OpenFn Sync
 sidebar_label: Sync
 slug: /sync
-translation_source_hash: e4dbcbf31dd1975afc33be952424a6476b240f73
+translation_source_hash: 00115e52a11ca812e0959d7b74220077ac5e72fd
 translation_review_status: machine
 ---
 
@@ -71,55 +71,51 @@ siguiente estructura:
 
 ```
 ├── openfn.yaml
+├── resources.yaml
 ├── .projects
 │   ├── main@app.openfn.org.yaml
 └── workflows
     ├── my-workflow
     │   ├── my-workflow.yaml
     │   ├── my-step.js
+├── .openfn
 ```
 
 En resumen, estos archivos son:
 
 - `openfn.yaml` declara que esta carpeta es un proyecto de OpenFn y contiene
-  metadatos y ajustes
+  algunas opciones de configuración
+- `resources.yaml` contiene los detalles de los recursos conectados, como
+  canales o colecciones.
+- `workflows` contiene una subcarpeta por workflow y "expande" cada workflow en
+  el sistema de archivos para que sea más cómodo editarlo.
 - La carpeta `.projects` contiene una representación YAML completa de cada
-  proyecto
-- La carpeta `workflows` muestra el contenido del proyecto: los steps, las
-  conexiones, etc.
+  proyecto. Las personas casi nunca la usan.
+- La carpeta `.openfn` contiene metadatos que usa la CLI. No está pensada para
+  las personas y no debería incluirse en git.
+
+:::note
+
+Si conoces bien la especificación de portabilidad de OpenFn, esta estructura de
+carpetas representa la _spec_ de un proyecto. La carpeta `.projects` contiene el
+_state_ del proyecto.
+
+:::
 
 Veamos esta estructura con un poco más de detalle.
 
-### project.yaml {#projectyaml}
-
-El archivo de proyecto guarda una copia de todo el estado de un proyecto tal
-como está guardado en la aplicación. Si lo abres, verás los workflows
-representados como texto plano.
-
-El nombre de un archivo de proyecto tiene la forma `<alias>@<domain>.yaml`. El
-alias es un nombre local que sirve para referirse a una versión concreta del
-proyecto. El dominio es el de la instancia de OpenFn desde la que se descargó el
-proyecto.
-
-No deberías editar el archivo de proyecto localmente, porque cualquier cambio se
-perderá la próxima vez que lo obtengas.
-
-Puedes obtener tantos proyectos como quieras, y cada uno se guardará en su
-propio archivo project.yaml.
-
-La carpeta `.projects` puede y debería incluirse en el control de versiones.
-
 ### workflows {#workflows}
 
-Tener todo el proyecto dentro de un único archivo no es una buena forma de leer
-o editar workflows. Por eso la CLI puede hacer "checkout" o "expandir" un
-archivo de proyecto en el sistema de archivos.
+Cada workflow se guarda como un conjunto de archivos, lo que facilita un poco
+editar y fusionar esos workflows.
 
-Hacer checkout es el proceso de escribir cada workflow en un archivo
-workflow.yaml y cada step en un archivo step.js. Todo esto vive en el directorio
-`workflows`.
+Un workflow se puede definir en un solo archivo YAML. Lo verás si haces clic en
+"View workflow as YAML" en la aplicación, o si miras los archivos de state del
+proyecto en `.projects`. Pero, por comodidad, también puedes hacer "checkout"
+del workflow, o expandirlo, para que el código del job de cada step (su
+expresión) se escriba en un archivo .js.
 
-Aquí puedes editar los archivos todo lo que quieras, y los cambios se
+Puedes editar estos archivos expandidos todo lo que quieras, y los cambios se
 registrarán cuando subas o despliegues de nuevo a la aplicación.
 
 Solo puedes hacer checkout de un proyecto a la vez. En realidad, esto viene muy
@@ -164,7 +160,27 @@ archivo del step y la ruta de la clave `expression` en `workflow.yaml`.
 Es un archivo de configuración de nivel superior que, en general, puedes
 ignorar. Las herramientas de OpenFn lo usan para reconocer la carpeta raíz de un
 proyecto. También contiene opciones de configuración para todos los proyectos
-locales y metadatos sobre el proyecto que tienes con checkout.
+locales.
+
+### project.yaml {#projectyaml}
+
+El archivo de proyecto guarda una copia de todo el estado de un proyecto tal
+como está guardado en la aplicación. Si lo abres, verás los workflows
+representados como texto plano.
+
+El nombre de un archivo de proyecto tiene la forma `<alias>@<domain>.yaml`. El
+alias es un nombre local que sirve para referirse a una versión concreta del
+proyecto. El dominio es el de la instancia de OpenFn desde la que se descargó el
+proyecto.
+
+No deberías editar el archivo de proyecto localmente, porque cualquier cambio se
+perderá la próxima vez que lo obtengas. Representa estrictamente el estado del
+servidor.
+
+Puedes obtener tantos proyectos como quieras, y cada uno se guardará en su
+propio archivo project.yaml.
+
+La carpeta `.projects` puede y debería incluirse en el control de versiones.
 
 ## Autorización {#authorization}
 
@@ -344,10 +360,10 @@ De forma predeterminada, `openfn project deploy` toma el proyecto con checkout y
 lo sube al servidor del que vino originalmente (según lo define el archivo de
 proyecto).
 
-Pero también puedes usar deploy para sincronizar entre proyectos. Normalmente lo
-harás para promover un sandbox de desarrollo o de staging a producción. Incluso
-puedes usarlo para desplegar un proyecto de la aplicación SaaS en otra instancia
-de OpenFn completamente distinta.
+Pero también puedes usar deploy para sincronizar entre proyectos. Normalmente
+querrás hacerlo para promover un sandbox de desarrollo o de staging a
+producción. Incluso puedes usarlo para desplegar un proyecto de la aplicación
+SaaS en otra instancia de OpenFn completamente distinta.
 
 ### Desplegar directamente desde un archivo de spec o de state {#deploy-straight-from-a-spec-or-state-file}
 
