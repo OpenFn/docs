@@ -3,7 +3,7 @@ title: ¿Qué es OpenFn?
 id: home
 sidebar_label: ¿Qué es OpenFn?
 slug: /
-translation_source_hash: 53acc9cf17b5191b88bf0f64a2799989a27a07bf
+translation_source_hash: 97ba6c3bda9542d0d78cd1b33c23496cd233e174
 translation_review_status: machine
 ---
 
