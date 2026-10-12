@@ -241,6 +241,9 @@ The `project pull` command does three things:
 
 ## Aliases
 
+Aliases are a convenient way to reference things in the local CLI. Aliases are
+never pushed to the app on deploy: they're a purely local artefact.
+
 ### Project
 
 Rather than identify a local project with a long-winded UUID or id string, you
