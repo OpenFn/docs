@@ -5,7 +5,7 @@
   "scripts": {
     "docusaurus": "docusaurus",
     "generate-adaptors": "docusaurus generate-adaptors",
-    "start": "docusaurus generate-adaptors & docusaurus start",
+    "start": "docusaurus generate-adaptors && docusaurus start",
     "start:dev": "docusaurus generate-adaptors -m && docusaurus start",
     "start-offline": "docusaurus start",
     "build": "docusaurus build",

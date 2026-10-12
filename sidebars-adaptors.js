@@ -21,7 +21,7 @@ if (fs.existsSync('./adaptors/packages/publicPaths.json')) {
       items: [
         {
           type: 'doc',
-          label: 'Functions',
+          label: 'Functions & Examples',
           key: `${a.name}-functions`,
           id: a.docsId,
         },
