@@ -1,7 +1,7 @@
 ---
 title: Ejemplos de código de jobs
 sidebar_label: Ejemplos de jobs
-translation_source_hash: e6b804b61b644b95048adfce67db6c76a4519068
+translation_source_hash: 5fa11631cfef9fe91371e070567ff39cdb6fb2a0
 translation_review_status: machine
 ---
 
@@ -10,9 +10,9 @@ datos que puedes usar en tus jobs.
 
 :::tip
 
-Para ver jobs de ejemplo escritos por el equipo principal de OpenFn y otros
-usuarios, consulta la [biblioteca](/adaptors/library) u otros repositorios de
-proyectos en [GitHub.com/OpenFn](https://github.com/OpenFn).
+Para ver jobs de ejemplo completos escritos por el equipo principal de OpenFn,
+consulta los repositorios de proyectos en
+[GitHub.com/OpenFn](https://github.com/OpenFn).
 
 :::
 

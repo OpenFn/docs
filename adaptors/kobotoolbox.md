@@ -229,12 +229,54 @@ also be implemented to send GET/POST/PUT requests to the Kobo APIs.
 See the `ConSoSci` GitHub repo for several example Kobo-to-database jobs:
 https://github.com/OpenFn/consosci
 
-### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+### Job code examples
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we
-welcome contributions from our community. Check out our
-[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
-more information on how you can update Adaptors!
+#### Extract new submissions from every form
 
-Or, you can always reach out to the Community through our
-[Community Forum here](https://community.openfn.org/).
+This job lists all forms, then fetches the submissions each one received since
+the last run. It uses a cursor that starts from today.
+
+```js
+//Get all Kobo forms/projects, and then get form submissions
+//that were submitted after a specific time
+cursor($.cursor, { defaultValue: 'today' });
+
+getForms();
+
+each(
+  $.data,
+  getSubmissions($.data.uid, {
+    query: `{"_submission_time":{"$gte":"${$.cursor}"}}`,
+  })
+);
+```
+
+#### Calculate a share of submissions
+
+This job fetches the submissions for one form and works out what percentage of
+them are suspected COVID-19 cases.
+
+```js
+// Get all submissions of a specific form/asset and get the percentage of patients suspected of having covid-19
+getSubmissions('aDReHdA7UuNBYsiCXQBr43');
+
+fn(state => {
+  const results = state.data?.results;
+
+  const suspectedPatients = results.filter(
+    item => item['Please_select_sample_type'] === 'suspected_covid_19'
+  );
+  const suspectedCovidPatientsPercentage =
+    (suspectedPatients.length / results.length) * 100;
+  return { ...state, suspectedCovidPatientsPercentage };
+});
+```
+
+:::info Report or fix a problem with this adaptor
+
+OpenFn adaptors are open source and we welcome contributions. See the
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) to
+learn how to update an adaptor, or ask on the
+[OpenFn Community Forum](https://community.openfn.org/).
+
+:::

@@ -1,7 +1,7 @@
 ---
 sidebar_label: Estándares
 title: Estándares y OpenFn
-translation_source_hash: c37d116cea5e898bc435f82f866ce7f417e9d185
+translation_source_hash: d1780d669aef33d173ebd71502e8da2856b6ff49
 translation_review_status: machine
 ---
 
@@ -154,7 +154,7 @@ Las soluciones de OpenFn:
 - **son interoperables** (conectan cualquier aplicación);
 - **son reutilizables** (usa configuraciones de OpenFn existentes como
   plantillas, o comparte, copia y modifica fácilmente tus propias
-  configuraciones; consulta docs.openfn.org/library);
+  configuraciones);
 - **son sostenibles** (opciones de implementación flexibles, sin dependencia de
   un proveedor);
 - **son escalables** (OpenFn usa tecnología de nivel empresarial para gestionar

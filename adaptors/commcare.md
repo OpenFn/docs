@@ -165,6 +165,33 @@ learn more about the data export tool, see the
 
 :::
 
+## Examples
+
+### Create a user and submit a case
+
+This job creates a mobile worker, then uploads a case for them with `submitXls`.
+
+```js
+// Create a user and submit their case to commcare
+
+post('user', {
+  username: 'janedoe42',
+  password: 'change-me-on-first-login',
+  first_name: 'Jane',
+  last_name: 'Doe',
+  default_phone_number: '+50253311399',
+  email: 'jdoe@example.org',
+});
+
+submitXls([{ name: $.data.username, feeling_sick: 'No' }], {
+  case_type: 'pregnancy',
+  search_field: 'case_id',
+  search_column: 'case_id',
+  name_column: 'name',
+  create_new_cases: 'on',
+});
+```
+
 ## Authentication
 
 [See CommCare docs](https://dimagi.atlassian.net/wiki/spaces/commcarepublic/pages/2143946031/Authentication)
@@ -396,12 +423,11 @@ CommCare has different APIs for reading vs. modifying data. Some helpful links:
 - Lwala (CommCare-Salesforce 2-way sync): https://github.com/OpenFn/lwala
 - myAgro (CommCare-Salesforce): https://github.com/OpenFn/myagro-commcare-sf
 
-### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+:::info Report or fix a problem with this adaptor
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we
-welcome contributions from our community. Check out our
-[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
-more information on how you can update Adaptors!
+OpenFn adaptors are open source and we welcome contributions. See the
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) to
+learn how to update an adaptor, or ask on the
+[OpenFn Community Forum](https://community.openfn.org/).
 
-Or, you can always reach out to the Community through our
-[Community Forum here](https://community.openfn.org/).
+:::

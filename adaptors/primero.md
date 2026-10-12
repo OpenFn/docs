@@ -73,11 +73,8 @@ See the examples section more sample Primero jobs.
   identifier in the destination system.
 - Each Primero case also has a `record_id` which is the id in the URL for each
   case
-- It is helpful to set up a job that only fetches a case from Primero like the
-  one
-  [here](/adaptors/library/jobs/auto/Get-cases-from-Primero-2021-09-23/#expression).
-  This job can come in handy when it's time to test and troubleshoot your
-  solution and validate any test data that was setup in Primero.
+- It is helpful to set up a job that only fetches a case from Primero, using
+  `getCases()`.
 
 ## Common Errors
 
@@ -109,12 +106,11 @@ Primero API V1 (to be deprecated).
 4. Thailand: UNICEF Primero < > MoPH HIS:
    https://github.com/OpenFn/primero-thailand
 
-### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+:::info Report or fix a problem with this adaptor
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we
-welcome contributions from our community. Check out our
-[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
-more information on how you can update Adaptors!
+OpenFn adaptors are open source and we welcome contributions. See the
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) to
+learn how to update an adaptor, or ask on the
+[OpenFn Community Forum](https://community.openfn.org/).
 
-Or, you can always reach out to the Community through our
-[Community Forum here](https://community.openfn.org/).
+:::

@@ -8,9 +8,8 @@ contexts to use in your Jobs.
 
 :::tip
 
-For example Jobs written by the OpenFn core team and other users, check out the
-[Library](/adaptors/library) or other project repositories under
-[GitHub.com/OpenFn](https://github.com/OpenFn).
+For complete example Jobs written by the OpenFn core team, check out the project
+repositories under [GitHub.com/OpenFn](https://github.com/OpenFn).
 
 :::
 

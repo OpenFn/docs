@@ -15,6 +15,43 @@ for scheduled, bulk syncs or workflows that must update data in Stripe with
 external information. See [functions](/adaptors/packages/stripe-docs) for more
 on how to use this adaptor to work with the API.
 
+## Examples
+
+### List customers
+
+This job lists customers and saves them to `state.customers`.
+
+```js
+// List customers in Stripe
+
+list('customers').then(state => {
+  state.customers = state.data.data;
+  return state;
+});
+```
+
+### Get subscriptions
+
+This job takes a list of subscription IDs from the input and fetches each
+subscription.
+
+```js
+// Get subscription data
+fn(state => {
+  state.subscriptions = state.data;
+  state.subscriptionsData = [];
+  return state;
+});
+
+each(
+  '$.subscriptions',
+  get('subscriptions', $.data).then(state => {
+    state.subscriptionsData.push(state.data.data);
+    return state;
+  })
+);
+```
+
 ## Authentication
 
 See [Stripe docs](https://docs.stripe.com/api/authentication) for the latest on
@@ -39,12 +76,11 @@ JSON credential type, then your configuration will look something like this:
 
 1. [Stripe Documentation](https://docs.stripe.com/get-started)
 
-### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+:::info Report or fix a problem with this adaptor
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we
-welcome contributions from our community. Check out our
-[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
-more information on how you can update Adaptors!
+OpenFn adaptors are open source and we welcome contributions. See the
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) to
+learn how to update an adaptor, or ask on the
+[OpenFn Community Forum](https://community.openfn.org/).
 
-Or, you can always reach out to the Community through our
-[Community Forum here](https://community.openfn.org/).
+:::

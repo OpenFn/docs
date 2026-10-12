@@ -71,17 +71,8 @@ yarn start --locale es
 ```
 
 The development server shows one language at a time. This serves the Spanish
-site at the root, with English wherever a page isn't translated yet. To see
-both languages together at `/` and `/es/`, build and serve the site as below.
-
-### Building the job library
-
-```
-yarn generate-library
-```
-
-This command pulls public job data from OpenFn.org to create a local "job
-library".
+site at the root, with English wherever a page isn't translated yet. To see both
+languages together at `/` and `/es/`, build and serve the site as below.
 
 ### Building the adaptors docs from the monorepo
 
@@ -117,7 +108,6 @@ for more details
 
 ```console
 yarn generate-adaptors
-yarn generate-library
 yarn build
 yarn serve
 ```

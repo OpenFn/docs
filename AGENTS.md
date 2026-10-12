@@ -18,9 +18,9 @@ you need.
 
 **Do not edit**
 
-- Anything in `adaptors/packages/` or `adaptors/library/`. These pages are built
-  automatically from code comments in the `OpenFn/adaptors` repo. If something
-  is wrong there, the fix belongs in that repo, not here.
+- Anything in `adaptors/packages/`. These pages are built automatically from
+  code comments in the `OpenFn/adaptors` repo. If something is wrong there, the
+  fix belongs in that repo, not here.
 
 **Ask before editing**
 
@@ -92,7 +92,6 @@ change only, so it stays quick to review.
 Before opening any PR, build the site as CI does. It fails on broken links:
 
 ```bash
-yarn generate-library
 yarn generate-adaptors
 yarn build
 ```

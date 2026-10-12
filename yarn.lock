@@ -5198,7 +5198,6 @@ __metadata:
     chokidar: ^3.6.0
     clsx: ^1.1.1
     compare-versions: ^5.0.1
-    date-fns: 2.21.3
     form-data: 4.0.6
     glob: ^11.1.0
     mermaid: 11.16.1
@@ -8659,13 +8658,6 @@ __metadata:
     d3: ^7.9.0
     lodash-es: ^4.17.21
   checksum: 02487b979711f4902f5413b6c3e477547e64e670da08e1176ecbcdfb680f42d4fc4e38977b6dcb99ed2682f82713d8cc1b1b2c8e5a5282980d8ca4242d4554b7
-  languageName: node
-  linkType: hard
-
-"date-fns@npm:2.21.3":
-  version: 2.21.3
-  resolution: "date-fns@npm:2.21.3"
-  checksum: 00dc783af23ab1ca686ea9a21acd9572733ca9544c40a26e3061fc190bb0663c638c88f35d7719553279ad08c787eae816eaa0043d141563efc8394235f6c857
   languageName: node
   linkType: hard
 

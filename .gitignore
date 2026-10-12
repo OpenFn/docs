@@ -7,7 +7,6 @@
 
 # these directories are built automatically and overwritten
 /adaptors/packages/
-/adaptors/library/jobs/auto/
 
 # Generated files
 .docusaurus

@@ -1,6 +1,6 @@
 ---
 title: Configurar steps
-translation_source_hash: f3b468fed875c666bcf0648dfc5959c97beb923c
+translation_source_hash: 388ffbf59f27959950b3b8c2a091c1f336d09c78
 translation_review_status: machine
 ---
 
@@ -41,7 +41,7 @@ Escribir jobs para agregar lógica personalizada con reglas de negocio o de
 transformación de datos suele requerir conocimientos básicos de JavaScript.
 Consulta la [documentación sobre cómo escribir jobs](/jobs/job-writing-guide.md)
 para ver una descripción detallada, y los
-[ejemplos de la biblioteca](/adaptors/library) para ver código de muestra.
+[ejemplos de código de jobs](/jobs/job-examples.md) para ver código de muestra.
 
 :::
 

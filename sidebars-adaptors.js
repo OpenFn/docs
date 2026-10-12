@@ -4,26 +4,9 @@ const fs = require('fs');
 // generate-adaptors code has not yet been run. This if/else is not very elegent
 // but does the trick.
 let list = [];
-if (
-  fs.existsSync('./adaptors/packages/publicPaths.json') &&
-  fs.existsSync('./adaptors/library/jobs/auto/publicPaths.json')
-) {
+if (fs.existsSync('./adaptors/packages/publicPaths.json')) {
   const adaptorsFile = fs.readFileSync('./adaptors/packages/publicPaths.json');
   const adaptors = JSON.parse(adaptorsFile);
-
-  const publicFile = fs.readFileSync(
-    './adaptors/library/jobs/auto/publicPaths.json'
-  );
-  const publicJobs = JSON.parse(publicFile);
-
-  // Note: we can include out own examples here.
-  const jobs = [...publicJobs];
-
-  const groupedJobs = jobs.reduce((r, a) => {
-    r[a.adaptor] = r[a.adaptor] || [];
-    r[a.adaptor].push(a);
-    return r;
-  }, Object.create(null));
 
   // Every adaptor repeats the same item labels ('Functions', 'Overview', ...).
   // Docusaurus derives a sidebar item's translation key from `key ?? label`,
@@ -38,7 +21,7 @@ if (
       items: [
         {
           type: 'doc',
-          label: 'Functions',
+          label: 'Functions & Examples',
           key: `${a.name}-functions`,
           id: a.docsId,
         },
@@ -48,19 +31,6 @@ if (
           key: `${a.name}-configuration`,
           id: a.configurationSchemaId,
         },
-        groupedJobs[a.name] && groupedJobs[a.name].length > 0
-          ? {
-              type: 'category',
-              label: 'Examples',
-              key: `${a.name}-examples`,
-              items: groupedJobs[a.name].map(j => ({
-                type: 'doc',
-                label: j.name,
-                key: `library/${j.id}`,
-                id: `library/${j.id}`,
-              })),
-            }
-          : {},
         {
           type: 'doc',
           label: 'Changelog',
@@ -95,8 +65,6 @@ if (
     .map(file => file.replace(/\.[^/.]+$/, ''))
     .filter(id => id !== 'intro')
     .filter(id => id !== 'adaptors')
-    .filter(id => id !== 'library')
-    .filter(id => id !== 'library-intro')
     .filter(id => id !== 'packages');
 
   const extras = overviews
@@ -112,19 +80,9 @@ if (
       ? 'found'
       : 'NOT FOUND! (Maybe `yarn generate-adaptors` failed.)'
   );
-  console.log(
-    "  Job Library 'publicPaths.json':",
-    fs.existsSync('./adaptors/library/jobs/auto/publicPaths.json')
-      ? 'found'
-      : 'NOT FOUND! (Maybe `yarn generate-library` failed or has not been run.)'
-  );
   list = [];
 }
 
 module.exports = {
-  adaptors: [
-    { type: 'doc', id: 'adaptors-intro' },
-    { type: 'doc', id: 'library-intro' },
-    ...list,
-  ],
+  adaptors: [{ type: 'doc', id: 'adaptors-intro' }, ...list],
 };

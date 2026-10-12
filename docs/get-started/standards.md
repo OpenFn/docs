@@ -143,7 +143,7 @@ OpenFn solutions are:
 
 - **interoperable** (connect any application);
 - **reusable** (utilize existing OpenFn configurations as templates, or easily
-  share, copy, and modify your own configurations; see docs.openfn.org/library);
+  share, copy, and modify your own configurations);
 - **sustainable** (flexible implementation options with no lock-in);
 - **scalable** (OpenFn leverages enterprise-grade tech to handle high data
   volumes and provides a range of deployment options to ensure total solution
