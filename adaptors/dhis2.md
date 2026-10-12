@@ -137,12 +137,75 @@ useful. In the following sections, special systems will be described.
 2. Lesotho Integration connecting two DHIS2 instances:
    https://github.com/OpenFn/lesotho-dhis2
 
-### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+### Job code examples
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we
-welcome contributions from our community. Check out our
-[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
-more information on how you can update Adaptors!
+These examples were written for `@openfn/language-dhis2@8.1.1` and need DHIS2
+server v2.41 or later.
 
-Or, you can always reach out to the Community through our
-[Community Forum here](https://community.openfn.org/).
+#### Fetch default events
+
+Without options, DHIS2 returns the first page of 50 events.
+
+```js
+// DHIS2 Defaults: pageSize: 50
+// Requires DHIS2 server v2.41+,
+tracker.export('events');
+```
+
+#### Fetch all events without pagination
+
+Turning paging off returns every event in one response. This can be slow on a
+large instance. On servers older than v2.41, use `skipPaging: true` instead.
+
+```js
+// Fetching all events without pagination
+// Be cautious: This can degrade performance if you have a lot of events, use with caution
+// Requires DHIS2 server v2.41+, for older version `skipPaging: true`
+tracker.export('events', { paging: false });
+```
+
+#### Fetch all events with pagination
+
+This job fetches the first page with `totalPages: true` to learn how many pages
+there are, then fetches the remaining pages one by one and collects the events
+in `state.results`.
+
+```js
+// Fetching all events with pagination
+// Requires DHIS2 server v2.41+
+
+// First call fetches page 1 (up to 10,000 records) and, via totalPages: true,
+// returns pagination details (state.data.pager) describing how many pages remain.
+tracker.export('events', { totalPages: true, pageSize: 1e4 });
+
+fn(state => {
+  state.results = state.data.events;
+  const { page, pageSize, pageCount, total } = state.data.pager;
+  const remainingPages = pageCount - page;
+
+  state.pages = Array.from({ length: remainingPages }, (_, i) => page + i + 1);
+  state.pageSize = pageSize;
+  return state;
+});
+
+// Second call uses the remaining page numbers computed above to fetch the
+// rest of the records in batches, one tracker.export per page.
+each(
+  $.pages,
+  tracker
+    .export('events', { pageSize: $.pageSize, page: $.data })
+    .then(state => {
+      state.results = state.results.concat(state.data.events);
+      return state;
+    })
+);
+```
+
+:::info Report or fix a problem with this adaptor
+
+OpenFn adaptors are open source and we welcome contributions. See the
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) to
+learn how to update an adaptor, or ask on the
+[OpenFn Community Forum](https://community.openfn.org/).
+
+:::

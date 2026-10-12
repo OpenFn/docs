@@ -15,6 +15,42 @@ suited for scheduled, bulk syncs or workflows that must update data in PDFShift
 with external information. See [functions](/adaptors/packages/pdfshift-docs) for
 more on how to use this adaptor to work with the API.
 
+## Examples
+
+### Generate a PDF from an HTML string
+
+This job builds an HTML sales report from the input data, converts it to a PDF,
+and logs the download link. PDFShift keeps the file for 48 hours.
+
+```js
+// Generate a PDF document from a HTML string
+
+fn(state => {
+  const { data } = state;
+
+  state.pdfHTMLContent = `<html>
+       <body style="font-family: Arial, sans-serif; font-size: 14px;">
+         <h1>Sales Report</h1>
+         <p>Date: ${data.date}</p>
+         <p>Total Sales: $${data.totalSales}</p>
+      </body>
+    </html>`;
+
+  return state;
+});
+
+generatePDF($.pdfHTMLContent, {
+  sandbox: true,
+  filename: 'trials.pdf',
+});
+
+fn(state => {
+  const { data } = state;
+  console.log(`Download PDF in 48 hours from ${data.url}`);
+  return { ...state, pdfData: data };
+});
+```
+
 ## Authentication
 
 See [PDFShift docs](https://docs.pdfshift.io/#authentication) for the latest on
@@ -40,12 +76,11 @@ JSON credential type, then your configuration will look something like this:
 
 1. [PDFShift Documentation](https://docs.pdfshift.io/#introduction)
 
-### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+:::info Report or fix a problem with this adaptor
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we
-welcome contributions from our community. Check out our
-[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
-more information on how you can update Adaptors!
+OpenFn adaptors are open source and we welcome contributions. See the
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) to
+learn how to update an adaptor, or ask on the
+[OpenFn Community Forum](https://community.openfn.org/).
 
-Or, you can always reach out to the Community through our
-[Community Forum here](https://community.openfn.org/).
+:::

@@ -400,3 +400,12 @@ more information on how you can update Adaptors!
 
 Or, you can always reach out to the Community through our
 [Community Forum here](https://community.openfn.org/).
+
+:::info Report or fix a problem with this adaptor
+
+OpenFn adaptors are open source and we welcome contributions. See the
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) to
+learn how to update an adaptor, or ask on the
+[OpenFn Community Forum](https://community.openfn.org/).
+
+:::

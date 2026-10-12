@@ -148,6 +148,463 @@ To fetch data from Satusehat via OpenFn, you can:
 See [platform docs](/documentation/build/workflows) for more guidance on
 building workflows.
 
+## Examples
+
+These jobs come from an integration that sends CommCare visits to Satusehat.
+Each one expects the visit in `state.visit` and the patient in `state.patient`,
+and saves what Satusehat returns for the next step.
+
+### Create an Encounter
+
+This job maps a visit to an Encounter resource and posts it.
+
+<details>
+<summary>Show code</summary>
+
+```js
+// Create an encounter in Satusehat based on an incoming Commcare visit
+
+fn(state => {
+  state.encounterId = util.uuid();
+
+  state.encounter = {
+    id: state.encounterId,
+    resourceType: 'Encounter',
+    identifier: [
+      {
+        system: `http://sys-ids.kemkes.go.id/encounter/${state.visit.organizationId}`,
+        value: state.visit.case_id,
+      },
+    ],
+    status: 'arrived',
+    class: {
+      system: 'http://terminology.hl7.org/CodeSystem/v3-ActCode',
+      code: 'AMB',
+      display: 'ambulatory',
+    },
+    subject: {
+      reference: 'Patient/P00805884304',
+      display: 'Elizabeth Dior',
+    },
+    participant: [
+      {
+        type: [
+          {
+            coding: [
+              {
+                system:
+                  'http://terminology.hl7.org/CodeSystem/v3-ParticipationType',
+                code: 'ATND',
+                display: 'attender',
+              },
+            ],
+          },
+        ],
+        individual: {
+          reference: `Practitioner/N10000001`,
+          display: 'Voigt',
+        },
+      },
+    ],
+    period: {
+      start: state.visit.visit_date,
+      end: state.visit.visit_date,
+    },
+
+    location: [
+      {
+        location: {
+          reference: `Location/574d5ffd-2dc2-453b-a787-d1c63cc89ae4`,
+          display: `PLKB`,
+        },
+        extension: [
+          {
+            url: 'https://fhir.kemkes.go.id/r4/StructureDefinition/ServiceClass',
+            extension: [
+              {
+                url: 'value',
+                valueCodeableConcept: {
+                  coding: [
+                    {
+                      system:
+                        'http://terminology.kemkes.go.id/CodeSystem/locationServiceClass-Outpatient',
+                      code: 'reguler',
+                      display: 'Kelas Reguler',
+                    },
+                  ],
+                },
+              },
+            ],
+          },
+        ],
+      },
+    ],
+    statusHistory: [
+      {
+        status: 'arrived',
+        period: {
+          start: state.visit.visit_date,
+          end: state.visit.visit_date,
+        },
+      },
+    ],
+    serviceProvider: {
+      reference: `Organization/${state.visit.organizationId}`,
+    },
+  };
+
+  return state;
+});
+
+// Post our encounter resources to Satusehat
+post('Encounter', $.encounter);
+
+fn(state => {
+  //  Store the newly created resources, created by the server, into state for the next step
+  state.encounter = state.data;
+  return state;
+});
+```
+
+</details>
+
+### Create Conditions
+
+This job maps each diagnosis on the visit to a Condition resource with its
+ICD-10 code.
+
+<details>
+<summary>Show code</summary>
+
+```js
+// Map diagnosis objects from commcare into Condition resources
+
+fn(state => {
+  state.conditions = state.visit.diagnosis.map(diagnosis => {
+    const diagnosisName = diagnosis.fields.name;
+    const code = diagnosis.fields['icd_10_code'];
+
+    return {
+      resourceType: 'Condition',
+      clinicalStatus: {
+        coding: [
+          {
+            system: 'http://terminology.hl7.org/CodeSystem/condition-clinical',
+            code: 'active',
+            display: 'Active',
+          },
+        ],
+      },
+      verificationStatus: {
+        coding: [
+          {
+            system:
+              'http://terminology.hl7.org/CodeSystem/condition-ver-status',
+            code: 'confirmed',
+            display: 'Confirmed',
+          },
+        ],
+      },
+      category: [
+        {
+          coding: [
+            {
+              system:
+                'http://terminology.hl7.org/CodeSystem/condition-category',
+              code: 'encounter-diagnosis',
+              display: 'Encounter Diagnosis',
+            },
+          ],
+        },
+      ],
+      subject: {
+        reference: `Patient/${state.patient.ihs_number}`,
+        display: state.patient.full_name,
+      },
+      encounter: {
+        reference: `Encounter/${state.encounterId}`,
+        display:
+          state.patient.full_name +
+          "'s " +
+          state.visit.properties.visit_type +
+          ' on ' +
+          state.visit.properties.visit_date,
+      },
+      code: {
+        coding: [
+          {
+            system: 'http://hl7.org/fhir/sid/icd-10',
+            code: code,
+            display: diagnosisName,
+          },
+        ],
+      },
+      bodySite: [
+        {
+          coding: [
+            {
+              system: 'http://snomed.info/sct',
+              code: '74262004',
+              display: 'Oral cavity structure',
+            },
+          ],
+        },
+      ],
+      recorder: {
+        reference: state.encounter.resource.participant[0].individual.reference,
+      },
+      onsetDateTime: state.visit.visit_date,
+      recordedDate: state.visit.visit_date,
+    };
+  });
+  return state;
+});
+
+// Post our condition resources to Satusehat
+post('Condition', $.conditions);
+
+fn(state => {
+  //  Store the newly created resources, created by the server, into state for the next step
+  state.conditions = state.data;
+  return state;
+});
+```
+
+</details>
+
+### Create Observations
+
+This job maps each observation on the visit to an Observation resource, handling
+each FHIR value type.
+
+<details>
+<summary>Show code</summary>
+
+```js
+// Create observation in Satusehat based on an incoming Commcare visit
+
+function createObservationData(item, state, result) {
+  const patientReference = `Patient/${state.patient.ihs_number}`;
+  const encounterReference = `Encounter/${state.encounterId}`;
+  const encounterDisplay = `${state.patient.full_name}'s ${state.visit.properties.visit_type} on ${state.visit.properties.visit_date}`;
+  return {
+    resourceType: 'Observation',
+    status: 'final',
+    category: [
+      {
+        coding: item.category,
+      },
+    ],
+    code: {
+      coding: item.code,
+    },
+    subject: {
+      reference: patientReference,
+    },
+    performer: [
+      {
+        reference: `Practitioner/N10000001`,
+        display: 'Voigt',
+      },
+    ],
+    encounter: {
+      reference: encounterReference,
+      display: encounterDisplay,
+    },
+    effectiveDateTime: state.visit.visit_date,
+    ...result,
+  };
+}
+
+fn(state => {
+  //  Filtering and mapping observations based on the visit.
+  state.observations = state.visit.observations.map(item => {
+    const { value_type: valueType, value } = item;
+    const dataObjects = [];
+
+    if (valueType === 'valueCodeableConcept') {
+      value.forEach(value => {
+        const result = {
+          [valueType]: {
+            coding: [JSON.parse(value.snomed_code)],
+            value: JSON.parse(value.value),
+          },
+        };
+        const data = createObservationData(
+          { ...item, id: value.id },
+          state,
+          result
+        );
+        dataObjects.push(data);
+      });
+    } else if (valueType === 'valueQuantity') {
+      const result = {
+        [valueType]: {
+          coding: [value.snomed_code],
+          value: value.value,
+        },
+      };
+      const data = createObservationData(
+        { ...item, id: value.id },
+        state,
+        result
+      );
+      dataObjects.push(data);
+    } else if (valueType === 'valueInteger') {
+      const result = {
+        [valueType]: {
+          coding: value.snomed_code,
+          value: value.value,
+        },
+      };
+      const data = createObservationData(
+        { ...item, id: value.id },
+        state,
+        result
+      );
+      dataObjects.push(data);
+    } else if (valueType === 'valueDateTime') {
+      const result = {
+        [valueType]: {
+          coding: [JSON.parse(value.snomed_code)],
+          value: new Date(JSON.parse(value.value)).toISOString(),
+        },
+      };
+      const data = createObservationData(
+        { ...item, id: value.id },
+        state,
+        result
+      );
+      dataObjects.push(data);
+    } else if (valueType === 'valueBoolean') {
+      const result = {
+        [valueType]: {
+          coding: [JSON.parse(value.snomed_code)],
+          value: JSON.parse(value.value) === 'never' ? false : true,
+        },
+      };
+      const data = createObservationData(
+        { ...item, id: value.id },
+        state,
+        result
+      );
+      dataObjects.push(data);
+    } else {
+      const result = {
+        [valueType]: {
+          coding: [value.snomed_code],
+          value: value.value,
+        },
+      };
+
+      if (result) {
+        const data = createObservationData(item, state, result);
+        dataObjects.push(data);
+      }
+    }
+
+    return dataObjects;
+  });
+
+  return state;
+});
+
+// Post our observation resources to Satusehat
+post('Observation', $.observations);
+
+//  Store the newly created resources, created by the server, into state for the next step
+fn(state => {
+  state.observations = state.data;
+  return state;
+});
+```
+
+</details>
+
+### Create Medications
+
+This job finds the prescriptions on the visit and posts a Medication resource
+for each, using its KFA code.
+
+<details>
+<summary>Show code</summary>
+
+```js
+// Create medication in Satusehat based on an incoming Commcare visit
+
+fn(state => {
+  // state.visit is a Commcare Visit record
+  const properties = state.visit.properties;
+  const medicineKeys = Object.keys(properties).filter(
+    key =>
+      key.startsWith('prescription_') &&
+      !key.includes('_amount') &&
+      !key.includes('_instruction') &&
+      !key.includes('_dose')
+  );
+
+  const medicationId = util.uuid();
+
+  // Map medication data for each relevant key
+  state.medication = medicineKeys.map(item => {
+    return {
+      resourceType: 'Medication',
+      id: state => medicationId,
+      meta: {
+        profile: [
+          'https://fhir.kemkes.go.id/r4/StructureDefinition/Medication',
+        ],
+      },
+      identifier: [
+        {
+          system: `http://sys-ids.kemkes.go.id/medication/${state.visit.satusehatId}`,
+          use: 'usual',
+          value: item.fields['Nama'],
+        },
+      ],
+      code: {
+        coding: [
+          {
+            system: 'http://sys-ids.kemkes.go.id/kfa',
+            code: item.fields['kfa_codes'],
+            display: item.fields['Nama'],
+          },
+        ],
+      },
+      status: 'active',
+      extension: [
+        {
+          url: 'https://fhir.kemkes.go.id/r4/StructureDefinition/MedicationType',
+          valueCodeableConcept: {
+            coding: [
+              {
+                system:
+                  'http://terminology.kemkes.go.id/CodeSystem/medication-type',
+                code: 'NC',
+                display: 'Non-compound',
+              },
+            ],
+          },
+        },
+      ],
+    };
+  });
+
+  return state;
+});
+
+// Post our medication resources to Satusehat
+post('Medication', $.medication);
+
+fn(state => {
+  //  Store the newly created resources, created by the server, into state for the next step
+  state.medication = state.data;
+  return state;
+});
+```
+
+</details>
+
 ## Authentication
 
 [See Satusehat docs](https://satusehat.kemkes.go.id/platform/docs/id/api-catalogue/authentication/)
@@ -183,12 +640,11 @@ this:
 }
 ```
 
-### I've noticed a problem with this Adaptor, or something is out of date, what can I do?
+:::info Report or fix a problem with this adaptor
 
-Thanks for asking! We are a fully Open Source Digital Public Good, and we
-welcome contributions from our community. Check out our
-[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) for
-more information on how you can update Adaptors!
+OpenFn adaptors are open source and we welcome contributions. See the
+[Adaptors Wiki](https://github.com/OpenFn/adaptors/blob/main/wiki/index.md) to
+learn how to update an adaptor, or ask on the
+[OpenFn Community Forum](https://community.openfn.org/).
 
-Or, you can always reach out to the Community through our
-[Community Forum here](https://community.openfn.org/).
+:::
