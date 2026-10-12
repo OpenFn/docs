@@ -360,10 +360,10 @@ De forma predeterminada, `openfn project deploy` toma el proyecto con checkout y
 lo sube al servidor del que vino originalmente (según lo define el archivo de
 proyecto).
 
-Pero también puedes usar deploy para sincronizar entre proyectos. Normalmente lo
-harás para promover un sandbox de desarrollo o de staging a producción. Incluso
-puedes usarlo para desplegar un proyecto de la aplicación SaaS en otra instancia
-de OpenFn completamente distinta.
+Pero también puedes usar deploy para sincronizar entre proyectos. Normalmente
+querrás hacerlo para promover un sandbox de desarrollo o de staging a
+producción. Incluso puedes usarlo para desplegar un proyecto de la aplicación
+SaaS en otra instancia de OpenFn completamente distinta.
 
 ### Desplegar directamente desde un archivo de spec o de state {#deploy-straight-from-a-spec-or-state-file}
 

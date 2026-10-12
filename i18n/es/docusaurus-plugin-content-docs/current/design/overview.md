@@ -88,8 +88,8 @@ automatizados, deberían facilitar y desencadenar este intercambio?
 :::tip Recoge el proceso actual y el deseado
 
 Documenta los procesos de negocio _actuales y deseados_ para determinar cómo
-debe intercambiarse la información entre tu organización, sistema o usuarios y
-los demás, y para asegurarte de que todos los socios comparten las mismas
+debería intercambiarse la información entre tu organización, sistema o usuarios
+y los demás, y para asegurarte de que todos los socios comparten las mismas
 expectativas y supuestos.
 
 :::
@@ -175,7 +175,8 @@ Esta plantilla incluye:
    identificar los nombres exactos)
 2. Determinar qué elementos de datos pertenecen al origen de datos y cuáles al
    sistema de destino
-3. Acordar cómo deben corresponderse los elementos de datos entre los sistemas
+3. Acordar cómo deberían corresponderse los elementos de datos entre los
+   sistemas
 4. Analizar la estructura y la calidad de los datos para valorar si habrá que
    transformar, limpiar o volver a etiquetar los valores para poder mapearlos
 
@@ -197,7 +198,7 @@ socios.
 - **Identificadores únicos:** dedica tiempo a evaluar los esquemas de
   identificadores únicos disponibles y las opciones que ya puedan tener
   implementadas los sistemas de información relacionados
-- Cuando mapees preguntas de opción múltiple, ten en cuenta cómo deben
+- Cuando mapees preguntas de opción múltiple, ten en cuenta cómo deberían
   corresponderse las opciones de respuesta con el sistema de origen o de
   destino.
 - Consulta los consejos de mapeo para cada sistema en la sección `Apps` del

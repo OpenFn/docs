@@ -18,9 +18,9 @@ notificaciones permite a tus clientes configurar integraciones en tiempo real, y
 como para OpenFn: en lugar de hacer y atender solicitudes cada X segundos, tus
 servidores y los de OpenFn solo trabajan cuando hay datos nuevos.
 
-Para que tu aplicación sea un consumidor (o "destino") de OpenFn, debe tener una
-API REST estándar basada en JSON, o tienes que crear un language-package que
-cumpla las especificaciones de tu API.
+Para que tu aplicación sea un consumidor (o "destino") de OpenFn, debes tener
+una API REST estándar basada en JSON o crear un language-package que cumpla las
+especificaciones de tu API.
 
 ## Enviar datos a OpenFn {#sending-data-to-openfn}
 
