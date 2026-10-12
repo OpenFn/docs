@@ -57,7 +57,7 @@ possible through a Health Information Exchange (“HIE”). To learn more, check
 
 ### OpenFn and OpenHIE
 
-The OpenFn platform v2 ([OpenFn/lightning](https://github.com/OpenFn/)) is an
+The OpenFn platform ([OpenFn/lightning](https://github.com/OpenFn/)) is an
 OpenHIE-compliant **_workflow engine_** used to (1) automate complex business
 processes that cut across digital systems (including OpenHIE components _and_
 point of care systems), and to (2) handle data mapping and transformation.

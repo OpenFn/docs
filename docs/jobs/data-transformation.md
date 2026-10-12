@@ -151,7 +151,7 @@ Not all operations support a JSON path string - refer to
 ## Variable initialisation
 
 <!--
-  I'm a bit iffy on this because actually in v2 you can just do const result = [] at the top of your job
+  I'm a bit iffy on this because actually you can just do const result = [] at the top of your job
 
   Is the fn block really better practice?
 -->

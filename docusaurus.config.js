@@ -89,10 +89,7 @@ module.exports = {
           label: 'Articles',
           position: 'left',
         },
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
-        },
+
         {
           type: 'localeDropdown',
           position: 'right',
@@ -176,16 +173,6 @@ module.exports = {
           // Point "Edit this page" at the translated file rather than the
           // English source when reading a non-default locale.
           editLocalizedFiles: true,
-          lastVersion: 'current',
-          versions: {
-            current: {
-              label: 'v2 ⚡',
-            },
-            legacy: {
-              banner: 'unmaintained',
-              label: 'v1.105',
-            },
-          },
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -250,6 +237,18 @@ module.exports = {
           {
             to: '/documentation/contribute/roadmap',
             from: '/documentation/contribute/openfn-roadmap',
+          },
+          // The v1 docs and the v1-to-v2 migration guides were removed when
+          // v1 was decommissioned.
+          {
+            to: '/documentation',
+            from: [
+              '/documentation/legacy',
+              '/documentation/migration-steps',
+              '/documentation/converting-triggers',
+              '/documentation/migration/automated-migration',
+              '/documentation/release-notes',
+            ],
           },
           // Redirect from multiple old paths to the new path
           // {

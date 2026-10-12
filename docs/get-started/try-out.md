@@ -1,10 +1,10 @@
 ---
-title: Try out the v2⚡
+title: Try out OpenFn
 id: try-out
-sidebar_label: Try out v2⚡
+sidebar_label: Try out OpenFn
 ---
 
-If you're interested in trying out the OpenFn v2⚡ today, you have 3 options:
+If you're interested in trying out OpenFn today, you have 3 options:
 
 ## 1. Register for a free account
 
@@ -18,9 +18,8 @@ OpenFn's secure hosted platform. Learn more on
 
 :::tip Already have an account?
 
-Visit [www.openfn.org/login](https://www.openfn.org/login) to login to your
-Lightning v2 account. If you only have a v1 user, then you will need to create a
-new v2 account at [www.openfn.org/register](https://www.openfn.org/register).
+Visit [www.openfn.org/login](https://www.openfn.org/login) to log in to your
+account.
 
 :::
 
@@ -42,7 +41,7 @@ keep.
 
 ## 3. Install OpenFn/lightning locally
 
-Install the OpenFn v2 locally to access the open source software and explore
+Install OpenFn locally to access the open source software and explore
 without limits. See our GitHub repo for developer docs:
 [github.com/OpenFn/lightning](https://github.com/OpenFn/lightning).
 

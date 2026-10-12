@@ -1,7 +1,7 @@
 ---
 sidebar_label: Usar cursores
 title: Usar cursores
-translation_source_hash: da397a43bea2cd3ef29dc7ba2da3c9fecceeaf7e
+translation_source_hash: b390163f730f2af3be47835e0cc98c6579dfff6f
 translation_review_status: machine
 ---
 
@@ -128,30 +128,6 @@ state como entrada a la CLI:
 ```bash
 $ openfn job.js -s state.json -a http
 ```
-
-<details>
-<summary>Cursores manuales en v1</summary>
-
-La plataforma v1 no permite definir libremente el state de entrada, así que
-definir un cursor manual es un poco más difícil.
-
-Tienes que escribir el cursor manual directamente en el run para que se ignore
-el cursor del state:
-
-```js
-cursor('2024-03-12');
-```
-
-Deberías comentar esta línea en los runs de producción.
-
-También puedes usar la opción defaultValue. Funciona siempre que ejecutes sin
-ningún state inicial:
-
-```js
-cursor(state => state.cursor, { defaultValue: '2024-03-12' });
-```
-
-</details>
 
 ### Opciones del cursor {#cursor-options}
 

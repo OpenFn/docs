@@ -1,7 +1,7 @@
 ---
 title: Hoja de ruta y filosofía de producto
 sidebar_label: Hoja de ruta
-translation_source_hash: c9a9fc5e683db89572d83478f3c0327da01df9d7
+translation_source_hash: 54b677695cefbfb41fd34e5066a34f7adcdc3e19
 translation_review_status: machine
 ---
 
@@ -146,7 +146,7 @@ date.
 
 OpenFn/Lightning is the fully open-source workflow automation platform at the
 core of the OpenFn Digital Public Good (learn more about the product
-[here](/documentation#openfn-v2-lightning-)).
+[What is OpenFn?](/get-started/home.md#openfn-lightning)).
 
 |                         **ID**                          | **Feature**                                            | **Status** | **Timeline** |  **Δ**   | **Description**                                                                                                                                                                                |
 | :-----------------------------------------------------: | :----------------------------------------------------- | :--------: | :----------: | :------: | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

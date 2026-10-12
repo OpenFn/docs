@@ -10,8 +10,6 @@ keywords:
   - troubleshooting
 ---
 
-This page provides troubleshooting tips for _OpenFn v2 platform_ users.
-
 ## Runs
 
 One of the most helpful pages for troubleshooting on OpenFn is the

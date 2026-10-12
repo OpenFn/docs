@@ -31,8 +31,8 @@ need.
 If you are not told which task, work out which ones are needed from what has
 changed in English, say so, and ask before starting.
 
-Never translate the generated adaptor pages, the job library, the old v1 docs,
-or articles and blog posts.
+Never translate the generated adaptor pages, the job library, or articles and
+blog posts.
 
 ## Before you start
 

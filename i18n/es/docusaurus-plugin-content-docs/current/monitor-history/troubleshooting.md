@@ -8,12 +8,9 @@ keywords:
   - status codes
   - exit codes
   - troubleshooting
-translation_source_hash: 142023e6bcf41255617e547ab466c497c6e1266e
+translation_source_hash: 3d980e764b6520aabe6447d0ceab67f4870266a4
 translation_review_status: machine
 ---
-
-Esta página ofrece consejos para solucionar problemas a quienes usan la
-_plataforma OpenFn v2_.
 
 ## Runs
 

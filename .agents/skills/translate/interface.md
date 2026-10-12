@@ -31,8 +31,7 @@ Remove the rest before you commit:
   is upgraded.
 - The `copyright` entry in `footer.json`. The site works out the year when it
   builds, and a translated copy would freeze it.
-- Every other file: the adaptor sidebar
-  (`docusaurus-plugin-content-docs-adaptors/`) and the old v1 docs
-  (`version-legacy.json`). Those stay in English.
+- The adaptor sidebar
+  (`docusaurus-plugin-content-docs-adaptors/`) stays in English.
 
 Then build and open the PR as `SKILL.md` describes.

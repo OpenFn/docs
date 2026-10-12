@@ -1,7 +1,7 @@
 ---
 sidebar_label: Estándares
 title: Estándares y OpenFn
-translation_source_hash: 4268e67655414b5830b8194dd7e98e23d283a613
+translation_source_hash: c37d116cea5e898bc435f82f866ce7f417e9d185
 translation_review_status: machine
 ---
 
@@ -60,7 +60,7 @@ siglas en inglés). Para saber más, consulta la
 
 ### OpenFn y OpenHIE {#openfn-and-openhie}
 
-La plataforma OpenFn v2 ([OpenFn/lightning](https://github.com/OpenFn/)) es un
+La plataforma OpenFn ([OpenFn/lightning](https://github.com/OpenFn/)) es un
 **_motor de workflows_** compatible con OpenHIE que se usa para (1) automatizar
 procesos de negocio complejos que abarcan varios sistemas digitales (incluidos
 los componentes de OpenHIE _y_ los sistemas del punto de atención) y (2)
