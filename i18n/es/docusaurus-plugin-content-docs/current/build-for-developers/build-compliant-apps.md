@@ -1,7 +1,7 @@
 ---
 title: Desarrollar aplicaciones conectadas
 sidebar_label: Crear API compatibles
-translation_source_hash: 02f208bd6abe5793e7707fe31fa6ac9e1780a494
+translation_source_hash: e0d8e1d398d235e8cb533a3eb6d4f55280ad62d5
 translation_review_status: machine
 ---
 
@@ -50,8 +50,8 @@ por token, y responder con JSON a un GET válido. La respuesta no tiene que
 seguir ningún formato concreto, porque los usuarios pueden procesarla como
 quieran: extraer los datos que les interesan y luego hacer otras acciones con
 ellos, como cargarlos en un sistema de destino. Consulta
-[language-http](https://www.github.com/openfn/language-http) para ver cómo hacen
-los usuarios estas solicitudes HTTP genéricas.
+[language-http](/adaptors/http) para ver cómo hacen los usuarios estas
+solicitudes HTTP genéricas.
 
 ### Tamaño del payload {#payload-sizing}
 
@@ -65,16 +65,14 @@ por debajo de ese límite.
 Para que los usuarios puedan conectarse fácilmente a tu aplicación, te
 recomendamos mucho que crees un language-package con la autenticación que
 necesitas y un conjunto de acciones sencillas y permitidas, bien abstraídas en
-"funciones auxiliares". Consulta
-[language-dhis2](https://www.github.com/openfn/language-dhis2) para ver un
+"funciones auxiliares". Consulta [language-dhis2](/adaptors/dhis2) para ver un
 ejemplo de language-package que crea una interfaz más sencilla para una API REST
 tradicional basada en JSON. Los adaptors se escriben en JavaScript y se ejecutan
 en Node. Puedes convertir el JSON de OpenFn a XML, o a cualquier otro formato,
 antes de enviarlo a tu aplicación, y puedes usar los módulos de Node que
-quieras. Consulta
-[language-postgresql](https://www.github.com/openfn/language-postgresql) para
-ver un ejemplo de adaptor que se conecta directamente a bases de datos
-PostgreSQL con un módulo de NPM muy conocido llamado "pg".
+quieras. Consulta [language-postgresql](/adaptors/postgresql) para ver un
+ejemplo de adaptor que se conecta directamente a bases de datos PostgreSQL con
+un módulo de NPM muy conocido llamado "pg".
 
 Para recibir datos del adaptor genérico `language-http` de OpenFn, tu aplicación
 debe permitir solicitudes POST, PUT o GET con autenticación básica, por token o

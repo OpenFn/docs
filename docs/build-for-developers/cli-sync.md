@@ -69,7 +69,7 @@ Whether using the CLI or GitHub Sync, a Project has the following structure:
     ├── my-workflow
     │   ├── my-workflow.yaml
     │   ├── my-step.js
-├──.openfn
+├── .openfn
 ```
 
 Briefly, these files are:
@@ -81,11 +81,11 @@ Briefly, these files are:
 - `workflows` contains one sub folder per workflow, and "expands" a workflow to
   the file system for convenient editing.
 - The `.projects` folder contains a complete YAML representation of each
-  Project. This is rarely used by humans
+  Project. This is rarely used by humans.
 - The `.openfn` folder contains metadata used by the CLI. It is not used by
   humans and should not be checked-in to git.
 
-::: note
+:::note
 
 For users well-versed in the OpenFn portability specification, this folder
 structure represents a project _spec_. The `.projects` folder contains project
@@ -102,12 +102,12 @@ workflows a little easier.
 
 A workflow can be defined as a single yaml file - you'll see that if you hit
 "View workflow as YAML" in the app, or if you look at the project state files in
-`.projects. But for convenience, the workflow can also be "checked out" or
+`.projects`. But for convenience, the workflow can also be "checked out" or
 expanded so that each step has its job code (its expression) written to a .js
 file.
 
-You edit these expanded workflow files as much as you like, and changes will be
-tracked when you push/deploy back to the app.
+You can edit these expanded workflow files as much as you like, and changes will
+be tracked when you push/deploy back to the app.
 
 You can only check out one project at a time. This is actually great for working
 with git, because you can checkout two projects on different branches and

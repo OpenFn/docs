@@ -1,7 +1,7 @@
 ---
 sidebar_label: Proceso de diseño
 title: Proceso de diseño de soluciones con OpenFn
-translation_source_hash: 9bc0fa895989e88eb1ec2cb7cf607ac5d52888db
+translation_source_hash: 7e56c3a8e3ef74888478af0628a31d8c54759d88
 translation_review_status: machine
 ---
 
@@ -63,9 +63,9 @@ en tu organización sobre qué requisitos son prioritarios.
   distrito con el sistema nacional de información de salud DHIS2, para reportar
   de forma segura y automática los resultados de salud de los indicadores clave
   de mi distrito.
-- **Kobo Toolbox - base de datos MSSQL:** como responsable de monitoreo y
+- **KoboToolbox - base de datos MSSQL:** como responsable de monitoreo y
   evaluación, quiero supervisar en tiempo real las respuestas de las encuestas
-  de Kobo Toolbox en una base de datos central, para entender mejor las
+  de KoboToolbox en una base de datos central, para entender mejor las
   actividades de recolección de datos y el desempeño del programa en los sitios
   de mis socios de investigación.
 
@@ -83,16 +83,14 @@ Por ejemplo, si quieres intercambiar información entre tu organización y otra.
 ¿cómo funcionaría ese intercambio desde un punto de vista funcional? ¿_Qué_
 información se intercambiará? ¿Con _quién_ (entre qué sistemas o usuarios)?
 ¿_Cuándo_ se intercambiará la información? ¿Y qué pasos, humanos o
-automatizados, deberían facilitar y desencadenar este intercambio? Estas
-preguntas sobre el proceso de negocio se tratan con más detalle en la página
-[So, what is an integration?](/documentation/tutorials/tutorial/).
+automatizados, deberían facilitar y desencadenar este intercambio?
 
-:::tip
+:::tip Recoge el proceso actual y el deseado
 
-Recoge el proceso actual y el deseado Documenta los procesos de negocio
-_actuales y deseados_ para determinar cómo debe intercambiarse la información
-entre tu organización, sistema o usuarios y los demás, y para asegurarte de que
-todos los socios comparten las mismas expectativas y supuestos.
+Documenta los procesos de negocio _actuales y deseados_ para determinar cómo
+debe intercambiarse la información entre tu organización, sistema o usuarios y
+los demás, y para asegurarte de que todos los socios comparten las mismas
+expectativas y supuestos.
 
 :::
 
@@ -214,5 +212,5 @@ integración y dejará constancia de las decisiones de negocio y de los acuerdos
 de los socios implementadores.
 
 Comparte esta documentación con el equipo técnico de implementación, o consulta
-la sección de documentación [Build](/documentation/build/workflows) para ver
-cómo implementar estas especificaciones de diseño con OpenFn.
+la sección de documentación [Build](/build/workflows.md) para ver cómo
+implementar estas especificaciones de diseño con OpenFn.

@@ -2,7 +2,7 @@
 title: OpenFn Sync
 sidebar_label: Sync
 slug: /sync
-translation_source_hash: 432be5126c87d7ddd1d025fe3787aedf638b2616
+translation_source_hash: 00115e52a11ca812e0959d7b74220077ac5e72fd
 translation_review_status: machine
 ---
 
@@ -78,7 +78,7 @@ siguiente estructura:
     ├── my-workflow
     │   ├── my-workflow.yaml
     │   ├── my-step.js
-├──.openfn
+├── .openfn
 ```
 
 En resumen, estos archivos son:
@@ -90,11 +90,11 @@ En resumen, estos archivos son:
 - `workflows` contiene una subcarpeta por workflow y "expande" cada workflow en
   el sistema de archivos para que sea más cómodo editarlo.
 - La carpeta `.projects` contiene una representación YAML completa de cada
-  proyecto. Las personas casi nunca la usan
+  proyecto. Las personas casi nunca la usan.
 - La carpeta `.openfn` contiene metadatos que usa la CLI. No está pensada para
   las personas y no debería incluirse en git.
 
-::: note
+:::note
 
 Si conoces bien la especificación de portabilidad de OpenFn, esta estructura de
 carpetas representa la _spec_ de un proyecto. La carpeta `.projects` contiene el
@@ -111,9 +111,9 @@ editar y fusionar esos workflows.
 
 Un workflow se puede definir en un solo archivo YAML. Lo verás si haces clic en
 "View workflow as YAML" en la aplicación, o si miras los archivos de state del
-proyecto en `.projects. Pero, por comodidad, también puedes hacer "checkout" del
-workflow, o expandirlo, para que el código del job de cada step (su expresión)
-se escriba en un archivo .js.
+proyecto en `.projects`. Pero, por comodidad, también puedes hacer "checkout"
+del workflow, o expandirlo, para que el código del job de cada step (su
+expresión) se escriba en un archivo .js.
 
 Puedes editar estos archivos expandidos todo lo que quieras, y los cambios se
 registrarán cuando subas o despliegues de nuevo a la aplicación.

@@ -43,7 +43,7 @@ Good user stories will capture 3 parts:
 2. _What_ - what do they hope to achieve via the solution?
 3. _Why_ - why is this desire important? What are the business implications?
 
-If you capture these 3 elements, user stories can b ean effective way of
+If you capture these 3 elements, user stories can be an effective way of
 detailing integration requirements and starting discussions at your organization
 about which requirements are priority.
 
@@ -57,8 +57,8 @@ about which requirements are priority.
   from the district clinic electronic medical record system with the national
   DHIS2 health information system, so that I can securely and automatically
   report on health outcomes for key indicators in my district.
-- **Kobo Toolbox - MSSQL Database:** As a M&E manager, I want to monitor Kobo
-  Toolbox survey responses in a central database in real-time, so that I can
+- **KoboToolbox - MSSQL Database:** As a M&E manager, I want to monitor
+  KoboToolbox survey responses in a central database in real-time, so that I can
   better understand data collection activities and program performance across my
   research partner sites.
 
@@ -66,7 +66,7 @@ about which requirements are priority.
 
 Once the user stories have been identified, start to document the functional
 processes that are in place (or will need to be implemented) in order to achieve
-the desired requirments. These might be automated or human/manually-driven
+the desired requirements. These might be automated or human/manually-driven
 processes. This is the precursor step to mapping out the data flow (which
 details the technical steps for how connections will be made and data exchanged
 between systems). Again, process mapping is _business analysis_–not a technical
@@ -76,16 +76,13 @@ For example, if you want to exchange information between your organization and
 another... how might this exchange work from a functional point of view? _What_
 information will be exchanged? With _whom_ (between which systems or users)?
 _When_ will the information be exchanged? And what are the human or automation
-steps that should facilitate and trigger this exchange? These business process
-questions are discussed in more detail on the
-[So, what is an integration?](/documentation/tutorials/tutorial/) page.
+steps that should facilitate and trigger this exchange?
 
-:::tip
+:::tip Capture the current & desired process
 
-Capture the current & desired process Document _current and desired_ business
-processes in order to determine how information should be exchanged between your
-organization/system/users and others, and to ensure alignment of expectations
-and assumptions across partners.
+Document _current and desired_ business processes in order to determine how
+information should be exchanged between your organization/system/users and
+others, and to ensure alignment of expectations and assumptions across partners.
 
 :::
 
@@ -125,10 +122,10 @@ Once the business processes are documented, start to document the specific data
 elements to be exchanged. This exercise requires a lot of specificity to detail
 the individual "fields" or "attributes" to be exchanged.
 
-The output of this exerice is a `Data Element Mapping Specification`, which will
-serve as (1) documentation of the specific data elements agreed to be exchanges,
-as well as (2) a guide for how to translate meaning between partners and systems
-(e.g., `client` in one system might mean `patient` in another).
+The output of this exercise is a `Data Element Mapping Specification`, which
+will serve as (1) documentation of the specific data elements agreed to be
+exchanged, as well as (2) a guide for how to translate meaning between partners
+and systems (e.g., `client` in one system might mean `patient` in another).
 
 If your organization already has a data management or sharing agreement, this
 might be the perfect starting point for identifying the specific data points to
@@ -197,5 +194,5 @@ solution, as well as memorialize the business decisions and agreements made by
 implementing partners.
 
 Share this documentation with any technical implementation team, or check out
-the [Build](/documentation/build/workflows) documentation section to learn how
-to implement these design specifications using OpenFn.
+the [Build](/build/workflows.md) documentation section to learn how to implement
+these design specifications using OpenFn.
