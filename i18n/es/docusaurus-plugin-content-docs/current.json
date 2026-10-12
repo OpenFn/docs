@@ -43,7 +43,6 @@
     "message": "Despliegue",
     "description": "The label for category 'Deployment' in sidebar 'docs'"
   },
-
   "sidebar.docs.category.Contribute": {
     "message": "Contribuir",
     "description": "The label for category 'Contribute' in sidebar 'docs'"
