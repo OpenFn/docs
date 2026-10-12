@@ -1206,8 +1206,7 @@ this all up on your own are:</p>
 <a class="" href="https://docs.openfn.org/documentation/get-started/terminology">"OpenFn Concepts"</a>, and
 <a class="" href="https://docs.openfn.org/documentation/build/workflows">"Build"</a> sections if you're a thorough,
 background-first kind of learner. If you crave snippets and sample job code,
-head directly to the <a class="" href="https://docs.openfn.org/adaptors/library">Job Library</a> to see how other OpenFn
-users are creating their jobs.</p>
+head directly to the <a class="" href="https://docs.openfn.org/documentation/jobs/job-examples">Job Code Examples</a>.</p>
 <p>Either way, keep the community posted on your progress in the forum—you'll find
 lots of helpful folks willing to lend you a hand in your integration journey.</p>]]></content:encoded>
             <author>taylor@openfn.org (Taylor Downs)</author>
