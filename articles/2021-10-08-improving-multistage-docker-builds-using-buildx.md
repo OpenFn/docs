@@ -6,6 +6,8 @@ tags: [how-to, docker, ci/cd]
 featured: true
 ---
 
+import Link from '@docusaurus/Link';
+
 So you're using docker's multi-stage builds and noticed that your build times
 aren't nearly as quick as you expected?
 
@@ -199,7 +201,7 @@ or copying from a storage bucket.
 ## Resources
 
 - [Multi-stage builds #3: Speeding up your builds](https://pythonspeed.com/articles/faster-multi-stage-builds/)
-  <a name="ref1"><sup>1</sup></a>
+  <Link id="ref1"><sup>1</sup></Link>
 - [Docker Buildx](https://docs.docker.com/buildx/working-with-buildx/)
 - [buildx build reference](https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#buildx-build)
 - [mody/buildkey Registry cache exporter](https://github.com/moby/buildkit#registry-push-image-and-cache-separately)

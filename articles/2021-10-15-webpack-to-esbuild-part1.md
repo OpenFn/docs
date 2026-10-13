@@ -6,6 +6,8 @@ tags: [how-to, js, webpack, build, phoenix, ci/cd]
 featured: true
 ---
 
+import Link from '@docusaurus/Link';
+
 We're very happy users of Elixir and Phoenix at OpenFn, given that we've been
 using it continuously for about 6 years - upgrades and all. Our front-end
 toolchain, albeit far from out of date (Webpack `5.52.1` today) has left some
@@ -78,7 +80,7 @@ here.
 - The splitting doesn't know about `app.js`, it puts everything that resolves to
   `node_modules` in `vendor.js`. Subtle but worth pointing out.
 
-<a name="lodash"><sup>*</sup></a> Could probably ignore this and refactor some
+<Link id="lodash"><sup>*</sup></Link> Could probably ignore this and refactor some
 files and check that tree-shaking is working properly.
 
 ## What we need esbuild to provide
@@ -208,6 +210,6 @@ But a shell command doth not a replacement for webpack make. We still need to:
 ## Resources
 
 - [FYI: Phoenix drops webpack and npm for esbuild](https://fly.io/blog/phoenix-moves-to-esbuild-for-assets/)
-  <a name="ref1"><sup>1</sup></a>
+  <Link id="ref1"><sup>1</sup></Link>
 - [JavaScript modules via script tag](https://caniuse.com/es6-module)
-  <a name="esm"><sup>2</sup></a>
+  <Link id="esm"><sup>2</sup></Link>

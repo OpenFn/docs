@@ -36,19 +36,19 @@ You can find a complete list of the 23 best practices on this page below.
 
 <h3>Secure Data Integration: 23 Implementation Best Practices</h3>
 <h4>Core Tenets</h4>
-<ol> 
+<ol>
  <li>Understand relevant policies specific to data sharing, storage, and protection</li>
  <li>Only extract & transfer essential data points</li>
- <li>Document, document, document</li> 
+ <li>Document, document, document</li>
 </ol>
 <h4>Analyze & Plan</h4>
-<ol start="4"> 
- <li>Don’t take API security for granted</li>  
- <li>Budget time for security testing</li>    
+<ol start="4">
+ <li>Don’t take API security for granted</li>
+ <li>Budget time for security testing</li>
 </ol>
 
 <h4>Design</h4>
-<ol start="6"> 
+<ol start="6">
 <li>Resource: Mapping specification template</li>
 <li>Resource: Architecture data flow diagram</li>
 <li>Resource: Project Security Configuration & Go-Live Checklist</li>
@@ -57,7 +57,7 @@ You can find a complete list of the 23 best practices on this page below.
 <li>Consider data validation</li>
 </ol>
 <h4>Build</h4>
-<ol start="12"> 
+<ol start="12">
 <li>Use change tracking & version control</li>
 <li>Encrypt where possible</li>
 <li>Use strong authentication;  don’t talk to strangers</li>
@@ -65,14 +65,14 @@ You can find a complete list of the 23 best practices on this page below.
 <li>Log transactions for activity monitoring & control what information is logged</li>
 </ol>
 <h4>Deploy</h4>
-<ol start="17"> 
+<ol start="17">
 <li>Test again, especially credentials, before deployment</li>
 <li>Train users and system administrators on integration security</li>
 <li>Review your security requirements again before go-live</li>
-<li>Determine point of contacts for reporting security issues</li> 
+<li>Determine point of contacts for reporting security issues</li>
 </ol>
 <h4>Ongoing Monitoring & Management</h4>
-<ol start="21"> 
+<ol start="21">
 <li>Consider Governance models for ongoing management & changing requirements</li>
 <li>Train partners on change management</li>
 <li>Have a strategy for access management</li>

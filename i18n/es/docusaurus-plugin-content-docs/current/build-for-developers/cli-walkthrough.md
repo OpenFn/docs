@@ -43,16 +43,20 @@ translation_review_status: machine
 
     <details>
       <summary>¿Qué es un job?</summary>
+
       Un job de OpenFn es código JavaScript que sigue un conjunto concreto de convenciones.
       Normalmente un job tiene una o más <i>operaciones</i> que realizan una tarea concreta
       (como obtener información de una base de datos, crear un registro, etc.) y
       devuelven el state para que lo use la siguiente operación.
+
     </details>
 
     <details>
       <summary>¿Qué es console.log?</summary>
+
       <code>console.log</code> es una función básica del lenguaje JavaScript que te
       permite mostrar mensajes en la ventana de la terminal.
+
     </details>
 
 2.  Ejecuta el job con la CLI
@@ -377,6 +381,7 @@ fn(state => {
 
 <details>
 <summary>¿Qué es <code>array.reduce</code>?</summary>
+
 El método <code>reduce()</code> aplica una función a un acumulador y a cada
 valor del array (de izquierda a derecha) para reducirlo a un único valor.
 
@@ -831,10 +836,7 @@ each(
 Para ejecutar el workflow, usa `openfn [path/to/workflow.json]`.
 
 <details>
-<summary>
-Por ejemplo, si creaste <code>workflow.json</code> en la raíz del directorio de
-tu proyecto, esta sería la estructura del proyecto:
-</summary>
+<summary>Por ejemplo, si creaste <code>workflow.json</code> en la raíz del directorio de tu proyecto, esta sería la estructura del proyecto:</summary>
 
 ```bash
     devchallenge

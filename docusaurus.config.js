@@ -10,6 +10,10 @@ module.exports = {
   favicon: 'img/favicon.ico',
   organizationName: 'openfn',
   projectName: 'docs',
+  // Opt in to Docusaurus v4 behaviour early so the v4 upgrade is a version bump.
+  future: {
+    v4: true,
+  },
   // --- i18n (internationalization) ---
   // Spanish is built at /es/ and linked from the navbar's language dropdown.
   // Translated content lives in i18n/<locale>/. Anything not translated
@@ -33,6 +37,14 @@ module.exports = {
   markdown: {
     hooks: { onBrokenMarkdownLinks: 'warn' },
     mermaid: true,
+    // future.v4 turns these off. The content still uses HTML comments
+    // (including the translation fences), `{#id}` heading IDs, and
+    // `:::tip Title` admonitions, so keep them on until that is migrated.
+    mdx1Compat: {
+      comments: true,
+      admonitions: true,
+      headingIds: true,
+    },
   },
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {

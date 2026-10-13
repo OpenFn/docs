@@ -40,19 +40,19 @@ enlace para compartirla y descargarla:**
 
 <h3>Integración de datos segura: 23 buenas prácticas de implementación</h3>
 <h4>Principios básicos</h4>
-<ol> 
+<ol>
  <li>Conoce las políticas pertinentes sobre el intercambio, el almacenamiento y la protección de datos</li>
  <li>Extrae y transfiere solo los datos imprescindibles</li>
- <li>Documenta, documenta, documenta</li> 
+ <li>Documenta, documenta, documenta</li>
 </ol>
 <h4>Analizar y planificar</h4>
-<ol start="4"> 
- <li>No des por sentada la seguridad de las API</li>  
- <li>Reserva tiempo para las pruebas de seguridad</li>    
+<ol start="4">
+ <li>No des por sentada la seguridad de las API</li>
+ <li>Reserva tiempo para las pruebas de seguridad</li>
 </ol>
 
 <h4>Diseñar</h4>
-<ol start="6"> 
+<ol start="6">
 <li>Recurso: plantilla de especificación de mapeo</li>
 <li>Recurso: diagrama de flujo de datos de la arquitectura</li>
 <li>Recurso: Project Security Configuration & Go-Live Checklist (lista de verificación de configuración de seguridad y puesta en marcha del proyecto)</li>
@@ -61,7 +61,7 @@ enlace para compartirla y descargarla:**
 <li>Ten en cuenta la validación de datos</li>
 </ol>
 <h4>Crear</h4>
-<ol start="12"> 
+<ol start="12">
 <li>Usa el seguimiento de cambios y el control de versiones</li>
 <li>Cifra siempre que puedas</li>
 <li>Usa una autenticación sólida; no hables con desconocidos</li>
@@ -69,14 +69,14 @@ enlace para compartirla y descargarla:**
 <li>Registra las transacciones para supervisar la actividad y controla qué información se registra</li>
 </ol>
 <h4>Desplegar</h4>
-<ol start="17"> 
+<ol start="17">
 <li>Vuelve a probar, sobre todo las credenciales, antes del despliegue</li>
 <li>Capacita a los usuarios y a los administradores de sistemas en la seguridad de la integración</li>
 <li>Revisa de nuevo tus requisitos de seguridad antes de la puesta en marcha</li>
-<li>Define los puntos de contacto para reportar problemas de seguridad</li> 
+<li>Define los puntos de contacto para reportar problemas de seguridad</li>
 </ol>
 <h4>Supervisión y gestión continuas</h4>
-<ol start="21"> 
+<ol start="21">
 <li>Considera modelos de gobernanza para la gestión continua y los cambios de requisitos</li>
 <li>Capacita a los socios en la gestión del cambio</li>
 <li>Ten una estrategia de gestión del acceso</li>
