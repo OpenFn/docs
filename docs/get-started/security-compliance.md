@@ -1,6 +1,6 @@
 ---
-sidebar_label: Security & Compliance
-title: Security & Compliance
+sidebar_label: Trust & Compliance
+title: Trust, Security & Compliance
 ---
 
 # All about S³

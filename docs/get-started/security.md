@@ -1,6 +1,6 @@
 ---
-sidebar_label: Security in Implementations
-title: Security considerations for data integration projects
+sidebar_label: Implementation Security
+title: Security Considerations for Data Integration Projects
 ---
 
 # Security Guidelines for Data Integration Implementations

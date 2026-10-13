@@ -1,29 +1,24 @@
 ---
 title: Try out OpenFn
 id: try-out
-sidebar_label: Try out OpenFn
+sidebar_label: Get Started
 ---
 
-If you're interested in trying out OpenFn today, you have 3 options:
+There are three ways to get started with OpenFn right away:
 
-## 1. Register for a free account
+## 1. Register for a free cloud account
 
-Register for a free account on the OpenFn.org hosted service to create your own
-private project. To do so, visit:
-[www.openfn.org/register](https://www.openfn.org/register)
-
-Note that this free account has limits. Upgrade to access more features on
-OpenFn's secure hosted platform. Learn more on
-[our website](https://www.openfn.org/pricing).
+Register for a free cloud account on the OpenFn.org for a secure, stable,
+scalable solution hosted by the 🤓 people ❤️ who built OpenFn:
+[openfn.org/register](https://www.openfn.org/register)
 
 :::tip Already have an account?
 
-Visit [www.openfn.org/login](https://www.openfn.org/login) to log in to your
-account.
+Visit [openfn.org/login](https://www.openfn.org/login) to log in.
 
 :::
 
-## 2. Log into the OpenFn demo site
+## 2. Explore an OpenFn demo deployment
 
 Visit [demo.openfn.org](https://demo.openfn.org) and use the following
 credentials to log in and explore the platform:
@@ -33,22 +28,20 @@ credentials to log in and explore the platform:
 
 :::warning
 
-The demo site refreshes every 24 hours, so any configuration changes made will
-be lost. Therefore, do not use this site for any configuration you would like to
-keep.
+The demo deployment is destroyed & rebuilt every 24 hours, so any configuration
+changes made will be lost. Do not use this site for any configuration you would
+like to keep.
 
 :::
 
-## 3. Install OpenFn/lightning locally
+## 3. Install OpenFn locally
 
-Install OpenFn locally to access the open source software and explore
-without limits. See our GitHub repo for developer docs:
-[github.com/OpenFn/lightning](https://github.com/OpenFn/lightning).
+To install OpenFn on your own servers, see our
+[GitHub repo](https://github.com/OpenFn/lightning) and
+[developer docs](https://openfn.github.io/lightning/readme.html).
 
-:::info Questions?
+## Got more questions?
 
 Check out these docs for more details on specific features (see menu sidebar),
 browse the [main docs page](/get-started/home.md), or post your questions on
 [Community](https://community.openfn.org).
-
-:::

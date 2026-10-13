@@ -1,6 +1,6 @@
 ---
 sidebar_label: Glossary
-title: A glossary for data integration
+title: Glossary for Automation & Data Integration
 ---
 
 This glossary establishes some of the foundational concepts and terms used while
