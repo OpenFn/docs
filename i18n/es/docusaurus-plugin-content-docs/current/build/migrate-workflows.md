@@ -71,8 +71,8 @@ importado. Mira la captura de pantalla de abajo.
 Para vincular tu credencial:
 
 1. Haz clic en el step correspondiente.
-2. En el modal que aparece, haz clic en el botón `Connect` y selecciona tu
-   credencial.
+2. En la ventana modal que aparece, haz clic en el botón `Connect` y selecciona
+   tu credencial.
 
 ![attach credential](/img/attach-credential.webp)
 
