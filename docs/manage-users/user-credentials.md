@@ -29,10 +29,13 @@ You can update the name and login details of a Credential after clicking `Edit`.
 
 You can also allow multiple projects to have access to a Credential you own.
 
-To add or remove project access, click `Edit` on the Credential you want to
-share, and choose the project from the dropdown under `Project Access`.
-
-![Update Project Access](/img/lightning_share_cred_with_project.webp)
+Follow the steps below to give a project access to a credential: 
+1. Visit the credentials page under your profile and find the credential you are looking to share.
+2. Click the `Actions` button on the credential and select `Edit`.
+3. In the pop-up that follows look for a `Projects access` section at the bottom.
+![projects access](/img/projects-access.webp)
+4.  Search for the target project in the dropdown and click on it. See that it is added below the dropdown and click on `Save credential`
+![projects access](/img/project-added.webp)
 
 :::info Shared Credentials remain secret
 
