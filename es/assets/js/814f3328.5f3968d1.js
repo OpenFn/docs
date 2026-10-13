@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunk_openfn_docs=globalThis.webpackChunk_openfn_docs||[]).push([[67472],{55513(e){e.exports=JSON.parse('{"title":"Publicaciones recientes","items":[]}')}}]);

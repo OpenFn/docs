@@ -679,7 +679,7 @@ in a few files (or even one).</p>
 <li class="">The splitting doesn't know about <code>app.js</code>, it puts everything that resolves to
 <code>node_modules</code> in <code>vendor.js</code>. Subtle but worth pointing out.</li>
 </ul>
-<p><a name="lodash"><sup>*</sup></a> Could probably ignore this and refactor some
+<p><a id="lodash"><sup>*</sup></a> Could probably ignore this and refactor some
 files and check that tree-shaking is working properly.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="what-we-need-esbuild-to-provide">What we need esbuild to provide<a href="https://docs.openfn.org/articles/2021/10/15/webpack-to-esbuild-part1#what-we-need-esbuild-to-provide" class="hash-link" aria-label="Direct link to What we need esbuild to provide" title="Direct link to What we need esbuild to provide" translate="no">​</a></h2>
 <p>Like I mentioned before, webpack is super versatile and it would be
@@ -747,9 +747,9 @@ really excited about what this will give us in the end.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resources">Resources<a href="https://docs.openfn.org/articles/2021/10/15/webpack-to-esbuild-part1#resources" class="hash-link" aria-label="Direct link to Resources" title="Direct link to Resources" translate="no">​</a></h2>
 <ul>
 <li class=""><a href="https://fly.io/blog/phoenix-moves-to-esbuild-for-assets/" target="_blank" rel="noopener noreferrer" class="">FYI: Phoenix drops webpack and npm for esbuild</a>
-<a name="ref1"><sup>1</sup></a></li>
+<a id="ref1"><sup>1</sup></a></li>
 <li class=""><a href="https://caniuse.com/es6-module" target="_blank" rel="noopener noreferrer" class="">JavaScript modules via script tag</a>
-<a name="esm"><sup>2</sup></a></li>
+<a id="esm"><sup>2</sup></a></li>
 </ul>]]></content>
         <author>
             <name>Stuart Corbishley</name>
@@ -893,7 +893,7 @@ or copying from a storage bucket.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="resources">Resources<a href="https://docs.openfn.org/articles/2021/10/08/improving-multistage-docker-builds-using-buildx#resources" class="hash-link" aria-label="Direct link to Resources" title="Direct link to Resources" translate="no">​</a></h2>
 <ul>
 <li class=""><a href="https://pythonspeed.com/articles/faster-multi-stage-builds/" target="_blank" rel="noopener noreferrer" class="">Multi-stage builds #3: Speeding up your builds</a>
-<a name="ref1"><sup>1</sup></a></li>
+<a id="ref1"><sup>1</sup></a></li>
 <li class=""><a href="https://docs.docker.com/buildx/working-with-buildx/" target="_blank" rel="noopener noreferrer" class="">Docker Buildx</a></li>
 <li class=""><a href="https://github.com/docker/buildx/blob/master/docs/reference/buildx_build.md#buildx-build" target="_blank" rel="noopener noreferrer" class="">buildx build reference</a></li>
 <li class=""><a href="https://github.com/moby/buildkit#registry-push-image-and-cache-separately" target="_blank" rel="noopener noreferrer" class="">mody/buildkey Registry cache exporter</a></li>
