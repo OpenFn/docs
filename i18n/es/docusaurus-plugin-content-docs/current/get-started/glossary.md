@@ -1,7 +1,7 @@
 ---
 sidebar_label: Glosario
-title: Glosario de integración de datos
-translation_source_hash: 69f9fa591948fe129c1d21ef35db73bdd3674110
+title: Glosario de automatización e integración de datos
+translation_source_hash: 80f27a408d1010f0c98c1a253bad155df75b0d58
 translation_review_status: machine
 ---
 

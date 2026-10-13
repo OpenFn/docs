@@ -3,16 +3,16 @@ title: ¿Qué es OpenFn?
 id: home
 sidebar_label: ¿Qué es OpenFn?
 slug: /
-translation_source_hash: 1f4697c184b51a3fef859fa4df809cf1e7971193
+translation_source_hash: a1e8a70d05bcdfe8d91c0118fcfae7331c88f143
 translation_review_status: machine
 ---
 
 **OpenFn es el principal
 [bien público digital](https://digitalpublicgoods.net/digital-public-goods/)
-para la automatización de flujos de trabajo**.
+para la automatización de servicios públicos y la orquestación de IA**.
 
 Es una plataforma que más de 70 ONG y ministerios de gobierno han usado para
-automatizar e integrar procesos de negocio y sistemas de información críticos.
+automatizar flujos de trabajo e integrar sistemas críticos.
 
 **Conecta cualquier aplicación** con la biblioteca de [adaptors](/adaptors/) (es
 decir, conectores) de código abierto de OpenFn. Desde los servicios de última

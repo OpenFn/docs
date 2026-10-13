@@ -1,31 +1,26 @@
 ---
 title: Prueba OpenFn
 id: try-out
-sidebar_label: Prueba OpenFn
-translation_source_hash: 2d47bb47c7cfedce357eae0d89af66923793c9a1
+sidebar_label: Primeros pasos
+translation_source_hash: 80680a0aa2ca63eca5f70df1c0aecd888284d494
 translation_review_status: machine
 ---
 
-Si te interesa probar OpenFn hoy mismo, tienes 3 opciones:
+Hay tres formas de empezar a usar OpenFn de inmediato:
 
-## 1. Regístrate para obtener una cuenta gratuita {#1-register-for-a-free-account}
+## 1. Regístrate para obtener una cuenta gratuita en la nube {#1-register-for-a-free-cloud-account}
 
-Regístrate para obtener una cuenta gratuita en el servicio alojado de OpenFn.org
-y crea tu propio proyecto privado. Para hacerlo, visita:
-[www.openfn.org/register](https://www.openfn.org/register)
-
-Ten en cuenta que esta cuenta gratuita tiene límites. Mejora tu plan para
-acceder a más funciones en la plataforma alojada y segura de OpenFn. Más
-información en [nuestro sitio web](https://www.openfn.org/pricing).
+Regístrate en OpenFn.org para obtener una cuenta gratuita en la nube, una
+solución segura, estable y escalable alojada por las 🤓 personas ❤️ que crearon
+OpenFn: [openfn.org/register](https://www.openfn.org/register)
 
 :::tip ¿Ya tienes una cuenta?
 
-Visita [www.openfn.org/login](https://www.openfn.org/login) para iniciar sesión
-en tu cuenta.
+Visita [openfn.org/login](https://www.openfn.org/login) para iniciar sesión.
 
 :::
 
-## 2. Inicia sesión en el sitio de demostración de OpenFn {#2-log-into-the-openfn-demo-site}
+## 2. Explora un despliegue de demostración de OpenFn {#2-explore-an-openfn-demo-deployment}
 
 Visita [demo.openfn.org](https://demo.openfn.org) e inicia sesión con estas
 credenciales para explorar la plataforma:
@@ -35,23 +30,21 @@ credenciales para explorar la plataforma:
 
 :::warning
 
-El sitio de demostración se restablece cada 24 horas y se pierde cualquier
-cambio de configuración que hagas. No lo uses para ninguna configuración que
-quieras conservar.
+El despliegue de demostración se destruye y se vuelve a crear cada 24 horas, así
+que se pierde cualquier cambio de configuración que hagas. No lo uses para
+ninguna configuración que quieras conservar.
 
 :::
 
-## 3. Instala OpenFn/lightning localmente {#3-install-openfnlightning-locally}
+## 3. Instala OpenFn localmente {#3-install-openfn-locally}
 
-Instala OpenFn localmente para acceder al software de código abierto y explorar
-sin límites. La documentación para desarrolladores está en nuestro repositorio
-de GitHub: [github.com/OpenFn/lightning](https://github.com/OpenFn/lightning).
+Para instalar OpenFn en tus propios servidores, consulta nuestro
+[repositorio de GitHub](https://github.com/OpenFn/lightning) y la
+[documentación para desarrolladores](https://openfn.github.io/lightning/readme.html).
 
-:::info ¿Tienes preguntas?
+## ¿Tienes más preguntas? {#got-more-questions}
 
 Consulta esta documentación para ver más detalles sobre funciones concretas
 (mira el menú lateral), explora la
 [página principal de la documentación](/get-started/home.md) o publica tus
 preguntas en la [comunidad](https://community.openfn.org).
-
-:::

@@ -1,7 +1,7 @@
 ---
-sidebar_label: Seguridad y cumplimiento
-title: Seguridad y cumplimiento
-translation_source_hash: e7615c14f8ea9167b2580775204ed61653b87ce7
+sidebar_label: Confianza y cumplimiento
+title: Confianza, seguridad y cumplimiento
+translation_source_hash: 31b0de94f8f5e079f2d14edca09f0734e91678e7
 translation_review_status: machine
 ---
 
@@ -123,9 +123,9 @@ se les asigna un rol que determina sus permisos. Consulta la documentación sobr
 información.
 
 Cuando los usuarios se registran en la plataforma, se les pide que creen una
-contraseña segura. Los superadministradores de OpenFn también pueden activar la
-[autenticación multifactor](/manage-users/user-profile.md), la caducidad de las
-contraseñas y el bloqueo de cuentas inactivas.
+contraseña segura. Los superadministradores de OpenFn también pueden habilitar
+la [autenticación multifactor](/manage-users/user-profile.md), la caducidad de
+las contraseñas y el bloqueo de cuentas inactivas.
 
 :::info ¿Más preguntas sobre la seguridad de OpenFn?
 
