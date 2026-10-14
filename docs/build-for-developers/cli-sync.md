@@ -241,6 +241,11 @@ The `project pull` command does three things:
 
 ## Aliases
 
+Aliases are a convenient way to reference things in the local CLI. Aliases are
+never pushed to the app on deploy: they're a purely local artefact.
+
+### Project
+
 Rather than identify a local project with a long-winded UUID or id string, you
 can use an _alias_.
 
@@ -257,6 +262,35 @@ This will save the project to `dev@app.openfn.org.yaml`.
 
 To change the alias, you can simply rename the file. Whatever goes before the
 `@` will be treated as the alias.
+
+### Workflow
+
+You can also alias a Workflow. Simply rename the folder which holds the
+workflow.yaml, and anywhere you would normally reference a workflow, you can
+pass the alias instead of the id.
+
+So for the following project:
+
+```
+├── openfn.yaml
+└── workflows
+    ├── my-workflow
+    │   ├── my-workflow.yaml
+    │   ├── my-step.js
+```
+
+You can alias `my-workflow` to `wf`:
+
+```
+├── openfn.yaml
+└── workflows
+    ├── wf
+    │   ├── my-workflow.yaml
+    │   ├── my-step.js
+```
+
+And run the workflow with `openfn wf`, or deploy only that workflow with
+`openfn project deploy --workflows wf`
 
 ## Checking Out
 
@@ -278,7 +312,7 @@ files) they will be untouched.
 
 ## Running workflows in projects
 
-You can execute any workflow in the checked out project by name:
+You can execute any workflow in the checked out project by id or alias:
 
 ```bash
 openfn my-workflow
@@ -287,12 +321,15 @@ openfn my-workflow
 The CLI will find the workflow in your `workflows` folder and run it. You can
 pass state via `-s` and set log levels as per usual.
 
-When running a workflow by name like this, you get two benefits:
+When running a workflow by id like this, you get two benefits:
 
 - **Credentials** are loaded automatically from the credential map in
   `openfn.yaml`, so you don't need to pass `--credential-map`
 - **Collections** use the server configured in `openfn.yaml`, so you don't need
   to pass `--collections-endpoint` or anything.
+
+By default, the workflow's output will be written to
+`workflows/<id-or-alias>/tmp/output.json`, where it can easily be gitignored.
 
 ## Deploying a Project
 
