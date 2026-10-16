@@ -33,7 +33,10 @@ with the last one.
 Pick out the things a reader would act on: code samples, function names, flags,
 button labels, defaults, versions, limits. Check each against the code:
 `OpenFn/lightning` for the web app, `OpenFn/kit` for the CLI, `OpenFn/adaptors`
-for adaptor functions. Note the file and line. Anything you cannot check from
+for adaptor functions. Check the latest `main`, not a local checkout, which may
+be on another branch: `git clone --depth 1 https://github.com/OpenFn/<repo>.git
+/tmp/<repo>`, or `git pull` it if it is already there. Note the file and line,
+and the commit you checked. Anything you cannot check from
 code, such as pricing, policy, or per-deployment settings, is a question for the
 product team. Try each external link twice: a 404 or 410 means it is dead, but a
 403 or 429 does not.
