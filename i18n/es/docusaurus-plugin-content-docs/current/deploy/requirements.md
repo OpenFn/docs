@@ -1,6 +1,6 @@
 ---
 title: Requisitos
-translation_source_hash: a9076ecb0a1f8904b390ca7474d5443302a760f0
+translation_source_hash: 32e8d750a018a2146c7ea73a650c70fc93b7d6b3
 translation_review_status: machine
 ---
 
@@ -110,7 +110,7 @@ Aunque deberías planificar con cuidado tu estrategia de despliegue junto con un
 especialista en DevOps, estas configuraciones de ejemplo pueden servirte como
 punto de partida.
 
-### (a) Simple {#a-simple}
+### (a) Una sola máquina {#a-single-machine}
 
 Despliega la aplicación y la base de datos en la misma máquina.
 
@@ -124,7 +124,7 @@ flowchart TB
   end
 ```
 
-### (b) Mínima recomendada {#b-recommended-minimum}
+### (b) Persistencia separada de la aplicación {#b-separate-persistence-from-application}
 
 Despliega la aplicación y la base de datos en máquinas distintas.
 
@@ -140,11 +140,11 @@ flowchart TB
   end
 ```
 
-### (c) Ideal {#c-ideal}
+### (c) Alta disponibilidad {#c-high-availability}
 
-Escala automáticamente distintos grupos de nodos optimizados en un clúster de
-Kubernetes para la aplicación de orquestación en Erlang y la aplicación de
-workers de JavaScript.
+Escala automáticamente distintos grupos de nodos optimizados para cada carga de
+trabajo en un clúster de Kubernetes para la aplicación web en Elixir/Erlang y la
+aplicación de workers en NodeJs.
 
 Considera usar Postgres como servicio con alta disponibilidad, o ejecutarlo
 también en un clúster.

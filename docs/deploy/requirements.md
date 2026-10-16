@@ -102,7 +102,7 @@ While your deployment strategy should be carefully considered with a DevOps
 specialist, the following sample configurations may provide useful starting
 points.
 
-### (a) Simple
+### (a) Single Machine
 
 Deploy the application and database on the same machine.
 
@@ -116,7 +116,7 @@ flowchart TB
   end
 ```
 
-### (b) Recommended Minimum
+### (b) Separate Persistence from Application
 
 Deploy the application and database on separate machines.
 
@@ -132,10 +132,10 @@ flowchart TB
   end
 ```
 
-### (c) Ideal
+### (c) High-Availability
 
-Auto-scale different optimized node pools in a Kubernetes cluster for the Erlang
-orchestration app and the JavaScript worker app.
+Auto-scale different workload-optimized node pools in a Kubernetes cluster for
+the Elixir/Erlang web app and the NodeJs worker app.
 
 Consider high-availability Postgres-as-a-service, or also run it in a cluster.
 
