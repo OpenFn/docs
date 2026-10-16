@@ -46,10 +46,11 @@ in the context of the platform.
 All chat sessions are shared between all users of the project. You can start a
 new chat session at any time, or open an old one.
 
-You can configure whether your workflow code, run logs and input/output data are
-sent to the model. Sharing this context allows the Assistant to give a more
-contextually relevant answer, but consider carefully whether the data is
-confidential or sensitive before sending it.
+The Assistant always reads your workflow code. You can also choose to send it
+the current run's logs and input/output data, using the `Send run logs` and
+`Send run data` checkboxes above the chat input. Sharing this context lets the
+Assistant give a more contextually relevant answer, but consider carefully
+whether the data is confidential or sensitive before sending it.
 
 ## A Note on Responsible AI Usage
 
@@ -140,6 +141,10 @@ records, which is usually all it needs to help you fix your job code.
   Assistant is told `[erased by this project's retention policy]` instead. It is
   told when data was skipped rather than left to assume it saw everything.
 - Very large data is not sent. You will see `[too large to summarise]`.
+- Sending data for a whole run only sends so much in total. Once that limit is
+  reached, the remaining steps show
+  `[not read, the run's data ran past what can be sent]` instead of their input
+  and output.
 
 ### The one thing to know
 
