@@ -13,13 +13,18 @@ workflows.
 
 ### Failure Alerts
 
-You can enable failure alerts to receive email notifications when a job fails
-under `Project Settings > Collaboration`.
+You can enable failure alerts to receive email notifications when a run fails
+under `Project Settings > Collaboration`. Failure alerts are off until you turn
+them on, and you can only change your own settings.
 
 ![Failure Alert](/img/lightning_failure_alert.webp)
 
-The email notification includes the logs and a link to the failed run that you
-can inspect and begin troubleshooting.
+The email links to the failed work order, to the run and its logs, and to the
+workflow's health page, where failures are grouped by error.
+
+To avoid filling your inbox, you get at most 3 alerts for each workflow every 5
+minutes. Later alerts in the same 5 minutes say in the subject line how many
+times the workflow has failed.
 
 ![Failure Email](/img/lightning_failure_email.webp)
 
@@ -28,8 +33,14 @@ can inspect and begin troubleshooting.
 ### Email Digests
 
 Also in `Project Settings > Collaboration`, you can choose to receive daily,
-weekly or monthly email digests from a project, summarizing successful and
-failed runs for each of your workflows.
+weekly or monthly email digests from a project, counting the successful and
+failed work orders for each of your workflows. The digest is set to `Never`
+until you change it.
+
+Digests are sent at 10:00 UTC: daily digests every day, weekly digests on
+Mondays, and monthly digests on the 1st of the month. Each digest links to the
+matching runs on the History page and, if there were failures, to the workflow's
+health page.
 
 ![Digest Email Setting](/img/lightning_digest.webp)
 
