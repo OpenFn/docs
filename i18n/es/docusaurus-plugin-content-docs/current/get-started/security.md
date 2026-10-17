@@ -1,7 +1,7 @@
 ---
 sidebar_label: Seguridad en las implementaciones
 title: Consideraciones de seguridad para proyectos de integración de datos
-translation_source_hash: a576f29b76557dfb125aa3e2356665992cc8febb
+translation_source_hash: 640b8520b5c992a5f055476d380cb1ba7d7f5c59
 translation_review_status: machine
 ---
 

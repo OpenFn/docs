@@ -1,6 +1,6 @@
 ---
 title: Requisitos
-translation_source_hash: d6319ee93af8593993ba05ec23a94e41c4b946ad
+translation_source_hash: de80a04288f28b1b038411af676bcb22d3961597
 translation_review_status: machine
 ---
 
@@ -45,13 +45,13 @@ para que tu socio de despliegue pueda estimar mejor el costo total de propiedad.
 
 ## Conocimientos necesarios {#knowledge-requirements}
 
-| Habilidad     | Importancia y motivo                                                                                                                                                                                                                                                                                                        |
-| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Elixir/Erlang | La **capa de aplicación web y orquestación** de OpenFn es una aplicación Elixir que se ejecuta sobre Erlang OTP.                                                                                                                                                                                                            |
-| JavaScript    | Los **workers que procesan los jobs** de OpenFn y los propios workflows de OpenFn se basan en JavaScript. Si sabes cómo funciona Node.js, puedes crear workflows que hagan _cualquier cosa_.                                                                                                                                |
-| Postgres      | La **base de datos** predeterminada de OpenFn es PostgreSQL                                                                                                                                                                                                                                                                 |
-| Docker        | Publicamos todas las **[imágenes](https://hub.docker.com/repository/docker/openfn/lightning/general) de OpenFn** en Docker Hub. Tanto si quieres simplificar la configuración para desarrolladores como si usas tecnologías de orquestación de contenedores, te será útil entender Docker y la computación en contenedores. |
-| Kubernetes    | Kubernetes es una forma de ejecutar despliegues de **alta disponibilidad**: ofrece **balanceo de carga** y simplifica la **administración de contenedores** en varios hosts. La otra opción compatible es Docker Engine en dos o más nodos.                                                                                 |
+| Habilidad     | Importancia y motivo                                                                                                                                                                                                                                                                                      |
+| ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Elixir/Erlang | La **capa de aplicación web y orquestación** de OpenFn es una aplicación Elixir que se ejecuta sobre Erlang OTP.                                                                                                                                                                                          |
+| JavaScript    | Los **workers que procesan los jobs** de OpenFn y los propios workflows de OpenFn se basan en JavaScript. Si sabes cómo funciona Node.js, puedes crear workflows que hagan _cualquier cosa_.                                                                                                              |
+| Postgres      | La **base de datos** predeterminada de OpenFn es PostgreSQL                                                                                                                                                                                                                                               |
+| Docker        | Publicamos todas las **[imágenes](https://hub.docker.com/orgs/openfn/repositories) de OpenFn** en Docker Hub. Tanto si quieres simplificar la configuración para desarrolladores como si usas tecnologías de orquestación de contenedores, te será útil entender Docker y la computación en contenedores. |
+| Kubernetes    | Kubernetes es una forma de ejecutar despliegues de **alta disponibilidad**: ofrece **balanceo de carga** y simplifica la **administración de contenedores** en varios hosts. La otra opción compatible es Docker Engine en dos o más nodos.                                                               |
 
 ## Requisitos de las máquinas {#machine-requirements}
 

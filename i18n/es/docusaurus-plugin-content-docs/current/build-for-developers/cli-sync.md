@@ -2,7 +2,7 @@
 title: OpenFn Sync
 sidebar_label: Sync
 slug: /sync
-translation_source_hash: 00115e52a11ca812e0959d7b74220077ac5e72fd
+translation_source_hash: b5c851ea761fa83e78cbc775d08758a33c54851c
 translation_review_status: machine
 ---
 
@@ -92,7 +92,8 @@ En resumen, estos archivos son:
 - La carpeta `.projects` contiene una representación YAML completa de cada
   proyecto. Las personas casi nunca la usan.
 - La carpeta `.openfn` contiene metadatos que usa la CLI. No está pensada para
-  las personas y no debería incluirse en git.
+  las personas, pero debería incluirse en git para que GitHub Sync funcione
+  correctamente.
 
 :::note
 
@@ -256,6 +257,11 @@ El comando `project pull` hace tres cosas:
 
 ## Alias {#aliases}
 
+Los alias son una forma práctica de referirte a elementos en la CLI local. Nunca
+se suben a la aplicación al desplegar: existen solo en tu entorno local.
+
+### Proyecto {#project}
+
 En lugar de identificar un proyecto local con un UUID o un id largo, puedes usar
 un _alias_.
 
@@ -272,6 +278,35 @@ Esto guarda el proyecto en `dev@app.openfn.org.yaml`.
 
 Para cambiar el alias, basta con cambiar el nombre del archivo. Lo que vaya
 antes de `@` se tratará como el alias.
+
+### Workflow {#workflow}
+
+También puedes asignarle un alias a un workflow. Basta con cambiar el nombre de
+la carpeta que contiene el workflow.yaml y, donde normalmente indicarías un
+workflow, puedes pasar el alias en lugar del id.
+
+Por ejemplo, en este proyecto:
+
+```
+├── openfn.yaml
+└── workflows
+    ├── my-workflow
+    │   ├── my-workflow.yaml
+    │   ├── my-step.js
+```
+
+Puedes asignarle a `my-workflow` el alias `wf`:
+
+```
+├── openfn.yaml
+└── workflows
+    ├── wf
+    │   ├── my-workflow.yaml
+    │   ├── my-step.js
+```
+
+Así puedes ejecutar el workflow con `openfn wf`, o desplegar solo ese workflow
+con `openfn project deploy --workflows wf`.
 
 ## Hacer checkout {#checking-out}
 
@@ -294,7 +329,7 @@ archivos (como archivos de state o de pruebas), no se tocan.
 
 ## Ejecutar workflows en proyectos {#running-workflows-in-projects}
 
-Puedes ejecutar cualquier workflow del proyecto con checkout por su nombre:
+Puedes ejecutar cualquier workflow del proyecto con checkout por su id o alias:
 
 ```bash
 openfn my-workflow
@@ -303,12 +338,16 @@ openfn my-workflow
 La CLI busca el workflow en tu carpeta `workflows` y lo ejecuta. Puedes pasar
 state con `-s` y definir los niveles de log como de costumbre.
 
-Al ejecutar un workflow por su nombre de esta forma, obtienes dos ventajas:
+Al ejecutar un workflow por su id de esta forma, obtienes dos ventajas:
 
 - Las **credenciales** se cargan automáticamente desde el mapa de credenciales
   de `openfn.yaml`, así que no necesitas pasar `--credential-map`
 - Las **colecciones** usan el servidor configurado en `openfn.yaml`, así que no
   necesitas pasar `--collections-endpoint` ni nada más.
+
+De forma predeterminada, la salida del workflow se escribe en
+`workflows/<id-or-alias>/tmp/output.json`, donde es fácil excluirla de git con
+.gitignore.
 
 ## Desplegar un proyecto {#deploying-a-project}
 

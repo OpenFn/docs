@@ -42,13 +42,13 @@ your deployment partner can better estimate your total cost of ownership.
 
 ## Knowledge Requirements
 
-| Skill         | Relevance and reason                                                                                                                                                                                                                                                         |
-| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Elixir/Erlang | The OpenFn **webapp/orchestration layer** is an Elixir application running on Erlang OTP.                                                                                                                                                                                    |
-| JavaScript    | The OpenFn **job processing workers** and OpenFn workflows themselves are JavaScript-based. With knowledge of how Node.js works you can build workflows that do _anything_.                                                                                                  |
-| Postgres      | The default **database** for OpenFn is PostgreSQL                                                                                                                                                                                                                            |
-| Docker        | We publish all **OpenFn [images](https://hub.docker.com/repository/docker/openfn/lightning/general)** on Docker Hub. Whether you're streamlining developer setup or using container orchestration technologies, understanding Docker and containerized computing is helpful. |
-| Kubernetes    | Kubernetes is one way to run **high-availability** deployments: it provides **load balancing** and simplifies **container management** across multiple hosts. Docker Engine across two or more nodes is the other supported option.                                          |
+| Skill         | Relevance and reason                                                                                                                                                                                                                                       |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Elixir/Erlang | The OpenFn **webapp/orchestration layer** is an Elixir application running on Erlang OTP.                                                                                                                                                                  |
+| JavaScript    | The OpenFn **job processing workers** and OpenFn workflows themselves are JavaScript-based. With knowledge of how Node.js works you can build workflows that do _anything_.                                                                                |
+| Postgres      | The default **database** for OpenFn is PostgreSQL                                                                                                                                                                                                          |
+| Docker        | We publish all **OpenFn [images](https://hub.docker.com/orgs/openfn/repositories)** on Docker Hub. Whether you're streamlining developer setup or using container orchestration technologies, understanding Docker and containerized computing is helpful. |
+| Kubernetes    | Kubernetes is one way to run **high-availability** deployments: it provides **load balancing** and simplifies **container management** across multiple hosts. Docker Engine across two or more nodes is the other supported option.                        |
 
 ## Machine Requirements
 
