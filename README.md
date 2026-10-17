@@ -5,7 +5,7 @@ site._**
 
 ## Contributing to this documentation site
 
-Visit: https://docs.openfn.org/documentation/writing-docs/
+Visit: https://docs.openfn.org/documentation/contribute/writing-docs
 
 Follow the house style in [STYLE.md](STYLE.md) when you write or edit a page.
 
