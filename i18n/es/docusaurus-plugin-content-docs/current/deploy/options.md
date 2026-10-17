@@ -1,6 +1,6 @@
 ---
 title: Planificación
-translation_source_hash: 3e987c2fd49a72145781ac9cb9a7612098b50195
+translation_source_hash: e99faa0a21e64f11e2c6cda55f63d598632014cb
 translation_review_status: machine
 ---
 
@@ -20,14 +20,88 @@ de ningún proveedor (**no vendor lock-in**).
 
 :::
 
-|           Opción            |                                               Nube gratuita                                               |                                                           OpenFn Cloud                                                           |                                                                                   Dedicada                                                                                    |                                                                         Hazlo tú mismo (DIY)                                                                         |
-| :-------------------------: | :-------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|         Descripción         |                 Pasa a producción hoy mismo en OpenFn.org con proyectos de pequeña escala                 |                                     Aumenta o reduce la escala y paga solo lo que necesitas                                      |                          Una instalación de OpenFn dedicada y sin restricciones en cualquier parte del mundo, en nuestros servidores o en los tuyos                           |                                                       Despliega y administra tus propias soluciones con OpenFn                                                       |
-|          Licencia           |                                  Gratis para siempre, con límites de uso                                  | **SaaS** ([planes](https://www.openfn.org/pricing)); contacta a enterprise@openfn.org para acuerdos personalizados o con factura | **SDaaS** incluye como servicio el despliegue, el mantenimiento, los parches de seguridad, las actualizaciones y la resolución de problemas; contacta a enterprise@openfn.org | La licencia LGPLv3 te permite usarlo libremente en cualquier solución cerrada o de código abierto, pero todas las obras _derivadas_ tienen que ser de código abierto |
-|          Ubicación          |                              Infraestructura en la nube **global** y segura                               |                                          Infraestructura en la nube **global** y segura                                          |                                                              Infraestructura **local (en el país)** o **global**                                                              |                                                                            Donde quieras                                                                             |
-|         Despliegue          |                 **Haz clic para empezar** en [OpenFn.org](https://www.openfn.org/signup)                  |                             **Haz clic para empezar** en [OpenFn.org](https://www.openfn.org/signup)                             |                                                                     **Contacta a** enterprise@openfn.org                                                                      |                                     Lee esta página de la documentación y visita nuestro [GitHub](https://www.github.com/OpenFn)                                     |
-| Instalación y configuración | **Tú eliges**: configurarlo por tu cuenta, con un implementador certificado o con el equipo de OpenFn.org |            **Tú eliges**: configurarlo por tu cuenta, con un implementador certificado o con el equipo de OpenFn.org             |                                   **Tú eliges**: configurarlo por tu cuenta, con un implementador certificado o con el equipo de OpenFn.org                                   |                              **Tú eliges**: configurarlo por tu cuenta, con un implementador certificado o con el equipo de OpenFn.org                               |
-|           Soporte           |               Da y recibe soporte a través de la [comunidad](https://community.openfn.org)                |                                          Varios niveles a través de support@openfn.org                                           |                                                                 Varios niveles a través de support@openfn.org                                                                 |                                             Da y recibe soporte a través de la [comunidad](https://community.openfn.org)                                             |
+|   Opción    |                                Nube gratuita                                 |                               OpenFn Cloud                               |                                                                   Dedicada                                                                    |                                                Hazlo tú mismo (DIY)                                                |
+| :---------: | :--------------------------------------------------------------------------: | :----------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------: |
+| Descripción |  Pasa a producción hoy mismo en OpenFn.org con proyectos de pequeña escala   |         Aumenta o reduce la escala y paga solo lo que necesitas          |          Una instalación de OpenFn dedicada y sin restricciones en cualquier parte del mundo, en nuestros servidores o en los tuyos           |                              Despliega y administra tus propias soluciones con OpenFn                              |
+|  Licencia   |                   Gratis para siempre, con límites de uso                    |             Planes SaaS, con SLA personalizados disponibles              | Despliegue en tu infraestructura en niveles definidos (consulta [más abajo](#local-deployment-with-openfn)); contacta a enterprise@openfn.org | Úsalo libremente en cualquier solución, pero todas las obras _derivadas_ tienen que ser de código abierto (LGPLv3) |
+|  Ubicación  |                Infraestructura en la nube **global** y segura                |              Infraestructura en la nube **global** y segura              |                                              Infraestructura **local (en el país)** o **global**                                              |                                                   Donde quieras                                                    |
+| Despliegue  |   **Haz clic para empezar** en [OpenFn.org](https://www.openfn.org/signup)   | **Haz clic para empezar** en [OpenFn.org](https://www.openfn.org/signup) |                                                     **Contacta a** enterprise@openfn.org                                                      |            Lee esta página de la documentación y visita nuestro [GitHub](https://www.github.com/OpenFn)            |
+|   Soporte   | Da y recibe soporte a través de la [comunidad](https://community.openfn.org) |              Varios niveles a través de support@openfn.org               |                                                 Varios niveles a través de support@openfn.org                                                 |                    Da y recibe soporte a través de la [comunidad](https://community.openfn.org)                    |
+
+:::info Opciones para implementar el proyecto
+
+Elijas la opción que elijas, puedes configurarla por tu cuenta, trabajar con un
+[implementador certificado](https://www.openfn.org/partners) o con el equipo
+principal de OpenFn.
+
+:::
+
+## Despliegue local con OpenFn {#local-deployment-with-openfn}
+
+Si quieres que OpenFn te ayude a desplegar en tu propia infraestructura, en
+general te aconsejamos pensar en tres niveles. Funcionan como una escalera:
+empieza con un piloto, demuestra que la integración funciona y luego sube de
+nivel a medida que tu equipo tenga capacidad.
+
+Todos los niveles dan por hecho un **entorno de ejecución de contenedores que
+funcione** (Docker Engine o Kubernetes), que tu equipo proporciona antes de que
+empiece el despliegue. Si todavía no puedes aprovisionar y operar hosts de
+Docker o un clúster de Kubernetes, empieza por resolver esa carencia, por
+ejemplo, con un socio de implementación local.
+
+|                      | Docker Pilot                                                            | Resilient Production                                                   | Integrated Production                                      |
+| -------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------- |
+| Propósito            | Demostrar que OpenFn puede mover datos reales entre tus sistemas reales | Una plataforma de producción basada en los patrones estándar de OpenFn | OpenFn conectado a las herramientas operativas que ya usas |
+| Entorno de ejecución | Un solo host de Docker que tú proporcionas                              | Docker Engine en 2 o más nodos, o tu clúster de Kubernetes             | Tu stack de producción                                     |
+| Alta disponibilidad  | No                                                                      | Sí                                                                     | Sí                                                         |
+| Lo opera             | OpenFn, mientras dura el piloto                                         | Tu equipo                                                              | Tu equipo                                                  |
+| Alcance              | Fijo                                                                    | Fijo                                                                   | Se define tras una fase de descubrimiento                  |
+
+### Docker Pilot {#docker-pilot}
+
+Un despliegue de nivel de desarrollo y por tiempo limitado, cuyo único objetivo
+es confirmar que la integración funciona en tu entorno. Incluye un solo host de
+Docker (el tuyo), Postgres en un contenedor, el monitoreo predeterminado de
+OpenFn, los secretos en un archivo `.env`, el correo a través de Mailgun o de tu
+servidor SMTP actual, un manual de operaciones (runbook) basado en la plantilla
+estándar de OpenFn y la capacitación Deployment 101.
+
+El piloto se ejecuta en un solo host sin redundancia: si ese host falla, el
+servicio queda caído hasta que se restablece. Eso es aceptable para una prueba
+por tiempo limitado, pero no para producción.
+
+### Resilient Production {#resilient-production}
+
+La opción predeterminada para producción. Varias instancias de cada servicio de
+OpenFn se ejecutan en dos o más nodos, así que la plataforma sigue disponible si
+falla un servidor o un contenedor. Incluye copias de seguridad con
+procedimientos de restauración probados, monitoreo y alertas según los patrones
+estándar de OpenFn, administración de secretos con una opción estándar
+compatible con tu entorno de ejecución, una forma de actualizar y revertir, y un
+manual de operaciones completo para producción.
+
+Antes de elegir este nivel, define qué persona o equipo va a operar la
+plataforma. Debería tener ya aplicaciones en contenedores en ejecución.
+
+### Integrated Production {#integrated-production}
+
+Todo lo de Resilient Production, más la integración con tus propias herramientas
+de monitoreo y alertas (por ejemplo, Prometheus, Grafana, Datadog), tu gestor de
+secretos (por ejemplo, HashiCorp Vault, AWS Secrets Manager), tus pipelines de
+CI/CD y tus procesos de control de cambios. Como este trabajo depende de tu
+entorno, su alcance se define solo después de una fase de descubrimiento.
+
+### Qué recibes {#what-you-receive}
+
+Todos los niveles terminan con un repositorio de GitHub para el despliegue, con
+la configuración de OpenFn, la documentación técnica de traspaso, la
+capacitación Deployment 101 y un manual de operaciones. Los niveles de
+producción agregan un informe de verificación de copias de seguridad y
+restauración; Integrated Production agrega documentación de integración a medida
+y un informe de descubrimiento y alcance.
+
+Si tu equipo va a necesitar ayuda continua para operar la plataforma después del
+traspaso, contacta a enterprise@openfn.org.
 
 ## Ejemplo de plan de despliegue local {#sample-local-deployment-plan}
 
@@ -45,7 +119,8 @@ sensibles en servidores locales o administrados por el gobierno, podrías:
    por tiempo limitado** con el servicio en la nube mientras determinas si se
    ajusta a tus necesidades y qué valor aporta. (Es una forma más segura, más
    barata y más rápida de demostrar el valor y la viabilidad de la solución en
-   sí).
+   sí). Si el piloto tiene que ejecutarse en tu propia infraestructura, usa en
+   su lugar un [Docker Pilot](#docker-pilot) por tiempo limitado.
 2. Mientras se ejecuta la primera fase, **evaluar el valor y empezar los
    preparativos**:
    1. Evalúa el **valor de la solución** en sí: ¿resuelve los problemas que
@@ -61,7 +136,8 @@ sensibles en servidores locales o administrados por el gobierno, podrías:
       datos anteriores, haz un análisis de costo-beneficio de ambas opciones.
 3. Trabajar con OpenFn.org o con un socio certificado para **practicar el
    despliegue**, la migración, la reversión, el reinicio, las copias de
-   seguridad, etc.
+   seguridad, etc. Un [Docker Pilot](#docker-pilot) es un buen entorno para
+   hacerlo.
 4. Con las herramientas de portabilidad de OpenFn, **ejecutar una copia local**
    de tu solución alojada en la nube para evaluar si tu despliegue local está
    listo.
@@ -110,10 +186,12 @@ solución de OpenFn a un despliegue local de Lightning.
 
 ## Guías técnicas {#technical-guidelines}
 
-Para ver la documentación detallada sobre el despliegue, visita la
-[página de documentación para desarrolladores](https://openfn.github.io/lightning/readme.html)
-de Lightning y presta especial atención a estas secciones:
+Para ver las instrucciones detalladas de despliegue, visita el
+[repositorio de Lightning](https://github.com/OpenFn/lightning) en GitHub y
+presta especial atención a:
 
-1. [Getting Started](https://openfn.github.io/lightning/readme.html#getting-started)
-2. [Deployment Considerations](https://openfn.github.io/lightning/deployment.html)
-3. [Benchmarking](https://openfn.github.io/lightning/benchmarking.md.html#run-benchmarking-tests-against-the-demo-webhook)
+1. [Getting Started](https://github.com/OpenFn/lightning#getting-started)
+2. [Deployment notes](https://github.com/OpenFn/lightning/blob/main/DEPLOYMENT.md)
+   (cifrado, workers, correo, almacenamiento y variables de entorno)
+3. [Workers](https://github.com/OpenFn/lightning/blob/main/WORKERS.md)
+4. [Benchmarking tooling](https://github.com/OpenFn/lightning/tree/main/tooling/benchmarking)

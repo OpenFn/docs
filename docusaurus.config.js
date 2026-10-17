@@ -48,6 +48,9 @@ module.exports = {
   },
   themes: ['@docusaurus/theme-mermaid'],
   themeConfig: {
+    mermaid: {
+      theme: { light: 'neutral', dark: 'dark' },
+    },
     metadata: [
       {
         name: 'keywords',

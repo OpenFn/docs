@@ -16,14 +16,18 @@ your deployment partner can better estimate your total cost of ownership.
 
 :::
 
-1. How do you currently deploy, monitor, and maintain cloud-based applications
+1. Who will operate OpenFn after it is deployed? Name the person or team, and
+   say whether they already run containerized applications (Docker or
+   Kubernetes) in production. If nobody can be named yet, start with a pilot
+   rather than a production deployment.
+2. How do you currently deploy, monitor, and maintain cloud-based applications
    at your organization/government? All deployment environments and institutions
    are unique and OpenFn is flexible; based on your current DevOps processes we
    will recommend different deployment mechanisms.
-2. What IT and DevOps staff resources are available to support OpenFn deployment
+3. What IT and DevOps staff resources are available to support OpenFn deployment
    and maintenance? Do they have experience with Docker & Kubernetes? Do they
    have experience with Postgres databases?
-3. Will the deployment require high-availability? (i.e., if OpenFn will receive
+4. Will the deployment require high-availability? (i.e., if OpenFn will receive
    requests in real-time from other applications rather than run cron-based
    jobs, then at least two instances of OpenFn should be run simultaneously
    behind a load-balancer, making use of “distributed Erlang” to ensure graceful
@@ -31,44 +35,55 @@ your deployment partner can better estimate your total cost of ownership.
    requests and will only be responsible for making relatively time-independent
    outbound requests on a cron schedule, the importance of maintaining a
    zero-downtime system is slightly reduced.)
+5. Does OpenFn need to plug into tooling you already run, such as your own
+   monitoring and alerting, secrets manager, CI/CD pipelines, or change-control
+   process? Integrating with customer-specific tooling is scoped separately from
+   a standard deployment.
 
 ## Knowledge Requirements
 
-| Skill      | Relevance and reason                                                                                                                                                                                                                                                         |
-| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Erlang     | The OpenFn **webapp/orchestration layer** is an Erlang OTP application.                                                                                                                                                                                                      |
-| JavaScript | The OpenFn **job processing workers** and OpenFn workflows themselves are JavaScript-based. With knowledge of how Node.js works you can build workflows that do _anything_.                                                                                                  |
-| Postgres   | The default **database** for OpenFn is PostgreSQL                                                                                                                                                                                                                            |
-| Docker     | We publish all **OpenFn [images](https://hub.docker.com/repository/docker/openfn/lightning/general)** on Docker Hub. Whether you're streamlining developer setup or using container orchestration technologies, understanding Docker and containerized computing is helpful. |
-| Kubernetes | For high-availability deployments, Kubernetes services provide **load balancing** and simplify **container management** on multiple hosts. They make it easy for an enterprise's apps to have greater scalability and be flexible, portable and more productive.             |
+| Skill         | Relevance and reason                                                                                                                                                                                                                                                         |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Elixir/Erlang | The OpenFn **webapp/orchestration layer** is an Elixir application running on Erlang OTP.                                                                                                                                                                                    |
+| JavaScript    | The OpenFn **job processing workers** and OpenFn workflows themselves are JavaScript-based. With knowledge of how Node.js works you can build workflows that do _anything_.                                                                                                  |
+| Postgres      | The default **database** for OpenFn is PostgreSQL                                                                                                                                                                                                                            |
+| Docker        | We publish all **OpenFn [images](https://hub.docker.com/repository/docker/openfn/lightning/general)** on Docker Hub. Whether you're streamlining developer setup or using container orchestration technologies, understanding Docker and containerized computing is helpful. |
+| Kubernetes    | Kubernetes is one way to run **high-availability** deployments: it provides **load balancing** and simplifies **container management** across multiple hosts. Docker Engine across two or more nodes is the other supported option.                                          |
 
 ## Machine Requirements
 
-:::tip If you're going with "DIY", start simple
+:::tip Start with a working container runtime
 
-Kubernetes is _NOT_ required, but it's recommended for high-availability
-deployments. Consider Docker or bare-metal deployments (Erlang OTP apps work
-very well on Linux) for a simpler setup.
+Every OpenFn deployment assumes a container runtime (Docker Engine or
+Kubernetes) is already in place and operated by your team before deployment
+begins. Kubernetes is _not_ required. For a pilot, a single Docker host is
+enough. If your team can't yet provision and operate Docker hosts or a
+Kubernetes cluster, address that gap first, for example with a local
+implementation partner.
 
 :::
 
 The official OpenFn SaaS uses [Kubernetes](https://kubernetes.io/) for managed
-deployments on Google Cloud and we recommend it for high-availability and
-scalable deployments. With dynamic workloads, it is important (for stability and
-cost reasons) to be able to scale the Erlang OTP app node pool & pods
-independently of the JavaScript worker node pool & pods.
+deployments on Google Cloud. With dynamic workloads, it is important (for
+stability and cost reasons) to be able to scale the Erlang OTP app node pool &
+pods independently of the JavaScript worker node pool & pods.
 
-1. Using a scalable SQL service and keeping _at least_ two app nodes running
-   with the following specs will help prevent unwanted downtime.
+1. For high-availability deployments, use a scalable SQL service and keep _at
+   least_ two app nodes running, on Kubernetes or on Docker Engine across two or
+   more hosts. On Kubernetes (GKE), Lightning forms its Erlang cluster
+   automatically; elsewhere it uses gossip or Postgres-based node discovery (see
+   Lightning's
+   [deployment notes](https://github.com/OpenFn/lightning/blob/main/DEPLOYMENT.md)).
+   Reference specs per app pod on GKE:
    1. **GKE requests:** cpu@ "500m", memory@ "1024Mi"
    2. **GKE limits:** memory@ "2560Mi"
 2. For simple non-Kubernetes/HA deployments, the minimum recommended machines
    are:
    - **Application machine:** 2 vCPU (roughly a single core of a 2.6 GHz Intel
      Xeon E5) with 3.75 GB memory and 15 GB of storage for the application
-     1. Any Linux-based operating system that can run Docker (Ubuntu 20.04+ or
-        Debian 9+).
-     2. Docker (18 or greater).
+     1. A currently supported Linux distribution that can run Docker Engine (for
+        example, a current Ubuntu LTS or Debian stable release).
+     2. A currently supported version of Docker Engine.
    - **Database machine:** 2 vCPU (roughly a single core of a 2.6 GHz Intel Xeon
      E5) with 3.75 GB memory. Storage required for the DB varies by how many
      days (if any) of message data you’d like to store on the app itself and
@@ -76,10 +91,11 @@ independently of the JavaScript worker node pool & pods.
      scaling physical storage is not difficult for your particular deployment,
      start at 40 GB.
      1. A Postgres (at least v14.2) instance, run on a _separate server_ from
-        the application for greater stability.
-3. If both the application and database are hosted on the same machine (which is
-   not recommended) that machine should have roughly the sum of the requirements
-   above.
+        the application for greater stability. In production, Lightning connects
+        to Postgres over SSL by default.
+3. Hosting the application and database on the same machine is acceptable for a
+   pilot but not recommended for production. That machine should have roughly
+   the sum of the requirements above.
 4. **Note** that the application by default provides an HTTP endpoint (no
    TLS/SSL). A reverse-proxy/load-balancer is expected to provide both HTTPS
    (HTTP2 compliant) and load balancing between instances.
@@ -96,65 +112,120 @@ independently of the JavaScript worker node pool & pods.
    to an unrestricted account (`sudo` for Ubuntu) if deployment maintenance
    services are required.
 
+## Beyond the servers
+
+A production deployment needs more than compute and a database. Plan for these
+before go-live:
+
+- **Mail:** Lightning sends system emails (for example, password resets). It
+  supports Mailgun or your own SMTP server.
+- **Secrets:** Lightning needs an encryption key for credentials at rest and a
+  set of worker keys. A `.env` file is fine for a pilot; production should use a
+  proper secrets option suited to your runtime.
+- **Monitoring and alerting:** know when the platform or a workflow stops doing
+  its job. Lightning can expose Prometheus metrics.
+- **Backups:** scheduled backups of the database, with restores that have
+  actually been tested.
+- **Upgrades and rollback:** a defined path for applying new OpenFn versions and
+  rolling back if something goes wrong.
+
+See Lightning's
+[deployment notes](https://github.com/OpenFn/lightning/blob/main/DEPLOYMENT.md)
+for the environment variables behind each of these.
+
 ## Possible Configurations
 
 While your deployment strategy should be carefully considered with a DevOps
 specialist, the following sample configurations may provide useful starting
-points.
+points. See
+[Local deployment with OpenFn](/deploy/options.md#local-deployment-with-openfn)
+for how these map to the deployment tiers OpenFn offers.
 
 ### (a) Single Machine
 
-Deploy the application and database on the same machine.
+Run the application, worker, and database on one machine. It's the simplest
+setup and suits a pilot, but if that machine fails the service is unavailable
+until it is restored.
 
 ```mermaid
 flowchart TB
-  subgraph "Linux VM with Docker"
-    ex1-.-db1
-    direction TB
-    ex1(Erlang OTP App with JS Worker)
-    db1[(PostgreSQL)]
+  users(Users & webhooks) --> px1
+  subgraph vm1["Linux VM with Docker"]
+    px1(Reverse proxy: HTTPS) --> ex1
+    ex1(Lightning web app) -- jobs --- w1(Worker)
+    ex1 -- SQL --> db1[(Postgres)]
   end
 ```
 
 ### (b) Separate Persistence from Application
 
-Deploy the application and database on separate machines.
+Run the application and worker on one machine and Postgres on another. Giving
+the database its own server makes the system more stable and easier to back up.
+Each machine is still a single point of failure, so this isn't high
+availability.
 
 ```mermaid
 flowchart TB
-  ex1-.-db1
-  subgraph "Linux VM with Docker"
-    direction LR
-    ex1(Erlang OTP App)-.-js1(Node.js Worker App)
+  users(Users & webhooks) --> px1
+  ex1 -- SQL --> db1
+  subgraph vm1["Linux VM with Docker"]
+    px1(Reverse proxy: HTTPS) --> ex1
+    ex1(Lightning web app) -- jobs --- w1(Worker)
   end
-  subgraph "Linux VM"
-    db1[(PostgreSQL)]
+  subgraph vm2["Linux VM"]
+    db1[(Postgres)]
   end
 ```
 
-### (c) High-Availability
+### (c) High-Availability on Docker Engine
 
-Auto-scale different workload-optimized node pools in a Kubernetes cluster for
-the Elixir/Erlang web app and the NodeJs worker app.
-
-Consider high-availability Postgres-as-a-service, or also run it in a cluster.
+Run the application and worker on two or more Docker hosts behind a load
+balancer, which also handles HTTPS. If one host fails, the others keep serving
+requests. Use a replicated or managed Postgres service so the database doesn't
+become the weak point.
 
 ```mermaid
 flowchart TB
-  ex1-.-db1
-  ex1-.-js1
-  lb1-->ex1
-  subgraph "Load Balancer"
-    lb1(Ingress)
+  users(Users & webhooks) --> lb1
+  lb1 --> ex1 & ex2
+  ex1 & ex2 -- SQL --> db1
+  subgraph lb["Load balancer"]
+    lb1(HTTPS termination)
   end
-  subgraph "VMs/Node Pools for Erlang apps"
-    direction LR
-    ex1(Erlang OTP Apps)
+  subgraph vm1["Linux VM 1 with Docker"]
+    ex1(Lightning web app) -- jobs --- w1(Worker)
   end
-  subgraph "VMs/Node Pool for JS Worker Apps"
-    js1(Node.js Worker Apps)
+  subgraph vm2["Linux VM 2 with Docker"]
+    ex2(Lightning web app) -- jobs --- w2(Worker)
   end
-  subgraph "VMs/Node Pool"
-    db1[(PostgreSQL)]
+  subgraph pg["Replicated or managed Postgres"]
+    db1[(Postgres)]
+  end
+```
+
+### (d) High-Availability on Kubernetes
+
+Run the web app and the worker in separate node pools that scale on their own,
+each sized for its workload. This is how OpenFn's own cloud runs. For the
+database, use a high-availability managed Postgres service or run Postgres in
+the cluster.
+
+```mermaid
+flowchart TB
+  users(Users & webhooks) --> lb1
+  lb1 --> ex1
+  ex1 -- jobs --- w1
+  ex1 -- SQL --> db1
+  subgraph lb["Load balancer"]
+    lb1(Ingress: HTTPS)
+  end
+  subgraph np1["Node pool for the web app"]
+    ex1(Lightning web app pods)
+  end
+  subgraph np2["Node pool for workers"]
+    w1(Worker pods)
+  end
+  subgraph pg["Managed Postgres or in-cluster"]
+    db1[(Postgres)]
   end
 ```
