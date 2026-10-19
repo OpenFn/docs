@@ -1,6 +1,6 @@
 ---
 title: Requisitos
-translation_source_hash: de80a04288f28b1b038411af676bcb22d3961597
+translation_source_hash: 32e41fc789ea45ec11ccab3e4e6c01de1135f452
 translation_review_status: machine
 ---
 
@@ -33,8 +33,9 @@ para que tu socio de despliegue pueda estimar mejor el costo total de propiedad.
 4. ¿El despliegue requerirá alta disponibilidad? (Es decir, si OpenFn va a
    recibir solicitudes en tiempo real desde otras aplicaciones en lugar de
    ejecutar jobs basados en cron, se deberían ejecutar al menos dos instancias
-   de OpenFn a la vez detrás de un balanceador de carga, usando "Erlang
-   distribuido" para lograr una redundancia de la aplicación sin interrupciones.
+   de OpenFn a la vez detrás de un balanceador de carga, todas activas y unidas
+   en un solo clúster de Erlang (consulta
+   [Alta disponibilidad en Docker Engine](#c-high-availability-on-docker-engine)).
    Si OpenFn no va a recibir solicitudes y solo va a hacer solicitudes salientes
    con un horario cron, donde el momento exacto importa poco, mantener un
    sistema sin tiempo de inactividad es algo menos importante).
@@ -194,11 +195,28 @@ balanceador de carga, que también se encarga de HTTPS. Si un host falla, los
 demás siguen atendiendo las solicitudes. Usa un servicio de Postgres replicado o
 administrado para que la base de datos no se convierta en el punto débil.
 
+:::tip Ejecuta todos los nodos, sin nodos de reserva
+
+Mantén todos tus nodos de Lightning en funcionamiento detrás del balanceador de
+carga. No configures un nodo de reserva, ni en caliente ni en frío: todos los
+nodos atienden tráfico y, si uno falla, los demás asumen su carga. Los nodos se
+unen por su cuenta en un solo clúster de Erlang, así que no tienes que construir
+ningún mecanismo de comunicación entre ellos.
+
+Fuera de Kubernetes, Lightning encuentra los demás nodos mediante gossip de
+forma predeterminada. Gossip usa multidifusión UDP, que la mayoría de las redes
+en la nube bloquean entre máquinas virtuales. En Docker Engine con varios hosts,
+establece `ERLANG_NODE_DISCOVERY_VIA_POSTGRES_ENABLED` en `true` para que los
+nodos se encuentren a través de la base de datos Postgres que ya comparten.
+
+:::
+
 ```mermaid
 flowchart TB
   users(Users & webhooks) --> lb1
   lb1 --> ex1 & ex2
   ex1 & ex2 -- SQL --> db1
+  ex1 <-. Erlang cluster .-> ex2
   subgraph lb["Load balancer"]
     lb1(HTTPS termination)
   end
@@ -217,8 +235,10 @@ flowchart TB
 
 Ejecuta la aplicación web y el worker en grupos de nodos separados que escalan
 por su cuenta, cada uno dimensionado para su carga de trabajo. Así funciona la
-propia nube de OpenFn. Para la base de datos, usa un servicio administrado de
-Postgres con alta disponibilidad o ejecuta Postgres en el clúster.
+propia nube de OpenFn. Igual que en Docker Engine, todos los pods de la
+aplicación web están activos y, en GKE, se unen por su cuenta en un solo clúster
+de Erlang. Para la base de datos, usa un servicio administrado de Postgres con
+alta disponibilidad o ejecuta Postgres en el clúster.
 
 ```mermaid
 flowchart TB
