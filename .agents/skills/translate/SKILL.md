@@ -44,14 +44,18 @@ It runs the checks before translating, then lists each page in scope as missing,
 stale, up to date, or orphaned, with the diff to read, the hash to record, and
 the page's local URL. For a sidebar category, pass its files or folder. If a
 check fails, stop and ask. Do not enable a locale yourself; that changes what
-gets deployed. If the branch is behind `main`, ask to merge `main` in first. If
-your branch comes off another branch, merge `main` into that one, then that one
-into yours.
+gets deployed.
+
+Translate only English that is on `main`. If the English you are asked to
+translate is on a branch that has not merged, stop and say so: its PR merges
+first.
 
 ## Make the locale branch
 
-Make a branch from the current one, named after it plus the locale, such as
-`fix-alerts-es`. Everything below is committed on it, and becomes one PR.
+If you are on `main`, make a branch from it. If you are on another branch, such
+as a translation branch like `i18n-es`, ask whether to branch from `main` or
+from that branch. Name the branch after the scope plus the locale, such as
+`notifications-es`. Everything below is committed on it, and becomes one PR.
 
 ## Fix the English first
 
@@ -59,8 +63,13 @@ Settle the English before you translate it. A fix after translating makes the
 translation stale. Follow `.agents/skills/proofread/SKILL.md` on the pages
 `status.js` lists as missing or stale. Leave up-to-date pages alone; a fix there
 would make their translation stale. It fixes basic typos without asking and
-reports the rest. If it reports anything, stop and ask the user now, and apply
-the fixes they agree to.
+reports the rest.
+
+Only those typo fixes go in the locale PR. Anything else it reports, such as a
+wrong fact or an unclear sentence, needs its own English PR: list it under
+"Problems in the English" and translate the English as it stands. If a problem
+is bad enough that the page should not be translated until it is fixed, stop and
+ask.
 
 If the English changed, run `yarn prettier --write` on those pages and commit
 them on their own, before you translate. Do not push. The fixes change the
@@ -94,17 +103,21 @@ These apply to both tasks.
   the same English gets the same translation on every page.
 
 For more than three pages, split them across subagents, two or three pages each,
-grouped by folder. Give each its pages, the paths to this file and `pages.md`,
-and the status line for each page. Each writes its pages and runs the check.
+grouped by folder. First read the pages for terms that have no translation yet,
+such as a new feature name, and choose a word for each, so every subagent uses
+the same one. Give each subagent its pages, those words, the paths to this file
+and `pages.md`, and the status line for each page. Each writes its pages and
+runs the check.
 
 ## Review
 
 When the pages are written and the check is clean, commit them on the locale
-branch. Do not push. Then run `/review-translation` on the same scope in a new
-subagent: read `.agents/skills/review-translation/SKILL.md` and pass it to a
-fresh agent, not a fork. A translator is poor at spotting its own mistakes, so
-the reviewer must not share your reasoning. It commits its fixes on their own,
-so the translation and the review show as separate diffs.
+branch. Do not push. Then run `/review-translation` in a new subagent, with the
+English paths of the pages you just wrote as its scope, not the scope you were
+given: read `.agents/skills/review-translation/SKILL.md` and pass it to a fresh
+agent, not a fork. A translator is poor at spotting its own mistakes, so the
+reviewer must not share your reasoning. It commits its fixes on their own, so
+the translation and the review show as separate diffs.
 
 ## Build
 

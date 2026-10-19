@@ -184,9 +184,21 @@ function structure(english, translation, current, previous) {
     found.push(
       `translation_source_hash is not the current English (${current}): update the page, or the hash if the translation already matches`
     );
-  const fences = s => (s.match(/<!-- \/?do-not-retranslate -->/g) || []).length;
-  if (previous !== null && fences(translation) < fences(previous))
-    found.push('a do-not-retranslate fence was removed since the last commit');
+  // Every fenced block on main must still be here, word for word.
+  const fenced = s =>
+    [
+      ...s.matchAll(
+        /<!-- do-not-retranslate -->([\s\S]*?)<!-- \/do-not-retranslate -->/g
+      ),
+    ].map(m => m[1].trim());
+  if (previous !== null) {
+    const now = fenced(translation);
+    const lost = fenced(previous).filter(f => !now.includes(f));
+    if (lost.length)
+      found.push(
+        `do-not-retranslate text was removed or changed since main: ${lost.map(f => f.slice(0, 60)).join(' | ')}`
+      );
+  }
   return found;
 }
 
@@ -291,7 +303,7 @@ async function page(locale, enPath) {
       english,
       esText,
       git('hash-object', enPath),
-      git('show', `HEAD:${esPath}`)
+      git('show', `origin/main:${esPath}`)
     ),
     problems: pairs
       .map(r => ({

@@ -54,8 +54,9 @@ function preChecks(locale) {
       yamlOk = `${f}: ${e.message.split('\n')[0]}`;
     }
   }
-  git('fetch', '-q', 'origin', 'main');
+  const fetched = git('fetch', '-q', 'origin', 'main') !== null;
   return [
+    ['fetched origin/main', fetched],
     [
       `"${locale}" is enabled in docusaurus.config.js`,
       locales.includes(`'${locale}'`),
@@ -191,9 +192,11 @@ function main() {
         'src'
       );
     console.log(
-      changed
-        ? `\nInterface sources changed since the interface was last translated:\n${changed}\nCheck whether /translate interface is needed.`
-        : '\nInterface sources unchanged.'
+      !last
+        ? '\nThe interface has never been translated for this locale. Run /translate interface.'
+        : changed
+          ? `\nInterface sources changed since the interface was last translated:\n${changed}\nCheck whether /translate interface is needed.`
+          : '\nInterface sources unchanged.'
     );
   }
   process.exit(failed ? 1 : 0);
