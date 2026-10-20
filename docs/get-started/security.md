@@ -82,13 +82,13 @@ Read on for other resources and implementer communities to check out.
 
 ### Resources referenced in the guidebook
 
-- [Principles of Digital Development Privacy and Security Guide](https://digitalprinciples.org/wp-content/uploads/PDD_Principle-AddressPrivacySecurity_v2.pdf)
+- [Principles for Digital Development](https://digitalprinciples.org/principles/)
 - [UNICEF policy on personal data protection](https://www.unicef.org/supply/media/5356/file/Policy-on-personal-data-protection-July2020.pdf.pdf)
 - [International Committee of the Red Cross Handbook on data protection in humanitarian action](https://www.icrc.org/en/data-protection-humanitarian-action-handbook)
 - [GDPR Quick Guide](https://gdpr.eu/what-is-gdpr/)
 - [Sanity.io A Rough Guide to Running a GDPR Compliant SaaS Business](https://www.sanity.io/blog/a-rough-guide-to-running-a-gdpr-compliant-saas-business)
-- [OWASP API Security Project](https://owasp.org/www-project-api-security/)
-- [GovStack Security & API Standards](https://www.govstack.global/wp-content/uploads/2021/08/Security_Building_Block_Definition_1.0.1.pdf)
+- [OWASP API Security Project](https://owasp.org/API-Security/)
+- [GovStack Security Building Block](https://specs.govstack.global/security)
 - [Health Data Governance Principles](https://www.healthdataprinciples.org/)
 - [CDC Health Data Privacy, Confidentiality, and Security Guidelines](https://gicsandbox.org/sandbox-cms/health-data-privacy-confidentiality-and-security-guidelines-development-toolkit#dd01fcf80d4d46f08a099b282bc23f16)
 
@@ -103,7 +103,7 @@ Here are the key OpenFn templates and resources referenced in the Guidebook:
 
 - [Mapping Specification Template](https://docs.google.com/spreadsheets/d/1IqTIgOzyOztEevXbgY_4uE8Y8tiHXufZXx-IyJZase0/edit#gid=1822444315)
 - [Solution Architecture Diagram](https://lucid.app/lucidchart/1e997197-2d67-4393-8394-a532d83561b2/edit#?templateid=fb96ae05-e288-4d1f-b3fc-2cbf7641a7cc)
-- [BPMN Diagram resources](/documentation/design/design-workflow#diagram-using-global-standards)
+- [BPMN Diagram resources](/design/design-workflow.md#diagram-using-global-standards)
 - [Project Security Configuration & Go-Live Checklist](https://docs.google.com/document/d/1CbQkN7SqNmXeqt3nMTYP4ioQlTuwF2LbDkkFqhp0zsU/edit?usp=sharing)
 
 ### Communities of practice & other experts
@@ -111,7 +111,7 @@ Here are the key OpenFn templates and resources referenced in the Guidebook:
 Here are some other communities you may consider following for more security
 guidance.
 
-1. [OpenHIE Privacy & Security Working Group](https://wiki.ohie.org/display/resources/Privacy+and+Security+Working+Group+Call)
+1. [OpenHIE Community](https://ohie.org/community/)
 2. [GovStack](https://www.govstack.global/)
 3. [DHIS2 Security Team & Community of Practice](https://dhis2.org/security/)
 4. [Asia eHealth Information Network (AeHIN) Communities of Practice](https://www.asiaehealthinformationnetwork.org/communities-of-practice/)
