@@ -108,6 +108,25 @@ function escapeMdx(content) {
   return parts.join('');
 }
 
+// Point relative asset paths at the adaptor's folder on GitHub, since the
+// assets aren't served by the docs site
+function absolutizeAssets(content, name) {
+  const base = `https://raw.githubusercontent.com/OpenFn/adaptors/main/packages/${name}/`;
+  return (
+    content
+      // <img src='./assets/x.png'> or src="assets/x.png"
+      .replace(
+        /(src=['"])(?!https?:|\/|data:|#)(?:\.\/)?([^'"]+)/g,
+        `$1${base}$2`
+      )
+      // ![alt](./assets/x.png)
+      .replace(
+        /(!\[[^\]]*\]\()(?!https?:|\/|data:|#)(?:\.\/)?([^)\s]+)/g,
+        `$1${base}$2`
+      )
+  );
+}
+
 function generateJsDoc(a) {
   // Add line break before </dt> tags and escape MDX specials outside code blocks
   const docsContent = escapeMdx(
@@ -155,7 +174,7 @@ keywords:
 
 Source: https://github.com/OpenFn/adaptors/tree/main/packages/${a.name}
 
-${escapeMdx(JSON.parse(a.readme))}`;
+${escapeMdx(absolutizeAssets(JSON.parse(a.readme), a.name))}`;
 }
 
 const sampleConfiguration = json => {
