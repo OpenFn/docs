@@ -225,9 +225,9 @@ flowchart TB
 
 Run the web app and the worker in separate node pools that scale on their own,
 each sized for its workload. This is how OpenFn's own cloud runs. As on Docker
-Engine, every web app pod is active, and on GKE the pods join one Erlang cluster
-on their own. For the database, use a high-availability managed Postgres service
-or run Postgres in the cluster.
+Engine, every web app pod is active, and on GKE the pods join one Erlang
+cluster. For the database, use a high-availability managed Postgres service or
+run Postgres in the cluster.
 
 ```mermaid
 flowchart TB
