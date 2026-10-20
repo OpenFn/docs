@@ -89,30 +89,35 @@ you are connecting. Technical documentation for individual adaptors can be found
 in the [Adaptor docs](/adaptors) or in their respective repositories on Github
 at [github.com/OpenFn/adaptors](https://github.com/OpenFn/adaptors).
 
-Credentials can only be viewed by you (the creator), and are loaded into your
-private runtime for job execution. You can delete these credentials at any time
-and they will be purged from the system.
+Each credential is owned by the user who created it. The owner can share a
+credential with projects, so that collaborators with the Editor role or above
+can use it in their jobs without seeing its secret values. Only the owner can
+edit or delete a credential, and the owner can transfer it to another user.
+Credentials are loaded into the runtime only for job execution. When a
+credential is deleted, it is purged from the system.
 [See docs](/manage-users/user-credentials.md) for more on OpenFn credentials
 management and sharing.
 
 ## User Access Management and RBAC
 
 OpenFn supports user access management through **role-based access control
-(RBAC)**, allowing admins to assign granular permissions at both the environment
-and project levels. Roles (e.g., Admin, Editor, Viewer) control who can view,
-edit, run, or manage workflows and credentials. Access can be restricted to
-specific projects or environment configurations, with support for audit logs and
-scoped API tokens to ensure security and compliance.
+(RBAC)** at the project level. Each collaborator on a project has one of four
+roles: Owner, Admin, Editor, or Viewer. The role controls who can view, edit,
+and run workflows, and who can manage the project's settings and collaborators.
+Instance superusers can view an audit trail of user actions across the instance.
+Personal access tokens are not scoped: a token can do anything the user who
+created it can do.
 
 When new users are invited to work on your Project as Collaborators, they are
 assigned a role that determines their permissions. See docs on
 [Collaboration](/manage-projects/collaboration.md) and
 [User Roles](/manage-projects/user-roles-permissions.md) for more information.
 
-When users register for the platform, they will be prompted to create a secure
-password. OpenFn super administrators can also enable
-[Multi-Factor Authentication](/manage-users/user-profile.md), password expiry,
-and stale account lockout.
+When users register for the platform, they are prompted to create a secure
+password. Each user can turn on
+[Multi-Factor Authentication](/manage-users/user-profile.md) for their account,
+and project owners and admins can require MFA for everyone who works on their
+project.
 
 :::info More OpenFn Security Questions?
 

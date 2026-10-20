@@ -65,8 +65,9 @@ const password = state.configuration.password;
 
 - **Mindful Logging Practices:** While `console.log()` is crucial during job
   development, it's essential to be cautious about logging sensitive
-  information. Once jobs are built, administrators can disable the output of
-  console logs, but certain aspects of the sandbox may still be displayed.
+  information. Once jobs are built, you can turn off the **Allow console.log()
+  usage** workflow setting, but certain aspects of the sandbox may still be
+  displayed.
 
 - **Avoid Logging Sensitive Data:** Be cautious when using `console.log(state)`
   or `console.log(state.configuration)`, especially if they contain sensitive
@@ -86,10 +87,10 @@ console.log('Received sensitive data:', state.data);
   logging practices align with the client's requirements, and avoid exposing
   confidential information inadvertently.
 
-- **Administrator Control:** Understand that administrators can control the
-  visibility of console logs on an OpenFn project. However, it's crucial to
-  adopt logging practices that align with both development needs and client
-  security considerations.
+- **Workflow Control:** Anyone with the Editor role or above can turn off
+  console logs for a workflow with the **Allow console.log() usage** setting.
+  Your logging practices still need to meet both development needs and client
+  security requirements.
 
 > These best practices around `console.log()` usage contribute to secure job
 > development on OpenFn, minimizing the risk of inadvertently exposing sensitive
@@ -146,18 +147,22 @@ least privilege. Specifically:
 
 ### Retaining your OpenFn project
 
-If you have strict data residency requirements, it’s possible to configure
-OpenFn as a “zero-retention” data pipeline to ensure compliance. This ensures
-that no data processed in OpenFn workflows (Inputs, Outputs) are retained, even
-on OpenFn’s cloud-hosted platform offering.
+If you have strict data residency requirements, you can set a project's data
+storage to **Never retain input/output data (zero-persistence)**, including on
+OpenFn's cloud-hosted platform. OpenFn then doesn't keep the Inputs and Outputs
+of your workflow runs: each run's Input is stored only until the run starts, and
+then wiped. Run logs and run metadata, such as status and timestamps, are still
+kept, so keep sensitive data out of your logs.
 
 Many users find that temporarily retaining data in OpenFn can be helpful for
 troubleshooting. For example, if you have a 3-step workflow and the workflow
 fails at step 3, it might be helpful to retain the Input for this failed step so
 that you can inspect the data, quickly troubleshoot, and retry from that point
 of failure. To enable this more user-friendly troubleshooting experience, most
-users opt to leave temporary data retention on, and the retention period can be
-adjusted by the OpenFn super admin.
+users opt to leave temporary data retention on. Project owners and admins can
+change the [Data Storage](/manage-projects/io-data-storage.md) setting and the
+[History Retention](/manage-projects/retention-periods.md) period in the
+project's settings.
 
 ### Adaptors security practices
 
