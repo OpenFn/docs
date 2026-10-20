@@ -30,11 +30,13 @@ your deployment partner can better estimate your total cost of ownership.
 4. Will the deployment require high-availability? (i.e., if OpenFn will receive
    requests in real-time from other applications rather than run cron-based
    jobs, then at least two instances of OpenFn should be run simultaneously
-   behind a load-balancer, making use of “distributed Erlang” to ensure graceful
-   application redundancy; if OpenFn will not be responsible for receiving
-   requests and will only be responsible for making relatively time-independent
-   outbound requests on a cron schedule, the importance of maintaining a
-   zero-downtime system is slightly reduced.)
+   behind a load-balancer, all active at once and joined into one Erlang cluster
+   (see
+   [High-Availability on Docker Engine](#c-high-availability-on-docker-engine));
+   if OpenFn will not be responsible for receiving requests and will only be
+   responsible for making relatively time-independent outbound requests on a
+   cron schedule, the importance of maintaining a zero-downtime system is
+   slightly reduced.)
 5. Does OpenFn need to plug into tooling you already run, such as your own
    monitoring and alerting, secrets manager, CI/CD pipelines, or change-control
    process? Integrating with customer-specific tooling is scoped separately from
@@ -184,11 +186,27 @@ balancer, which also handles HTTPS. If one host fails, the others keep serving
 requests. Use a replicated or managed Postgres service so the database doesn't
 become the weak point.
 
+:::tip Run every node, with no spares
+
+Keep all your Lightning nodes running behind the load balancer. Don't set up a
+hot or cold spare: every node serves traffic, and if one fails the others take
+on its load. The nodes join one Erlang cluster on their own, so you don't need
+to build any messaging between them.
+
+Outside Kubernetes, Lightning finds other nodes with gossip by default. Gossip
+uses UDP multicast, which most cloud networks block between VMs. On Docker
+Engine across several hosts, set `ERLANG_NODE_DISCOVERY_VIA_POSTGRES_ENABLED` to
+`true` so nodes find each other through the Postgres database they already
+share.
+
+:::
+
 ```mermaid
 flowchart TB
   users(Users & webhooks) --> lb1
   lb1 --> ex1 & ex2
   ex1 & ex2 -- SQL --> db1
+  ex1 <-. Erlang cluster .-> ex2
   subgraph lb["Load balancer"]
     lb1(HTTPS termination)
   end
@@ -206,9 +224,10 @@ flowchart TB
 ### (d) High-Availability on Kubernetes
 
 Run the web app and the worker in separate node pools that scale on their own,
-each sized for its workload. This is how OpenFn's own cloud runs. For the
-database, use a high-availability managed Postgres service or run Postgres in
-the cluster.
+each sized for its workload. This is how OpenFn's own cloud runs. As on Docker
+Engine, every web app pod is active, and on GKE the pods join one Erlang
+cluster. For the database, use a high-availability managed Postgres service or
+run Postgres in the cluster.
 
 ```mermaid
 flowchart TB
