@@ -18,6 +18,7 @@ if (fs.existsSync('./adaptors/packages/publicPaths.json')) {
       type: 'category',
       label: a.name,
       key: a.name,
+      className: a.icon ? `adaptor-icon adaptor-icon-${a.name}` : undefined,
       items: [
         {
           type: 'doc',

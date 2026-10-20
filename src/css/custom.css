@@ -77,3 +77,16 @@ html[data-theme='dark'] .header-github-link:before {
   min-width: 300px;
   max-width: 400px;
 }
+
+/* Adaptor icons in the adaptors sidebar. Each adaptor's image is set by a rule
+   that generate-adaptors/index.js injects into the page head. */
+.adaptor-icon > .menu__list-item-collapsible > .menu__link::before {
+  content: '';
+  flex: none;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

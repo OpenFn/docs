@@ -77,9 +77,10 @@ async function loadAdaptorsDocsFromMonorepo(monorepoPath) {
 
 const filePaths = [];
 
-function pushToPaths(name) {
+function pushToPaths(name, icon) {
   filePaths.push({
     name: name,
+    icon: icon,
     docsId: `packages/${name}-docs`,
     readmeId: `packages/${name}-readme`,
     changelogId: `packages/${name}-changelog`,
@@ -127,7 +128,39 @@ function absolutizeAssets(content, name) {
   );
 }
 
-function generateJsDoc(a) {
+// Find each adaptor's square icon, if it has one. Adaptors without an icon get
+// null, so the sidebar doesn't request an image that isn't there.
+async function findIcons(names, monorepoPath) {
+  const iconPath = name => `packages/${name}/assets/square.png`;
+  const iconUrl = name =>
+    `https://raw.githubusercontent.com/OpenFn/adaptors/main/${iconPath(name)}`;
+  const icons = {};
+
+  if (monorepoPath) {
+    const repo = process.env.OPENFN_ADAPTORS_REPO;
+    for (const name of names) {
+      const exists = fs.existsSync(path.resolve(repo, iconPath(name)));
+      icons[name] = exists ? iconUrl(name) : null;
+    }
+    return icons;
+  }
+
+  // Check in small batches to avoid hammering GitHub
+  const batchSize = 20;
+  for (let i = 0; i < names.length; i += batchSize) {
+    await Promise.all(
+      names.slice(i, i + batchSize).map(name =>
+        axios
+          .head(iconUrl(name))
+          .then(() => (icons[name] = iconUrl(name)))
+          .catch(() => (icons[name] = null))
+      )
+    );
+  }
+  return icons;
+}
+
+function generateJsDoc(a, icon) {
   // Add line break before </dt> tags and escape MDX specials outside code blocks
   const docsContent = escapeMdx(
     JSON.parse(a.docs).replace(/<\/dt>/g, '\n</dt>')
@@ -141,7 +174,11 @@ keywords:
   - ${a.name}
   ${a.functions.length > 0 ? '- ' : ''}${a.functions.join('\r\n  - ')}
 ---
-
+${
+  icon
+    ? `\n# ${a.name}@${a.version} <img src="${icon}" alt="" style={{ height: '1em' }} />\n`
+    : ''
+}
 ${docsContent}`;
 }
 
@@ -251,19 +288,25 @@ async function buildAdaptors(monorepoPath) {
     ? loadAdaptorsDocsFromMonorepo(monorepoPath)
     : loadAdaptorsDocsFromGithub());
 
+  console.log('Looking up adaptor icons...');
+  const icons = await findIcons(
+    adaptors.filter(a => a.name).map(a => a.name),
+    monorepoPath
+  );
+
   console.log('Generating adaptors docs via JSDoc...');
   adaptors.map(a => {
     if (!a.name) {
       return;
     }
 
-    const docsBody = generateJsDoc(a);
+    const docsBody = generateJsDoc(a, icons[a.name]);
     const readmeBody = generateReadme(a);
     const changelogBody = generateChangelog(a);
 
     const configurationSchemaBody = generateConfigurationSchema(a);
 
-    pushToPaths(a.name);
+    pushToPaths(a.name, icons[a.name]);
 
     fs.writeFileSync(`./adaptors/packages/${a.name}-docs.md`, docsBody);
     fs.writeFileSync(`./adaptors/packages/${a.name}-readme.md`, readmeBody);
@@ -287,9 +330,31 @@ async function buildAdaptors(monorepoPath) {
   console.log('Done all adaptors ✓');
 }
 
+// One rule per adaptor, setting its icon on the sidebar category (see the
+// adaptor-icon class in sidebars-adaptors.js and src/css/custom.css)
+function iconStyles() {
+  const publicPaths = './adaptors/packages/publicPaths.json';
+  if (!fs.existsSync(publicPaths)) {
+    return '';
+  }
+
+  return JSON.parse(fs.readFileSync(publicPaths, 'utf8'))
+    .filter(a => a.icon)
+    .map(
+      a =>
+        `.adaptor-icon-${a.name} > .menu__list-item-collapsible > .menu__link::before { background-image: url('${a.icon}'); }`
+    )
+    .join('\n');
+}
+
 module.exports = function (context, { apiUrl }) {
   return {
     name: 'adaptors',
+    injectHtmlTags() {
+      return {
+        headTags: [{ tagName: 'style', innerHTML: iconStyles() }],
+      };
+    },
     extendCli(cli) {
       cli
         .command('generate-adaptors')
