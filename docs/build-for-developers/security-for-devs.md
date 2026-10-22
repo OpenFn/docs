@@ -19,25 +19,17 @@ developers might make. Here are some of them and tips on how to avoid them:
 
 ### Hardcoding sensitive information
 
-- **Avoid Hardcoding Credentials:** Instead of hardcoding usernames, passwords,
-  or API keys directly into your scripts, use the `state` object to store and
-  retrieve sensitive information.
+Never write usernames, passwords, or API keys into job code. In OpenFn, attach a
+[credential](/manage-projects/manage-credentials.md) to the step instead. When
+the step runs, the credential's values are passed to the job as
+`state.configuration`, and the adaptor reads them from there, so your code
+rarely needs to touch them.
 
-```json
-// Store credentials in state.json
-{
-  "configuration": {
-    "username": "your_username",
-    "password": "your_password"
-  }
-}
-```
-
-```javascript
-// Retrieve credentials from state
-const username = state.configuration.username;
-const password = state.configuration.password;
-```
+When you run jobs locally with the CLI, keep credential values in a file outside
+your project's repository, or add the file to `.gitignore`, and pass it to the
+CLI as a credential map. See
+[Running workflows in projects](/build-for-developers/cli-sync.md#running-workflows-in-projects).
+The CLI does not add credential files to `.gitignore` for you.
 
 ### Checking sensitive data into GitHub
 
@@ -63,12 +55,6 @@ const password = state.configuration.password;
 
 ### Use of `console.log()`
 
-- **Mindful Logging Practices:** While `console.log()` is crucial during job
-  development, it's essential to be cautious about logging sensitive
-  information. Once jobs are built, you can turn off the **Allow console.log()
-  usage** workflow setting, but certain aspects of the sandbox may still be
-  displayed.
-
 - **Avoid Logging Sensitive Data:** Be cautious when using `console.log(state)`
   or `console.log(state.configuration)`, especially if they contain sensitive
   information like usernames and passwords. In certain cases, this can lead to
@@ -87,10 +73,12 @@ console.log('Received sensitive data:', state.data);
   logging practices align with the client's requirements, and avoid exposing
   confidential information inadvertently.
 
-- **Workflow Control:** Anyone with the Editor role or above can turn off
-  console logs for a workflow with the **Allow console.log() usage** setting.
-  Your logging practices still need to meet both development needs and client
-  security requirements.
+- **Turn Off Job Logs:** Once a workflow is built, anyone with the Editor role
+  or above can turn off its
+  [Allow console.log() usage](/build/workflows.md#log-outputs) setting. This
+  hides everything your job code logs. Messages from the adaptor and from OpenFn
+  itself, such as which step ran and how long it took, still appear in the run
+  logs.
 
 > These best practices around `console.log()` usage contribute to secure job
 > development on OpenFn, minimizing the risk of inadvertently exposing sensitive
@@ -147,12 +135,14 @@ least privilege. Specifically:
 
 ### Retaining your OpenFn project
 
-If you have strict data residency requirements, you can set a project's data
-storage to **Never retain input/output data (zero-persistence)**, including on
-OpenFn's cloud-hosted platform. OpenFn then doesn't keep the Inputs and Outputs
-of your workflow runs: each run's Input is stored only until the run starts, and
-then wiped. Run logs and run metadata, such as status and timestamps, are still
-kept, so keep sensitive data out of your logs.
+If OpenFn must not keep the data your workflows process, set the project's data
+storage to **Never retain input/output data (zero-persistence)**. This works on
+the OpenFn Cloud too. OpenFn then deletes each run's Input as soon as the run
+starts, and doesn't store its Outputs. Run logs and details such as status and
+timestamps are still kept, so keep sensitive data out of your logs. With zero
+persistence on, you can't retry runs. Zero persistence controls what OpenFn
+stores, not where data is processed. If data must stay in a country or network,
+[deploy OpenFn there](/deploy/options.md).
 
 Many users find that temporarily retaining data in OpenFn can be helpful for
 troubleshooting. For example, if you have a 3-step workflow and the workflow
