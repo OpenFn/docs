@@ -187,8 +187,9 @@ canvas.
 ### Log Outputs
 
 For data security and compliance purposes, the log output of a workflow run can
-be configured to disable logging `console.log()` statements. This can be done
-via the workflow configuration modal by a project owner or administrator.
+be configured to disable logging `console.log()` statements. Anyone with the
+Editor role or above can change this in the workflow settings. Messages from the
+adaptor and from OpenFn itself still appear in the run logs.
 
 1. Click on the settings icon.
 2. In the modal, toggle the **Allow `console.log()` usage** switch to disable
