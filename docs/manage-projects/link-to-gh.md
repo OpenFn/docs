@@ -8,7 +8,7 @@ GitHub Sync enables two-way sync between an OpenFn project and your GitHub
 repository.
 
 This means changes made to a Project in OpenFn can commit back to your GitHub
-repo; and commits pushed to GitHub can update the Project in your OpenFn App.
+repo, and commits pushed to GitHub can update the Project in your OpenFn App.
 
 :::info For Cloud Hosted OpenFn Users
 
@@ -17,13 +17,13 @@ Scale or Custom plans.
 
 :::
 
-### Configuring your Project to use GitHub Sync
+## Configuring your Project to use GitHub Sync
 
 Users can configure their projects to access one or more repositories on GitHub.
-Users must have admin access to the GitHub Repo to ensure the OpenFn application
+Users must have admin access to the GitHub repo to ensure the OpenFn application
 is installed.
 
-To configure your project to use GitHub sync, follow these steps:
+To configure your project to use GitHub Sync, follow these steps:
 
 1. Navigate to `Project Settings > Sync to GitHub`.
 
@@ -40,7 +40,7 @@ To configure your project to use GitHub sync, follow these steps:
    If you don't see any installations, or those installations don't have access
    to the repositories you want, click the **"Create/update GitHub installations
    or modify permissions"** link to manage the OpenFn Installation on GitHub.
-   This would require you to grant permissions for OpenFn App to access your
+   This requires you to grant permissions for the OpenFn App to access your
    GitHub account and repository. See
    [Managing GitHub permissions](#managing-github-permissions) for help.
 
@@ -87,10 +87,10 @@ interface. After clicking that link, you can follow the steps below:
 
 ## Using Version Control & Managing Changes
 
-The `Sync to GitHub` feature makes use of GitHub actions to automatically deploy
-(after a commit on GitHub) or pull (when **"Initiate Sync to Branch"** button is
-clicked on OpenFn) project changes to keep a repository in sync with your OpenFn
-project.
+The `Sync to GitHub` feature makes use of GitHub Actions to automatically deploy
+(after a commit on GitHub) or pull (when the **"Initiate Sync to Branch"**
+button is clicked on OpenFn) project changes to keep a repository in sync with
+your OpenFn project.
 
 ### Sync from OpenFn to GitHub
 
@@ -98,8 +98,8 @@ This sync pushes changes from your OpenFn project to GitHub. This sync operation
 will trigger an `openfn pull` action workflow on your connected GitHub
 repository, which will pull the latest configuration from the OpenFn app and
 save it as code in your repository. See
-[Project Structure](http://localhost:3000/documentation/sync#project-structure)
-to understand what will be created in GitHub.
+[Project Structure](/build-for-developers/cli-sync.md#project-structure) to
+understand what will be created in GitHub.
 
 :::info The Portability Spec
 
@@ -111,9 +111,9 @@ UUIDs. It is sometimes called the project spec. See the
 :::
 
 After successfully setting up your project connection to GitHub as detailed
-[above](#managing-github-permissions), you can initiate subsequent syncs either
-via the Canvas, the Inspector or the version control page in the project
-settings.
+[above](#configuring-your-project-to-use-github-sync), you can initiate
+subsequent syncs either via the Canvas, the Inspector or the version control
+page in the project settings.
 
 To initiate a sync via the Canvas or Inspector, press `Ctrl+Shift+s`. (Or
 `⌘+Shift+s` on Mac; see [keyboard shortcuts](/keyboard-shortcuts.md).) You can
@@ -127,13 +127,13 @@ you to customize the commit message.
 
 When you trigger `Save & Sync` in a workflow, your new changes and _previous_
 uncommitted changes (if any) to your project's resources (including other
-workflows) will be committed to GitHub. I.e., if there are other, uncommitted
-changes by either you or someone else to other workflows in the project, they’ll
-also show up in that sync.
+workflows) will be committed to GitHub. That is, if there are other, uncommitted
+changes by either you or someone else to other workflows in the project, they
+will also show up in that sync.
 
 :::
 
-To configure your project to sync to GitHub via the project settings:
+To sync to GitHub via the project settings:
 
 1. Go to the Project where you made edits to your Workflow(s), and then navigate
    to the `Project Settings` page
@@ -147,35 +147,30 @@ To configure your project to sync to GitHub via the project settings:
 ### Sync from GitHub to OpenFn
 
 Use this sync method when you want to pull a version of your project from GitHub
-into OpenFn. When this sync is triggered, the `openfn deploy` action is executed
-on GitHub and the workflows defined there will be uploaded to OpenFn.
+into OpenFn. When this sync is triggered (by a commit to the connected branch),
+the `openfn deploy` action is executed on GitHub and the workflows defined there
+will be uploaded to OpenFn.
 
-### Advanced Sync Options
+### Advanced Settings
 
 #### Use Legacy Formats
 
-Over time, we have used different file formats to represent an OpenFn project as
-code.
+GitHub Sync writes your project across the file system, with each workflow in
+its own folder as a yaml file, plus all job code in `.js` files. This format is
+driven by an `openfn.yaml` file at the root of the workspace. See
+[Project Structure](/build-for-developers/cli-sync.md#project-structure) for
+details.
 
-By default, since Lightning version v2.20.0, GitHub Sync expands your project
-across the file system (see
-[the docs](http://localhost:3000/documentation/sync#project-structure) for more
-details), writing each workflow to a folder with a yaml workflow representation,
-plus all job code in a `.js` file. This format is driven by an `openfn.yaml`
-file at the root of the file system.
-
-Prior to this, GitHub Sync wrote a project to three files: `config.json`,
-`state.json` and `project.yaml`.
-
-This way of representing a project still works perfectly well and is fully
-supported. Users who are reconnecting an existing Github Sync using this format
-should enable legacy formats to reduce the size of the diff on GitHub created by
-the next commit.
+Earlier versions of GitHub Sync wrote a project to `config.json`, `state.json`
+and `project.yaml` files instead. This format is still supported, and can be
+selected with the **"Use legacy formats"** option. If you are reconnecting an
+existing repo that uses it, enable this option to reduce the size of the diff
+created by the next commit.
 
 #### Workspace folder
 
 GitHub Sync works by writing a project representation to a single folder on the
-file system (mostly in the `workflows` folder).
+file system (mostly in the `workflows` folder), known as the workspace.
 
 By default, GitHub sync will read and write from the root of your repository.
 
@@ -185,7 +180,7 @@ project. The folder should point to where the `openfn.yaml` and `workflows`
 folder lives for the correct project.
 
 Note that it is safe to connect a Sandbox to a branch and overrwite the
-`workflows`folder for that branch. Sandboxes are designed to work without
+`workflows` folder for that branch. Sandboxes are designed to work without
 setting a different workspace folder per sandbox.
 
 #### Local Alias
@@ -193,7 +188,7 @@ setting a different workspace folder per sandbox.
 When a project is written to GitHub, it is written with an alias. This is the
 `main` in `main@app.openfn.org.yaml` file created in your `.projects` folder.
 
-The alias is a shorthand used by CLI user to easily reference a project without
+The alias is a shorthand used by CLI users to easily reference a project without
 having to use its UUID.
 
 By default, a project will be assigned the alias `main`, and a sandbox will use
