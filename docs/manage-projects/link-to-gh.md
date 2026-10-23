@@ -25,7 +25,7 @@ is installed.
 
 To configure your project to use GitHub Sync, follow these steps:
 
-1. Navigate to `Project Settings > Sync to GitHub`.
+1. Navigate to `Project Settings > Sync`.
 
 2. If you have not already connected your OpenFn user account to GitHub, do so
    by clicking the **"Connect your OpenFn account to GitHub"** button.
