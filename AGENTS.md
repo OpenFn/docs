@@ -45,13 +45,17 @@ Never change them.
   anything.
 - **`update-content`** makes changes and opens a PR. It works from instructions,
   or from an identify-gaps report.
+- **`proofread`** fixes basic typos in English pages without asking and reports
+  anything else that looks wrong. `translate` runs it first; run it on its own
+  to sweep a section.
 - **`release-review`** works out what the product shipped recently and passes
   that to identify-gaps. Suited to a monthly schedule.
 - **`translate`** translates English pages (`/translate pages`) or the interface
-  text (`/translate interface`), in its own PR per locale.
+  text (`/translate interface`), in its own PR per locale. It runs
+  `review-translation` itself when it finishes.
 - **`review-translation`** checks translated pages against the English, fixes
-  clear problems, and reports the rest. Commit the translation, then run it in a
-  fresh session.
+  clear problems, and reports the rest. It runs in a fresh session or subagent,
+  never the one that translated.
 
 `update-content` and `translate` open PRs, so they only run when someone asks
 for them by name (`/update-content`, `/translate`). When another skill hands off
@@ -81,7 +85,9 @@ category from the sidebar, one folder under `docs/`, or one page.
 ## When to stop
 
 Stop at 20 changed files and open a PR (see `update-content/SKILL.md`).
-Translations go in their own PR per locale and do not count toward the 20.
+Translations go in their own PR per locale and do not count toward the 20. A
+locale PR can also hold the proofreading fixes to the English pages it
+translates, and no other English changes (see `translate/SKILL.md`).
 
 Mechanical changes that the build or a script checks, such as rewriting links or
 running Prettier, can go in one PR of any size. Keep that PR to the mechanical
