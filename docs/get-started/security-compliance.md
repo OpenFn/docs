@@ -14,7 +14,7 @@ NGOs worldwide.
 
 ✓ Robust, configurable security settings to ensure compliance with your policies
 
-✓ Build “zero-persistence” data pipelines to fully control where data is stored
+✓ Build “zero-persistence” data pipelines that don't store the data they process
 
 ✓ Security implementation training & guidance for your project teams
 ([read more](/get-started/security.md))
@@ -49,10 +49,12 @@ more on project and
 [data storage settings](/manage-projects/io-data-storage.md).
 
 See the below diagram for an example architecture where even the OpenFn Cloud
-can be configured as a **“zero-persistence” data pipeline** to ensure compliance
-with data security and residency requirements. This enables partners to rapidly
-configure and pilot projects using the turnkey OpenFn cloud-hosted platform,
-before migrating to a local deployment when they’re ready to scale.
+can be configured as a **“zero-persistence” data pipeline**, so that the inputs
+and outputs of workflow runs are not stored. Data still passes through the
+OpenFn Cloud while it is processed, and run logs are kept. If data must not
+leave a country or network, [deploy OpenFn locally](/deploy/options.md). Many
+partners pilot a project on the OpenFn Cloud with zero persistence, then move to
+a local deployment when they're ready to scale.
 
 ![Sample Architecture](/img/zero-persistence.webp)
 
@@ -89,30 +91,32 @@ you are connecting. Technical documentation for individual adaptors can be found
 in the [Adaptor docs](/adaptors) or in their respective repositories on Github
 at [github.com/OpenFn/adaptors](https://github.com/OpenFn/adaptors).
 
-Credentials can only be viewed by you (the creator), and are loaded into your
-private runtime for job execution. You can delete these credentials at any time
-and they will be purged from the system.
-[See docs](/manage-users/user-credentials.md) for more on OpenFn credentials
-management and sharing.
+Each credential has one owner, who chooses which projects can use it. Only the
+owner can view or change its secret values in the app. Collaborators with the
+Editor role or above can attach a shared credential to a step, and the step's
+code receives the credential's values when it runs. Give Editor access only to
+people you would trust with those systems. See
+[User Credentials](/manage-users/user-credentials.md) for how to share,
+transfer, and delete credentials.
 
 ## User Access Management and RBAC
 
-OpenFn supports user access management through **role-based access control
-(RBAC)**, allowing admins to assign granular permissions at both the environment
-and project levels. Roles (e.g., Admin, Editor, Viewer) control who can view,
-edit, run, or manage workflows and credentials. Access can be restricted to
-specific projects or environment configurations, with support for audit logs and
-scoped API tokens to ensure security and compliance.
-
-When new users are invited to work on your Project as Collaborators, they are
-assigned a role that determines their permissions. See docs on
-[Collaboration](/manage-projects/collaboration.md) and
+OpenFn controls access to each project through **role-based access control
+(RBAC)**. Only the people added to a project as collaborators can open it, and
+each one has a role: Owner, Admin, Editor, or Viewer. The role decides who can
+view, edit, and run workflows, and who can manage the project's settings and
+collaborators. See [Collaboration](/manage-projects/collaboration.md) and
 [User Roles](/manage-projects/user-roles-permissions.md) for more information.
 
-When users register for the platform, they will be prompted to create a secure
-password. OpenFn super administrators can also enable
-[Multi-Factor Authentication](/manage-users/user-profile.md), password expiry,
-and stale account lockout.
+The instance administrator can view an audit trail of user actions across the
+instance. If you use the OpenFn Cloud, contact
+[support@openfn.org](mailto:support@openfn.org) to request audit information.
+
+When users register for the platform, they are prompted to create a secure
+password. Each user can turn on
+[Multi-Factor Authentication](/manage-users/user-profile.md#enable-multi-factor-authentication)
+(MFA) for their account. Project owners and admins can also require MFA for
+everyone who opens their project, depending on their plan.
 
 :::info More OpenFn Security Questions?
 

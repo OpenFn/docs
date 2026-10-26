@@ -12,61 +12,35 @@ many security risks in data integration implementations. Read on for best
 practices and tips for developers to ensure top-notch security when building
 OpenFn workflows.
 
-## Common mistakes and how to avoid them
+## Practices for all job code
 
-Writing OpenFn jobs can be straightforward, but there are common mistakes that
-developers might make. Here are some of them and tips on how to avoid them:
+These apply wherever you write jobs, in the app or locally.
 
 ### Hardcoding sensitive information
 
-- **Avoid Hardcoding Credentials:** Instead of hardcoding usernames, passwords,
-  or API keys directly into your scripts, use the `state` object to store and
-  retrieve sensitive information.
+Never write usernames, passwords, or API keys into job code. In OpenFn, attach a
+[credential](/manage-projects/manage-credentials.md) to the step instead. When
+the step runs, the credential's values are passed to the job as
+`state.configuration`, and the adaptor reads them from there, so your code
+rarely needs to touch them.
 
-```json
-// Store credentials in state.json
-{
-  "configuration": {
-    "username": "your_username",
-    "password": "your_password"
-  }
-}
+You may need to read the values yourself when you use the generic
+[HTTP adaptor](/adaptors/http) to reach a REST API that has no adaptor of its
+own and doesn't support basic or bearer token authentication. For example, the
+API might expect the username and password in the body of a login request. Read
+them from `state.configuration` rather than typing them into the job, and never
+log them:
+
+```js
+// Log in with the values from the step's credential to get a session token
+post('/api/login', state => {
+  const username = state.configuration.username;
+  const password = state.configuration.password;
+  return { username, password };
+});
 ```
-
-```javascript
-// Retrieve credentials from state
-const username = state.configuration.username;
-const password = state.configuration.password;
-```
-
-### Checking sensitive data into GitHub
-
-- **Be Mindful of Repository Contents:** When working on client projects, avoid
-  saving sensitive data, such as `state.json`, in the client's public GitHub
-  repository. Always review the repository contents and remove or redact
-  sensitive information before committing changes.
-
-- **Use Specific Directories for Test Payloads:** If you store test payloads in
-  a client repository, use directories like `sampleData/` and ensure the
-  filenames do not resemble `state.json`. Avoid complete state objects in these
-  files; instead, mimic the exact test payload.
-
-- **Check Git Diffs Before Committing:** Before making commits, carefully read
-  the git diff line by line to identify unintentional changes and logs. Follow
-  the practice of selective commits (`git add ./path/to/file`) rather than using
-  `git add -A`.
-
-- **Build a Habit of Reviewing Diffs:** To help build the habit, read the first
-  file in `git diff` and then use `git add ./that_file` if it’s good to go.
-  Continue reviewing the diff, adding files as needed. Finally, use
-  `git commit -m "my changes"` and push.
 
 ### Use of `console.log()`
-
-- **Mindful Logging Practices:** While `console.log()` is crucial during job
-  development, it's essential to be cautious about logging sensitive
-  information. Once jobs are built, administrators can disable the output of
-  console logs, but certain aspects of the sandbox may still be displayed.
 
 - **Avoid Logging Sensitive Data:** Be cautious when using `console.log(state)`
   or `console.log(state.configuration)`, especially if they contain sensitive
@@ -85,11 +59,6 @@ console.log('Received sensitive data:', state.data);
   `console.log()` for audit purposes even in production. Ensure that your
   logging practices align with the client's requirements, and avoid exposing
   confidential information inadvertently.
-
-- **Administrator Control:** Understand that administrators can control the
-  visibility of console logs on an OpenFn project. However, it's crucial to
-  adopt logging practices that align with both development needs and client
-  security considerations.
 
 > These best practices around `console.log()` usage contribute to secure job
 > development on OpenFn, minimizing the risk of inadvertently exposing sensitive
@@ -144,20 +113,84 @@ least privilege. Specifically:
     > the risk of unintended access and protects sensitive client data during
     > integration processes.
 
-### Retaining your OpenFn project
+## Building in the app
 
-If you have strict data residency requirements, it’s possible to configure
-OpenFn as a “zero-retention” data pipeline to ensure compliance. This ensures
-that no data processed in OpenFn workflows (Inputs, Outputs) are retained, even
-on OpenFn’s cloud-hosted platform offering.
+### Syncing to GitHub
+
+If your project uses [GitHub Sync](/manage-projects/link-to-gh.md), clicking
+**Save & Sync** in the workflow editor, or **Initiate Sync to Branch** on the
+project's **Sync to GitHub** settings page, commits the whole project to the
+connected repository. That includes every step's job code, so anything written
+into a job ends up in GitHub. Credentials are stored by name and owner only;
+their values are never synced.
+
+A sync also commits changes that you or anyone else saved to other workflows in
+the project since the last sync. Before you sync, check that nobody has saved
+test values or debugging code you wouldn't want in the repository.
+
+### Turning off job logs
+
+Once a workflow is built, anyone with the Editor role or above can turn off its
+[Allow console.log() usage](/build/workflows.md#log-outputs) setting. This hides
+everything your job code logs. Messages from the adaptor and from OpenFn itself,
+such as which step ran and how long it took, still appear in the run logs.
+
+### Retaining your OpenFn project data
+
+If you have strict data protection requirements, you can configure OpenFn as a
+"zero-persistence" data pipeline. This ensures that the data your workflows
+process (Inputs and Outputs) is not retained, even on the OpenFn cloud. To turn
+it on, set the project's [Data Storage](/manage-projects/io-data-storage.md) to
+**Never retain input/output data (zero-persistence)**. Run logs are still kept,
+so keep sensitive data out of them, and you can't retry runs. Zero persistence
+controls what OpenFn stores, not where data is processed. If data must stay in a
+country or network, [deploy OpenFn there](/deploy/options.md).
 
 Many users find that temporarily retaining data in OpenFn can be helpful for
 troubleshooting. For example, if you have a 3-step workflow and the workflow
 fails at step 3, it might be helpful to retain the Input for this failed step so
 that you can inspect the data, quickly troubleshoot, and retry from that point
-of failure. To enable this more user-friendly troubleshooting experience, most
-users opt to leave temporary data retention on, and the retention period can be
-adjusted by the OpenFn super admin.
+of failure. For this reason, most users leave temporary data retention on and
+set a [History Retention](/manage-projects/retention-periods.md) period that
+suits them. Project owners and admins can change both settings in the project's
+settings.
+
+## Building locally with the CLI
+
+When you build locally, nothing reaches GitHub until you commit it, so the
+checks are yours to make.
+
+### Storing credentials
+
+When you run jobs locally with the CLI, keep credential values in a file outside
+your project's repository, or add the file to `.gitignore`, and pass it to the
+CLI as a credential map. See
+[Running workflows in projects](/build-for-developers/cli-sync.md#running-workflows-in-projects).
+The CLI does not add credential files to `.gitignore` for you.
+
+### Committing to GitHub
+
+- **Be Mindful of Repository Contents:** When working on client projects, avoid
+  saving sensitive data, such as `state.json`, in the client's public GitHub
+  repository. Always review the repository contents and remove or redact
+  sensitive information before committing changes.
+
+- **Use Specific Directories for Test Payloads:** If you store test payloads in
+  a client repository, use directories like `sampleData/` and ensure the
+  filenames do not resemble `state.json`. Avoid complete state objects in these
+  files; instead, mimic the exact test payload.
+
+- **Check Git Diffs Before Committing:** Before making commits, carefully read
+  the git diff line by line to identify unintentional changes and logs. Follow
+  the practice of selective commits (`git add ./path/to/file`) rather than using
+  `git add -A`.
+
+- **Build a Habit of Reviewing Diffs:** To help build the habit, read the first
+  file in `git diff` and then use `git add ./that_file` if it’s good to go.
+  Continue reviewing the diff, adding files as needed. Finally, use
+  `git commit -m "my changes"` and push.
+
+## Contributing to adaptors
 
 ### Adaptors security practices
 
