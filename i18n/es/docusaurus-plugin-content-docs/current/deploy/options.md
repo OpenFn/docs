@@ -1,6 +1,6 @@
 ---
 title: Planificación
-translation_source_hash: e99faa0a21e64f11e2c6cda55f63d598632014cb
+translation_source_hash: e6b67074930fcae2e5084aceaf91e4d951345626
 translation_review_status: machine
 ---
 
@@ -183,15 +183,3 @@ solución de OpenFn a un despliegue local de Lightning.
 5. Vuelve a configurar tus credenciales (los secretos de las credenciales _no_
    se incluyen en la exportación).
 6. Prueba tu proyecto desplegado localmente.
-
-## Guías técnicas {#technical-guidelines}
-
-Para ver las instrucciones detalladas de despliegue, visita el
-[repositorio de Lightning](https://github.com/OpenFn/lightning) en GitHub y
-presta especial atención a:
-
-1. [Getting Started](https://github.com/OpenFn/lightning#getting-started)
-2. [Deployment notes](https://github.com/OpenFn/lightning/blob/main/DEPLOYMENT.md)
-   (cifrado, workers, correo, almacenamiento y variables de entorno)
-3. [Workers](https://github.com/OpenFn/lightning/blob/main/WORKERS.md)
-4. [Benchmarking tooling](https://github.com/OpenFn/lightning/tree/main/tooling/benchmarking)

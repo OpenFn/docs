@@ -1,6 +1,6 @@
 ---
 title: Requisitos
-translation_source_hash: 32e41fc789ea45ec11ccab3e4e6c01de1135f452
+translation_source_hash: 975344dc89b56b1b8fbd2809d0e604beac1d43e8
 translation_review_status: machine
 ---
 
@@ -236,9 +236,9 @@ flowchart TB
 Ejecuta la aplicación web y el worker en grupos de nodos separados que escalan
 por su cuenta, cada uno dimensionado para su carga de trabajo. Así funciona la
 propia nube de OpenFn. Igual que en Docker Engine, todos los pods de la
-aplicación web están activos y, en GKE, se unen por su cuenta en un solo clúster
-de Erlang. Para la base de datos, usa un servicio administrado de Postgres con
-alta disponibilidad o ejecuta Postgres en el clúster.
+aplicación web están activos y, en GKE, forman un solo clúster de Erlang. Para
+la base de datos, usa un servicio administrado de Postgres con alta
+disponibilidad o ejecuta Postgres en el clúster.
 
 ```mermaid
 flowchart TB

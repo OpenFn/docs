@@ -45,7 +45,7 @@ you.)
 
 In short, you should always:
 
-- Backup your database
+- Back up your database
 - Read the
   [Lightning changelog](https://openfn.github.io/lightning/changelog.html) and
   the
