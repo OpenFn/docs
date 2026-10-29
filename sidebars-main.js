@@ -142,7 +142,12 @@ module.exports = {
     {
       type: 'category',
       label: 'Deployment',
-      items: ['deploy/options', 'deploy/requirements', 'deploy/portability'],
+      items: [
+        'deploy/options',
+        'deploy/requirements',
+        'deploy/instructions',
+        'deploy/portability',
+      ],
     },
 
     {

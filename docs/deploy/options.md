@@ -171,15 +171,3 @@ proven, and you're ready to scale it up.
 5. Re-configure your credentials (credential secrets will _not_ be included in
    the export).
 6. Test your locally deployed project.
-
-## Technical Guidelines
-
-For detailed deployment instructions, head to the
-[Lightning repository](https://github.com/OpenFn/lightning) on GitHub, paying
-special attention to:
-
-1. [Getting Started](https://github.com/OpenFn/lightning#getting-started)
-2. [Deployment notes](https://github.com/OpenFn/lightning/blob/main/DEPLOYMENT.md)
-   (encryption, workers, mail, storage and environment variables)
-3. [Workers](https://github.com/OpenFn/lightning/blob/main/WORKERS.md)
-4. [Benchmarking tooling](https://github.com/OpenFn/lightning/tree/main/tooling/benchmarking)
