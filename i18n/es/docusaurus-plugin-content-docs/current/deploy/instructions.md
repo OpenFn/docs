@@ -1,7 +1,7 @@
 ---
 title: Instrucciones de despliegue
 sidebar_label: Instrucciones
-translation_source_hash: 7c666ed4db54994ad9e7bcda1f0ab34d1baf79fe
+translation_source_hash: 0af6a29f369fdbc97cb6e27c679ac49142537634
 translation_review_status: machine
 ---
 
