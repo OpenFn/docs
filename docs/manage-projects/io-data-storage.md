@@ -30,9 +30,14 @@ Some of our users are processing incredibly sensitive data (such as medical
 records) and might want to ensure that after a workflow is run there is no
 patient data left on OpenFn servers.
 
-Enabling this "zero-persistence" feature for Input/Output data is an attractive
-option for folks who want to use OpenFn on the cloud but are worried about data
-sovereignty.
+To turn on "zero-persistence", choose **Never retain input/output data
+(zero-persistence)**. OpenFn then deletes each run's Input as soon as the run
+starts and doesn't store its Outputs or the payloads of channel requests. Run
+logs are still kept. With zero persistence on, you can't retry runs.
+
+Zero persistence controls what OpenFn stores, not where data is processed. If
+data must not leave a country or network, [deploy OpenFn](/deploy/options.md)
+there instead of using the OpenFn Cloud.
 
 :::tip
 
