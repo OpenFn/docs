@@ -172,7 +172,7 @@ created by the next commit.
 GitHub Sync works by writing a project representation to a single folder on the
 file system (mostly in the `workflows` folder), known as the workspace.
 
-By default, GitHub sync will read and write from the root of your repository.
+By default, GitHub Sync will read and write from the root of your repository.
 
 For repos which are structured more like a monorepo, and contain several
 projects, you can specify the path to a subfolder to use to sync this specific
@@ -200,7 +200,7 @@ You can specify your own project alias by setting this value.
 
 ### GitHub Sync Error: Unexpected inputs provided: ["snapshots"]
 
-If you installed GitHub sync before July 17th, 2024 you may need to update your
+If you installed GitHub Sync before July 17th, 2024 you may need to update your
 `.github/workflows/openfn-pull.yml` file to match:
 
 ```

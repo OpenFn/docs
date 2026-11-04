@@ -2,7 +2,7 @@
 title: GitHub Sync
 sidebar_label: GitHub Sync
 slug: /link-to-GitHub
-translation_source_hash: 16ccc6cc74b0ff97f6a5dec620f793c6c8635cd5
+translation_source_hash: f40549ae5e89708f68a7f58aa43d42dcf181791f
 translation_review_status: machine
 ---
 
@@ -26,8 +26,7 @@ Puedes configurar tus proyectos para que accedan a uno o más repositorios de
 GitHub. Tienes que tener acceso de administrador al repositorio de GitHub para
 poder instalar la aplicación de OpenFn.
 
-Para configurar tu proyecto para usar la sincronización con GitHub, sigue estos
-pasos:
+Para configurar tu proyecto para usar GitHub Sync, sigue estos pasos:
 
 1. Ve a `Project Settings > Sync`.
 
