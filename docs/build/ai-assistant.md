@@ -46,10 +46,11 @@ in the context of the platform.
 All chat sessions are shared between all users of the project. You can start a
 new chat session at any time, or open an old one.
 
-You can configure whether your workflow code, run logs and input/output data are
-sent to the model. Sharing this context allows the Assistant to give a more
-contextually relevant answer, but consider carefully whether the data is
-confidential or sensitive before sending it.
+The Assistant always has access to your workflow code, since it needs this to
+answer questions about your workflow. You can configure whether your run logs
+and input/output data are also sent to the model. Sharing this context allows
+the Assistant to give a more contextually relevant answer, but consider
+carefully whether the data is confidential or sensitive before sending it.
 
 ## A Note on Responsible AI Usage
 
