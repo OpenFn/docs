@@ -17,6 +17,9 @@ outlined provide a template workplan that can help any organization prepare for
 their upcoming implementation. **The implementation process is broken up into
 the seven phases summarized below. Check out the checklist for detailed steps.**
 
+For the security work at each phase, including the checks to pass before you
+move on, see [Implementation Security](/get-started/security.md).
+
 :::tip
 
 Check out a real-world example: see the UNICEF Cambodia repository for
