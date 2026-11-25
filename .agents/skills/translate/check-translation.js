@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 // Checks translated pages against the English they were translated from.
 //
-//   node .agents/skills/translate/check-translation.js es docs/get-started/*.md
+//   node .agents/skills/translate/check-translation.js es docs/get-started
 //
 // Lists blocks where a fixed glossary term appears fewer times in the
 // translation than in the English, which can mean it was translated. It also
 // lists blocks that may break a rule for the locale in translation-rules.yml,
-// or use a word from the "Not" column in <locale>.md.
+// or use a word from the "Not" column in <locale>.md. And it lists where the
+// code, links, headings, anchors, callouts, images, or tables differ from the
+// English, or the front matter is incomplete or out of date.
 //
 // A block is a run of lines between blank lines, after formatting with
 // Prettier, and a fenced code block is one block. Both sides go through
@@ -115,6 +117,91 @@ function rulesFor(locale) {
   ];
 }
 
+// What a translation copies unchanged or keeps in step with the English:
+// code, links, heading levels and anchors, callouts, images, and tables.
+// Each difference is a candidate, like the rule checks.
+const { writeMarkdownHeadingId } = require('@docusaurus/utils');
+const { url, frontMatter, walk } = require('./status.js');
+
+const outsideCode = s => s.replace(/^(```|~~~)[\s\S]*?^\1/gm, '');
+// The site's anchors come from the rendered heading, so drop emphasis first:
+// "See _Now_" is "see-now", not "see-_now_".
+const anchors = text =>
+  writeMarkdownHeadingId(
+    splitFrontMatter(text).body.replace(/^##.*$/gm, h => {
+      if (h.includes('{#')) return h;
+      const emphasis = /(^|[^\w`])(\*\*|\*|_)([^*_`]+)\2(?=[^\w`]|$)/g;
+      while (emphasis.test(h)) h = h.replace(emphasis, '$1$3');
+      return h;
+    })
+  )
+    .split('\n')
+    .filter(l => /^##/.test(l))
+    .map(l => (l.match(/\{#([^}]+)\}$/) || [])[1]);
+const parts = {
+  'code blocks': s => s.match(/^(```|~~~)[\s\S]*?^\1/gm) || [],
+  'inline code': s => outsideCode(s).match(/`[^`\n]+`/g) || [],
+  links: s => [...outsideCode(s).matchAll(/\]\(\s*([^)\s]+)/g)].map(m => m[1]),
+  headings: s => outsideCode(s).match(/^#+(?= )/gm) || [],
+  callouts: s => outsideCode(s).match(/^:::\w*/gm) || [],
+  images: s =>
+    [
+      ...outsideCode(s).matchAll(
+        /!\[[^\]]*\]\(\s*([^)\s]+)|<img [^>]*src="([^"]+)/g
+      ),
+    ].map(m => m[1] || m[2]),
+  'table rows': s => outsideCode(s).match(/^\|/gm) || [],
+};
+const sameList = (a, b) =>
+  a.length === b.length && a.every((x, i) => x === b[i]);
+const sorted = a => [...a].sort();
+
+function structure(english, translation, current, previous) {
+  const en = splitFrontMatter(english).body;
+  const tr = splitFrontMatter(translation).body.replace(/\\\{#/g, '{#');
+  const found = Object.entries(parts)
+    .filter(([name, get]) =>
+      name === 'headings' || name === 'code blocks'
+        ? !sameList(get(en), get(tr))
+        : !sameList(sorted(get(en)), sorted(get(tr)))
+    )
+    .map(([name, get]) => {
+      const missing = get(en).filter(x => !get(tr).includes(x));
+      const added = get(tr).filter(x => !get(en).includes(x));
+      return `${name} differ from the English (${get(en).length} in English, ${get(tr).length} in translation)${missing.length ? `; missing: ${missing.slice(0, 5).join(' ')}` : ''}${added.length ? `; not in English: ${added.slice(0, 5).join(' ')}` : ''}`;
+    });
+  const want = anchors(english);
+  // A heading left in English needs no {#id}: its own text gives the anchor.
+  const got = anchors(tr);
+  if (!sameList(want, got))
+    found.push(
+      `heading anchors should be, in order: ${want.join(', ')}; translation has: ${got.join(', ')}`
+    );
+  const fm = frontMatter(translation);
+  if (!fm.translation_review_status)
+    found.push('front matter has no translation_review_status');
+  if (fm.translation_source_hash !== current)
+    found.push(
+      `translation_source_hash is not the current English (${current}): update the page, or the hash if the translation already matches`
+    );
+  // Every fenced block on main must still be here, word for word.
+  const fenced = s =>
+    [
+      ...s.matchAll(
+        /<!-- do-not-retranslate -->([\s\S]*?)<!-- \/do-not-retranslate -->/g
+      ),
+    ].map(m => m[1].trim());
+  if (previous !== null) {
+    const now = fenced(translation);
+    const lost = fenced(previous).filter(f => !now.includes(f));
+    if (lost.length)
+      found.push(
+        `do-not-retranslate text was removed or changed since main: ${lost.map(f => f.slice(0, 60)).join(' | ')}`
+      );
+  }
+  return found;
+}
+
 function splitFrontMatter(text) {
   const m = text.match(/^---\n([\s\S]*?)\n---\n/);
   return m
@@ -165,12 +252,20 @@ async function page(locale, enPath) {
       page: rel,
       error: 'No translation_source_hash in the front matter.',
     };
-  let enBlocks;
+  // Git only stores the English once it is staged or committed, so an
+  // uncommitted English fix is read from disk.
+  let enBlocks, english;
   try {
-    const english = execFileSync('git', ['cat-file', '-p', hash], {
-      encoding: 'utf8',
-      stdio: ['ignore', 'pipe', 'ignore'],
-    });
+    const onDisk = fs.readFileSync(enPath, 'utf8');
+    english =
+      execFileSync('git', ['hash-object', enPath], {
+        encoding: 'utf8',
+      }).trim() === hash
+        ? onDisk
+        : execFileSync('git', ['cat-file', '-p', hash], {
+            encoding: 'utf8',
+            stdio: ['ignore', 'pipe', 'ignore'],
+          });
     enBlocks = await blocks(english, enPath);
   } catch {
     return {
@@ -191,8 +286,25 @@ async function page(locale, enPath) {
           },
         ];
   const ruleBreaks = rulesFor(locale);
+  const git = (...a) => {
+    try {
+      return execFileSync('git', a, {
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'ignore'],
+      }).trim();
+    } catch {
+      return null;
+    }
+  };
   return {
     page: rel,
+    url: url(locale, rel, frontMatter(fs.readFileSync(enPath, 'utf8'))),
+    structure: structure(
+      english,
+      esText,
+      git('hash-object', enPath),
+      git('show', `origin/main:${esPath}`)
+    ),
     problems: pairs
       .map(r => ({
         ...r,
@@ -212,11 +324,23 @@ async function main() {
     console.error('Usage: check-translation.js <locale> <docs/page.md>...');
     process.exit(1);
   }
+  const bad = files.filter(f => !f.startsWith('docs') || !fs.existsSync(f));
+  if (bad.length) {
+    console.error(`Not found: ${bad.join(', ')}. Pass a path under docs/.`);
+    process.exit(1);
+  }
   const flat = s => s.replace(/\s+/g, ' ');
   let found = 0;
-  for (const f of files) {
+  for (const f of files.flatMap(walk)) {
     const p = await page(locale, f);
-    if (p.error) console.log(`${p.page}: ${p.error}`);
+    if (p.error) {
+      found++;
+      console.log(`${p.page}: ${p.error}`);
+    }
+    for (const s of p.structure || []) {
+      found++;
+      console.log(`${p.page}: ${s}\n  ${p.url}\n`);
+    }
     for (const r of p.problems || []) {
       found++;
       console.log(
@@ -224,7 +348,10 @@ async function main() {
       );
     }
   }
-  if (!found) console.log('No glossary terms missing and no rules broken.');
+  if (!found)
+    console.log(
+      'No glossary terms missing, no rules broken, and the structure matches.'
+    );
 }
 
 main();

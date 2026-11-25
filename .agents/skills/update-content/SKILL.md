@@ -32,7 +32,8 @@ Change docs pages and open a PR.
 ## Finish
 
 Stop when you are done or reach 20 changed files. If work is left, list it in
-the PR for the next run. Format the files you changed with
+the PR for the next run. Proofread the pages you changed, following
+`proofread/SKILL.md`. Format the files you changed with
 `yarn prettier --write <files>`, then build the site as CI does, which fails on
 broken links:
 
