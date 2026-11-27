@@ -9,7 +9,8 @@ build workflows. **Check out
 for an introduction on how it works.**
 
 You can use it to draft, proofread and debug job code, diagnose errors, and
-understand the capabilities of the platform.
+understand the capabilities of the platform, and it can make the changes it
+suggests directly in your workflow.
 
 :::info Build AI-Driven Workflows on OpenFn
 
@@ -46,10 +47,11 @@ in the context of the platform.
 All chat sessions are shared between all users of the project. You can start a
 new chat session at any time, or open an old one.
 
-You can configure whether your workflow code, run logs and input/output data are
-sent to the model. Sharing this context allows the Assistant to give a more
-contextually relevant answer, but consider carefully whether the data is
-confidential or sensitive before sending it.
+The Assistant always reads your workflow so it can answer in context; you can
+additionally choose whether to send it the current run's logs and input/output
+data. Sharing this context allows the Assistant to give a more contextually
+relevant answer, but consider carefully whether the data is confidential or
+sensitive before sending it.
 
 ## A Note on Responsible AI Usage
 
@@ -65,8 +67,9 @@ all responses critically and verify the output where possible.
 
 ## How to access the AI Assistant
 
-You can access the AI Assistant from either the workflow canvas or an individual
-job step, by clicking on the speech bubble icon in the top right corner.
+You can access the AI Assistant by clicking the speech bubble icon in the top
+right corner. The same Assistant and chat history are available whether you're
+looking at the workflow canvas or an individual job step.
 
 If there has been a prior chat session, you'll be presented with a list of them.
 Click on one to open up that chat history.
@@ -77,6 +80,21 @@ return a response in the chat interface.
 
 You can close a chat session by clicking the `(X)` button on the top right of
 the chat interface, which will take you back to the list of sessions.
+
+## Workflow changes
+
+When you ask the Assistant to change your workflow, it writes the change
+directly: as the reply streams in, each step it edited appears as a code diff,
+with a link to open that step and a button to copy the new code. A plain
+summary beneath it lists any structural changes, such as steps added, removed,
+renamed or rewired, and changes to a webhook trigger's settings.
+
+If you don't want the changes, use the revert button on that reply to put the
+workflow back as it was; you can restore them again afterwards. Reverting asks
+you to confirm first, since it replaces the whole workflow.
+
+The Assistant can't make changes to a live workflow — open it in a sandbox to
+make edits.
 
 ## Data scrubbing
 
